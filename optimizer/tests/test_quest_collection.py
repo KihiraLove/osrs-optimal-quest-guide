@@ -100,3 +100,73 @@ class QuestCollectionTests(unittest.TestCase):
                          profile["initial_state"]["inventory"])
         self.assertIn({"kind": "xp", "skill_id": "skill.cooking", "xp_tenths": 3000}, action["effects"])
         self.assertIn({"kind": "counter", "token_id": "token.quest_points", "delta": 1}, action["effects"])
+
+    def test_reward_registry_tracks_claims_separately_from_completion(self):
+        registry = read_json(RAW / "reward-registry.json")
+        entries = registry["entries"]
+        exclusions = registry["exclusions"]
+        known_sources = {source["id"] for source in self.catalog["sources"]}
+        records = entries + exclusions
+        self.assertEqual(len({row["id"] for row in records}), len(records))
+        self.assertTrue({source for row in records for source in row["source_ids"]} <= known_sources)
+        claims = [row for row in entries if row["delivery"] == "post_quest_claim"]
+        self.assertEqual(len({row["producer_action_id"] for row in claims}), len(claims))
+        for claim in claims:
+            self.assertIn({
+                "kind": "action_completed", "action_id": claim["activity_id"] + ".complete",
+            }, claim["requires"]["requirements"])
+            self.assertEqual(claim["repeat_limit"], 1)
+        aris = next(claim for claim in claims if claim["id"] == "claim.demon_slayer.aris")
+        self.assertEqual(aris["claim_location"]["tile"], [3204, 3424, 0])
+        self.assertEqual(aris["package"]["quantity"], 2)
+        self.assertEqual(aris["package"]["amount"], {"kind": "fixed", "xp_tenths": 10000})
+        self.assertIsNone(aris["package"]["minimum_level"])
+        self.assertTrue(all(row["status"] == "excluded" and row["reason"] for row in exclusions))
+
+    def test_catalog_lamp_is_spendable_after_veos_awards_it(self):
+        reward_id = "reward.x_marks_the_spot.ancient_lamp"
+        producers = [
+            action for action in self.catalog["actions"]
+            if any(effect.get("reward_id") == reward_id for effect in action["effects"])
+        ]
+        [completion] = producers
+        self.assertEqual(completion["id"], "quest.x_marks_the_spot.complete")
+        profile = read_json(ROOT / "examples/build-242/cooks-assistant-profile.json")
+        profile["profile_id"] = "profile.fixture.veos"
+        profile["goal_action_ids"] = [completion["id"]]
+        profile["initial_state"].update(
+            location_id=completion["start_location_id"],
+            inventory={"item.ancient_casket.x_marks_the_spot": 1},
+            completed_action_ids=[
+                action["id"] for action in self.catalog["actions"]
+                if action["activity_id"] == completion["activity_id"] and action != completion
+            ],
+        )
+        solution = read_json(ROOT / "examples/synthetic/solution.json")
+        solution["inputs"].update(
+            dataset_id=profile["dataset_id"], dataset_version=profile["dataset_version"],
+            profile_id=profile["profile_id"],
+        )
+        solution["policies"] = profile["policies"]
+        solution["objective"].update(manual_training_xp_tenths=0, modeled_non_training_seconds=20)
+        solution["manual_training_xp_tenths_by_skill"] = {}
+        solution["steps"] = [
+            {"step_id": "step.veos", "kind": "action", "action_id": completion["id"],
+             "modeled_seconds": 20, "explanation": "Complete the quest and receive one lamp."},
+            {"step_id": "step.spend", "kind": "reward_use", "reward_id": reward_id,
+             "instance_id": reward_id + ".instance.1", "skill_id": "skill.agility",
+             "gain_xp_tenths": 3000, "overrides_observed_skill_restriction": False,
+             "explanation": "Use the whole lamp on Agility."},
+        ]
+        state = profile["initial_state"]
+        solution["final_state"] = {
+            **state, "xp_tenths": {**state["xp_tenths"], "skill.agility": 3000},
+            "completed_action_ids": state["completed_action_ids"] + [completion["id"]],
+            "inventory": {"item.coins": 200}, "counters": {"token.quest_points": 1},
+            "modeled_elapsed_seconds": 20,
+        }
+        validator = CatalogValidator(self.catalog, self.contracts)
+        self.contracts.validate("profile", profile)
+        validator.validate_profile(profile)
+        self.contracts.validate("solution", solution)
+        validator.validate_solution(solution, profile)

@@ -162,13 +162,25 @@ access and logout/world switching are profile-controlled refinements.
 ## Rewards
 
 `xp_rewards` distinguishes quest lamps, other lamps, tomes and choice packages.
-It stores quantity, eligibility by skill and minimum level, observed restrictions,
-whether the reward can be banked/deferred, and either a fixed amount or an exact
-lookup by target level. Multiple picks have explicit count and distinct-skill
-constraints. Each pick is indivisible unless the source explicitly says otherwise.
-Award and consume occur separately; immediate-use rewards must be spent at their
-claim before another action. The model must not spend a future lamp to unlock its
-own source. Multiple-skill fixed rewards use separate `xp` effects.
+The `xp_reward` effect's quantity creates independent instances of the reward
+template. A template specifies skill eligibility, the minimum base level, whether
+an instance can be carried, and a fixed amount or exact lookup by target level.
+A carried lamp may still be unbankable. Each instance has a pick count and an
+explicit distinct-skill rule. Each pick awards its whole XP amount.
+
+Use a `reward_claim` action when the player must visit an NPC after the quest.
+Give it a completion gate, location, one-time limit and award effect. The quest
+completion action owns only its actual completion rewards. A choice between
+different fixed XP bundles can use mutually exclusive claim actions with a choice
+token and separate `xp` effects for each skill.
+
+The award step creates IDs of the form `<reward_id>.instance.<ordinal>`, with
+one-based ordinals. A `reward_use` step spends a pick from an existing instance.
+Instances already held in the profile keep their recorded IDs.
+Apply earlier XP gains before deriving the base level at each pick. Immediate
+picks resolve consecutively after the award. The any-skill policy can override
+observed eligibility for quest lamps, and `overrides_observed_skill_restriction`
+records that choice. Tomes, other lamps and dialogue choices keep observed eligibility.
 A saved held reward records its `remaining_picks`. For a partially used package
 that requires distinct skills, `used_skill_ids` lists every previous pick.
 Immediate-use rewards must be fully resolved before a saved state boundary.
@@ -184,8 +196,11 @@ version/seed/status, objective values, manual XP totals, ordered steps, final st
 limitations and verification status. Step variants distinguish action, travel,
 reward use, waiting and abstract training. A training step includes `skill_id`, `gain_xp_tenths`,
 `before_xp_tenths`, `after_xp_tenths`, `required_by` and `resume_location_id`.
-The future replay verifier checks arithmetic, requirements, ownership and all
-state transitions; JSON Schema only checks their shape.
+Contextual solution validation checks references and the reward trace. The trace
+checks the award order, completed-action gates on claims, instance ownership,
+training arithmetic, base levels, whole picks and remaining rewards. Full replay
+covers the remaining requirements, location, inventory, final XP, objective totals
+and input hashes.
 
 Expose route evidence and assumptions to the viewer. `optimal` requires a proof
 or exhausted exact search for the declared finite model. `feasible` / `best_known`

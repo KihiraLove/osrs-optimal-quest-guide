@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.2.0` loads 24 skill tables and
-19 draft actions for eight early quests. The action durations estimate
+3 November 2026 at 10:00:06 UTC. Dataset `0.3.0` loads 24 skill tables and
+25 draft actions for nine early quests. The action durations estimate
 interactions at a waypoint with supplies ready. Travel times belong to the
 travel graph.
 
@@ -31,6 +31,12 @@ source-specific branches, items and rewards. The remaining helper gaps and
 all uncollected entries are explicit in the inventory. The
 [publisher reward changes](raw/build-242/quest-month-rewards.json) identify the
 build 242 XP updates, including the separately claimed Demon Slayer reward.
+The [reward registry](raw/build-242/reward-registry.json) records 38 reward
+entries, including seven separate claims. Each claim records its producer ID,
+quest gate, available location evidence and known award details. Null values
+identify fields that need verification. X Marks the Spot has a loaded producer
+and lamp definition. The other packages stay in review while their quest
+actions or use rules are being collected.
 
 Each diary task preserves its helper
 condition and the observed varbit or VarPlayer bit for identity. The source

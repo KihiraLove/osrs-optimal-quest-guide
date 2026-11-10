@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 from .errors import DataError
+from .reward_trace import RewardTrace
 
 if TYPE_CHECKING:
     from .data import Contracts
@@ -358,6 +359,7 @@ class CatalogValidator:
         for skill in solution["manual_training_xp_tenths_by_skill"]:
             self._ref("skills", skill, context, f"manual_training_xp_tenths_by_skill.{skill}")
         self._state(solution["final_state"], solution["policies"], context, "final_state")
+        trace = RewardTrace(self.tables["skills"], self.tables["xp_rewards"], profile["initial_state"], context)
         steps = set()
         for index, step in enumerate(solution["steps"]):
             field = f"steps.{index}"
@@ -365,20 +367,26 @@ class CatalogValidator:
                 _fail(context, f"{field}.step_id", "duplicate solution step ID")
             steps.add(step["step_id"])
             kind = step["kind"]
+            trace.before_step(step, field)
             if kind == "action":
-                self._ref("actions", step["action_id"], context, f"{field}.action_id")
+                action = self._ref("actions", step["action_id"], context, f"{field}.action_id")
+                trace.award(action, f"{field}.action_id")
             elif kind == "travel":
-                self._ref("travel_edges", step["edge_id"], context, f"{field}.edge_id")
+                edge = self._ref("travel_edges", step["edge_id"], context, f"{field}.edge_id")
+                trace.award(edge, f"{field}.edge_id")
             elif kind == "reward_use":
                 reward = self._ref("xp_rewards", step["reward_id"], context, f"{field}.reward_id")
                 override = self._reward_skill(reward, step["skill_id"], solution["policies"], context, f"{field}.skill_id")
                 if override != step["overrides_observed_skill_restriction"]:
                     _fail(context, f"{field}.overrides_observed_skill_restriction", "must match observed eligibility and profile policy")
+                trace.spend(step, field)
             elif kind == "training":
                 self._ref("skills", step["skill_id"], context, f"{field}.skill_id")
                 self._ref("locations", step["resume_location_id"], context, f"{field}.resume_location_id")
                 for gate_index, gate_id in enumerate(step["required_by"]):
                     if not any(gate_id in self.tables[table] for table in ("actions", "travel_edges", "xp_rewards")):
                         _fail(context, f"{field}.required_by.{gate_index}", f"unknown action, travel edge or reward ID {gate_id!r}")
+                trace.train(step, field)
             elif kind != "wait":
                 _fail(context, f"{field}.kind", f"unsupported solution step kind {kind!r}")
+        trace.finish(solution["final_state"])

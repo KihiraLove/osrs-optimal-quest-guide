@@ -44,7 +44,10 @@ def main(argv: list[str] | None = None) -> int:
                     contracts.validate("profile", profile)
                     validator.validate_profile(profile, args.profile)
                     validator.validate_solution(document, profile, args.path)
-                print(f"Valid {args.kind} structure and references.")
+                if args.kind == "solution":
+                    print("Valid solution structure, references and reward trace.")
+                else:
+                    print("Valid profile structure and references.")
             else:
                 print(f"Valid {args.kind} structure.")
     except DataError as exc:

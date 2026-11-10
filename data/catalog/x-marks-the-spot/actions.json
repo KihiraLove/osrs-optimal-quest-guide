@@ -1,0 +1,247 @@
+[
+  {
+    "id": "quest.x_marks_the_spot.start",
+    "name": "Accept Veos's request",
+    "activity_id": "quest.x_marks_the_spot",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.sheared_ram",
+    "end_location_id": "location.lumbridge.sheared_ram",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper XMarksTheSpot.startQuest. Local interaction timing is estimated."
+    }
+  },
+  {
+    "id": "quest.x_marks_the_spot.dig_bob",
+    "name": "Dig by Bob's axes",
+    "activity_id": "quest.x_marks_the_spot",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.bobs_axes_dig",
+    "end_location_id": "location.lumbridge.bobs_axes_dig",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.x_marks_the_spot.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 15,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper XMarksTheSpot.digOutsideBob. Local interaction timing is estimated."
+    }
+  },
+  {
+    "id": "quest.x_marks_the_spot.dig_castle",
+    "name": "Dig behind Lumbridge Castle",
+    "activity_id": "quest.x_marks_the_spot",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.castle_dig",
+    "end_location_id": "location.lumbridge.castle_dig",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.x_marks_the_spot.dig_bob"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 15,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper XMarksTheSpot.digCastle. Local interaction timing is estimated."
+    }
+  },
+  {
+    "id": "quest.x_marks_the_spot.dig_draynor",
+    "name": "Dig near Draynor jail",
+    "activity_id": "quest.x_marks_the_spot",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.jail_dig",
+    "end_location_id": "location.draynor.jail_dig",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.x_marks_the_spot.dig_castle"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 15,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper XMarksTheSpot.digDraynor. Local interaction timing is estimated."
+    }
+  },
+  {
+    "id": "quest.x_marks_the_spot.dig_casket",
+    "name": "Recover the ancient casket",
+    "activity_id": "quest.x_marks_the_spot",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.pig_pen_dig",
+    "end_location_id": "location.draynor.pig_pen_dig",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.x_marks_the_spot.dig_draynor"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ancient_casket.x_marks_the_spot",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 15,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper XMarksTheSpot.digMartin. Local interaction timing is estimated."
+    }
+  },
+  {
+    "id": "quest.x_marks_the_spot.complete",
+    "name": "Give the ancient casket to Veos",
+    "activity_id": "quest.x_marks_the_spot",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.veos",
+    "end_location_id": "location.port_sarim.veos",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.x_marks_the_spot.dig_casket"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ancient_casket.x_marks_the_spot",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ancient_casket.x_marks_the_spot",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 200
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.x_marks_the_spot.ancient_lamp",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper XMarksTheSpot.speakVeosSarim. Local interaction timing is estimated. The conditional beginner clue and lost reward recovery need their own review."
+    }
+  }
+]

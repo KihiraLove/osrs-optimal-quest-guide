@@ -13,8 +13,11 @@ IDs. All checks run offline.
 and level ranges, duration ordering, token caps, activity ownership and reward
 producers, eligibility and pick counts. Use `validate-json --catalog` to check a
 profile's dataset, goals and saved state. For a solution, also supply `--profile`
-to check the inputs and route references. Replay verifies the actual sequence,
-reward instance ownership, objective arithmetic and input hashes in #10.
+to check the inputs, route references and reward trace. The trace catches spending
+before the award, repeated producers, premature claims, split or repeated picks,
+missing base levels and deferred immediate rewards. Full route replay checks
+travel, items, remaining requirements, final XP, objective totals and input hashes
+in #10.
 
 ## Remaining production release checks
 

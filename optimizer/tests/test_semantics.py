@@ -125,6 +125,10 @@ class SemanticTests(unittest.TestCase):
             "step_id": "step.wait", "kind": "wait", "modeled_seconds": 1, "explanation": "Wait for a timer.",
         })
         self.check_profile()
+        self.state["held_rewards"] = []
+        self.solution["final_state"]["held_rewards"] = [{
+            "instance_id": "reward.example.instance.1", "reward_id": "reward.example", "remaining_picks": 2,
+        }]
         self.check_solution()
 
     def test_nested_unknown_reference_reports_record_field_and_source(self):
@@ -198,8 +202,9 @@ class SemanticTests(unittest.TestCase):
 
     def test_solution_checks_lamp_policy_override_and_training_gate(self):
         self.reward.update(eligible_skills=["skill.example"], selection_count=1)
+        self.state["xp_tenths"]["skill.other"] = 1000
         use = {
-            "step_id": "step.lamp", "kind": "reward_use", "instance_id": "instance.example",
+            "step_id": "step.lamp", "kind": "reward_use", "instance_id": "reward.example.instance.1",
             "reward_id": "reward.example", "skill_id": "skill.other", "gain_xp_tenths": 100,
             "overrides_observed_skill_restriction": True, "explanation": "Use the quest lamp.",
         }
@@ -211,6 +216,102 @@ class SemanticTests(unittest.TestCase):
         self.solution["steps"].pop()
         self.solution["steps"][0]["required_by"] = ["action.missing"]
         with self.assertRaisesRegex(DataError, "required_by.0: unknown action"):
+            self.check_solution()
+
+    def add_claim(self, quantity=1):
+        effect = self.quest["effects"].pop()
+        effect["quantity"] = quantity
+        self.catalog["actions"].append({
+            **self.quest, "id": "claim.example", "name": "Claim the reward", "kind": "reward_claim",
+            "requirements": {"kind": "action_completed", "action_id": self.quest["id"]},
+            "effects": [effect],
+        })
+        self.solution["steps"].append({
+            "step_id": "step.claim", "kind": "action", "action_id": "claim.example",
+            "modeled_seconds": 60, "explanation": "Make a separate reward visit.",
+        })
+
+    def spend(self, skill="skill.example", amount=100, instance=1, step_id="step.spend"):
+        return {
+            "step_id": step_id, "kind": "reward_use", "instance_id": f"reward.example.instance.{instance}",
+            "reward_id": "reward.example", "skill_id": skill, "gain_xp_tenths": amount,
+            "overrides_observed_skill_restriction": False, "explanation": "Spend one whole reward pick.",
+        }
+
+    def test_delayed_held_lamp_requires_its_own_claim(self):
+        self.reward.update(selection_count=1, distinct_skills=False)
+        self.add_claim()
+        self.solution["steps"][-2:] = reversed(self.solution["steps"][-2:])
+        with self.assertRaisesRegex(DataError, "claim precedes a required completed action"):
+            self.check_solution()
+        self.solution["steps"][-2:] = reversed(self.solution["steps"][-2:])
+        spend = self.spend()
+        self.solution["steps"].insert(-1, spend)
+        with self.assertRaisesRegex(DataError, "reward instance .* unavailable"):
+            self.check_solution()
+        self.solution["steps"].remove(spend)
+        self.solution["steps"].append({
+            "step_id": "step.defer", "kind": "wait", "modeled_seconds": 1, "explanation": "Hold the lamp.",
+        })
+        self.solution["steps"].append(spend)
+        self.check_solution()
+
+    def test_immediate_distinct_picks_allow_no_intervening_step(self):
+        self.reward["retainable"] = False
+        self.state["xp_tenths"]["skill.other"] = 1000
+        self.add_claim()
+        first = self.spend()
+        second = self.spend(skill="skill.other", step_id="step.second")
+        self.solution["steps"] += [first, second]
+        self.check_solution()
+        second["skill_id"] = first["skill_id"]
+        with self.assertRaisesRegex(DataError, "already selected"):
+            self.check_solution()
+        second["skill_id"] = "skill.other"
+        self.solution["steps"].insert(-1, {
+            "step_id": "step.defer", "kind": "wait", "modeled_seconds": 1, "explanation": "Attempt to defer a pick.",
+        })
+        with self.assertRaisesRegex(DataError, "resolve immediate reward"):
+            self.check_solution()
+
+    def test_level_scaled_pick_is_atomic_and_uses_base_level_at_use(self):
+        self.reward.update(selection_count=1, distinct_skills=False)
+        self.state["active_boosts"]["skill.other"] = {"bonus_levels": 2, "expires_at_seconds": 15}
+        self.add_claim()
+        spend = self.spend(skill="skill.other")
+        self.solution["steps"].append(spend)
+        with self.assertRaisesRegex(DataError, "requires base level 2, has 1"):
+            self.check_solution()
+        self.state["xp_tenths"]["skill.other"] = 3000
+        with self.assertRaisesRegex(DataError, "expected a whole pick of 200"):
+            self.check_solution()
+        spend["gain_xp_tenths"] = 200
+        self.check_solution()
+        spend["gain_xp_tenths"] = 100
+        self.solution["steps"].append(self.spend(skill="skill.other", amount=100, step_id="step.split"))
+        with self.assertRaisesRegex(DataError, "expected a whole pick of 200"):
+            self.check_solution()
+
+    def test_two_lamps_are_separate_instances_with_one_source(self):
+        self.reward.update(selection_count=1, distinct_skills=False)
+        self.add_claim(quantity=2)
+        second = self.spend(instance=2, step_id="step.second")
+        self.solution["steps"] += [self.spend(), second]
+        self.check_solution()
+        second["instance_id"] = "reward.example.instance.1"
+        with self.assertRaisesRegex(DataError, "reward instance .* unavailable"):
+            self.check_solution()
+        second["instance_id"] = "reward.example.instance.2"
+        repeated = {**self.solution["steps"][2], "step_id": "step.claim_again"}
+        self.solution["steps"].append(repeated)
+        with self.assertRaisesRegex(DataError, "XP producer .* already used"):
+            self.check_solution()
+
+    def test_non_lamp_keeps_its_observed_eligibility(self):
+        self.reward.update(kind="tome", eligible_skills=["skill.example"], selection_count=1)
+        self.add_claim()
+        self.solution["steps"].append(self.spend(skill="skill.other"))
+        with self.assertRaisesRegex(DataError, "ineligible"):
             self.check_solution()
 
     def test_exact_integer_units_and_unknown_mechanic_fields(self):
