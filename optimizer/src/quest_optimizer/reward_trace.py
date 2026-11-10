@@ -42,6 +42,7 @@ class RewardTrace:
         self.completed = set(initial_state["completed_action_ids"])
         self.used_transitions = self.completed | initial_state.get("travel_counts", {}).keys()
         self.counters = Counter(initial_state["counters"])
+        self.inventory = Counter(initial_state["inventory"])
         self.flags = initial_state["flags"].copy()
         self.tokens = tokens
         self.context = context
@@ -61,6 +62,11 @@ class RewardTrace:
             return self.counters[requirement["token_id"]] >= requirement["minimum"]
         if kind == "flag":
             return self.flags.get(requirement["token_id"], False) == requirement["value"]
+        if kind == "item":
+            return self.inventory[requirement["item_id"]] >= requirement["quantity"]
+        if kind == "skill" and not requirement["boostable"]:
+            skill_id = requirement["skill_id"]
+            return bisect_right(self.thresholds[skill_id], self.xp[skill_id]) >= requirement["minimum_level"]
         if kind == "all":
             return all(self._progress_gates_met(child) for child in requirement["requirements"])
         if kind == "any":
@@ -76,14 +82,27 @@ class RewardTrace:
             self._fail(path, f"{producer} {transition_id!r} already used")
         if not self._progress_gates_met(transition["requirements"]):
             if transition.get("kind") == "reward_claim":
-                self._fail(path, "reward claim precedes a required completed action, flag or counter threshold")
-            self._fail(path, "required completed action, flag or counter threshold has not been reached")
+                self._fail(
+                    path, "reward claim precedes a required completed action or fails another checked requirement",
+                )
+            self._fail(
+                path, "required completed action, flag or counter threshold has not been reached, "
+                "or required items or base levels are missing",
+            )
+        for item in transition["consumes"]:
+            item_id, quantity = item["item_id"], item["quantity"]
+            if self.inventory[item_id] < quantity:
+                self._fail(path, f"consumes {quantity} of {item_id!r}, but inventory has {self.inventory[item_id]}")
+        for item in transition["consumes"]:
+            self.inventory[item["item_id"]] -= item["quantity"]
         self.used_transitions.add(transition_id)
         if "kind" in transition:
             self.completed.add(transition_id)
         for effect in effects:
             if effect["kind"] == "xp":
                 self.xp[effect["skill_id"]] += effect["xp_tenths"]
+            elif effect["kind"] == "item":
+                self.inventory[effect["item_id"]] += effect["quantity"]
             elif effect["kind"] == "flag":
                 self.flags[effect["token_id"]] = effect["value"]
             elif effect["kind"] == "counter":
@@ -153,3 +172,5 @@ class RewardTrace:
             self._fail("final_state.held_rewards", "does not match the remaining reward instances and picks")
         if self.counters != Counter(final_state["counters"]):
             self._fail("final_state.counters", "does not match the starting counters and ordered route effects")
+        if self.inventory != Counter(final_state["inventory"]):
+            self._fail("final_state.inventory", "does not match starting items, consumption and awards")

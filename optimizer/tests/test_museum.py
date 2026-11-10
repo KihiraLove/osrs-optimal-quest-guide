@@ -132,6 +132,7 @@ class MuseumTests(unittest.TestCase):
 
         initial = self.profile["initial_state"]
         initial["completed_action_ids"].append("quest.bone_voyage.get_potion")
+        initial["inventory"] = {item["item_id"]: item["quantity"] for item in finish["consumes"]}
         trace = RewardTrace(
             self.validator.tables["skills"], self.validator.tables["xp_rewards"],
             self.validator.tables["tokens"], initial, "barge progression fixture",

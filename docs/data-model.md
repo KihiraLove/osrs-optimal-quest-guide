@@ -166,6 +166,12 @@ the action duration; never both. Start/end waypoints are mandatory even for an
 aggregate quest action. Walking, run-energy assumptions, stamina supplies, POH
 access and logout/world switching are profile-controlled refinements.
 
+The draft balloon graph uses one-time discovery actions and independent
+directed travel edges. Each ordinary flight requires both stops and consumes
+one log of the destination type. A profile can assert a compatible balloon
+and Entrana loadout for the planned travel. These assertions apply throughout
+the plan until equipment and weight can be evaluated from the item state.
+
 ## Rewards
 
 `xp_rewards` distinguishes quest lamps, other lamps, tomes and choice packages.

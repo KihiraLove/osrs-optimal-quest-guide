@@ -58,8 +58,8 @@ python -m unittest discover -s optimizer/tests -v
 
 `validate-data` checks catalog shape and semantics. With `--catalog`,
 `validate-json` also checks profile and solution references against local inputs.
-Supply the matching `--profile` to check a solution's references, reward trace
-and ordered progression gates.
+Supply the matching `--profile` to check a solution's references, reward trace,
+inventory consumption and supported ordered progression gates.
 Standalone `validate-json` checks shape. Full route replay is tracked in [#10](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/10).
 The `--release` gate requires the independent coverage audit in
 [#9](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/9).

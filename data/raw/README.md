@@ -36,3 +36,11 @@ from the OpenRS2 copy of build 242 and the pinned RuneLite object IDs.
 `build-242/museum-review.json` records reward and unlock evidence separately
 from object placement. Candidate tracker gates, inputs and reward amounts
 require in-game verification before admission. Movement timing is estimated.
+
+## Travel observations
+
+`build-242/balloon-stops.json` ties the six balloon flags to their tracker IDs
+and archived basket and log-storage objects. It records the fuel required for
+discovery and subsequent use. `build-242/travel-review.json` inventories other
+networks and their review questions. `build-242/travel-timing.json` documents
+route estimates and the loadout assumptions behind the draft edges.

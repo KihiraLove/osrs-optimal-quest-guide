@@ -1,0 +1,689 @@
+[
+  {
+    "id": "quest.enlightened_journey.build_basket",
+    "name": "Build the basket with willow branches",
+    "activity_id": "quest.enlightened_journey",
+    "kind": "quest_stage",
+    "start_location_id": "location.balloon.entrana",
+    "end_location_id": "location.balloon.entrana",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enlightened_journey.hand_over_materials"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.willow_branch",
+        "quantity": 12
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.enlightened_journey",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the branches on the Entrana basket. The draft represents the trade-enabled material path."
+    }
+  },
+  {
+    "id": "quest.enlightened_journey.complete",
+    "name": "Speak to Auguste at the Taverley landing",
+    "activity_id": "quest.enlightened_journey",
+    "kind": "quest_stage",
+    "start_location_id": "location.balloon.taverley",
+    "end_location_id": "location.balloon.taverley",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enlightened_journey.first_flight"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 30000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 40000
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.enlightened_journey.bomber_jacket",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.enlightened_journey.bomber_cap",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.balloon.entrana",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.balloon.taverley",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.enlightened_journey",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Finish the quest, award its XP and open the two initial stops."
+    }
+  },
+  {
+    "id": "quest.enlightened_journey.fill_sandbags",
+    "name": "Fill eight sacks at the Entrana sandpit",
+    "activity_id": "quest.enlightened_journey",
+    "kind": "quest_stage",
+    "start_location_id": "location.entrana.sandpit",
+    "end_location_id": "location.entrana.sandpit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enlightened_journey.test_large_prototype"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.empty_sack",
+        "quantity": 8
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enlightened_journey.sandbag",
+        "quantity": 8
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.enlightened_journey",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Each filled sandbag uses an empty sack."
+    }
+  },
+  {
+    "id": "quest.enlightened_journey.first_flight",
+    "name": "Pilot the first balloon from Entrana to Taverley",
+    "activity_id": "quest.enlightened_journey",
+    "kind": "quest_stage",
+    "start_location_id": "location.balloon.entrana",
+    "end_location_id": "location.balloon.taverley",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enlightened_journey.build_basket"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.travel.balloon_light_pack",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.logs",
+        "quantity": 10
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 120,
+      "max_seconds": 260
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.enlightened_journey",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "One successful attempt with normal logs and a retained tinderbox. The flight is inside this quest action."
+    }
+  },
+  {
+    "id": "quest.enlightened_journey.hand_over_materials",
+    "name": "Give Auguste the sandbags, dyes, silk and bowl",
+    "activity_id": "quest.enlightened_journey",
+    "kind": "quest_stage",
+    "start_location_id": "location.balloon.entrana",
+    "end_location_id": "location.balloon.entrana",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enlightened_journey.fill_sandbags"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.enlightened_journey.sandbag",
+        "quantity": 8
+      },
+      {
+        "item_id": "item.red_dye",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.yellow_dye",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.silk",
+        "quantity": 10
+      },
+      {
+        "item_id": "item.bowl",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 45,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.enlightened_journey",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Group the five handovers at the same NPC."
+    }
+  },
+  {
+    "id": "quest.enlightened_journey.start",
+    "name": "Agree to help Auguste",
+    "activity_id": "quest.enlightened_journey",
+    "kind": "quest_stage",
+    "start_location_id": "location.balloon.entrana",
+    "end_location_id": "location.balloon.entrana",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 20
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 20,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 30,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 36,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 25,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.enlightened_journey",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the pinned helper's quest requirements at the first Auguste visit. The draft main-account route uses bought willow branches."
+    }
+  },
+  {
+    "id": "quest.enlightened_journey.test_large_prototype",
+    "name": "Give Auguste supplies for the second test",
+    "activity_id": "quest.enlightened_journey",
+    "kind": "quest_stage",
+    "start_location_id": "location.balloon.entrana",
+    "end_location_id": "location.balloon.entrana",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enlightened_journey.test_prototype"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.papyrus",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.sack_of_potatoes",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 55,
+      "max_seconds": 125
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.enlightened_journey",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand in the remaining papyrus and filled potato sack. Continue through the follow-up dialogue after the test."
+    }
+  },
+  {
+    "id": "quest.enlightened_journey.test_prototype",
+    "name": "Build and test the small balloon",
+    "activity_id": "quest.enlightened_journey",
+    "kind": "quest_stage",
+    "start_location_id": "location.balloon.entrana",
+    "end_location_id": "location.balloon.entrana",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enlightened_journey.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.papyrus",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ball_of_wool",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.unlit_candle",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.enlightened_journey",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Assemble the prototype and give it to Auguste. The action covers the local handover and test."
+    }
+  },
+  {
+    "id": "transport.balloon.castle_wars.unlock",
+    "name": "Pilot the first flight to Castle Wars",
+    "activity_id": "transport.balloon.castle_wars",
+    "kind": "transport_unlock",
+    "start_location_id": "location.balloon.entrana",
+    "end_location_id": "location.balloon.castle_wars",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enlightened_journey.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.balloon.entrana",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.travel.balloon_light_pack",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 50,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.yew_logs",
+        "quantity": 10
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.balloon.castle_wars",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 105,
+      "max_seconds": 235
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.balloon_routes",
+        "source.capture.balloon_routes",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "One successful Entrana departure and navigation puzzle. Setup awards 2,000 Firemaking XP once and activates the destination."
+    }
+  },
+  {
+    "id": "transport.balloon.crafting_guild.unlock",
+    "name": "Pilot the first flight to Crafting Guild",
+    "activity_id": "transport.balloon.crafting_guild",
+    "kind": "transport_unlock",
+    "start_location_id": "location.balloon.entrana",
+    "end_location_id": "location.balloon.crafting_guild",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enlightened_journey.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.balloon.entrana",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.travel.balloon_light_pack",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_logs",
+        "quantity": 10
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.balloon.crafting_guild",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 105,
+      "max_seconds": 235
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.balloon_routes",
+        "source.capture.balloon_routes",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "One successful Entrana departure and navigation puzzle. Setup awards 2,000 Firemaking XP once and activates the destination."
+    }
+  },
+  {
+    "id": "transport.balloon.grand_tree.unlock",
+    "name": "Pilot the first flight to Grand Tree",
+    "activity_id": "transport.balloon.grand_tree",
+    "kind": "transport_unlock",
+    "start_location_id": "location.balloon.entrana",
+    "end_location_id": "location.balloon.grand_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enlightened_journey.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.balloon.entrana",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.travel.balloon_light_pack",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.magic_logs",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.balloon.grand_tree",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 105,
+      "max_seconds": 235
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.balloon_routes",
+        "source.capture.balloon_routes",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "One successful Entrana departure and navigation puzzle. Setup awards 2,000 Firemaking XP once and activates the destination."
+    }
+  },
+  {
+    "id": "transport.balloon.varrock.unlock",
+    "name": "Pilot the first flight to Varrock lumberyard",
+    "activity_id": "transport.balloon.varrock",
+    "kind": "transport_unlock",
+    "start_location_id": "location.balloon.entrana",
+    "end_location_id": "location.balloon.varrock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enlightened_journey.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.balloon.entrana",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.travel.balloon_light_pack",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 40,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.willow_logs",
+        "quantity": 10
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.balloon.varrock",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 105,
+      "max_seconds": 235
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.balloon_routes",
+        "source.capture.balloon_routes",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "One successful Entrana departure and navigation puzzle. Setup awards 2,000 Firemaking XP once and activates the destination."
+    }
+  }
+]

@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.5.0` loads 24 skill tables and
-61 draft actions, including the Natural History Quiz and Bone Voyage. Durations
+3 November 2026 at 10:00:06 UTC. Dataset `0.6.0` loads 24 skill tables and
+73 draft actions, including the museum route and Enlightened Journey. Durations
 estimate each interaction at its waypoint with supplies ready. Travel between
 waypoints belongs to the travel graph. An action description identifies any
 movement included in its duration.
@@ -56,6 +56,14 @@ profile history while that quest is being normalized. Bone Voyage unlocks the
 barge edges and walking routes to six camp facility sites. Clerk rewards, camp
 construction, additional travel activations, and fossil acquisition and exhibits
 are in gameplay review.
+
+[Balloon stop observations](raw/build-242/balloon-stops.json) record the six
+build 242 basket locations and the fuel and skill requirements of discovery.
+The draft graph includes four post-quest discovery actions, 30 directed
+regular flights, the Entrana ferry, public walks, and one-way Varrock tablet
+edges. Read the [travel assumptions](raw/build-242/travel-timing.json) for
+packing and timing and the [network review](raw/build-242/travel-review.json)
+for open acquisition and transport mechanics.
 
 [Sources](sources.json) records provenance and reuse terms. See
 [attribution](ATTRIBUTION.md) for the third-party notices and

@@ -1,0 +1,128 @@
+{
+  "schema_version": "0.1.0",
+  "solution_id": "solution.fixture.balloon_travel",
+  "inputs": {
+    "dataset_id": "osrs.main",
+    "dataset_version": "0.6.0",
+    "profile_id": "profile.fixture.balloon_travel",
+    "catalog_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "profile_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "schemas_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "policies": {
+    "quest_lamp_skill_policy": "any_skill",
+    "trade_enabled": true,
+    "gp_policy": "sufficient",
+    "allow_boosts": true,
+    "allow_poh_services": false,
+    "allow_wilderness_travel": true,
+    "allow_death_travel": false,
+    "allow_minigame_teleports": true,
+    "allow_world_switching": false,
+    "allow_player_assistance": true,
+    "allow_repeatable_xp": false,
+    "training_methods": "user_choice",
+    "training_time_in_objective": false,
+    "training_resume_policy": "return_to_route_waypoint"
+  },
+  "solver": {
+    "name": "hand-authored-example",
+    "version": "0.1.0",
+    "seed": 0,
+    "status": "example",
+    "primary_lower_bound_xp_tenths": null,
+    "secondary_lower_bound_seconds": null,
+    "proof_artifact": null
+  },
+  "objective": {
+    "order": [
+      "manual_training_xp_tenths",
+      "modeled_non_training_seconds",
+      "stable_step_ids"
+    ],
+    "manual_training_xp_tenths": 0,
+    "modeled_non_training_seconds": 129
+  },
+  "manual_training_xp_tenths_by_skill": {},
+  "steps": [
+    {
+      "step_id": "step.balloon_1",
+      "kind": "action",
+      "action_id": "transport.balloon.varrock.unlock",
+      "modeled_seconds": 105,
+      "explanation": "Spend ten willow logs on the first successful flight from Entrana to Varrock."
+    },
+    {
+      "step_id": "step.balloon_2",
+      "kind": "travel",
+      "edge_id": "travel.balloon.varrock.taverley",
+      "modeled_seconds": 12,
+      "explanation": "Take the regular flight from Varrock to Taverley using one normal log."
+    },
+    {
+      "step_id": "step.balloon_3",
+      "kind": "travel",
+      "edge_id": "travel.balloon.taverley.varrock",
+      "modeled_seconds": 12,
+      "explanation": "Use one willow log to fly back to the newly unlocked Varrock stop."
+    }
+  ],
+  "final_state": {
+    "location_id": "location.balloon.varrock",
+    "xp_tenths": {
+      "skill.agility": 0,
+      "skill.attack": 0,
+      "skill.construction": 0,
+      "skill.cooking": 0,
+      "skill.crafting": 0,
+      "skill.defence": 0,
+      "skill.farming": 0,
+      "skill.firemaking": 392240,
+      "skill.fishing": 0,
+      "skill.fletching": 0,
+      "skill.herblore": 0,
+      "skill.hitpoints": 0,
+      "skill.hunter": 0,
+      "skill.magic": 0,
+      "skill.mining": 0,
+      "skill.prayer": 0,
+      "skill.ranged": 0,
+      "skill.runecraft": 0,
+      "skill.sailing": 0,
+      "skill.slayer": 0,
+      "skill.smithing": 0,
+      "skill.strength": 0,
+      "skill.thieving": 0,
+      "skill.woodcutting": 0
+    },
+    "completed_action_ids": [
+      "quest.enlightened_journey.complete",
+      "transport.balloon.varrock.unlock"
+    ],
+    "flags": {
+      "unlock.balloon.entrana": true,
+      "unlock.balloon.taverley": true,
+      "flag.travel.balloon_light_pack": true,
+      "flag.travel.entrana_safe_pack": true,
+      "flag.travel.varrock_square_selected": true,
+      "unlock.balloon.varrock": true
+    },
+    "counters": {
+      "token.quest_points": 21
+    },
+    "inventory": {
+      "item.tinderbox": 1
+    },
+    "held_rewards": [],
+    "modeled_elapsed_seconds": 129
+  },
+  "verification": {
+    "schema_valid": true,
+    "replay_valid": false,
+    "catalog_release_ready": false
+  },
+  "limitations": [
+    "The extra flights demonstrate graph and fuel transitions on a synthetic account.",
+    "Movement durations are estimates. The hashes are placeholders and full route replay is pending."
+  ]
+}

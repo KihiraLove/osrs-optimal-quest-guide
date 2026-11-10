@@ -25,3 +25,12 @@ catalog's museum and travel IDs are used throughout.
 ```sh
 quest-optimizer validate-json solution examples/build-242/museum-quiz-solution.json --catalog data/manifest.json --profile examples/build-242/museum-quiz-profile.json
 ```
+
+`balloon-travel-profile.json` starts after Enlightened Journey with a light
+pack and enough logs for Varrock discovery and two ordinary flights. Its
+solution discovers Varrock, flies to Taverley, then flies back to Varrock.
+The last leg can be compared with the walk through Varrock square.
+
+```sh
+quest-optimizer validate-json solution examples/build-242/balloon-travel-solution.json --catalog data/manifest.json --profile examples/build-242/balloon-travel-profile.json
+```
