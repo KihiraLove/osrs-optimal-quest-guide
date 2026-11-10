@@ -1,6 +1,7 @@
-"""Check XP reward ownership and spending in an ordered solution."""
+"""Check XP rewards and progression gates in an ordered solution."""
 
 from bisect import bisect_right
+from collections import Counter
 from dataclasses import dataclass, field
 
 from .errors import DataError
@@ -23,9 +24,9 @@ def _inventory(entries: list[dict]) -> dict[str, HeldReward]:
 
 
 class RewardTrace:
-    """Track XP and reward instances. Full action feasibility belongs to route replay."""
+    """Track XP, reward instances and progression state in route order."""
 
-    def __init__(self, skills: dict, rewards: dict, initial_state: dict, context: str):
+    def __init__(self, skills: dict, rewards: dict, tokens: dict, initial_state: dict, context: str):
         self.thresholds = {key: skill["xp_thresholds_tenths"] for key, skill in skills.items()}
         self.rewards = rewards
         self.amounts_by_level = {
@@ -39,7 +40,10 @@ class RewardTrace:
         self.awarded_rewards = {instance.reward_id for instance in self.held.values()}
         self.pending: set[str] = set()
         self.completed = set(initial_state["completed_action_ids"])
-        self.used_producers = self.completed | initial_state.get("travel_counts", {}).keys()
+        self.used_transitions = self.completed | initial_state.get("travel_counts", {}).keys()
+        self.counters = Counter(initial_state["counters"])
+        self.flags = initial_state["flags"].copy()
+        self.tokens = tokens
         self.context = context
 
     def _fail(self, field_name: str, message: str) -> None:
@@ -49,45 +53,62 @@ class RewardTrace:
         if self.pending and (step["kind"] != "reward_use" or step["instance_id"] not in self.pending):
             self._fail(path, f"resolve immediate reward before proceeding: {min(self.pending)!r}")
 
-    def _completion_gates_met(self, requirement: dict) -> bool:
+    def _progress_gates_met(self, requirement: dict) -> bool:
         kind = requirement["kind"]
         if kind == "action_completed":
             return requirement["action_id"] in self.completed
+        if kind == "counter":
+            return self.counters[requirement["token_id"]] >= requirement["minimum"]
+        if kind == "flag":
+            return self.flags.get(requirement["token_id"], False) == requirement["value"]
         if kind == "all":
-            return all(self._completion_gates_met(child) for child in requirement["requirements"])
+            return all(self._progress_gates_met(child) for child in requirement["requirements"])
         if kind == "any":
-            return any(self._completion_gates_met(child) for child in requirement["requirements"])
+            return any(self._progress_gates_met(child) for child in requirement["requirements"])
         # Other gates are evaluated by full replay.
         return True
 
     def award(self, transition: dict, path: str) -> None:
-        if transition.get("kind") == "reward_claim" and not self._completion_gates_met(transition["requirements"]):
-            self._fail(path, "reward claim precedes a required completed action")
+        transition_id = transition["id"]
+        effects = transition["effects"]
+        if transition.get("repeat_limit") == 1 and transition_id in self.used_transitions:
+            producer = "XP producer" if any(effect["kind"] in ("xp", "xp_reward") for effect in effects) else "one-time transition"
+            self._fail(path, f"{producer} {transition_id!r} already used")
+        if not self._progress_gates_met(transition["requirements"]):
+            if transition.get("kind") == "reward_claim":
+                self._fail(path, "reward claim precedes a required completed action, flag or counter threshold")
+            self._fail(path, "required completed action, flag or counter threshold has not been reached")
+        self.used_transitions.add(transition_id)
         if "kind" in transition:
-            self.completed.add(transition["id"])
-        effects = [effect for effect in transition["effects"] if effect["kind"] in ("xp", "xp_reward")]
-        if not effects:
-            return
-        if transition["id"] in self.used_producers:
-            self._fail(path, f"XP producer {transition['id']!r} already used")
-        self.used_producers.add(transition["id"])
+            self.completed.add(transition_id)
         for effect in effects:
             if effect["kind"] == "xp":
                 self.xp[effect["skill_id"]] += effect["xp_tenths"]
-                continue
-            reward_id = effect["reward_id"]
-            if reward_id in self.awarded_rewards:
-                self._fail(path, f"reward {reward_id!r} was already awarded")
-            self.awarded_rewards.add(reward_id)
-            reward = self.rewards[reward_id]
-            for ordinal in range(1, effect["quantity"] + 1):
-                instance_id = f"{reward_id}.instance.{ordinal}"
-                if instance_id in self.issued:
-                    self._fail(path, f"reward instance {instance_id!r} already issued")
-                self.issued.add(instance_id)
-                self.held[instance_id] = HeldReward(reward_id, reward["selection_count"])
-                if not reward["retainable"]:
-                    self.pending.add(instance_id)
+            elif effect["kind"] == "flag":
+                self.flags[effect["token_id"]] = effect["value"]
+            elif effect["kind"] == "counter":
+                token_id = effect["token_id"]
+                self.counters[token_id] += effect["delta"]
+                maximum = self.tokens[token_id]["maximum"]
+                if self.counters[token_id] < 0 or (maximum is not None and self.counters[token_id] > maximum):
+                    self._fail(path, f"counter {token_id!r} moved outside its bounds")
+            elif effect["kind"] == "xp_reward":
+                self._mint(effect, path)
+
+    def _mint(self, effect: dict, path: str) -> None:
+        reward_id = effect["reward_id"]
+        if reward_id in self.awarded_rewards:
+            self._fail(path, f"reward {reward_id!r} was already awarded")
+        self.awarded_rewards.add(reward_id)
+        reward = self.rewards[reward_id]
+        for ordinal in range(1, effect["quantity"] + 1):
+            instance_id = f"{reward_id}.instance.{ordinal}"
+            if instance_id in self.issued:
+                self._fail(path, f"reward instance {instance_id!r} already issued")
+            self.issued.add(instance_id)
+            self.held[instance_id] = HeldReward(reward_id, reward["selection_count"])
+            if not reward["retainable"]:
+                self.pending.add(instance_id)
 
     def train(self, step: dict, path: str) -> None:
         skill = step["skill_id"]
@@ -130,3 +151,5 @@ class RewardTrace:
             self._fail("final_state.held_rewards", f"unresolved immediate reward {min(self.pending)!r}")
         if self.held != _inventory(final_state["held_rewards"]):
             self._fail("final_state.held_rewards", "does not match the remaining reward instances and picks")
+        if self.counters != Counter(final_state["counters"]):
+            self._fail("final_state.counters", "does not match the starting counters and ordered route effects")

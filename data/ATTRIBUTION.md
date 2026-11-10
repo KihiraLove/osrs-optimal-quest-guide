@@ -5,6 +5,9 @@ original descriptions of findings. The data uses pinned upstream sources.
 
 - Build and release facts come from Jagex release notes and the metadata for
   Jagex's archived build. Source locators are in [sources.json](sources.json).
+- Museum plaque and camp waypoints use object coordinates from the archived
+  build 242 map and IDs from RuneLite. Dean's OSRSGuide gameplay capture
+  documents the quiz and Orlando Smith's reward visit.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

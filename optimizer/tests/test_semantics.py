@@ -99,6 +99,7 @@ class SemanticTests(unittest.TestCase):
             "action_counts": {"action.boost": 2},
             "travel_counts": {"travel.example": 1},
         })
+        self.solution["final_state"]["counters"] = self.state["counters"].copy()
         self.profile["policies"]["allow_boosts"] = True
         self.solution["policies"]["allow_boosts"] = True
 

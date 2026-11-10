@@ -28,3 +28,11 @@ as written in the helper. Resolve boostability, item consumption, tracker
 registration and claim sequencing in the
 [optional progression review](build-242/optional-progression-review.json).
 Panel order and suggested gear are evidence for review.
+
+## Museum observations
+
+`build-242/museum-map.json` records only object names, IDs and origin tiles
+from the OpenRS2 copy of build 242 and the pinned RuneLite object IDs.
+`build-242/museum-review.json` records reward and unlock evidence separately
+from object placement. Candidate tracker gates, inputs and reward amounts
+require in-game verification before admission. Movement timing is estimated.

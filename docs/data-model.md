@@ -137,7 +137,10 @@ counter and inventory entries default to zero.
   claim so task actions can be completed earlier when the game permits.
 - **Museum:** Natural History Quiz, quest-history dialogue, finds, exhibits,
   kudos thresholds, threshold reward visits and fossil-related rewards are separate
-  capped sources. Fossil acquisition is not free; tradeability is recorded.
+  capped sources. Quiz plaques increment a shared kudos counter once each and
+  the separate XP claim checks plaque completion. Check thresholds against the
+  counter without consuming it. Fossil displays consume previously acquired
+  pieces with recorded tradeability.
 - **Transport:** unlock quests and route-specific setup, balloon destinations,
   landing points, museum camp construction, relevant facilities and subsequent
   transport activation are distinct from merely having reached an area.

@@ -359,7 +359,9 @@ class CatalogValidator:
         for skill in solution["manual_training_xp_tenths_by_skill"]:
             self._ref("skills", skill, context, f"manual_training_xp_tenths_by_skill.{skill}")
         self._state(solution["final_state"], solution["policies"], context, "final_state")
-        trace = RewardTrace(self.tables["skills"], self.tables["xp_rewards"], profile["initial_state"], context)
+        trace = RewardTrace(
+            self.tables["skills"], self.tables["xp_rewards"], self.tables["tokens"], profile["initial_state"], context,
+        )
         steps = set()
         for index, step in enumerate(solution["steps"]):
             field = f"steps.{index}"

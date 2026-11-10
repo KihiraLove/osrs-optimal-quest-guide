@@ -1,11 +1,11 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.4.0` loads 24 skill tables and
-34 draft actions across nine quests, Enter the Abyss and three individual diary
-tasks. Durations estimate each interaction at its waypoint with supplies ready.
-An essence mine visit includes the outbound teleport and return. Travel between
-waypoints belongs to the travel graph.
+3 November 2026 at 10:00:06 UTC. Dataset `0.5.0` loads 24 skill tables and
+61 draft actions, including the Natural History Quiz and Bone Voyage. Durations
+estimate each interaction at its waypoint with supplies ready. Travel between
+waypoints belongs to the travel graph. An action description identifies any
+movement included in its duration.
 
 [The coverage ledger](coverage/build-242.json) inventories identities
 independently of the catalog. It links to the pinned journal, diary task, reward
@@ -47,6 +47,15 @@ tracks pending mechanics for all 19 miniquests, publisher corrections and the
 overlap between diary tasks and the essence mine teleports in Enter the Abyss.
 Only the three individual task flags are loaded. Complete diary tiers and their
 claims require gameplay review before they enter the catalog.
+
+The [museum review](raw/build-242/museum-review.json) links all 14 quiz plaques to
+the [archived object tiles](raw/build-242/museum-map.json). Each plaque gives two
+kudos and Orlando Smith separately awards 1,000 XP in Hunter and Slayer. The
+draft Bone Voyage route checks 100 kudos and imports The Dig Site completion from
+profile history while that quest is being normalized. Bone Voyage unlocks the
+barge edges and walking routes to six camp facility sites. Clerk rewards, camp
+construction, additional travel activations, and fossil acquisition and exhibits
+are in gameplay review.
 
 [Sources](sources.json) records provenance and reuse terms. See
 [attribution](ATTRIBUTION.md) for the third-party notices and

@@ -1,0 +1,158 @@
+{
+  "schema_version": "0.1.0",
+  "solution_id": "solution.fixture.museum_threshold",
+  "inputs": {
+    "dataset_id": "osrs.main",
+    "dataset_version": "0.5.0",
+    "profile_id": "profile.fixture.museum_threshold",
+    "catalog_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "profile_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "schemas_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "policies": {
+    "quest_lamp_skill_policy": "any_skill",
+    "trade_enabled": true,
+    "gp_policy": "sufficient",
+    "allow_boosts": true,
+    "allow_poh_services": false,
+    "allow_wilderness_travel": true,
+    "allow_death_travel": false,
+    "allow_minigame_teleports": true,
+    "allow_world_switching": false,
+    "allow_player_assistance": true,
+    "allow_repeatable_xp": false,
+    "training_methods": "user_choice",
+    "training_time_in_objective": false,
+    "training_resume_policy": "return_to_route_waypoint"
+  },
+  "solver": {
+    "name": "hand-authored-example",
+    "version": "0.1.0",
+    "seed": 0,
+    "status": "example",
+    "primary_lower_bound_xp_tenths": null,
+    "secondary_lower_bound_seconds": null,
+    "proof_artifact": null
+  },
+  "objective": {
+    "order": [
+      "manual_training_xp_tenths",
+      "modeled_non_training_seconds",
+      "stable_step_ids"
+    ],
+    "manual_training_xp_tenths": 0,
+    "modeled_non_training_seconds": 122
+  },
+  "manual_training_xp_tenths_by_skill": {},
+  "steps": [
+    {
+      "step_id": "step.museum_1",
+      "kind": "action",
+      "action_id": "museum.natural_history_quiz.dragon",
+      "modeled_seconds": 27,
+      "explanation": "Finish the final quiz plaque for two kudos."
+    },
+    {
+      "step_id": "step.museum_2",
+      "kind": "travel",
+      "edge_id": "travel.varrock_museum.north.dragon.back",
+      "modeled_seconds": 9,
+      "explanation": "Return to the north wing approach."
+    },
+    {
+      "step_id": "step.museum_3",
+      "kind": "travel",
+      "edge_id": "travel.varrock_museum.north_hall.back",
+      "modeled_seconds": 16,
+      "explanation": "Go back to Orlando Smith."
+    },
+    {
+      "step_id": "step.museum_4",
+      "kind": "action",
+      "action_id": "claim.museum.natural_history_quiz",
+      "modeled_seconds": 20,
+      "explanation": "Claim the fixed Hunter and Slayer XP after completing every plaque."
+    },
+    {
+      "step_id": "step.museum_5",
+      "kind": "travel",
+      "edge_id": "travel.varrock_museum.stairs.back",
+      "modeled_seconds": 15,
+      "explanation": "Go upstairs to the Curator."
+    },
+    {
+      "step_id": "step.museum_6",
+      "kind": "action",
+      "action_id": "quest.bone_voyage.start",
+      "modeled_seconds": 35,
+      "explanation": "Start Bone Voyage at exactly 100 kudos."
+    }
+  ],
+  "final_state": {
+    "location_id": "location.varrock_museum.curator",
+    "xp_tenths": {
+      "skill.agility": 0,
+      "skill.attack": 0,
+      "skill.construction": 0,
+      "skill.cooking": 0,
+      "skill.crafting": 0,
+      "skill.defence": 0,
+      "skill.farming": 0,
+      "skill.firemaking": 0,
+      "skill.fishing": 0,
+      "skill.fletching": 0,
+      "skill.herblore": 0,
+      "skill.hitpoints": 0,
+      "skill.hunter": 10000,
+      "skill.magic": 0,
+      "skill.mining": 0,
+      "skill.prayer": 0,
+      "skill.ranged": 0,
+      "skill.runecraft": 0,
+      "skill.sailing": 0,
+      "skill.slayer": 10000,
+      "skill.smithing": 0,
+      "skill.strength": 0,
+      "skill.thieving": 0,
+      "skill.woodcutting": 0
+    },
+    "completed_action_ids": [
+      "claim.museum.natural_history_quiz",
+      "museum.natural_history_quiz.camel",
+      "museum.natural_history_quiz.dragon",
+      "museum.natural_history_quiz.kalphite",
+      "museum.natural_history_quiz.leech",
+      "museum.natural_history_quiz.lizard",
+      "museum.natural_history_quiz.mole",
+      "museum.natural_history_quiz.monkey",
+      "museum.natural_history_quiz.penguin",
+      "museum.natural_history_quiz.seaslug",
+      "museum.natural_history_quiz.snail",
+      "museum.natural_history_quiz.snake",
+      "museum.natural_history_quiz.start",
+      "museum.natural_history_quiz.terrorbird",
+      "museum.natural_history_quiz.tortoise",
+      "museum.natural_history_quiz.wyvern",
+      "quest.bone_voyage.start"
+    ],
+    "flags": {
+      "flag.quest.the_dig_site.complete": true
+    },
+    "counters": {
+      "token.museum.kudos": 100,
+      "token.quest_points": 2
+    },
+    "inventory": {},
+    "held_rewards": [],
+    "modeled_elapsed_seconds": 122
+  },
+  "verification": {
+    "schema_valid": true,
+    "replay_valid": false,
+    "catalog_release_ready": false
+  },
+  "limitations": [
+    "Synthetic account history for a short ordered fixture. Catalog movement durations are estimates.",
+    "The hash fields are placeholders. Full location, inventory and skill replay is pending."
+  ]
+}

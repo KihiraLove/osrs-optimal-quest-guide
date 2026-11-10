@@ -33,7 +33,7 @@ class QuestCollectionTests(unittest.TestCase):
         self.assertEqual(journal_ids - self.observations.keys(), missing | {"quest.recipe_for_disaster"})
         self.assertEqual(
             {row["id"] for row in self.journal if row["status"] == "collected"},
-            {row["id"] for row in self.catalog["activities"]},
+            {row["id"] for row in self.catalog["activities"] if row["kind"] in ("quest", "subquest", "miniquest")},
         )
         variants = {row["helper_symbol"] for row in self.observations["quest.shield_of_arrav"]}
         self.assertEqual(variants, {"SHIELD_OF_ARRAV_BLACK_ARM_GANG", "SHIELD_OF_ARRAV_PHOENIX_GANG"})

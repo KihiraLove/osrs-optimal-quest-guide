@@ -16,3 +16,12 @@ depends on resolving the review fields and adding those stages to the catalog.
 The optional progression tests cover the three essence mine task flags in the
 draft catalog. A synthetic fixture compares manual training with a diary task,
 tier completion and NPC lamp claim that together meet the same quest goal.
+
+`museum-quiz-profile.json` starts on the final quiz plaque with 98 kudos and
+The Dig Site complete. The example finishes that plaque, claims Orlando's XP
+and starts Bone Voyage at 100 kudos. The saved account is synthetic. The
+catalog's museum and travel IDs are used throughout.
+
+```sh
+quest-optimizer validate-json solution examples/build-242/museum-quiz-solution.json --catalog data/manifest.json --profile examples/build-242/museum-quiz-profile.json
+```
