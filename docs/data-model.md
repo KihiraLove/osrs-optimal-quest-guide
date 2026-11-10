@@ -131,6 +131,10 @@ counter and inventory entries default to zero.
   and NPC reward claim are separate. Model lower-tier claims, per-task boosts,
   counters, equipment and incremental transport benefits. Tasks may overlap other
   actions only when evidence confirms that performing the action records the task.
+  Use a persistent task flag when multiple actions can register the same task.
+  Tier completion checks that flag, and the standalone task action is available
+  while the flag is unset. Keep the lower-tier claim gate on the higher-tier
+  claim so task actions can be completed earlier when the game permits.
 - **Museum:** Natural History Quiz, quest-history dialogue, finds, exhibits,
   kudos thresholds, threshold reward visits and fossil-related rewards are separate
   capped sources. Fossil acquisition is not free; tradeability is recorded.

@@ -1,10 +1,11 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.3.0` loads 24 skill tables and
-25 draft actions for nine early quests. The action durations estimate
-interactions at a waypoint with supplies ready. Travel times belong to the
-travel graph.
+3 November 2026 at 10:00:06 UTC. Dataset `0.4.0` loads 24 skill tables and
+34 draft actions across nine quests, Enter the Abyss and three individual diary
+tasks. Durations estimate each interaction at its waypoint with supplies ready.
+An essence mine visit includes the outbound teleport and return. Travel between
+waypoints belongs to the travel graph.
 
 [The coverage ledger](coverage/build-242.json) inventories identities
 independently of the catalog. It links to the pinned journal, diary task, reward
@@ -38,10 +39,14 @@ identify fields that need verification. X Marks the Spot has a loaded producer
 and lamp definition. The other packages stay in review while their quest
 actions or use rules are being collected.
 
-Each diary task preserves its helper
-condition and the observed varbit or VarPlayer bit for identity. The source
-paths are evidence for the identity of tasks. Their requirements and reward
-amounts have a separate review.
+[Diary observations](raw/build-242/diaries/index.json) link all 492 tracker IDs
+to helper steps, requirements and item candidates across 48 tiers. Each tier
+has a separate claim record with the taskmaster candidates, lamp values and
+travel unlock references. The [optional progression review](raw/build-242/optional-progression-review.json)
+tracks pending mechanics for all 19 miniquests, publisher corrections and the
+overlap between diary tasks and the essence mine teleports in Enter the Abyss.
+Only the three individual task flags are loaded. Complete diary tiers and their
+claims require gameplay review before they enter the catalog.
 
 [Sources](sources.json) records provenance and reuse terms. See
 [attribution](ATTRIBUTION.md) for the third-party notices and

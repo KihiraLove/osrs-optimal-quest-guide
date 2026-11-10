@@ -1,0 +1,268 @@
+{
+  "game_revision": "osrs-live-242",
+  "source_ids": [
+    "source.quest_helper.diaries",
+    "source.quest_helper.quest_observations",
+    "source.jagex.achievement_diaries",
+    "source.jagex.karamja_diary_master",
+    "source.jagex.new_player_improvements_2026_01_14"
+  ],
+  "diary_review": {
+    "claim_sequence": {
+      "review_status": "pending_gameplay_capture",
+      "note": "Record task completion independently from the NPC claim. Keep previous tier claims as candidate gates on higher tier claims, separate from the ability to perform individual higher tier tasks. Verify sequencing, slot availability and gear replacement in-game."
+    },
+    "publisher_reconciliations": [
+      {
+        "claim_ids": [
+          "claim.diary.karamja.easy",
+          "claim.diary.karamja.medium",
+          "claim.diary.karamja.hard",
+          "claim.diary.karamja.elite"
+        ],
+        "npc": "Pirate Jackie the Fruit",
+        "npc_symbol": "NpcID.AGILITYARENA_TICKETTRADER_2OPS",
+        "tile_candidate": [
+          2810,
+          3192,
+          0
+        ],
+        "previous_tier_gear_required": false,
+        "source_ids": [
+          "source.jagex.karamja_diary_master",
+          "source.quest_helper.diaries"
+        ],
+        "note": "The 2017 change supersedes the 2015 Karamja launch taskmasters. Prior-tier claim sequencing is a separate gate."
+      },
+      {
+        "claim_id": "claim.diary.karamja.medium",
+        "minimum_level": 30,
+        "xp_tenths": 50000,
+        "source_ids": [
+          "source.jagex.new_player_improvements_2026_01_14",
+          "source.quest_helper.diaries"
+        ],
+        "note": "Jagex confirms the minimum level; pinned helper supplies the XP amount."
+      },
+      {
+        "claim_id": "claim.diary.karamja.hard",
+        "minimum_level": 40,
+        "xp_tenths": 100000,
+        "source_ids": [
+          "source.jagex.new_player_improvements_2026_01_14",
+          "source.quest_helper.diaries"
+        ],
+        "note": "Jagex confirms the minimum level; pinned helper supplies the XP amount."
+      }
+    ],
+    "unresolved_examples": [
+      {
+        "id": "claim.diary.morytania.elite",
+        "field": "minimum_level",
+        "value": null,
+        "note": "Helper has a different level number from the other elite tiers. Verify the live lamp prompt before choosing a normalized minimum."
+      },
+      {
+        "id": "diary.lumbridge_draynor.easy.task.varp_1194_7",
+        "field": "registration",
+        "value": null,
+        "note": "Helper tracks a staged chat event after chopping oak and checks that the player remains in the area. Verify whether the logs must be burned in sequence, and what resets the stage."
+      }
+    ],
+    "transport_candidates": [
+      {
+        "claim_id": "claim.diary.ardougne.easy",
+        "item": "Ardougne cloak 1",
+        "destination": "Ardougne Monastery",
+        "daily_limit": null,
+        "note": "Helper lists unlimited teleports. Capture the arrival waypoint, policy restrictions and equipment or inventory use."
+      },
+      {
+        "claim_id": "claim.diary.lumbridge_draynor.medium",
+        "item": "Explorer's ring 2",
+        "destination": "Falador farm cabbage patch",
+        "daily_limit": 3,
+        "note": "Pinned helper lists three teleports per day."
+      },
+      {
+        "claim_id": "claim.diary.lumbridge_draynor.hard",
+        "item": "Explorer's ring 3",
+        "destination": "Falador farm cabbage patch",
+        "daily_limit": null,
+        "note": "Pinned helper lists unlimited teleports. Verify the replacement ring and carry forward the destination without duplicate travel edges."
+      }
+    ],
+    "essence_mine_overlaps": [
+      {
+        "task_id": "diary.varrock.easy.task.varp_1176_2",
+        "diary_helper_step": "aubury",
+        "miniquest_action_id": "miniquest.enter_the_abyss.visit_aubury",
+        "completion_flag_id": "flag.diary.varrock.easy.task.varp_1176_2",
+        "registers_on": "take the specified NPC's essence mine teleport",
+        "note": "Rune Mysteries completion and nearby quest dialogue only establish access. The teleport itself gives diary credit."
+      },
+      {
+        "task_id": "diary.lumbridge_draynor.easy.task.varp_1194_3",
+        "diary_helper_step": "sedridor",
+        "miniquest_action_id": "miniquest.enter_the_abyss.visit_sedridor",
+        "completion_flag_id": "flag.diary.lumbridge_draynor.easy.task.varp_1194_3",
+        "registers_on": "take the specified NPC's essence mine teleport",
+        "note": "Rune Mysteries completion and nearby quest dialogue only establish access. The teleport itself gives diary credit."
+      },
+      {
+        "task_id": "diary.ardougne.easy.task.varp_1196_0",
+        "diary_helper_step": "essMine",
+        "miniquest_action_id": "miniquest.enter_the_abyss.visit_cromperty",
+        "completion_flag_id": "flag.diary.ardougne.easy.task.varp_1196_0",
+        "registers_on": "take the specified NPC's essence mine teleport",
+        "note": "Rune Mysteries completion and nearby quest dialogue only establish access. The teleport itself gives diary credit."
+      }
+    ]
+  },
+  "miniquest_reward_stages": [
+    {
+      "id": "claim.miniquest.in_search_of_knowledge.logosia",
+      "activity_id": "miniquest.in_search_of_knowledge",
+      "helper_step": "talkToLogosia",
+      "tile": [1633, 3808, 0],
+      "prior_helper_steps": ["useMoonOnLogosia", "useSunOnLogosia", "useTempleOnLogosia"],
+      "reward_review_id": "review.miniquest.in_search_of_knowledge.xp_package",
+      "status": "pending",
+      "note": "The helper advances to a separate Logosia conversation after handing in all three restored tomes. Verify the exact journal completion and lamp award triggers."
+    },
+    {
+      "id": "claim.miniquest.lair_of_tarn_razorlor.diary_pickup",
+      "activity_id": "miniquest.lair_of_tarn_razorlor",
+      "helper_step": "pickUpDiary",
+      "tile": null,
+      "prior_helper_steps": ["killTarn", "enterFinalRoom"],
+      "item_symbol": "ItemID.LOTR_DIARY",
+      "status": "pending",
+      "note": "The diary pickup follows the fight and is in a separate room. Verify the journal and Slayer XP triggers independently."
+    },
+    {
+      "id": "claim.miniquest.mage_arena_i.cape",
+      "activity_id": "miniquest.mage_arena_i",
+      "helper_step": "prayStatue",
+      "tile": [2507, 4720, 0],
+      "prior_helper_steps": ["fightKolodion", "enterPool"],
+      "status": "pending",
+      "note": "Choose a god and pick up the corresponding cape in the statue chamber."
+    },
+    {
+      "id": "claim.miniquest.mage_arena_i.staff",
+      "activity_id": "miniquest.mage_arena_i",
+      "helper_step": "talkToGuardian",
+      "tile": [2508, 4695, 0],
+      "prior_helper_steps": ["prayStatue"],
+      "status": "pending",
+      "note": "The Chamber Guardian interaction checks for a god cape. Verify the first grant and the journal completion boundary."
+    }
+  ],
+  "miniquests": [
+    {
+      "id": "miniquest.alfred_grimhands_barcrawl",
+      "status": "pending",
+      "note": "Verify the card stamp per pub, prices, hand-in and the Barbarian Outpost gate."
+    },
+    {
+      "id": "miniquest.barbarian_training",
+      "status": "pending",
+      "note": "Split Otto's lessons, in-lesson XP, smithing and fishing alternatives, and Ancient Cavern access."
+    },
+    {
+      "id": "miniquest.bear_your_soul",
+      "status": "pending",
+      "note": "Verify library and repair stages, item possession, and the alternatives for reaching the Key Master."
+    },
+    {
+      "id": "miniquest.curse_of_the_empty_lord",
+      "status": "pending",
+      "note": "Translate the partial Desert Treasure and Restless Ghost checks to exact action IDs. Verify the clue-dependent travel branches."
+    },
+    {
+      "id": "miniquest.enter_the_abyss",
+      "status": "collected",
+      "note": "Draft route via Aubury, Sedridor and Cromperty. Review the Wizards' Guild and Tree Gnome Stronghold alternatives, exact round-trip timings and return tiles in-game."
+    },
+    {
+      "id": "miniquest.family_pest",
+      "status": "pending",
+      "note": "Verify the 500,000 coin transaction, partial Family Crest state and glove claim effects."
+    },
+    {
+      "id": "miniquest.his_faithful_servants",
+      "status": "pending",
+      "note": "Verify Barrows kill and chest state, and the last dialogue for the 20,000 Prayer XP and crypt map."
+    },
+    {
+      "id": "miniquest.hopespears_will",
+      "status": "pending",
+      "note": "Allocate the declared 38,750 Prayer XP to the qualifying bone burial events rather than duplicating it at completion. Verify ghost access and combat restrictions."
+    },
+    {
+      "id": "miniquest.in_search_of_knowledge",
+      "status": "pending",
+      "note": "Verify tome and page acquisition, and confirm the journal and lamp boundaries at Logosia after handing in the restored tomes."
+    },
+    {
+      "id": "miniquest.into_the_tombs",
+      "status": "pending",
+      "note": "Helper unavailable. Verify which entry or NPC actions finish the journal entry and separate any repeatable raid awards.",
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ]
+    },
+    {
+      "id": "miniquest.lair_of_tarn_razorlor",
+      "status": "pending",
+      "note": "Check when the declared 5,000 Slayer XP posts relative to Tarn's death and the separate diary pickup."
+    },
+    {
+      "id": "miniquest.mage_arena_i",
+      "status": "pending",
+      "note": "Verify the Wilderness gate, which dialogue ends the miniquest and the cape and staff claim sequence."
+    },
+    {
+      "id": "miniquest.mage_arena_ii",
+      "status": "pending",
+      "note": "Verify NPC and Wilderness travel gates, the required spell or gear checks and the final cape imbue or claim."
+    },
+    {
+      "id": "miniquest.skippy_and_the_mogres",
+      "status": "pending",
+      "note": "Check whether the declared Cooking level applies to the dialogue, making nettle tea, or both. Review which ingredients can be obtained through trade."
+    },
+    {
+      "id": "miniquest.the_enchanted_key",
+      "status": "pending",
+      "note": "Helper declares rewards but no literal waypoints. Verify clue branches, dig sites, and the item award at each dig."
+    },
+    {
+      "id": "miniquest.the_fractured_archive",
+      "status": "pending",
+      "note": "Helper unavailable. Reconcile the initial raid access steps with the one-time journal completion and repeatable raid rewards.",
+      "source_ids": [
+        "source.jagex.fractured_archive"
+      ]
+    },
+    {
+      "id": "miniquest.the_frozen_door",
+      "status": "pending",
+      "note": "Helper unavailable. Verify key component and encounter prerequisites against the current Ancient Prison entry.",
+      "source_ids": [
+        "source.jagex.nex"
+      ]
+    },
+    {
+      "id": "miniquest.the_generals_shadow",
+      "status": "pending",
+      "note": "Verify when the declared 2,000 Slayer XP and shadow sword post relative to the Bouncer encounter and dialogue."
+    },
+    {
+      "id": "miniquest.vale_totems",
+      "status": "pending",
+      "note": "Distinguish one-time miniquest progression from repeatable totem activity and reconcile initial XP."
+    }
+  ]
+}

@@ -228,6 +228,21 @@ def write_json(path: Path, value) -> None:
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 
 
+def check_checkout(checkout: Path, revision: str) -> None:
+    commit = subprocess.check_output(
+        ["git", "-c", f"safe.directory={checkout.as_posix()}", "-C", str(checkout), "rev-parse", "HEAD"],
+        text=True,
+    ).strip()
+    if commit != revision:
+        raise ValueError(f"checkout must point at pinned commit {revision}")
+    if subprocess.check_output(
+        ["git", "--no-optional-locks", "-c", f"safe.directory={checkout.as_posix()}", "-C", str(checkout),
+         "status", "--porcelain", "--untracked-files=all", "--", JAVA.as_posix()],
+        text=True,
+    ).strip():
+        raise ValueError("quest helper Java sources must match the pinned checkout")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("checkout", type=Path)
@@ -237,18 +252,11 @@ def main() -> None:
     data = ROOT / "data"
     source = next(row for row in json.loads((data / "sources.json").read_text(encoding="utf-8"))
                   if row["id"] == OBSERVATION_SOURCE)
-    commit = subprocess.check_output(
-        ["git", "-c", f"safe.directory={checkout.as_posix()}", "-C", str(checkout), "rev-parse", "HEAD"],
-        text=True,
-    ).strip()
-    if commit != source["revision"]:
-        parser.error(f"checkout must point at pinned commit {source['revision']}")
-    if subprocess.check_output(
-        ["git", "--no-optional-locks", "-c", f"safe.directory={checkout.as_posix()}", "-C", str(checkout),
-         "status", "--porcelain", "--untracked-files=all", "--", JAVA.as_posix()],
-        text=True,
-    ).strip():
-        parser.error("quest helper Java sources must match the pinned checkout")
+    commit = source["revision"]
+    try:
+        check_checkout(checkout, commit)
+    except ValueError as exc:
+        parser.error(str(exc))
     journal = json.loads((data / "coverage/build-242/journal.json").read_text(encoding="utf-8"))
     by_symbol = {row["client_symbol"]: row["id"] for row in journal}
     index_source = (checkout / JAVA / "questinfo/QuestHelperQuest.java").read_text(encoding="utf-8")

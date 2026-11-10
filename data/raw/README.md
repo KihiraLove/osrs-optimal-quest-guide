@@ -17,3 +17,14 @@ conditions, combat feasibility and reward timing still need review.
 unresolved fact. A helper's recommended supplies or progress selectors guide
 review and have no effect on the loaded catalog. Use the release notes for
 build-specific reward changes, then verify quest phases and the point of award.
+
+## Diary observations
+
+Run `python tools/collect_diary_observations.py <pinned-checkout>` to regenerate
+the regional files in `build-242/diaries/`. The collector ties the independent
+tracker ledger to Java steps, requirements and panels in the pinned checkout.
+Each tier includes source line numbers, taskmaster candidates and lamp numbers
+as written in the helper. Resolve boostability, item consumption, tracker
+registration and claim sequencing in the
+[optional progression review](build-242/optional-progression-review.json).
+Panel order and suggested gear are evidence for review.
