@@ -1,0 +1,538 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:quest-optimizer:common:0.1.0",
+  "title": "Quest optimizer common draft contract",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]*$"
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "status": {
+          "enum": [
+            "unverified",
+            "verified",
+            "estimated",
+            "synthetic"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "source_ids",
+        "status",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "duration": {
+      "type": "object",
+      "properties": {
+        "min_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "expected_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_seconds": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "min_seconds",
+        "expected_seconds",
+        "max_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "requirement": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "all"
+            },
+            "requirements": {
+              "type": "array",
+              "items": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/requirement"
+              }
+            }
+          },
+          "required": [
+            "kind",
+            "requirements"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "any"
+            },
+            "requirements": {
+              "type": "array",
+              "items": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/requirement"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "kind",
+            "requirements"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "skill"
+            },
+            "skill_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "minimum_level": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "boostable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "kind",
+            "skill_id",
+            "minimum_level",
+            "boostable"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "action_completed"
+            },
+            "action_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            }
+          },
+          "required": [
+            "kind",
+            "action_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "flag"
+            },
+            "token_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "kind",
+            "token_id",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "counter"
+            },
+            "token_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "minimum": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "kind",
+            "token_id",
+            "minimum"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "item"
+            },
+            "item_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "quantity": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "kind",
+            "item_id",
+            "quantity"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "policy"
+            },
+            "name": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "value": {
+              "type": [
+                "string",
+                "boolean",
+                "integer"
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "name",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "effect": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "xp"
+            },
+            "skill_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "xp_tenths": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "kind",
+            "skill_id",
+            "xp_tenths"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "flag"
+            },
+            "token_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "kind",
+            "token_id",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "counter"
+            },
+            "token_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "delta": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "kind",
+            "token_id",
+            "delta"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "item"
+            },
+            "item_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "quantity": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "kind",
+            "item_id",
+            "quantity"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "xp_reward"
+            },
+            "reward_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "quantity": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "kind",
+            "reward_id",
+            "quantity"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "item_amount": {
+      "type": "object",
+      "properties": {
+        "item_id": {
+          "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+        },
+        "quantity": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "item_id",
+        "quantity"
+      ],
+      "additionalProperties": false
+    },
+    "state": {
+      "type": "object",
+      "properties": {
+        "location_id": {
+          "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+        },
+        "xp_tenths": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]*$"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "completed_action_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "flags": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]*$"
+          },
+          "additionalProperties": {
+            "type": "boolean"
+          }
+        },
+        "counters": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]*$"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "inventory": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]*$"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "held_rewards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "instance_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              "reward_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              "remaining_picks": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "instance_id",
+              "reward_id",
+              "remaining_picks"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "modeled_elapsed_seconds": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "location_id",
+        "xp_tenths",
+        "completed_action_ids",
+        "flags",
+        "counters",
+        "inventory",
+        "held_rewards",
+        "modeled_elapsed_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "policies": {
+      "type": "object",
+      "properties": {
+        "quest_lamp_skill_policy": {
+          "enum": [
+            "any_skill",
+            "observed"
+          ]
+        },
+        "trade_enabled": {
+          "const": true
+        },
+        "gp_policy": {
+          "const": "sufficient"
+        },
+        "allow_boosts": {
+          "type": "boolean"
+        },
+        "allow_poh_services": {
+          "type": "boolean"
+        },
+        "allow_wilderness_travel": {
+          "type": "boolean"
+        },
+        "allow_death_travel": {
+          "type": "boolean"
+        },
+        "allow_minigame_teleports": {
+          "type": "boolean"
+        },
+        "allow_world_switching": {
+          "type": "boolean"
+        },
+        "allow_player_assistance": {
+          "type": "boolean"
+        },
+        "allow_repeatable_xp": {
+          "const": false
+        },
+        "training_methods": {
+          "const": "user_choice"
+        },
+        "training_time_in_objective": {
+          "const": false
+        },
+        "training_resume_policy": {
+          "const": "return_to_route_waypoint"
+        }
+      },
+      "required": [
+        "quest_lamp_skill_policy",
+        "trade_enabled",
+        "gp_policy",
+        "allow_boosts",
+        "allow_poh_services",
+        "allow_wilderness_travel",
+        "allow_death_travel",
+        "allow_minigame_teleports",
+        "allow_world_switching",
+        "allow_player_assistance",
+        "allow_repeatable_xp",
+        "training_methods",
+        "training_time_in_objective",
+        "training_resume_policy"
+      ],
+      "additionalProperties": false
+    },
+    "xp_map": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_.-]*$"
+      },
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

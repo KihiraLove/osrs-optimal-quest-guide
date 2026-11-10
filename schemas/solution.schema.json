@@ -1,0 +1,342 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:quest-optimizer:solution:0.1.0",
+  "title": "Quest optimizer solution draft contract",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "solution_id": {
+      "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+    },
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "dataset_id": {
+          "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+        },
+        "dataset_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "profile_id": {
+          "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+        },
+        "catalog_sha256": {
+          "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/hash"
+        },
+        "profile_sha256": {
+          "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/hash"
+        },
+        "schemas_sha256": {
+          "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/hash"
+        }
+      },
+      "required": [
+        "dataset_id",
+        "dataset_version",
+        "profile_id",
+        "catalog_sha256",
+        "profile_sha256",
+        "schemas_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "policies": {
+      "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/policies"
+    },
+    "solver": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "status": {
+          "enum": [
+            "example",
+            "feasible",
+            "best_known",
+            "optimal"
+          ]
+        },
+        "primary_lower_bound_xp_tenths": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "secondary_lower_bound_seconds": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "proof_artifact": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "seed",
+        "status",
+        "primary_lower_bound_xp_tenths",
+        "secondary_lower_bound_seconds",
+        "proof_artifact"
+      ],
+      "additionalProperties": false
+    },
+    "objective": {
+      "type": "object",
+      "properties": {
+        "order": {
+          "const": [
+            "manual_training_xp_tenths",
+            "modeled_non_training_seconds",
+            "stable_step_ids"
+          ]
+        },
+        "manual_training_xp_tenths": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "modeled_non_training_seconds": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "order",
+        "manual_training_xp_tenths",
+        "modeled_non_training_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "manual_training_xp_tenths_by_skill": {
+      "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/xp_map"
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "step_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              "explanation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "const": "action"
+              },
+              "action_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              "modeled_seconds": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "step_id",
+              "explanation",
+              "kind",
+              "action_id",
+              "modeled_seconds"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "step_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              "explanation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "const": "travel"
+              },
+              "edge_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              "modeled_seconds": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "step_id",
+              "explanation",
+              "kind",
+              "edge_id",
+              "modeled_seconds"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "step_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              "explanation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "const": "reward_use"
+              },
+              "instance_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              "reward_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              "skill_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              "gain_xp_tenths": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "overrides_observed_skill_restriction": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "step_id",
+              "explanation",
+              "kind",
+              "instance_id",
+              "reward_id",
+              "skill_id",
+              "gain_xp_tenths",
+              "overrides_observed_skill_restriction"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "step_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              "explanation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "const": "training"
+              },
+              "skill_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              "before_xp_tenths": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "gain_xp_tenths": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "after_xp_tenths": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "required_by": {
+                "type": "array",
+                "items": {
+                  "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "resume_location_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              }
+            },
+            "required": [
+              "step_id",
+              "explanation",
+              "kind",
+              "skill_id",
+              "before_xp_tenths",
+              "gain_xp_tenths",
+              "after_xp_tenths",
+              "required_by",
+              "resume_location_id"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "minItems": 1
+    },
+    "final_state": {
+      "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/state"
+    },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "schema_valid": {
+          "type": "boolean"
+        },
+        "replay_valid": {
+          "type": "boolean"
+        },
+        "catalog_release_ready": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "schema_valid",
+        "replay_valid",
+        "catalog_release_ready"
+      ],
+      "additionalProperties": false
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "solution_id",
+    "inputs",
+    "policies",
+    "solver",
+    "objective",
+    "manual_training_xp_tenths_by_skill",
+    "steps",
+    "final_state",
+    "verification",
+    "limitations"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,614 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:quest-optimizer:catalog:0.1.0",
+  "title": "Quest optimizer catalog draft contract",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "dataset_id": {
+      "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+    },
+    "dataset_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "synthetic",
+        "reviewed"
+      ]
+    },
+    "coverage_status": {
+      "enum": [
+        "incomplete",
+        "synthetic",
+        "complete"
+      ]
+    },
+    "game_revision": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "as_of": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "kind": {
+            "enum": [
+              "in_game",
+              "official_release",
+              "licensed_dataset",
+              "synthetic"
+            ]
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "observed_on": {
+            "type": "string",
+            "format": "date"
+          },
+          "revision": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          },
+          "attribution": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          },
+          "notes": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "locator",
+          "observed_on",
+          "revision",
+          "attribution",
+          "license",
+          "notes"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "xp_thresholds_tenths": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 1
+          },
+          "evidence": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/evidence"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "xp_thresholds_tenths",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "region": {
+            "type": "string",
+            "minLength": 1
+          },
+          "x": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "y": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "plane": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "instance_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          },
+          "evidence": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/evidence"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "region",
+          "x",
+          "y",
+          "plane",
+          "instance_id",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "tokens": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "flag",
+              "counter"
+            ]
+          },
+          "maximum": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          },
+          "evidence": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/evidence"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "maximum",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tradeable": {
+            "type": "boolean"
+          },
+          "stackable": {
+            "type": "boolean"
+          },
+          "evidence": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/evidence"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "tradeable",
+          "stackable",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "activities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "quest",
+              "subquest",
+              "miniquest",
+              "diary_tier",
+              "museum",
+              "transport",
+              "other"
+            ]
+          },
+          "parent_activity_id": {
+            "anyOf": [
+              {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "completion_action_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "evidence": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/evidence"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "parent_activity_id",
+          "completion_action_ids",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "activity_id": {
+            "anyOf": [
+              {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "kind": {
+            "enum": [
+              "quest_stage",
+              "diary_task",
+              "reward_claim",
+              "quiz",
+              "museum",
+              "transport_unlock",
+              "supply",
+              "other"
+            ]
+          },
+          "start_location_id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "end_location_id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "requirements": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/requirement"
+          },
+          "consumes": {
+            "type": "array",
+            "items": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/item_amount"
+            }
+          },
+          "effects": {
+            "type": "array",
+            "items": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/effect"
+            }
+          },
+          "duration": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/duration"
+          },
+          "repeat_limit": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "evidence": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/evidence"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "activity_id",
+          "kind",
+          "start_location_id",
+          "end_location_id",
+          "requirements",
+          "consumes",
+          "effects",
+          "duration",
+          "repeat_limit",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "travel_edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "from_location_id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "to_location_id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "mode": {
+            "enum": [
+              "walk",
+              "teleport_spell",
+              "teleport_item",
+              "ship",
+              "balloon",
+              "fairy_ring",
+              "spirit_tree",
+              "other"
+            ]
+          },
+          "requirements": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/requirement"
+          },
+          "consumes": {
+            "type": "array",
+            "items": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/item_amount"
+            }
+          },
+          "effects": {
+            "type": "array",
+            "items": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/effect"
+            }
+          },
+          "duration": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/duration"
+          },
+          "evidence": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/evidence"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "from_location_id",
+          "to_location_id",
+          "mode",
+          "requirements",
+          "consumes",
+          "effects",
+          "duration",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "xp_rewards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "quest_lamp",
+              "other_lamp",
+              "tome",
+              "choice"
+            ]
+          },
+          "eligible_skills": {
+            "oneOf": [
+              {
+                "const": "all"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            ]
+          },
+          "minimum_level": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "selection_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "distinct_skills": {
+            "type": "boolean"
+          },
+          "retainable": {
+            "type": "boolean"
+          },
+          "amount": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "fixed"
+                  },
+                  "xp_tenths": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "kind",
+                  "xp_tenths"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "by_level"
+                  },
+                  "values": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "level": {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        "xp_tenths": {
+                          "type": "integer",
+                          "minimum": 1
+                        }
+                      },
+                      "required": [
+                        "level",
+                        "xp_tenths"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "kind",
+                  "values"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "observed_restrictions": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/evidence"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "eligible_skills",
+          "minimum_level",
+          "selection_count",
+          "distinct_skills",
+          "retainable",
+          "amount",
+          "observed_restrictions",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "dataset_id",
+    "dataset_version",
+    "status",
+    "coverage_status",
+    "game_revision",
+    "as_of",
+    "sources",
+    "skills",
+    "locations",
+    "tokens",
+    "items",
+    "activities",
+    "actions",
+    "travel_edges",
+    "xp_rewards"
+  ],
+  "additionalProperties": false
+}

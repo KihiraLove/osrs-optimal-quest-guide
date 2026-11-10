@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:quest-optimizer:profile:0.1.0",
+  "title": "Quest optimizer profile draft contract",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "profile_id": {
+      "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+    },
+    "dataset_id": {
+      "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+    },
+    "dataset_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "synthetic",
+        "reviewed"
+      ]
+    },
+    "account_type": {
+      "const": "main"
+    },
+    "members": {
+      "type": "boolean"
+    },
+    "objective": {
+      "const": [
+        "manual_training_xp_tenths",
+        "modeled_non_training_seconds",
+        "stable_step_ids"
+      ]
+    },
+    "policies": {
+      "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/policies"
+    },
+    "initial_state": {
+      "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/state"
+    },
+    "goal_action_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "profile_id",
+    "dataset_id",
+    "dataset_version",
+    "status",
+    "account_type",
+    "members",
+    "objective",
+    "policies",
+    "initial_state",
+    "goal_action_ids",
+    "assumptions"
+  ],
+  "additionalProperties": false
+}

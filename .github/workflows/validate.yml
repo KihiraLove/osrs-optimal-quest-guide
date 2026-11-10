@@ -1,0 +1,27 @@
+name: Validate optimizer scaffold
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install optimizer
+        run: python -m pip install -e ./optimizer
+      - name: Validate committed JSON
+        run: |
+          quest-optimizer validate-data data/manifest.json
+          quest-optimizer validate-data examples/synthetic/manifest.json
+          quest-optimizer validate-json profile examples/synthetic/profile.json
+          quest-optimizer validate-json solution examples/synthetic/solution.json
+      - name: Run loader and contract checks
+        run: python -m unittest discover -s optimizer/tests -v

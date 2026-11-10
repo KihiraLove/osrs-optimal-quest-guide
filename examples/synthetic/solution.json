@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "solution_id": "solution.synthetic",
+  "inputs": {
+    "dataset_id": "synthetic.example",
+    "dataset_version": "0.1.0",
+    "profile_id": "profile.synthetic",
+    "catalog_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "profile_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "schemas_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "policies": {
+    "quest_lamp_skill_policy": "any_skill",
+    "trade_enabled": true,
+    "gp_policy": "sufficient",
+    "allow_boosts": false,
+    "allow_poh_services": false,
+    "allow_wilderness_travel": false,
+    "allow_death_travel": false,
+    "allow_minigame_teleports": false,
+    "allow_world_switching": false,
+    "allow_player_assistance": false,
+    "allow_repeatable_xp": false,
+    "training_methods": "user_choice",
+    "training_time_in_objective": false,
+    "training_resume_policy": "return_to_route_waypoint"
+  },
+  "solver": {
+    "name": "hand-authored-example",
+    "version": "0.1.0",
+    "seed": 0,
+    "status": "example",
+    "primary_lower_bound_xp_tenths": null,
+    "secondary_lower_bound_seconds": null,
+    "proof_artifact": null
+  },
+  "objective": {
+    "order": [
+      "manual_training_xp_tenths",
+      "modeled_non_training_seconds",
+      "stable_step_ids"
+    ],
+    "manual_training_xp_tenths": 1000,
+    "modeled_non_training_seconds": 60
+  },
+  "manual_training_xp_tenths_by_skill": {
+    "skill.example": 1000
+  },
+  "steps": [
+    {
+      "step_id": "step.train",
+      "kind": "training",
+      "skill_id": "skill.example",
+      "before_xp_tenths": 0,
+      "gain_xp_tenths": 1000,
+      "after_xp_tenths": 1000,
+      "required_by": [
+        "action.example"
+      ],
+      "resume_location_id": "location.example",
+      "explanation": "Gain 100 XP using a method of your choice; resume at this waypoint."
+    },
+    {
+      "step_id": "step.quest",
+      "kind": "action",
+      "action_id": "action.example",
+      "modeled_seconds": 60,
+      "explanation": "The level gate is now satisfied."
+    }
+  ],
+  "final_state": {
+    "location_id": "location.example",
+    "xp_tenths": {
+      "skill.example": 1500
+    },
+    "completed_action_ids": [
+      "action.example"
+    ],
+    "flags": {},
+    "counters": {},
+    "inventory": {},
+    "held_rewards": [],
+    "modeled_elapsed_seconds": 60
+  },
+  "verification": {
+    "schema_valid": true,
+    "replay_valid": false,
+    "catalog_release_ready": false
+  },
+  "limitations": [
+    "Synthetic numbers; not an OSRS route.",
+    "Hashes are placeholders; no solver or independent replay has run.",
+    "Training time and travel to training spots are excluded."
+  ]
+}
