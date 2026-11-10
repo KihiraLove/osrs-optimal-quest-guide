@@ -65,9 +65,10 @@ need state reachability analysis, not an indiscriminate DAG rejection.
 
 ## Release and maintenance
 
-The initial catalog is empty and marked `draft`, with unknown game revision/date.
-Never label it as the game state on the scaffolding date. Synthetic examples are
-stored separately and cannot pass the release gate.
+The draft catalog pins the build 242 snapshot from 3 November 2026. Its
+[coverage ledger](../data/coverage/build-242.json) identifies the independently
+inventoried content and unresolved reviews. A later game snapshot needs an
+explicit revision update and a reconciliation of changed records.
 
 A dataset release requires a complete reviewed coverage ledger, verified required
 facts, recorded estimates/uncertainties, semantic checks and a human-readable diff.

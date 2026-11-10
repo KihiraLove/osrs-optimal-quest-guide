@@ -13,7 +13,8 @@ main account immediately after the tutorial, trade enabled, with an explicit
 starting location, exact starting XP (including Hitpoints), inventory, quest
 progress and unlocks. Support existing accounts by supplying those fields in JSON.
 No starting stats, skill count or game revision are inferred from the wall clock.
-The initial production profile remains uncreated until these values are verified.
+The [build 242 profile seed](../data/profiles/main-baseline.json) records the
+goals and policies. A fresh account capture will supply the exact starting state.
 
 Tradeable supplies may be acquired using an explicit abstract supply action at
 configured supply locations. The default assumes sufficient GP; this does not

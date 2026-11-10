@@ -1,0 +1,87 @@
+{
+  "revision": "osrs-live-242",
+  "source_ids": ["source.runelite.quests","source.quest_helper.index","source.jagex.quest_month_2026_11_03","source.jagex.tutorial_journal_2025_10_22","source.quest_helper.diaries","source.runelite.varbits"],
+  "observations": [
+    {
+      "id": "conflict.daddys_home.kind",
+      "record_id": "quest.daddys_home",
+      "field": "kind",
+      "status": "resolved",
+      "claims": [
+        {
+          "source_id": "source.quest_helper.index",
+          "value": "miniquest"
+        },
+        {
+          "source_id": "source.jagex.quest_month_2026_11_03",
+          "value": "quest"
+        }
+      ],
+      "accepted": "quest",
+      "reason": "The publisher's build 242 changelog supersedes the prior helper classification."
+    },
+    {
+      "id": "conflict.shield_of_arrav.identity",
+      "record_id": "quest.shield_of_arrav",
+      "field": "goal_action_id",
+      "status": "resolved",
+      "claims": [
+        {
+          "source_id": "source.quest_helper.index",
+          "value": [
+            "Phoenix Gang",
+            "Black Arm Gang"
+          ]
+        },
+        {
+          "source_id": "source.runelite.quests",
+          "value": 132
+        }
+      ],
+      "accepted": "quest.shield_of_arrav.complete",
+      "reason": "Both helper branches use one client journal ID. Keep the branch choice in future action data."
+    },
+    {
+      "id": "conflict.rfd.identity",
+      "record_id": "quest.recipe_for_disaster",
+      "field": "completion",
+      "status": "resolved",
+      "claims": [
+        {
+          "source_id": "source.runelite.quests",
+          "value": [
+            2307,
+            2316,
+            2312,
+            2315,
+            2310,
+            2314,
+            2313,
+            2309,
+            2311,
+            2308
+          ]
+        },
+        {
+          "source_id": "source.quest_helper.index",
+          "value": "The helper shares the parent journal ID across its ten stages."
+        }
+      ],
+      "accepted": "One quest goal with ten child activity records.",
+      "reason": "The client lists individual journal IDs as well as the parent."
+    },
+    {
+      "id": "review.demon_slayer.claim",
+      "record_id": "claim.demon_slayer.aris",
+      "field": "reward_delivery",
+      "status": "expected",
+      "claims": [
+        {
+          "source_id": "source.jagex.quest_month_2026_11_03",
+          "value": "Aris grants lamps after completion."
+        }
+      ],
+      "reason": "Confirm a single producer and the required dialogue on a fresh completion."
+    }
+  ]
+}

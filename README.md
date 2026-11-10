@@ -3,9 +3,10 @@
 An offline Python quest-order optimizer for trade-enabled Old School RuneScape
 main accounts, followed later by a separate GitHub Pages viewer.
 
-**Status: planning and data-validation scaffold.** No production game dataset,
-solver, or playable route exists yet. The examples are deliberately synthetic.
-See [the implementation plan](docs/roadmap.md) for GitHub issues and dependencies.
+The draft data pins live build 242 from 3 November 2026. The skill tables and
+an independent content inventory are available. Quest mechanics and a fresh
+account capture are needed to turn the profile seed into solver input.
+See the [data inventory](data/README.md) and [implementation plan](docs/roadmap.md).
 
 ## What “optimal” means
 
