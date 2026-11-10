@@ -34,7 +34,7 @@ class DataTests(unittest.TestCase):
 
     def test_draft_and_synthetic_catalogs_validate_without_network(self):
         with patch("socket.socket", side_effect=AssertionError("Network forbidden")):
-            self.assertEqual(load_catalog(ROOT / "data/manifest.json", self.contracts)["actions"], [])
+            self.assertEqual(load_catalog(ROOT / "data/manifest.json", self.contracts)["status"], "draft")
             self.assertEqual(len(load_catalog(self.manifest, self.contracts)["actions"]), 1)
 
     def test_examples_conform_to_document_contracts(self):

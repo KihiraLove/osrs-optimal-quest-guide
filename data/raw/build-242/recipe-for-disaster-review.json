@@ -1,0 +1,731 @@
+{
+  "game_revision": "osrs-live-242",
+  "status": "pending_review",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.runelite.quests"
+  ],
+  "activity_id": "quest.recipe_for_disaster",
+  "parent_goal": {
+    "action_id": "quest.recipe_for_disaster.complete",
+    "requires_action_id": "rfd.defeating_the_culinaromancer.complete",
+    "completion_effects": []
+  },
+  "stages": [
+    {
+      "activity_id": "rfd.another_cooks_quest",
+      "completion_action_id": "rfd.another_cooks_quest.complete",
+      "helper_class": "RFDStart",
+      "progression_requirements": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "quest.cooks_assistant.complete"
+          }
+        ]
+      },
+      "skill_checks": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 10,
+          "boostable": false
+        }
+      ],
+      "start": {
+        "helper_step": "talkToCook",
+        "tile": [
+          3209,
+          3215,
+          0
+        ],
+        "instance_id": null
+      },
+      "last_interaction": {
+        "helper_step": "enterDiningRoom",
+        "tile": [
+          3207,
+          3217,
+          0
+        ],
+        "instance_id": null
+      },
+      "completion_location": null,
+      "completion_rewards": {
+        "quest_points": 1,
+        "fixed_xp_tenths": {}
+      },
+      "review": {
+        "duration_seconds": null,
+        "mandatory_incidental_xp_tenths": null,
+        "combat_feasibility": "not_assessed",
+        "notes": "Verify the cutscene exit location and actual quest point delivery. Use a regular fruit blast with ashes to make the dirty blast."
+      }
+    },
+    {
+      "activity_id": "rfd.freeing_the_mountain_dwarf",
+      "completion_action_id": "rfd.freeing_the_mountain_dwarf.complete",
+      "helper_class": "RFDDwarf",
+      "progression_requirements": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.another_cooks_quest.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.fishing_contest.complete"
+          }
+        ]
+      },
+      "skill_checks": [],
+      "start": {
+        "helper_step": "inspectDwarf",
+        "tile": [
+          1862,
+          5321,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "last_interaction": {
+        "helper_step": "useRockCakeOnDwarf",
+        "tile": [
+          1862,
+          5321,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_location": {
+        "helper_step": "useRockCakeOnDwarf",
+        "tile": [
+          1862,
+          5321,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_rewards": {
+        "quest_points": 1,
+        "fixed_xp_tenths": {
+          "skill.cooking": 10000,
+          "skill.slayer": 10000
+        }
+      },
+      "review": {
+        "duration_seconds": null,
+        "mandatory_incidental_xp_tenths": null,
+        "combat_feasibility": "not_assessed",
+        "notes": "Review the exact rock-cake cooling route, use of ice gloves and possible Icefiend combat."
+      }
+    },
+    {
+      "activity_id": "rfd.freeing_the_goblin_generals",
+      "completion_action_id": "rfd.freeing_the_goblin_generals.complete",
+      "helper_class": "RFDGoblins",
+      "progression_requirements": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.another_cooks_quest.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.goblin_diplomacy.complete"
+          }
+        ]
+      },
+      "skill_checks": [],
+      "start": {
+        "helper_step": "inspectGoblin",
+        "tile": [
+          1862,
+          5325,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "last_interaction": {
+        "helper_step": "useSlopOnGoblin",
+        "tile": [
+          1862,
+          5325,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_location": {
+        "helper_step": "useSlopOnGoblin",
+        "tile": [
+          1862,
+          5325,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_rewards": {
+        "quest_points": 1,
+        "fixed_xp_tenths": {
+          "skill.cooking": 10000,
+          "skill.farming": 10000,
+          "skill.crafting": 10000
+        }
+      },
+      "review": {
+        "duration_seconds": null,
+        "mandatory_incidental_xp_tenths": null,
+        "combat_feasibility": "not_assessed",
+        "notes": "Review the accepted dye alternatives and the separate preparations in Goblin Village."
+      }
+    },
+    {
+      "activity_id": "rfd.freeing_pirate_pete",
+      "completion_action_id": "rfd.freeing_pirate_pete.complete",
+      "helper_class": "RFDPiratePete",
+      "progression_requirements": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.another_cooks_quest.complete"
+          }
+        ]
+      },
+      "skill_checks": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 31,
+          "boostable": false
+        }
+      ],
+      "start": {
+        "helper_step": "inspectPete",
+        "tile": [
+          1862,
+          5323,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "last_interaction": {
+        "helper_step": "useCakeOnPete",
+        "tile": [
+          1862,
+          5323,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_location": {
+        "helper_step": "useCakeOnPete",
+        "tile": [
+          1862,
+          5323,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_rewards": {
+        "quest_points": 1,
+        "fixed_xp_tenths": {
+          "skill.cooking": 10000,
+          "skill.crafting": 10000,
+          "skill.fishing": 10000,
+          "skill.smithing": 10000
+        }
+      },
+      "review": {
+        "duration_seconds": null,
+        "mandatory_incidental_xp_tenths": null,
+        "combat_feasibility": "review",
+        "notes": "Verify the diving setup and fishcake ingredients. The helper's Ironman-only 42 Crafting or started Rum Deal alternative concerns fishbowl supply."
+      }
+    },
+    {
+      "activity_id": "rfd.freeing_the_lumbridge_guide",
+      "completion_action_id": "rfd.freeing_the_lumbridge_guide.complete",
+      "helper_class": "RFDLumbridgeGuide",
+      "progression_requirements": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.another_cooks_quest.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.big_chompy_bird_hunting.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.biohazard.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.demon_slayer.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.murder_mystery.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.nature_spirit.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.witchs_house.complete"
+          }
+        ]
+      },
+      "skill_checks": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 40,
+          "boostable": true
+        }
+      ],
+      "start": {
+        "helper_step": "inspectLumbridgeGuide",
+        "tile": [
+          1865,
+          5325,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "last_interaction": {
+        "helper_step": "useCakeOnLumbridgeGuide",
+        "tile": [
+          1865,
+          5325,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_location": {
+        "helper_step": "useCakeOnLumbridgeGuide",
+        "tile": [
+          1865,
+          5325,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_rewards": {
+        "quest_points": 1,
+        "fixed_xp_tenths": {
+          "skill.cooking": 25000,
+          "skill.magic": 25000
+        }
+      },
+      "review": {
+        "duration_seconds": null,
+        "mandatory_incidental_xp_tenths": null,
+        "combat_feasibility": "not_assessed",
+        "notes": "Split ingredient preparation from the food handover. Verify the boosted cooking check at the preparation step."
+      }
+    },
+    {
+      "activity_id": "rfd.freeing_evil_dave",
+      "completion_action_id": "rfd.freeing_evil_dave.complete",
+      "helper_class": "RFDEvilDave",
+      "progression_requirements": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.another_cooks_quest.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.gertrudes_cat.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.shadow_of_the_storm.complete"
+          }
+        ]
+      },
+      "skill_checks": [],
+      "start": {
+        "helper_step": "inspectEvilDave",
+        "tile": [
+          1865,
+          5323,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "last_interaction": {
+        "helper_step": "useStewOnEvilDave",
+        "tile": [
+          1865,
+          5323,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_location": {
+        "helper_step": "useStewOnEvilDave",
+        "tile": [
+          1865,
+          5323,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_rewards": {
+        "quest_points": 1,
+        "fixed_xp_tenths": {
+          "skill.cooking": 70000
+        }
+      },
+      "review": {
+        "duration_seconds": null,
+        "mandatory_incidental_xp_tenths": null,
+        "combat_feasibility": "not_assessed",
+        "notes": "Require a suitable cat and record the variable stew and spice quantities separately from XP."
+      }
+    },
+    {
+      "activity_id": "rfd.freeing_skrach_uglogwee",
+      "completion_action_id": "rfd.freeing_skrach_uglogwee.complete",
+      "helper_class": "RFDSkrachUglogwee",
+      "progression_requirements": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.another_cooks_quest.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.big_chompy_bird_hunting.complete"
+          }
+        ]
+      },
+      "skill_checks": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 41,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 20,
+          "boostable": true
+        }
+      ],
+      "start": {
+        "helper_step": "inspectSkrach",
+        "tile": [
+          1864,
+          5329,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "last_interaction": {
+        "helper_step": "useJubblyOnSkrach",
+        "tile": [
+          1864,
+          5329,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_location": {
+        "helper_step": "useJubblyOnSkrach",
+        "tile": [
+          1864,
+          5329,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_rewards": {
+        "quest_points": 1,
+        "fixed_xp_tenths": {
+          "skill.woodcutting": 15000,
+          "skill.cooking": 15000,
+          "skill.crafting": 15000,
+          "skill.ranged": 15000
+        }
+      },
+      "review": {
+        "duration_seconds": null,
+        "mandatory_incidental_xp_tenths": null,
+        "combat_feasibility": "review",
+        "notes": "Review the ogre bow and arrows, bellows, equipment and hunting or cooking XP at their respective steps."
+      }
+    },
+    {
+      "activity_id": "rfd.freeing_sir_amik_varze",
+      "completion_action_id": "rfd.freeing_sir_amik_varze.complete",
+      "helper_class": "RFDSirAmikVarze",
+      "progression_requirements": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.another_cooks_quest.complete"
+          },
+          {
+            "kind": "counter",
+            "token_id": "token.quest_points",
+            "minimum": 107
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.family_crest.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.heroes_quest.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.shilo_village.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.underground_pass.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.waterfall_quest.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.legends_quest.start"
+          }
+        ]
+      },
+      "skill_checks": [],
+      "start": {
+        "helper_step": "inspectAmik",
+        "tile": [
+          1865,
+          5321,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "last_interaction": {
+        "helper_step": "useBruleeOnVarze",
+        "tile": [
+          1865,
+          5321,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_location": {
+        "helper_step": "useBruleeOnVarze",
+        "tile": [
+          1865,
+          5321,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_rewards": {
+        "quest_points": 1,
+        "fixed_xp_tenths": {
+          "skill.cooking": 40000,
+          "skill.hitpoints": 40000
+        }
+      },
+      "review": {
+        "duration_seconds": null,
+        "mandatory_incidental_xp_tenths": null,
+        "combat_feasibility": "review",
+        "notes": "Confirm which partial Legends' Quest stage grants Kharazi Jungle access. Review dramen staff or lunar staff, ingredient transformations and mandatory combat."
+      }
+    },
+    {
+      "activity_id": "rfd.freeing_king_awowogei",
+      "completion_action_id": "rfd.freeing_king_awowogei.complete",
+      "helper_class": "RFDAwowogei",
+      "progression_requirements": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.another_cooks_quest.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.monkey_madness_i.complete"
+          }
+        ]
+      },
+      "skill_checks": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 48,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 70,
+          "boostable": true
+        }
+      ],
+      "start": {
+        "helper_step": "inspectAwowogei",
+        "tile": [
+          1865,
+          5319,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "last_interaction": {
+        "helper_step": "useSnakeOnAwowogei",
+        "tile": [
+          1865,
+          5319,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_location": {
+        "helper_step": "useSnakeOnAwowogei",
+        "tile": [
+          1865,
+          5319,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
+      "completion_rewards": {
+        "quest_points": 1,
+        "fixed_xp_tenths": {
+          "skill.cooking": 100000,
+          "skill.agility": 100000
+        }
+      },
+      "review": {
+        "duration_seconds": null,
+        "mandatory_incidental_xp_tenths": null,
+        "combat_feasibility": "review",
+        "notes": "Review greegree and amulet access, traversal and timing of the boostable cooking check."
+      }
+    },
+    {
+      "activity_id": "rfd.defeating_the_culinaromancer",
+      "completion_action_id": "rfd.defeating_the_culinaromancer.complete",
+      "helper_class": "RFDFinal",
+      "progression_requirements": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.another_cooks_quest.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.freeing_the_mountain_dwarf.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.freeing_the_goblin_generals.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.freeing_pirate_pete.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.freeing_the_lumbridge_guide.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.freeing_evil_dave.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.freeing_skrach_uglogwee.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.freeing_sir_amik_varze.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "rfd.freeing_king_awowogei.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.desert_treasure_i.complete"
+          },
+          {
+            "kind": "action_completed",
+            "action_id": "quest.horror_from_the_deep.complete"
+          },
+          {
+            "kind": "counter",
+            "token_id": "token.quest_points",
+            "minimum": 175
+          }
+        ]
+      },
+      "skill_checks": [],
+      "start": {
+        "helper_step": "enterPortal",
+        "tile": [
+          3209,
+          3218,
+          0
+        ],
+        "instance_id": null
+      },
+      "last_interaction": {
+        "helper_step": "killCulinaromancer",
+        "tile": [
+          1900,
+          5355,
+          2
+        ],
+        "instance_id": "rfd.culinaromancer_arena"
+      },
+      "completion_location": null,
+      "completion_rewards": {
+        "quest_points": 1,
+        "fixed_xp_tenths": {},
+        "choice_reward": {
+          "kind": "quest_lamp",
+          "quantity": 1,
+          "xp_tenths": 200000,
+          "eligible_skills": "all",
+          "minimum_level": null,
+          "level_boundary_to_verify": 50
+        }
+      },
+      "review": {
+        "duration_seconds": null,
+        "mandatory_incidental_xp_tenths": null,
+        "combat_feasibility": "review",
+        "notes": "Verify the lamp's exact level boundary and storage, the post-fight arrival tile, six encounter gear requirements and incidental XP. The helper uses a placeholder lamp item ID."
+      }
+    }
+  ],
+  "notes": [
+    "Direct gates and fixed completion XP are transcribed from the pinned helper and checked against the journal IDs. Verify exact game requirements before catalog admission.",
+    "The rescue entry and handover coordinates identify instanced interaction areas. Use the source observations for intermediate waypoints and supplies, then verify how to enter or exit each instance.",
+    "Skill checks are listed separately so a boost can be evaluated at the relevant phase.",
+    "Each of the ten stages contributes its own quest point. The parent goal duplicates no reward."
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "ledger_version": 1,
   "dataset_id": "osrs.main",
-  "dataset_version": "0.1.0",
+  "dataset_version": "0.2.0",
   "game_revision": "osrs-live-242",
   "as_of": "2026-11-03",
   "snapshot": {
@@ -18,6 +18,12 @@
     "diaries": "build-242/diaries.json",
     "reward_reviews": "build-242/reward-reviews.json",
     "optional_activities": "build-242/optional-activities.json"
+  },
+  "quest_collection": {
+    "source_ids": ["source.quest_helper.quest_observations","source.jagex.quest_month_2026_11_03"],
+    "source_observation_index": "data/raw/build-242/quest-helper/index.json",
+    "rfd_stage_review": "data/raw/build-242/recipe-for-disaster-review.json",
+    "publisher_reward_changes": "data/raw/build-242/quest-month-rewards.json"
   },
   "skills": [
     {
@@ -142,6 +148,11 @@
     }
   ],
   "open_reviews": [
+    {
+      "id": "review.quest.normalization",
+      "reason": "Review source candidates against game mechanics, resolve exact mandatory XP and item gates, and normalize the remaining quests. Recipe for Disaster needs verified phase checks, instance transitions and lamp eligibility before catalog admission.",
+      "source_ids": ["source.quest_helper.quest_observations","source.runelite.quests"]
+    },
     {
       "id": "review.main.start",
       "reason": "Capture the exact post-tutorial skill XP, tile, inventory and equipment, progress, flags, counters and active cooldowns on a trade-enabled main. Public sources establish arrival context, not an exact account snapshot.",

@@ -20,6 +20,7 @@ jobs:
       - name: Validate committed JSON
         run: |
           quest-optimizer validate-data data/manifest.json
+          quest-optimizer validate-json profile examples/build-242/cooks-assistant-profile.json --catalog data/manifest.json
           quest-optimizer validate-data examples/synthetic/manifest.json
           quest-optimizer validate-json profile examples/synthetic/profile.json
           quest-optimizer validate-json solution examples/synthetic/solution.json

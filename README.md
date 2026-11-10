@@ -3,9 +3,9 @@
 An offline Python quest-order optimizer for trade-enabled Old School RuneScape
 main accounts, followed later by a separate GitHub Pages viewer.
 
-The draft data pins live build 242 from 3 November 2026. The skill tables and
-an independent content inventory are available. Quest mechanics and a fresh
-account capture are needed to turn the profile seed into solver input.
+The draft data pins live build 242 from 3 November 2026. It includes skill
+tables, the independent content inventory, and a first batch of quest actions.
+The full route requires the remaining quest mechanics and a fresh account capture.
 See the [data inventory](data/README.md) and [implementation plan](docs/roadmap.md).
 
 ## What “optimal” means

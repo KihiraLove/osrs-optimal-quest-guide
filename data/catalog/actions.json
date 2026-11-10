@@ -1,1 +1,1042 @@
-[]
+[
+  {
+    "id": "quest.cooks_assistant.complete",
+    "name": "Give the ingredients to the Cook",
+    "activity_id": "quest.cooks_assistant",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.egg",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket_of_milk",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot_of_flour",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.egg",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.pot_of_flour",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 3000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.cooks_range",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper finishQuest and reward declarations. This route uses a normal bucket of milk. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.dorics_quest.complete",
+    "name": "Bring the ores and clay to Doric",
+    "activity_id": "quest.dorics_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorics_house",
+    "end_location_id": "location.dorics_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.clay",
+          "quantity": 6
+        },
+        {
+          "kind": "item",
+          "item_id": "item.copper_ore",
+          "quantity": 4
+        },
+        {
+          "kind": "item",
+          "item_id": "item.iron_ore",
+          "quantity": 2
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.clay",
+        "quantity": 6
+      },
+      {
+        "item_id": "item.copper_ore",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.iron_ore",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 13000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 180
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.dorics_anvils",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Doric accepts unnoted materials. Mining is unnecessary for this supplied route. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.druidic_ritual.complete",
+    "name": "Return to Kaqemeex to unlock Herblore",
+    "activity_id": "quest.druidic_ritual",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.kaqemeex",
+    "end_location_id": "location.taverley.kaqemeex",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.druidic_ritual.deliver_meat"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 4
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 2500
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.herblore",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Kaqemeex awards the quest completion XP and Herblore unlock. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.druidic_ritual.deliver_meat",
+    "name": "Give the enchanted meats to Sanfew",
+    "activity_id": "quest.druidic_ritual",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.sanfew",
+    "end_location_id": "location.taverley.sanfew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.druidic_ritual.enchant_meat"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_beef",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_chicken",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_bear_meat",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_rat_meat",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.enchanted_beef",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.enchanted_chicken",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.enchanted_bear_meat",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.enchanted_rat_meat",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sanfew accepts the four enchanted meats. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.druidic_ritual.enchant_meat",
+    "name": "Enchant the four meats in the cauldron",
+    "activity_id": "quest.druidic_ritual",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley_dungeon.cauldron",
+    "end_location_id": "location.taverley_dungeon.cauldron",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.druidic_ritual.sanfew_request"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.raw_beef",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.raw_chicken",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.raw_bear_meat",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.raw_rat_meat",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_beef",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.raw_chicken",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.raw_bear_meat",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.raw_rat_meat",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enchanted_beef",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.enchanted_chicken",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.enchanted_bear_meat",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.enchanted_rat_meat",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 15,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the Cauldron of Thunder. The action starts inside its room and credits the four quest items. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.druidic_ritual.sanfew_request",
+    "name": "Ask Sanfew about the ritual",
+    "activity_id": "quest.druidic_ritual",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.sanfew",
+    "end_location_id": "location.taverley.sanfew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.druidic_ritual.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sanfew's request takes place upstairs in Taverley. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.druidic_ritual.start",
+    "name": "Accept Kaqemeex's request",
+    "activity_id": "quest.druidic_ritual",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.kaqemeex",
+    "end_location_id": "location.taverley.kaqemeex",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The quest starts at the Druids' Circle. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.goblin_diplomacy.complete",
+    "name": "Show the goblin generals the three mail colours",
+    "activity_id": "quest.goblin_diplomacy",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin_village.generals",
+    "end_location_id": "location.goblin_village.generals",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.goblin_mail",
+          "quantity": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.orange_dye",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.blue_dye",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.goblin_mail",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.orange_dye",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.blue_dye",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 5
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 2000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.gold_bar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 55,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Combine the two dyes with two of the three mail pieces and hand in all three colours. No repeated crafting XP is credited. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.imp_catcher.complete",
+    "name": "Give Wizard Mizgog the four beads",
+    "activity_id": "quest.imp_catcher",
+    "kind": "quest_stage",
+    "start_location_id": "location.wizards_tower.mizgog",
+    "end_location_id": "location.wizards_tower.mizgog",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.black_bead",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.white_bead",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.red_bead",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.yellow_bead",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.black_bead",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.white_bead",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.red_bead",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.yellow_bead",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 8750
+      },
+      {
+        "kind": "item",
+        "item_id": "item.amulet_of_accuracy",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Turn in the four colours at the upper-floor waypoint. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.monks_friend.complete",
+    "name": "Return to Brother Omad",
+    "activity_id": "quest.monks_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne_monastery.omad",
+    "end_location_id": "location.ardougne_monastery.omad",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monks_friend.help_cedric"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.law_rune",
+        "quantity": 8
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper completion XP and law rune reward. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.monks_friend.help_cedric",
+    "name": "Give Brother Cedric water and logs",
+    "activity_id": "quest.monks_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne_monastery.cedric",
+    "end_location_id": "location.ardougne_monastery.cedric",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monks_friend.return_blanket"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.jug_of_water",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.logs",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.jug_of_water",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 55,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Complete Cedric's two exchanges on the same visit. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.monks_friend.return_blanket",
+    "name": "Return the blanket and speak to Omad",
+    "activity_id": "quest.monks_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne_monastery.omad",
+    "end_location_id": "location.ardougne_monastery.omad",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monks_friend.take_blanket"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.childs_blanket",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.childs_blanket",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand over the blanket and take Omad's follow-up request. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.monks_friend.start",
+    "name": "Accept Brother Omad's request",
+    "activity_id": "quest.monks_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne_monastery.omad",
+    "end_location_id": "location.ardougne_monastery.omad",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Omad starts the quest at the monastery. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.monks_friend.take_blanket",
+    "name": "Retrieve the child's blanket",
+    "activity_id": "quest.monks_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne_monastery.blanket_cellar",
+    "end_location_id": "location.ardougne_monastery.blanket_cellar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monks_friend.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.childs_blanket",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 15,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the blanket at the cellar waypoint. Approach and escape time belong to travel. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.rune_mysteries.collect_notes",
+    "name": "Give Aubury the package and collect his notes",
+    "activity_id": "quest.rune_mysteries",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.aubury",
+    "end_location_id": "location.varrock.aubury",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rune_mysteries.collect_package"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.research_package",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.research_package",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.research_notes",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Aubury's package and follow-up dialogue take place at the same waypoint. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.rune_mysteries.collect_package",
+    "name": "Give Sedridor the talisman and collect his package",
+    "activity_id": "quest.rune_mysteries",
+    "kind": "quest_stage",
+    "start_location_id": "location.wizards_tower.sedridor",
+    "end_location_id": "location.wizards_tower.sedridor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rune_mysteries.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.air_talisman",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_talisman",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.research_package",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 55,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Combine the talisman handover and the follow-up dialogue at Sedridor's location. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.rune_mysteries.complete",
+    "name": "Return Aubury's notes to Sedridor",
+    "activity_id": "quest.rune_mysteries",
+    "kind": "quest_stage",
+    "start_location_id": "location.wizards_tower.sedridor",
+    "end_location_id": "location.wizards_tower.sedridor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rune_mysteries.collect_notes"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.research_notes",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.research_notes",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.runecraft",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.air_talisman",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.rune_essence_mine",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The 3 November update adds 500 Runecraft XP at completion. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.rune_mysteries.start",
+    "name": "Accept the talisman from Duke Horacio",
+    "activity_id": "quest.rune_mysteries",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.duke",
+    "end_location_id": "location.lumbridge_castle.duke",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.air_talisman",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Duke starts the investigation and provides an air talisman. Interaction time is an estimate."
+    }
+  },
+  {
+    "id": "quest.sheep_shearer.complete",
+    "name": "Give Fred 20 balls of wool",
+    "activity_id": "quest.sheep_shearer",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.freds_farm",
+    "end_location_id": "location.lumbridge.freds_farm",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.ball_of_wool",
+          "quantity": 20
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ball_of_wool",
+        "quantity": 20
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 1500
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 60
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Supply pre-spun, unnoted balls of wool. No shearing or spinning XP is credited. Interaction time is an estimate."
+    }
+  }
+]
