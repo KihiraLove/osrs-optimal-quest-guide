@@ -5,7 +5,7 @@
   "$defs": {
     "id": {
       "type": "string",
-      "pattern": "^[a-z][a-z0-9_.-]*$"
+      "pattern": "^[a-z][a-z0-9_.-]*(?![\\s\\S])"
     },
     "evidence": {
       "type": "object",
@@ -67,7 +67,10 @@
           "type": "object",
           "properties": {
             "kind": {
-              "const": "all"
+              "enum": [
+                "all",
+                "any"
+              ]
             },
             "requirements": {
               "type": "array",
@@ -80,27 +83,21 @@
             "kind",
             "requirements"
           ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "kind": {
-              "const": "any"
-            },
-            "requirements": {
-              "type": "array",
-              "items": {
-                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/requirement"
-              },
-              "minItems": 1
+          "additionalProperties": false,
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "any"
+              }
             }
           },
-          "required": [
-            "kind",
-            "requirements"
-          ],
-          "additionalProperties": false
+          "then": {
+            "properties": {
+              "requirements": {
+                "minItems": 1
+              }
+            }
+          }
         },
         {
           "type": "object",
@@ -228,6 +225,87 @@
             "value"
           ],
           "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "combat_level"
+            },
+            "formula_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "minimum_level": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "kind",
+            "formula_id",
+            "minimum_level"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "elapsed_time"
+            },
+            "minimum_seconds": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "kind",
+            "minimum_seconds"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "cooldown_ready"
+            },
+            "token_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            }
+          },
+          "required": [
+            "kind",
+            "token_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "choice"
+            },
+            "token_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "option": {
+              "anyOf": [
+                {
+                  "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "token_id",
+            "option"
+          ],
+          "additionalProperties": false
         }
       ]
     },
@@ -335,6 +413,73 @@
             "quantity"
           ],
           "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "skill_boost"
+            },
+            "skill_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "bonus_levels": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "duration_seconds": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "kind",
+            "skill_id",
+            "bonus_levels",
+            "duration_seconds"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "start_cooldown"
+            },
+            "token_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "duration_seconds": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "kind",
+            "token_id",
+            "duration_seconds"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "choose"
+            },
+            "token_id": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "option": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            }
+          },
+          "required": [
+            "kind",
+            "token_id",
+            "option"
+          ],
+          "additionalProperties": false
         }
       ]
     },
@@ -364,8 +509,7 @@
         "xp_tenths": {
           "type": "object",
           "propertyNames": {
-            "type": "string",
-            "pattern": "^[a-z][a-z0-9_.-]*$"
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
           },
           "additionalProperties": {
             "type": "integer",
@@ -382,8 +526,7 @@
         "flags": {
           "type": "object",
           "propertyNames": {
-            "type": "string",
-            "pattern": "^[a-z][a-z0-9_.-]*$"
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
           },
           "additionalProperties": {
             "type": "boolean"
@@ -392,8 +535,7 @@
         "counters": {
           "type": "object",
           "propertyNames": {
-            "type": "string",
-            "pattern": "^[a-z][a-z0-9_.-]*$"
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
           },
           "additionalProperties": {
             "type": "integer",
@@ -403,8 +545,7 @@
         "inventory": {
           "type": "object",
           "propertyNames": {
-            "type": "string",
-            "pattern": "^[a-z][a-z0-9_.-]*$"
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
           },
           "additionalProperties": {
             "type": "integer",
@@ -425,6 +566,13 @@
               "remaining_picks": {
                 "type": "integer",
                 "minimum": 1
+              },
+              "used_skill_ids": {
+                "type": "array",
+                "items": {
+                  "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+                },
+                "uniqueItems": true
               }
             },
             "required": [
@@ -438,6 +586,69 @@
         "modeled_elapsed_seconds": {
           "type": "integer",
           "minimum": 0
+        },
+        "active_boosts": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "bonus_levels": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "expires_at_seconds": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "bonus_levels",
+              "expires_at_seconds"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "cooldowns": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "choices": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "additionalProperties": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          }
+        },
+        "action_counts": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 2
+          }
+        },
+        "travel_counts": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 1
+          }
         }
       },
       "required": [
@@ -522,8 +733,7 @@
     "xp_map": {
       "type": "object",
       "propertyNames": {
-        "type": "string",
-        "pattern": "^[a-z][a-z0-9_.-]*$"
+        "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
       },
       "additionalProperties": {
         "type": "integer",
@@ -532,7 +742,7 @@
     },
     "hash": {
       "type": "string",
-      "pattern": "^[a-f0-9]{64}$"
+      "pattern": "^[a-f0-9]{64}(?![\\s\\S])"
     }
   }
 }

@@ -1,4 +1,4 @@
-"""Strict local JSON loading and structural validation, not gameplay validation."""
+"""Offline JSON loading and validation."""
 
 import json
 import math
@@ -6,16 +6,22 @@ from pathlib import Path
 from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
-from jsonschema.exceptions import SchemaError
+from jsonschema.exceptions import SchemaError, ValidationError
+from jsonschema.validators import extend
 from referencing import Registry, Resource
 from referencing.exceptions import NoSuchResource, Unresolvable
 
+from .errors import DataError
+from .semantics import CatalogValidator
+
 SCHEMA_NAMES = ("common", "manifest", "catalog", "profile", "solution")
 SCHEMA_VERSION = "0.1.0"
-
-
-class DataError(ValueError):
-    """A local input failed loading or validation."""
+LocalValidator = extend(
+    Draft202012Validator,
+    type_checker=Draft202012Validator.TYPE_CHECKER.redefine(
+        "integer", lambda checker, value: type(value) is int
+    ),
+)
 
 
 def _unique_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
@@ -55,6 +61,25 @@ def _deny_remote_reference(uri: str) -> Resource:
     raise NoSuchResource(ref=uri)
 
 
+def _field_errors(error: ValidationError):
+    """Report errors from the selected tagged branch instead of the entire object."""
+    if error.validator == "oneOf" and isinstance(error.instance, dict):
+        kind = error.instance.get("kind")
+        for index, variant in enumerate(error.validator_value):
+            if not isinstance(variant, dict):
+                continue
+            tag = variant.get("properties", {}).get("kind", {})
+            if not isinstance(tag, dict) or kind is None:
+                continue
+            if kind == tag.get("const") or kind in tag.get("enum", []):
+                details = [child for child in error.context if child.schema_path and child.schema_path[0] == index]
+                if details:
+                    for child in details:
+                        yield from _field_errors(child)
+                    return
+    yield error
+
+
 class Contracts:
     """Load the five committed schemas into an offline reference registry."""
 
@@ -67,26 +92,43 @@ class Contracts:
             try:
                 Draft202012Validator.check_schema(value)
                 expected_id = f"urn:quest-optimizer:{name}:{SCHEMA_VERSION}"
-                if value.get("$id") != expected_id:
+                if not isinstance(value, dict) or value.get("$id") != expected_id:
                     raise DataError(f"{path}: expected schema ID {expected_id}")
                 registry = registry.with_resource(expected_id, Resource.from_contents(value))
             except (SchemaError, ValueError, TypeError, KeyError) as exc:
                 raise DataError(f"{path}: invalid schema: {exc}") from exc
             self.schemas[name] = value
         self.registry = registry
+        policies = self.schemas["common"].get("$defs", {}).get("policies", {}).get("properties")
+        if policies is None:
+            raise DataError(f"{directory / 'common.schema.json'}: missing policy definitions")
+        self.policy_validators = {
+            name: LocalValidator(schema, registry=registry) for name, schema in policies.items()
+        }
 
-    def validate(self, name: str, value: Any) -> None:
-        validator = Draft202012Validator(
+    def validate(
+        self, name: str, value: Any, *, origins: dict[str, list[Path]] | None = None
+    ) -> None:
+        validator = LocalValidator(
             self.schemas[name], registry=self.registry, format_checker=FormatChecker()
         )
         try:
-            errors = list(validator.iter_errors(value))
+            errors = [detail for error in validator.iter_errors(value) for detail in _field_errors(error)]
         except Unresolvable as exc:
             raise DataError(f"Unresolvable local schema reference: {exc}") from exc
         if errors:
             messages = []
             for error in sorted(errors, key=lambda e: str(list(e.absolute_path)))[:10]:
-                location = ".".join(str(part) for part in error.absolute_path) or "<root>"
+                path = list(error.absolute_path)
+                location = ".".join(str(part) for part in path) or "<root>"
+                if origins is not None and len(path) >= 2 and path[0] in origins and isinstance(path[1], int):
+                    collection, index = path[:2]
+                    record = value[collection][index]
+                    record_id = record.get("id") if isinstance(record, dict) else None
+                    location += f" ({origins[collection][index]}"
+                    if record_id is not None:
+                        location += f", record {record_id!r}"
+                    location += ")"
                 messages.append(f"{location}: {error.message}")
             raise DataError(f"{name} validation failed:\n" + "\n".join(messages))
 
@@ -107,8 +149,10 @@ def load_catalog(manifest_path: Path, contracts: Contracts, *, release: bool = F
     contracts.validate("manifest", manifest)
     catalog = {key: value for key, value in manifest.items() if key != "collections"}
     loaded_paths: set[Path] = set()
+    origins: dict[str, list[Path]] = {}
     for name, files in manifest["collections"].items():
         records = []
+        origins[name] = []
         for filename in files:
             path = _collection_path(manifest_path.parent, filename)
             if path in loaded_paths:
@@ -118,24 +162,13 @@ def load_catalog(manifest_path: Path, contracts: Contracts, *, release: bool = F
             if not isinstance(values, list):
                 raise DataError(f"{path}: expected a JSON array of records")
             records.extend(values)
+            origins[name].extend([path] * len(values))
         catalog[name] = records
-    contracts.validate("catalog", catalog)
-
-    seen: set[str] = set()
-    source_ids = {source["id"] for source in catalog["sources"]}
-    for name in manifest["collections"]:
-        for record in catalog[name]:
-            record_id = record["id"]
-            if record_id in seen:
-                raise DataError(f"Duplicate entity ID: {record_id}")
-            seen.add(record_id)
-            for source_id in record.get("evidence", {}).get("source_ids", []):
-                if source_id not in source_ids:
-                    raise DataError(f"{record_id}: unknown provenance source {source_id}")
+    contracts.validate("catalog", catalog, origins=origins)
+    CatalogValidator(catalog, contracts, origins).validate_catalog()
 
     if release:
         if catalog["status"] != "reviewed" or catalog["coverage_status"] != "complete":
             raise DataError("Release blocked: catalog must be reviewed with complete coverage")
-        # Do not let structural validation stand in for gameplay/coverage verification.
-        raise DataError("Release blocked: semantic validation and coverage audit are not implemented")
+        raise DataError("Release blocked: independent coverage audit is pending (issue #9)")
     return catalog

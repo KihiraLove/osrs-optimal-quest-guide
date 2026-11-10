@@ -200,7 +200,9 @@
           "kind": {
             "enum": [
               "flag",
-              "counter"
+              "counter",
+              "cooldown",
+              "choice"
             ]
           },
           "maximum": {
@@ -212,6 +214,14 @@
           },
           "evidence": {
             "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/evidence"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+            },
+            "minItems": 2,
+            "uniqueItems": true
           }
         },
         "required": [
@@ -221,7 +231,50 @@
           "maximum",
           "evidence"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "choice"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "options"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "options"
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "flag",
+                    "choice",
+                    "cooldown"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "maximum": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "items": {
@@ -445,6 +498,10 @@
           },
           "evidence": {
             "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/evidence"
+          },
+          "repeat_limit": {
+            "type": "integer",
+            "minimum": 1
           }
         },
         "required": [
@@ -586,6 +643,102 @@
           "retainable",
           "amount",
           "observed_restrictions",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "combat_formulas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "base_terms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "skill_id": {
+                  "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+                },
+                "level_multiplier": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "level_divisor": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "weight": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "skill_id",
+                "level_multiplier",
+                "level_divisor",
+                "weight"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "styles": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "skill_id": {
+                    "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+                  },
+                  "level_multiplier": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "level_divisor": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "weight": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "skill_id",
+                  "level_multiplier",
+                  "level_divisor",
+                  "weight"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            },
+            "minItems": 1
+          },
+          "divisor": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "evidence": {
+            "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/evidence"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "base_terms",
+          "styles",
+          "divisor",
           "evidence"
         ],
         "additionalProperties": false

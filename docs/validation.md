@@ -1,24 +1,27 @@
 # Validation and acceptance gates
 
-## Scaffold checks now
+## Local validation
 
 The loader rejects malformed/duplicate-key JSON, non-finite numeric values,
 escaping file paths, unexpected fields, duplicate entity IDs, unsupported schema
-versions and missing provenance source IDs. JSON Schemas check typed requirements,
-effects, coordinates, rewards, profiles and output shape. These checks work fully
-offline once the Python dependency is installed.
+versions and missing provenance source IDs. The CLI checks typed requirements,
+effects, coordinates, rewards, profiles and output shape. Semantic errors in
+catalog records identify the record, field, collection file and evidence source
+IDs. All checks run offline.
 
-`--release` deliberately fails closed pending the semantic validation issue. An
-empty draft catalog is useful for development, not a usable route dataset. The
-synthetic example is contract-only and is never asserted to be a real route.
+`validate-data` checks nested requirements, typed foreign keys, XP thresholds
+and level ranges, duration ordering, token caps, activity ownership and reward
+producers, eligibility and pick counts. Use `validate-json --catalog` to check a
+profile's dataset, goals and saved state. For a solution, also supply `--profile`
+to check the inputs and route references. Replay verifies the actual sequence,
+reward instance ownership, objective arithmetic and input hashes in #10.
 
-## Required checks before production data
+## Remaining production release checks
 
-- Resolve every typed foreign key, including nested requirements/effects, goals,
-  initial state, reward eligibility and start/end/travel locations.
-- Verify monotonic XP tables, referenced level ranges, exact unit conversions,
-  unique reward producers, activity completion ownership, quest-point and kudos
-  reconciliation, choice cardinality and caps.
+`--release` rejects draft and synthetic catalogs. Reviewed catalogs also require
+the independent coverage audit in [#9](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/9).
+
+- Reconcile quest points and kudos with reviewed reward sources.
 - Validate reachability using OR-aware/phase-aware rules and the initial profile;
   report unsatisfied requirements/cycles without inventing training or supplies.
 - Reconcile the independent coverage ledger with all current quests, RFD parts,
@@ -42,6 +45,10 @@ chooses methods or estimates training time. Test the requested any-skill quest
 lamp policy separately from observed eligibility and non-quest lamp restrictions.
 Test no double XP/kudos/quest points, no reward before claim and no travel before
 unlock. Network-denied runs must validate and solve with installed dependencies.
+Test the typed contracts at the transition boundaries: a boost is unavailable
+at its expiry, a cooldown is ready at its expiry, combat gates use base levels,
+and a recorded choice cannot be overwritten. Replay must apply wait steps and
+enforce action and travel counts against their respective limits.
 
 Compare candidate solvers against exhaustive optima on tiny cases. On real slices,
 replay every step independently, compare per-skill manual XP to a documented

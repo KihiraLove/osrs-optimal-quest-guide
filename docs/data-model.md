@@ -1,9 +1,8 @@
 # Data model (draft v0.1.0)
 
-The machine-readable contracts are in `schemas/`. They define the initial shape,
-not proof of gameplay accuracy. Breaking changes require a schema version bump,
-fixture updates and a migration note. All game rules and estimates come from
-local JSON; Python implements generic requirement/effect semantics and search.
+The machine-readable contracts are in `schemas/`. Validation checks shape and
+relationships between records. Gameplay evidence, coverage and route replay
+have separate gates. Game facts and estimates come from local JSON.
 
 ## Files and identity
 
@@ -18,7 +17,29 @@ Stable lowercase IDs are globally unique across collections, such as
 `quest.cooks_assistant.complete`, `rfd.freeing_the_goblin_generals.complete`,
 `claim.museum.quest_history.example` and `travel.balloon.route.example`. These
 are naming illustrations, not populated factual records. Renames keep aliases in
-a reviewed migration map; display names never serve as foreign keys.
+a reviewed migration map. Foreign keys always use canonical IDs.
+
+## Compatibility and migrations
+
+The loader accepts `0.1.0`. The new mechanics add optional fields and variants
+at this version, so the original `0.1.0` files still load. An earlier validator
+may reject documents that use the new fields. The semantic checks require every
+reference to resolve and every skill to have explicit XP in saved states. For a
+partially used reward with distinct choices, recover the previous picks from the
+source record before adding `used_skill_ids`. Use integer literals for quantities,
+XP and time, such as `1000` for 100 XP.
+
+A breaking change requires a schema version and schema `$id` update, an offline
+migration for affected manifests, collections and profiles, and updated fixtures.
+Keep the source JSON and record any changed units or assumptions in the migration
+notes. A data-only revision changes `dataset_version`. Regenerate solution
+artifacts from migrated inputs and their new hashes.
+
+Keep IDs stable when display names change. When correcting an ID, preserve an
+explicit old-to-new mapping scoped to the source revision and collection. The
+normalizer or migration must reject ambiguous aliases, cycles and nonexistent
+targets, then rewrite references to canonical IDs. The runtime validator accepts
+canonical IDs directly and reports stale references with their record and field.
 
 | Collection | Main fields and purpose |
 | --- | --- |
@@ -31,6 +52,7 @@ a reviewed migration map; display names never serve as foreign keys.
 | `actions` | Atomic transitions: requirements, start/end location, duration, consumes, effects and one-time/repeat limit |
 | `travel_edges` | Directed start/end, movement mode, requirements, time, consumables and effects |
 | `xp_rewards` | Fixed/choice/level-dependent XP packages, eligibility, lamp policy class, retention and use rules |
+| `combat_formulas` | Optional collection of data-driven combat level calculations |
 
 Every factual entity has `evidence`: source IDs, verification status and a note.
 An evidence note maps exceptions or estimates to fields; field-specific evidence
@@ -41,18 +63,18 @@ routes. Durations include nominal/min/max values to support sensitivity tests.
 ## State and requirement expressions
 
 Solver state: exact XP vector, completed action set, flags, counters, inventory,
-unspent reward instances, current location, elapsed modelled time and limited-use
-travel/cooldown state. Profile JSON supplies the initial state and policy choices.
+unspent reward instances, current location, elapsed modelled time, active boosts,
+cooldowns, choices and repeat counts. Profile JSON supplies the initial state and
+policy choices.
 Use integer tenths of XP (`xp_tenths`) throughout to retain fractional XP without
 floating-point drift. Seconds are non-negative integers. Tiles use world
 coordinates and plane; regions and instance IDs prevent false same-tile matches.
 
 Requirements form recursive `all` / `any` expressions (empty `all` is true).
-Leaves check `skill` (minimum level and whether boostable), `action_completed`,
-`flag`, `counter`, `item` or `policy`. Exact XP/level relationships derive from the
-skill's XP table. A boostable check permits a separately modeled active boost; it
-does not automatically supply one. Flag checks can require true or false, so the
-search cannot blindly assume every unlock only helps.
+Leaves check `skill`, `action_completed`, `flag`, `counter`, `item`, `policy`,
+`combat_level`, `elapsed_time`, `cooldown_ready` or `choice`. Skill tables start
+at zero XP for level 1 and strictly increase. A `skill` leaf with `boostable: true`
+can use a currently active bonus. Flag checks can require true or false.
 
 Do not flatten OR prerequisites into AND dependencies. Requirements are checked
 before effects. Use phase actions for start vs mid-quest checks, partial-quest
@@ -60,11 +82,44 @@ access, exclusive paths and unlocks available before completion. Activity-level
 grouping has no effects. Dependencies live on actions, not on display groups.
 
 Effects award fixed XP, grant/clear flags, add counters/items or award an XP reward
-instance. Consumed items are separate from requirements so possession is not
-confused with consumption. Each action completion is automatically recorded once;
-repeat limits are explicit. Mutually exclusive choices use state flags/choice
-groups, not multiple simultaneously awarded rewards. Counter caps and reward
-instance ownership prevent duplicate kudos, quest points and lamps.
+instance. `consumes` lists the items debited atomically with a transition.
+Counter effects apply within zero and the token's `maximum` if one is set.
+Each reward has at most one producer, and reviewed catalogs require a producer.
+Every transition that awards XP or an XP reward has `repeat_limit: 1`.
+
+## Typed transition mechanics
+
+The transition and replay work in [#10](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/10)
+uses these contracts. All requirements are checked at transition start, then
+time advances and effects apply at transition end. Split a transition into
+phases when it has checks at different times. A `wait` step adds a positive
+number of modelled seconds. Personal training leaves the modelled clock unchanged.
+
+- `skill_boost` applies one constant bonus per skill. It replaces that skill's
+  active bonus and expires at transition end time plus `duration_seconds`.
+  Activation requires `allow_boosts`. Store an active bonus in `active_boosts`
+  with `bonus_levels` and `expires_at_seconds`. Remove it at the expiry timestamp.
+  Decay schedules need a future contract extension.
+- `combat_level` checks a `formula_id` against unboosted skill levels. Each term
+  contributes `weight * floor(level * level_multiplier / level_divisor)`. Sum
+  the base terms, add the highest style sum, then floor after dividing by the
+  formula's `divisor`. Formula values and evidence belong in the catalog.
+- `elapsed_time` compares the current clock with `minimum_seconds`.
+  `start_cooldown` sets a cooldown token's ready time to transition end time
+  plus `duration_seconds`. It replaces that token's timer. `cooldown_ready`
+  passes once the timer expires or if none is active. The `cooldowns` map stores
+  future ready times only.
+- `choice` checks the selected option for a choice token, with `null` meaning
+  unset. `choose` sets an option once and requires an unset token. A saved
+  state's `choices` map contains only selected options.
+- Actions record completion on first execution. A completed action has count
+  one unless `action_counts` gives a larger count within `repeat_limit`.
+  Travel edges with `repeat_limit` record uses in `travel_counts`. An edge
+  without a limit can be reused, subject to its gates and resources.
+
+Saved states can omit the new maps when empty. The exact `xp_tenths` vector
+contains every catalog skill. Missing flags default to false, and missing
+counter and inventory entries default to zero.
 
 ## Important decompositions
 
@@ -102,10 +157,7 @@ and wilderness restrictions must be expressed explicitly before release.
 Intra-quest travel must be represented either by intermediate action legs or in
 the action duration; never both. Start/end waypoints are mandatory even for an
 aggregate quest action. Walking, run-energy assumptions, stamina supplies, POH
-access, logout/world switching and cooldowns are profile-controlled refinements.
-The first schema does not yet model active boost expiration or generic cooldown
-timers: add typed state and tests in the mechanics issue before admitting records
-that rely on them. No untyped catch-all extension can make a route release-ready.
+access and logout/world switching are profile-controlled refinements.
 
 ## Rewards
 
@@ -117,6 +169,9 @@ constraints. Each pick is indivisible unless the source explicitly says otherwis
 Award and consume occur separately; immediate-use rewards must be spent at their
 claim before another action. The model must not spend a future lamp to unlock its
 own source. Multiple-skill fixed rewards use separate `xp` effects.
+A saved held reward records its `remaining_picks`. For a partially used package
+that requires distinct skills, `used_skill_ids` lists every previous pick.
+Immediate-use rewards must be fully resolved before a saved state boundary.
 
 ## Profile and solution boundary
 
@@ -127,7 +182,7 @@ revision. Optional activities are not goals merely because they are present.
 `solution.schema.json` requires input identities/hashes, policy summary, solver
 version/seed/status, objective values, manual XP totals, ordered steps, final state,
 limitations and verification status. Step variants distinguish action, travel,
-reward use and abstract training. A training step includes `skill_id`, `gain_xp_tenths`,
+reward use, waiting and abstract training. A training step includes `skill_id`, `gain_xp_tenths`,
 `before_xp_tenths`, `after_xp_tenths`, `required_by` and `resume_location_id`.
 The future replay verifier checks arithmetic, requirements, ownership and all
 state transitions; JSON Schema only checks their shape.

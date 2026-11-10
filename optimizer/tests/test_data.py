@@ -70,7 +70,7 @@ class DataTests(unittest.TestCase):
         with self.assertRaisesRegex(DataError, "Release blocked"):
             load_catalog(self.manifest, self.contracts, release=True)
         self.edit("manifest.json", lambda value: value.update(status="reviewed", coverage_status="complete"))
-        with self.assertRaisesRegex(DataError, "semantic validation"):
+        with self.assertRaisesRegex(DataError, "coverage audit"):
             load_catalog(self.manifest, self.contracts, release=True)
 
     def test_training_steps_cannot_prescribe_methods(self):

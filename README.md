@@ -50,16 +50,17 @@ python -m venv .venv
 python -m pip install -e ./optimizer
 quest-optimizer validate-data data/manifest.json
 quest-optimizer validate-data examples/synthetic/manifest.json
-quest-optimizer validate-json profile examples/synthetic/profile.json
-quest-optimizer validate-json solution examples/synthetic/solution.json
+quest-optimizer validate-json profile examples/synthetic/profile.json --catalog examples/synthetic/manifest.json
+quest-optimizer validate-json solution examples/synthetic/solution.json --catalog examples/synthetic/manifest.json --profile examples/synthetic/profile.json
 python -m unittest discover -s optimizer/tests -v
 ```
 
-The empty production catalog passes structural validation but **fails**
-`validate-data data/manifest.json --release`. A release check is intentionally
-blocked until semantic validation and the coverage audit are implemented; schema
-validation alone is not evidence of a usable game dataset. There is no `solve`
-command yet. A contract-valid example solution is not a replay-verified route.
+`validate-data` checks catalog shape and semantics. With `--catalog`,
+`validate-json` also checks profile and solution references against local inputs.
+Solutions require the matching `--profile` for that check. Standalone
+`validate-json` checks shape. Route replay is tracked in [#10](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/10).
+The `--release` gate requires the independent coverage audit in
+[#9](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/9).
 
 ## Documentation
 

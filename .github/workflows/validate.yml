@@ -23,5 +23,7 @@ jobs:
           quest-optimizer validate-data examples/synthetic/manifest.json
           quest-optimizer validate-json profile examples/synthetic/profile.json
           quest-optimizer validate-json solution examples/synthetic/solution.json
+          quest-optimizer validate-json profile examples/synthetic/profile.json --catalog examples/synthetic/manifest.json
+          quest-optimizer validate-json solution examples/synthetic/solution.json --catalog examples/synthetic/manifest.json --profile examples/synthetic/profile.json
       - name: Run loader and contract checks
         run: python -m unittest discover -s optimizer/tests -v

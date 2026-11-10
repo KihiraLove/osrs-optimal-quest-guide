@@ -289,6 +289,32 @@
               "resume_location_id"
             ],
             "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "step_id": {
+                "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
+              },
+              "explanation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "const": "wait"
+              },
+              "modeled_seconds": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "step_id",
+              "explanation",
+              "kind",
+              "modeled_seconds"
+            ],
+            "additionalProperties": false
           }
         ]
       },
