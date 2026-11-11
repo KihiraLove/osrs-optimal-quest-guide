@@ -1,0 +1,423 @@
+[
+  {
+    "id": "claim.count_check.lamp",
+    "name": "Claim Count Check's free XP lamp",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.lumbridge.count_check",
+    "end_location_id": "location.lumbridge.count_check",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "has_jagex_account",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "has_bank_pin",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "has_authenticator",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.count_check.lamp_received",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.count_check.lamp_received",
+        "value": true
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.count_check.lamp",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.count_check_lamp",
+        "source.project.account_security",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "One-time graveyard dialogue. A prior Count Check reward blocks this claim."
+    }
+  },
+  {
+    "id": "stronghold.security.claim_war",
+    "name": "Open the Gift of Peace",
+    "activity_id": "stronghold.security",
+    "kind": "reward_claim",
+    "start_location_id": "location.stronghold_security.war",
+    "end_location_id": "location.stronghold_security.war",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "has_jagex_account",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "has_bank_pin",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "has_authenticator",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.flap",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 2000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.stronghold.flap",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.stronghold_security",
+        "source.capture.stronghold_reward_rooms",
+        "source.project.account_security"
+      ],
+      "status": "estimated",
+      "note": "One-time floor reward. Door traversal is timed on the approach."
+    }
+  },
+  {
+    "id": "stronghold.security.claim_famine",
+    "name": "Open the Grain of Plenty",
+    "activity_id": "stronghold.security",
+    "kind": "reward_claim",
+    "start_location_id": "location.stronghold_security.famine",
+    "end_location_id": "location.stronghold_security.famine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "has_jagex_account",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "has_bank_pin",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "has_authenticator",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.slap_head",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 3000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.stronghold.slap_head",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.stronghold_security",
+        "source.capture.stronghold_reward_rooms",
+        "source.project.account_security"
+      ],
+      "status": "estimated",
+      "note": "One-time floor reward. Door traversal is timed on the approach."
+    }
+  },
+  {
+    "id": "stronghold.security.claim_pestilence",
+    "name": "Open the Box of Health",
+    "activity_id": "stronghold.security",
+    "kind": "reward_claim",
+    "start_location_id": "location.stronghold_security.pestilence",
+    "end_location_id": "location.stronghold_security.pestilence",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "has_jagex_account",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "has_bank_pin",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "has_authenticator",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.idea",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 5000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.stronghold.idea",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.stronghold_security",
+        "source.capture.stronghold_reward_rooms",
+        "source.project.account_security"
+      ],
+      "status": "estimated",
+      "note": "One-time floor reward. Door traversal is timed on the approach."
+    }
+  },
+  {
+    "id": "stronghold.security.complete",
+    "name": "Claim Stamp at the Cradle of Life",
+    "activity_id": "stronghold.security",
+    "kind": "reward_claim",
+    "start_location_id": "location.stronghold_security.death",
+    "end_location_id": "location.stronghold_security.death",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "has_jagex_account",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "has_bank_pin",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "has_authenticator",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.stamp",
+          "value": false
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.flap",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.slap_head",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.idea",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.stronghold.stamp",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.stronghold_security",
+        "source.jagex.count_check_lamp",
+        "source.project.account_security"
+      ],
+      "status": "estimated",
+      "note": "Completes the four-emote route. Boots are a separate player choice."
+    }
+  },
+  {
+    "id": "diary.varrock.easy.task.varp_1176_5",
+    "name": "Enter the second floor of the Stronghold of Security",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.stronghold_security.war",
+    "end_location_id": "location.stronghold_security.famine_entry",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.flap",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.varrock.easy.task.varp_1176_5",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.varrock.easy.task.varp_1176_5",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 8,
+      "max_seconds": 20
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.quest_helper.stronghold_security",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Walk to the down ladder and register Varrock Easy on descent."
+    }
+  },
+  {
+    "id": "diary.varrock.medium.task.varp_1176_20",
+    "name": "Perform all four Stronghold of Security emotes",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.barbarian_village.stronghold_entrance",
+    "end_location_id": "location.barbarian_village.stronghold_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.flap",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.slap_head",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.idea",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.stamp",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.varrock.medium.task.varp_1176_20",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.varrock.medium.task.varp_1176_20",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Perform Flap, Slap Head, Idea and Stamp at the surface waypoint."
+    }
+  }
+]

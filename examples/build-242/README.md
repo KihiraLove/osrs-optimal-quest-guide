@@ -12,6 +12,16 @@ quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-ar
 quest-optimizer replay artifacts/lumbridge-arrival.json --catalog data/manifest.json --profile examples/build-242/lumbridge-arrival-profile.json
 ```
 
+`stronghold-security-profile.json` uses the Lumbridge starter state. It claims
+Count Check's one-time lamp, walks to Barbarian Village, collects 10,000 GP
+and all four emotes, and records the two Varrock diary tasks. Door traversal
+uses estimated durations and assumes the player reaches the reward rooms alive.
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/stronghold-security-profile.json --beam-width 96 > artifacts/stronghold-security.json
+quest-optimizer replay artifacts/stronghold-security.json --catalog data/manifest.json --profile examples/build-242/stronghold-security-profile.json
+```
+
 `fairy-ring-access-profile.json` starts in Draynor with saved Lost City and
 Fairytale I progress and a dramen staff. The route obtains ring access
 before returning to other goals and uses D.I.S. The fixture records time to
@@ -53,14 +63,15 @@ three quest points and 1,500 XP each in Crafting and Woodcutting. A carried
 tablet supplies an exit when the spell is unavailable.
 
 `lost-city-combat-profile.json` connects both segments from Lumbridge.
-It starts with Magic 13, Woodcutting 36, Crafting 31 and 4,500 carried GP
-from prior progression. The route pays an estimated 4,143 GP for runes,
-a knife and an escape tablet. It budgets 60 Fire Strikes per encounter
+It starts with Magic 13, Woodcutting 36 and Crafting 31 from prior progression
+and the starter kit with 25 GP in the bank. It uses 5,000 GP from the first two
+Stronghold floors to pay an estimated 4,143 GP for runes, a knife and an escape
+tablet. It budgets 60 Fire Strikes per encounter
 and credits 138 Magic XP as a floor across the successful fights. Each
 combat step states what must happen before continuing.
 
 ```sh
-quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-combat-profile.json --beam-width 96 > artifacts/lost-city-combat.json
+quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-combat-profile.json --beam-width 128 > artifacts/lost-city-combat.json
 quest-optimizer replay artifacts/lost-city-combat.json --catalog data/manifest.json --profile examples/build-242/lost-city-combat-profile.json
 quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-preparation-profile.json > artifacts/lost-city-preparation.json
 quest-optimizer replay artifacts/lost-city-preparation.json --catalog data/manifest.json --profile examples/build-242/lost-city-preparation-profile.json

@@ -2,7 +2,7 @@
   "schema_version": "0.1.0",
   "profile_id": "profile.fixture.lost_city_combat",
   "dataset_id": "osrs.main",
-  "dataset_version": "0.13.0",
+  "dataset_version": "0.14.0",
   "status": "synthetic",
   "account_type": "main",
   "members": true,
@@ -27,7 +27,10 @@
     "training_methods": "user_choice",
     "training_time_in_objective": false,
     "training_resume_policy": "return_to_route_waypoint",
-    "world": 330
+    "world": 330,
+    "has_jagex_account": true,
+    "has_bank_pin": true,
+    "has_authenticator": true
   },
   "initial_state": {
     "location_id": "location.lumbridge.castle_courtyard",
@@ -84,8 +87,7 @@
       "item.small_fishing_net": 1,
       "item.tinderbox": 1,
       "item.water_rune": 6,
-      "item.wooden_shield": 1,
-      "item.coins": 4500
+      "item.wooden_shield": 1
     },
     "held_rewards": [],
     "modeled_elapsed_seconds": 0
@@ -94,12 +96,13 @@
     "quest.lost_city.complete"
   ],
   "assumptions": [
-    "Synthetic funded main at Lumbridge with the standard starter kit and 4,500 carried GP earned before this fixture.",
+    "Synthetic main at Lumbridge with the starter kit and 25 banked GP.",
     "Magic 13, Woodcutting 36 and Crafting 31 are saved from prior progression.",
-    "The fixture buys the combat runes, knife and a backup Lumbridge tablet with carried coins.",
+    "Stronghold of Security claims fund the combat runes, knife and backup Lumbridge tablet.",
     "Quest training steps request XP amounts. The player chooses the methods.",
     "Train base Prayer to 43 early. Its XP is neutral in the manual XP objective.",
-    "The two dungeon outcomes must succeed in game. Reserve use and incidental XP in the solution are conservative."
+    "The two dungeon outcomes must succeed in game. Reserve use and incidental XP in the solution are conservative.",
+    "Assume a Jagex account with a bank PIN and authenticator already active."
   ],
   "priority_skill_levels": {
     "skill.prayer": 43

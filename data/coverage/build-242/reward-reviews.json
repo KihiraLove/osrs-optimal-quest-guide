@@ -183,5 +183,115 @@
     "source_ids": ["source.jagex.quest_month_2026_11_03"],
     "delivery": "completion",
     "legacy_claim": "review_if_already_completed"
+  },
+  {
+    "id": "claim.count_check.lamp",
+    "status": "collected",
+    "source_ids": [
+      "source.jagex.count_check_lamp",
+      "source.project.account_security",
+      "source.project.travel_timing"
+    ],
+    "expected_effects": {
+      "claim.count_check.lamp": [
+        {
+          "kind": "flag",
+          "token_id": "flag.count_check.lamp_received",
+          "value": true
+        },
+        {
+          "kind": "xp_reward",
+          "reward_id": "reward.count_check.lamp",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "stronghold.security.claim_war",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.stronghold_security",
+      "source.capture.stronghold_reward_rooms",
+      "source.project.account_security"
+    ],
+    "expected_effects": {
+      "stronghold.security.claim_war": [
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 2000
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.flap",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "stronghold.security.claim_famine",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.stronghold_security",
+      "source.capture.stronghold_reward_rooms",
+      "source.project.account_security"
+    ],
+    "expected_effects": {
+      "stronghold.security.claim_famine": [
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 3000
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.slap_head",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "stronghold.security.claim_pestilence",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.stronghold_security",
+      "source.capture.stronghold_reward_rooms",
+      "source.project.account_security"
+    ],
+    "expected_effects": {
+      "stronghold.security.claim_pestilence": [
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 5000
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.idea",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "stronghold.security.complete",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.stronghold_security",
+      "source.jagex.count_check_lamp",
+      "source.project.account_security"
+    ],
+    "expected_effects": {
+      "stronghold.security.complete": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.stronghold.stamp",
+          "value": true
+        }
+      ]
+    }
   }
 ]

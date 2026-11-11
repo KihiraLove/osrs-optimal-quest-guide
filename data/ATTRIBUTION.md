@@ -18,6 +18,9 @@ original descriptions of findings. The data uses pinned upstream sources.
   Fire Strike XP and NPC health observations, and the pinned Quest Helper
   dungeon sequence. The combat review records the differing health values
   and the project's rune reserves.
+- Count Check's lamp uses Jagex's account security update. Stronghold
+  room and exit waypoints come from the build 242 map and Quest Helper.
+  Enjar's gameplay capture documents the early coin claims.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

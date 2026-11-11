@@ -136,7 +136,7 @@ class QuestCollectionTests(unittest.TestCase):
         profile = read_json(ROOT / "examples/build-242/lost-city-combat-profile.json")
         scenario = read_json(RAW / "lost-city-combat.json")
         validator = CatalogValidator(self.catalog, self.contracts)
-        solution, _ = solve_bounded(validator, profile, beam_width=96, max_expansions=12000)
+        solution, _ = solve_bounded(validator, profile, beam_width=128, max_expansions=12000)
         state = verify_solution(solution, profile, validator)["final_state"]
         combat_steps = [step for step in solution["steps"] if "planned_outcome" in step]
         self.assertEqual([step["action_id"] for step in combat_steps], [
@@ -155,7 +155,17 @@ class QuestCollectionTests(unittest.TestCase):
         self.assertTrue(state["flags"]["flag.quest.lost_city.tree_spirit_defeated"])
         self.assertTrue(state["flags"]["flag.quest.lost_city.complete"])
         self.assertEqual(state["counters"]["token.quest_points"], 4)
-        self.assertEqual(state["inventory"]["item.coins"], 357)
+        self.assertEqual(state["inventory"]["item.coins"], 857)
+        self.assertEqual(state["counters"]["token.bank_coins"], 25)
+        purchases = [step["action_id"] for step in solution["steps"] if step.get("action_id", "").startswith(
+            "supply.grand_exchange.purchase_"
+        )]
+        self.assertCountEqual(purchases, [
+            "supply.grand_exchange.purchase_lost_city_runes", "supply.grand_exchange.purchase_knife",
+            "supply.grand_exchange.purchase_lumbridge_tablet",
+        ])
+        action_ids = [step.get("action_id") for step in solution["steps"]]
+        self.assertLess(action_ids.index("stronghold.security.claim_famine"), action_ids.index(purchases[0]))
         self.assertEqual(state["inventory"]["item.air_rune"], 25)
         self.assertEqual(state["inventory"]["item.mind_rune"], 15)
         self.assertNotIn("item.fire_rune", state["inventory"])

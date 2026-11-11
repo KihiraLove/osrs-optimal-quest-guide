@@ -5,7 +5,9 @@ import unittest
 
 from quest_optimizer.bounded_search import solve_bounded
 from quest_optimizer.data import Contracts, DataError, load_catalog, read_json
+from quest_optimizer.replay import verify_solution
 from quest_optimizer.semantics import CatalogValidator
+from quest_optimizer.transitions import RouteState
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -104,6 +106,81 @@ class OptionalProgressionTests(unittest.TestCase):
             {"kind": "policy", "name": "allow_wilderness_travel", "value": True},
             actions["miniquest.enter_the_abyss.start"]["requirements"]["requirements"],
         )
+
+    def test_stronghold_funds_the_starter_and_records_both_diary_tasks(self):
+        profile = read_json(ROOT / "examples/build-242/stronghold-security-profile.json")
+        review = read_json(RAW / "account-security.json")["stronghold"]
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile, beam_width=96, max_expansions=10000)
+        final = verify_solution(solution, profile, validator)["final_state"]
+        self.assertEqual(final["inventory"]["item.coins"], review["total_coins"])
+        self.assertEqual(final["counters"], profile["initial_state"]["counters"])
+        self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {"skill.prayer": 503390})
+        actions = [step["action_id"] for step in solution["steps"] if step["kind"] == "action"]
+        easy, medium = [row["task_id"] for row in review["diary_links"]]
+        self.assertLess(actions.index(easy), actions.index("stronghold.security.claim_famine"))
+        self.assertLess(actions.index("stronghold.security.complete"), actions.index(medium))
+        self.assertTrue(final["flags"]["flag." + easy])
+        self.assertTrue(final["flags"]["flag." + medium])
+        self.assertTrue(final["flags"]["flag.count_check.lamp_received"])
+        entrance = "location.barbarian_village.stronghold_entrance"
+        self.assertTrue(all(edge["mode"] == "walk" for edge in self.catalog["travel_edges"]
+                            if edge["to_location_id"] == entrance))
+
+    def test_count_check_claim_obeys_security_and_pays_xp_at_use(self):
+        profile = read_json(ROOT / "examples/build-242/stronghold-security-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        action = validator.tables["actions"]["claim.count_check.lamp"]
+        initial = profile["initial_state"]
+        initial["location_id"] = action["start_location_id"]
+        claim = {"kind": "action", "action_id": action["id"], "modeled_seconds": action["duration"]["expected_seconds"]}
+        for policy in ("has_jagex_account", "has_bank_pin", "has_authenticator"):
+            with self.subTest(policy=policy):
+                policies = {**profile["policies"], policy: False}
+                with self.assertRaisesRegex(DataError, "reward claim"):
+                    RouteState(validator.tables, policies, initial).apply(claim)
+        state = RouteState(validator.tables, profile["policies"], initial).apply(claim)
+        with self.assertRaisesRegex(DataError, "repeat limit"):
+            state.apply(claim)
+        skill = "skill.crafting"
+        reward = "reward.count_check.lamp"
+        instance = reward + ".instance.1"
+        self.assertEqual(state.reward_pick(instance, skill, "lamp"), 100)
+        after = state.thresholds[skill][42]
+        trained = state.apply({"kind": "training", "skill_id": skill, "before_xp_tenths": 0,
+                               "gain_xp_tenths": after, "after_xp_tenths": after,
+                               "resume_location_id": state.location, "required_by": [skill]})
+        self.assertEqual(trained.reward_pick(instance, skill, "lamp"), 4300)
+        spent = trained.apply({"kind": "reward_use", "reward_id": reward, "instance_id": instance,
+                               "skill_id": skill, "gain_xp_tenths": 4300,
+                               "overrides_observed_skill_restriction": False})
+        self.assertEqual(spent.xp[skill], after + 4300)
+        self.assertFalse(spent.held)
+        initial["flags"]["flag.count_check.lamp_received"] = True
+        with self.assertRaisesRegex(DataError, "reward claim"):
+            RouteState(validator.tables, profile["policies"], initial).apply(claim)
+
+    def test_solver_uses_count_check_lamp_to_avoid_manual_magic_xp(self):
+        profile = read_json(ROOT / "examples/build-242/lost-city-combat-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        action = validator.tables["actions"]["quest.lost_city.get_dungeon_axe"]
+        reward = "reward.count_check.lamp"
+        profile["goal_action_ids"] = [action["id"]]
+        initial = profile["initial_state"]
+        initial.update(
+            location_id=action["start_location_id"],
+            completed_action_ids=["quest.lost_city.descend_entrana", "claim.count_check.lamp"],
+            inventory={cost["item_id"]: cost["quantity"] for cost in action["consumes"]},
+            held_rewards=[{"reward_id": reward, "instance_id": reward + ".instance.1", "remaining_picks": 1}],
+        )
+        initial["inventory"]["item.lumbridge_teleport_tablet"] = 1
+        initial["flags"]["flag.count_check.lamp_received"] = True
+        initial["xp_tenths"]["skill.magic"] -= 1200
+        solution, _ = solve_bounded(validator, profile)
+        verify_solution(solution, profile, validator)
+        [use] = [step for step in solution["steps"] if step["kind"] == "reward_use"]
+        self.assertEqual((use["reward_id"], use["skill_id"], use["gain_xp_tenths"]), (reward, "skill.magic", 1200))
+        self.assertEqual(solution["objective"]["counted_manual_training_xp_tenths"], 0)
 
 
 class DiaryDetourFixtureTests(unittest.TestCase):

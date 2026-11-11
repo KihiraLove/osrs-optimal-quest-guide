@@ -14,7 +14,8 @@ from .objectives import counted_training, outstanding, priority_xp
 from .reachability import unreachable_records
 from .replay import verify_solution
 from .search import (
-    _leaves, _reward_skills, _reward_steps, _state_key, _training_step, _transition_key, _transition_step, build_solution,
+    _is_xp_teleport, _leaves, _reward_skills, _reward_steps, _state_key, _training_step, _transition_key,
+    _transition_step, build_solution,
 )
 from .semantics import CatalogValidator
 from .transitions import RouteState
@@ -273,6 +274,9 @@ class _Guide:
             self.required_items[action_id] = items
 
         self.routes = defaultdict(list)
+        self.xp_teleports = {
+            edge_id for edge_id, edge in initial.tables["travel_edges"].items() if _is_xp_teleport(edge)
+        }
         item_sources = defaultdict(list)
         route_items = {item for items in self.required_items.values() for item in items}
         incoming = defaultdict(list)
@@ -335,7 +339,8 @@ class _Guide:
             }
             for item, deficit in lacking.items():
                 item_gaps[item] = max(item_gaps.get(item, 0), deficit)
-            if any(rule["kind"] == "action_completed" and rule["action_id"] not in state.completed for rule in rules):
+            if any(rule["kind"] in ("action_completed", "flag", "policy") and not state._progress_gates_met(rule)
+                   for rule in rules):
                 continue
             targets = set()
             if lacking:
@@ -521,10 +526,24 @@ def solve_bounded(
                 continue
             rank = (manual + bound, skill_seconds, len(outstanding(candidate.state.xp, skill_targets)),
                     priority_remaining, priority_seconds + priority_distance,
-                    remaining, deficit, item_gap, seconds + distance, rng.getrandbits(64), ids)
+                    remaining, deficit, item_gap, seconds + distance,
+                    -len(candidate.state.used_transitions & guide.xp_teleports), rng.getrandbits(64), ids)
             ranked.append((rank, candidate))
         ranked.sort(key=lambda row: row[0])
-        frontier = [candidate for _, candidate in ranked[:beam_width]]
+        # Reserve room for different waypoints and prerequisite progress. Many
+        # zero-time lamp choices otherwise crowd out travel to the next goal.
+        frontier, alternatives, groups = [], [], set()
+        for _, candidate in ranked:
+            state = candidate.state
+            group = (state.location, frozenset(guide.needed.keys() & state.completed))
+            if group in groups:
+                alternatives.append(candidate)
+                continue
+            groups.add(group)
+            frontier.append(candidate)
+            if len(frontier) == beam_width:
+                break
+        frontier.extend(alternatives[:beam_width - len(frontier)])
 
     if best is None:
         raise DataError(f"Bounded search found no complete route after expanding {expansion_count} states")

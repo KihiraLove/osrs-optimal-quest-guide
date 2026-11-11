@@ -102,6 +102,8 @@ class Build242BaselineTests(unittest.TestCase):
         self.assertEqual(initial["xp_tenths"], expected_xp)
         for name, validator in self.contracts.policy_validators.items():
             self.assertTrue(validator.is_valid(self.baseline["policies"][name]), name)
+        for name in ("has_jagex_account", "has_bank_pin", "has_authenticator"):
+            self.assertTrue(self.baseline["policies"][name])
         self.assertEqual(self.baseline["policies"]["training_methods"], "user_choice")
         self.assertEqual(self.baseline["policies"]["quest_lamp_skill_policy"], "any_skill")
         self.assertEqual(self.baseline["policies"]["gp_policy"], "self_funded")

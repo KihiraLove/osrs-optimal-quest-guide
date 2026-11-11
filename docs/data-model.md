@@ -195,6 +195,10 @@ template. A template specifies skill eligibility, the minimum base level, whethe
 an instance can be carried, and a fixed amount or exact lookup by target level.
 A carried lamp may still be unbankable. Each instance has a pick count and an
 explicit distinct-skill rule. Each pick awards its whole XP amount.
+Count Check's one-time lamp is an `other_lamp` using a base-level lookup at use.
+Main profiles declare the Jagex account, active bank PIN and authenticator
+through boolean policies. The Stronghold coin and emote claims use those
+same profile assumptions.
 
 Use a `reward_claim` action when the player must visit an NPC after the quest.
 Give it a completion gate, location, one-time limit and award effect. The quest

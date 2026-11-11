@@ -66,7 +66,9 @@ every eligible lamp pick at its highest amount. It allows every skill to receive
 the same pick for the purpose of this bound, and it ignores award order.
 The result can be loose. The beam ranks states by incurred XP plus this bound,
 then uses mandatory progress, current XP and item deficits, and optimistic
-waypoint distance. When a ready action needs a missing item, that distance
+waypoint distance. It keeps the best state for each waypoint and set of
+completed prerequisites before filling spare slots with alternatives.
+When a ready action needs a missing item, that distance
 uses available item sources as destinations. Actual routes must
 traverse available catalog edges and pay their costs.
 

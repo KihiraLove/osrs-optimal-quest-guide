@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.13.0` loads 24 skill tables and
-105 draft actions, including Lost City stages, The Restless Ghost, the museum
+3 November 2026 at 10:00:06 UTC. Dataset `0.14.0` loads 24 skill tables and
+112 draft actions, including Lost City stages, The Restless Ghost, the museum
 route and Enlightened Journey. Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
 waypoints belongs to the travel graph. An action description identifies any
@@ -46,8 +46,8 @@ has a separate claim record with the taskmaster candidates, lamp values and
 travel unlock references. The [optional progression review](raw/build-242/optional-progression-review.json)
 tracks pending mechanics for all 19 miniquests, publisher corrections and the
 overlap between diary tasks and the essence mine teleports in Enter the Abyss.
-Only the three individual task flags are loaded. Complete diary tiers and their
-claims require gameplay review before they enter the catalog.
+Three essence mine task flags and the two Stronghold tasks for Varrock are
+loaded. Complete diary tiers and their claims remain in review.
 
 The [museum review](raw/build-242/museum-review.json) links all 14 quiz plaques to
 the [archived object tiles](raw/build-242/museum-map.json). Each plaque gives two
@@ -75,6 +75,11 @@ list, policies and modeled Lumbridge arrival with one quest point. The
 [self-funded economy](catalog/starter-economy/actions.json) models bank
 withdrawal, one sale and purchases with carried coins. Price observations
 are in the [starter economy record](raw/build-242/starter-economy.json).
+The [account security record](raw/build-242/account-security.json) documents
+the Jagex account, bank PIN and authenticator assumptions. Walking to the
+Stronghold opens up to 10,000 GP across the first three rooms. Its four emotes
+support the Varrock Medium task. Count Check offers a one-time lamp in
+Lumbridge Graveyard worth ten times the chosen skill's base level at use.
 
 [The Fairytale II review](raw/build-242/fairytale-ii-review.json) separates
 fairy-ring access at the Godfather conversation from the later skill checks
@@ -90,8 +95,8 @@ Ferry and balloon arrivals check the current pack. Banked gear can be retrieved
 at Lumbridge Castle. The [Lost City combat review](raw/build-242/lost-city-combat.json)
 records two conditional Fire Strike steps. The forecast debits each rune
 reserve and credits a floor on base cast XP. Reconcile runes and XP with the
-observed state before replanning. The funded fixture reaches Zanaris from
-Lumbridge with saved levels and carried GP. The preparation and saved
+observed state before replanning. The funded fixture starts at Lumbridge with
+saved levels and uses the first two Stronghold payouts to buy supplies. The preparation and saved
 post-combat fixtures remain available for those route segments.
 
 The [timer inventory](raw/build-242/progression-timers.json) lists the step

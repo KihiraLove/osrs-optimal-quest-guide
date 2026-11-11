@@ -138,11 +138,14 @@ def _transition_step(kind: str, record: dict) -> dict:
     return step
 
 
-def _transition_key(kind: str, record: dict) -> tuple[str, str]:
-    spell = kind == "travel" and record["mode"] == "teleport_spell" and any(
+def _is_xp_teleport(record: dict) -> bool:
+    return record.get("mode") == "teleport_spell" and any(
         effect["kind"] == "xp" and effect["skill_id"] == "skill.magic" for effect in record["effects"]
     )
-    return (("!" if spell else "") + record["id"], kind)
+
+
+def _transition_key(kind: str, record: dict) -> tuple[str, str]:
+    return (("!" if _is_xp_teleport(record) else "") + record["id"], kind)
 
 
 def _progress_steps(state: RouteState, routes: dict, maximum_time: int):
