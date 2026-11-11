@@ -6,7 +6,9 @@
     "source.runelite.quests",
     "source.capture.rfd_opening_and_goblins",
     "source.capture.rfd_rock_cake",
-    "source.runelite.npc_health"
+    "source.runelite.npc_health",
+    "source.capture.rfd_pirate_pete",
+    "source.runelite.cooking_calculator"
   ],
   "activity_id": "quest.recipe_for_disaster",
   "parent_goal": {
@@ -252,13 +254,16 @@
           "skill.crafting": 10000,
           "skill.fishing": 10000,
           "skill.smithing": 10000
-        }
+        },
+        "delivery_action_id": "rfd.freeing_pirate_pete.complete"
       },
       "review": {
         "duration_seconds": null,
-        "mandatory_incidental_xp_tenths": null,
-        "combat_feasibility": "review",
-        "notes": "Verify the diving setup and fishcake ingredients. The helper's Ironman-only 42 Crafting or started Rum Deal alternative concerns fishbowl supply."
+        "mandatory_incidental_xp_tenths": {
+          "skill.cooking": 1000
+        },
+        "combat_feasibility": "conditional",
+        "notes": "Murphy awards the fishbowl helmet, diving apparatus and camp access during the quest. The main account purchases an empty fishbowl. The forecast uses base Cooking 31, five solo mudskippers and a 19 HP crab. Verify boost timing, dive pack boundaries, the needle handover, Hitpoints XP, resupply after a burn, and chest stock."
       }
     },
     {
@@ -738,7 +743,7 @@
     }
   ],
   "notes": [
-    "Direct gates and fixed completion XP are transcribed from the pinned helper and checked against the journal IDs. The seven remaining stages still need their gameplay mechanics verified for catalog admission.",
+    "Direct gates and fixed completion XP are transcribed from the pinned helper and checked against the journal IDs. The six remaining stages still need their gameplay mechanics verified for catalog admission.",
     "The rescue entry and handover coordinates identify instanced interaction areas. Use the source observations for intermediate waypoints and supplies, then verify how to enter or exit each instance.",
     "Skill checks are listed separately so a boost can be evaluated at the relevant phase.",
     "Each of the ten stages contributes its own quest point. The parent goal duplicates no reward."
@@ -746,6 +751,7 @@
   "normalized_stages": [
     "rfd.another_cooks_quest",
     "rfd.freeing_the_goblin_generals",
-    "rfd.freeing_the_mountain_dwarf"
+    "rfd.freeing_the_mountain_dwarf",
+    "rfd.freeing_pirate_pete"
   ]
 }

@@ -1,0 +1,51 @@
+{
+  "game_revision": "osrs-live-242",
+  "activity_id": "rfd.freeing_pirate_pete",
+  "status": "collected",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.capture.rfd_pirate_pete",
+    "source.runelite.rfd_item_ids",
+    "source.runelite.npc_health",
+    "source.runelite.cooking_calculator",
+    "source.capture.fishing_trawler_teleport",
+    "source.runelite.varbits"
+  ],
+  "item_delivery": {
+    "action_id": "rfd.freeing_pirate_pete.get_diving_gear",
+    "consumed": "item.empty_fishbowl",
+    "items": [
+      "item.fishbowl_helmet",
+      "item.diving_apparatus"
+    ],
+    "unlock": "unlock.mogre_camp"
+  },
+  "dive": {
+    "action_id": "rfd.freeing_pirate_pete.dive",
+    "modeled_acceptance": "Equip both pieces of diving gear, stay below 27 kg, and leave pets on the surface.",
+    "modeled_ballast": {
+      "token_id": "token.mogre_camp.ballast",
+      "capacity": 5,
+      "required_per_grounded_area": 5
+    },
+    "cave_npc_ids": [
+      4820,
+      4821
+    ],
+    "crab_scenario_npc_id": 4819,
+    "planned_food_use": null,
+    "credit_damage_xp": {
+      "skill.attack": 4760
+    }
+  },
+  "fishcake": {
+    "minimum_cooking_level": 31,
+    "success_xp_tenths": 1000,
+    "can_burn": true
+  },
+  "open_checks": [
+    "Confirm exact dock and dive landing tiles, the 27 kg boundary and item or follower rejection rules.",
+    "Verify ballast reset and hides handling on interrupted trips, the needle handover, and actual food and Hitpoints XP.",
+    "Check the first Cooking requirement and boost eligibility, burn rate and recovery, direct teleport from the crab pen, and chest stock."
+  ]
+}

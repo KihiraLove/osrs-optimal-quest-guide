@@ -1,0 +1,900 @@
+[
+  {
+    "id": "rfd.freeing_pirate_pete.inspect",
+    "name": "Inspect frozen Pirate Pete",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.frozen_pirate_pete",
+    "end_location_id": "location.rfd.frozen_pirate_pete",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.another_cooks_quest.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 31,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The draft uses base Cooking 31. Verify the exact first skill check and boost behavior."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.ask_cook",
+    "name": "Ask the Cook about Pirate Pete and the four ingredients",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_pirate_pete.inspect"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 38,
+      "max_seconds": 85
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes the Cook’s four ingredient explanations before visiting Murphy."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.get_diving_gear",
+    "name": "Give the empty fishbowl to Murphy for diving gear",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_khazard.murphy",
+    "end_location_id": "location.port_khazard.murphy",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_pirate_pete.ask_cook"
+    },
+    "consumes": [
+      {
+        "item_id": "item.empty_fishbowl",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fishbowl_helmet",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.diving_apparatus",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mogre_camp",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 31,
+      "max_seconds": 70
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes the dialogue to exchange the bowl for the helmet and apparatus. Grants Mogre Camp access before quest completion."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.dive",
+    "name": "Equip the diving gear and dive with Murphy",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_khazard.murphy",
+    "end_location_id": "location.mogre_camp.anchor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.mogre_camp",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fishbowl_helmet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.diving_apparatus",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 3,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_pirate_pete",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes swimming to the anchor waypoint. The pack check is a condition of this modeled outcome."
+    },
+    "planned_outcome": {
+      "success_condition": "Equip the helmet and apparatus and have Murphy accept the dive with weight below 27 kg and no pet. Leave space for kelp and five hides.",
+      "if_unmet": "If Murphy rejects the loadout, bank excess weight or remove the pet and replan from the dock."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.harvest_kelp",
+    "name": "Pick kelp in Mogre Camp",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.mogre_camp.kelp",
+    "end_location_id": "location.mogre_camp.kelp",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_pirate_pete.dive"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mogre_kelp",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 15
+    },
+    "repeat_limit": 3,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One kelp for one fishcake."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.speak_to_nung",
+    "name": "Ask Nung what he needs for access to the crab pen",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.mogre_camp.nung",
+    "end_location_id": "location.mogre_camp.nung",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_pirate_pete.dive"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 19,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Nung requests five mudskipper hides."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.collect_ballast",
+    "name": "Pick up five rocks for ballast",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.mogre_camp.rocks",
+    "end_location_id": "location.mogre_camp.rocks",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_pirate_pete.speak_to_nung"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.mogre_camp.ballast",
+        "delta": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 15,
+      "max_seconds": 35
+    },
+    "repeat_limit": 4,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.varbits",
+        "source.capture.rfd_pirate_pete",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The tracked ballast count reaches five. This is separate from carried inventory."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.collect_hides",
+    "name": "Defeat five mudskippers and collect their hides",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.mogre_camp.mudskipper_cave",
+    "end_location_id": "location.mogre_camp.mudskipper_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_pirate_pete.speak_to_nung"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_shortsword",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mudskipper_hide",
+        "quantity": 5
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 4000
+      }
+    ],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 180,
+      "max_seconds": 410
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.npc_health",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The forecast credits 400 Attack XP for five solo kills at 20 HP on Accurate. Hitpoints XP and food use are left to observed play."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat five full-health mudskippers solo on Accurate and collect five hides before surfacing.",
+      "if_unmet": "If the fights become unsafe or the hides are missing, stop and replan from observed XP and progress."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.give_hides",
+    "name": "Give Nung five mudskipper hides",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.mogre_camp.nung",
+    "end_location_id": "location.mogre_camp.nung",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_pirate_pete.speak_to_nung"
+    },
+    "consumes": [
+      {
+        "item_id": "item.mudskipper_hide",
+        "quantity": 5
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 15,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Turns in the five hides during the dive."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.give_nung_wire",
+    "name": "Bring Nung three bronze wire and a needle",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.mogre_camp.nung",
+    "end_location_id": "location.mogre_camp.nung",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_pirate_pete.give_hides"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.needle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bronze_wire",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mogre_camp.crab_pen",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 18,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The modeled handover follows the helper’s retained-needle declaration."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.collect_crab_meat",
+    "name": "Defeat a crab in the pen and collect the meat",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.mogre_camp.crab_pen",
+    "end_location_id": "location.mogre_camp.crab_pen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.mogre_camp.crab_pen",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_shortsword",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.giant_crab_meat",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 760
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 42,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.npc_health",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "NPC 4819 has 19 HP. The forecast credits 76 Attack XP for the solo Accurate scenario."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat a full-health 19 HP crab solo on Accurate and pick up its raw giant crab meat.",
+      "if_unmet": "If the crab drops no meat or the fight becomes unsafe, stop and replan from the actual inventory and XP."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.grind_ingredients",
+    "name": "Grind raw cod, kelp and giant crab meat",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_pirate_pete.ask_cook"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_cod",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.mogre_kelp",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.giant_crab_meat",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ground_cod",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ground_kelp",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ground_giant_crab_meat",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 13,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Grind the three ingredients separately with the reusable pestle and mortar."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.make_breadcrumbs",
+    "name": "Use a knife on bread to make breadcrumbs",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_pirate_pete.ask_cook"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bread",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.breadcrumbs",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Keep the knife after preparing the breadcrumbs."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.confirm_recipe",
+    "name": "Show the Cook the four prepared ingredients",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_pirate_pete.ask_cook"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mogre_camp.crab_pen",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ground_cod",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ground_kelp",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ground_giant_crab_meat",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.breadcrumbs",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 17,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Cook explains how to assemble the fishcake after seeing the ingredients."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.mix_fishcake",
+    "name": "Combine the four ingredients into a raw fishcake",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_pirate_pete.confirm_recipe"
+    },
+    "consumes": [
+      {
+        "item_id": "item.ground_cod",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ground_kelp",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ground_giant_crab_meat",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.breadcrumbs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_fishcake",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 7,
+      "max_seconds": 15
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Combine the ingredients before using the range."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.cook_fishcake",
+    "name": "Cook the fishcake on the Lumbridge range",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_pirate_pete.mix_fishcake"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 31,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_fishcake",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fishcake",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 1000
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 18
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.cooking_calculator",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "A successful cook awards 100 Cooking XP separately from the rescue."
+    },
+    "planned_outcome": {
+      "success_condition": "Cook the raw fishcake successfully and keep the cooked fishcake.",
+      "if_unmet": "If the fishcake burns, stop and replace the ingredients before continuing. The forecast only credits a successful cook."
+    }
+  },
+  {
+    "id": "rfd.freeing_pirate_pete.complete",
+    "name": "Give the fishcake to Pirate Pete",
+    "activity_id": "rfd.freeing_pirate_pete",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.frozen_pirate_pete",
+    "end_location_id": "location.rfd.frozen_pirate_pete",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_pirate_pete.inspect"
+    },
+    "consumes": [
+      {
+        "item_id": "item.fishcake",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 10000
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 15,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the fishcake on Pete. Murphy already awarded the diving gear and camp access."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_pirate_pete_diving_supplies",
+    "name": "Buy the empty fishbowl, needle and bronze wire",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 813
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.empty_fishbowl",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.needle",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_wire",
+        "quantity": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Uses carried coins and a 813 GP Grand Exchange guide-price estimate."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_pirate_pete_fishcake_supplies",
+    "name": "Buy a pestle and mortar, raw cod and bread",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 381
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.raw_cod",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bread",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Uses carried coins and a 381 GP Grand Exchange guide-price estimate."
+    }
+  }
+]

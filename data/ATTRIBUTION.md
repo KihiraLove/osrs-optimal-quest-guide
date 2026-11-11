@@ -27,6 +27,9 @@ original descriptions of findings. The data uses pinned upstream sources.
 - Fishing Contest and the Mountain Dwarf use pinned Quest Helper waypoints and
   RuneLite item IDs. The Fishing Contest review and timer inventory link to
   historical accounts of the trophy reward and rock cake cooling.
+- Pirate Pete uses the pinned Quest Helper, RuneLite item and NPC metadata,
+  and RuneLite's Cooking calculator. Tip.It records the historical dive
+  sequence, and OSRS Guide documents the Fishing Trawler grouping teleport.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

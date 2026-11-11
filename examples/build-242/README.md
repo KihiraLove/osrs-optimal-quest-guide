@@ -103,6 +103,17 @@ quest-optimizer solve-bounded data/manifest.json examples/build-242/rfd-mountain
 quest-optimizer replay artifacts/rfd-mountain-dwarf.json --catalog data/manifest.json --profile examples/build-242/rfd-mountain-dwarf-profile.json
 ```
 
+`rfd-pirate-pete-profile.json` starts at the Grand Exchange with the banquet
+open, Fishing Contest complete, Cooking and Magic 31, prepared melee stats
+and 1,194 GP. The route purchases supplies, reaches Murphy via the Fishing
+Trawler grouping teleport, and climbs the anchor to return to the dock. The
+forecast assumes successful combat and a successful first fishcake cook.
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/rfd-pirate-pete-profile.json --beam-width 128 --max-expansions 40000 > artifacts/rfd-pirate-pete.json
+quest-optimizer replay artifacts/rfd-pirate-pete.json --catalog data/manifest.json --profile examples/build-242/rfd-pirate-pete-profile.json
+```
+
 The optional progression tests cover the three essence mine task flags in the
 draft catalog. A synthetic fixture compares manual training with a diary task,
 tier completion and NPC lamp claim that together meet the same quest goal.

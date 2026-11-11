@@ -359,6 +359,58 @@ class QuestCollectionTests(unittest.TestCase):
             {"kind": "skill", "skill_id": "skill.cooking", "minimum_level": 31, "boostable": False},
         ])
 
+    def test_pirate_pete_replays_gear_ballast_and_fishcake_rewards(self):
+        pete = "rfd.freeing_pirate_pete"
+        profile = read_json(ROOT / "examples/build-242/rfd-pirate-pete-profile.json")
+        review = read_json(RAW / "pirate-pete-review.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile, beam_width=128, max_expansions=40000)
+        state = verify_solution(solution, profile, validator)["final_state"]
+        self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {})
+        self.assertEqual(state["counters"]["token.quest_points"], 5)
+        self.assertEqual(state["counters"].get("token.mogre_camp.ballast", 0), 0)
+        self.assertTrue(state["flags"]["unlock.mogre_camp"])
+        self.assertTrue(state["flags"]["unlock.mogre_camp.crab_pen"])
+        self.assertEqual(state["inventory"], {
+            "item.bronze_shortsword": 1, "item.diving_apparatus": 1, "item.fishbowl_helmet": 1,
+            "item.knife": 1, "item.needle": 1, "item.pestle_and_mortar": 1, "item.shrimps": 6,
+        })
+
+        [source] = self.observations[pete]
+        expected_xp = profile["initial_state"]["xp_tenths"].copy()
+        for effect in source["declared_xp"]["observations"]:
+            expected_xp[effect["skill_id"]] += effect["xp_tenths"]
+        expected_xp["skill.cooking"] += review["fishcake"]["success_xp_tenths"]
+        expected_xp["skill.attack"] += review["dive"]["credit_damage_xp"]["skill.attack"]
+        expected_xp["skill.magic"] += 820
+        self.assertEqual(state["xp_tenths"], expected_xp)
+
+        steps = solution["steps"]
+        gear = next(i for i, step in enumerate(steps) if step.get("action_id") == f"{pete}.get_diving_gear")
+        dive = next(i for i, step in enumerate(steps) if step.get("action_id") == f"{pete}.dive")
+        self.assertLess(gear, dive)
+        self.assertEqual([step["action_id"] for step in steps if "planned_outcome" in step], [
+            f"{pete}.dive", f"{pete}.collect_hides", f"{pete}.collect_crab_meat", f"{pete}.cook_fishcake",
+        ])
+        edges = {step.get("edge_id") for step in steps}
+        self.assertTrue({
+            "travel.other.lumbridge.fishing_trawler", "travel.other.mogre_camp.climb_anchor",
+            "travel.spell.port_khazard.lumbridge",
+        } <= edges)
+
+        ballast = [i for i, step in enumerate(steps) if step.get("action_id") == f"{pete}.collect_ballast"]
+        self.assertEqual(len(ballast), 2)
+        for index, blocked in zip(ballast, ("enter_mudskipper_cave", "enter_crab_pen"), strict=True):
+            with self.subTest(blocked=blocked):
+                skipped = {**solution, "steps": steps[:index] + steps[index + 1:]}
+                with self.assertRaisesRegex(DataError, "counter threshold"):
+                    verify_solution(skipped, profile, validator)
+
+        cook = next(step for step in steps if step.get("action_id") == f"{pete}.cook_fishcake")
+        del cook["planned_outcome"]
+        with self.assertRaisesRegex(DataError, "planned_outcome"):
+            verify_solution(solution, profile, validator)
+
     def test_publisher_reward_delta_and_separate_claim(self):
         rewards = read_json(RAW / "quest-month-rewards.json")["changes"]
         by_activity = {change["activity_id"]: change for change in rewards}
