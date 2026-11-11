@@ -125,6 +125,19 @@ quest-optimizer solve-bounded data/manifest.json examples/build-242/big-chompy-b
 quest-optimizer replay artifacts/big-chompy-bird-hunting.json --catalog data/manifest.json --profile examples/build-242/big-chompy-bird-hunting-profile.json
 ```
 
+`rfd-skrach-uglogwee-profile.json` starts at the Grand Exchange after the
+banquet and Big Chompy Bird Hunting. It carries the ogre bow, a one-load
+bellows and 3,239 GP. The saved itinerary buys supplies, pays Captain Barnaby
+to reach Karamja, and uses the children's quest ride to return to Feldip.
+The forecast uses two gas loads for the bait and assumes the signal roast,
+hunt and final roast succeed. Fresh bounded searches can insert extra walks
+while the Fishing Trawler cooldown runs. The saved itinerary gives a verified
+route for replay or for use as an incumbent.
+
+```sh
+quest-optimizer replay examples/build-242/rfd-skrach-uglogwee-solution.json --catalog data/manifest.json --profile examples/build-242/rfd-skrach-uglogwee-profile.json
+```
+
 The optional progression tests cover the three essence mine task flags in the
 draft catalog. A synthetic fixture compares manual training with a diary task,
 tier completion and NPC lamp claim that together meet the same quest goal.

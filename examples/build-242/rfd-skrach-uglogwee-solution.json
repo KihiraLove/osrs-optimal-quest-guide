@@ -1,0 +1,458 @@
+{
+  "schema_version": "0.1.0",
+  "solution_id": "solution.fixture.rfd_skrach_uglogwee",
+  "inputs": {
+    "dataset_id": "osrs.main",
+    "dataset_version": "0.19.0",
+    "profile_id": "profile.fixture.rfd_skrach_uglogwee",
+    "catalog_sha256": "b4e3c24587f50aa7d73aa44a219c929261297bbe34c465b2c88348334d5f7d8e",
+    "profile_sha256": "dbc4613b806b23bfb8c9046b16a79fba4eb4587cf8a2150f50e7c6cbdb78b37e",
+    "schemas_sha256": "67c5898cc3b30a41d5bf9996b5be36c2a5798fce998844e2adc6d9d26039a5c6"
+  },
+  "policies": {
+    "quest_lamp_skill_policy": "any_skill",
+    "trade_enabled": true,
+    "gp_policy": "self_funded",
+    "allow_boosts": true,
+    "allow_poh_services": false,
+    "allow_wilderness_travel": true,
+    "allow_death_travel": false,
+    "allow_minigame_teleports": true,
+    "allow_world_switching": false,
+    "allow_player_assistance": true,
+    "allow_repeatable_xp": false,
+    "training_methods": "user_choice",
+    "training_time_in_objective": false,
+    "training_resume_policy": "return_to_route_waypoint"
+  },
+  "solver": {
+    "name": "hand-authored-example",
+    "seed": 0,
+    "status": "example",
+    "primary_lower_bound_xp_tenths": null,
+    "secondary_lower_bound_seconds": null,
+    "version": "0.1.0",
+    "proof_artifact": null
+  },
+  "objective": {
+    "order": [
+      "manual_training_xp_tenths",
+      "modeled_non_training_seconds",
+      "stable_step_ids"
+    ],
+    "manual_training_xp_tenths": 0,
+    "modeled_non_training_seconds": 1307
+  },
+  "manual_training_xp_tenths_by_skill": {},
+  "steps": [
+    {
+      "step_id": "step.000001",
+      "kind": "action",
+      "action_id": "supply.grand_exchange.purchase_jubbly_arrows",
+      "modeled_seconds": 15,
+      "explanation": "Buy twelve ogre arrows for the jubbly hunt"
+    },
+    {
+      "step_id": "step.000002",
+      "kind": "action",
+      "action_id": "supply.grand_exchange.purchase_skrach_supplies",
+      "modeled_seconds": 17,
+      "explanation": "Buy the iron spit, raw chompy, logs and wool"
+    },
+    {
+      "step_id": "step.000003",
+      "kind": "travel",
+      "edge_id": "travel.spell.grand_exchange.lumbridge",
+      "modeled_seconds": 5,
+      "explanation": "Cast Lumbridge Teleport"
+    },
+    {
+      "step_id": "step.000004",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.kitchen.out",
+      "modeled_seconds": 16,
+      "explanation": "Lumbridge courtyard and kitchen"
+    },
+    {
+      "step_id": "step.000005",
+      "kind": "travel",
+      "edge_id": "travel.walk.rfd.dining_room.out",
+      "modeled_seconds": 8,
+      "explanation": "Enter the frozen dining room"
+    },
+    {
+      "step_id": "step.000006",
+      "kind": "travel",
+      "edge_id": "travel.walk.rfd.frozen_skrach.out",
+      "modeled_seconds": 5,
+      "explanation": "Walk to Skrach Uglogwee"
+    },
+    {
+      "step_id": "step.000007",
+      "kind": "action",
+      "action_id": "rfd.freeing_skrach_uglogwee.inspect",
+      "modeled_seconds": 15,
+      "explanation": "Inspect frozen Skrach Uglogwee"
+    },
+    {
+      "step_id": "step.000008",
+      "kind": "travel",
+      "edge_id": "travel.walk.rfd.frozen_skrach.back",
+      "modeled_seconds": 5,
+      "explanation": "Walk back to the banquet entrance waypoint"
+    },
+    {
+      "step_id": "step.000009",
+      "kind": "travel",
+      "edge_id": "travel.walk.rfd.dining_room.back",
+      "modeled_seconds": 8,
+      "explanation": "Return to the Lumbridge kitchen"
+    },
+    {
+      "step_id": "step.000010",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.kitchen.back",
+      "modeled_seconds": 16,
+      "explanation": "Lumbridge courtyard and kitchen (return)"
+    },
+    {
+      "step_id": "step.000011",
+      "kind": "travel",
+      "edge_id": "travel.other.lumbridge.fishing_trawler",
+      "modeled_seconds": 20,
+      "explanation": "Use the Fishing Trawler grouping teleport"
+    },
+    {
+      "step_id": "step.000012",
+      "kind": "travel",
+      "edge_id": "travel.walk.kandarin.khazard_feldip.out",
+      "modeled_seconds": 178,
+      "explanation": "Walk from Port Khazard to Rantz"
+    },
+    {
+      "step_id": "step.000013",
+      "kind": "action",
+      "action_id": "rfd.freeing_skrach_uglogwee.ask_rantz",
+      "modeled_seconds": 22,
+      "explanation": "Ask Rantz how to free Skrach"
+    },
+    {
+      "step_id": "step.000014",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_coast.out",
+      "modeled_seconds": 17,
+      "explanation": "Walk to Rantz on the coast"
+    },
+    {
+      "step_id": "step.000015",
+      "kind": "action",
+      "action_id": "rfd.freeing_skrach_uglogwee.meet_on_coast",
+      "modeled_seconds": 28,
+      "explanation": "Meet Rantz by the sea and watch him fell the tree"
+    },
+    {
+      "step_id": "step.000016",
+      "kind": "action",
+      "action_id": "rfd.freeing_skrach_uglogwee.carve_boat",
+      "modeled_seconds": 22,
+      "explanation": "Trim and hollow the fallen tree with an axe"
+    },
+    {
+      "step_id": "step.000017",
+      "kind": "action",
+      "action_id": "rfd.freeing_skrach_uglogwee.mark_karamja",
+      "modeled_seconds": 27,
+      "explanation": "Tell Rantz the boat is ready and watch him mark Karamja"
+    },
+    {
+      "step_id": "step.000018",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_coast.back",
+      "modeled_seconds": 17,
+      "explanation": "Walk back to Rantz’s cave"
+    },
+    {
+      "step_id": "step.000019",
+      "kind": "travel",
+      "edge_id": "travel.walk.kandarin.khazard_feldip.back",
+      "modeled_seconds": 178,
+      "explanation": "Walk from Rantz to Port Khazard"
+    },
+    {
+      "step_id": "step.000020",
+      "kind": "travel",
+      "edge_id": "travel.walk.kandarin.port_khazard.back",
+      "modeled_seconds": 72,
+      "explanation": "Walk to Ardougne Monastery"
+    },
+    {
+      "step_id": "step.000021",
+      "kind": "travel",
+      "edge_id": "travel.walk.kandarin.cedric.out",
+      "modeled_seconds": 28,
+      "explanation": "Monastery and Brother Cedric"
+    },
+    {
+      "step_id": "step.000022",
+      "kind": "travel",
+      "edge_id": "travel.walk.kandarin.ardougne_dock.out",
+      "modeled_seconds": 56,
+      "explanation": "Walk to Captain Barnaby"
+    },
+    {
+      "step_id": "step.000023",
+      "kind": "travel",
+      "edge_id": "travel.ship.ardougne.brimhaven.out",
+      "modeled_seconds": 14,
+      "explanation": "Pay Captain Barnaby to sail to Brimhaven"
+    },
+    {
+      "step_id": "step.000024",
+      "kind": "travel",
+      "edge_id": "travel.walk.karamja.brimhaven_signal.out",
+      "modeled_seconds": 118,
+      "explanation": "Walk from Brimhaven to the marked tree"
+    },
+    {
+      "step_id": "step.000025",
+      "kind": "action",
+      "action_id": "rfd.freeing_skrach_uglogwee.signal_boat",
+      "modeled_seconds": 26,
+      "explanation": "Roast a chompy at the marked Karamja tree",
+      "planned_outcome": {
+        "success_condition": "Cook the skewered chompy successfully beside Rantz’s arrow and wait for Bugs and Fycie to reach Karamja.",
+        "if_unmet": "If the bird burns or the children do not appear, check the fire tile and restock before replanning from actual XP and inventory."
+      }
+    },
+    {
+      "step_id": "step.000026",
+      "kind": "action",
+      "action_id": "rfd.freeing_skrach_uglogwee.ride_back",
+      "modeled_seconds": 31,
+      "explanation": "Ride back to Feldip with Bugs and Fycie"
+    },
+    {
+      "step_id": "step.000027",
+      "kind": "action",
+      "action_id": "rfd.freeing_skrach_uglogwee.learn_balloon_bait",
+      "modeled_seconds": 22,
+      "explanation": "Ask coastal Rantz how to make jubbly bait"
+    },
+    {
+      "step_id": "step.000028",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_coast.back",
+      "modeled_seconds": 17,
+      "explanation": "Walk back to Rantz’s cave"
+    },
+    {
+      "step_id": "step.000029",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_swamp.out",
+      "modeled_seconds": 28,
+      "explanation": "Walk to the swamp bubbles"
+    },
+    {
+      "step_id": "step.000030",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.jubbly_rocks.out",
+      "modeled_seconds": 25,
+      "explanation": "Walk to the bait rocks"
+    },
+    {
+      "step_id": "step.000031",
+      "kind": "action",
+      "action_id": "rfd.freeing_skrach_uglogwee.mine_bait_rock",
+      "modeled_seconds": 35,
+      "explanation": "Mine a rock and return to the swamp"
+    },
+    {
+      "step_id": "step.000032",
+      "kind": "action",
+      "action_id": "rfd.freeing_skrach_uglogwee.prepare_balloon_with_one_load",
+      "modeled_seconds": 20,
+      "explanation": "Make a balloon toad with one load"
+    },
+    {
+      "step_id": "step.000033",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_swamp.back",
+      "modeled_seconds": 28,
+      "explanation": "Walk back to Rantz"
+    },
+    {
+      "step_id": "step.000034",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_clearing.out",
+      "modeled_seconds": 14,
+      "explanation": "Walk to Rantz’s hunting clearing"
+    },
+    {
+      "step_id": "step.000035",
+      "kind": "action",
+      "action_id": "rfd.freeing_skrach_uglogwee.hunt_jubbly",
+      "modeled_seconds": 69,
+      "explanation": "Bait, shoot and pluck a jubbly",
+      "planned_outcome": {
+        "success_condition": "Place the balloon toad, kill a full-health jubbly on Accurate or Rapid within 12 ogre arrows, then pluck it and pick up the raw meat.",
+        "if_unmet": "If the bait fails or the reserve runs out, prepare more bait and ammunition and replan from actual progress and XP."
+      }
+    },
+    {
+      "step_id": "step.000036",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_clearing.back",
+      "modeled_seconds": 14,
+      "explanation": "Walk back to Rantz"
+    },
+    {
+      "step_id": "step.000037",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_spit.out",
+      "modeled_seconds": 7,
+      "explanation": "Walk to Rantz’s spit-roast"
+    },
+    {
+      "step_id": "step.000038",
+      "kind": "action",
+      "action_id": "rfd.freeing_skrach_uglogwee.cook_jubbly",
+      "modeled_seconds": 9,
+      "explanation": "Cook the jubbly on Rantz’s spit-roast",
+      "planned_outcome": {
+        "success_condition": "Cook the raw jubbly successfully on the ogre spit-roast and keep it for Skrach.",
+        "if_unmet": "If the bird burns, acquire another and replan from the actual inventory."
+      }
+    },
+    {
+      "step_id": "step.000039",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_spit.back",
+      "modeled_seconds": 7,
+      "explanation": "Walk back to Rantz"
+    },
+    {
+      "step_id": "step.000040",
+      "kind": "travel",
+      "edge_id": "travel.spell.feldip_hills.lumbridge",
+      "modeled_seconds": 5,
+      "explanation": "Cast Lumbridge Teleport"
+    },
+    {
+      "step_id": "step.000041",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.kitchen.out",
+      "modeled_seconds": 16,
+      "explanation": "Lumbridge courtyard and kitchen"
+    },
+    {
+      "step_id": "step.000042",
+      "kind": "travel",
+      "edge_id": "travel.walk.rfd.dining_room.out",
+      "modeled_seconds": 8,
+      "explanation": "Enter the frozen dining room"
+    },
+    {
+      "step_id": "step.000043",
+      "kind": "travel",
+      "edge_id": "travel.walk.rfd.frozen_skrach.out",
+      "modeled_seconds": 5,
+      "explanation": "Walk to Skrach Uglogwee"
+    },
+    {
+      "step_id": "step.000044",
+      "kind": "action",
+      "action_id": "rfd.freeing_skrach_uglogwee.complete",
+      "modeled_seconds": 14,
+      "explanation": "Give Skrach the jubbly you cooked"
+    }
+  ],
+  "final_state": {
+    "location_id": "location.rfd.frozen_skrach_uglogwee",
+    "xp_tenths": {
+      "skill.agility": 0,
+      "skill.attack": 0,
+      "skill.construction": 0,
+      "skill.cooking": 429310,
+      "skill.crafting": 15000,
+      "skill.defence": 0,
+      "skill.farming": 0,
+      "skill.firemaking": 45100,
+      "skill.fishing": 35910,
+      "skill.fletching": 6500,
+      "skill.herblore": 0,
+      "skill.hitpoints": 11540,
+      "skill.hunter": 300,
+      "skill.magic": 149150,
+      "skill.mining": 0,
+      "skill.prayer": 0,
+      "skill.ranged": 157180,
+      "skill.runecraft": 0,
+      "skill.sailing": 0,
+      "skill.slayer": 0,
+      "skill.smithing": 0,
+      "skill.strength": 0,
+      "skill.thieving": 0,
+      "skill.woodcutting": 15000
+    },
+    "completed_action_ids": [
+      "quest.big_chompy_bird_hunting.complete",
+      "quest.cooks_assistant.complete",
+      "quest.fishing_contest.complete",
+      "rfd.another_cooks_quest.complete",
+      "rfd.freeing_skrach_uglogwee.ask_rantz",
+      "rfd.freeing_skrach_uglogwee.carve_boat",
+      "rfd.freeing_skrach_uglogwee.complete",
+      "rfd.freeing_skrach_uglogwee.cook_jubbly",
+      "rfd.freeing_skrach_uglogwee.hunt_jubbly",
+      "rfd.freeing_skrach_uglogwee.inspect",
+      "rfd.freeing_skrach_uglogwee.learn_balloon_bait",
+      "rfd.freeing_skrach_uglogwee.mark_karamja",
+      "rfd.freeing_skrach_uglogwee.meet_on_coast",
+      "rfd.freeing_skrach_uglogwee.mine_bait_rock",
+      "rfd.freeing_skrach_uglogwee.prepare_balloon_with_one_load",
+      "rfd.freeing_skrach_uglogwee.ride_back",
+      "rfd.freeing_skrach_uglogwee.signal_boat",
+      "supply.grand_exchange.purchase_jubbly_arrows",
+      "supply.grand_exchange.purchase_skrach_supplies"
+    ],
+    "flags": {
+      "unlock.white_wolf_mountain_tunnel": true,
+      "flag.spellbook.standard": true,
+      "unlock.culinaromancers_chest": true,
+      "unlock.chompy_hunting": true,
+      "unlock.ogre_arrow_fletching": true,
+      "unlock.ogre_boat": true,
+      "unlock.jubbly_hunting": true
+    },
+    "counters": {
+      "token.quest_points": 7
+    },
+    "inventory": {
+      "item.ogre_bow": 1,
+      "item.bronze_axe": 1,
+      "item.bronze_pickaxe": 1,
+      "item.tinderbox": 1,
+      "item.iron_spit": 1,
+      "item.ogre_bellows_two_loads": 1
+    },
+    "held_rewards": [],
+    "modeled_elapsed_seconds": 1307,
+    "cooldowns": {
+      "cooldown.minigame_teleport": 1330
+    },
+    "travel_counts": {
+      "travel.spell.grand_exchange.lumbridge": 1,
+      "travel.spell.feldip_hills.lumbridge": 1
+    }
+  },
+  "verification": {
+    "schema_valid": true,
+    "replay_valid": true,
+    "catalog_release_ready": false
+  },
+  "limitations": [
+    "This example follows the paid ferry approach and the quest-only return ride.",
+    "Training steps specify XP gains and resume waypoints. The player chooses the method.",
+    "Replay checks the planned success path. Confirm each conditional outcome in game before continuing."
+  ]
+}

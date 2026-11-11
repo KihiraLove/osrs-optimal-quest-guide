@@ -1,0 +1,902 @@
+[
+  {
+    "id": "rfd.freeing_skrach_uglogwee.inspect",
+    "name": "Inspect frozen Skrach Uglogwee",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.frozen_skrach_uglogwee",
+    "end_location_id": "location.rfd.frozen_skrach_uglogwee",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.another_cooks_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.big_chompy_bird_hunting.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The banquet and Big Chompy Bird Hunting gates apply. Skill checks belong to the respective cooking steps."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.ask_rantz",
+    "name": "Ask Rantz how to free Skrach",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz",
+    "end_location_id": "location.feldip_hills.rantz",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_skrach_uglogwee.inspect"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Rantz asks to meet on the Feldip coast."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.meet_on_coast",
+    "name": "Meet Rantz by the sea and watch him fell the tree",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz_coast",
+    "end_location_id": "location.feldip_hills.fallen_boat_tree",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_skrach_uglogwee.ask_rantz"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 28,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The dialogue includes moving to the fallen tree after Rantz kicks it over."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.carve_boat",
+    "name": "Trim and hollow the fallen tree with an axe",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.fallen_boat_tree",
+    "end_location_id": "location.feldip_hills.rantz_coast",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_skrach_uglogwee.meet_on_coast"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.iron_axe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the axe twice and walk back to coastal Rantz. Keep the tool. Any eligible axe works in game."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.mark_karamja",
+    "name": "Tell Rantz the boat is ready and watch him mark Karamja",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz_coast",
+    "end_location_id": "location.feldip_hills.rantz_coast",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_skrach_uglogwee.carve_boat"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 27,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Rantz shoots his own arrow and tells the player to roast a chompy at the marked tree."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.signal_boat",
+    "name": "Roast a chompy at the marked Karamja tree",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.karamja.ogre_boat_signal",
+    "end_location_id": "location.karamja.ogre_boat_signal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_skrach_uglogwee.mark_karamja"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 20,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 30,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.iron_spit",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.raw_chompy",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 400
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 1000
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 26,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_skrach_uglogwee",
+        "source.runelite.cooking_calculator",
+        "source.runelite.firemaking_calculator",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Light a normal log, skewer the chompy and cook it by the arrow. Keep the spit. The forecast allocates the chompy to the signal and credits normal fire and roast XP."
+    },
+    "planned_outcome": {
+      "success_condition": "Cook the skewered chompy successfully beside Rantz’s arrow and wait for Bugs and Fycie to reach Karamja.",
+      "if_unmet": "If the bird burns or the children do not appear, check the fire tile and restock before replanning from actual XP and inventory."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.ride_back",
+    "name": "Ride back to Feldip with Bugs and Fycie",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.karamja.ogre_boat_signal",
+    "end_location_id": "location.feldip_hills.rantz_coast",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_skrach_uglogwee.signal_boat"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 31,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_skrach_uglogwee",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest return ride after the signal. There is no modeled fare on this trip."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.learn_balloon_bait",
+    "name": "Ask coastal Rantz how to make jubbly bait",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz_coast",
+    "end_location_id": "location.feldip_hills.rantz_coast",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_skrach_uglogwee.ride_back"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 22,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Rantz explains the balloon toad after the return journey."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.mine_bait_rock",
+    "name": "Mine a rock and return to the swamp",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.jubbly_bait_rocks",
+    "end_location_id": "location.feldip_hills.swamp_bubbles",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_skrach_uglogwee.learn_balloon_bait"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.swamp_rock",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mine the rock near A.K.S. and return to the swamp bubbles. Keep the pickaxe. Incidental Mining XP is in review."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.hunt_jubbly",
+    "name": "Bait, shoot and pluck a jubbly",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.chompy_clearing",
+    "end_location_id": "location.feldip_hills.chompy_clearing",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_skrach_uglogwee.learn_balloon_bait"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ogre_bow",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.ranged",
+          "minimum_level": 30,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.balloon_toad",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ogre_arrow",
+        "quantity": 12
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_jubbly",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.ranged",
+        "xp_tenths": 800
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 69,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.npc_health",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes placing the balloon at [2635, 2965, 0]. Solo Accurate or Rapid scenario against NPC 4863 at 20 HP. Debit the arrow reserve and reconcile recovered ammunition and Hitpoints XP."
+    },
+    "planned_outcome": {
+      "success_condition": "Place the balloon toad, kill a full-health jubbly on Accurate or Rapid within 12 ogre arrows, then pluck it and pick up the raw meat.",
+      "if_unmet": "If the bait fails or the reserve runs out, prepare more bait and ammunition and replan from actual progress and XP."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.cook_jubbly",
+    "name": "Cook the jubbly on Rantz’s spit-roast",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz_spit",
+    "end_location_id": "location.feldip_hills.rantz_spit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_skrach_uglogwee.hunt_jubbly"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 41,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_jubbly",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cooked_jubbly",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 1600
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 22
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.cooking_calculator",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RuneLite records 160 Cooking XP for a successful cook. This is separate from the rescue reward."
+    },
+    "planned_outcome": {
+      "success_condition": "Cook the raw jubbly successfully on the ogre spit-roast and keep it for Skrach.",
+      "if_unmet": "If the bird burns, acquire another and replan from the actual inventory."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.complete",
+    "name": "Give Skrach the jubbly you cooked",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.frozen_skrach_uglogwee",
+    "end_location_id": "location.rfd.frozen_skrach_uglogwee",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_skrach_uglogwee.inspect"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_skrach_uglogwee.cook_jubbly"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.cooked_jubbly",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.ranged",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.ogre_boat",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.jubbly_hunting",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 14,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Records the post-quest boat and hunting unlocks once at the handover."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_skrach_supplies",
+    "name": "Buy the iron spit, raw chompy, logs and wool",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1481
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_chompy",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_spit",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ball_of_wool",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Uses carried coins and a 1481 GP guide-price estimate."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_jubbly_arrows",
+    "name": "Buy twelve ogre arrows for the jubbly hunt",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1728
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ogre_arrow",
+        "quantity": 12
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Uses carried coins and a 1728 GP guide-price estimate."
+    }
+  },
+  {
+    "id": "supply.feldip.take_spare_ogre_bellows",
+    "name": "Take a replacement ogre bellows from Rantz’s chest",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.feldip_hills.bellows_chest",
+    "end_location_id": "location.feldip_hills.bellows_chest",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.big_chompy_bird_hunting.complete"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ogre_bellows",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 11,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The pinned Big Chompy helper identifies the chest as a source of replacements."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.prepare_balloon_with_one_load",
+    "name": "Make a balloon toad with one load",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.swamp_bubbles",
+    "end_location_id": "location.feldip_hills.swamp_bubbles",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_skrach_uglogwee.learn_balloon_bait"
+    },
+    "consumes": [
+      {
+        "item_id": "item.ogre_bellows_one_load",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.swamp_rock",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ball_of_wool",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.balloon_toad",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ogre_bellows_two_loads",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 60
+    },
+    "repeat_limit": 2,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_skrach_uglogwee",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Catch the toad with the last load. Refill the empty bellows, then inflate the toad again. Use the rock and budget one ball of wool. Reconcile unused wool after inflating."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.prepare_balloon_with_two_loads",
+    "name": "Make a balloon toad with two loads",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.swamp_bubbles",
+    "end_location_id": "location.feldip_hills.swamp_bubbles",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_skrach_uglogwee.learn_balloon_bait"
+    },
+    "consumes": [
+      {
+        "item_id": "item.ogre_bellows_two_loads",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.swamp_rock",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ball_of_wool",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.balloon_toad",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ogre_bellows",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 16,
+      "max_seconds": 48
+    },
+    "repeat_limit": 2,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_skrach_uglogwee",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use both loads on the two inflations. Use the rock and budget one ball of wool. Reconcile unused wool after inflating."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.prepare_balloon_with_three_loads",
+    "name": "Make a balloon toad with three loads",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.swamp_bubbles",
+    "end_location_id": "location.feldip_hills.swamp_bubbles",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_skrach_uglogwee.learn_balloon_bait"
+    },
+    "consumes": [
+      {
+        "item_id": "item.ogre_bellows_three_loads",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.swamp_rock",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ball_of_wool",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.balloon_toad",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ogre_bellows_one_load",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 16,
+      "max_seconds": 48
+    },
+    "repeat_limit": 2,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_skrach_uglogwee",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use two of the three loads. Use the rock and budget one ball of wool. Reconcile unused wool after inflating."
+    }
+  },
+  {
+    "id": "rfd.freeing_skrach_uglogwee.prepare_balloon_with_empty_bellows",
+    "name": "Make a balloon toad with empty bellows",
+    "activity_id": "rfd.freeing_skrach_uglogwee",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.swamp_bubbles",
+    "end_location_id": "location.feldip_hills.swamp_bubbles",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_skrach_uglogwee.learn_balloon_bait"
+    },
+    "consumes": [
+      {
+        "item_id": "item.ogre_bellows",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.swamp_rock",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ball_of_wool",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.balloon_toad",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ogre_bellows_one_load",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 60
+    },
+    "repeat_limit": 2,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_skrach_uglogwee",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fill the empty bellows first, then use two loads. Use the rock and budget one ball of wool. Reconcile unused wool after inflating."
+    }
+  }
+]

@@ -8,7 +8,9 @@
     "source.capture.rfd_rock_cake",
     "source.runelite.npc_health",
     "source.capture.rfd_pirate_pete",
-    "source.runelite.cooking_calculator"
+    "source.runelite.cooking_calculator",
+    "source.capture.rfd_skrach_uglogwee",
+    "source.runelite.firemaking_calculator"
   ],
   "activity_id": "quest.recipe_for_disaster",
   "parent_goal": {
@@ -479,13 +481,17 @@
           "skill.cooking": 15000,
           "skill.crafting": 15000,
           "skill.ranged": 15000
-        }
+        },
+        "delivery_action_id": "rfd.freeing_skrach_uglogwee.complete"
       },
       "review": {
         "duration_seconds": null,
-        "mandatory_incidental_xp_tenths": null,
-        "combat_feasibility": "review",
-        "notes": "Big Chompy Bird Hunting is now replayable and supplies the ogre bow and bellows. Verify the coastal boat unlock, balloon-toad charge use, alternate arrows and incidental cooking and combat XP. Raw chompy is tradeable."
+        "mandatory_incidental_xp_tenths": {
+          "skill.firemaking": 400,
+          "skill.cooking": 2600
+        },
+        "combat_feasibility": "conditional",
+        "notes": "Supports the signal fire, the return ride, one gas load per inflation and the player’s own jubbly hunt and cook. Verify post-quest fares, signal inventory, wool consumption, Hitpoints and Mining XP, and burn recovery."
       }
     },
     {
@@ -743,7 +749,7 @@
     }
   ],
   "notes": [
-    "Direct gates and fixed completion XP are transcribed from the pinned helper and checked against the journal IDs. The six remaining stages still need their gameplay mechanics verified for catalog admission.",
+    "Direct gates and fixed completion XP are transcribed from the pinned helper and checked against the journal IDs. The five remaining stages still need their gameplay mechanics verified for catalog admission.",
     "The rescue entry and handover coordinates identify instanced interaction areas. Use the source observations for intermediate waypoints and supplies, then verify how to enter or exit each instance.",
     "Skill checks are listed separately so a boost can be evaluated at the relevant phase.",
     "Each of the ten stages contributes its own quest point. The parent goal duplicates no reward."
@@ -752,6 +758,7 @@
     "rfd.another_cooks_quest",
     "rfd.freeing_the_goblin_generals",
     "rfd.freeing_the_mountain_dwarf",
-    "rfd.freeing_pirate_pete"
+    "rfd.freeing_pirate_pete",
+    "rfd.freeing_skrach_uglogwee"
   ]
 }

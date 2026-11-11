@@ -4,6 +4,7 @@ All entries use the build 242 snapshot from 3 November 2026.
 
 | Version | Changes |
 | --- | --- |
+| 0.19.0 | Added Freeing Skrach Uglogwee, the Karamja signal and return ride, balloon-toad preparation, Captain Barnaby's ferry and fairy ring C.K.R. |
 | 0.18.0 | Added Big Chompy Bird Hunting with Rantz's demonstration, the player's hunt, seasoning requests and Feldip fairy ring A.K.S. |
 | 0.17.0 | Added Freeing Pirate Pete, including Murphy's diving gear, Mogre Camp, the two underwater encounters, fishcake preparation and the Fishing Trawler grouping teleport. |
 | 0.16.0 | Added the western Fishing Contest route, White Wolf Mountain tunnel, and Freeing the Mountain Dwarf with ice-glove and Icefiend routes. |
@@ -23,5 +24,5 @@ All entries use the build 242 snapshot from 3 November 2026.
 | 0.2.0 | Added the first quest actions and the pinned Quest Helper observations. |
 | 0.1.0 | Recorded the independent quest, skill, diary and optional content inventory for build 242. |
 
-The coverage audit records the release blockers for 0.18.0. The normalizer and
+The coverage audit records the release blockers for 0.19.0. The normalizer and
 audit use the existing dataset version.

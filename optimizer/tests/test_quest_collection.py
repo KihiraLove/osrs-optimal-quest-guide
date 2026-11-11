@@ -396,6 +396,77 @@ class QuestCollectionTests(unittest.TestCase):
         with self.assertRaisesRegex(DataError, "required items"):
             RouteState(validator.tables, profile["policies"], initial).apply(step)
 
+    def test_skrach_replays_the_signal_ride_and_player_cooked_jubbly(self):
+        quest = "rfd.freeing_skrach_uglogwee"
+        examples = ROOT / "examples/build-242"
+        profile = read_json(examples / "rfd-skrach-uglogwee-profile.json")
+        solution = read_json(examples / "rfd-skrach-uglogwee-solution.json")
+        review = read_json(RAW / "skrach-uglogwee-review.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        state = verify_solution(solution, profile, validator)["final_state"]
+        self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {})
+        self.assertEqual(state["counters"]["token.quest_points"], 7)
+        self.assertEqual(state["inventory"], {
+            "item.ogre_bow": 1, "item.ogre_bellows_two_loads": 1, "item.iron_spit": 1,
+            "item.bronze_axe": 1, "item.bronze_pickaxe": 1, "item.tinderbox": 1,
+        })
+        self.assertTrue(state["flags"]["unlock.ogre_boat"])
+        self.assertTrue(state["flags"]["unlock.jubbly_hunting"])
+
+        initial = profile["initial_state"]
+        [source] = self.observations[quest]
+        expected_xp = initial["xp_tenths"].copy()
+        for effect in source["declared_xp"]["observations"]:
+            expected_xp[effect["skill_id"]] += effect["xp_tenths"]
+        for award in review["incidental_xp_tenths"].values():
+            for skill, xp in award.items():
+                expected_xp[skill] += xp
+        expected_xp["skill.ranged"] += review["hunt"]["credited_ranged_xp_tenths"]
+        expected_xp["skill.magic"] += 820
+        self.assertEqual(state["xp_tenths"], expected_xp)
+
+        steps = solution["steps"]
+        edges = [step.get("edge_id") for step in steps if step["kind"] == "travel"]
+        self.assertEqual(edges.count("travel.ship.ardougne.brimhaven.out"), 1)
+        self.assertEqual([step["action_id"] for step in steps if "planned_outcome" in step], [
+            f"{quest}.signal_boat", f"{quest}.hunt_jubbly", f"{quest}.cook_jubbly",
+        ])
+        ride = next(step for step in steps if step.get("action_id") == f"{quest}.ride_back")
+        before_ride = RouteState(validator.tables, profile["policies"], initial)
+        for step in steps[:steps.index(ride)]:
+            before_ride = before_ride.apply(step)
+        self.assertFalse(before_ride.flags.get("unlock.ogre_boat", False))
+        self.assertEqual(before_ride.apply(ride).location, "location.feldip_hills.rantz_coast")
+
+        without_signal = {**solution, "steps": [step for step in steps if step.get("action_id") != f"{quest}.signal_boat"]}
+        with self.assertRaisesRegex(DataError, "required completed action"):
+            verify_solution(without_signal, profile, validator)
+        initial.update(location_id="location.rfd.frozen_skrach_uglogwee", completed_action_ids=[f"{quest}.inspect"])
+        initial["inventory"]["item.cooked_jubbly"] = 1
+        with self.assertRaisesRegex(DataError, "required completed action"):
+            RouteState(validator.tables, profile["policies"], initial).apply(steps[-1])
+
+    def test_skrach_balloon_bait_accounts_for_each_bellows_charge_state(self):
+        quest = "rfd.freeing_skrach_uglogwee"
+        profile = read_json(ROOT / "examples/build-242/rfd-skrach-uglogwee-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        for variant, before, after in (
+            ("empty_bellows", "ogre_bellows", "ogre_bellows_one_load"),
+            ("one_load", "ogre_bellows_one_load", "ogre_bellows_two_loads"),
+            ("two_loads", "ogre_bellows_two_loads", "ogre_bellows"),
+            ("three_loads", "ogre_bellows_three_loads", "ogre_bellows_one_load"),
+        ):
+            with self.subTest(variant=variant):
+                action = validator.tables["actions"][f"{quest}.prepare_balloon_with_{variant}"]
+                initial = {**profile["initial_state"], "location_id": action["start_location_id"],
+                           "completed_action_ids": [f"{quest}.learn_balloon_bait"],
+                           "inventory": {f"item.{before}": 1, "item.swamp_rock": 1, "item.ball_of_wool": 1}}
+                state = RouteState(validator.tables, profile["policies"], initial).apply({
+                    "kind": "action", "action_id": action["id"],
+                    "modeled_seconds": action["duration"]["expected_seconds"],
+                })
+                self.assertEqual(state.snapshot()["inventory"], {f"item.{after}": 1, "item.balloon_toad": 1})
+
     def test_rfd_parent_records_only_saved_finale_completion(self):
         profile = read_json(ROOT / "examples/build-242/rfd-opening-goblins-profile.json")
         validator = CatalogValidator(self.catalog, self.contracts)
