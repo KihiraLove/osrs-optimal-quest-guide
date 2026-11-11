@@ -61,8 +61,25 @@
       ],
       "additionalProperties": false
     },
+    "item_ids": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/id"},
+      "minItems": 1,
+      "uniqueItems": true
+    },
     "requirement": {
       "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {"const": "restricted_items"},
+            "location_id": {"$ref": "#/$defs/id"},
+            "container": {"enum": ["inventory", "bank_inventory"]},
+            "present": {"type": "boolean"}
+          },
+          "required": ["kind", "location_id", "container", "present"],
+          "additionalProperties": false
+        },
         {
           "type": "object",
           "properties": {
@@ -314,6 +331,16 @@
         {
           "type": "object",
           "properties": {
+            "kind": {"const": "bank_transfer"},
+            "location_id": {"$ref": "#/$defs/id"},
+            "direction": {"enum": ["deposit", "withdraw"]}
+          },
+          "required": ["kind", "location_id", "direction"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
             "kind": {
               "const": "xp"
             },
@@ -551,6 +578,11 @@
             "type": "integer",
             "minimum": 0
           }
+        },
+        "bank_inventory": {
+          "type": "object",
+          "propertyNames": {"$ref": "#/$defs/id"},
+          "additionalProperties": {"type": "integer", "minimum": 0}
         },
         "held_rewards": {
           "type": "array",

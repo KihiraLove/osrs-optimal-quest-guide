@@ -93,9 +93,10 @@
           "boostable": false
         },
         {
-          "kind": "flag",
-          "token_id": "flag.travel.entrana_safe_pack",
-          "value": true
+          "kind": "restricted_items",
+          "location_id": "location.balloon.entrana",
+          "container": "inventory",
+          "present": false
         }
       ]
     },
@@ -116,7 +117,8 @@
         "source.quest_helper.balloon_routes",
         "source.capture.balloon_routes",
         "source.quest_helper.enlightened_journey",
-        "source.project.travel_timing"
+        "source.project.travel_timing",
+        "source.entrana_plugin.item_check"
       ],
       "status": "estimated",
       "note": "Use one log for the chosen destination. The draft uses carried logs and a conservative base Firemaking check."
@@ -393,9 +395,10 @@
           "boostable": false
         },
         {
-          "kind": "flag",
-          "token_id": "flag.travel.entrana_safe_pack",
-          "value": true
+          "kind": "restricted_items",
+          "location_id": "location.balloon.entrana",
+          "container": "inventory",
+          "present": false
         }
       ]
     },
@@ -416,7 +419,8 @@
         "source.quest_helper.balloon_routes",
         "source.capture.balloon_routes",
         "source.quest_helper.enlightened_journey",
-        "source.project.travel_timing"
+        "source.project.travel_timing",
+        "source.entrana_plugin.item_check"
       ],
       "status": "estimated",
       "note": "Use one log for the chosen destination. The draft uses carried logs and a conservative base Firemaking check."
@@ -1047,9 +1051,10 @@
           "boostable": false
         },
         {
-          "kind": "flag",
-          "token_id": "flag.travel.entrana_safe_pack",
-          "value": true
+          "kind": "restricted_items",
+          "location_id": "location.balloon.entrana",
+          "container": "inventory",
+          "present": false
         }
       ]
     },
@@ -1070,7 +1075,8 @@
         "source.quest_helper.balloon_routes",
         "source.capture.balloon_routes",
         "source.quest_helper.enlightened_journey",
-        "source.project.travel_timing"
+        "source.project.travel_timing",
+        "source.entrana_plugin.item_check"
       ],
       "status": "estimated",
       "note": "Use one log for the chosen destination. The draft uses carried logs and a conservative base Firemaking check."
@@ -1347,9 +1353,10 @@
           "boostable": false
         },
         {
-          "kind": "flag",
-          "token_id": "flag.travel.entrana_safe_pack",
-          "value": true
+          "kind": "restricted_items",
+          "location_id": "location.balloon.entrana",
+          "container": "inventory",
+          "present": false
         }
       ]
     },
@@ -1370,7 +1377,8 @@
         "source.quest_helper.balloon_routes",
         "source.capture.balloon_routes",
         "source.quest_helper.enlightened_journey",
-        "source.project.travel_timing"
+        "source.project.travel_timing",
+        "source.entrana_plugin.item_check"
       ],
       "status": "estimated",
       "note": "Use one log for the chosen destination. The draft uses carried logs and a conservative base Firemaking check."
@@ -1647,9 +1655,10 @@
           "boostable": false
         },
         {
-          "kind": "flag",
-          "token_id": "flag.travel.entrana_safe_pack",
-          "value": true
+          "kind": "restricted_items",
+          "location_id": "location.balloon.entrana",
+          "container": "inventory",
+          "present": false
         }
       ]
     },
@@ -1670,7 +1679,8 @@
         "source.quest_helper.balloon_routes",
         "source.capture.balloon_routes",
         "source.quest_helper.enlightened_journey",
-        "source.project.travel_timing"
+        "source.project.travel_timing",
+        "source.entrana_plugin.item_check"
       ],
       "status": "estimated",
       "note": "Use one log for the chosen destination. The draft uses carried logs and a conservative base Firemaking check."
@@ -1831,9 +1841,10 @@
       "kind": "all",
       "requirements": [
         {
-          "kind": "flag",
-          "token_id": "flag.travel.entrana_safe_pack",
-          "value": true
+          "kind": "restricted_items",
+          "location_id": "location.balloon.entrana",
+          "container": "inventory",
+          "present": false
         }
       ]
     },
@@ -1848,7 +1859,8 @@
       "source_ids": [
         "source.quest_helper.enlightened_journey",
         "source.quest_helper.quest_observations",
-        "source.project.travel_timing"
+        "source.project.travel_timing",
+        "source.entrana_plugin.item_check"
       ],
       "status": "estimated",
       "note": "Pass the monks' equipment check, disembark on Entrana and walk to Auguste."
@@ -3654,6 +3666,60 @@
       ],
       "status": "estimated",
       "note": "Walk south to the mage's building."
+    }
+  },
+  {
+    "id": "travel.walk.port_sarim.deposit_box.out",
+    "name": "Walk from the ferry to the Port Sarim deposit box",
+    "mode": "walk",
+    "from_location_id": "location.port_sarim.entrana_ferry",
+    "to_location_id": "location.port_sarim.deposit_box",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 1,
+      "expected_seconds": 3,
+      "max_seconds": 7
+    },
+    "evidence": {
+      "source_ids": [
+        "source.jagex.cache_242_map",
+        "source.runelite.objects",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Short dock walk between the monks and the deposit box. Tiles are object and NPC waypoints."
+    }
+  },
+  {
+    "id": "travel.walk.port_sarim.deposit_box.back",
+    "name": "Return from the Port Sarim deposit box to the ferry",
+    "mode": "walk",
+    "from_location_id": "location.port_sarim.deposit_box",
+    "to_location_id": "location.port_sarim.entrana_ferry",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 1,
+      "expected_seconds": 3,
+      "max_seconds": 7
+    },
+    "evidence": {
+      "source_ids": [
+        "source.jagex.cache_242_map",
+        "source.runelite.objects",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Short dock walk between the monks and the deposit box. Tiles are object and NPC waypoints."
     }
   }
 ]

@@ -70,7 +70,7 @@ class QuestCollectionTests(unittest.TestCase):
                 with self.assertRaisesRegex(DataError, r"steps\.\d+ .* required completed action"):
                     verify_solution(skipped, profile, validator)
 
-    def test_lost_city_can_start_at_lumbridge_without_quest_skill_training(self):
+    def test_lost_city_preparation_replays_from_lumbridge_through_entrana(self):
         profile = read_json(ROOT / "examples/build-242/lost-city-preparation-profile.json")
         validator = CatalogValidator(self.catalog, self.contracts)
         solution, _ = solve_bounded(validator, profile, max_expansions=4000)
@@ -79,24 +79,24 @@ class QuestCollectionTests(unittest.TestCase):
         self.assertEqual(solution["objective"]["counted_manual_training_xp_tenths"], 0)
         self.assertEqual([step["action_id"] for step in solution["steps"] if step["kind"] == "action"], [
             "quest.lost_city.start", "quest.lost_city.find_shamus",
+            "supply.bank.deposit_entrana_gear", "quest.lost_city.descend_entrana",
         ])
-        self.assertEqual(solution["final_state"]["counters"]["token.quest_points"], 1)
-
-    def test_lost_city_entrana_descent_uses_existing_ferry(self):
-        profile = read_json(ROOT / "examples/build-242/lost-city-preparation-profile.json")
-        profile["goal_action_ids"] = ["quest.lost_city.descend_entrana"]
-        initial = profile["initial_state"]
-        initial.update(
-            location_id="location.port_sarim.entrana_ferry",
-            completed_action_ids=["quest.lost_city.start", "quest.lost_city.find_shamus"],
-            inventory={"item.knife": 1, "item.lumbridge_teleport_tablet": 1},
-        )
-        initial["flags"]["flag.travel.entrana_safe_pack"] = True
-        validator = CatalogValidator(self.catalog, self.contracts)
-        solution, _ = solve_bounded(validator, profile, max_expansions=4000)
-        verify_solution(solution, profile, validator)
-        self.assertIn("travel.ship.port_sarim.entrana", {step.get("edge_id") for step in solution["steps"]})
-        self.assertEqual(solution["final_state"]["location_id"], "location.entrana_dungeon.zombies")
+        state = solution["final_state"]
+        self.assertEqual(state["counters"]["token.quest_points"], 1)
+        self.assertEqual(state["location_id"], "location.entrana_dungeon.zombies")
+        initial_inventory = profile["initial_state"]["inventory"]
+        self.assertEqual(state["bank_inventory"], dict.fromkeys((
+            "item.bronze_axe", "item.bronze_dagger", "item.bronze_pickaxe", "item.bronze_shortsword",
+            "item.shortbow", "item.wooden_shield",
+        ), 1))
+        self.assertEqual(state["inventory"], {
+            item_id: quantity for item_id, quantity in initial_inventory.items() if item_id not in state["bank_inventory"]
+        })
+        without_deposit = {**solution, "steps": [
+            step for step in solution["steps"] if step.get("action_id") != "supply.bank.deposit_entrana_gear"
+        ]}
+        with self.assertRaisesRegex(DataError, "loadout fails a restriction"):
+            verify_solution(without_deposit, profile, validator)
 
     def test_lost_city_post_combat_route_awards_xp_and_zanaris_access(self):
         profile = read_json(ROOT / "examples/build-242/lost-city-completion-profile.json")

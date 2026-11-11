@@ -41,8 +41,9 @@ quest-optimizer solve-bounded data/manifest.json examples/build-242/restless-gho
 quest-optimizer replay artifacts/restless-ghost.json --catalog data/manifest.json --profile examples/build-242/restless-ghost-profile.json
 ```
 
-`lost-city-preparation-profile.json` starts at Lumbridge arrival and reaches
-Shamus with the starter axe. It uses the early Prayer policy. Woodcutting
+`lost-city-preparation-profile.json` starts at Lumbridge arrival, reaches Shamus
+with the starter axe, deposits restricted starter gear in Port Sarim, and
+descends into the Entrana dungeon. It uses the early Prayer policy. Woodcutting
 and Crafting are checked later in the quest.
 
 `lost-city-completion-profile.json` starts in the Entrana dungeon with saved

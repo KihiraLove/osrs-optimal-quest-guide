@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 EXAMPLES = ROOT / "examples/build-242"
 QUEST = "quest.enlightened_journey"
 LIGHT_PACK = "flag.travel.balloon_light_pack"
-ENTRANA_PACK = "flag.travel.entrana_safe_pack"
+ENTRANA = "location.balloon.entrana"
 
 
 class TravelTests(unittest.TestCase):
@@ -108,7 +108,7 @@ class TravelTests(unittest.TestCase):
         with self.assertRaisesRegex(DataError, "final_state.inventory"):
             self.check_solution()
 
-    def test_one_way_tablet_and_entrana_pack_gate(self):
+    def test_one_way_tablet(self):
         tablet = self.edges["travel.tablet.varrock.taverley"]
         self.assertEqual(tablet["consumes"], [{"item_id": "item.varrock_teleport_tablet", "quantity": 1}])
         self.assertFalse(any(
@@ -117,10 +117,64 @@ class TravelTests(unittest.TestCase):
             and edge["to_location_id"] == tablet["from_location_id"]
             for edge in self.edges.values()
         ))
-        pack_gate = {"kind": "flag", "token_id": ENTRANA_PACK, "value": True}
-        for edge_id in ("travel.ship.port_sarim.entrana", "travel.balloon.taverley.entrana"):
-            self.assertIn(pack_gate, self.edges[edge_id]["requirements"]["requirements"])
+
+    def test_every_entrana_arrival_checks_the_current_loadout(self):
+        pack_gate = {
+            "kind": "restricted_items", "location_id": ENTRANA, "container": "inventory", "present": False,
+        }
+        arrivals = [
+            edge for edge in self.edges.values()
+            if edge["to_location_id"] == ENTRANA and edge["mode"] in ("ship", "balloon")
+        ]
+        self.assertEqual(len(arrivals), 6)
+        for edge in arrivals:
+            self.assertIn(pack_gate, edge["requirements"]["requirements"])
         self.assertNotIn(pack_gate, self.edges["travel.ship.entrana.port_sarim"]["requirements"]["requirements"])
+
+        for edge_id in ("travel.ship.port_sarim.entrana", "travel.balloon.taverley.entrana"):
+            with self.subTest(edge_id=edge_id):
+                edge = self.edges[edge_id]
+                initial = {**self.profile["initial_state"], "location_id": edge["from_location_id"]}
+                initial["flags"] = {
+                    LIGHT_PACK: True, "unlock.balloon.entrana": True, "unlock.balloon.taverley": True,
+                }
+                initial["inventory"] = {"item.logs": 1, "item.bronze_arrow": 25, "item.air_rune": 25}
+                step = {"kind": "travel", "edge_id": edge_id, "modeled_seconds": edge["duration"]["expected_seconds"]}
+                state = RouteState(self.validator.tables, self.profile["policies"], initial)
+                self.assertEqual(state.apply(step).location, ENTRANA)
+                initial["flags"]["flag.travel.entrana_safe_pack"] = True
+                initial["inventory"]["item.iron_axe"] = 1
+                state = RouteState(self.validator.tables, self.profile["policies"], initial)
+                with self.assertRaisesRegex(DataError, "loadout fails a restriction"):
+                    state.apply(step)
+
+    def test_entrana_gear_can_be_withdrawn_at_the_full_bank(self):
+        profile = read_json(EXAMPLES / "cooks-assistant-profile.json")
+        action_id = "supply.bank.withdraw_entrana_gear"
+        profile["goal_action_ids"] = [action_id]
+        profile["initial_state"].update(
+            inventory={"item.bronze_axe": 1, "item.air_rune": 3},
+            bank_inventory={"item.bronze_axe": 2, "item.wooden_shield": 1, "item.mind_rune": 5},
+        )
+        solution, _ = solve_bounded(self.validator, profile)
+        final = verify_solution(solution, profile, self.validator)["final_state"]
+        self.assertEqual(final["location_id"], "location.lumbridge_castle.bank")
+        self.assertEqual(final["inventory"], {"item.bronze_axe": 3, "item.wooden_shield": 1, "item.air_rune": 3})
+        self.assertEqual(final["bank_inventory"], {"item.mind_rune": 5})
+        solution["final_state"]["bank_inventory"]["item.wooden_shield"] = 1
+        with self.assertRaisesRegex(DataError, "final_state.bank_inventory"):
+            verify_solution(solution, profile, self.validator)
+
+    def test_deposit_box_has_no_withdrawal_access(self):
+        action_id = "supply.bank.withdraw_entrana_gear"
+        action = self.actions[action_id]
+        box = "location.port_sarim.deposit_box"
+        misplaced = {**action, "start_location_id": box, "end_location_id": box}
+        catalog = {**self.validator.catalog, "actions": [
+            misplaced if row["id"] == action_id else row for row in self.validator.catalog["actions"]
+        ]}
+        with self.assertRaisesRegex(DataError, "withdrawals require a full bank"):
+            CatalogValidator(catalog, self.contracts).validate_catalog()
 
     def test_fairy_ring_unlock_precedes_skill_gates_and_ring_travel(self):
         profile = read_json(EXAMPLES / "fairy-ring-access-profile.json")

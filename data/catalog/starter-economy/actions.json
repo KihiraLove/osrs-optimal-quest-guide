@@ -403,5 +403,80 @@
       "status": "estimated",
       "note": "Purchase using carried coins at a fixed guide-price estimate."
     }
+  },
+  {
+    "id": "supply.bank.deposit_entrana_gear",
+    "name": "Deposit Entrana-restricted gear in Port Sarim",
+    "activity_id": null,
+    "kind": "bank",
+    "start_location_id": "location.port_sarim.deposit_box",
+    "end_location_id": "location.port_sarim.deposit_box",
+    "requirements": {
+      "kind": "restricted_items",
+      "location_id": "location.balloon.entrana",
+      "container": "inventory",
+      "present": true
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "bank_transfer",
+        "direction": "deposit",
+        "location_id": "location.balloon.entrana"
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.cache_242_map",
+        "source.runelite.objects",
+        "source.entrana_plugin.item_check",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Transfer each matching stack in the draft loadout in one modeled banking visit."
+    }
+  },
+  {
+    "id": "supply.bank.withdraw_entrana_gear",
+    "name": "Retrieve Entrana-restricted gear at Lumbridge bank",
+    "activity_id": null,
+    "kind": "bank",
+    "start_location_id": "location.lumbridge_castle.bank",
+    "end_location_id": "location.lumbridge_castle.bank",
+    "requirements": {
+      "kind": "restricted_items",
+      "location_id": "location.balloon.entrana",
+      "container": "bank_inventory",
+      "present": true
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "bank_transfer",
+        "direction": "withdraw",
+        "location_id": "location.balloon.entrana"
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.project.starter_kit",
+        "source.entrana_plugin.item_check",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Transfer each matching stack in the draft loadout in one modeled banking visit."
+    }
   }
 ]

@@ -97,6 +97,7 @@ def _state_key(state: RouteState, maximum_time: int, last_training_skill: str) -
     return (
         state.location, min(state.elapsed, maximum_time), last_training_skill,
         pairs(state.xp), pairs(state.inventory), pairs(state.counters), pairs(state.flags), pairs(state.choices),
+        pairs(state.bank_inventory),
         pairs(state.action_counts), pairs(state.travel_counts), frozenset(state.issued),
         frozenset(state.awarded_rewards), frozenset(state.pending),
         tuple(sorted(

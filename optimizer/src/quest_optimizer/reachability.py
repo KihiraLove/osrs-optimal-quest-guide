@@ -16,6 +16,12 @@ def unreachable_records(catalog: dict, profile: dict) -> dict[str, list[str]]:
     completed = set(initial["completed_action_ids"])
     used_edges = set(initial.get("travel_counts", {}))
     inventory = Counter(initial["inventory"])
+    bank_inventory = initial.get("bank_inventory", {})
+    restrictions = {location["id"]: location["prohibited_item_ids"]
+                    for location in catalog["locations"] if "prohibited_item_ids" in location}
+    depositable = set()
+    withdrawable = set()
+    consumable = set()
     counters = Counter(initial["counters"])
     flags = defaultdict(set)
     choices = defaultdict(set)
@@ -40,16 +46,38 @@ def unreachable_records(catalog: dict, profile: dict) -> dict[str, list[str]]:
             return counters[rule["token_id"]] >= rule["minimum"]
         if kind == "item":
             return inventory[rule["item_id"]] >= rule["quantity"]
+        if kind == "restricted_items":
+            item_ids = restrictions[rule["location_id"]]
+            if rule["container"] == "bank_inventory":
+                if rule["present"]:
+                    return any(bank_inventory.get(item_id, 0) or (item_id in depositable and inventory[item_id])
+                               for item_id in item_ids)
+                return all(not bank_inventory.get(item_id, 0) or item_id in withdrawable for item_id in item_ids)
+            if rule["present"]:
+                return any(inventory[item_id] for item_id in item_ids)
+            # Check that every initially carried item could leave the pack.
+            # These removals may occur on separate paths.
+            return all(not initial["inventory"].get(item_id, 0) or item_id in depositable or item_id in consumable
+                       for item_id in item_ids)
         if kind == "policy":
             return profile["policies"].get(rule["name"]) == rule["value"]
         # Static catalog validation has checked skill bounds and combat maxima.
         return True
 
     def collect_effects(record: dict, remaining: int | float) -> None:
+        consumable.update(item["item_id"] for item in record["consumes"])
         for effect in record["effects"]:
             kind = effect["kind"]
             if kind == "item":
                 inventory[effect["item_id"]] += effect["quantity"] * remaining
+            elif kind == "bank_transfer":
+                item_ids = restrictions[effect["location_id"]]
+                if effect["direction"] == "deposit":
+                    depositable.update(item_ids)
+                else:
+                    for item_id in set(item_ids) - withdrawable:
+                        inventory[item_id] += bank_inventory.get(item_id, 0)
+                    withdrawable.update(item_ids)
             elif kind == "counter" and effect["delta"] > 0:
                 token_id = effect["token_id"]
                 maximum = limits[token_id]

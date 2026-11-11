@@ -80,6 +80,11 @@ class CatalogValidator:
         style = max(sum_terms(terms, f"styles.{index}") for index, terms in enumerate(formula["styles"]))
         return (base + style) // formula["divisor"]
 
+    def _restricted_location(self, location_id: str, context: str, field: str) -> None:
+        location = self._ref("locations", location_id, context, field)
+        if not location.get("prohibited_item_ids"):
+            _fail(context, field, f"{location_id!r} has no item restrictions")
+
     def _requirement(self, rule: dict, context: str, field: str, combat_maxima: dict[str, int]) -> None:
         kind = rule["kind"]
         if kind in ("all", "any"):
@@ -98,6 +103,8 @@ class CatalogValidator:
             self._ref("actions", rule["action_id"], context, f"{field}.action_id")
         elif kind == "item":
             self._ref("items", rule["item_id"], context, f"{field}.item_id")
+        elif kind == "restricted_items":
+            self._restricted_location(rule["location_id"], context, f"{field}.location_id")
         elif kind in ("flag", "counter", "cooldown_ready"):
             token_kind = "cooldown" if kind == "cooldown_ready" else kind
             token = self._token(rule["token_id"], token_kind, context, f"{field}.token_id")
@@ -129,6 +136,9 @@ class CatalogValidator:
                 _fail(context, field, f"duplicate consumption of {item_id!r}; combine quantities")
             consumed.add(item_id)
 
+        transfers = sum(effect["kind"] == "bank_transfer" for effect in record["effects"])
+        if transfers != (1 if record.get("kind") == "bank" else 0):
+            _fail(context, "effects", "bank actions require one bank transfer and other transitions cannot transfer bank items")
         state_writes = set()
         for index, effect in enumerate(record["effects"]):
             field = f"effects.{index}"
@@ -137,6 +147,14 @@ class CatalogValidator:
                 self._ref("skills", effect["skill_id"], context, f"{field}.skill_id")
             elif kind == "item":
                 self._ref("items", effect["item_id"], context, f"{field}.item_id")
+            elif kind == "bank_transfer":
+                self._restricted_location(effect["location_id"], context, f"{field}.location_id")
+                bank = self.tables["locations"][record["start_location_id"]]
+                access = bank.get("bank_access")
+                if record["start_location_id"] != record["end_location_id"] or not access:
+                    _fail(context, field, "bank transfers must occur at a bank waypoint")
+                if effect["direction"] == "withdraw" and access != "full":
+                    _fail(context, field, "withdrawals require a full bank")
             elif kind == "xp_reward":
                 reward_id = effect["reward_id"]
                 self._ref("xp_rewards", reward_id, context, f"{field}.reward_id")
@@ -226,6 +244,9 @@ class CatalogValidator:
             for index, (previous, current) in enumerate(zip(thresholds, thresholds[1:]), start=1):
                 if previous >= current:
                     _fail(self.contexts[skill_id], f"xp_thresholds_tenths.{index}", "thresholds must strictly increase")
+        for location in self.tables["locations"].values():
+            for index, item_id in enumerate(location.get("prohibited_item_ids", ())):
+                self._ref("items", item_id, self.contexts[location["id"]], f"prohibited_item_ids.{index}")
 
         self._activities()
         maxima = {
@@ -283,8 +304,9 @@ class CatalogValidator:
             edge = self._ref("travel_edges", edge_id, context, path)
             if "repeat_limit" not in edge or count > edge["repeat_limit"]:
                 _fail(context, path, "count must belong to a limited travel edge and respect its repeat_limit")
-        for item_id in state["inventory"]:
-            self._ref("items", item_id, context, f"{field}.inventory.{item_id}")
+        for container in ("inventory", "bank_inventory"):
+            for item_id in state.get(container, {}):
+                self._ref("items", item_id, context, f"{field}.{container}.{item_id}")
         for token_id in state["flags"]:
             self._token(token_id, "flag", context, f"{field}.flags.{token_id}")
         for token_id, amount in state["counters"].items():
@@ -369,6 +391,7 @@ class CatalogValidator:
         self._state(solution["final_state"], solution["policies"], context, "final_state")
         trace = RewardTrace(
             self.tables["skills"], self.tables["xp_rewards"], self.tables["tokens"], profile["initial_state"], context,
+            locations=self.tables["locations"],
         )
         steps = set()
         for index, step in enumerate(solution["steps"]):

@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.11.0` loads 24 skill tables and
-100 draft actions, including Lost City stages, The Restless Ghost, the museum
+3 November 2026 at 10:00:06 UTC. Dataset `0.12.0` loads 24 skill tables and
+102 draft actions, including Lost City stages, The Restless Ghost, the museum
 route and Enlightened Journey. Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
 waypoints belongs to the travel graph. An action description identifies any
@@ -84,9 +84,11 @@ prerequisite routes and the second phase are in collection.
 
 The [Lost City review](raw/build-242/lost-city-review.json) records the
 Lumbridge Swamp start, the Entrana dungeon descent, the branch and staff skill
-checks, and the first entry into Zanaris. The completion route starts from a
-saved dungeon state with the Tree Spirit defeated and an axe already acquired.
-The Entrana loadout, axe acquisition and combat remain in review.
+checks, and the first entry into Zanaris. The [Entrana loadout record](raw/build-242/entrana-loadout.json)
+documents the reviewed item restrictions and the Port Sarim deposit box tile.
+Ferry and balloon arrivals check the current pack. Banked gear can be retrieved
+at Lumbridge Castle. The completion route starts from a saved dungeon state
+with the Tree Spirit defeated and an axe already acquired.
 
 The [timer inventory](raw/build-242/progression-timers.json) lists the step
 blocked by each timer. Martin's timer runs in the catalog. Garden of

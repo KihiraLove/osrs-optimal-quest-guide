@@ -4,6 +4,7 @@ All entries use the build 242 snapshot from 3 November 2026.
 
 | Version | Changes |
 | --- | --- |
+| 0.12.0 | Added current-inventory checks on Entrana arrivals and bank transfers for restricted gear. Extended the Lost City preparation fixture from Lumbridge into the Entrana dungeon. |
 | 0.11.0 | Added Lost City preparation and post-combat stages, dungeon escape teleports, and the Zanaris unlock and build 242 completion rewards. |
 | 0.10.0 | Added early level 43 Prayer, rune-consuming spell teleports, World 330 house destinations and the quest timer inventory. |
 | 0.9.0 | Added the starter kit and banked GP, self-funded GE transactions, an advertised house teleport and the early Fairytale II fairy-ring access phase. |
@@ -16,5 +17,5 @@ All entries use the build 242 snapshot from 3 November 2026.
 | 0.2.0 | Added the first quest actions and the pinned Quest Helper observations. |
 | 0.1.0 | Recorded the independent quest, skill, diary and optional content inventory for build 242. |
 
-The coverage audit records the release blockers for 0.11.0. The normalizer and
+The coverage audit records the release blockers for 0.12.0. The normalizer and
 audit use the existing dataset version.

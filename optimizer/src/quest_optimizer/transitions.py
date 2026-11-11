@@ -9,7 +9,9 @@ from .reward_trace import RewardTrace
 
 class RouteState(RewardTrace):
     def __init__(self, tables: dict, policies: dict, initial: dict, context: str = "route"):
-        super().__init__(tables["skills"], tables["xp_rewards"], tables["tokens"], initial, context)
+        super().__init__(
+            tables["skills"], tables["xp_rewards"], tables["tokens"], initial, context, locations=tables["locations"],
+        )
         self.tables = tables
         self.policies = policies
         self.location = initial["location_id"]
@@ -149,7 +151,8 @@ class RouteState(RewardTrace):
         result = copy(self)
         for field in (
             "xp", "issued", "awarded_rewards", "pending", "completed", "used_transitions",
-            "counters", "inventory", "flags", "boosts", "cooldowns", "choices", "action_counts", "travel_counts",
+            "counters", "inventory", "bank_inventory", "flags", "boosts", "cooldowns", "choices",
+            "action_counts", "travel_counts",
         ):
             setattr(result, field, getattr(self, field).copy())
         result.held = deepcopy(self.held)
@@ -176,6 +179,7 @@ class RouteState(RewardTrace):
             "modeled_elapsed_seconds": self.elapsed,
         }
         optional = {
+            "bank_inventory": {key: value for key, value in self.bank_inventory.items() if value},
             "active_boosts": deepcopy(self.boosts),
             "cooldowns": self.cooldowns.copy(),
             "choices": self.choices.copy(),

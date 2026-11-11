@@ -26,7 +26,11 @@ def _inventory(entries: list[dict]) -> dict[str, HeldReward]:
 class RewardTrace:
     """Track XP, reward instances and progression state in route order."""
 
-    def __init__(self, skills: dict, rewards: dict, tokens: dict, initial_state: dict, context: str):
+    def __init__(
+        self, skills: dict, rewards: dict, tokens: dict, initial_state: dict, context: str,
+        *, locations: dict | None = None,
+    ):
+        self.locations = locations or {}
         self.thresholds = {key: skill["xp_thresholds_tenths"] for key, skill in skills.items()}
         self.rewards = rewards
         self.amounts_by_level = {
@@ -43,6 +47,7 @@ class RewardTrace:
         self.used_transitions = self.completed | initial_state.get("travel_counts", {}).keys()
         self.counters = Counter(initial_state["counters"])
         self.inventory = Counter(initial_state["inventory"])
+        self.bank_inventory = Counter(initial_state.get("bank_inventory", {}))
         self.flags = initial_state["flags"].copy()
         self.tokens = tokens
         self.context = context
@@ -64,6 +69,10 @@ class RewardTrace:
             return self.flags.get(requirement["token_id"], False) == requirement["value"]
         if kind == "item":
             return self.inventory[requirement["item_id"]] >= requirement["quantity"]
+        if kind == "restricted_items":
+            container = self.inventory if requirement["container"] == "inventory" else self.bank_inventory
+            prohibited = self.locations[requirement["location_id"]]["prohibited_item_ids"]
+            return any(container[item_id] > 0 for item_id in prohibited) == requirement["present"]
         if kind == "skill" and not requirement["boostable"]:
             skill_id = requirement["skill_id"]
             return bisect_right(self.thresholds[skill_id], self.xp[skill_id]) >= requirement["minimum_level"]
@@ -87,7 +96,7 @@ class RewardTrace:
                 )
             self._fail(
                 path, "required completed action, flag or counter threshold has not been reached, "
-                "or required items or base levels are missing",
+                "required items or base levels are missing, or the loadout fails a restriction",
             )
         for item in transition["consumes"]:
             item_id, quantity = item["item_id"], item["quantity"]
@@ -103,6 +112,17 @@ class RewardTrace:
                 self.xp[effect["skill_id"]] += effect["xp_tenths"]
             elif effect["kind"] == "item":
                 self.inventory[effect["item_id"]] += effect["quantity"]
+            elif effect["kind"] == "bank_transfer":
+                prohibited = self.locations[effect["location_id"]]["prohibited_item_ids"]
+                source, target = self.inventory, self.bank_inventory
+                if effect["direction"] == "withdraw":
+                    source, target = target, source
+                if not any(source[item_id] for item_id in prohibited):
+                    self._fail(path, "no eligible items to transfer")
+                for item_id in prohibited:
+                    quantity = source.pop(item_id, 0)
+                    if quantity:
+                        target[item_id] += quantity
             elif effect["kind"] == "flag":
                 self.flags[effect["token_id"]] = effect["value"]
             elif effect["kind"] == "counter":
@@ -178,3 +198,5 @@ class RewardTrace:
             self._fail("final_state.counters", "does not match the starting counters and ordered route effects")
         if self.inventory != Counter(final_state["inventory"]):
             self._fail("final_state.inventory", "does not match starting items, consumption and awards")
+        if self.bank_inventory != Counter(final_state.get("bank_inventory", {})):
+            self._fail("final_state.bank_inventory", "does not match starting bank items and ordered transfers")

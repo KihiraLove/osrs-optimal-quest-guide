@@ -45,7 +45,7 @@ canonical IDs directly and reports stale references with their record and field.
 | --- | --- |
 | `sources` | Source kind, locator, retrieval/observation date, revision, attribution, license, notes |
 | `skills` | Name and exact cumulative XP thresholds in tenths of XP, indexed from level 1 |
-| `locations` | Region, world tile x/y/plane, instance key, provenance; graph vertices |
+| `locations` | Region, world tile x/y/plane, instance key, optional bank access and prohibited item IDs, provenance |
 | `tokens` | Boolean progression/unlock/quest-stage flags and bounded counters such as quest points and kudos |
 | `items` | Tradeability, stackability and abstract inventory role; no implication that trade bypasses use gates |
 | `activities` | Grouping metadata for quests, RFD subquests, miniquests, diary tiers and museum/unlock activities |
@@ -62,7 +62,7 @@ routes. Durations include nominal/min/max values to support sensitivity tests.
 
 ## State and requirement expressions
 
-Solver state: exact XP vector, completed action set, flags, counters, inventory,
+Solver state: exact XP vector, completed action set, flags, counters, inventory, bank inventory,
 unspent reward instances, current location, elapsed modelled time, active boosts,
 cooldowns, choices and repeat counts. Profile JSON supplies the initial state and
 policy choices.
@@ -72,7 +72,7 @@ coordinates and plane; regions and instance IDs prevent false same-tile matches.
 
 Requirements form recursive `all` / `any` expressions (empty `all` is true).
 Leaves check `skill`, `action_completed`, `flag`, `counter`, `item`, `policy`,
-`combat_level`, `elapsed_time`, `cooldown_ready` or `choice`. Skill tables start
+`combat_level`, `elapsed_time`, `cooldown_ready`, `choice` or `restricted_items`. Skill tables start
 at zero XP for level 1 and strictly increase. A `skill` leaf with `boostable: true`
 can use a currently active bonus. Flag checks can require true or false.
 
@@ -103,6 +103,13 @@ number of modelled seconds. Personal training leaves the modelled clock unchange
   contributes `weight * floor(level * level_multiplier / level_divisor)`. Sum
   the base terms, add the highest style sum, then floor after dividing by the
   formula's `divisor`. Formula values and evidence belong in the catalog.
+- `restricted_items` tests whether any items prohibited at its referenced
+  location are present in the named container. A false `present` check requires
+  that all those items are absent. `bank_transfer` moves the matching stacks
+  between the inventory and optional `bank_inventory` in a bank action.
+  Withdrawals require a full bank. Saved states without `bank_inventory` start
+  with an empty item bank. The older banked-coin counter remains the source of
+  the starter coins.
 - `elapsed_time` compares the current clock with `minimum_seconds`.
   `start_cooldown` sets a cooldown token's ready time to transition end time
   plus `duration_seconds`. It replaces that token's timer. `cooldown_ready`
@@ -167,9 +174,10 @@ access and logout/world switching are profile-controlled refinements.
 
 The draft balloon graph uses one-time discovery actions and independent
 directed travel edges. Each ordinary flight requires both stops and consumes
-one log of the destination type. A profile can assert a compatible balloon
-and Entrana loadout for the planned travel. These assertions apply throughout
-the plan until equipment and weight can be evaluated from the item state.
+one log of the destination type. Balloon weight still uses a profile assertion.
+The ferry and inbound balloon flights check the reviewed Entrana restrictions
+against the current pack. The draft represents carried and worn items together
+in inventory.
 
 ## Rewards
 
