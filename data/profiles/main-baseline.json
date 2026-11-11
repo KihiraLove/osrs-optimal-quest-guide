@@ -1,12 +1,9 @@
 {
-  "baseline_version": 1,
   "schema_version": "0.1.0",
-  "profile_id": "profile.main.post_tutorial",
+  "profile_id": "profile.main.lumbridge_arrival",
   "dataset_id": "osrs.main",
-  "dataset_version": "0.7.0",
-  "game_revision": "osrs-live-242",
-  "as_of": "2026-11-03",
-  "status": "awaiting_capture",
+  "dataset_version": "0.8.0",
+  "status": "draft",
   "account_type": "main",
   "members": true,
   "objective": [
@@ -29,6 +26,43 @@
     "training_methods": "user_choice",
     "training_time_in_objective": false,
     "training_resume_policy": "return_to_route_waypoint"
+  },
+  "initial_state": {
+    "location_id": "location.lumbridge.castle_courtyard",
+    "xp_tenths": {
+      "skill.agility": 0,
+      "skill.attack": 0,
+      "skill.construction": 0,
+      "skill.cooking": 0,
+      "skill.crafting": 0,
+      "skill.defence": 0,
+      "skill.farming": 0,
+      "skill.firemaking": 0,
+      "skill.fishing": 0,
+      "skill.fletching": 0,
+      "skill.herblore": 0,
+      "skill.hitpoints": 11540,
+      "skill.hunter": 0,
+      "skill.magic": 0,
+      "skill.mining": 0,
+      "skill.prayer": 0,
+      "skill.ranged": 0,
+      "skill.runecraft": 0,
+      "skill.sailing": 0,
+      "skill.slayer": 0,
+      "skill.smithing": 0,
+      "skill.strength": 0,
+      "skill.thieving": 0,
+      "skill.woodcutting": 0
+    },
+    "completed_action_ids": [],
+    "flags": {},
+    "counters": {
+      "token.quest_points": 1
+    },
+    "inventory": {},
+    "held_rewards": [],
+    "modeled_elapsed_seconds": 0
   },
   "goal_action_ids": [
     "quest.a_kingdom_divided.complete",
@@ -107,7 +141,6 @@
     "quest.jungle_potion.complete",
     "quest.kings_ransom.complete",
     "quest.land_of_the_goblins.complete",
-    "quest.learning_the_ropes.complete",
     "quest.legends_quest.complete",
     "quest.lost_city.complete",
     "quest.lunar_diplomacy.complete",
@@ -219,60 +252,11 @@
     "quest.x_marks_the_spot.complete",
     "quest.zogre_flesh_eaters.complete"
   ],
-  "initial_state_observations": {
-    "region": {
-      "value": "Lumbridge",
-      "source_ids": ["source.jagex.tutorial_journal_2025_10_22","source.jagex.new_player_improvements_2026_01_14"]
-    },
-    "completed_action_ids": {
-      "value": [
-        "quest.learning_the_ropes.complete"
-      ],
-      "source_ids": ["source.runelite.quests","source.jagex.tutorial_journal_2025_10_22"],
-      "note": "Tutorial completion is credited at the baseline start."
-    },
-    "quest_points": {
-      "value": 1,
-      "source_ids": ["source.jagex.tutorial_journal_2025_10_22"]
-    },
-    "location_id": {
-      "value": null,
-      "reason": "Verify the first controllable world tile, plane and instance after Home Teleport from Tutorial Island. The courtyard walking anchor is an estimate.",
-      "source_ids": ["source.jagex.tutorial_journal_2025_10_22"]
-    },
-    "xp_tenths": {
-      "value": null,
-      "reason": "Capture exact XP for every catalog skill on one recorded tutorial path, including combat gains and Hitpoints.",
-      "source_ids": ["source.jagex.new_player_improvements_2026_01_14"]
-    },
-    "inventory": {
-      "value": null,
-      "reason": "Capture carried quantities and equipped items at the chosen boundary."
-    },
-    "flags": {
-      "value": null,
-      "reason": "Check tutorial unlocks, starting spellbook, travel pack eligibility and configured teleport destinations."
-    },
-    "counters": {
-      "value": null,
-      "reason": "Confirm the complete set of route-relevant counters."
-    },
-    "held_rewards": {
-      "value": null,
-      "reason": "Check for unspent rewards at arrival."
-    },
-    "cooldowns": {
-      "value": null,
-      "reason": "Check remaining Home Teleport cooldown on arrival. The published reset applies before the tutorial cast.",
-      "source_ids": ["source.jagex.tutorial_journal_2025_10_22"]
-    },
-    "modeled_elapsed_seconds": {
-      "value": 0,
-      "note": "Definition of the model clock at the starting boundary."
-    }
-  },
   "assumptions": [
-    "Begin immediately after the tutorial on a normal members main with trade enabled.",
+    "Start at the Lumbridge Castle courtyard waypoint on a trade-enabled members main.",
+    "The route begins with one quest point from Learning the Ropes.",
+    "Base Hitpoints is level 10 at 1,154 XP. All other skills start at zero XP for planning.",
+    "The modeled start has an empty inventory and no tutorial unlocks, boosts, or cooldowns.",
     "Tradeable supplies use explicit acquisition actions with sufficient GP.",
     "Allow documented quest partner interactions and valid Wilderness, minigame teleport and boost actions.",
     "Training steps request only XP gains. The player chooses the method."

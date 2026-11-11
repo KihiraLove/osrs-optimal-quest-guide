@@ -3,10 +3,10 @@
 An offline Python quest-order optimizer for trade-enabled Old School RuneScape
 main accounts, followed later by a separate GitHub Pages viewer.
 
-The draft data pins live build 242 from 3 November 2026. It includes skill
-tables, the independent content inventory, and a first batch of quest actions.
-The full route requires the remaining quest mechanics and a fresh account capture.
-See the [data inventory](data/README.md) and [implementation plan](docs/roadmap.md).
+The draft data pins live build 242 from 3 November 2026. The main baseline
+starts in Lumbridge with one quest point. The starter fixture runs four quests
+from that state. The full route depends on the remaining catalog entries.
+See the [data inventory](data/README.md) and [starter fixture](examples/build-242/README.md).
 
 ## What “optimal” means
 

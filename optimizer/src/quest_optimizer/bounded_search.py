@@ -212,6 +212,7 @@ class _Guide:
     def __init__(self, initial, goals, excluded):
         actions = initial.tables["actions"]
         self.needed = {}
+        self.required_items = {}
         remaining = list(goals)
         while remaining:
             action_id = remaining.pop()
@@ -220,8 +221,16 @@ class _Guide:
             rules = list(_mandatory_rules(actions[action_id]["requirements"]))
             remaining.extend(rule["action_id"] for rule in rules if rule["kind"] == "action_completed")
             self.needed[action_id] = rules
+            item_rules = [rule for rule in rules if rule["kind"] == "item"]
+            items = {}
+            for item in actions[action_id]["consumes"] + item_rules:
+                item_id = item["item_id"]
+                items[item_id] = max(items.get(item_id, 0), item["quantity"])
+            self.required_items[action_id] = items
 
         self.routes = defaultdict(list)
+        item_sources = defaultdict(list)
+        route_items = {item for items in self.required_items.values() for item in items}
         incoming = defaultdict(list)
         self.grants = {}
         self.reward_grants = {}
@@ -242,6 +251,8 @@ class _Guide:
                     incoming[end].append((start, record["duration"]["expected_seconds"]))
                 grants = Counter()
                 for effect in record["effects"]:
+                    if effect["kind"] == "item" and effect["item_id"] in route_items:
+                        item_sources[effect["item_id"]].append((start, kind, record_id, record.get("repeat_limit", inf)))
                     if effect["kind"] == "xp":
                         grants[effect["skill_id"]] += effect["xp_tenths"]
                     if effect["kind"] == "xp_reward":
@@ -252,7 +263,10 @@ class _Guide:
                 if grants:
                     self.grants[record_id] = grants
         self.starts = {action_id: actions[action_id]["start_location_id"] for action_id in self.needed}
-        self.distances = {start: _distances(start, incoming) for start in sorted(set(self.starts.values()))}
+        self.item_sources = item_sources
+        destinations = set(self.starts.values())
+        destinations.update(source[0] for sources in item_sources.values() for source in sources)
+        self.distances = {start: _distances(start, incoming) for start in sorted(destinations)}
         self.maximum_time = max((
             rule["minimum_seconds"] for transitions in self.routes.values() for _, record in transitions
             for rule in _leaves(record["requirements"]) if rule["kind"] == "elapsed_time"
@@ -261,12 +275,31 @@ class _Guide:
     def estimates(self, state):
         missing = self.needed.keys() - state.completed
         thresholds = {}
+        item_gaps = {}
+        destinations = set()
         for action_id in missing:
-            for rule in self.needed[action_id]:
+            rules = self.needed[action_id]
+            for rule in rules:
                 if rule["kind"] == "skill" and not rule["boostable"]:
                     skill = rule["skill_id"]
                     required = state.thresholds[skill][rule["minimum_level"] - 1]
                     thresholds[skill] = max(required, thresholds.get(skill, 0))
+            lacking = {
+                item: quantity - state.inventory[item]
+                for item, quantity in self.required_items[action_id].items() if state.inventory[item] < quantity
+            }
+            for item, deficit in lacking.items():
+                item_gaps[item] = max(item_gaps.get(item, 0), deficit)
+            if any(rule["kind"] == "action_completed" and rule["action_id"] not in state.completed for rule in rules):
+                continue
+            if lacking:
+                for item in lacking:
+                    for start, kind, record_id, limit in self.item_sources[item]:
+                        counts = state.action_counts if kind == "action" else state.travel_counts
+                        if counts[record_id] < limit:
+                            destinations.add(start)
+            else:
+                destinations.add(self.starts[action_id])
         gaps = {skill: max(0, xp - state.xp[skill]) for skill, xp in thresholds.items()}
         # Credit all remaining awards, with every selectable pick credited to
         # every eligible skill. Ignoring timing and exclusive choices keeps
@@ -278,16 +311,9 @@ class _Guide:
             for skill, amount in self.reward_grants[reward.reward_id].items():
                 available[skill] += reward.remaining_picks * amount
         bound = sum(max(0, gap - available[skill]) for skill, gap in gaps.items())
-        ready = [
-            action_id for action_id in missing if all(
-                rule["kind"] != "action_completed" or rule["action_id"] in state.completed
-                for rule in self.needed[action_id]
-            )
-        ]
-        distance = min((
-            self.distances[self.starts[action_id]].get(state.location, inf) for action_id in ready
-        ), default=0)
-        return bound, len(missing), sum(gaps.values()), distance
+        distance = min((self.distances[start].get(state.location, inf) for start in destinations),
+                       default=inf if missing else 0)
+        return bound, len(missing), sum(gaps.values()), sum(item_gaps.values()), distance
 
 
 @dataclass
@@ -376,11 +402,12 @@ def solve_bounded(
 
         ranked = []
         for candidate in candidates.values():
-            bound, remaining, deficit, distance = guide.estimates(candidate.state)
+            bound, remaining, deficit, item_gap, distance = guide.estimates(candidate.state)
             manual, seconds, ids = candidate.cost
             if best is not None and (manual + bound, seconds) > best.cost[:2]:
                 continue
-            ranked.append(((manual + bound, remaining, deficit, seconds + distance, rng.getrandbits(64), ids), candidate))
+            rank = (manual + bound, remaining, deficit, item_gap, seconds + distance, rng.getrandbits(64), ids)
+            ranked.append((rank, candidate))
         ranked.sort(key=lambda row: row[0])
         frontier = [candidate for _, candidate in ranked[:beam_width]]
 

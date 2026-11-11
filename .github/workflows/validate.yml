@@ -25,6 +25,7 @@ jobs:
             exit 1
           fi
           quest-optimizer validate-json profile examples/build-242/cooks-assistant-profile.json --catalog data/manifest.json
+          quest-optimizer validate-json profile data/profiles/main-baseline.json
           quest-optimizer validate-json solution examples/build-242/museum-quiz-solution.json --catalog data/manifest.json --profile examples/build-242/museum-quiz-profile.json
           quest-optimizer validate-json solution examples/build-242/balloon-travel-solution.json --catalog data/manifest.json --profile examples/build-242/balloon-travel-profile.json
           quest-optimizer validate-data examples/synthetic/manifest.json
@@ -43,5 +44,7 @@ jobs:
           quest-optimizer replay "$RUNNER_TEMP/bounded-museum.json" --catalog data/manifest.json --profile examples/build-242/museum-quiz-profile.json
           quest-optimizer solve-bounded data/manifest.json examples/build-242/restless-ghost-profile.json > "$RUNNER_TEMP/restless-ghost.json"
           quest-optimizer replay "$RUNNER_TEMP/restless-ghost.json" --catalog data/manifest.json --profile examples/build-242/restless-ghost-profile.json
+          quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json > "$RUNNER_TEMP/lumbridge-arrival.json"
+          quest-optimizer replay "$RUNNER_TEMP/lumbridge-arrival.json" --catalog data/manifest.json --profile examples/build-242/lumbridge-arrival-profile.json
       - name: Run optimizer checks
         run: python -m unittest discover -s optimizer/tests -v

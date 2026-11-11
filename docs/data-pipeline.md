@@ -23,8 +23,9 @@ observation without redistributing the original screen capture.
    Build a coverage ledger in JSON with expected IDs and collected/reviewed/excluded
    status, plus reasons for every exclusion. This ledger is a separate source of
    completeness expectations, not just the list of files already collected.
-2. Capture skill XP thresholds, tutorial state and account assumptions. Verify
-   fractional XP handling and distinguish base levels from boostable checks.
+2. Record skill XP thresholds and the Lumbridge arrival profile with one
+   starting quest point. Verify fractional XP handling and distinguish base
+   levels from boostable checks.
 3. Capture quest prerequisites, phase-specific checks, start/end coordinates,
    items, mandatory XP, reward choices, quest points and partial unlocks. Split
    Recipe for Disaster from the first pass. Record relevant combat/assistance

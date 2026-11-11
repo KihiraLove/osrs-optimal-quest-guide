@@ -128,8 +128,9 @@ class CoverageAudit:
             if type(client_id) is not int or client_id < 0 or client_id in client_ids:
                 raise DataError(f"journal {record_id}: invalid or duplicate client quest ID {client_id!r}")
             client_ids.add(client_id)
-            goal = _text(row.get("goal_action_id"), f"journal {record_id}.goal_action_id") if kind == "quest" else None
-            if goal is not None and row.get("status") != "excluded":
+            goal = None
+            if kind == "quest" and row.get("status") != "excluded":
+                goal = _text(row.get("goal_action_id"), f"journal {record_id}.goal_action_id")
                 if goal in self.goals:
                     raise DataError(f"journal {record_id}: duplicate goal action {goal!r}")
                 self.goals.add(goal)

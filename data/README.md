@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.7.0` loads 24 skill tables and
-78 draft actions, including The Restless Ghost, the museum route and Enlightened
+3 November 2026 at 10:00:06 UTC. Dataset `0.8.0` loads 24 skill tables and
+81 draft actions, including The Restless Ghost, the museum route and Enlightened
 Journey. Durations estimate each interaction at its waypoint with supplies ready. Travel between
 waypoints belongs to the travel graph. An action description identifies any
 movement included in its duration.
@@ -69,8 +69,10 @@ for open acquisition and transport mechanics.
 [attribution](ATTRIBUTION.md) for the third-party notices and
 [reconciliation](raw/build-242/reconciliation.json) for field-level decisions.
 A pending review preserves its evidence and reason until a verified value is
-available. The [profile seed](profiles/main-baseline.json) records the goal list,
-policies and known start fields. See [profiles](profiles/README.md) for capture.
+available. The [main baseline](profiles/main-baseline.json) records the goal
+list, policies and modeled Lumbridge arrival with one quest point. The
+[starter supplies](catalog/starter-supplies/actions.json) are purchases at the
+Grand Exchange under the trade-enabled and sufficient-GP policies.
 
 [The Restless Ghost review](raw/build-242/restless-ghost-review.json) records the
 amulet and skull pickups, the route that leaves the skeleton behind, and the

@@ -64,8 +64,9 @@ from goals and mandatory AND dependencies. It credits remaining fixed XP and
 every eligible lamp pick at its highest amount. It allows every skill to receive
 the same pick for the purpose of this bound, and it ignores award order.
 The result can be loose. The beam ranks states by incurred XP plus this bound,
-then uses mandatory progress, current XP deficits and optimistic waypoint
-distance. Travel distance here guides candidate ranking. Actual routes must
+then uses mandatory progress, current XP and item deficits, and optimistic
+waypoint distance. When a ready action needs a missing item, that distance
+uses available item sources as destinations. Actual routes must
 traverse available catalog edges and pay their costs.
 
 The expansion budget and seed make repeated runs with the same inputs

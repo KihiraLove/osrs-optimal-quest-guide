@@ -1,5 +1,16 @@
 # Build 242 fixtures
 
+`lumbridge-arrival-profile.json` uses the main baseline with four quest goals.
+It starts in Lumbridge with one quest point and an empty inventory. The route
+buys the ingredients, wool and spade at the Grand Exchange and completes
+Cook's Assistant, Sheep Shearer, The Restless Ghost and X Marks the Spot
+with zero manual XP and five final quest points.
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json > artifacts/lumbridge-arrival.json
+quest-optimizer replay artifacts/lumbridge-arrival.json --catalog data/manifest.json --profile examples/build-242/lumbridge-arrival-profile.json
+```
+
 `cooks-assistant-profile.json` is a synthetic account at the cook's waypoint,
 with the three required ingredients ready. Its goal is the real draft catalog
 action. One completion should consume the ingredients, award 300 Cooking XP and

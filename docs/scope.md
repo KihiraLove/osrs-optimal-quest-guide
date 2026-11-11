@@ -2,19 +2,18 @@
 
 ## Target and account
 
-The default target is completion of every normal-mode OSRS quest in a reviewed,
-versioned catalog. Miniquests, diaries and other activities are optional enabling
+The default target is completion of every in-scope normal-mode OSRS quest in a
+reviewed, versioned catalog. Miniquests, diaries and other activities are optional enabling
 actions unless a target explicitly includes them. Do not require every diary just
 because diaries are in the data. Quest completion is a goal expression over final
 actions, not a hard-coded quest count or quest-point total.
 
-Default production profile, to be populated and verified with the data: a members
-main account immediately after the tutorial, trade enabled, with an explicit
-starting location, exact starting XP (including Hitpoints), inventory, quest
-progress and unlocks. Support existing accounts by supplying those fields in JSON.
-No starting stats, skill count or game revision are inferred from the wall clock.
-The [build 242 profile seed](../data/profiles/main-baseline.json) records the
-goals and policies. A fresh account capture will supply the exact starting state.
+The default members main starts at the Lumbridge Castle courtyard on arrival
+from Tutorial Island. Learning the Ropes sits outside the route and its one quest
+point is credited in the starting counter. The model uses level 10 Hitpoints,
+zero XP in other skills and an empty inventory. The
+[build 242 baseline](../data/profiles/main-baseline.json) records these assumptions
+and all in-scope quest goals. Existing accounts can supply their own state in JSON.
 
 Tradeable supplies may be acquired using an explicit abstract supply action at
 configured supply locations. The default assumes sufficient GP; this does not

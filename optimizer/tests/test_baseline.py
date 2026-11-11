@@ -3,7 +3,10 @@
 from pathlib import Path
 import unittest
 
-from quest_optimizer.data import Contracts, load_catalog, read_json
+from quest_optimizer.bounded_search import solve_bounded
+from quest_optimizer.data import Contracts, DataError, load_catalog, read_json
+from quest_optimizer.replay import verify_solution
+from quest_optimizer.semantics import CatalogValidator
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
@@ -36,6 +39,7 @@ class Build242BaselineTests(unittest.TestCase):
     def test_snapshot_identity_and_evidence(self):
         for field in ("dataset_id", "dataset_version", "game_revision", "as_of"):
             self.assertEqual(self.ledger[field], self.catalog[field])
+        for field in ("dataset_id", "dataset_version"):
             self.assertEqual(self.baseline[field], self.catalog[field])
         self.assertEqual(self.catalog["as_of"], self.ledger["snapshot"]["cache_timestamp_utc"][:10])
         sources = {source["id"] for source in self.catalog["sources"]}
@@ -58,8 +62,12 @@ class Build242BaselineTests(unittest.TestCase):
         self.assertEqual(len(journal), 216)
         self.assertEqual(len({entry["id"] for entry in journal}), len(journal))
         self.assertEqual(len({entry["client_quest_id"] for entry in journal}), len(journal))
-        goal_ids = [entry["goal_action_id"] for entry in journal if entry["kind"] == "quest"]
+        goal_ids = [entry["goal_action_id"] for entry in journal
+                    if entry["kind"] == "quest" and entry["status"] != "excluded"]
         self.assertCountEqual(self.baseline["goal_action_ids"], goal_ids)
+        tutorial = next(row for row in journal if row["id"] == "quest.learning_the_ropes")
+        self.assertEqual(tutorial["status"], "excluded")
+        self.assertNotIn("goal_action_id", tutorial)
         self.assertIn("quest.daddys_home.complete", goal_ids)
         self.assertIn("quest.recipe_for_disaster.complete", goal_ids)
         subquests = [entry for entry in journal if entry["kind"] == "subquest"]
@@ -76,15 +84,49 @@ class Build242BaselineTests(unittest.TestCase):
         self.assertEqual(len(trackers), len(tasks))
         self.assertEqual(len({tier["reward_claim_id"] for tier in tiers}), len(tiers))
 
-    def test_start_gaps_and_scope_are_explicit(self):
-        self.assertEqual(self.baseline["status"], "awaiting_capture")
+    def test_lumbridge_baseline_has_only_the_tutorial_quest_point(self):
+        self.contracts.validate("profile", self.baseline)
+        self.assertEqual(self.baseline["status"], "draft")
         self.assertEqual(self.catalog["coverage_status"], "incomplete")
-        observations = self.baseline["initial_state_observations"]
-        self.assertEqual(observations["quest_points"]["value"], 1)
-        for field in ("location_id", "xp_tenths", "inventory"):
-            self.assertIsNone(observations[field]["value"])
-            self.assertTrue(observations[field]["reason"])
+        initial = self.baseline["initial_state"]
+        self.assertEqual(initial["location_id"], "location.lumbridge.castle_courtyard")
+        self.assertEqual(initial["counters"], {"token.quest_points": 1})
+        self.assertEqual(initial["completed_action_ids"], [])
+        self.assertEqual(initial["inventory"], {})
+        self.assertEqual(initial["flags"], {})
+        self.assertEqual(initial["held_rewards"], [])
+        expected_xp = {skill["id"]: 0 for skill in self.catalog["skills"]}
+        expected_xp["skill.hitpoints"] = 11540
+        self.assertEqual(initial["xp_tenths"], expected_xp)
         for name, validator in self.contracts.policy_validators.items():
             self.assertTrue(validator.is_valid(self.baseline["policies"][name]), name)
         self.assertEqual(self.baseline["policies"]["training_methods"], "user_choice")
         self.assertEqual(self.baseline["policies"]["quest_lamp_skill_policy"], "any_skill")
+
+    def test_starter_route_buys_supplies_and_keeps_the_initial_quest_point(self):
+        profile = read_json(ROOT / "examples/build-242/lumbridge-arrival-profile.json")
+        self.assertEqual(profile["initial_state"], self.baseline["initial_state"])
+        self.assertEqual(profile["policies"], self.baseline["policies"])
+        self.assertLess(set(profile["goal_action_ids"]), set(self.baseline["goal_action_ids"]))
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile)
+        report = verify_solution(solution, profile, validator)
+        self.assertEqual(report["manual_training_xp_tenths_by_skill"], {})
+        self.assertEqual(report["final_state"]["counters"]["token.quest_points"], 5)
+        self.assertEqual(report["final_state"]["xp_tenths"]["skill.hitpoints"], 11540)
+        purchases = [step["action_id"] for step in solution["steps"]
+                     if step.get("action_id", "").startswith("supply.grand_exchange.")]
+        self.assertCountEqual(purchases, [
+            "supply.grand_exchange.cooks_assistant", "supply.grand_exchange.sheep_shearer", "supply.grand_exchange.spade",
+        ])
+        for purchase in purchases:
+            record = validator.tables["actions"][purchase]
+            self.assertTrue(all(
+                effect["kind"] == "item" and validator.tables["items"][effect["item_id"]]["tradeable"]
+                for effect in record["effects"]
+            ))
+        without_ingredients = {**solution, "steps": [
+            step for step in solution["steps"] if step.get("action_id") != "supply.grand_exchange.cooks_assistant"
+        ]}
+        with self.assertRaisesRegex(DataError, "required items"):
+            verify_solution(without_ingredients, profile, validator)
