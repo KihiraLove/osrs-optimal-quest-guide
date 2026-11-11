@@ -9,6 +9,16 @@ one quest point, and unlock the cook's range.
 quest-optimizer solve-small data/manifest.json examples/build-242/cooks-assistant-profile.json
 ```
 
+`restless-ghost-profile.json` starts a synthetic account at the Lumbridge
+courtyard with an empty inventory. The route gets the ghostspeak amulet from
+Father Urhney, obtains the skull from the Wizards' Tower basement and returns
+it to the coffin for 1,125 Prayer XP and one quest point.
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/restless-ghost-profile.json > artifacts/restless-ghost.json
+quest-optimizer replay artifacts/restless-ghost.json --catalog data/manifest.json --profile examples/build-242/restless-ghost-profile.json
+```
+
 The [Recipe for Disaster progression review](../../data/raw/build-242/recipe-for-disaster-review.json)
 contains the ten stages and the finale prerequisites. A replay test uses
 the recorded finale gates and quest points with synthetic waypoints and

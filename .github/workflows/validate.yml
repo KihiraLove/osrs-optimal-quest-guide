@@ -41,5 +41,7 @@ jobs:
           quest-optimizer replay "$RUNNER_TEMP/exact-cook.json" --catalog data/manifest.json --profile examples/build-242/cooks-assistant-profile.json
           quest-optimizer solve-bounded data/manifest.json examples/build-242/museum-quiz-profile.json --incumbent "$RUNNER_TEMP/bounded-museum.json" --report "$RUNNER_TEMP/bounded-report.json" > /dev/null
           quest-optimizer replay "$RUNNER_TEMP/bounded-museum.json" --catalog data/manifest.json --profile examples/build-242/museum-quiz-profile.json
+          quest-optimizer solve-bounded data/manifest.json examples/build-242/restless-ghost-profile.json > "$RUNNER_TEMP/restless-ghost.json"
+          quest-optimizer replay "$RUNNER_TEMP/restless-ghost.json" --catalog data/manifest.json --profile examples/build-242/restless-ghost-profile.json
       - name: Run optimizer checks
         run: python -m unittest discover -s optimizer/tests -v

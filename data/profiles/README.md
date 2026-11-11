@@ -20,6 +20,12 @@ other action. Record the client build, observation date and tutorial choices.
 5. Normalize the capture and resolve the goal IDs once the quest actions exist.
    Validate the resulting profile using `validate-json profile --catalog`.
 
-The documented starting boundary credits Learning the Ropes and one quest point.
-A different tutorial path can yield different XP. The recorded profile should
-name the observed path so the exact starting values are reproducible.
+Jagex documents one quest point for tutorial completion and the Home Teleport
+to Lumbridge. The documented cooldown reset applies before casting. Record
+the first controllable tile and remaining cooldown on arrival. Keep the
+observed tile separate from the estimated courtyard walking anchor until
+they can be compared. [Tutorial release notes](https://secure.runescape.com/m=news/grid-master-rewards-poll--new-player-improvements?oldschool=1)
+
+Record the observed tutorial path so its skill XP can be reproduced. The
+January 2026 notes document a change to combat training on the island.
+[New Player Improvements Round 2](https://secure.runescape.com/m=news/new-player-improvements-round-2?oldschool=1)

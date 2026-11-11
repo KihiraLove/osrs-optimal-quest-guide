@@ -1,0 +1,180 @@
+[
+  {
+    "id": "quest.the_restless_ghost.complete",
+    "name": "Return the skull to the coffin",
+    "activity_id": "quest.the_restless_ghost",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.graveyard_coffin",
+    "end_location_id": "location.lumbridge.graveyard_coffin",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_restless_ghost.take_skull"
+    },
+    "consumes": [
+      {
+        "item_id": "item.ghost_skull",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 11250
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The skull is used up. The amulet stays with the account and is granted only by Urhney."
+    }
+  },
+  {
+    "id": "quest.the_restless_ghost.get_amulet",
+    "name": "Receive the ghostspeak amulet from Father Urhney",
+    "activity_id": "quest.the_restless_ghost",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_swamp.urhney",
+    "end_location_id": "location.lumbridge_swamp.urhney",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_restless_ghost.start"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostspeak_amulet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The first visit grants the amulet."
+    }
+  },
+  {
+    "id": "quest.the_restless_ghost.speak_to_ghost",
+    "name": "Wear the amulet and speak to the restless ghost",
+    "activity_id": "quest.the_restless_ghost",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.graveyard_coffin",
+    "end_location_id": "location.lumbridge.graveyard_coffin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_restless_ghost.get_amulet"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes equipping the amulet, opening or searching the coffin and speaking to the ghost beside it."
+    }
+  },
+  {
+    "id": "quest.the_restless_ghost.start",
+    "name": "Accept Father Aereck's request",
+    "activity_id": "quest.the_restless_ghost",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.church",
+    "end_location_id": "location.lumbridge.church",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start the quest at the church."
+    }
+  },
+  {
+    "id": "quest.the_restless_ghost.take_skull",
+    "name": "Take the ghost's skull from the altar",
+    "activity_id": "quest.the_restless_ghost",
+    "kind": "quest_stage",
+    "start_location_id": "location.wizards_tower.ghost_altar",
+    "end_location_id": "location.wizards_tower.ghost_altar",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_restless_ghost.speak_to_ghost"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghost_skull",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 15,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the altar and leave without fighting the spawned skeleton. The return walk is a travel edge."
+    }
+  }
+]

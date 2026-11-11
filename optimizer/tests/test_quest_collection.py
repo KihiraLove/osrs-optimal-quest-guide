@@ -4,7 +4,9 @@ from collections import defaultdict
 from pathlib import Path
 import unittest
 
-from quest_optimizer.data import Contracts, load_catalog, read_json
+from quest_optimizer.bounded_search import solve_bounded
+from quest_optimizer.data import Contracts, DataError, load_catalog, read_json
+from quest_optimizer.replay import verify_solution
 from quest_optimizer.semantics import CatalogValidator
 
 
@@ -37,6 +39,36 @@ class QuestCollectionTests(unittest.TestCase):
         )
         variants = {row["helper_symbol"] for row in self.observations["quest.shield_of_arrav"]}
         self.assertEqual(variants, {"SHIELD_OF_ARRAV_BLACK_ARM_GANG", "SHIELD_OF_ARRAV_PHOENIX_GANG"})
+
+    def test_restless_ghost_replays_from_lumbridge_with_no_manual_xp(self):
+        quest = "quest.the_restless_ghost"
+        [source] = self.observations[quest]
+        review = read_json(RAW / "restless-ghost-review.json")
+        profile = read_json(ROOT / "examples/build-242/restless-ghost-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile, max_expansions=4000)
+        verify_solution(solution, profile, validator)
+        self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {})
+        self.assertEqual([step["action_id"] for step in solution["steps"] if step["kind"] == "action"], review["stages"])
+        expected_xp = profile["initial_state"]["xp_tenths"].copy()
+        for reward in source["declared_xp"]["observations"]:
+            expected_xp[reward["skill_id"]] += reward["xp_tenths"]
+        state = solution["final_state"]
+        self.assertEqual(state["xp_tenths"], expected_xp)
+        self.assertEqual(state["inventory"], {"item.ghostspeak_amulet": 1})
+        self.assertEqual(state["counters"]["token.quest_points"], 1)
+        ladders = {step.get("edge_id") for step in solution["steps"]}
+        self.assertTrue({
+            "travel.walk.wizards_tower.basement_ladder.out", "travel.walk.wizards_tower.basement_ladder.back",
+        } <= ladders)
+
+        for stage in ("get_amulet", "take_skull"):
+            with self.subTest(stage=stage):
+                skipped = {**solution, "steps": [
+                    step for step in solution["steps"] if step.get("action_id") != f"{quest}.{stage}"
+                ]}
+                with self.assertRaisesRegex(DataError, r"steps\.\d+ .* required completed action"):
+                    verify_solution(skipped, profile, validator)
 
     def test_rfd_preserves_each_stage_and_awards_points_once(self):
         stages = self.rfd["stages"]

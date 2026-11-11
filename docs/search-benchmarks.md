@@ -39,6 +39,6 @@ The restricted runs use the same account and goals and change only the
 indicated action's availability to the search. The synthetic diary regression
 also compares a task, tier and lamp claim with the claim excluded.
 
-The draft catalog contains 12 collected entries out of 204 in the journal
-coverage ledger. A reviewed full-route comparison and larger-instance search
+These measurements used dataset 0.6.0, which had 12 of 216 journal entries
+collected. A reviewed full-route comparison and larger-instance search
 evaluation remain open. [Issue #12](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/12)
