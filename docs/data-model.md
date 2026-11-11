@@ -89,9 +89,8 @@ Every transition that awards XP or an XP reward has `repeat_limit: 1`.
 
 ## Typed transition mechanics
 
-The transition and replay work in [#10](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/10)
-uses these contracts. All requirements are checked at transition start, then
-time advances and effects apply at transition end. Split a transition into
+Route replay checks all requirements at transition start, then advances the
+clock and applies effects at transition end. Split a transition into
 phases when it has checks at different times. A `wait` step adds a positive
 number of modelled seconds. Personal training leaves the modelled clock unchanged.
 
@@ -212,11 +211,11 @@ reward use, waiting and abstract training. A training step includes `skill_id`, 
 Contextual solution validation checks references and the reward trace. The trace
 checks the award order, completed-action gates on claims, instance ownership,
 training arithmetic, base levels, whole picks and remaining rewards. Full replay
-covers the remaining requirements, location, inventory, final XP, objective totals
-and input hashes.
+also verifies the hashes of the canonical local catalog, profile and schemas,
+then reconstructs every step, the final state, goals and objective totals.
 
 Expose route evidence and assumptions to the viewer. `optimal` requires a proof
 or exhausted exact search for the declared finite model. `feasible` / `best_known`
 must be used for heuristic results. Lower bounds/gaps are per lexicographic phase,
 never a single weighted objective disguised as an XP optimum. A synthetic example
-must remain marked `example` and unverified.
+uses solver status `example`. It can pass replay while release readiness remains false.

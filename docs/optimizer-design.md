@@ -14,35 +14,44 @@ nonbeneficial actions can be pruned only with a sound argument.
 
 ## Training and reward decisions
 
-Generate abstract training candidates at meaningful exact XP thresholds: quest
-gates, lamp eligibility, next reward lookup breakpoint and any boost/combat-derived
-gate. Allow a deliberate amount before a level-scaled lamp if it can improve the
-global manual-XP objective. A simple “train only for the next quest” heuristic is
-not complete. Threshold reduction needs proof or exact-small-instance comparison.
-Never choose a training method, assign XP/hour or add a guessed training time.
+The reference search generates training candidates at quest gates, boosted
+gates, combat term thresholds, lamp eligibility and reward lookup breakpoints.
+It also enumerates every XP tenth up to the highest relevant threshold for
+each skill. An action's fixed XP can cross a breakpoint before it forces an
+immediate lamp pick, so a smaller training gain can be optimal. Above the
+highest threshold, extra XP cannot affect a later requirement or reward
+lookup. Consecutive training steps at one waypoint commute and leave the
+clock unchanged, so the search combines them into one gain per skill in
+skill ID order. The player chooses the training method and location.
 
 Branch on reward target, claim time and allowed deferment. Retain exact deficits,
 reward-instance identity and one-time caps. Spending a reward cannot precede its
 producer and cannot be fractional unless explicitly permitted. The default quest
 lamp skill policy and any departures from observed eligibility travel with output.
 
-## Suggested implementation order
+## Exact reference search
 
-1. Implement a deterministic state transition engine and a separate route replay
-   verifier. Validate requirements, claim limits, resource conservation, XP math,
-   travel availability and terminal goals before writing a clever solver.
-2. Build an exhaustive/Dijkstra or branch-and-bound reference search for tiny
-   fixtures using lexicographic `(manual XP, non-training seconds)` path costs.
-   Prove results for those finite instances, including optional detours and lamps.
-3. Establish a deterministic feasible baseline for curated real slices: dependency
-   scheduling, reward-aware lookahead and travel-aware tie breaking. Report it as
-   a baseline, not globally optimal. Compare against a no-optional-reward baseline.
-4. Evaluate A*/branch-and-bound, beam search and large-neighbourhood improvement.
-   Profile state growth before selecting a production backend. A CP-SAT/MIP model
-   is an experiment, not a promised fit for arbitrary dynamic state and travel.
-5. Run the full reviewed catalog with bounded time/memory and a fixed seed. Store
-   best-known incumbents and bounds where justified. Never change the primary
-   objective into an undocumented weighted sum for convenience.
+`solve-small` uses Dijkstra search with lexicographic costs ordered by manual
+XP, non-training seconds and the sequence of stable move IDs. The search key
+includes exact XP, progress, resources, held rewards and active timer lengths.
+Absolute time saturates in the key once it reaches the largest elapsed-time
+requirement. It still contributes to route cost and final state. One-second
+waits cover every reachable timer boundary. Positive time or a finite use
+count is required for travel, and travel that grants items or increases an
+uncapped counter must have a finite use count. XP and reward producers are
+one-time transitions.
+
+The two-quest regression enumerates both orders and every training gain in
+the fixture range. Dependency order and largest-XP-reward-first both require
+4 XP tenths and 7 seconds. The optimum requires 3 XP tenths and 7 seconds.
+A second enumeration checks that 3 XP tenths before a forced scaled reward
+can beat training directly to the next threshold.
+
+The state budget bounds the reference search. It produces an exact result
+when it reaches the best goal and fails explicitly if the budget is exceeded.
+Search on reviewed full-game inputs will need a scalable baseline, profiling,
+and comparisons with bounded methods such as beam search and neighbourhood
+improvement. Report any proved bounds and keep the manual XP objective first.
 
 Travel routing uses directed edges filtered by state and policy. Pure fixed-cost
 edges can use shortest path; consumed charges, granted XP/unlocks or cooldowns may

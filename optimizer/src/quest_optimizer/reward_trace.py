@@ -139,27 +139,31 @@ class RewardTrace:
             self._fail(f"{path}.after_xp_tenths", f"expected {after} after the stated XP gain")
         self.xp[skill] = after
 
-    def spend(self, step: dict, path: str) -> None:
-        instance_id = step["instance_id"]
+    def reward_pick(self, instance_id: str, skill: str, path: str) -> int:
         instance = self.held.get(instance_id)
         if instance is None:
             self._fail(f"{path}.instance_id", f"reward instance {instance_id!r} is unavailable")
-        if step["reward_id"] != instance.reward_id:
-            self._fail(f"{path}.reward_id", f"instance {instance_id!r} belongs to {instance.reward_id!r}")
         reward = self.rewards[instance.reward_id]
-        skill = step["skill_id"]
         level = bisect_right(self.thresholds[skill], self.xp[skill])
         if level < reward["minimum_level"]:
             self._fail(f"{path}.skill_id", f"{skill!r} requires base level {reward['minimum_level']}, has {level}")
         if reward["distinct_skills"] and skill in instance.used_skills:
             self._fail(f"{path}.skill_id", f"{skill!r} was already selected for this reward")
         amount = reward["amount"]
-        expected = amount["xp_tenths"] if amount["kind"] == "fixed" else self.amounts_by_level[instance.reward_id][level]
+        return amount["xp_tenths"] if amount["kind"] == "fixed" else self.amounts_by_level[instance.reward_id][level]
+
+    def spend(self, step: dict, path: str) -> None:
+        instance_id = step["instance_id"]
+        skill = step["skill_id"]
+        instance = self.held.get(instance_id)
+        if instance is not None and step["reward_id"] != instance.reward_id:
+            self._fail(f"{path}.reward_id", f"instance {instance_id!r} belongs to {instance.reward_id!r}")
+        expected = self.reward_pick(instance_id, skill, path)
         if step["gain_xp_tenths"] != expected:
             self._fail(f"{path}.gain_xp_tenths", f"expected a whole pick of {expected} XP tenths")
         self.xp[skill] += expected
         instance.remaining_picks -= 1
-        if reward["distinct_skills"]:
+        if self.rewards[instance.reward_id]["distinct_skills"]:
             instance.used_skills.add(skill)
         if instance.remaining_picks == 0:
             del self.held[instance_id]

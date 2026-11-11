@@ -6,12 +6,14 @@ action. One completion should consume the ingredients, award 300 Cooking XP and
 one quest point, and unlock the cook's range.
 
 ```sh
-quest-optimizer validate-json profile examples/build-242/cooks-assistant-profile.json --catalog data/manifest.json
+quest-optimizer solve-small data/manifest.json examples/build-242/cooks-assistant-profile.json
 ```
 
 The [Recipe for Disaster progression review](../../data/raw/build-242/recipe-for-disaster-review.json)
-contains the ten stages and the finale prerequisites. The runtime replay fixture
-depends on resolving the review fields and adding those stages to the catalog.
+contains the ten stages and the finale prerequisites. A replay test uses
+the recorded finale gates and quest points with synthetic waypoints and
+durations. A full in-game route fixture depends on resolving the review
+fields and adding those stages to the catalog.
 
 The optional progression tests cover the three essence mine task flags in the
 draft catalog. A synthetic fixture compares manual training with a diary task,
@@ -23,7 +25,7 @@ and starts Bone Voyage at 100 kudos. The saved account is synthetic. The
 catalog's museum and travel IDs are used throughout.
 
 ```sh
-quest-optimizer validate-json solution examples/build-242/museum-quiz-solution.json --catalog data/manifest.json --profile examples/build-242/museum-quiz-profile.json
+quest-optimizer replay examples/build-242/museum-quiz-solution.json --catalog data/manifest.json --profile examples/build-242/museum-quiz-profile.json
 ```
 
 `balloon-travel-profile.json` starts after Enlightened Journey with a light
@@ -32,5 +34,5 @@ solution discovers Varrock, flies to Taverley, then flies back to Varrock.
 The last leg can be compared with the walk through Varrock square.
 
 ```sh
-quest-optimizer validate-json solution examples/build-242/balloon-travel-solution.json --catalog data/manifest.json --profile examples/build-242/balloon-travel-profile.json
+quest-optimizer replay examples/build-242/balloon-travel-solution.json --catalog data/manifest.json --profile examples/build-242/balloon-travel-profile.json
 ```

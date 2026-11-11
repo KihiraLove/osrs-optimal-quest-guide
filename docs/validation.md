@@ -15,9 +15,10 @@ producers, eligibility and pick counts. Use `validate-json --catalog` to check a
 profile's dataset, goals and saved state. For a solution, also supply `--profile`
 to check the inputs, route references and reward trace. The trace catches spending
 before the award, repeated producers, premature claims, split or repeated picks,
-missing base levels and deferred immediate rewards. Full route replay checks
-travel, items, remaining requirements, final XP, objective totals and input hashes
-in #10.
+missing base levels and deferred immediate rewards. Use `replay` for a full
+check against the original catalog and profile. It reconstructs travel,
+resources, timers, all XP and progress, then checks the goals, final state,
+objective totals and input hashes.
 
 ## Production release checks
 

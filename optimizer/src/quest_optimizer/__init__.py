@@ -1,3 +1,3 @@
-"""Offline quest planning tools. Search is not implemented yet."""
+"""Offline quest planning, exact reference search, and replay."""
 
 __version__ = "0.1.0"

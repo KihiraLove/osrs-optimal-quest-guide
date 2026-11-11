@@ -1,4 +1,4 @@
-"""Command-line entry point for local JSON validation."""
+"""Command-line entry point for offline quest planning."""
 
 import argparse
 from pathlib import Path
@@ -7,11 +7,13 @@ import sys
 from .coverage import audit_coverage
 from .data import Contracts, DataError, load_catalog, read_json
 from .normalization import canonical_json, catalog_diff, normalize_catalog
+from .replay import verify_solution
+from .search import solve_small
 from .semantics import CatalogValidator
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Validate local quest optimizer JSON (no solver yet)")
+    parser = argparse.ArgumentParser(description="Plan and verify quest routes using local JSON")
     parser.add_argument("--schemas", type=Path, default=Path("schemas"), help="Local schema directory")
     commands = parser.add_subparsers(dest="command", required=True)
     catalog_parser = commands.add_parser("validate-data", help="Check catalog structure and semantics")
@@ -26,6 +28,15 @@ def main(argv: list[str] | None = None) -> int:
     diff_parser = commands.add_parser("diff-data", help="Report catalog changes by record and field as JSON")
     diff_parser.add_argument("before", type=Path)
     diff_parser.add_argument("after", type=Path)
+    replay_parser = commands.add_parser("replay", help="Verify a route from its catalog and starting profile")
+    replay_parser.add_argument("solution", type=Path)
+    replay_parser.add_argument("--catalog", required=True, type=Path, metavar="MANIFEST")
+    replay_parser.add_argument("--profile", required=True, type=Path)
+    replay_parser.add_argument("--release", action="store_true", help="Require the catalog release audit")
+    solve_parser = commands.add_parser("solve-small", help="Find an exact route for a small finite instance")
+    solve_parser.add_argument("manifest", type=Path)
+    solve_parser.add_argument("profile", type=Path)
+    solve_parser.add_argument("--max-states", type=int, default=50_000)
     document_parser = commands.add_parser("validate-json", help="Check a profile or solution, optionally against its inputs")
     document_parser.add_argument("kind", choices=("profile", "solution"))
     document_parser.add_argument("path", type=Path)
@@ -58,6 +69,17 @@ def main(argv: list[str] | None = None) -> int:
             before = load_catalog(args.before, contracts)
             after = load_catalog(args.after, contracts)
             sys.stdout.write(canonical_json(catalog_diff(before, after)))
+        elif args.command == "replay":
+            catalog = load_catalog(args.catalog, contracts, release=args.release)
+            validator = CatalogValidator(catalog, contracts)
+            report = verify_solution(
+                read_json(args.solution), read_json(args.profile), validator, release_ready=args.release,
+            )
+            sys.stdout.write(canonical_json(report))
+        elif args.command == "solve-small":
+            validator = CatalogValidator(load_catalog(args.manifest, contracts), contracts)
+            solution = solve_small(validator, read_json(args.profile), max_states=args.max_states)
+            sys.stdout.write(canonical_json(solution))
         else:
             document = read_json(args.path)
             contracts.validate(args.kind, document)

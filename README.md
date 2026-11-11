@@ -54,7 +54,8 @@ quest-optimizer audit-data data/manifest.json
 quest-optimizer normalize-data data/manifest.json --skills data/raw/build-242/skills.json
 quest-optimizer validate-data examples/synthetic/manifest.json
 quest-optimizer validate-json profile examples/synthetic/profile.json --catalog examples/synthetic/manifest.json
-quest-optimizer validate-json solution examples/synthetic/solution.json --catalog examples/synthetic/manifest.json --profile examples/synthetic/profile.json
+quest-optimizer replay examples/synthetic/solution.json --catalog examples/synthetic/manifest.json --profile examples/synthetic/profile.json
+quest-optimizer solve-small examples/synthetic/manifest.json examples/synthetic/profile.json > artifacts/small-route.json
 python -m unittest discover -s optimizer/tests -v
 ```
 
@@ -62,9 +63,16 @@ python -m unittest discover -s optimizer/tests -v
 `validate-json` also checks profile and solution references against local inputs.
 Supply the matching `--profile` to check a solution's references, reward trace,
 inventory consumption and supported ordered progression gates.
-Standalone `validate-json` checks shape. Full route replay is tracked in [#10](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/10).
-The `--release` gate requires a reviewed catalog, complete independent
-coverage and a reviewed profile. See [the data pipeline](docs/data-pipeline.md).
+Standalone `validate-json` checks shape. `replay` reconstructs the route from
+the original catalog and profile, checks the input hashes and verifies the
+final state, goals and totals. The `--release` gate requires a reviewed
+catalog, complete independent coverage and a reviewed profile.
+See [the data pipeline](docs/data-pipeline.md).
+
+`solve-small` writes a replay-verified exact result for a small finite instance.
+It minimises manual XP first, then modelled activity and travel time, then
+stable move IDs. The search fails explicitly if it hits `--max-states`
+(50,000 by default). The game catalog remains in draft review.
 
 ## Documentation
 
