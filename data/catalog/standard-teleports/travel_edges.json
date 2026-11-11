@@ -1,0 +1,1250 @@
+[
+  {
+    "id": "travel.poh.rimmington.falador",
+    "name": "Use the advertised World 330 house portal to Falador",
+    "mode": "other",
+    "from_location_id": "location.rimmington.house_portal",
+    "to_location_id": "location.falador.teleport",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "allow_poh_services",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "world",
+          "value": 330
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 36,
+      "max_seconds": 95
+    },
+    "evidence": {
+      "source_ids": [
+        "source.jagex.poh_board",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "The profile assumes a public host with this destination installed. Guest portal use grants no cast XP."
+    }
+  },
+  {
+    "id": "travel.poh.rimmington.lumbridge",
+    "name": "Use the advertised World 330 house portal to Lumbridge",
+    "mode": "other",
+    "from_location_id": "location.rimmington.house_portal",
+    "to_location_id": "location.lumbridge.castle_courtyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "allow_poh_services",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "world",
+          "value": 330
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 36,
+      "max_seconds": 95
+    },
+    "evidence": {
+      "source_ids": [
+        "source.jagex.poh_board",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "The profile assumes a public host with this destination installed. Guest portal use grants no cast XP."
+    }
+  },
+  {
+    "id": "travel.spell.draynor.falador",
+    "name": "Cast Falador Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.draynor.pig_pen_dig",
+    "to_location_id": "location.falador.teleport",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 37,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.water_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 480
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.draynor.lumbridge",
+    "name": "Cast Lumbridge Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.draynor.pig_pen_dig",
+    "to_location_id": "location.lumbridge.castle_courtyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 31,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.earth_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 410
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.draynor.varrock",
+    "name": "Cast Varrock Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.draynor.pig_pen_dig",
+    "to_location_id": "location.varrock.square",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 25,
+          "boostable": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.travel.varrock_square_selected",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 350
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.falador.lumbridge",
+    "name": "Cast Lumbridge Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.falador.teleport",
+    "to_location_id": "location.lumbridge.castle_courtyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 31,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.earth_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 410
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.falador.varrock",
+    "name": "Cast Varrock Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.falador.teleport",
+    "to_location_id": "location.varrock.square",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 25,
+          "boostable": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.travel.varrock_square_selected",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 350
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.grand_exchange.falador",
+    "name": "Cast Falador Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.varrock.grand_exchange",
+    "to_location_id": "location.falador.teleport",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 37,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.water_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 480
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.grand_exchange.lumbridge",
+    "name": "Cast Lumbridge Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.varrock.grand_exchange",
+    "to_location_id": "location.lumbridge.castle_courtyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 31,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.earth_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 410
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.grand_exchange.varrock",
+    "name": "Cast Varrock Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.varrock.grand_exchange",
+    "to_location_id": "location.varrock.square",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 25,
+          "boostable": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.travel.varrock_square_selected",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 350
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.lumbridge.falador",
+    "name": "Cast Falador Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.lumbridge.castle_courtyard",
+    "to_location_id": "location.falador.teleport",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 37,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.water_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 480
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.lumbridge.varrock",
+    "name": "Cast Varrock Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.lumbridge.castle_courtyard",
+    "to_location_id": "location.varrock.square",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 25,
+          "boostable": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.travel.varrock_square_selected",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 350
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.port_sarim.falador",
+    "name": "Cast Falador Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.port_sarim.veos",
+    "to_location_id": "location.falador.teleport",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 37,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.water_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 480
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.port_sarim.lumbridge",
+    "name": "Cast Lumbridge Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.port_sarim.veos",
+    "to_location_id": "location.lumbridge.castle_courtyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 31,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.earth_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 410
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.port_sarim.varrock",
+    "name": "Cast Varrock Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.port_sarim.veos",
+    "to_location_id": "location.varrock.square",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 25,
+          "boostable": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.travel.varrock_square_selected",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 350
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.rimmington.falador",
+    "name": "Cast Falador Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.rimmington.house_portal",
+    "to_location_id": "location.falador.teleport",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 37,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.water_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 480
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.rimmington.lumbridge",
+    "name": "Cast Lumbridge Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.rimmington.house_portal",
+    "to_location_id": "location.lumbridge.castle_courtyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 31,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.earth_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 410
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.rimmington.varrock",
+    "name": "Cast Varrock Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.rimmington.house_portal",
+    "to_location_id": "location.varrock.square",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 25,
+          "boostable": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.travel.varrock_square_selected",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 350
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.varrock.falador",
+    "name": "Cast Falador Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.varrock.square",
+    "to_location_id": "location.falador.teleport",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 37,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.water_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 480
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.spell.varrock.lumbridge",
+    "name": "Cast Lumbridge Teleport",
+    "mode": "teleport_spell",
+    "from_location_id": "location.varrock.square",
+    "to_location_id": "location.lumbridge.castle_courtyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 31,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.earth_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 410
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "evidence": {
+      "source_ids": [
+        "source.runelite.magic_calculator",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast the standard spell using carried runes. One modeled cast per directed route."
+    },
+    "repeat_limit": 1
+  },
+  {
+    "id": "travel.walk.falador.dorics_house.back",
+    "name": "Walk between Falador and dorics house",
+    "mode": "walk",
+    "from_location_id": "location.dorics_house",
+    "to_location_id": "location.falador.teleport",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 60,
+      "max_seconds": 125
+    },
+    "evidence": {
+      "source_ids": [
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the road north past Falador and west toward Doric."
+    }
+  },
+  {
+    "id": "travel.walk.falador.dorics_house.out",
+    "name": "Walk between Falador and dorics house",
+    "mode": "walk",
+    "from_location_id": "location.falador.teleport",
+    "to_location_id": "location.dorics_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 60,
+      "max_seconds": 125
+    },
+    "evidence": {
+      "source_ids": [
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the road north past Falador and west toward Doric."
+    }
+  },
+  {
+    "id": "travel.walk.falador.port_sarim.back",
+    "name": "Walk between Falador and port sarim",
+    "mode": "walk",
+    "from_location_id": "location.port_sarim.entrana_ferry",
+    "to_location_id": "location.falador.teleport",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 63,
+      "max_seconds": 130
+    },
+    "evidence": {
+      "source_ids": [
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow the public roads south to Port Sarim."
+    }
+  },
+  {
+    "id": "travel.walk.falador.port_sarim.out",
+    "name": "Walk between Falador and port sarim",
+    "mode": "walk",
+    "from_location_id": "location.falador.teleport",
+    "to_location_id": "location.port_sarim.entrana_ferry",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 63,
+      "max_seconds": 130
+    },
+    "evidence": {
+      "source_ids": [
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow the public roads south to Port Sarim."
+    }
+  }
+]

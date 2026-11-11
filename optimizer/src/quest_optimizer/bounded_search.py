@@ -10,9 +10,12 @@ from math import inf
 from random import Random
 
 from .errors import DataError
+from .objectives import counted_training, outstanding, priority_xp
 from .reachability import unreachable_records
 from .replay import verify_solution
-from .search import _leaves, _reward_skills, _reward_steps, _state_key, _training_step, _transition_step, build_solution
+from .search import (
+    _leaves, _reward_skills, _reward_steps, _state_key, _training_step, _transition_key, _transition_step, build_solution,
+)
 from .semantics import CatalogValidator
 from .transitions import RouteState
 
@@ -25,7 +28,7 @@ def _mandatory_rules(rule):
         yield rule
 
 
-def _step_key(step):
+def _step_key(step, tables):
     kind = step["kind"]
     if kind == "training":
         return (step["skill_id"], kind, step["after_xp_tenths"])
@@ -33,7 +36,8 @@ def _step_key(step):
         return (step["instance_id"], kind, step["skill_id"])
     if kind == "wait":
         return (kind, kind, step["modeled_seconds"])
-    return (step.get("action_id") or step["edge_id"], kind)
+    table, field = ("actions", "action_id") if kind == "action" else ("travel_edges", "edge_id")
+    return _transition_key(kind, tables[table][step[field]])
 
 
 def _wait(seconds):
@@ -164,11 +168,13 @@ def _producer_training(state, record):
                 yield _training_step(state, skill, target - grants[skill], [reward["id"]])
 
 
-def _moves(state, nearby, repair_width):
+def _moves(state, nearby, repair_width, skill_targets):
     for _, pick in _reward_steps(state):
         yield (pick,)
     if state.pending:
         return
+    for skill, target in sorted(outstanding(state.xp, skill_targets).items()):
+        yield (_training_step(state, skill, target, [skill]),)
     for _, instance in sorted(state.held.items()):
         reward = state.rewards[instance.reward_id]
         for skill in sorted(set(_reward_skills(reward, state)) - instance.used_skills):
@@ -223,10 +229,11 @@ def _required_actions(initial, goals):
 
 
 class _Guide:
-    def __init__(self, initial, goals, excluded, priorities):
+    def __init__(self, initial, goals, excluded, priorities, skill_targets):
         actions = initial.tables["actions"]
         self.needed = _required_actions(initial, goals)
         self.prioritized = set(_required_actions(initial, priorities))
+        self.skill_targets = skill_targets
         self.required_items = {}
         for action_id, rules in self.needed.items():
             item_rules = [rule for rule in rules if rule["kind"] == "item"]
@@ -323,7 +330,10 @@ class _Guide:
         for reward in state.held.values():
             for skill, amount in self.reward_grants[reward.reward_id].items():
                 available[skill] += reward.remaining_picks * amount
-        bound = sum(max(0, gap - available[skill]) for skill, gap in gaps.items())
+        bound = sum(
+            max(0, gap - available[skill] - max(0, self.skill_targets.get(skill, 0) - state.xp[skill]))
+            for skill, gap in gaps.items()
+        )
         def distance(destinations, remaining):
             return min((self.distances[start].get(state.location, inf) for start in destinations),
                        default=inf if remaining else 0)
@@ -340,6 +350,40 @@ class _Node:
     cost: tuple
 
 
+def _train_during_waits(initial, steps, skill_targets):
+    """Move planned XP into an idle interval when same-skill XP is unchanged."""
+    state = initial
+    waits = {}
+    emitted = []
+    before_wait = defaultdict(list)
+    for step in steps:
+        kind = step["kind"]
+        if kind == "wait":
+            for skill in state.xp:
+                waits.setdefault(skill, (len(emitted), state.location))
+        elif kind == "training":
+            skill = step["skill_id"]
+            if skill not in skill_targets and skill in waits:
+                index, waypoint = waits.pop(skill)
+                before_wait[index].append({
+                    **step, "resume_location_id": waypoint,
+                    "explanation": f"Work on the {step['gain_xp_tenths']} XP tenths target during this wait.",
+                })
+                state = state.apply(step)
+                continue
+            waits.pop(skill, None)
+        elif kind == "reward_use":
+            waits.pop(step["skill_id"], None)
+        elif kind in ("action", "travel"):
+            table, field = ("actions", "action_id") if kind == "action" else ("travel_edges", "edge_id")
+            for effect in state.tables[table][step[field]]["effects"]:
+                if effect["kind"] == "xp":
+                    waits.pop(effect["skill_id"], None)
+        emitted.append(step)
+        state = state.apply(step)
+    return tuple(part for index, step in enumerate(emitted) for part in (*before_wait[index], step))
+
+
 def solve_bounded(
     validator: CatalogValidator, profile: dict, *, beam_width: int = 32, max_expansions: int = 20_000,
     seed: int = 0, excluded_actions: tuple[str, ...] = (), incumbent: dict | None = None,
@@ -350,12 +394,19 @@ def solve_bounded(
     validator.contracts.validate("profile", profile)
     validator.validate_profile(profile)
     priorities = set(profile.get("priority_action_ids", ()))
+    skill_targets = priority_xp(profile, validator.tables["skills"])
     goals = set(profile["goal_action_ids"]) | priorities
     excluded = set(excluded_actions)
     if excluded - validator.tables["actions"].keys():
         raise DataError("Unknown excluded action: " + ", ".join(sorted(excluded - validator.tables["actions"].keys())))
     initial = RouteState(validator.tables, profile["policies"], profile["initial_state"])
-    guide = _Guide(initial, goals, excluded, priorities)
+    guide = _Guide(initial, goals, excluded, priorities, skill_targets)
+
+    def complete(state):
+        return goals <= state.completed and not state.pending and not outstanding(state.xp, skill_targets)
+
+    def step_keys(steps):
+        return tuple(_step_key(step, initial.tables) for step in steps)
     if excluded & guide.needed.keys():
         raise DataError("Cannot exclude a required action: " + ", ".join(sorted(excluded & guide.needed.keys())))
     allowed = {**validator.catalog, "actions": [
@@ -374,19 +425,20 @@ def solve_bounded(
             raise DataError("Incumbent uses an excluded action")
         objective = incumbent["objective"]
         best = _Node(_apply_steps(initial, steps), steps, (
-            objective["manual_training_xp_tenths"], objective.get("priority_elapsed_seconds", 0),
+            objective.get("counted_manual_training_xp_tenths", objective["manual_training_xp_tenths"]),
+            objective.get("priority_skill_elapsed_seconds", 0), objective.get("priority_elapsed_seconds", 0),
             objective["modeled_non_training_seconds"],
-            tuple(map(_step_key, steps)),
+            step_keys(steps),
         ))
 
-    frontier = [_Node(initial, (), (0, 0, 0, ()))]
+    frontier = [_Node(initial, (), (0, 0, 0, 0, ()))]
     expanded = {}
     expansion_count = 0
     generated = 0
     while frontier and expansion_count < max_expansions:
         candidates = {}
         for node in frontier:
-            if goals <= node.state.completed and not node.state.pending:
+            if complete(node.state):
                 if best is None or node.cost < best.cost:
                     best = node
                 continue
@@ -395,21 +447,29 @@ def solve_bounded(
                 continue
             expanded[key] = node.cost
             expansion_count += 1
-            for moves in _moves(node.state, guide.routes[node.state.location], min(beam_width, 8)):
+            for moves in _moves(node.state, guide.routes[node.state.location], min(beam_width, 8), skill_targets):
                 state = _apply_steps(node.state, moves)
                 if state is None:
                     continue
                 generated += 1
-                manual = node.cost[0] + sum(move["gain_xp_tenths"] for move in moves if move["kind"] == "training")
+                manual = node.cost[0] + sum(counted_training(move, skill_targets) for move in moves)
                 seconds = state.elapsed - initial.elapsed
-                priority_seconds = node.cost[1]
+                skill_seconds = node.cost[1]
+                priority_seconds = node.cost[2]
+                before = dict(outstanding(node.state.xp, skill_targets))
+                for move in moves:
+                    if move["kind"] == "training" and move["after_xp_tenths"] >= before.get(move["skill_id"], 0):
+                        before.pop(move["skill_id"], None)
+                    if before:
+                        skill_seconds += move.get("modeled_seconds", 0)
                 if priorities - node.state.completed:
                     priority_seconds += state.elapsed - node.state.elapsed
-                if best is not None and (manual, priority_seconds, seconds) > best.cost[:3]:
+                objective = manual, skill_seconds, priority_seconds, seconds
+                if best is not None and objective > best.cost[:4]:
                     continue
-                cost = manual, priority_seconds, seconds, node.cost[3] + tuple(map(_step_key, moves))
+                cost = (*objective, node.cost[4] + step_keys(moves))
                 successor = _Node(state, node.steps + moves, cost)
-                if goals <= state.completed and not state.pending:
+                if complete(state):
                     if best is None or cost < best.cost:
                         best = successor
                     continue
@@ -427,10 +487,11 @@ def solve_bounded(
             bound, remaining, deficit, item_gap, distance, priority_remaining, priority_distance = guide.estimates(
                 candidate.state,
             )
-            manual, priority_seconds, seconds, ids = candidate.cost
-            if best is not None and (manual + bound, priority_seconds, seconds) > best.cost[:3]:
+            manual, skill_seconds, priority_seconds, seconds, ids = candidate.cost
+            if best is not None and (manual + bound, skill_seconds, priority_seconds, seconds) > best.cost[:4]:
                 continue
-            rank = (manual + bound, priority_remaining, priority_seconds + priority_distance,
+            rank = (manual + bound, skill_seconds, len(outstanding(candidate.state.xp, skill_targets)),
+                    priority_remaining, priority_seconds + priority_distance,
                     remaining, deficit, item_gap, seconds + distance, rng.getrandbits(64), ids)
             ranked.append((rank, candidate))
         ranked.sort(key=lambda row: row[0])
@@ -444,14 +505,15 @@ def solve_bounded(
     ]
     if excluded:
         limitations.append("Comparison excludes actions: " + ", ".join(sorted(excluded)))
+    steps = _train_during_waits(initial, best.steps, skill_targets)
     solution = build_solution(
-        validator, profile, best.state, best.steps,
+        validator, profile, best.state, steps,
         solution_id="solution.bounded." + profile["profile_id"],
         solver={
             "name": "bounded-beam", "seed": seed, "status": "feasible" if excluded else "best_known",
             "primary_lower_bound_xp_tenths": initial_bound, "secondary_lower_bound_seconds": None,
         },
-        priority_seconds=best.cost[1],
+        priority_seconds=best.cost[2], priority_skill_seconds=best.cost[1],
         limitations=limitations,
     )
     return solution, {

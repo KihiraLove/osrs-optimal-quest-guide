@@ -116,6 +116,8 @@
           "type": "integer",
           "minimum": 0
         },
+        "priority_skill_elapsed_seconds": {"type": "integer", "minimum": 0},
+        "counted_manual_training_xp_tenths": {"type": "integer", "minimum": 0},
         "modeled_non_training_seconds": {
           "type": "integer",
           "minimum": 0
@@ -127,9 +129,19 @@
         "modeled_non_training_seconds"
       ],
       "additionalProperties": false,
-      "if": {"properties": {"order": {"contains": {"const": "priority_elapsed_seconds"}}}},
-      "then": {"required": ["priority_elapsed_seconds"]},
-      "else": {"not": {"required": ["priority_elapsed_seconds"]}}
+      "allOf": [
+        {
+          "if": {"properties": {"order": {"contains": {"const": "priority_elapsed_seconds"}}}},
+          "then": {"required": ["priority_elapsed_seconds"]},
+          "else": {"not": {"required": ["priority_elapsed_seconds"]}}
+        },
+        {
+          "if": {"properties": {"order": {"contains": {"const": "priority_skill_elapsed_seconds"}}}},
+          "then": {"required": ["priority_skill_elapsed_seconds", "counted_manual_training_xp_tenths"]},
+          "else": {"not": {"anyOf": [{"required": ["priority_skill_elapsed_seconds"]},
+                                   {"required": ["counted_manual_training_xp_tenths"]}]}}
+        }
+      ]
     },
     "manual_training_xp_tenths_by_skill": {
       "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/xp_map"

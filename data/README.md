@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.9.0` loads 24 skill tables and
-91 draft actions, including The Restless Ghost, the museum route and Enlightened
+3 November 2026 at 10:00:06 UTC. Dataset `0.10.0` loads 24 skill tables and
+92 draft actions, including The Restless Ghost, the museum route and Enlightened
 Journey. Durations estimate each interaction at its waypoint with supplies ready. Travel between
 waypoints belongs to the travel graph. An action description identifies any
 movement included in its duration.
@@ -80,6 +80,16 @@ fairy-ring access at the Godfather conversation from the later skill checks
 and completion rewards. Two staff-gated surface codes are modeled. The
 unlock fixture uses saved Lost City and Fairytale I progress while those
 prerequisite routes and the second phase are in collection.
+
+The [timer inventory](raw/build-242/progression-timers.json) lists the step
+blocked by each timer. Martin's timer runs in the catalog. Garden of
+Tranquillity, the white-tree fruit diary task, Forgettable Tale and Rum Deal
+still need their progression and travel records admitted.
+
+The [standard teleport edges](catalog/standard-teleports/travel_edges.json)
+cover selected origins for Varrock, Lumbridge and Falador. Casts require the
+standard spellbook, carried runes and the spell's Magic level. The three
+public house portals from Rimmington use the World 330 host assumption.
 
 [The Restless Ghost review](raw/build-242/restless-ghost-review.json) records the
 amulet and skull pickups, the route that leaves the skeleton behind, and the

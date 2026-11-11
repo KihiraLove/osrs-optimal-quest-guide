@@ -31,8 +31,9 @@ lamp skill policy and any departures from observed eligibility travel with outpu
 
 ## Exact reference search
 
-`solve-small` uses Dijkstra search ordered by manual XP, time to the last
-configured priority action if any, non-training seconds and stable move IDs. The search key
+`solve-small` uses Dijkstra search ordered by counted manual XP, time to
+priority skill targets and actions when configured, non-training seconds and
+stable move IDs. The search key
 includes exact XP, progress, resources, held rewards and active timer lengths.
 Absolute time saturates in the key once it reaches the largest elapsed-time
 requirement. It still contributes to route cost and final state. One-second
@@ -75,6 +76,11 @@ better routes, so a complete draft or reviewed result uses `best_known`.
 Explicit action exclusions are available for comparison runs. A search that
 finds no complete route fails with its expansion count. The catalog reachability
 audit can separately identify goals blocked by the available inputs.
+
+A timer blocks only the stages that require it. The search can advance other
+steps while it runs. The bounded route can move a planned training block to an
+earlier idle wait when the skill's XP is unchanged in between. The route clock
+keeps the original wait duration.
 
 A saved incumbent is replayed against the current inputs before it can bound
 another run. Candidates and incumbents follow the profile's objective order.

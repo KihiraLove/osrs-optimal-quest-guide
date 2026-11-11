@@ -95,7 +95,7 @@ class Build242BaselineTests(unittest.TestCase):
         self.assertEqual(initial["completed_action_ids"], [])
         self.assertEqual(initial["inventory"], kit["inventory"])
         self.assertNotIn("item.coins", initial["inventory"])
-        self.assertEqual(initial["flags"], {})
+        self.assertEqual(initial["flags"], {"flag.spellbook.standard": True, "flag.travel.varrock_square_selected": True})
         self.assertEqual(initial["held_rewards"], [])
         expected_xp = {skill["id"]: 0 for skill in self.catalog["skills"]}
         expected_xp["skill.hitpoints"] = 11540
@@ -106,6 +106,8 @@ class Build242BaselineTests(unittest.TestCase):
         self.assertEqual(self.baseline["policies"]["quest_lamp_skill_policy"], "any_skill")
         self.assertEqual(self.baseline["policies"]["gp_policy"], "self_funded")
         self.assertTrue(self.baseline["policies"]["allow_poh_services"])
+        self.assertEqual(self.baseline["policies"]["world"], 330)
+        self.assertEqual(self.baseline["priority_skill_levels"], {"skill.prayer": 43})
         self.assertEqual(self.baseline["priority_action_ids"], ["quest.fairytale_ii_cure_a_queen.unlock_fairy_rings"])
 
     def test_starter_route_buys_supplies_and_keeps_the_initial_quest_point(self):
@@ -114,9 +116,11 @@ class Build242BaselineTests(unittest.TestCase):
         self.assertEqual(profile["policies"], self.baseline["policies"])
         self.assertLess(set(profile["goal_action_ids"]), set(self.baseline["goal_action_ids"]))
         validator = CatalogValidator(self.catalog, self.contracts)
-        solution, _ = solve_bounded(validator, profile)
+        solution, _ = solve_bounded(validator, profile, beam_width=128)
         report = verify_solution(solution, profile, validator)
-        self.assertEqual(report["manual_training_xp_tenths_by_skill"], {})
+        self.assertEqual(report["manual_training_xp_tenths_by_skill"], {"skill.prayer": 503390})
+        self.assertEqual(report["objective"]["counted_manual_training_xp_tenths"], 0)
+        self.assertEqual(report["objective"]["priority_skill_elapsed_seconds"], 0)
         self.assertEqual(report["final_state"]["counters"], {"token.quest_points": 4})
         self.assertEqual(report["final_state"]["xp_tenths"]["skill.hitpoints"], 11540)
         self.assertEqual(report["final_state"]["inventory"]["item.coins"], 88)

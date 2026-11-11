@@ -212,6 +212,52 @@ class SearchTests(unittest.TestCase):
         self.profile["objective"].remove("priority_elapsed_seconds")
         self.assertEqual(solve_small(validator, self.profile)["objective"]["modeled_non_training_seconds"], 5)
 
+    def test_priority_skill_counts_training_only_above_its_threshold(self):
+        self.catalog["skills"][0]["xp_thresholds_tenths"] = [0, 4, 8]
+        self.action["requirements"]["minimum_level"] = 3
+        self.profile["priority_skill_levels"] = {SKILL: 2}
+        self.profile["objective"][:1] = ["counted_manual_training_xp_tenths", "priority_skill_elapsed_seconds"]
+        validator = self.validator()
+        for solution in (solve_small(validator, self.profile), solve_bounded(validator, self.profile)[0]):
+            self.assertEqual(solution["objective"]["manual_training_xp_tenths"], 8)
+            self.assertEqual(solution["objective"]["counted_manual_training_xp_tenths"], 4)
+            self.assertEqual(solution["objective"]["priority_skill_elapsed_seconds"], 0)
+
+    def test_timed_gap_allows_another_task_and_training_for_later(self):
+        timer = "token.growth"
+        self.catalog["tokens"].append({
+            "id": timer, "name": "Growth timer", "kind": "cooldown", "maximum": None,
+            "evidence": self.action["evidence"],
+        })
+
+        def stage(action_id, requirements, seconds, effects=()):
+            return {
+                **self.action, "id": action_id, "name": action_id, "kind": "other", "activity_id": None,
+                "requirements": {"kind": "all", "requirements": list(requirements)}, "effects": list(effects),
+                "duration": dict.fromkeys(("min_seconds", "expected_seconds", "max_seconds"), seconds),
+            }
+
+        def completed(action_id):
+            return {"kind": "action_completed", "action_id": action_id}
+
+        self.catalog["actions"].extend([
+            stage("action.plant", [], 0, [{"kind": "start_cooldown", "token_id": timer, "duration_seconds": 5}]),
+            stage("action.elsewhere", [], 2),
+            stage("action.harvest", [
+                completed("action.plant"), completed("action.elsewhere"), {"kind": "cooldown_ready", "token_id": timer},
+            ], 0),
+        ])
+        self.action["requirements"] = {
+            "kind": "all", "requirements": [self.action["requirements"], completed("action.harvest")],
+        }
+        solution, _ = solve_bounded(self.validator(), self.profile)
+        steps = solution["steps"]
+        self.assertEqual([step.get("action_id") or step["kind"] for step in steps], [
+            "action.plant", "action.elsewhere", "training", "wait", "action.harvest", "action.example",
+        ])
+        self.assertEqual(steps[3]["modeled_seconds"], 3)
+        self.assertEqual(solution["objective"]["modeled_non_training_seconds"], 65)
+
     def test_limits_and_impossible_goals_fail_without_claiming_an_optimum(self):
         with self.assertRaisesRegex(DataError, "state limit"):
             solve_small(self.validator(), self.profile, max_states=2)

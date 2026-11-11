@@ -19,21 +19,24 @@ and all in-scope quest goals. Existing accounts can supply their own state in JS
 The first strategy is a self-funded main. Trade is enabled and GE purchases
 consume carried coins at fixed planning prices. Route actions can earn GP,
 sell modeled assets, or withdraw the starting balance at the bank. Untradeable
-items keep their acquisition requirements. Public house teleports require an
-available host with the destination installed on the current world. Other
+items keep their acquisition requirements. The main stays on World 330 and
+assumes a public Rimmington host with the modeled destinations installed. Other
 account strategies can share the starter kit and supply their own policies.
 
 ## Objective agreed with the user
 
 Minimise lexicographically:
 
-1. `manual_training_xp`: sum of actual XP gains requested in explicit training
-   steps across all skills. Every XP point has equal weight in this default policy.
-2. `priority_elapsed_seconds` for profiles with a priority milestone.
+1. Counted manual XP. In the main profile, Prayer XP trained up to base level
+   43 is neutral. The route still reports that XP in full.
+2. `priority_skill_elapsed_seconds` to reach the base skill targets. The main
+   profile targets Prayer 43 for protection prayers.
+3. `priority_elapsed_seconds` for profiles with a priority milestone.
    The main profile measures time to fairy-ring access during Fairytale II.
-3. `modeled_non_training_seconds`: activity execution + reward-claim visits +
+4. `modeled_non_training_seconds`: activity execution + reward-claim visits +
    transport unlock/setup + travel + modelled supply handling and waits.
-4. A stable lexicographic action/choice identifier sequence.
+5. A stable lexicographic action/choice sequence. At equal preceding costs,
+   an actual spell teleport ranks ahead of an equivalent non-cast option.
 
 Do not substitute training time, XP/hour or recommended methods for the primary
 objective. XP is retained exactly; levels are derived from JSON XP thresholds.
@@ -46,6 +49,11 @@ trains however they choose. Time, location changes, incidental XP, consumables a
 unlocks caused by that personal method are outside the baseline model. The viewer
 must disclose this boundary. The optimizer may not invent incidental training XP
 to satisfy another skill requirement.
+
+Timed requirements let other eligible steps progress while the timer runs.
+The bounded route can place already-planned training in a remaining wait.
+Its seconds stay in the route estimate because the player chooses the method
+and may need more or less time for the target XP.
 
 This objective can select a long detour to save a small amount of manual XP.
 Report per-skill manual XP, priority timing when configured, and total

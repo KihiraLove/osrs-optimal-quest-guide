@@ -5,6 +5,7 @@ from hashlib import sha256
 
 from .errors import DataError
 from .normalization import canonical_json
+from .objectives import counted_training, outstanding, priority_xp
 from .semantics import CatalogValidator
 from .transitions import RouteState
 
@@ -50,7 +51,10 @@ def verify_solution(
     initial = profile["initial_state"]
     state = RouteState(validator.tables, policies, initial, f"solution {solution['solution_id']}")
     priorities = set(profile.get("priority_action_ids", ()))
+    skill_targets = priority_xp(profile, validator.tables["skills"])
     priority_seconds = 0
+    skill_seconds = 0
+    counted = 0
     training = Counter()
     step_ids = set()
     for index, step in enumerate(solution["steps"]):
@@ -61,6 +65,9 @@ def verify_solution(
         successor = state.apply(step, path)
         if priorities - state.completed:
             priority_seconds += successor.elapsed - state.elapsed
+        if outstanding(state.xp, skill_targets):
+            skill_seconds += successor.elapsed - state.elapsed
+        counted += counted_training(step, skill_targets)
         state = successor
         if step["kind"] == "training":
             training[step["skill_id"]] += step["gain_xp_tenths"]
@@ -72,6 +79,8 @@ def verify_solution(
     unmet_priorities = sorted(priorities - state.completed)
     if unmet_priorities:
         raise DataError("priority_action_ids: unmet priorities " + ", ".join(unmet_priorities))
+    if missing_skills := outstanding(state.xp, skill_targets):
+        raise DataError("priority_skill_levels: unmet targets " + ", ".join(sorted(missing_skills)))
 
     validator._state(solution["final_state"], policies, state.context, "final_state")
     declared = RouteState(validator.tables, policies, solution["final_state"]).snapshot()
@@ -88,6 +97,8 @@ def verify_solution(
     }
     if priorities:
         objective["priority_elapsed_seconds"] = priority_seconds
+    if skill_targets:
+        objective.update(priority_skill_elapsed_seconds=skill_seconds, counted_manual_training_xp_tenths=counted)
     for field, value in objective.items():
         if solution["objective"][field] != value:
             raise DataError(f"objective.{field}: expected {value} from replay")

@@ -2,12 +2,13 @@
   "schema_version": "0.1.0",
   "profile_id": "profile.fixture.lumbridge_arrival",
   "dataset_id": "osrs.main",
-  "dataset_version": "0.9.0",
+  "dataset_version": "0.10.0",
   "status": "draft",
   "account_type": "main",
   "members": true,
   "objective": [
-    "manual_training_xp_tenths",
+    "counted_manual_training_xp_tenths",
+    "priority_skill_elapsed_seconds",
     "modeled_non_training_seconds",
     "stable_step_ids"
   ],
@@ -25,7 +26,8 @@
     "allow_repeatable_xp": false,
     "training_methods": "user_choice",
     "training_time_in_objective": false,
-    "training_resume_policy": "return_to_route_waypoint"
+    "training_resume_policy": "return_to_route_waypoint",
+    "world": 330
   },
   "initial_state": {
     "location_id": "location.lumbridge.castle_courtyard",
@@ -56,7 +58,10 @@
       "skill.woodcutting": 0
     },
     "completed_action_ids": [],
-    "flags": {},
+    "flags": {
+      "flag.spellbook.standard": true,
+      "flag.travel.varrock_square_selected": true
+    },
     "counters": {
       "token.quest_points": 1,
       "token.bank_coins": 25
@@ -95,7 +100,11 @@
     "Base Hitpoints is level 10 at 1,154 XP. All other skills start at zero XP for planning.",
     "The carried starter kit and the 25 banked coins are separate.",
     "GE purchases debit carried coins at fixed estimates. Earn coins, sell modeled assets or withdraw the starting balance first.",
-    "An advertised host with the specified teleport can be used on the current world.",
-    "Training steps request only XP gains. The player chooses the method."
-  ]
+    "The route stays on World 330 and assumes a public house host with the modeled destination installed.",
+    "Training steps request only XP gains. The player chooses the method.",
+    "Train base Prayer to level 43 early. XP below that level is neutral in the manual XP objective."
+  ],
+  "priority_skill_levels": {
+    "skill.prayer": 43
+  }
 }

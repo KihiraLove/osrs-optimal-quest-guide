@@ -48,7 +48,7 @@ class RouteState(RewardTrace):
             formula = self.tables["combat_formulas"][requirement["formula_id"]]
             return self._combat_level(formula) >= requirement["minimum_level"]
         if kind == "policy":
-            return self.policies[requirement["name"]] == requirement["value"]
+            return self.policies.get(requirement["name"]) == requirement["value"]
         if kind == "elapsed_time":
             return self.elapsed >= requirement["minimum_seconds"]
         if kind == "cooldown_ready":
@@ -132,8 +132,8 @@ class RouteState(RewardTrace):
             if step["resume_location_id"] != self.location:
                 self._fail(f"{path}.resume_location_id", f"expected current waypoint {self.location!r}")
             for gate in step["required_by"]:
-                if not any(gate in self.tables[table] for table in ("actions", "travel_edges", "xp_rewards")):
-                    self._fail(f"{path}.required_by", f"unknown action, travel edge or reward {gate!r}")
+                if not any(gate in self.tables[table] for table in ("actions", "travel_edges", "xp_rewards", "skills")):
+                    self._fail(f"{path}.required_by", f"unknown action, travel edge, reward or skill {gate!r}")
             if step["gain_xp_tenths"] <= 0:
                 self._fail(f"{path}.gain_xp_tenths", "training must add positive XP")
             self.train(step, path)

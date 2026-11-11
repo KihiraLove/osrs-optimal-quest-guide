@@ -8,8 +8,10 @@ coins. The model starts with 1,154 base Hitpoints XP and zero XP in other skills
 The courtyard is the existing walking waypoint for the Lumbridge arrival area.
 [Jagex tutorial release notes](https://secure.runescape.com/m=news/grid-master-rewards-poll--new-player-improvements?oldschool=1)
 
-The baseline lists every in-scope quest goal and requires early fairy-ring
-access. It passes standalone profile validation. A full run depends on the
+The baseline lists every in-scope quest goal and prioritises base Prayer 43
+and fairy-ring access. Prayer XP up to that level stays in the training totals
+and has zero cost in the XP objective. The route stays on World 330.
+A full run depends on the
 remaining quest actions, including the prerequisites for Fairytale II.
 The [starter profile](../../examples/build-242/lumbridge-arrival-profile.json)
 uses the same starting state and self-funded policy for three modeled quests.

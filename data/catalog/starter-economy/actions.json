@@ -248,5 +248,60 @@
       "status": "estimated",
       "note": "Finite purchase using carried coins at fixed guide-price estimates."
     }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_varrock_cast",
+    "name": "Buy a law rune and fire rune",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 121
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fire_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Fixed guide-price estimate for the law and fire runes. Carried air runes are separate."
+    }
   }
 ]

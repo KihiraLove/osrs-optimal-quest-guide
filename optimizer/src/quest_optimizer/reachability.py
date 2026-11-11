@@ -41,7 +41,7 @@ def unreachable_records(catalog: dict, profile: dict) -> dict[str, list[str]]:
         if kind == "item":
             return inventory[rule["item_id"]] >= rule["quantity"]
         if kind == "policy":
-            return profile["policies"][rule["name"]] == rule["value"]
+            return profile["policies"].get(rule["name"]) == rule["value"]
         # Static catalog validation has checked skill bounds and combat maxima.
         return True
 

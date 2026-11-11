@@ -53,6 +53,12 @@
       "minItems": 1,
       "uniqueItems": true
     },
+    "priority_skill_levels": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {"$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"},
+      "additionalProperties": {"type": "integer", "minimum": 2}
+    },
     "assumptions": {
       "type": "array",
       "items": {
@@ -76,7 +82,16 @@
     "assumptions"
   ],
   "additionalProperties": false,
-  "if": {"required": ["priority_action_ids"]},
-  "then": {"properties": {"objective": {"contains": {"const": "priority_elapsed_seconds"}}}},
-  "else": {"properties": {"objective": {"not": {"contains": {"const": "priority_elapsed_seconds"}}}}}
+  "allOf": [
+    {
+      "if": {"required": ["priority_action_ids"]},
+      "then": {"properties": {"objective": {"contains": {"const": "priority_elapsed_seconds"}}}},
+      "else": {"properties": {"objective": {"not": {"contains": {"const": "priority_elapsed_seconds"}}}}}
+    },
+    {
+      "if": {"required": ["priority_skill_levels"]},
+      "then": {"properties": {"objective": {"contains": {"const": "priority_skill_elapsed_seconds"}}}},
+      "else": {"properties": {"objective": {"not": {"contains": {"const": "priority_skill_elapsed_seconds"}}}}}
+    }
+  ]
 }

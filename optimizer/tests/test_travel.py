@@ -169,9 +169,33 @@ class TravelTests(unittest.TestCase):
             state.apply(step)
         policies = {**self.profile["policies"], "allow_poh_services": True}
         state = RouteState(self.validator.tables, policies, initial)
+        with self.assertRaises(DataError):
+            state.apply(step)
+        policies["world"] = 330
+        state = RouteState(self.validator.tables, policies, initial)
         arrived = state.apply(step)
         self.assertEqual(arrived.location, "location.varrock.square")
         self.assertEqual(arrived.inventory, {})
+
+    def test_varrock_spell_spends_runes_and_awards_magic_xp(self):
+        profile = read_json(EXAMPLES / "cooks-assistant-profile.json")
+        profile["goal_action_ids"] = ["supply.grand_exchange.spade"]
+        magic = self.validator.tables["skills"]["skill.magic"]["xp_thresholds_tenths"][24]
+        initial = profile["initial_state"]
+        initial.update(
+            location_id="location.lumbridge.castle_courtyard",
+            inventory={"item.air_rune": 3, "item.fire_rune": 1, "item.law_rune": 1},
+            flags={"flag.spellbook.standard": True, "flag.travel.varrock_square_selected": True},
+        )
+        initial["xp_tenths"]["skill.magic"] = magic
+        solution, _ = solve_bounded(self.validator, profile)
+        self.assertEqual(solution["steps"][0]["edge_id"], "travel.spell.lumbridge.varrock")
+        state = verify_solution(solution, profile, self.validator)["final_state"]
+        self.assertEqual(state["xp_tenths"]["skill.magic"], magic + 350)
+        self.assertEqual(state["inventory"], {"item.spade": 1})
+        initial["inventory"]["item.law_rune"] = 0
+        with self.assertRaisesRegex(DataError, "consumes 1 of 'item.law_rune'"):
+            RouteState(self.validator.tables, profile["policies"], initial).apply(solution["steps"][0])
 
     def test_every_stop_links_basket_unlock_and_routine_edges(self):
         review = read_json(ROOT / "data/raw/build-242/balloon-stops.json")

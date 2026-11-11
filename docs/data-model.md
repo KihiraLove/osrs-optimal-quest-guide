@@ -212,6 +212,11 @@ The self-funded profile uses `token.bank_coins` for the starting bank balance
 and `item.coins` for carried GP. A bank withdrawal transfers between them.
 Purchase actions consume carried coins at the amounts recorded in the catalog.
 
+`priority_skill_levels` declares mandatory base level targets. Manual gains
+up to these thresholds are subtracted from `counted_manual_training_xp_tenths`
+and remain in the actual per-skill totals. Replay checks the time to reach
+all skill targets and the time to complete action milestones separately.
+
 `solution.schema.json` requires input identities/hashes, policy summary, solver
 version/seed/status, objective values, manual XP totals, ordered steps, final state,
 limitations and verification status. Step variants distinguish action, travel,

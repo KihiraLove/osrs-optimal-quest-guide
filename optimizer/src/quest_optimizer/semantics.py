@@ -342,6 +342,11 @@ class CatalogValidator:
         for field in ("goal_action_ids", "priority_action_ids"):
             for index, action_id in enumerate(profile.get(field, ())):
                 self._ref("actions", action_id, context, f"{field}.{index}")
+        for skill, level in profile.get("priority_skill_levels", {}).items():
+            field = f"priority_skill_levels.{skill}"
+            record = self._ref("skills", skill, context, field)
+            if level > len(record["xp_thresholds_tenths"]):
+                _fail(context, field, "level exceeds the catalog skill table")
         self._state(profile["initial_state"], profile["policies"], context, "initial_state")
 
     def validate_solution(self, solution: dict, profile: dict, origin: Path | None = None) -> None:
@@ -389,8 +394,8 @@ class CatalogValidator:
                 self._ref("skills", step["skill_id"], context, f"{field}.skill_id")
                 self._ref("locations", step["resume_location_id"], context, f"{field}.resume_location_id")
                 for gate_index, gate_id in enumerate(step["required_by"]):
-                    if not any(gate_id in self.tables[table] for table in ("actions", "travel_edges", "xp_rewards")):
-                        _fail(context, f"{field}.required_by.{gate_index}", f"unknown action, travel edge or reward ID {gate_id!r}")
+                    if not any(gate_id in self.tables[table] for table in ("actions", "travel_edges", "xp_rewards", "skills")):
+                        _fail(context, f"{field}.required_by.{gate_index}", f"unknown action, travel edge, reward or skill ID {gate_id!r}")
                 trace.train(step, field)
             elif kind != "wait":
                 _fail(context, f"{field}.kind", f"unsupported solution step kind {kind!r}")

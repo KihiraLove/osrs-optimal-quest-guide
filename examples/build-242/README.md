@@ -3,11 +3,12 @@
 `lumbridge-arrival-profile.json` uses the self-funded baseline with three quest
 goals. It withdraws 25 banked coins and sells the starter dagger to buy a spade.
 X Marks the Spot supplies the coins for the Cook's Assistant ingredients.
-The route also completes The Restless Ghost. It ends with zero manual XP,
-four quest points and 88 carried coins at the modeled prices.
+The route also completes The Restless Ghost. It starts with a 50,339 XP
+Prayer block to reach level 43. This block has zero weight in the objective.
+The fixture ends with four quest points and 88 carried coins at the modeled prices.
 
 ```sh
-quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json > artifacts/lumbridge-arrival.json
+quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json --beam-width 128 > artifacts/lumbridge-arrival.json
 quest-optimizer replay artifacts/lumbridge-arrival.json --catalog data/manifest.json --profile examples/build-242/lumbridge-arrival-profile.json
 ```
 

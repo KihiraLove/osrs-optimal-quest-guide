@@ -666,7 +666,9 @@
     "objective_order": {
       "enum": [
         ["manual_training_xp_tenths", "modeled_non_training_seconds", "stable_step_ids"],
-        ["manual_training_xp_tenths", "priority_elapsed_seconds", "modeled_non_training_seconds", "stable_step_ids"]
+        ["manual_training_xp_tenths", "priority_elapsed_seconds", "modeled_non_training_seconds", "stable_step_ids"],
+        ["counted_manual_training_xp_tenths", "priority_skill_elapsed_seconds", "modeled_non_training_seconds", "stable_step_ids"],
+        ["counted_manual_training_xp_tenths", "priority_skill_elapsed_seconds", "priority_elapsed_seconds", "modeled_non_training_seconds", "stable_step_ids"]
       ]
     },
     "policies": {
@@ -689,6 +691,10 @@
         },
         "allow_poh_services": {
           "type": "boolean"
+        },
+        "world": {
+          "type": "integer",
+          "minimum": 300
         },
         "allow_wilderness_travel": {
           "type": "boolean"

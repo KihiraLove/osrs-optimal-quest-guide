@@ -11,11 +11,13 @@ See the [data inventory](data/README.md) and [starter fixture](examples/build-24
 
 ## What “optimal” means
 
-1. Minimise the total XP the player must train manually, summed across skills.
-2. Among routes with the same manual XP, reach configured priority milestones
-   as early as possible. The main profile prioritises fairy-ring access.
+1. Minimise counted manual XP. The main profile counts Prayer training only
+   above level 43 and still reports all actual XP.
+2. Reach priority skill targets early, then reach action milestones such as
+   fairy-ring access.
 3. Minimise total estimated activity and travel time.
-4. Break remaining ties deterministically.
+4. Prefer actual spell casts on otherwise tied routes and break remaining
+   ties deterministically.
 
 Training steps specify the skill, required XP gain and target XP. **The player
 chooses the training method.** Training time, training rates and travel to/from

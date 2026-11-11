@@ -6,6 +6,7 @@ from itertools import chain, count
 
 from . import __version__
 from .errors import DataError
+from .objectives import counted_training, outstanding, priority_xp
 from .replay import input_identity, verify_solution
 from .semantics import CatalogValidator
 from .transitions import RouteState
@@ -133,12 +134,19 @@ def _transition_step(kind: str, record: dict) -> dict:
     }
 
 
+def _transition_key(kind: str, record: dict) -> tuple[str, str]:
+    spell = kind == "travel" and record["mode"] == "teleport_spell" and any(
+        effect["kind"] == "xp" and effect["skill_id"] == "skill.magic" for effect in record["effects"]
+    )
+    return (("!" if spell else "") + record["id"], kind)
+
+
 def _progress_steps(state: RouteState, routes: dict, maximum_time: int):
     yield from _reward_steps(state)
     if state.pending:
         return
     for kind, record in routes[state.location]:
-        yield (record["id"], kind), _transition_step(kind, record)
+        yield _transition_key(kind, record), _transition_step(kind, record)
     if state.elapsed < maximum_time or state.boosts or state.cooldowns:
         yield ("wait",), {"kind": "wait", "modeled_seconds": 1, "explanation": "Advance the modelled clock."}
 
@@ -180,8 +188,12 @@ def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int =
     _check_finite(validator.tables)
     initial = RouteState(validator.tables, profile["policies"], profile["initial_state"])
     priorities = set(profile.get("priority_action_ids", ()))
+    skill_targets = priority_xp(profile, validator.tables["skills"])
     goals = set(profile["goal_action_ids"]) | priorities
     targets, maximum_time = _training_targets(initial)
+    for skill, threshold in skill_targets.items():
+        existing, reasons = targets.get(skill, ((), []))
+        targets[skill] = (tuple(sorted(set(existing) | {threshold})), sorted(set(reasons) | {skill}))
     routes = defaultdict(list)
     for record in validator.tables["actions"].values():
         routes[record["start_location_id"]].append(("action", record))
@@ -190,7 +202,7 @@ def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int =
 
     serial = count()
     initial_key = _state_key(initial, maximum_time, "")
-    zero = (0, 0, 0, ())
+    zero = (0, 0, 0, 0, ())
     queue = [(zero, next(serial), initial_key, initial, "", ())]
     best = {initial_key: zero}
     incumbent = None
@@ -198,33 +210,35 @@ def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int =
         score, _, key, state, last_skill, steps = heappop(queue)
         if best[key] != score:
             continue
-        if goals <= state.completed and not state.pending:
+        if goals <= state.completed and not state.pending and not outstanding(state.xp, skill_targets):
             return build_solution(
                 validator, profile, state, steps,
                 solution_id="solution.exact." + profile["profile_id"],
                 solver={
                     "name": "exact-small-dijkstra", "seed": 0, "status": "optimal",
                     "primary_lower_bound_xp_tenths": score[0],
-                    "secondary_lower_bound_seconds": None if priorities else score[2],
+                    "secondary_lower_bound_seconds": None if priorities or skill_targets else score[3],
                 },
-                priority_seconds=score[1],
+                priority_seconds=score[2], priority_skill_seconds=score[1],
                 limitations=["Exact for the supplied finite catalog and profile using the catalog's expected durations."],
             )
 
         def offer(move_id, step):
             nonlocal incumbent
             training_skill = step["skill_id"] if step["kind"] == "training" else ""
-            manual = score[0] + (step["gain_xp_tenths"] if training_skill else 0)
+            manual = score[0] + counted_training(step, skill_targets)
             duration = step.get("modeled_seconds", 0)
-            priority_seconds = score[1] + (duration if priorities - state.completed else 0)
-            seconds = score[2] + duration
-            if incumbent is not None and (manual, priority_seconds, seconds) > incumbent:
+            skill_seconds = score[1] + (duration if outstanding(state.xp, skill_targets) else 0)
+            priority_seconds = score[2] + (duration if priorities - state.completed else 0)
+            seconds = score[3] + duration
+            objective = (manual, skill_seconds, priority_seconds, seconds)
+            if incumbent is not None and objective > incumbent:
                 return
             try:
                 successor = state.apply(step)
             except DataError:
                 return
-            cost = (manual, priority_seconds, seconds, score[3] + (move_id,))
+            cost = (*objective, score[4] + (move_id,))
             successor_key = _state_key(successor, maximum_time, training_skill)
             previous = best.get(successor_key)
             if previous is not None and previous <= cost:
@@ -232,13 +246,13 @@ def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int =
             if previous is None and len(best) >= max_states:
                 raise DataError(f"Exact search exceeded its {max_states}-state limit")
             best[successor_key] = cost
-            if goals <= successor.completed and not successor.pending:
-                incumbent = cost[:3] if incumbent is None else min(incumbent, cost[:3])
+            if goals <= successor.completed and not successor.pending and not outstanding(successor.xp, skill_targets):
+                incumbent = objective if incumbent is None else min(incumbent, objective)
             heappush(queue, (cost, next(serial), successor_key, successor, training_skill, steps + (step,)))
 
         for move_id, step in _progress_steps(state, routes, maximum_time):
             offer(move_id, step)
-        budget = incumbent[0] - score[0] if incumbent is not None else None
+        budget = incumbent[0] - score[0] if incumbent is not None and not skill_targets else None
         for move_id, step in _training_steps(state, targets, last_skill, budget):
             offer(move_id, step)
     raise DataError("Exact search found no feasible route for the supplied goals")
@@ -247,6 +261,7 @@ def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int =
 def build_solution(
     validator: CatalogValidator, profile: dict, state: RouteState, steps: tuple[dict, ...],
     *, solution_id: str, solver: dict, limitations: list[str], priority_seconds: int = 0,
+    priority_skill_seconds: int = 0,
 ) -> dict:
     def transition_id(step):
         return step.get("action_id") or step.get("edge_id") or step.get("reward_id")
@@ -288,5 +303,11 @@ def build_solution(
         solution["solver"]["status"] = "example"
     if "priority_action_ids" in profile:
         solution["objective"]["priority_elapsed_seconds"] = priority_seconds
+    if "priority_skill_levels" in profile:
+        targets = priority_xp(profile, validator.tables["skills"])
+        solution["objective"].update(
+            priority_skill_elapsed_seconds=priority_skill_seconds,
+            counted_manual_training_xp_tenths=sum(counted_training(step, targets) for step in steps),
+        )
     verify_solution(solution, profile, validator)
     return solution
