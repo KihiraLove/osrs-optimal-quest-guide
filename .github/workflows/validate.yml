@@ -44,9 +44,13 @@ jobs:
           quest-optimizer replay "$RUNNER_TEMP/bounded-museum.json" --catalog data/manifest.json --profile examples/build-242/museum-quiz-profile.json
           quest-optimizer solve-bounded data/manifest.json examples/build-242/restless-ghost-profile.json > "$RUNNER_TEMP/restless-ghost.json"
           quest-optimizer replay "$RUNNER_TEMP/restless-ghost.json" --catalog data/manifest.json --profile examples/build-242/restless-ghost-profile.json
-          quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json --beam-width 128 > "$RUNNER_TEMP/lumbridge-arrival.json"
+          quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json --beam-width 192 > "$RUNNER_TEMP/lumbridge-arrival.json"
           quest-optimizer replay "$RUNNER_TEMP/lumbridge-arrival.json" --catalog data/manifest.json --profile examples/build-242/lumbridge-arrival-profile.json
           quest-optimizer solve-bounded data/manifest.json examples/build-242/fairy-ring-access-profile.json > "$RUNNER_TEMP/fairy-ring-access.json"
           quest-optimizer replay "$RUNNER_TEMP/fairy-ring-access.json" --catalog data/manifest.json --profile examples/build-242/fairy-ring-access-profile.json
+          quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-preparation-profile.json > "$RUNNER_TEMP/lost-city-preparation.json"
+          quest-optimizer replay "$RUNNER_TEMP/lost-city-preparation.json" --catalog data/manifest.json --profile examples/build-242/lost-city-preparation-profile.json
+          quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-completion-profile.json > "$RUNNER_TEMP/lost-city-completion.json"
+          quest-optimizer replay "$RUNNER_TEMP/lost-city-completion.json" --catalog data/manifest.json --profile examples/build-242/lost-city-completion-profile.json
       - name: Run optimizer checks
         run: python -m unittest discover -s optimizer/tests -v

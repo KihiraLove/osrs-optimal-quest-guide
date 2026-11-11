@@ -70,6 +70,74 @@ class QuestCollectionTests(unittest.TestCase):
                 with self.assertRaisesRegex(DataError, r"steps\.\d+ .* required completed action"):
                     verify_solution(skipped, profile, validator)
 
+    def test_lost_city_can_start_at_lumbridge_without_quest_skill_training(self):
+        profile = read_json(ROOT / "examples/build-242/lost-city-preparation-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile, max_expansions=4000)
+        verify_solution(solution, profile, validator)
+        self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {"skill.prayer": 503390})
+        self.assertEqual(solution["objective"]["counted_manual_training_xp_tenths"], 0)
+        self.assertEqual([step["action_id"] for step in solution["steps"] if step["kind"] == "action"], [
+            "quest.lost_city.start", "quest.lost_city.find_shamus",
+        ])
+        self.assertEqual(solution["final_state"]["counters"]["token.quest_points"], 1)
+
+    def test_lost_city_entrana_descent_uses_existing_ferry(self):
+        profile = read_json(ROOT / "examples/build-242/lost-city-preparation-profile.json")
+        profile["goal_action_ids"] = ["quest.lost_city.descend_entrana"]
+        initial = profile["initial_state"]
+        initial.update(
+            location_id="location.port_sarim.entrana_ferry",
+            completed_action_ids=["quest.lost_city.start", "quest.lost_city.find_shamus"],
+            inventory={"item.knife": 1, "item.lumbridge_teleport_tablet": 1},
+        )
+        initial["flags"]["flag.travel.entrana_safe_pack"] = True
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile, max_expansions=4000)
+        verify_solution(solution, profile, validator)
+        self.assertIn("travel.ship.port_sarim.entrana", {step.get("edge_id") for step in solution["steps"]})
+        self.assertEqual(solution["final_state"]["location_id"], "location.entrana_dungeon.zombies")
+
+    def test_lost_city_post_combat_route_awards_xp_and_zanaris_access(self):
+        profile = read_json(ROOT / "examples/build-242/lost-city-completion-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        reward = next(row for row in read_json(RAW / "quest-month-rewards.json")["changes"]
+                      if row["activity_id"] == "quest.lost_city")
+        initial = profile["initial_state"]
+        for spell_available in (True, False):
+            with self.subTest(spell_available=spell_available):
+                initial["flags"]["flag.spellbook.standard"] = spell_available
+                solution, _ = solve_bounded(validator, profile, max_expansions=4000)
+                verify_solution(solution, profile, validator)
+                self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {})
+                self.assertEqual([step["action_id"] for step in solution["steps"] if step["kind"] == "action"], [
+                    "quest.lost_city.cut_branch", "quest.lost_city.make_staff", "quest.lost_city.complete",
+                ])
+                escape = "spell" if spell_available else "tablet"
+                self.assertIn(f"travel.{escape}.entrana_dungeon.lumbridge",
+                              {step.get("edge_id") for step in solution["steps"]})
+                state = solution["final_state"]
+                expected_xp = initial["xp_tenths"].copy()
+                for skill_id, xp_tenths in reward["fixed_xp_tenths"].items():
+                    expected_xp[skill_id] += xp_tenths
+                expected_inventory = {"item.bronze_axe": 1, "item.knife": 1, "item.dramen_staff": 1}
+                if spell_available:
+                    expected_xp["skill.magic"] += 410
+                    expected_inventory["item.lumbridge_teleport_tablet"] = 1
+                else:
+                    expected_inventory.update({"item.air_rune": 3, "item.earth_rune": 1, "item.law_rune": 1})
+                self.assertEqual(state["xp_tenths"], expected_xp)
+                self.assertEqual(state["inventory"], expected_inventory)
+                self.assertEqual(state["counters"]["token.quest_points"], 3)
+                self.assertTrue(state["flags"]["flag.quest.lost_city.complete"])
+
+    def test_lost_city_completion_requires_the_saved_combat_checkpoint(self):
+        profile = read_json(ROOT / "examples/build-242/lost-city-completion-profile.json")
+        del profile["initial_state"]["flags"]["flag.quest.lost_city.tree_spirit_defeated"]
+        validator = CatalogValidator(self.catalog, self.contracts)
+        with self.assertRaisesRegex(DataError, r"Catalog reachability blocks goals: quest\.lost_city\.complete"):
+            solve_bounded(validator, profile, max_expansions=4000)
+
     def test_rfd_preserves_each_stage_and_awards_points_once(self):
         stages = self.rfd["stages"]
         self.assertCountEqual(

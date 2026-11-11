@@ -1,9 +1,10 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.10.0` loads 24 skill tables and
-92 draft actions, including The Restless Ghost, the museum route and Enlightened
-Journey. Durations estimate each interaction at its waypoint with supplies ready. Travel between
+3 November 2026 at 10:00:06 UTC. Dataset `0.11.0` loads 24 skill tables and
+100 draft actions, including Lost City stages, The Restless Ghost, the museum
+route and Enlightened Journey. Durations estimate each interaction at its
+waypoint with supplies ready. Travel between
 waypoints belongs to the travel graph. An action description identifies any
 movement included in its duration.
 
@@ -78,8 +79,14 @@ are in the [starter economy record](raw/build-242/starter-economy.json).
 [The Fairytale II review](raw/build-242/fairytale-ii-review.json) separates
 fairy-ring access at the Godfather conversation from the later skill checks
 and completion rewards. Two staff-gated surface codes are modeled. The
-unlock fixture uses saved Lost City and Fairytale I progress while those
+unlock fixture uses saved Lost City and Fairytale I progress while the
 prerequisite routes and the second phase are in collection.
+
+The [Lost City review](raw/build-242/lost-city-review.json) records the
+Lumbridge Swamp start, the Entrana dungeon descent, the branch and staff skill
+checks, and the first entry into Zanaris. The completion route starts from a
+saved dungeon state with the Tree Spirit defeated and an axe already acquired.
+The Entrana loadout, axe acquisition and combat remain in review.
 
 The [timer inventory](raw/build-242/progression-timers.json) lists the step
 blocked by each timer. Martin's timer runs in the catalog. Garden of

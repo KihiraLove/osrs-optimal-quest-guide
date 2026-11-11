@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1.0",
+  "profile_id": "profile.fixture.lost_city_completion",
+  "dataset_id": "osrs.main",
+  "dataset_version": "0.11.0",
+  "status": "synthetic",
+  "account_type": "main",
+  "members": true,
+  "objective": [
+    "manual_training_xp_tenths",
+    "modeled_non_training_seconds",
+    "stable_step_ids"
+  ],
+  "policies": {
+    "quest_lamp_skill_policy": "any_skill",
+    "trade_enabled": true,
+    "gp_policy": "sufficient",
+    "allow_boosts": true,
+    "allow_poh_services": false,
+    "allow_wilderness_travel": true,
+    "allow_death_travel": false,
+    "allow_minigame_teleports": true,
+    "allow_world_switching": false,
+    "allow_player_assistance": true,
+    "allow_repeatable_xp": false,
+    "training_methods": "user_choice",
+    "training_time_in_objective": false,
+    "training_resume_policy": "return_to_route_waypoint"
+  },
+  "initial_state": {
+    "location_id": "location.entrana_dungeon.dramen_tree",
+    "xp_tenths": {
+      "skill.agility": 0,
+      "skill.attack": 0,
+      "skill.construction": 0,
+      "skill.cooking": 0,
+      "skill.crafting": 148330,
+      "skill.defence": 0,
+      "skill.farming": 0,
+      "skill.firemaking": 0,
+      "skill.fishing": 0,
+      "skill.fletching": 0,
+      "skill.herblore": 0,
+      "skill.hitpoints": 11540,
+      "skill.hunter": 0,
+      "skill.magic": 148330,
+      "skill.mining": 0,
+      "skill.prayer": 0,
+      "skill.ranged": 0,
+      "skill.runecraft": 0,
+      "skill.sailing": 0,
+      "skill.slayer": 0,
+      "skill.smithing": 0,
+      "skill.strength": 0,
+      "skill.thieving": 0,
+      "skill.woodcutting": 248150
+    },
+    "completed_action_ids": [
+      "quest.lost_city.start",
+      "quest.lost_city.find_shamus",
+      "quest.lost_city.descend_entrana"
+    ],
+    "flags": {
+      "flag.quest.lost_city.tree_spirit_defeated": true,
+      "flag.spellbook.standard": true
+    },
+    "counters": {
+      "token.quest_points": 0
+    },
+    "inventory": {
+      "item.bronze_axe": 1,
+      "item.knife": 1,
+      "item.lumbridge_teleport_tablet": 1,
+      "item.air_rune": 3,
+      "item.earth_rune": 1,
+      "item.law_rune": 1
+    },
+    "held_rewards": [],
+    "modeled_elapsed_seconds": 0
+  },
+  "goal_action_ids": [
+    "quest.lost_city.complete"
+  ],
+  "assumptions": [
+    "Synthetic saved account beside the Dramen tree after obtaining a bronze axe and defeating the Tree Spirit.",
+    "The account has a knife, base skill requirements, one standard Lumbridge cast and a spare tablet.",
+    "The fixture starts after combat. Any combat XP is part of its initial state."
+  ]
+}

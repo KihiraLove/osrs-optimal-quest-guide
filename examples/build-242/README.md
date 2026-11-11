@@ -8,7 +8,7 @@ Prayer block to reach level 43. This block has zero weight in the objective.
 The fixture ends with four quest points and 88 carried coins at the modeled prices.
 
 ```sh
-quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json --beam-width 128 > artifacts/lumbridge-arrival.json
+quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json --beam-width 192 > artifacts/lumbridge-arrival.json
 quest-optimizer replay artifacts/lumbridge-arrival.json --catalog data/manifest.json --profile examples/build-242/lumbridge-arrival-profile.json
 ```
 
@@ -39,6 +39,23 @@ it to the coffin for 1,125 Prayer XP and one quest point.
 ```sh
 quest-optimizer solve-bounded data/manifest.json examples/build-242/restless-ghost-profile.json > artifacts/restless-ghost.json
 quest-optimizer replay artifacts/restless-ghost.json --catalog data/manifest.json --profile examples/build-242/restless-ghost-profile.json
+```
+
+`lost-city-preparation-profile.json` starts at Lumbridge arrival and reaches
+Shamus with the starter axe. It uses the early Prayer policy. Woodcutting
+and Crafting are checked later in the quest.
+
+`lost-city-completion-profile.json` starts in the Entrana dungeon with saved
+combat progress and an axe. The optimizer cuts a branch, casts Lumbridge
+Teleport, carves the staff and enters Zanaris. The modeled rewards are
+three quest points and 1,500 XP each in Crafting and Woodcutting. A carried
+tablet supplies an exit when the spell is unavailable.
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-preparation-profile.json > artifacts/lost-city-preparation.json
+quest-optimizer replay artifacts/lost-city-preparation.json --catalog data/manifest.json --profile examples/build-242/lost-city-preparation-profile.json
+quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-completion-profile.json > artifacts/lost-city-completion.json
+quest-optimizer replay artifacts/lost-city-completion.json --catalog data/manifest.json --profile examples/build-242/lost-city-completion-profile.json
 ```
 
 The [Recipe for Disaster progression review](../../data/raw/build-242/recipe-for-disaster-review.json)

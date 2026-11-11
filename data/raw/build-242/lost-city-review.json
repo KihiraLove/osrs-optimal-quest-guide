@@ -1,0 +1,44 @@
+{
+  "game_revision": "osrs-live-242",
+  "activity_id": "quest.lost_city",
+  "status": "collected",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.jagex.quest_month_2026_11_03",
+    "source.runelite.varplayers"
+  ],
+  "helper_observation": "quest-helper/observations-03.json",
+  "preparation_stages": [
+    "quest.lost_city.start",
+    "quest.lost_city.find_shamus",
+    "quest.lost_city.descend_entrana"
+  ],
+  "combat_checkpoint": {
+    "status": "expected",
+    "required_npc": "Dramen Tree Spirit",
+    "observed_combat_level": 101,
+    "npc_source": "Quest Helper LostCity.killDramenSpirit",
+    "axe_source": "Dungeon zombies can drop a bronze or iron axe.",
+    "quest_progress": 3,
+    "saved_flag_id": "flag.quest.lost_city.tree_spirit_defeated",
+    "mandatory_incidental_xp_tenths": null,
+    "open_checks": [
+      "Verify a bounded way to obtain the dungeon axe and the resulting consumables and incidental XP.",
+      "Verify exact combat XP and supply use for the chosen Tree Spirit route.",
+      "Model banking the prohibited starter loadout before the ferry."
+    ]
+  },
+  "post_combat_stages": [
+    "quest.lost_city.cut_branch",
+    "quest.lost_city.make_staff",
+    "quest.lost_city.complete"
+  ],
+  "completion_award": {
+    "quest_points": 3,
+    "fixed_xp_tenths": {
+      "skill.woodcutting": 15000,
+      "skill.crafting": 15000
+    }
+  },
+  "notes": "Preparation and post-combat routes replay separately. The saved combat flag has no catalog producer."
+}

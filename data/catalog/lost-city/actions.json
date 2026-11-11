@@ -1,0 +1,282 @@
+[
+  {
+    "id": "quest.lost_city.start",
+    "name": "Ask the warrior about Zanaris",
+    "activity_id": "quest.lost_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_swamp.adventurer_camp",
+    "end_location_id": "location.lumbridge_swamp.adventurer_camp",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about the adventurers' search. The branch and staff skill gates are checked at their actions."
+    }
+  },
+  {
+    "id": "quest.lost_city.find_shamus",
+    "name": "Find Shamus and ask about the shed",
+    "activity_id": "quest.lost_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_swamp.shamus_tree",
+    "end_location_id": "location.lumbridge_swamp.shamus_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lost_city.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.iron_axe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Attempt to chop the leprechaun's tree and speak to Shamus when he appears."
+    }
+  },
+  {
+    "id": "quest.lost_city.descend_entrana",
+    "name": "Descend into the Entrana dungeon",
+    "activity_id": "quest.lost_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.entrana.dungeon_ladder",
+    "end_location_id": "location.entrana_dungeon.zombies",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.lost_city.find_shamus"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes the ladder dialogue, descent and walk to the zombie area. Ferry access is checked separately."
+    }
+  },
+  {
+    "id": "quest.lost_city.cut_branch",
+    "name": "Cut a dramen branch",
+    "activity_id": "quest.lost_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.entrana_dungeon.dramen_tree",
+    "end_location_id": "location.entrana_dungeon.dramen_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lost_city.descend_entrana"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.lost_city.tree_spirit_defeated",
+          "value": true
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.iron_axe",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 36,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dramen_branch",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cut one branch after the Tree Spirit is defeated."
+    }
+  },
+  {
+    "id": "quest.lost_city.make_staff",
+    "name": "Carve a dramen staff",
+    "activity_id": "quest.lost_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.castle_courtyard",
+    "end_location_id": "location.lumbridge.castle_courtyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 31,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dramen_branch",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dramen_staff",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 10,
+      "max_seconds": 25
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the knife on the branch at the route's Lumbridge waypoint."
+    }
+  },
+  {
+    "id": "quest.lost_city.complete",
+    "name": "Enter Zanaris with the dramen staff",
+    "activity_id": "quest.lost_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_swamp.zanaris_shed",
+    "end_location_id": "location.zanaris.nuff_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lost_city.make_staff"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dramen_staff",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 3
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.lost_city.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Equip the staff and enter the shed. The estimate includes walking to the known Zanaris waypoint in Nuff's room."
+    }
+  }
+]
