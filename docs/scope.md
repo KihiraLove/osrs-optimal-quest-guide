@@ -10,19 +10,18 @@ actions, not a hard-coded quest count or quest-point total.
 
 The default members main starts at the Lumbridge Castle courtyard on arrival
 from Tutorial Island. Learning the Ropes sits outside the route and its one quest
-point is credited in the starting counter. The model uses level 10 Hitpoints,
-zero XP in other skills and an empty inventory. The
+point is credited in the starting counter. The model uses level 10 Hitpoints
+and zero XP in other skills. The shared starter kit is carried and its 25
+coins are held in the bank until withdrawn. The
 [build 242 baseline](../data/profiles/main-baseline.json) records these assumptions
 and all in-scope quest goals. Existing accounts can supply their own state in JSON.
 
-Tradeable supplies may be acquired using an explicit abstract supply action at
-configured supply locations. The default assumes sufficient GP; this does not
-make untradeable items, quest progress, spellbooks, transport unlocks or use
-requirements free. Record quantities and acquisition overhead; GP is informational
-under this profile. A future budgeted scenario requires additional state/search.
-Shared/player-owned-house services, assistance, minigame teleports, Wilderness
-travel, death travel and world switching each require explicit profile policy.
-No blanket assumption that a player-owned house or another player's unlocks exist.
+The first strategy is a self-funded main. Trade is enabled and GE purchases
+consume carried coins at fixed planning prices. Route actions can earn GP,
+sell modeled assets, or withdraw the starting balance at the bank. Untradeable
+items keep their acquisition requirements. Public house teleports require an
+available host with the destination installed on the current world. Other
+account strategies can share the starter kit and supply their own policies.
 
 ## Objective agreed with the user
 
@@ -30,9 +29,11 @@ Minimise lexicographically:
 
 1. `manual_training_xp`: sum of actual XP gains requested in explicit training
    steps across all skills. Every XP point has equal weight in this default policy.
-2. `modeled_non_training_seconds`: activity execution + reward-claim visits +
+2. `priority_elapsed_seconds` for profiles with a priority milestone.
+   The main profile measures time to fairy-ring access during Fairytale II.
+3. `modeled_non_training_seconds`: activity execution + reward-claim visits +
    transport unlock/setup + travel + modelled supply handling and waits.
-3. A stable lexicographic action/choice identifier sequence.
+4. A stable lexicographic action/choice identifier sequence.
 
 Do not substitute training time, XP/hour or recommended methods for the primary
 objective. XP is retained exactly; levels are derived from JSON XP thresholds.
@@ -46,9 +47,9 @@ unlocks caused by that personal method are outside the baseline model. The viewe
 must disclose this boundary. The optimizer may not invent incidental training XP
 to satisfy another skill requirement.
 
-This objective can select a long detour to save a small amount of manual XP. That
-is intentional. Report both objectives, per-skill manual XP and detour costs so
-the trade-off is visible. “Quest XP first” is a global search objective, not a
+This objective can select a long detour to save a small amount of manual XP.
+Report per-skill manual XP, priority timing when configured, and total
+non-training time. “Quest XP first” is a global search objective, not a
 greedy rule that always picks any currently available XP quest.
 
 ## Lamps and other rewards

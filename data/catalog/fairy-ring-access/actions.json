@@ -1,0 +1,180 @@
+[
+  {
+    "id": "quest.fairytale_ii_cure_a_queen.start",
+    "name": "Ask Martin about the quest",
+    "activity_id": null,
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.martin",
+    "end_location_id": "location.draynor.martin",
+    "requirements": {
+      "kind": "flag",
+      "token_id": "flag.quest.fairytale_i.complete",
+      "value": true
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.fairytale_ii.martin",
+        "duration_seconds": 300
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fairytale I completion lets Martin start his five-minute crop check."
+    }
+  },
+  {
+    "id": "quest.fairytale_ii_cure_a_queen.return_to_martin",
+    "name": "Return to Martin after the crop check",
+    "activity_id": null,
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.martin",
+    "end_location_id": "location.draynor.martin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_ii_cure_a_queen.start"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.fairytale_ii.martin"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Martin directs the player to investigate in Zanaris."
+    }
+  },
+  {
+    "id": "quest.fairytale_ii_cure_a_queen.study_certificate",
+    "name": "Find and study Nuff's certificate",
+    "activity_id": null,
+    "kind": "quest_stage",
+    "start_location_id": "location.zanaris.nuff_room",
+    "end_location_id": "location.zanaris.nuff_room",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_ii_cure_a_queen.return_to_martin"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.nuffs_certificate",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 15,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search for the certificate and study it during the same visit."
+    }
+  },
+  {
+    "id": "quest.fairytale_ii_cure_a_queen.read_sign",
+    "name": "Read the Cosmic Temple sign",
+    "activity_id": null,
+    "kind": "quest_stage",
+    "start_location_id": "location.zanaris.cosmic_temple_sign",
+    "end_location_id": "location.zanaris.cosmic_temple_sign",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_ii_cure_a_queen.study_certificate"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.nuffs_certificate",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 15,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Decode the certificate with the sign before talking to the Godfather."
+    }
+  },
+  {
+    "id": "quest.fairytale_ii_cure_a_queen.unlock_fairy_rings",
+    "name": "Ask the Fairy Godfather for fairy-ring access",
+    "activity_id": "transport.fairy_ring_access",
+    "kind": "transport_unlock",
+    "start_location_id": "location.zanaris.fairy_godfather",
+    "end_location_id": "location.zanaris.fairy_godfather",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_ii_cure_a_queen.read_sign"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.fairy_rings",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The helper records quest progress 40 here. Later skill checks and completion awards are separate."
+    }
+  }
+]

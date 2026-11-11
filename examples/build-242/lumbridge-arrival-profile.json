@@ -2,7 +2,7 @@
   "schema_version": "0.1.0",
   "profile_id": "profile.fixture.lumbridge_arrival",
   "dataset_id": "osrs.main",
-  "dataset_version": "0.8.0",
+  "dataset_version": "0.9.0",
   "status": "draft",
   "account_type": "main",
   "members": true,
@@ -14,9 +14,9 @@
   "policies": {
     "quest_lamp_skill_policy": "any_skill",
     "trade_enabled": true,
-    "gp_policy": "sufficient",
+    "gp_policy": "self_funded",
     "allow_boosts": true,
-    "allow_poh_services": false,
+    "allow_poh_services": true,
     "allow_wilderness_travel": true,
     "allow_death_travel": false,
     "allow_minigame_teleports": true,
@@ -58,15 +58,34 @@
     "completed_action_ids": [],
     "flags": {},
     "counters": {
-      "token.quest_points": 1
+      "token.quest_points": 1,
+      "token.bank_coins": 25
     },
-    "inventory": {},
+    "inventory": {
+      "item.air_rune": 25,
+      "item.body_rune": 2,
+      "item.bread": 1,
+      "item.bronze_arrow": 25,
+      "item.bronze_axe": 1,
+      "item.bronze_dagger": 1,
+      "item.bronze_pickaxe": 1,
+      "item.bronze_shortsword": 1,
+      "item.bucket": 1,
+      "item.earth_rune": 4,
+      "item.mind_rune": 15,
+      "item.pot": 1,
+      "item.shortbow": 1,
+      "item.shrimps": 1,
+      "item.small_fishing_net": 1,
+      "item.tinderbox": 1,
+      "item.water_rune": 6,
+      "item.wooden_shield": 1
+    },
     "held_rewards": [],
     "modeled_elapsed_seconds": 0
   },
   "goal_action_ids": [
     "quest.cooks_assistant.complete",
-    "quest.sheep_shearer.complete",
     "quest.the_restless_ghost.complete",
     "quest.x_marks_the_spot.complete"
   ],
@@ -74,9 +93,9 @@
     "Start at the Lumbridge Castle courtyard waypoint on a trade-enabled members main.",
     "The route begins with one quest point from Learning the Ropes.",
     "Base Hitpoints is level 10 at 1,154 XP. All other skills start at zero XP for planning.",
-    "The modeled start has an empty inventory and no tutorial unlocks, boosts, or cooldowns.",
-    "Tradeable supplies use explicit acquisition actions with sufficient GP.",
-    "Allow documented quest partner interactions and valid Wilderness, minigame teleport and boost actions.",
+    "The carried starter kit and the 25 banked coins are separate.",
+    "GE purchases debit carried coins at fixed estimates. Earn coins, sell modeled assets or withdraw the starting balance first.",
+    "An advertised host with the specified teleport can be used on the current world.",
     "Training steps request only XP gains. The player chooses the method."
   ]
 }

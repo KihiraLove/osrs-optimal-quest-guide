@@ -89,10 +89,12 @@ class Build242BaselineTests(unittest.TestCase):
         self.assertEqual(self.baseline["status"], "draft")
         self.assertEqual(self.catalog["coverage_status"], "incomplete")
         initial = self.baseline["initial_state"]
+        kit = read_json(DATA / "raw/build-242/starter-kit.json")
         self.assertEqual(initial["location_id"], "location.lumbridge.castle_courtyard")
-        self.assertEqual(initial["counters"], {"token.quest_points": 1})
+        self.assertEqual(initial["counters"], {"token.quest_points": 1, "token.bank_coins": kit["bank"]["item.coins"]})
         self.assertEqual(initial["completed_action_ids"], [])
-        self.assertEqual(initial["inventory"], {})
+        self.assertEqual(initial["inventory"], kit["inventory"])
+        self.assertNotIn("item.coins", initial["inventory"])
         self.assertEqual(initial["flags"], {})
         self.assertEqual(initial["held_rewards"], [])
         expected_xp = {skill["id"]: 0 for skill in self.catalog["skills"]}
@@ -102,6 +104,9 @@ class Build242BaselineTests(unittest.TestCase):
             self.assertTrue(validator.is_valid(self.baseline["policies"][name]), name)
         self.assertEqual(self.baseline["policies"]["training_methods"], "user_choice")
         self.assertEqual(self.baseline["policies"]["quest_lamp_skill_policy"], "any_skill")
+        self.assertEqual(self.baseline["policies"]["gp_policy"], "self_funded")
+        self.assertTrue(self.baseline["policies"]["allow_poh_services"])
+        self.assertEqual(self.baseline["priority_action_ids"], ["quest.fairytale_ii_cure_a_queen.unlock_fairy_rings"])
 
     def test_starter_route_buys_supplies_and_keeps_the_initial_quest_point(self):
         profile = read_json(ROOT / "examples/build-242/lumbridge-arrival-profile.json")
@@ -112,12 +117,14 @@ class Build242BaselineTests(unittest.TestCase):
         solution, _ = solve_bounded(validator, profile)
         report = verify_solution(solution, profile, validator)
         self.assertEqual(report["manual_training_xp_tenths_by_skill"], {})
-        self.assertEqual(report["final_state"]["counters"]["token.quest_points"], 5)
+        self.assertEqual(report["final_state"]["counters"], {"token.quest_points": 4})
         self.assertEqual(report["final_state"]["xp_tenths"]["skill.hitpoints"], 11540)
+        self.assertEqual(report["final_state"]["inventory"]["item.coins"], 88)
+        self.assertNotIn("item.bronze_dagger", report["final_state"]["inventory"])
         purchases = [step["action_id"] for step in solution["steps"]
-                     if step.get("action_id", "").startswith("supply.grand_exchange.")]
+                     if step.get("action_id", "").startswith("supply.grand_exchange.purchase_")]
         self.assertCountEqual(purchases, [
-            "supply.grand_exchange.cooks_assistant", "supply.grand_exchange.sheep_shearer", "supply.grand_exchange.spade",
+            "supply.grand_exchange.purchase_cooks_assistant", "supply.grand_exchange.purchase_spade",
         ])
         for purchase in purchases:
             record = validator.tables["actions"][purchase]
@@ -126,7 +133,12 @@ class Build242BaselineTests(unittest.TestCase):
                 for effect in record["effects"]
             ))
         without_ingredients = {**solution, "steps": [
-            step for step in solution["steps"] if step.get("action_id") != "supply.grand_exchange.cooks_assistant"
+            step for step in solution["steps"] if step.get("action_id") != "supply.grand_exchange.purchase_cooks_assistant"
         ]}
         with self.assertRaisesRegex(DataError, "required items"):
             verify_solution(without_ingredients, profile, validator)
+        without_withdrawal = {**solution, "steps": [
+            step for step in solution["steps"] if step.get("action_id") != "supply.bank.withdraw_starter_coins"
+        ]}
+        with self.assertRaisesRegex(DataError, "consumes 105 of 'item.coins', but inventory has 100"):
+            verify_solution(without_withdrawal, profile, validator)

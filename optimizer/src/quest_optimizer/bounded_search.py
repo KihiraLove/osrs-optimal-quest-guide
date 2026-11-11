@@ -208,19 +208,27 @@ def _distances(destination, incoming):
     return distances
 
 
+def _required_actions(initial, goals):
+    needed = {}
+    remaining = list(goals)
+    while remaining:
+        action_id = remaining.pop()
+        if action_id in needed or action_id in initial.completed:
+            continue
+        record = initial.tables["actions"][action_id]
+        rules = list(_mandatory_rules(record["requirements"]))
+        remaining.extend(rule["action_id"] for rule in rules if rule["kind"] == "action_completed")
+        needed[action_id] = rules
+    return needed
+
+
 class _Guide:
-    def __init__(self, initial, goals, excluded):
+    def __init__(self, initial, goals, excluded, priorities):
         actions = initial.tables["actions"]
-        self.needed = {}
+        self.needed = _required_actions(initial, goals)
+        self.prioritized = set(_required_actions(initial, priorities))
         self.required_items = {}
-        remaining = list(goals)
-        while remaining:
-            action_id = remaining.pop()
-            if action_id in self.needed or action_id in initial.completed:
-                continue
-            rules = list(_mandatory_rules(actions[action_id]["requirements"]))
-            remaining.extend(rule["action_id"] for rule in rules if rule["kind"] == "action_completed")
-            self.needed[action_id] = rules
+        for action_id, rules in self.needed.items():
             item_rules = [rule for rule in rules if rule["kind"] == "item"]
             items = {}
             for item in actions[action_id]["consumes"] + item_rules:
@@ -277,6 +285,7 @@ class _Guide:
         thresholds = {}
         item_gaps = {}
         destinations = set()
+        priority_destinations = set()
         for action_id in missing:
             rules = self.needed[action_id]
             for rule in rules:
@@ -292,14 +301,18 @@ class _Guide:
                 item_gaps[item] = max(item_gaps.get(item, 0), deficit)
             if any(rule["kind"] == "action_completed" and rule["action_id"] not in state.completed for rule in rules):
                 continue
+            targets = set()
             if lacking:
                 for item in lacking:
                     for start, kind, record_id, limit in self.item_sources[item]:
                         counts = state.action_counts if kind == "action" else state.travel_counts
                         if counts[record_id] < limit:
-                            destinations.add(start)
+                            targets.add(start)
             else:
-                destinations.add(self.starts[action_id])
+                targets.add(self.starts[action_id])
+            destinations.update(targets)
+            if action_id in self.prioritized:
+                priority_destinations.update(targets)
         gaps = {skill: max(0, xp - state.xp[skill]) for skill, xp in thresholds.items()}
         # Credit all remaining awards, with every selectable pick credited to
         # every eligible skill. Ignoring timing and exclusive choices keeps
@@ -311,9 +324,13 @@ class _Guide:
             for skill, amount in self.reward_grants[reward.reward_id].items():
                 available[skill] += reward.remaining_picks * amount
         bound = sum(max(0, gap - available[skill]) for skill, gap in gaps.items())
-        distance = min((self.distances[start].get(state.location, inf) for start in destinations),
-                       default=inf if missing else 0)
-        return bound, len(missing), sum(gaps.values()), sum(item_gaps.values()), distance
+        def distance(destinations, remaining):
+            return min((self.distances[start].get(state.location, inf) for start in destinations),
+                       default=inf if remaining else 0)
+
+        priority_remaining = len(missing & self.prioritized)
+        return (bound, len(missing), sum(gaps.values()), sum(item_gaps.values()), distance(destinations, missing),
+                priority_remaining, distance(priority_destinations, priority_remaining))
 
 
 @dataclass
@@ -332,12 +349,13 @@ def solve_bounded(
         raise DataError("beam width and max expansions must be positive and seed must be nonnegative")
     validator.contracts.validate("profile", profile)
     validator.validate_profile(profile)
-    goals = set(profile["goal_action_ids"])
+    priorities = set(profile.get("priority_action_ids", ()))
+    goals = set(profile["goal_action_ids"]) | priorities
     excluded = set(excluded_actions)
     if excluded - validator.tables["actions"].keys():
         raise DataError("Unknown excluded action: " + ", ".join(sorted(excluded - validator.tables["actions"].keys())))
     initial = RouteState(validator.tables, profile["policies"], profile["initial_state"])
-    guide = _Guide(initial, goals, excluded)
+    guide = _Guide(initial, goals, excluded, priorities)
     if excluded & guide.needed.keys():
         raise DataError("Cannot exclude a required action: " + ", ".join(sorted(excluded & guide.needed.keys())))
     allowed = {**validator.catalog, "actions": [
@@ -356,11 +374,12 @@ def solve_bounded(
             raise DataError("Incumbent uses an excluded action")
         objective = incumbent["objective"]
         best = _Node(_apply_steps(initial, steps), steps, (
-            objective["manual_training_xp_tenths"], objective["modeled_non_training_seconds"],
+            objective["manual_training_xp_tenths"], objective.get("priority_elapsed_seconds", 0),
+            objective["modeled_non_training_seconds"],
             tuple(map(_step_key, steps)),
         ))
 
-    frontier = [_Node(initial, (), (0, 0, ()))]
+    frontier = [_Node(initial, (), (0, 0, 0, ()))]
     expanded = {}
     expansion_count = 0
     generated = 0
@@ -383,9 +402,12 @@ def solve_bounded(
                 generated += 1
                 manual = node.cost[0] + sum(move["gain_xp_tenths"] for move in moves if move["kind"] == "training")
                 seconds = state.elapsed - initial.elapsed
-                if best is not None and (manual, seconds) > best.cost[:2]:
+                priority_seconds = node.cost[1]
+                if priorities - node.state.completed:
+                    priority_seconds += state.elapsed - node.state.elapsed
+                if best is not None and (manual, priority_seconds, seconds) > best.cost[:3]:
                     continue
-                cost = manual, seconds, node.cost[2] + tuple(map(_step_key, moves))
+                cost = manual, priority_seconds, seconds, node.cost[3] + tuple(map(_step_key, moves))
                 successor = _Node(state, node.steps + moves, cost)
                 if goals <= state.completed and not state.pending:
                     if best is None or cost < best.cost:
@@ -402,11 +424,14 @@ def solve_bounded(
 
         ranked = []
         for candidate in candidates.values():
-            bound, remaining, deficit, item_gap, distance = guide.estimates(candidate.state)
-            manual, seconds, ids = candidate.cost
-            if best is not None and (manual + bound, seconds) > best.cost[:2]:
+            bound, remaining, deficit, item_gap, distance, priority_remaining, priority_distance = guide.estimates(
+                candidate.state,
+            )
+            manual, priority_seconds, seconds, ids = candidate.cost
+            if best is not None and (manual + bound, priority_seconds, seconds) > best.cost[:3]:
                 continue
-            rank = (manual + bound, remaining, deficit, item_gap, seconds + distance, rng.getrandbits(64), ids)
+            rank = (manual + bound, priority_remaining, priority_seconds + priority_distance,
+                    remaining, deficit, item_gap, seconds + distance, rng.getrandbits(64), ids)
             ranked.append((rank, candidate))
         ranked.sort(key=lambda row: row[0])
         frontier = [candidate for _, candidate in ranked[:beam_width]]
@@ -426,6 +451,7 @@ def solve_bounded(
             "name": "bounded-beam", "seed": seed, "status": "feasible" if excluded else "best_known",
             "primary_lower_bound_xp_tenths": initial_bound, "secondary_lower_bound_seconds": None,
         },
+        priority_seconds=best.cost[1],
         limitations=limitations,
     )
     return solution, {

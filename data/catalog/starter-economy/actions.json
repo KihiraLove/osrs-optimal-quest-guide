@@ -1,0 +1,252 @@
+[
+  {
+    "id": "supply.bank.withdraw_starter_coins",
+    "name": "Withdraw the 25 starter coins",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.lumbridge_castle.bank",
+    "end_location_id": "location.lumbridge_castle.bank",
+    "requirements": {
+      "kind": "counter",
+      "token_id": "token.bank_coins",
+      "minimum": 25
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.bank_coins",
+        "delta": -25
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 25
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 8,
+      "max_seconds": 20
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.project.starter_kit",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Transfer the starting balance into carried coins at the bank."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.sell_bronze_dagger",
+    "name": "Sell the bronze dagger",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bronze_dagger",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 100
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.project.starter_economy",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "One sale of the carried dagger for the modeled net proceeds."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_cooks_assistant",
+    "name": "Buy the Cook's Assistant ingredients",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 132
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.egg",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pot_of_flour",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 30,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.project.starter_economy",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Finite purchase using carried coins at fixed guide-price estimates."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_sheep_shearer",
+    "name": "Buy 20 balls of wool",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1180
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ball_of_wool",
+        "quantity": 20
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.project.starter_economy",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Finite purchase using carried coins at fixed guide-price estimates."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_spade",
+    "name": "Buy a spade",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 105
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.project.starter_economy",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Finite purchase using carried coins at fixed guide-price estimates."
+    }
+  }
+]

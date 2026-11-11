@@ -4,16 +4,18 @@ An offline Python quest-order optimizer for trade-enabled Old School RuneScape
 main accounts, followed later by a separate GitHub Pages viewer.
 
 The draft data pins live build 242 from 3 November 2026. The main baseline
-starts in Lumbridge with one quest point. The starter fixture runs four quests
-from that state. The full route depends on the remaining catalog entries.
+starts in Lumbridge with one quest point, the starter kit and 25 banked coins.
+The self-funded starter fixture runs three quests from that state. The full
+route depends on the remaining catalog entries.
 See the [data inventory](data/README.md) and [starter fixture](examples/build-242/README.md).
 
 ## What “optimal” means
 
 1. Minimise the total XP the player must train manually, summed across skills.
-2. Among routes with the same manual XP, minimise estimated activity and travel
-   seconds under the selected account and travel assumptions.
-3. Break remaining ties deterministically.
+2. Among routes with the same manual XP, reach configured priority milestones
+   as early as possible. The main profile prioritises fairy-ring access.
+3. Minimise total estimated activity and travel time.
+4. Break remaining ties deterministically.
 
 Training steps specify the skill, required XP gain and target XP. **The player
 chooses the training method.** Training time, training rates and travel to/from

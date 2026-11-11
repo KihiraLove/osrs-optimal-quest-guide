@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.8.0` loads 24 skill tables and
-81 draft actions, including The Restless Ghost, the museum route and Enlightened
+3 November 2026 at 10:00:06 UTC. Dataset `0.9.0` loads 24 skill tables and
+91 draft actions, including The Restless Ghost, the museum route and Enlightened
 Journey. Durations estimate each interaction at its waypoint with supplies ready. Travel between
 waypoints belongs to the travel graph. An action description identifies any
 movement included in its duration.
@@ -71,8 +71,15 @@ for open acquisition and transport mechanics.
 A pending review preserves its evidence and reason until a verified value is
 available. The [main baseline](profiles/main-baseline.json) records the goal
 list, policies and modeled Lumbridge arrival with one quest point. The
-[starter supplies](catalog/starter-supplies/actions.json) are purchases at the
-Grand Exchange under the trade-enabled and sufficient-GP policies.
+[self-funded economy](catalog/starter-economy/actions.json) models bank
+withdrawal, one sale and purchases with carried coins. Price observations
+are in the [starter economy record](raw/build-242/starter-economy.json).
+
+[The Fairytale II review](raw/build-242/fairytale-ii-review.json) separates
+fairy-ring access at the Godfather conversation from the later skill checks
+and completion rewards. Two staff-gated surface codes are modeled. The
+unlock fixture uses saved Lost City and Fairytale I progress while those
+prerequisite routes and the second phase are in collection.
 
 [The Restless Ghost review](raw/build-242/restless-ghost-review.json) records the
 amulet and skull pickups, the route that leaves the skeleton behind, and the

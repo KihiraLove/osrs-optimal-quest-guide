@@ -49,6 +49,8 @@ def verify_solution(
 
     initial = profile["initial_state"]
     state = RouteState(validator.tables, policies, initial, f"solution {solution['solution_id']}")
+    priorities = set(profile.get("priority_action_ids", ()))
+    priority_seconds = 0
     training = Counter()
     step_ids = set()
     for index, step in enumerate(solution["steps"]):
@@ -56,7 +58,10 @@ def verify_solution(
         if step["step_id"] in step_ids:
             raise DataError(f"{path}: duplicate step ID")
         step_ids.add(step["step_id"])
-        state = state.apply(step, path)
+        successor = state.apply(step, path)
+        if priorities - state.completed:
+            priority_seconds += successor.elapsed - state.elapsed
+        state = successor
         if step["kind"] == "training":
             training[step["skill_id"]] += step["gain_xp_tenths"]
     if state.pending:
@@ -64,6 +69,9 @@ def verify_solution(
     unmet = sorted(set(profile["goal_action_ids"]) - state.completed)
     if unmet:
         raise DataError("goal_action_ids: unmet goals " + ", ".join(unmet))
+    unmet_priorities = sorted(priorities - state.completed)
+    if unmet_priorities:
+        raise DataError("priority_action_ids: unmet priorities " + ", ".join(unmet_priorities))
 
     validator._state(solution["final_state"], policies, state.context, "final_state")
     declared = RouteState(validator.tables, policies, solution["final_state"]).snapshot()
@@ -78,6 +86,8 @@ def verify_solution(
         "manual_training_xp_tenths": sum(training.values()),
         "modeled_non_training_seconds": state.elapsed - initial["modeled_elapsed_seconds"],
     }
+    if priorities:
+        objective["priority_elapsed_seconds"] = priority_seconds
     for field, value in objective.items():
         if solution["objective"][field] != value:
             raise DataError(f"objective.{field}: expected {value} from replay")

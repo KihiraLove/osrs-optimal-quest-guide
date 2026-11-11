@@ -339,8 +339,9 @@ class CatalogValidator:
             _fail(context, "status", "a synthetic catalog requires a synthetic profile")
         if profile["status"] == "reviewed" and self.catalog["status"] != "reviewed":
             _fail(context, "status", "a reviewed profile requires a reviewed catalog")
-        for index, action_id in enumerate(profile["goal_action_ids"]):
-            self._ref("actions", action_id, context, f"goal_action_ids.{index}")
+        for field in ("goal_action_ids", "priority_action_ids"):
+            for index, action_id in enumerate(profile.get(field, ())):
+                self._ref("actions", action_id, context, f"{field}.{index}")
         self._state(profile["initial_state"], profile["policies"], context, "initial_state")
 
     def validate_solution(self, solution: dict, profile: dict, origin: Path | None = None) -> None:
@@ -353,6 +354,8 @@ class CatalogValidator:
             _fail(context, "inputs.profile_id", f"expected {profile['profile_id']!r}")
         if solution["policies"] != profile["policies"]:
             _fail(context, "policies", "must match the supplied profile")
+        if solution["objective"]["order"] != profile["objective"]:
+            _fail(context, "objective.order", "must match the supplied profile")
         if profile["status"] == "synthetic":
             if solution["solver"]["status"] != "example" or solution["verification"]["catalog_release_ready"]:
                 _fail(context, "solver.status / verification.catalog_release_ready", "synthetic inputs require an example solution")

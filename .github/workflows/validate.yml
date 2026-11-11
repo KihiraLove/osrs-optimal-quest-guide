@@ -46,5 +46,7 @@ jobs:
           quest-optimizer replay "$RUNNER_TEMP/restless-ghost.json" --catalog data/manifest.json --profile examples/build-242/restless-ghost-profile.json
           quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json > "$RUNNER_TEMP/lumbridge-arrival.json"
           quest-optimizer replay "$RUNNER_TEMP/lumbridge-arrival.json" --catalog data/manifest.json --profile examples/build-242/lumbridge-arrival-profile.json
+          quest-optimizer solve-bounded data/manifest.json examples/build-242/fairy-ring-access-profile.json > "$RUNNER_TEMP/fairy-ring-access.json"
+          quest-optimizer replay "$RUNNER_TEMP/fairy-ring-access.json" --catalog data/manifest.json --profile examples/build-242/fairy-ring-access-profile.json
       - name: Run optimizer checks
         run: python -m unittest discover -s optimizer/tests -v

@@ -106,13 +106,13 @@
       "type": "object",
       "properties": {
         "order": {
-          "const": [
-            "manual_training_xp_tenths",
-            "modeled_non_training_seconds",
-            "stable_step_ids"
-          ]
+          "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/objective_order"
         },
         "manual_training_xp_tenths": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "priority_elapsed_seconds": {
           "type": "integer",
           "minimum": 0
         },
@@ -126,7 +126,10 @@
         "manual_training_xp_tenths",
         "modeled_non_training_seconds"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "if": {"properties": {"order": {"contains": {"const": "priority_elapsed_seconds"}}}},
+      "then": {"required": ["priority_elapsed_seconds"]},
+      "else": {"not": {"required": ["priority_elapsed_seconds"]}}
     },
     "manual_training_xp_tenths_by_skill": {
       "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/xp_map"

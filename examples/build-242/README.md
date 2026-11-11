@@ -1,14 +1,24 @@
 # Build 242 fixtures
 
-`lumbridge-arrival-profile.json` uses the main baseline with four quest goals.
-It starts in Lumbridge with one quest point and an empty inventory. The route
-buys the ingredients, wool and spade at the Grand Exchange and completes
-Cook's Assistant, Sheep Shearer, The Restless Ghost and X Marks the Spot
-with zero manual XP and five final quest points.
+`lumbridge-arrival-profile.json` uses the self-funded baseline with three quest
+goals. It withdraws 25 banked coins and sells the starter dagger to buy a spade.
+X Marks the Spot supplies the coins for the Cook's Assistant ingredients.
+The route also completes The Restless Ghost. It ends with zero manual XP,
+four quest points and 88 carried coins at the modeled prices.
 
 ```sh
 quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json > artifacts/lumbridge-arrival.json
 quest-optimizer replay artifacts/lumbridge-arrival.json --catalog data/manifest.json --profile examples/build-242/lumbridge-arrival-profile.json
+```
+
+`fairy-ring-access-profile.json` starts in Draynor with saved Lost City and
+Fairytale I progress and a dramen staff. The route obtains ring access
+before returning to other goals and uses D.I.S. The fixture records time to
+the unlock and the full route time separately.
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/fairy-ring-access-profile.json > artifacts/fairy-ring-access.json
+quest-optimizer replay artifacts/fairy-ring-access.json --catalog data/manifest.json --profile examples/build-242/fairy-ring-access-profile.json
 ```
 
 `cooks-assistant-profile.json` is a synthetic account at the cook's waypoint,

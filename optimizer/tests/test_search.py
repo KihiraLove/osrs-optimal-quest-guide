@@ -175,6 +175,43 @@ class SearchTests(unittest.TestCase):
                 self.assertEqual(solution["steps"][0]["edge_id"], expected)
                 self.assertEqual(solution["objective"]["modeled_non_training_seconds"], 62)
 
+    def test_priority_time_precedes_total_time_at_equal_training(self):
+        start = "location.example"
+        goal = "location.goal"
+        priority = "location.priority"
+        for x, location_id in enumerate((goal, priority), 1):
+            self.catalog["locations"].append({
+                **self.catalog["locations"][0], "id": location_id, "name": location_id, "x": x,
+            })
+        requirements = {"kind": "all", "requirements": []}
+        duration = dict.fromkeys(("min_seconds", "expected_seconds", "max_seconds"), 1)
+        self.action.update(start_location_id=goal, end_location_id=goal, requirements=requirements, duration=duration)
+        self.catalog["actions"].append({
+            **self.action, "id": "action.priority", "activity_id": None,
+            "start_location_id": priority, "end_location_id": priority, "effects": [],
+        })
+        for index, (left, right, seconds) in enumerate(((start, goal, 1), (goal, priority, 2),
+                                                        (start, priority, 1), (priority, goal, 9))):
+            self.catalog["travel_edges"].append({
+                "id": f"travel.path.{index}", "name": f"Travel path {index}", "mode": "walk",
+                "from_location_id": left, "to_location_id": right, "requirements": requirements,
+                "consumes": [], "effects": [], "duration": dict.fromkeys(duration, seconds),
+                "evidence": self.action["evidence"],
+            })
+        self.profile["priority_action_ids"] = ["action.priority"]
+        self.profile["objective"].insert(1, "priority_elapsed_seconds")
+        validator = self.validator()
+        exact = solve_small(validator, self.profile)
+        bounded, _ = solve_bounded(validator, self.profile)
+        self.assertEqual(exact["objective"], bounded["objective"])
+        self.assertEqual(exact["objective"]["priority_elapsed_seconds"], 2)
+        self.assertEqual(exact["objective"]["modeled_non_training_seconds"], 12)
+
+        # If the same two actions have equal priority, total time selects the other order.
+        self.profile["goal_action_ids"].extend(self.profile.pop("priority_action_ids"))
+        self.profile["objective"].remove("priority_elapsed_seconds")
+        self.assertEqual(solve_small(validator, self.profile)["objective"]["modeled_non_training_seconds"], 5)
+
     def test_limits_and_impossible_goals_fail_without_claiming_an_optimum(self):
         with self.assertRaisesRegex(DataError, "state limit"):
             solve_small(self.validator(), self.profile, max_states=2)

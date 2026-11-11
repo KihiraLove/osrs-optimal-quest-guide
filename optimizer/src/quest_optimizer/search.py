@@ -179,7 +179,8 @@ def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int =
     validator.validate_profile(profile)
     _check_finite(validator.tables)
     initial = RouteState(validator.tables, profile["policies"], profile["initial_state"])
-    goals = set(profile["goal_action_ids"])
+    priorities = set(profile.get("priority_action_ids", ()))
+    goals = set(profile["goal_action_ids"]) | priorities
     targets, maximum_time = _training_targets(initial)
     routes = defaultdict(list)
     for record in validator.tables["actions"].values():
@@ -189,8 +190,9 @@ def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int =
 
     serial = count()
     initial_key = _state_key(initial, maximum_time, "")
-    queue = [((0, 0, ()), next(serial), initial_key, initial, "", ())]
-    best = {initial_key: (0, 0, ())}
+    zero = (0, 0, 0, ())
+    queue = [(zero, next(serial), initial_key, initial, "", ())]
+    best = {initial_key: zero}
     incumbent = None
     while queue:
         score, _, key, state, last_skill, steps = heappop(queue)
@@ -202,8 +204,10 @@ def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int =
                 solution_id="solution.exact." + profile["profile_id"],
                 solver={
                     "name": "exact-small-dijkstra", "seed": 0, "status": "optimal",
-                    "primary_lower_bound_xp_tenths": score[0], "secondary_lower_bound_seconds": score[1],
+                    "primary_lower_bound_xp_tenths": score[0],
+                    "secondary_lower_bound_seconds": None if priorities else score[2],
                 },
+                priority_seconds=score[1],
                 limitations=["Exact for the supplied finite catalog and profile using the catalog's expected durations."],
             )
 
@@ -211,14 +215,16 @@ def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int =
             nonlocal incumbent
             training_skill = step["skill_id"] if step["kind"] == "training" else ""
             manual = score[0] + (step["gain_xp_tenths"] if training_skill else 0)
-            seconds = score[1] + step.get("modeled_seconds", 0)
-            if incumbent is not None and (manual, seconds) > incumbent:
+            duration = step.get("modeled_seconds", 0)
+            priority_seconds = score[1] + (duration if priorities - state.completed else 0)
+            seconds = score[2] + duration
+            if incumbent is not None and (manual, priority_seconds, seconds) > incumbent:
                 return
             try:
                 successor = state.apply(step)
             except DataError:
                 return
-            cost = (manual, seconds, score[2] + (move_id,))
+            cost = (manual, priority_seconds, seconds, score[3] + (move_id,))
             successor_key = _state_key(successor, maximum_time, training_skill)
             previous = best.get(successor_key)
             if previous is not None and previous <= cost:
@@ -227,7 +233,7 @@ def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int =
                 raise DataError(f"Exact search exceeded its {max_states}-state limit")
             best[successor_key] = cost
             if goals <= successor.completed and not successor.pending:
-                incumbent = cost[:2] if incumbent is None else min(incumbent, cost[:2])
+                incumbent = cost[:3] if incumbent is None else min(incumbent, cost[:3])
             heappush(queue, (cost, next(serial), successor_key, successor, training_skill, steps + (step,)))
 
         for move_id, step in _progress_steps(state, routes, maximum_time):
@@ -240,7 +246,7 @@ def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int =
 
 def build_solution(
     validator: CatalogValidator, profile: dict, state: RouteState, steps: tuple[dict, ...],
-    *, solution_id: str, solver: dict, limitations: list[str],
+    *, solution_id: str, solver: dict, limitations: list[str], priority_seconds: int = 0,
 ) -> dict:
     def transition_id(step):
         return step.get("action_id") or step.get("edge_id") or step.get("reward_id")
@@ -280,5 +286,7 @@ def build_solution(
     }
     if profile["status"] == "synthetic":
         solution["solver"]["status"] = "example"
+    if "priority_action_ids" in profile:
+        solution["objective"]["priority_elapsed_seconds"] = priority_seconds
     verify_solution(solution, profile, validator)
     return solution

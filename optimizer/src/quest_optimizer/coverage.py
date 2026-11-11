@@ -319,7 +319,8 @@ def audit_coverage(
         if set(profile["goal_action_ids"]) != audit.goals:
             audit.errors.append("release profile: goals differ from the independent quest list")
         audit.unreachable = unreachable_records(catalog, profile)
-        blocked_goals = set(audit.unreachable["actions"]) & audit.goals
+        required = audit.goals | set(profile.get("priority_action_ids", ()))
+        blocked_goals = set(audit.unreachable["actions"]) & required
         unreachable_locations = set(audit.unreachable["locations"])
         for goal in blocked_goals:
             audit.pending.append(f"quest goal {goal}: unreachable from the release profile")

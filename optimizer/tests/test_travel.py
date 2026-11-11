@@ -3,8 +3,11 @@
 from pathlib import Path
 import unittest
 
+from quest_optimizer.bounded_search import solve_bounded
 from quest_optimizer.data import Contracts, DataError, load_catalog, read_json
+from quest_optimizer.replay import verify_solution
 from quest_optimizer.semantics import CatalogValidator
+from quest_optimizer.transitions import RouteState
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -118,6 +121,57 @@ class TravelTests(unittest.TestCase):
         for edge_id in ("travel.ship.port_sarim.entrana", "travel.balloon.taverley.entrana"):
             self.assertIn(pack_gate, self.edges[edge_id]["requirements"]["requirements"])
         self.assertNotIn(pack_gate, self.edges["travel.ship.entrana.port_sarim"]["requirements"]["requirements"])
+
+    def test_fairy_ring_unlock_precedes_skill_gates_and_ring_travel(self):
+        profile = read_json(EXAMPLES / "fairy-ring-access-profile.json")
+        [unlock] = profile["priority_action_ids"]
+        solution, _ = solve_bounded(self.validator, profile)
+        self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {})
+        report = verify_solution(solution, profile, self.validator)
+        self.assertTrue(report["final_state"]["flags"]["unlock.fairy_rings"])
+        self.assertEqual(report["final_state"]["counters"], {"token.quest_points": 1})
+        for skill in ("farming", "herblore", "thieving"):
+            self.assertEqual(report["final_state"]["xp_tenths"][f"skill.{skill}"], 0)
+        unlock_index = next(index for index, step in enumerate(solution["steps"]) if step.get("action_id") == unlock)
+        ring_index = next(index for index, step in enumerate(solution["steps"])
+                          if step.get("edge_id", "").startswith("travel.fairy_ring."))
+        self.assertLess(unlock_index, ring_index)
+        self.assertEqual(report["objective"]["priority_elapsed_seconds"], sum(
+            step.get("modeled_seconds", 0) for step in solution["steps"][:unlock_index + 1]
+        ))
+        solution["objective"]["priority_elapsed_seconds"] -= 1
+        with self.assertRaisesRegex(DataError, "objective.priority_elapsed_seconds"):
+            verify_solution(solution, profile, self.validator)
+
+    def test_fairy_ring_requires_access_and_a_staff(self):
+        profile = read_json(EXAMPLES / "fairy-ring-access-profile.json")
+        edge = self.edges["travel.fairy_ring.zanaris.dis"]
+        initial = {**profile["initial_state"], "location_id": edge["from_location_id"]}
+        step = {"kind": "travel", "edge_id": edge["id"], "modeled_seconds": edge["duration"]["expected_seconds"]}
+        state = RouteState(self.validator.tables, profile["policies"], initial)
+        with self.assertRaises(DataError):
+            state.apply(step)
+        initial["flags"]["unlock.fairy_rings"] = True
+        initial["inventory"] = {}
+        state = RouteState(self.validator.tables, profile["policies"], initial)
+        with self.assertRaises(DataError):
+            state.apply(step)
+        initial["inventory"] = {"item.lunar_staff": 1}
+        state = RouteState(self.validator.tables, profile["policies"], initial)
+        self.assertEqual(state.apply(step).location, edge["to_location_id"])
+
+    def test_public_house_portal_requires_profile_permission(self):
+        edge = self.edges["travel.poh.rimmington.varrock"]
+        initial = {**self.profile["initial_state"], "location_id": edge["from_location_id"], "inventory": {}}
+        step = {"kind": "travel", "edge_id": edge["id"], "modeled_seconds": edge["duration"]["expected_seconds"]}
+        state = RouteState(self.validator.tables, self.profile["policies"], initial)
+        with self.assertRaises(DataError):
+            state.apply(step)
+        policies = {**self.profile["policies"], "allow_poh_services": True}
+        state = RouteState(self.validator.tables, policies, initial)
+        arrived = state.apply(step)
+        self.assertEqual(arrived.location, "location.varrock.square")
+        self.assertEqual(arrived.inventory, {})
 
     def test_every_stop_links_basket_unlock_and_routine_edges(self):
         review = read_json(ROOT / "data/raw/build-242/balloon-stops.json")

@@ -31,8 +31,8 @@ lamp skill policy and any departures from observed eligibility travel with outpu
 
 ## Exact reference search
 
-`solve-small` uses Dijkstra search with lexicographic costs ordered by manual
-XP, non-training seconds and the sequence of stable move IDs. The search key
+`solve-small` uses Dijkstra search ordered by manual XP, time to the last
+configured priority action if any, non-training seconds and stable move IDs. The search key
 includes exact XP, progress, resources, held rewards and active timer lengths.
 Absolute time saturates in the key once it reaches the largest elapsed-time
 requirement. It still contributes to route cost and final state. One-second
@@ -77,8 +77,9 @@ finds no complete route fails with its expansion count. The catalog reachability
 audit can separately identify goals blocked by the available inputs.
 
 A saved incumbent is replayed against the current inputs before it can bound
-another run. Candidates and incumbents are compared by manual XP first and
-then modelled time, with stable step IDs to break ties. See the measured
+another run. Candidates and incumbents follow the profile's objective order.
+Replay independently measures elapsed time until the last priority action.
+See the measured
 [benchmark comparisons](search-benchmarks.md).
 
 Travel routing uses directed edges filtered by state and policy. Pure fixed-cost

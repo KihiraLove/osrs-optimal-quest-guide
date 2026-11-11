@@ -203,6 +203,15 @@ Profile JSON includes initial state, required goal action IDs and all optimizati
 policies. Production goals enumerate reviewed quest completion actions at a pinned
 revision. Optional activities are not goals merely because they are present.
 
+`priority_action_ids` declares additional required actions. For those profiles
+`priority_elapsed_seconds` measures non-training time to the last such action
+and ranks after manual XP and before total non-training time. The solver and
+replay both include priority actions in route completion.
+
+The self-funded profile uses `token.bank_coins` for the starting bank balance
+and `item.coins` for carried GP. A bank withdrawal transfers between them.
+Purchase actions consume carried coins at the amounts recorded in the catalog.
+
 `solution.schema.json` requires input identities/hashes, policy summary, solver
 version/seed/status, objective values, manual XP totals, ordered steps, final state,
 limitations and verification status. Step variants distinguish action, travel,

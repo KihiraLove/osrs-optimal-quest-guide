@@ -1,0 +1,138 @@
+[
+  {
+    "id": "travel.walk.lumbridge.bank.out",
+    "name": "Walk to bank",
+    "mode": "walk",
+    "from_location_id": "location.lumbridge_castle.duke",
+    "to_location_id": "location.lumbridge_castle.bank",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 10,
+      "max_seconds": 24
+    },
+    "evidence": {
+      "source_ids": [
+        "source.project.starter_kit",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the castle stairs between the first floor and bank."
+    }
+  },
+  {
+    "id": "travel.walk.lumbridge.bank.back",
+    "name": "Return from bank",
+    "mode": "walk",
+    "from_location_id": "location.lumbridge_castle.bank",
+    "to_location_id": "location.lumbridge_castle.duke",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 10,
+      "max_seconds": 24
+    },
+    "evidence": {
+      "source_ids": [
+        "source.project.starter_kit",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the castle stairs between the first floor and bank."
+    }
+  },
+  {
+    "id": "travel.walk.port_sarim.rimmington.out",
+    "name": "Walk to rimmington",
+    "mode": "walk",
+    "from_location_id": "location.port_sarim.entrana_ferry",
+    "to_location_id": "location.rimmington.house_portal",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 37,
+      "max_seconds": 82
+    },
+    "evidence": {
+      "source_ids": [
+        "source.jagex.poh_board",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow the public road west to the Rimmington portal."
+    }
+  },
+  {
+    "id": "travel.walk.port_sarim.rimmington.back",
+    "name": "Return from rimmington",
+    "mode": "walk",
+    "from_location_id": "location.rimmington.house_portal",
+    "to_location_id": "location.port_sarim.entrana_ferry",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 37,
+      "max_seconds": 82
+    },
+    "evidence": {
+      "source_ids": [
+        "source.jagex.poh_board",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow the public road west to the Rimmington portal."
+    }
+  },
+  {
+    "id": "travel.poh.rimmington.varrock",
+    "name": "Use an advertised Rimmington house portal to Varrock",
+    "mode": "teleport_spell",
+    "from_location_id": "location.rimmington.house_portal",
+    "to_location_id": "location.varrock.square",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "allow_poh_services",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 36,
+      "max_seconds": 120
+    },
+    "evidence": {
+      "source_ids": [
+        "source.jagex.poh_board",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Assumes an available advertised host on the current world with a portal to Varrock square. Includes finding and entering the house."
+    }
+  }
+]

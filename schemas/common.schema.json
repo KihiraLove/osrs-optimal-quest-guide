@@ -663,6 +663,12 @@
       ],
       "additionalProperties": false
     },
+    "objective_order": {
+      "enum": [
+        ["manual_training_xp_tenths", "modeled_non_training_seconds", "stable_step_ids"],
+        ["manual_training_xp_tenths", "priority_elapsed_seconds", "modeled_non_training_seconds", "stable_step_ids"]
+      ]
+    },
     "policies": {
       "type": "object",
       "properties": {
@@ -676,7 +682,7 @@
           "const": true
         },
         "gp_policy": {
-          "const": "sufficient"
+          "enum": ["sufficient", "self_funded"]
         },
         "allow_boosts": {
           "type": "boolean"

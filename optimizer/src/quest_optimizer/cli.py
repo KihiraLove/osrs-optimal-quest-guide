@@ -48,7 +48,8 @@ def _bounded_command(args, contracts) -> dict:
             tracemalloc.stop()
 
     def objective(route):
-        return tuple(route["objective"][key] for key in ("manual_training_xp_tenths", "modeled_non_training_seconds"))
+        values = route["objective"]
+        return tuple(values[key] for key in values["order"] if key != "stable_step_ids")
 
     try:
         if args.incumbent and (incumbent is None or objective(solution) < objective(incumbent)):

@@ -1,0 +1,86 @@
+{
+  "game_revision": "osrs-live-242",
+  "activity_id": "quest.fairytale_ii_cure_a_queen",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.runelite.fairy_rings",
+    "source.runelite.varbits"
+  ],
+  "unlock_phase": {
+    "status": "collected",
+    "quest_prerequisites": [
+      "quest.fairytale_i_growing_pains.complete"
+    ],
+    "stages": [
+      "quest.fairytale_ii_cure_a_queen.start",
+      "quest.fairytale_ii_cure_a_queen.return_to_martin",
+      "quest.fairytale_ii_cure_a_queen.study_certificate",
+      "quest.fairytale_ii_cure_a_queen.read_sign",
+      "quest.fairytale_ii_cure_a_queen.unlock_fairy_rings"
+    ],
+    "skill_requirements": [],
+    "quest_progress": 40,
+    "trackers": {
+      "FAIRY2_QUEENCURE_QUEST": {"id": 2326, "value": 40},
+      "FAIRYRING_USE": {"id": 2328, "value": 1},
+      "FAIRYRING_PERMISSION": {"id": 2329, "value": 2}
+    },
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.fairy_rings",
+        "value": true
+      }
+    ],
+    "modeled_surface_codes": [
+      "AIQ",
+      "DIS"
+    ],
+    "notes": "Fairytale I and Lost City access are imported from saved progress pending their catalog producers."
+  },
+  "completion_phase": {
+    "status": "expected",
+    "requires_action_id": "quest.fairytale_ii_cure_a_queen.unlock_fairy_rings",
+    "completion_action_id": "quest.fairytale_ii_cure_a_queen.complete",
+    "ordered_stage_candidates": [
+      "Reach Fairy Nuff through the hideout ring sequence while carrying the certificate.",
+      "Pickpocket the Queen's secateurs from the Fairy Godfather and bring them to Fairy Nuff.",
+      "Pick a star flower through C.K.P. and obtain a Gorak claw through D.I.R.",
+      "Mix magic essence using the star flower, vial of water and ground claw.",
+      "Use magic essence on the Queen and speak to her to complete the quest."
+    ],
+    "skill_checks": [
+      {
+        "step": "pickpocket Godfather",
+        "skill_id": "skill.thieving",
+        "minimum_level": 40,
+        "boostable": false
+      },
+      {
+        "step": "pick star flower",
+        "skill_id": "skill.farming",
+        "minimum_level": 49,
+        "boostable": true
+      },
+      {
+        "step": "mix magic essence",
+        "skill_id": "skill.herblore",
+        "minimum_level": 57,
+        "boostable": true
+      }
+    ],
+    "quest_points": 2,
+    "fixed_xp_tenths": {
+      "skill.herblore": 35000,
+      "skill.thieving": 25000
+    },
+    "lamp_xp_tenths": 25000,
+    "lamp_minimum_level": null,
+    "mandatory_incidental_xp_tenths": null,
+    "open_checks": [
+      "Admit the prerequisite chain from Lumbridge including Fairytale I.",
+      "Verify the Gorak combat, mandatory XP, hideout sequence, and item handovers.",
+      "Verify exact lamp eligibility and whether the completion lamp can be held."
+    ]
+  }
+}

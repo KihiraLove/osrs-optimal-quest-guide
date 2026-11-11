@@ -31,11 +31,7 @@
       "type": "boolean"
     },
     "objective": {
-      "const": [
-        "manual_training_xp_tenths",
-        "modeled_non_training_seconds",
-        "stable_step_ids"
-      ]
+      "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/objective_order"
     },
     "policies": {
       "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/policies"
@@ -48,6 +44,12 @@
       "items": {
         "$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"
       },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "priority_action_ids": {
+      "type": "array",
+      "items": {"$ref": "urn:quest-optimizer:common:0.1.0#/$defs/id"},
       "minItems": 1,
       "uniqueItems": true
     },
@@ -73,5 +75,8 @@
     "goal_action_ids",
     "assumptions"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "if": {"required": ["priority_action_ids"]},
+  "then": {"properties": {"objective": {"contains": {"const": "priority_elapsed_seconds"}}}},
+  "else": {"properties": {"objective": {"not": {"contains": {"const": "priority_elapsed_seconds"}}}}}
 }
