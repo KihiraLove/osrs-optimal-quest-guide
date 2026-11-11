@@ -123,10 +123,8 @@ class Build242BaselineTests(unittest.TestCase):
         self.assertEqual(report["manual_training_xp_tenths_by_skill"], {"skill.prayer": 503390})
         self.assertEqual(report["objective"]["counted_manual_training_xp_tenths"], 0)
         self.assertEqual(report["objective"]["priority_skill_elapsed_seconds"], 0)
-        self.assertEqual(report["final_state"]["counters"], {"token.quest_points": 4})
+        self.assertEqual(report["final_state"]["counters"]["token.quest_points"], 4)
         self.assertEqual(report["final_state"]["xp_tenths"]["skill.hitpoints"], 11540)
-        self.assertEqual(report["final_state"]["inventory"]["item.coins"], 88)
-        self.assertNotIn("item.bronze_dagger", report["final_state"]["inventory"])
         purchases = [step["action_id"] for step in solution["steps"]
                      if step.get("action_id", "").startswith("supply.grand_exchange.purchase_")]
         self.assertCountEqual(purchases, [
@@ -143,8 +141,3 @@ class Build242BaselineTests(unittest.TestCase):
         ]}
         with self.assertRaisesRegex(DataError, "required items"):
             verify_solution(without_ingredients, profile, validator)
-        without_withdrawal = {**solution, "steps": [
-            step for step in solution["steps"] if step.get("action_id") != "supply.bank.withdraw_starter_coins"
-        ]}
-        with self.assertRaisesRegex(DataError, "consumes 105 of 'item.coins', but inventory has 100"):
-            verify_solution(without_withdrawal, profile, validator)

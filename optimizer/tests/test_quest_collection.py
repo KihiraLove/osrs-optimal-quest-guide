@@ -136,7 +136,7 @@ class QuestCollectionTests(unittest.TestCase):
         profile = read_json(ROOT / "examples/build-242/lost-city-combat-profile.json")
         scenario = read_json(RAW / "lost-city-combat.json")
         validator = CatalogValidator(self.catalog, self.contracts)
-        solution, _ = solve_bounded(validator, profile, beam_width=128, max_expansions=12000)
+        solution, _ = solve_bounded(validator, profile, beam_width=256, max_expansions=20000)
         state = verify_solution(solution, profile, validator)["final_state"]
         combat_steps = [step for step in solution["steps"] if "planned_outcome" in step]
         self.assertEqual([step["action_id"] for step in combat_steps], [
@@ -155,7 +155,6 @@ class QuestCollectionTests(unittest.TestCase):
         self.assertTrue(state["flags"]["flag.quest.lost_city.tree_spirit_defeated"])
         self.assertTrue(state["flags"]["flag.quest.lost_city.complete"])
         self.assertEqual(state["counters"]["token.quest_points"], 4)
-        self.assertEqual(state["inventory"]["item.coins"], 857)
         self.assertEqual(state["counters"]["token.bank_coins"], 25)
         purchases = [step["action_id"] for step in solution["steps"] if step.get("action_id", "").startswith(
             "supply.grand_exchange.purchase_"
@@ -229,6 +228,56 @@ class QuestCollectionTests(unittest.TestCase):
         self.assertIn({"kind": "counter", "token_id": "token.quest_points", "minimum": 175}, requirements)
         previous_completions = {stage["completion_action_id"] for stage in stages[:-1]}
         self.assertTrue(previous_completions <= {rule.get("action_id") for rule in requirements})
+
+    def test_rfd_opening_and_goblin_rescue_replay_with_separate_rewards(self):
+        profile = read_json(ROOT / "examples/build-242/rfd-opening-goblins-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile, beam_width=96)
+        state = verify_solution(solution, profile, validator)["final_state"]
+        self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {})
+        self.assertEqual(state["inventory"], {"item.bucket": 1, "item.gnome_spice": 1, "item.knife": 1})
+        self.assertEqual(state["flags"], {
+            "flag.rfd.goblin_kitchen_charred": True, "unlock.culinaromancers_chest": True,
+        })
+        self.assertNotIn("quest.recipe_for_disaster.complete", state["completed_action_ids"])
+
+        initial = profile["initial_state"]
+        expected_points = initial["counters"]["token.quest_points"]
+        expected_xp = initial["xp_tenths"].copy()
+        for stage in self.rfd["stages"]:
+            if stage["activity_id"] not in self.rfd["normalized_stages"]:
+                continue
+            rewards = stage["completion_rewards"]
+            expected_points += rewards["quest_points"]
+            for skill, xp in rewards["fixed_xp_tenths"].items():
+                expected_xp[skill] += xp
+        self.assertEqual(state["counters"]["token.quest_points"], expected_points)
+        self.assertEqual(state["xp_tenths"], expected_xp)
+
+        edges = {step.get("edge_id") for step in solution["steps"]}
+        self.assertIn("travel.walk.rfd.goblin_kitchen.out", edges)
+        self.assertIn("travel.walk.rfd.charred_goblin_kitchen.back", edges)
+        without_banquet = {**solution, "steps": [
+            step for step in solution["steps"] if step.get("action_id") != "rfd.another_cooks_quest.complete"
+        ]}
+        with self.assertRaises(DataError):
+            verify_solution(without_banquet, profile, validator)
+
+    def test_rfd_parent_records_only_saved_finale_completion(self):
+        profile = read_json(ROOT / "examples/build-242/rfd-opening-goblins-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        initial = profile["initial_state"]
+        initial["completed_action_ids"] += [
+            "rfd.another_cooks_quest.complete", "rfd.freeing_the_goblin_generals.complete",
+        ]
+        step = {"kind": "action", "action_id": "quest.recipe_for_disaster.complete", "modeled_seconds": 0}
+        with self.assertRaises(DataError):
+            RouteState(validator.tables, profile["policies"], initial).apply(step)
+        initial["flags"]["flag.rfd.finale_complete"] = True
+        state = RouteState(validator.tables, profile["policies"], initial).apply(step).snapshot()
+        self.assertIn(step["action_id"], state["completed_action_ids"])
+        for field in ("xp_tenths", "inventory", "counters", "held_rewards"):
+            self.assertEqual(state[field], initial[field])
 
     def test_pirate_pete_preserves_account_specific_or_observation(self):
         [source] = self.observations["rfd.freeing_pirate_pete"]

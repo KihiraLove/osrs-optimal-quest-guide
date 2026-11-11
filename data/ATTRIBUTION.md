@@ -21,6 +21,9 @@ original descriptions of findings. The data uses pinned upstream sources.
 - Count Check's lamp uses Jagex's account security update. Stronghold
   room and exit waypoints come from the build 242 map and Quest Helper.
   Enjar's gameplay capture documents the early coin claims.
+- Recipe for Disaster ingredient and instance observations come from the pinned
+  Quest Helper. Tip.It's historical walkthrough documents the timing of the
+  opening quest point. Jagex's Grand Exchange records supply price estimates.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

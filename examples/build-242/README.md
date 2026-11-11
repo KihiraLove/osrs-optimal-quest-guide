@@ -71,7 +71,7 @@ and credits 138 Magic XP as a floor across the successful fights. Each
 combat step states what must happen before continuing.
 
 ```sh
-quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-combat-profile.json --beam-width 128 > artifacts/lost-city-combat.json
+quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-combat-profile.json --beam-width 256 > artifacts/lost-city-combat.json
 quest-optimizer replay artifacts/lost-city-combat.json --catalog data/manifest.json --profile examples/build-242/lost-city-combat-profile.json
 quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-preparation-profile.json > artifacts/lost-city-preparation.json
 quest-optimizer replay artifacts/lost-city-preparation.json --catalog data/manifest.json --profile examples/build-242/lost-city-preparation-profile.json
@@ -79,11 +79,18 @@ quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-co
 quest-optimizer replay artifacts/lost-city-completion.json --catalog data/manifest.json --profile examples/build-242/lost-city-completion-profile.json
 ```
 
-The [Recipe for Disaster progression review](../../data/raw/build-242/recipe-for-disaster-review.json)
-contains the ten stages and the finale prerequisites. A replay test uses
-the recorded finale gates and quest points with synthetic waypoints and
-durations. A full in-game route fixture depends on resolving the review
-fields and adding those stages to the catalog.
+`rfd-opening-goblins-profile.json` starts at the Lumbridge kitchen with
+Cooking 10, saved Cook's Assistant and Goblin Diplomacy completions, and the
+ingredients in the inventory. The route enters the frozen dining room, makes
+Slop of compromise with purple dye and gnome spice, and returns to free the
+generals. The two stages award two quest points and 1,000 XP each in Cooking,
+Crafting and Farming. The other eight stages remain in the
+[Recipe for Disaster progression review](../../data/raw/build-242/recipe-for-disaster-review.json).
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/rfd-opening-goblins-profile.json --beam-width 96 > artifacts/rfd-opening-goblins.json
+quest-optimizer replay artifacts/rfd-opening-goblins.json --catalog data/manifest.json --profile examples/build-242/rfd-opening-goblins-profile.json
+```
 
 The optional progression tests cover the three essence mine task flags in the
 draft catalog. A synthetic fixture compares manual training with a diary task,

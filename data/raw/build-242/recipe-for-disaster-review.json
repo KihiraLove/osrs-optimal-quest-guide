@@ -1,15 +1,17 @@
 {
   "game_revision": "osrs-live-242",
-  "status": "pending_review",
+  "status": "partially_collected",
   "source_ids": [
     "source.quest_helper.quest_observations",
-    "source.runelite.quests"
+    "source.runelite.quests",
+    "source.capture.rfd_opening_and_goblins"
   ],
   "activity_id": "quest.recipe_for_disaster",
   "parent_goal": {
     "action_id": "quest.recipe_for_disaster.complete",
     "requires_action_id": "rfd.defeating_the_culinaromancer.complete",
-    "completion_effects": []
+    "completion_effects": [],
+    "draft_saved_completion_flag": "flag.rfd.finale_complete"
   },
   "stages": [
     {
@@ -51,16 +53,25 @@
         ],
         "instance_id": null
       },
-      "completion_location": null,
+      "completion_location": {
+        "helper_step": "inspectGoblin",
+        "tile": [
+          1862,
+          5325,
+          0
+        ],
+        "instance_id": "rfd.dining_room"
+      },
       "completion_rewards": {
         "quest_points": 1,
-        "fixed_xp_tenths": {}
+        "fixed_xp_tenths": {},
+        "delivery_action_id": "rfd.another_cooks_quest.hand_over_ingredients"
       },
       "review": {
-        "duration_seconds": null,
-        "mandatory_incidental_xp_tenths": null,
-        "combat_feasibility": "not_assessed",
-        "notes": "Verify the cutscene exit location and actual quest point delivery. Use a regular fruit blast with ashes to make the dirty blast."
+        "duration_seconds": 202,
+        "mandatory_incidental_xp_tenths": {},
+        "combat_feasibility": "no_required_combat",
+        "notes": "Credit the single point at the handover, then enter the frozen dining room and unlock the chest. The modeled endpoint includes walking to the goblins. Timing is estimated. Verify exact build 242 handover timing and the raw cutscene landing in game."
       }
     },
     {
@@ -173,13 +184,14 @@
           "skill.cooking": 10000,
           "skill.farming": 10000,
           "skill.crafting": 10000
-        }
+        },
+        "delivery_action_id": "rfd.freeing_the_goblin_generals.complete"
       },
       "review": {
-        "duration_seconds": null,
-        "mandatory_incidental_xp_tenths": null,
-        "combat_feasibility": "not_assessed",
-        "notes": "Review the accepted dye alternatives and the separate preparations in Goblin Village."
+        "duration_seconds": 149,
+        "mandatory_incidental_xp_tenths": {},
+        "combat_feasibility": "no_required_combat",
+        "notes": "The pinned helper confirms blue, green or purple dye, two spice alternatives, and both kitchen rooms. The supplied route prepares ingredients in the charred kitchen. Check other dye or water-container alternatives and earliest preparation timing."
       }
     },
     {
@@ -723,9 +735,13 @@
     }
   ],
   "notes": [
-    "Direct gates and fixed completion XP are transcribed from the pinned helper and checked against the journal IDs. Verify exact game requirements before catalog admission.",
+    "Direct gates and fixed completion XP are transcribed from the pinned helper and checked against the journal IDs. The eight remaining stages still need their gameplay mechanics verified for catalog admission.",
     "The rescue entry and handover coordinates identify instanced interaction areas. Use the source observations for intermediate waypoints and supplies, then verify how to enter or exit each instance.",
     "Skill checks are listed separately so a boost can be evaluated at the relevant phase.",
     "Each of the ten stages contributes its own quest point. The parent goal duplicates no reward."
+  ],
+  "normalized_stages": [
+    "rfd.another_cooks_quest",
+    "rfd.freeing_the_goblin_generals"
   ]
 }

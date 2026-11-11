@@ -1,0 +1,169 @@
+[
+  {
+    "id": "travel.walk.rfd.dining_room.out",
+    "name": "Enter the frozen dining room",
+    "mode": "walk",
+    "from_location_id": "location.lumbridge_castle.cook",
+    "to_location_id": "location.rfd.dining_room",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.another_cooks_quest.complete"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 8,
+      "max_seconds": 18
+    },
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the dining room door after the banquet cutscene."
+    }
+  },
+  {
+    "id": "travel.walk.rfd.dining_room.back",
+    "name": "Return to the Lumbridge kitchen",
+    "mode": "walk",
+    "from_location_id": "location.rfd.dining_room",
+    "to_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 8,
+      "max_seconds": 18
+    },
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Leave the frozen dining room through the portal to the kitchen."
+    }
+  },
+  {
+    "id": "travel.walk.rfd.goblin_kitchen.out",
+    "name": "Climb down to Mudknuckles' kitchen",
+    "mode": "walk",
+    "from_location_id": "location.goblin_village.generals",
+    "to_location_id": "location.rfd.goblin_kitchen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_goblin_generals.inspect"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.rfd.goblin_kitchen_charred",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 35
+    },
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the Goblin Village ladder before the charcoal cutscene."
+    }
+  },
+  {
+    "id": "travel.walk.rfd.goblin_kitchen.back",
+    "name": "Climb out of Mudknuckles' kitchen",
+    "mode": "walk",
+    "from_location_id": "location.rfd.goblin_kitchen",
+    "to_location_id": "location.goblin_village.generals",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 35
+    },
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the kitchen's ladder and walk to the village waypoint."
+    }
+  },
+  {
+    "id": "travel.walk.rfd.charred_goblin_kitchen.out",
+    "name": "Climb down to the charred kitchen",
+    "mode": "walk",
+    "from_location_id": "location.goblin_village.generals",
+    "to_location_id": "location.rfd.charred_goblin_kitchen",
+    "requirements": {
+      "kind": "flag",
+      "token_id": "flag.rfd.goblin_kitchen_charred",
+      "value": true
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 35
+    },
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the Goblin Village ladder after the charcoal cutscene."
+    }
+  },
+  {
+    "id": "travel.walk.rfd.charred_goblin_kitchen.back",
+    "name": "Climb out of the charred kitchen",
+    "mode": "walk",
+    "from_location_id": "location.rfd.charred_goblin_kitchen",
+    "to_location_id": "location.goblin_village.generals",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 35
+    },
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the charred room's ladder and walk to the village waypoint."
+    }
+  }
+]

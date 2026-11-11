@@ -1,0 +1,914 @@
+[
+  {
+    "id": "quest.recipe_for_disaster.complete",
+    "name": "Record the finished Recipe for Disaster",
+    "activity_id": "quest.recipe_for_disaster",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "flag",
+      "token_id": "flag.rfd.finale_complete",
+      "value": true
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 0,
+      "expected_seconds": 0,
+      "max_seconds": 0
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Record imported finale completion. The parent grants no duplicate XP, items or quest points."
+    }
+  },
+  {
+    "id": "rfd.another_cooks_quest.start",
+    "name": "Accept the Cook's banquet request",
+    "activity_id": "rfd.another_cooks_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cooks_assistant.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 10,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cooking is checked when accepting the request. The interaction uses the kitchen waypoint."
+    }
+  },
+  {
+    "id": "rfd.another_cooks_quest.prepare_dirty_blast",
+    "name": "Add ashes to the regular fruit blast",
+    "activity_id": "rfd.another_cooks_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.another_cooks_quest.start"
+    },
+    "consumes": [
+      {
+        "item_id": "item.ashes",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.fruit_blast",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dirty_blast",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 1,
+      "expected_seconds": 4,
+      "max_seconds": 10
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the regular fruit blast is used. The premade cocktail is a separate game item."
+    }
+  },
+  {
+    "id": "rfd.another_cooks_quest.hand_over_ingredients",
+    "name": "Give the Cook the four banquet ingredients",
+    "activity_id": "rfd.another_cooks_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.another_cooks_quest.start"
+    },
+    "consumes": [
+      {
+        "item_id": "item.dirty_blast",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.eye_of_newt",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.greenmans_ale",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rotten_tomato",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 18,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_opening_and_goblins",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The handover awards the opening quest point in the captured sequence."
+    }
+  },
+  {
+    "id": "rfd.another_cooks_quest.complete",
+    "name": "Attend the banquet and enter the frozen dining room",
+    "activity_id": "rfd.another_cooks_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.rfd.dining_room",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.another_cooks_quest.hand_over_ingredients"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.culinaromancers_chest",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 95,
+      "expected_seconds": 160,
+      "max_seconds": 250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_opening_and_goblins",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes the walk to the kitchen-side dining door, the cutscene and approaching the frozen goblins."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_goblin_generals.inspect",
+    "name": "Inspect the frozen goblin generals",
+    "activity_id": "rfd.freeing_the_goblin_generals",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.dining_room",
+    "end_location_id": "location.rfd.dining_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.another_cooks_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.goblin_diplomacy.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 27
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start the Goblin Generals rescue after the banquet and Goblin Diplomacy."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_goblin_generals.ask_about_charcoal",
+    "name": "Ask Mudknuckles what he needs",
+    "activity_id": "rfd.freeing_the_goblin_generals",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.goblin_kitchen",
+    "end_location_id": "location.rfd.goblin_kitchen",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_the_goblin_generals.inspect"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 18,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask for the Goblin Cook's help and learn about the charcoal."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_goblin_generals.give_charcoal",
+    "name": "Give Mudknuckles the charcoal",
+    "activity_id": "rfd.freeing_the_goblin_generals",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.goblin_kitchen",
+    "end_location_id": "location.rfd.charred_goblin_kitchen",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_the_goblin_generals.ask_about_charcoal"
+    },
+    "consumes": [
+      {
+        "item_id": "item.charcoal",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.goblin_kitchen_charred",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 48,
+      "max_seconds": 95
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_opening_and_goblins",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The explosion scene changes the available kitchen room."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_goblin_generals.learn_recipe",
+    "name": "Ask Mudknuckles how to feed the generals",
+    "activity_id": "rfd.freeing_the_goblin_generals",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.charred_goblin_kitchen",
+    "end_location_id": "location.rfd.charred_goblin_kitchen",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_the_goblin_generals.give_charcoal"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 20,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn the compromise ingredients in the charred kitchen."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_goblin_generals.slice_orange",
+    "name": "Slice an orange",
+    "activity_id": "rfd.freeing_the_goblin_generals",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.charred_goblin_kitchen",
+    "end_location_id": "location.rfd.charred_goblin_kitchen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_goblin_generals.learn_recipe"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.orange",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.orange_slices",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 1,
+      "expected_seconds": 3,
+      "max_seconds": 8
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the reusable knife on the orange."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_goblin_generals.dye_orange_blue",
+    "name": "Dye the orange slices blue",
+    "activity_id": "rfd.freeing_the_goblin_generals",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.charred_goblin_kitchen",
+    "end_location_id": "location.rfd.charred_goblin_kitchen",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_the_goblin_generals.learn_recipe"
+    },
+    "consumes": [
+      {
+        "item_id": "item.orange_slices",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.blue_dye",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dyed_orange",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 1,
+      "expected_seconds": 3,
+      "max_seconds": 8
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "This is one of the dye alternatives identified by the pinned helper."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_goblin_generals.dye_orange_green",
+    "name": "Dye the orange slices green",
+    "activity_id": "rfd.freeing_the_goblin_generals",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.charred_goblin_kitchen",
+    "end_location_id": "location.rfd.charred_goblin_kitchen",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_the_goblin_generals.learn_recipe"
+    },
+    "consumes": [
+      {
+        "item_id": "item.orange_slices",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.green_dye",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dyed_orange",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 1,
+      "expected_seconds": 3,
+      "max_seconds": 8
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "This is one of the dye alternatives identified by the pinned helper."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_goblin_generals.dye_orange_purple",
+    "name": "Dye the orange slices purple",
+    "activity_id": "rfd.freeing_the_goblin_generals",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.charred_goblin_kitchen",
+    "end_location_id": "location.rfd.charred_goblin_kitchen",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_the_goblin_generals.learn_recipe"
+    },
+    "consumes": [
+      {
+        "item_id": "item.orange_slices",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.purple_dye",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dyed_orange",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 1,
+      "expected_seconds": 3,
+      "max_seconds": 8
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "This is one of the dye alternatives identified by the pinned helper."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_goblin_generals.season_bait",
+    "name": "Season the fishing bait",
+    "activity_id": "rfd.freeing_the_goblin_generals",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.charred_goblin_kitchen",
+    "end_location_id": "location.rfd.charred_goblin_kitchen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_goblin_generals.learn_recipe"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.spice",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.gnome_spice",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fishing_bait",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.spicy_maggots",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 1,
+      "expected_seconds": 3,
+      "max_seconds": 8
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Either spice works as a tool and is retained."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_goblin_generals.soak_bread",
+    "name": "Soak the bread with water",
+    "activity_id": "rfd.freeing_the_goblin_generals",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.charred_goblin_kitchen",
+    "end_location_id": "location.rfd.charred_goblin_kitchen",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_the_goblin_generals.learn_recipe"
+    },
+    "consumes": [
+      {
+        "item_id": "item.bread",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bucket_of_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.soggy_bread",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 1,
+      "expected_seconds": 3,
+      "max_seconds": 8
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the water and retain the empty bucket."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_goblin_generals.collect_slop",
+    "name": "Have Mudknuckles mix the Slop of compromise",
+    "activity_id": "rfd.freeing_the_goblin_generals",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.charred_goblin_kitchen",
+    "end_location_id": "location.rfd.charred_goblin_kitchen",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_the_goblin_generals.learn_recipe"
+    },
+    "consumes": [
+      {
+        "item_id": "item.dyed_orange",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.spicy_maggots",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.soggy_bread",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slop_of_compromise",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand over the three prepared ingredients."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_goblin_generals.complete",
+    "name": "Feed the Slop of compromise to the frozen generals",
+    "activity_id": "rfd.freeing_the_goblin_generals",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.dining_room",
+    "end_location_id": "location.rfd.dining_room",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_the_goblin_generals.inspect"
+    },
+    "consumes": [
+      {
+        "item_id": "item.slop_of_compromise",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 10000
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 22,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The rescue grants its own point and three skill rewards once."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_rfd_opening",
+    "name": "Buy the tradeable banquet ingredients",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 3872
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.eye_of_newt",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.greenmans_ale",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ashes",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fruit_blast",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.project.starter_economy",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One purchase at stored guide prices."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_rfd_goblins",
+    "name": "Buy ingredients for the Goblin Generals rescue",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 805
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.orange",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.blue_dye",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.spice",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fishing_bait",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.charcoal",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.project.starter_economy",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One purchase at stored guide prices."
+    }
+  },
+  {
+    "id": "supply.varrock.buy_rotten_tomato",
+    "name": "Buy a rotten tomato from the Varrock pillory stall",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.square",
+    "end_location_id": "location.varrock.square",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rotten_tomato",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes the walk from the square waypoint to the nearby stall. The pinned helper records the one-coin price."
+    }
+  },
+  {
+    "id": "supply.lumbridge.fill_bucket",
+    "name": "Fill a bucket at the Lumbridge kitchen sink",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fill one carried bucket at the kitchen sink."
+    }
+  }
+]

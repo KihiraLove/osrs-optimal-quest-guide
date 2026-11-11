@@ -1,5 +1,45 @@
 [
   {
+    "id": "review.quest.recipe_for_disaster.completion_rewards",
+    "activity_id": "quest.recipe_for_disaster",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.recipe_for_disaster.complete"],
+    "expected_effects": {
+      "quest.recipe_for_disaster.complete": []
+    }
+  },
+  {
+    "id": "review.rfd.another_cooks_quest.completion_rewards",
+    "activity_id": "rfd.another_cooks_quest",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations", "source.capture.rfd_opening_and_goblins"],
+    "catalog_ids": ["rfd.another_cooks_quest.hand_over_ingredients", "rfd.another_cooks_quest.complete"],
+    "expected_effects": {
+      "rfd.another_cooks_quest.hand_over_ingredients": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1}
+      ],
+      "rfd.another_cooks_quest.complete": [
+        {"kind": "flag", "token_id": "unlock.culinaromancers_chest", "value": true}
+      ]
+    }
+  },
+  {
+    "id": "review.rfd.freeing_the_goblin_generals.completion_rewards",
+    "activity_id": "rfd.freeing_the_goblin_generals",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["rfd.freeing_the_goblin_generals.complete"],
+    "expected_effects": {
+      "rfd.freeing_the_goblin_generals.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "xp", "skill_id": "skill.cooking", "xp_tenths": 10000},
+        {"kind": "xp", "skill_id": "skill.farming", "xp_tenths": 10000},
+        {"kind": "xp", "skill_id": "skill.crafting", "xp_tenths": 10000}
+      ]
+    }
+  },
+  {
     "id": "claim.demon_slayer.aris",
     "activity_id": "quest.demon_slayer",
     "status": "expected",

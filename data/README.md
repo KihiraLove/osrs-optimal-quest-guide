@@ -1,9 +1,10 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.14.0` loads 24 skill tables and
-112 draft actions, including Lost City stages, The Restless Ghost, the museum
-route and Enlightened Journey. Durations estimate each interaction at its
+3 November 2026 at 10:00:06 UTC. Dataset `0.15.0` loads 24 skill tables and
+133 draft actions, including the Recipe for Disaster opening and goblin rescue,
+Lost City, The Restless Ghost, the museum route and Enlightened Journey.
+Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
 waypoints belongs to the travel graph. An action description identifies any
 movement included in its duration.
@@ -22,10 +23,11 @@ against these IDs. The ledger uses these statuses.
 
 The journal list preserves the client quest ID. Recipe for Disaster has one
 parent goal and ten child activities in the
-[stage review](raw/build-242/recipe-for-disaster-review.json). The review records
-the finale gate and separates its lamp and quest point from the parent goal.
-Equipment, combat, instance transitions and reward details require review
-before the stages can enter the loaded catalog.
+[stage review](raw/build-242/recipe-for-disaster-review.json). Another Cook's
+Quest and Freeing the Goblin Generals have loaded quest actions, ingredient
+sources and instance transitions. The parent records saved finale completion
+without awarding its lamp or quest point again. Equipment, combat, instance
+transitions and rewards for the other eight stages remain in review.
 
 [Quest Helper observations](raw/build-242/quest-helper/index.json) cover 209
 journal activities. They identify candidate coordinates, requirements,
