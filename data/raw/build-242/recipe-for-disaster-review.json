@@ -4,7 +4,9 @@
   "source_ids": [
     "source.quest_helper.quest_observations",
     "source.runelite.quests",
-    "source.capture.rfd_opening_and_goblins"
+    "source.capture.rfd_opening_and_goblins",
+    "source.capture.rfd_rock_cake",
+    "source.runelite.npc_health"
   ],
   "activity_id": "quest.recipe_for_disaster",
   "parent_goal": {
@@ -124,13 +126,14 @@
         "fixed_xp_tenths": {
           "skill.cooking": 10000,
           "skill.slayer": 10000
-        }
+        },
+        "delivery_action_id": "rfd.freeing_the_mountain_dwarf.complete"
       },
       "review": {
         "duration_seconds": null,
-        "mandatory_incidental_xp_tenths": null,
-        "combat_feasibility": "not_assessed",
-        "notes": "Review the exact rock-cake cooling route, use of ice gloves and possible Icefiend combat."
+        "mandatory_incidental_xp_tenths": {},
+        "combat_feasibility": "conditional_alternate",
+        "notes": "Ice gloves avoid the fight. The leather-gloves branch assumes a solo full-health Icefiend kill using Accurate with a bronze shortsword. Passive cooling, telegrab, other gloves, discounts, and the added chest stock need further review."
       }
     },
     {
@@ -735,13 +738,14 @@
     }
   ],
   "notes": [
-    "Direct gates and fixed completion XP are transcribed from the pinned helper and checked against the journal IDs. The eight remaining stages still need their gameplay mechanics verified for catalog admission.",
+    "Direct gates and fixed completion XP are transcribed from the pinned helper and checked against the journal IDs. The seven remaining stages still need their gameplay mechanics verified for catalog admission.",
     "The rescue entry and handover coordinates identify instanced interaction areas. Use the source observations for intermediate waypoints and supplies, then verify how to enter or exit each instance.",
     "Skill checks are listed separately so a boost can be evaluated at the relevant phase.",
     "Each of the ten stages contributes its own quest point. The parent goal duplicates no reward."
   ],
   "normalized_stages": [
     "rfd.another_cooks_quest",
-    "rfd.freeing_the_goblin_generals"
+    "rfd.freeing_the_goblin_generals",
+    "rfd.freeing_the_mountain_dwarf"
   ]
 }

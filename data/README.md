@@ -1,9 +1,9 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.15.0` loads 24 skill tables and
-133 draft actions, including the Recipe for Disaster opening and goblin rescue,
-Lost City, The Restless Ghost, the museum route and Enlightened Journey.
+3 November 2026 at 10:00:06 UTC. Dataset `0.16.0` loads 24 skill tables and
+151 draft actions, including Fishing Contest and three Recipe for Disaster
+stages, Lost City, The Restless Ghost, the museum route and Enlightened Journey.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
 waypoints belongs to the travel graph. An action description identifies any
@@ -24,10 +24,16 @@ against these IDs. The ledger uses these statuses.
 The journal list preserves the client quest ID. Recipe for Disaster has one
 parent goal and ten child activities in the
 [stage review](raw/build-242/recipe-for-disaster-review.json). Another Cook's
-Quest and Freeing the Goblin Generals have loaded quest actions, ingredient
-sources and instance transitions. The parent records saved finale completion
-without awarding its lamp or quest point again. Equipment, combat, instance
-transitions and rewards for the other eight stages remain in review.
+Quest, Freeing the Goblin Generals and Freeing the Mountain Dwarf have loaded
+quest actions, ingredients and travel. The parent records saved finale
+completion without awarding its lamp or quest point again. Seven stages remain
+in review.
+
+The [Fishing Contest review](raw/build-242/fishing-contest-review.json) records
+Vestri's quest route, the contest fee and the tunnel that opens at the trophy
+handover. The Mountain Dwarf rescue uses both tunnel entrances and can cool the
+cake on pickup with ice gloves or after a successful Icefiend fight. The eastern
+Fishing Contest route and passive cooling duration remain in review.
 
 [Quest Helper observations](raw/build-242/quest-helper/index.json) cover 209
 journal activities. They identify candidate coordinates, requirements,

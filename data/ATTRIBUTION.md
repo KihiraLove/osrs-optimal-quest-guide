@@ -24,6 +24,9 @@ original descriptions of findings. The data uses pinned upstream sources.
 - Recipe for Disaster ingredient and instance observations come from the pinned
   Quest Helper. Tip.It's historical walkthrough documents the timing of the
   opening quest point. Jagex's Grand Exchange records supply price estimates.
+- Fishing Contest and the Mountain Dwarf use pinned Quest Helper waypoints and
+  RuneLite item IDs. The Fishing Contest review and timer inventory link to
+  historical accounts of the trophy reward and rock cake cooling.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

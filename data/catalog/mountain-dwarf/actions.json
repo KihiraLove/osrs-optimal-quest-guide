@@ -1,0 +1,509 @@
+[
+  {
+    "id": "rfd.freeing_the_mountain_dwarf.inspect",
+    "name": "Inspect the frozen Mountain Dwarf",
+    "activity_id": "rfd.freeing_the_mountain_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.frozen_mountain_dwarf",
+    "end_location_id": "location.rfd.frozen_mountain_dwarf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.another_cooks_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fishing_contest.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 14,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The banquet and Fishing Contest gates both apply."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_mountain_dwarf.learn_ale_recipe",
+    "name": "Buy the Asgoldian ale recipe from Kaylee",
+    "activity_id": "rfd.freeing_the_mountain_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador.rising_sun_inn",
+    "end_location_id": "location.falador.rising_sun_inn",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_the_mountain_dwarf.inspect"
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 200
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use Kaylee’s full-price dialogue in the Rising Sun Inn. Discount variants are in review."
+    }
+  },
+  {
+    "id": "supply.falador.buy_asgarnian_ale",
+    "name": "Buy four Asgarnian ales at the Rising Sun Inn",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.falador.rising_sun_inn",
+    "end_location_id": "location.falador.rising_sun_inn",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 12
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.asgarnian_ale",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 13,
+      "max_seconds": 33
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Kaylee charges three coins each."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_mountain_dwarf.make_asgoldian_ale",
+    "name": "Add one coin to each of four ales",
+    "activity_id": "rfd.freeing_the_mountain_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador.rising_sun_inn",
+    "end_location_id": "location.falador.rising_sun_inn",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_the_mountain_dwarf.learn_ale_recipe"
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.asgarnian_ale",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.asgoldian_ale",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The modeled route mixes the ales at the inn after learning the recipe."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_mountain_dwarf.serve_rohak",
+    "name": "Give Rohak four Asgoldian ales in quick succession",
+    "activity_id": "rfd.freeing_the_mountain_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.white_wolf_mountain.rohak",
+    "end_location_id": "location.white_wolf_mountain.rohak",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_mountain_dwarf.inspect"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_mountain_dwarf.learn_ale_recipe"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.asgoldian_ale",
+        "quantity": 4
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 32,
+      "max_seconds": 70
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Serve the ales in one visit before Rohak sobers up."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_mountain_dwarf.pick_up_with_ice_gloves",
+    "name": "Order the rock cake and pick it up wearing ice gloves",
+    "activity_id": "rfd.freeing_the_mountain_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.white_wolf_mountain.rohak",
+    "end_location_id": "location.white_wolf_mountain.rohak",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_mountain_dwarf.serve_rohak"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.rfd.rock_cake_made",
+          "value": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ice_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 100
+      },
+      {
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.pot_of_flour",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.egg",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bowl_of_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.rock_cake_made",
+        "value": true
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cooled_dwarven_rock_cake",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay Rohak and give him the ingredients. Equip the ice gloves before picking up the cake so it cools on pickup."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_mountain_dwarf.pick_up_with_leather_gloves",
+    "name": "Order the rock cake and pick it up wearing leather gloves",
+    "activity_id": "rfd.freeing_the_mountain_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.white_wolf_mountain.rohak",
+    "end_location_id": "location.white_wolf_mountain.rohak",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_mountain_dwarf.serve_rohak"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.rfd.rock_cake_made",
+          "value": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 100
+      },
+      {
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.pot_of_flour",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.egg",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bowl_of_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.rock_cake_made",
+        "value": true
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hot_dwarven_rock_cake",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordinary gloves let you pick up the cake while it is still hot."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_mountain_dwarf.cool_with_icefiend",
+    "name": "Defeat an Ice Mountain Icefiend with the hot cake",
+    "activity_id": "rfd.freeing_the_mountain_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.ice_mountain.icefiends",
+    "end_location_id": "location.ice_mountain.icefiends",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_mountain_dwarf.pick_up_with_leather_gloves"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_shortsword",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.hot_dwarven_rock_cake",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cooled_dwarven_rock_cake",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 800
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 65,
+      "max_seconds": 155
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.npc_health",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The solo accurate-style scenario credits 80 Attack XP for 20 damage. Confirm Hitpoints XP and actual fight time in game."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat a full-health Ice Mountain Icefiend solo with the bronze shortsword on Accurate while holding the hot cake.",
+      "if_unmet": "If the cake stays hot or the fight becomes unsafe, stop and replan from the current inventory, location and XP."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_mountain_dwarf.complete",
+    "name": "Give the cooled rock cake to the frozen Mountain Dwarf",
+    "activity_id": "rfd.freeing_the_mountain_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.frozen_mountain_dwarf",
+    "end_location_id": "location.rfd.frozen_mountain_dwarf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_mountain_dwarf.serve_rohak"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.rfd.rock_cake_made",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.cooled_dwarven_rock_cake",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.slayer",
+        "xp_tenths": 10000
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The rescue gives its quest point and XP once. The chest stock review is tracked separately."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_rock_cake_extras",
+    "name": "Buy leather gloves and a bowl of water",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 49
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.leather_gloves",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bowl_of_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Guide-price snapshot of 10 GP for the gloves and 39 GP for the bowl of water."
+    }
+  }
+]

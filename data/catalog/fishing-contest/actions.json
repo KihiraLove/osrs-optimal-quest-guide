@@ -1,0 +1,325 @@
+[
+  {
+    "id": "quest.fishing_contest.start",
+    "name": "Ask Vestri about the tunnel",
+    "activity_id": "quest.fishing_contest",
+    "kind": "quest_stage",
+    "start_location_id": "location.white_wolf_mountain.vestri",
+    "end_location_id": "location.white_wolf_mountain.vestri",
+    "requirements": {
+      "kind": "skill",
+      "skill_id": "skill.fishing",
+      "minimum_level": 10,
+      "boostable": false
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fishing_pass",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 70
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Vestri gives the competition pass."
+    }
+  },
+  {
+    "id": "supply.seers_village.take_garlic",
+    "name": "Pick up garlic from the Seers’ Village table",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.seers_village.garlic",
+    "end_location_id": "location.seers_village.garlic",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.garlic",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 6,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes interacting with the spawn. Waiting for a respawn may take about 30 seconds."
+    }
+  },
+  {
+    "id": "quest.fishing_contest.dig_worm",
+    "name": "Dig a red vine worm in McGrubor’s Wood",
+    "activity_id": "quest.fishing_contest",
+    "kind": "quest_stage",
+    "start_location_id": "location.mcgrubors_wood.red_vine",
+    "end_location_id": "location.mcgrubors_wood.red_vine",
+    "requirements": {
+      "kind": "item",
+      "item_id": "item.spade",
+      "quantity": 1
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.red_vine_worm",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 8,
+      "max_seconds": 25
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Keep the spade. Guard dogs can be avoided."
+    }
+  },
+  {
+    "id": "supply.hemenster.buy_fishing_rod",
+    "name": "Buy a fishing rod from Grandpa Jack",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.hemenster.grandpa_jack",
+    "end_location_id": "location.hemenster.grandpa_jack",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fishing_rod",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Grandpa Jack sells the regular rod for five coins."
+    }
+  },
+  {
+    "id": "quest.fishing_contest.garlic_pipe",
+    "name": "Put garlic in the pipe by the Sinister Stranger",
+    "activity_id": "quest.fishing_contest",
+    "kind": "quest_stage",
+    "start_location_id": "location.hemenster.garlic_pipe",
+    "end_location_id": "location.hemenster.garlic_pipe",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fishing_contest.start"
+    },
+    "consumes": [
+      {
+        "item_id": "item.garlic",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 14
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the pipe before asking Bonzo to start the competition."
+    }
+  },
+  {
+    "id": "quest.fishing_contest.catch_carp",
+    "name": "Pay Bonzo and catch the giant carp during the contest",
+    "activity_id": "quest.fishing_contest",
+    "kind": "quest_stage",
+    "start_location_id": "location.hemenster.bonzo",
+    "end_location_id": "location.hemenster.carp_spot",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fishing_contest.garlic_pipe"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fishing_rod",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.red_vine_worm",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_giant_carp",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Keep the fee, spot switch and fishing attempt together while the contest is active. No incidental Fishing XP is credited."
+    },
+    "planned_outcome": {
+      "success_condition": "Pay the entry fee, switch to the pipe-side spot and catch the giant carp before the contest ends.",
+      "if_unmet": "If the attempt fails, obtain any replacement bait and fee and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.fishing_contest.claim_trophy",
+    "name": "Give the giant carp to Bonzo",
+    "activity_id": "quest.fishing_contest",
+    "kind": "quest_stage",
+    "start_location_id": "location.hemenster.bonzo",
+    "end_location_id": "location.hemenster.bonzo",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fishing_contest.catch_carp"
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_giant_carp",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fishing_trophy",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 22,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes the judging dialogue and receiving the trophy."
+    }
+  },
+  {
+    "id": "quest.fishing_contest.complete",
+    "name": "Return the trophy to Vestri",
+    "activity_id": "quest.fishing_contest",
+    "kind": "quest_stage",
+    "start_location_id": "location.white_wolf_mountain.vestri",
+    "end_location_id": "location.white_wolf_mountain.vestri",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fishing_contest.claim_trophy"
+    },
+    "consumes": [
+      {
+        "item_id": "item.fishing_trophy",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 24370
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.white_wolf_mountain_tunnel",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 20,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.capture.fishing_contest"
+      ],
+      "status": "estimated",
+      "note": "Uses the pinned helper’s 2,437 Fishing XP and one quest point. The shortcut opens after the handover."
+    }
+  }
+]

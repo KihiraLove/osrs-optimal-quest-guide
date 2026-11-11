@@ -244,8 +244,9 @@ class QuestCollectionTests(unittest.TestCase):
         initial = profile["initial_state"]
         expected_points = initial["counters"]["token.quest_points"]
         expected_xp = initial["xp_tenths"].copy()
+        stage_ids = {"rfd.another_cooks_quest", "rfd.freeing_the_goblin_generals"}
         for stage in self.rfd["stages"]:
-            if stage["activity_id"] not in self.rfd["normalized_stages"]:
+            if stage["activity_id"] not in stage_ids:
                 continue
             rewards = stage["completion_rewards"]
             expected_points += rewards["quest_points"]
@@ -262,6 +263,71 @@ class QuestCollectionTests(unittest.TestCase):
         ]}
         with self.assertRaises(DataError):
             verify_solution(without_banquet, profile, validator)
+
+    def test_fishing_contest_and_mountain_dwarf_replay(self):
+        profile = read_json(ROOT / "examples/build-242/rfd-mountain-dwarf-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile, beam_width=128, max_expansions=40000)
+        state = verify_solution(solution, profile, validator)["final_state"]
+        self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {})
+        self.assertEqual(state["counters"]["token.quest_points"], 5)
+        self.assertTrue(state["flags"]["unlock.white_wolf_mountain_tunnel"])
+        self.assertNotIn("item.coins", state["inventory"])
+        self.assertNotIn("item.hot_dwarven_rock_cake", state["inventory"])
+        self.assertNotIn("item.cooled_dwarven_rock_cake", state["inventory"])
+        self.assertEqual(state["inventory"]["item.fishing_rod"], 1)
+        self.assertEqual(state["inventory"]["item.spade"], 1)
+
+        initial = profile["initial_state"]
+        expected_xp = initial["xp_tenths"].copy()
+        expected_xp["skill.fishing"] += 24370
+        expected_xp["skill.cooking"] += 10000
+        expected_xp["skill.slayer"] += 10000
+        expected_xp["skill.attack"] += 800
+        self.assertEqual(state["xp_tenths"], expected_xp)
+
+        edges = {step.get("edge_id") for step in solution["steps"]}
+        self.assertIn("travel.walk.white_wolf_mountain.tunnel_west.out", edges)
+        self.assertIn("travel.walk.white_wolf_mountain.tunnel_east.out", edges)
+        tunnel = validator.tables["travel_edges"]["travel.walk.white_wolf_mountain.tunnel_west.out"]
+        step = {"kind": "travel", "edge_id": tunnel["id"], "modeled_seconds": tunnel["duration"]["expected_seconds"]}
+        with self.assertRaisesRegex(DataError, "required completed action"):
+            RouteState(validator.tables, profile["policies"], initial).apply(step)
+
+        self.assertEqual([step["action_id"] for step in solution["steps"] if "planned_outcome" in step], [
+            "quest.fishing_contest.catch_carp", "rfd.freeing_the_mountain_dwarf.cool_with_icefiend",
+        ])
+        fight = next(step for step in solution["steps"] if step.get("action_id") == "rfd.freeing_the_mountain_dwarf.cool_with_icefiend")
+        del fight["planned_outcome"]
+        with self.assertRaisesRegex(DataError, "planned_outcome"):
+            verify_solution(solution, profile, validator)
+
+    def test_mountain_dwarf_ice_gloves_cool_the_cake_on_pickup(self):
+        profile = read_json(ROOT / "examples/build-242/rfd-mountain-dwarf-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        dwarf = "rfd.freeing_the_mountain_dwarf"
+        ice_pickup = validator.tables["actions"][f"{dwarf}.pick_up_with_ice_gloves"]
+        leather_pickup = validator.tables["actions"][f"{dwarf}.pick_up_with_leather_gloves"]
+        initial = profile["initial_state"]
+        initial.update(location_id=ice_pickup["start_location_id"], completed_action_ids=[f"{dwarf}.serve_rohak"])
+        initial["inventory"]["item.ice_gloves"] = 1
+        initial["inventory"]["item.coins"] = 200
+        for item in ice_pickup["consumes"]:
+            if item["item_id"] != "item.coins":
+                initial["inventory"][item["item_id"]] = 2
+        state = RouteState(validator.tables, profile["policies"], initial)
+        chilled = state.apply({
+            "kind": "action", "action_id": ice_pickup["id"],
+            "modeled_seconds": ice_pickup["duration"]["expected_seconds"],
+        })
+        self.assertEqual(chilled.inventory["item.ice_gloves"], 1)
+        self.assertEqual(chilled.inventory["item.cooled_dwarven_rock_cake"], 1)
+        self.assertEqual(chilled.inventory["item.hot_dwarven_rock_cake"], 0)
+        with self.assertRaisesRegex(DataError, "flag"):
+            chilled.apply({
+                "kind": "action", "action_id": leather_pickup["id"],
+                "modeled_seconds": leather_pickup["duration"]["expected_seconds"],
+            })
 
     def test_rfd_parent_records_only_saved_finale_completion(self):
         profile = read_json(ROOT / "examples/build-242/rfd-opening-goblins-profile.json")

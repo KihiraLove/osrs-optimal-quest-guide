@@ -84,12 +84,23 @@ Cooking 10, saved Cook's Assistant and Goblin Diplomacy completions, and the
 ingredients in the inventory. The route enters the frozen dining room, makes
 Slop of compromise with purple dye and gnome spice, and returns to free the
 generals. The two stages award two quest points and 1,000 XP each in Cooking,
-Crafting and Farming. The other eight stages remain in the
+Crafting and Farming. Progress on the other stages is recorded in the
 [Recipe for Disaster progression review](../../data/raw/build-242/recipe-for-disaster-review.json).
 
 ```sh
 quest-optimizer solve-bounded data/manifest.json examples/build-242/rfd-opening-goblins-profile.json --beam-width 96 > artifacts/rfd-opening-goblins.json
 quest-optimizer replay artifacts/rfd-opening-goblins.json --catalog data/manifest.json --profile examples/build-242/rfd-opening-goblins-profile.json
+```
+
+`rfd-mountain-dwarf-profile.json` starts at Vestri with Fishing 10, saved
+banquet access, supplies and 326 GP. The route wins Fishing Contest, uses the
+tunnel and pays for the Asgoldian ale recipe and rock cake. It assumes a
+successful solo Icefiend fight with a bronze shortsword to cool the cake. The
+fixture carries four shrimps and leaves actual food use to the encounter.
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/rfd-mountain-dwarf-profile.json --beam-width 128 --max-expansions 40000 > artifacts/rfd-mountain-dwarf.json
+quest-optimizer replay artifacts/rfd-mountain-dwarf.json --catalog data/manifest.json --profile examples/build-242/rfd-mountain-dwarf-profile.json
 ```
 
 The optional progression tests cover the three essence mine task flags in the

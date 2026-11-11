@@ -58,5 +58,7 @@ jobs:
           quest-optimizer replay "$RUNNER_TEMP/lost-city-combat.json" --catalog data/manifest.json --profile examples/build-242/lost-city-combat-profile.json
           quest-optimizer solve-bounded data/manifest.json examples/build-242/rfd-opening-goblins-profile.json --beam-width 96 > "$RUNNER_TEMP/rfd-opening-goblins.json"
           quest-optimizer replay "$RUNNER_TEMP/rfd-opening-goblins.json" --catalog data/manifest.json --profile examples/build-242/rfd-opening-goblins-profile.json
+          quest-optimizer solve-bounded data/manifest.json examples/build-242/rfd-mountain-dwarf-profile.json --beam-width 128 --max-expansions 40000 > "$RUNNER_TEMP/rfd-mountain-dwarf.json"
+          quest-optimizer replay "$RUNNER_TEMP/rfd-mountain-dwarf.json" --catalog data/manifest.json --profile examples/build-242/rfd-mountain-dwarf-profile.json
       - name: Run optimizer checks
         run: python -m unittest discover -s optimizer/tests -v
