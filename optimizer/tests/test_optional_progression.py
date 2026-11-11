@@ -3,6 +3,7 @@
 from pathlib import Path
 import unittest
 
+from quest_optimizer.bounded_search import solve_bounded
 from quest_optimizer.data import Contracts, DataError, load_catalog, read_json
 from quest_optimizer.semantics import CatalogValidator
 
@@ -172,3 +173,12 @@ class DiaryDetourFixtureTests(unittest.TestCase):
         self.solution["steps"][1], self.solution["steps"][2] = self.solution["steps"][2], self.solution["steps"][1]
         with self.assertRaisesRegex(DataError, "claim precedes a required completed action"):
             self.validator.validate_solution(self.solution, self.profile)
+
+    def test_bounded_search_finds_the_diary_detour(self):
+        with_claim, _ = solve_bounded(self.validator, self.profile)
+        baseline, _ = solve_bounded(self.validator, self.profile, excluded_actions=(self.claim["id"],))
+        self.assertEqual(with_claim["manual_training_xp_tenths_by_skill"], {})
+        self.assertEqual(baseline["manual_training_xp_tenths_by_skill"], {"skill.example": 1000})
+        self.assertEqual([step.get("action_id") or step["kind"] for step in with_claim["steps"]], [
+            self.task["id"], self.tier["id"], self.claim["id"], "reward_use", "action.example",
+        ])

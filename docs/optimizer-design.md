@@ -49,9 +49,36 @@ can beat training directly to the next threshold.
 
 The state budget bounds the reference search. It produces an exact result
 when it reaches the best goal and fails explicitly if the budget is exceeded.
-Search on reviewed full-game inputs will need a scalable baseline, profiling,
-and comparisons with bounded methods such as beam search and neighbourhood
-improvement. Report any proved bounds and keep the manual XP objective first.
+
+## Bounded search
+
+`solve-bounded` searches a configurable beam of route states. It makes training
+proposals from the requirements of reachable transitions and available reward
+picks. It can train before a reward that must be spent immediately. It expands
+actions, travel edges and reward choices through the same transition engine as
+exact search. A longer route can survive alongside a shorter route if it leaves
+different inventory, unlocks, cooldowns or other state.
+
+The primary lower bound takes the largest unboostable requirement per skill
+from goals and mandatory AND dependencies. It credits remaining fixed XP and
+every eligible lamp pick at its highest amount. It allows every skill to receive
+the same pick for the purpose of this bound, and it ignores award order.
+The result can be loose. The beam ranks states by incurred XP plus this bound,
+then uses mandatory progress, current XP deficits and optimistic waypoint
+distance. Travel distance here guides candidate ranking. Actual routes must
+traverse available catalog edges and pay their costs.
+
+The expansion budget and seed make repeated runs with the same inputs
+reproducible. Beam pruning and the training proposals can discard viable or
+better routes, so a complete draft or reviewed result uses `best_known`.
+Explicit action exclusions are available for comparison runs. A search that
+finds no complete route fails with its expansion count. The catalog reachability
+audit can separately identify goals blocked by the available inputs.
+
+A saved incumbent is replayed against the current inputs before it can bound
+another run. Candidates and incumbents are compared by manual XP first and
+then modelled time, with stable step IDs to break ties. See the measured
+[benchmark comparisons](search-benchmarks.md).
 
 Travel routing uses directed edges filtered by state and policy. Pure fixed-cost
 edges can use shortest path; consumed charges, granted XP/unlocks or cooldowns may

@@ -110,7 +110,7 @@ def _state_key(state: RouteState, maximum_time: int, last_training_skill: str) -
     )
 
 
-def _progress_steps(state: RouteState, routes: dict, maximum_time: int):
+def _reward_steps(state: RouteState):
     for instance_id in sorted(state.pending or state.held):
         reward = state.rewards[state.held[instance_id].reward_id]
         for skill in sorted(_reward_skills(reward, state)):
@@ -124,16 +124,33 @@ def _progress_steps(state: RouteState, routes: dict, maximum_time: int):
                 "skill_id": skill, "gain_xp_tenths": amount, "overrides_observed_skill_restriction": override,
                 "explanation": f"Use {reward['name']} on {state.tables['skills'][skill]['name']}.",
             }
+
+
+def _transition_step(kind: str, record: dict) -> dict:
+    return {
+        "kind": kind, ("action_id" if kind == "action" else "edge_id"): record["id"],
+        "modeled_seconds": record["duration"]["expected_seconds"], "explanation": record["name"],
+    }
+
+
+def _progress_steps(state: RouteState, routes: dict, maximum_time: int):
+    yield from _reward_steps(state)
     if state.pending:
         return
     for kind, record in routes[state.location]:
-        record_id = record["id"]
-        yield (record_id, kind), {
-            "kind": kind, ("action_id" if kind == "action" else "edge_id"): record_id,
-            "modeled_seconds": record["duration"]["expected_seconds"], "explanation": record["name"],
-        }
+        yield (record["id"], kind), _transition_step(kind, record)
     if state.elapsed < maximum_time or state.boosts or state.cooldowns:
         yield ("wait",), {"kind": "wait", "modeled_seconds": 1, "explanation": "Advance the modelled clock."}
+
+
+def _training_step(state: RouteState, skill: str, after: int, reasons: list[str]) -> dict:
+    before = state.xp[skill]
+    return {
+        "kind": "training", "skill_id": skill, "before_xp_tenths": before,
+        "gain_xp_tenths": after - before, "after_xp_tenths": after,
+        "required_by": reasons, "resume_location_id": state.location,
+        "explanation": f"Gain {after - before} XP tenths and resume at this waypoint.",
+    }
 
 
 def _training_steps(state: RouteState, targets: dict, last_skill: str, budget: int | None):
@@ -151,12 +168,7 @@ def _training_steps(state: RouteState, targets: dict, last_skill: str, budget: i
         # immediately before an action that forces a level-scaled reward pick.
         other_amounts = (target for target in range(before + 1, maximum + 1) if target not in preferred)
         for after in chain(sorted(preferred), other_amounts):
-            yield (skill, "training", after), {
-                "kind": "training", "skill_id": skill, "before_xp_tenths": before,
-                "gain_xp_tenths": after - before, "after_xp_tenths": after,
-                "required_by": reasons, "resume_location_id": state.location,
-                "explanation": f"Gain {after - before} XP tenths and resume at this waypoint.",
-            }
+            yield (skill, "training", after), _training_step(state, skill, after, reasons)
 
 
 def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int = 50_000) -> dict:
@@ -185,7 +197,15 @@ def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int =
         if best[key] != score:
             continue
         if goals <= state.completed and not state.pending:
-            return _solution(validator, profile, state, steps)
+            return build_solution(
+                validator, profile, state, steps,
+                solution_id="solution.exact." + profile["profile_id"],
+                solver={
+                    "name": "exact-small-dijkstra", "seed": 0, "status": "optimal",
+                    "primary_lower_bound_xp_tenths": score[0], "secondary_lower_bound_seconds": score[1],
+                },
+                limitations=["Exact for the supplied finite catalog and profile using the catalog's expected durations."],
+            )
 
         def offer(move_id, step):
             nonlocal incumbent
@@ -218,7 +238,10 @@ def solve_small(validator: CatalogValidator, profile: dict, *, max_states: int =
     raise DataError("Exact search found no feasible route for the supplied goals")
 
 
-def _solution(validator: CatalogValidator, profile: dict, state: RouteState, steps: tuple[dict, ...]) -> dict:
+def build_solution(
+    validator: CatalogValidator, profile: dict, state: RouteState, steps: tuple[dict, ...],
+    *, solution_id: str, solver: dict, limitations: list[str],
+) -> dict:
     def transition_id(step):
         return step.get("action_id") or step.get("edge_id") or step.get("reward_id")
 
@@ -229,20 +252,19 @@ def _solution(validator: CatalogValidator, profile: dict, state: RouteState, ste
         remaining[transition_id(step)] -= 1
         if step["kind"] == "training":
             training[step["skill_id"]] += step["gain_xp_tenths"]
-            step = {**step, "required_by": [record_id for record_id in step["required_by"] if remaining[record_id]]}
+            relevant = [record_id for record_id in step["required_by"] if remaining[record_id]]
+            if relevant:
+                step = {**step, "required_by": relevant}
         ordered_steps.append({"step_id": f"step.{index:06d}", **step})
     manual = sum(training.values())
     seconds = state.elapsed - profile["initial_state"]["modeled_elapsed_seconds"]
     solution = {
         "schema_version": profile["schema_version"],
-        "solution_id": "solution.exact." + profile["profile_id"],
+        "solution_id": solution_id,
         "inputs": input_identity(validator.catalog, profile, validator.contracts.schemas),
         "policies": profile["policies"],
         "solver": {
-            "name": "exact-small-dijkstra", "version": __version__, "seed": 0,
-            "status": "example" if profile["status"] == "synthetic" else "optimal",
-            "primary_lower_bound_xp_tenths": manual, "secondary_lower_bound_seconds": seconds,
-            "proof_artifact": None,
+            **solver, "version": __version__, "proof_artifact": None,
         },
         "objective": {
             "order": profile["objective"], "manual_training_xp_tenths": manual, "modeled_non_training_seconds": seconds,
@@ -252,9 +274,11 @@ def _solution(validator: CatalogValidator, profile: dict, state: RouteState, ste
         "final_state": state.snapshot(),
         "verification": {"schema_valid": True, "replay_valid": True, "catalog_release_ready": False},
         "limitations": [
-            "Exact for the supplied finite catalog and profile using the catalog's expected durations.",
+            *limitations,
             "Training steps specify XP gains and resume waypoints. The player chooses the method.",
         ],
     }
+    if profile["status"] == "synthetic":
+        solution["solver"]["status"] = "example"
     verify_solution(solution, profile, validator)
     return solution

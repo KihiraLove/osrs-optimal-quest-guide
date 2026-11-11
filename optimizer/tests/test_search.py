@@ -5,6 +5,7 @@ from pathlib import Path
 import unittest
 from unittest.mock import patch
 
+from quest_optimizer.bounded_search import solve_bounded
 from quest_optimizer.data import Contracts, DataError, load_catalog, read_json
 from quest_optimizer.replay import verify_solution
 from quest_optimizer.search import solve_small
@@ -107,11 +108,14 @@ class SearchTests(unittest.TestCase):
             for before in range(11)
         )
         self.assertEqual(expected, 3)
-        solution = solve_small(self.validator(), self.profile)
+        validator = self.validator()
+        solution = solve_small(validator, self.profile)
         self.assertEqual(solution["objective"]["manual_training_xp_tenths"], expected)
         self.assertEqual([step["kind"] for step in solution["steps"]],
                          ["training", "action", "reward_use", "action"])
         self.assertEqual(solution["steps"][2]["gain_xp_tenths"], 7)
+        bounded, _ = solve_bounded(validator, self.profile)
+        self.assertEqual(bounded["objective"], solution["objective"])
 
     def test_optional_detour_and_quest_lamp_policy(self):
         self.catalog["skills"][0]["xp_thresholds_tenths"] = [0, 4]

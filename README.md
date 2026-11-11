@@ -56,6 +56,7 @@ quest-optimizer validate-data examples/synthetic/manifest.json
 quest-optimizer validate-json profile examples/synthetic/profile.json --catalog examples/synthetic/manifest.json
 quest-optimizer replay examples/synthetic/solution.json --catalog examples/synthetic/manifest.json --profile examples/synthetic/profile.json
 quest-optimizer solve-small examples/synthetic/manifest.json examples/synthetic/profile.json > artifacts/small-route.json
+quest-optimizer solve-bounded data/manifest.json examples/build-242/museum-quiz-profile.json --incumbent artifacts/museum-route.json --report artifacts/museum-search.json
 python -m unittest discover -s optimizer/tests -v
 ```
 
@@ -73,6 +74,12 @@ See [the data pipeline](docs/data-pipeline.md).
 It minimises manual XP first, then modelled activity and travel time, then
 stable move IDs. The search fails explicitly if it hits `--max-states`
 (50,000 by default). The game catalog remains in draft review.
+
+`solve-bounded` searches larger profiles with a configurable beam width, expansion
+budget and seed. It independently replays a complete route before returning it.
+`--incumbent` reuses a verified route with matching inputs and saves improvements.
+`--report` records search counts, runtime and traced Python memory.
+See the [search benchmarks](docs/search-benchmarks.md).
 
 ## Documentation
 
