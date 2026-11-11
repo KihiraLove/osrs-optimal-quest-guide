@@ -83,7 +83,9 @@ class RewardTrace:
         # Other gates are evaluated by full replay.
         return True
 
-    def award(self, transition: dict, path: str) -> None:
+    def award(self, transition: dict, path: str, *, planned_outcome: dict | None = None) -> None:
+        if planned_outcome != transition.get("planned_outcome"):
+            self._fail(f"{path}.planned_outcome", "must match the catalog's completion condition")
         transition_id = transition["id"]
         effects = transition["effects"]
         if transition.get("repeat_limit") == 1 and transition_id in self.used_transitions:

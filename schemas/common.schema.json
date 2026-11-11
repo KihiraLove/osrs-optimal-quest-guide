@@ -67,6 +67,15 @@
       "minItems": 1,
       "uniqueItems": true
     },
+    "planned_outcome": {
+      "type": "object",
+      "properties": {
+        "success_condition": {"type": "string", "minLength": 1},
+        "if_unmet": {"type": "string", "minLength": 1}
+      },
+      "required": ["success_condition", "if_unmet"],
+      "additionalProperties": false
+    },
     "requirement": {
       "oneOf": [
         {

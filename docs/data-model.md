@@ -87,6 +87,14 @@ Counter effects apply within zero and the token's `maximum` if one is set.
 Each reward has at most one producer, and reviewed catalogs require a producer.
 Every transition that awards XP or an XP reward has `repeat_limit: 1`.
 
+An action can carry a `planned_outcome` with an observable `success_condition`
+and instructions `if_unmet`. The solver copies both fields into the action step.
+Replay applies the declared costs and effects for the successful scenario.
+The player checks the condition in game before following later steps. For Lost
+City, the declared costs reserve a fixed rune budget and the Magic XP effect is
+a conservative floor. If the encounter differs, use observed items, XP and quest
+progress for the next profile.
+
 ## Typed transition mechanics
 
 Route replay checks all requirements at transition start, then advances the

@@ -403,7 +403,7 @@ class CatalogValidator:
             trace.before_step(step, field)
             if kind == "action":
                 action = self._ref("actions", step["action_id"], context, f"{field}.action_id")
-                trace.award(action, f"{field}.action_id")
+                trace.award(action, field, planned_outcome=step.get("planned_outcome"))
             elif kind == "travel":
                 edge = self._ref("travel_edges", step["edge_id"], context, f"{field}.edge_id")
                 trace.award(edge, f"{field}.edge_id")

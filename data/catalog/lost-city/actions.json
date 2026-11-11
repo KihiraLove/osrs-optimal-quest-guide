@@ -104,6 +104,189 @@
     }
   },
   {
+    "id": "quest.lost_city.get_dungeon_axe",
+    "name": "Obtain a bronze axe from the Entrana dungeon zombies",
+    "activity_id": "quest.lost_city",
+    "planned_outcome": {
+      "success_condition": "Solo the dungeon zombies with Fire Strike until you pick up a bronze axe, within the 60-cast reserve.",
+      "if_unmet": "Stop this route if the condition is unmet. Use the reserved Lumbridge tablet if leaving the dungeon, restock, and replan from observed progress and remaining items. If an iron axe drops first, record it in the new profile as a usable axe."
+    },
+    "kind": "quest_stage",
+    "start_location_id": "location.entrana_dungeon.zombies",
+    "end_location_id": "location.entrana_dungeon.zombies",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lost_city.descend_entrana"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 13,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lumbridge_teleport_tablet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 120
+      },
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 180
+      },
+      {
+        "item_id": "item.mind_rune",
+        "quantity": 60
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 345
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_axe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 210,
+      "max_seconds": 285
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.magic_calculator",
+        "source.jagex.combat_rebalance_2024",
+        "source.jagex.weakness_changes_2025",
+        "source.runelite.npc_health",
+        "source.project.lost_city_combat"
+      ],
+      "status": "estimated",
+      "note": "Debit the full reserve and credit a floor on cast XP in the successful solo scenario. Damage XP and unused runes depend on play."
+    }
+  },
+  {
+    "id": "quest.lost_city.defeat_tree_spirit",
+    "name": "Defeat the Dramen Tree Spirit",
+    "activity_id": "quest.lost_city",
+    "planned_outcome": {
+      "success_condition": "Spawn the Dramen Tree Spirit with your axe and defeat it solo from the fungi safespot using Fire Strike, within the 60-cast reserve.",
+      "if_unmet": "Stop this route if the condition is unmet. Use the reserved Lumbridge tablet if leaving the dungeon, restock, and replan from observed progress and remaining items."
+    },
+    "kind": "quest_stage",
+    "start_location_id": "location.entrana_dungeon.dramen_tree",
+    "end_location_id": "location.entrana_dungeon.dramen_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lost_city.descend_entrana"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 13,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lumbridge_teleport_tablet",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.iron_axe",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 36,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 120
+      },
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 180
+      },
+      {
+        "item_id": "item.mind_rune",
+        "quantity": 60
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 1035
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.lost_city.tree_spirit_defeated",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 195,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.magic_calculator",
+        "source.jagex.combat_rebalance_2024",
+        "source.jagex.weakness_changes_2025",
+        "source.runelite.npc_health",
+        "source.project.lost_city_combat"
+      ],
+      "status": "estimated",
+      "note": "Debit the full reserve and credit a floor on cast XP in the successful solo scenario. Damage XP and unused runes depend on play."
+    }
+  },
+  {
     "id": "quest.lost_city.cut_branch",
     "name": "Cut a dramen branch",
     "activity_id": "quest.lost_city",

@@ -66,7 +66,9 @@ class RouteState(RewardTrace):
         }
         self.cooldowns = {token: ready for token, ready in self.cooldowns.items() if ready > self.elapsed}
 
-    def _transition(self, table: str, transition_id: str, seconds: int, path: str) -> None:
+    def _transition(
+        self, table: str, transition_id: str, seconds: int, path: str, *, planned_outcome: dict | None = None,
+    ) -> None:
         record = self.tables[table].get(transition_id)
         if record is None:
             self._fail(path, f"unknown {table} ID {transition_id!r}")
@@ -87,7 +89,7 @@ class RouteState(RewardTrace):
             if effect["kind"] == "skill_boost" and not self.policies["allow_boosts"]:
                 self._fail(path, "skill boosts are disabled by the profile")
         # Requirements refer to the starting state. Timed effects start at arrival.
-        self.award(record, path)
+        self.award(record, path, planned_outcome=planned_outcome)
         self.location = end
         if limit is not None:
             counts[transition_id] += 1
@@ -117,7 +119,9 @@ class RouteState(RewardTrace):
         self.before_step(step, path)
         kind = step["kind"]
         if kind == "action":
-            self._transition("actions", step["action_id"], step["modeled_seconds"], path)
+            self._transition(
+                "actions", step["action_id"], step["modeled_seconds"], path, planned_outcome=step.get("planned_outcome"),
+            )
         elif kind == "travel":
             self._transition("travel_edges", step["edge_id"], step["modeled_seconds"], path)
         elif kind == "reward_use":

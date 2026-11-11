@@ -129,10 +129,13 @@ def _reward_steps(state: RouteState):
 
 
 def _transition_step(kind: str, record: dict) -> dict:
-    return {
+    step = {
         "kind": kind, ("action_id" if kind == "action" else "edge_id"): record["id"],
         "modeled_seconds": record["duration"]["expected_seconds"], "explanation": record["name"],
     }
+    if "planned_outcome" in record:
+        step["planned_outcome"] = record["planned_outcome"].copy()
+    return step
 
 
 def _transition_key(kind: str, record: dict) -> tuple[str, str]:
@@ -302,6 +305,10 @@ def build_solution(
     }
     if profile["status"] == "synthetic":
         solution["solver"]["status"] = "example"
+    if any("planned_outcome" in step for step in steps):
+        solution["limitations"].append(
+            "Replay checks the planned success path. Confirm each conditional outcome in game before continuing."
+        )
     if "priority_action_ids" in profile:
         solution["objective"]["priority_elapsed_seconds"] = priority_seconds
     if "priority_skill_levels" in profile:

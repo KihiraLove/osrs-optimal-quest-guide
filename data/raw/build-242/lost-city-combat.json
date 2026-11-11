@@ -1,0 +1,62 @@
+{
+  "game_revision": "osrs-live-242",
+  "status": "estimated",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.runelite.magic_calculator",
+    "source.jagex.combat_rebalance_2024",
+    "source.jagex.weakness_changes_2025",
+    "source.runelite.npc_health"
+  ],
+  "fire_strike": {
+    "minimum_magic_level": 13,
+    "runes_per_cast": {
+      "item.air_rune": 2,
+      "item.fire_rune": 3,
+      "item.mind_rune": 1
+    },
+    "base_xp_tenths_per_cast": 115,
+    "base_max_hit": 8
+  },
+  "scenarios": [
+    {
+      "action_id": "quest.lost_city.get_dungeon_axe",
+      "npc_id": 64,
+      "combat_level": 25,
+      "hitpoints_observed": {
+        "jagex_2025": 30,
+        "runelite": 30
+      },
+      "fire_weakness_percent": 50,
+      "max_hit": 12,
+      "cast_reserve": 60,
+      "minimum_casts": 3,
+      "credited_magic_xp_tenths": 345,
+      "drop_probability": null
+    },
+    {
+      "action_id": "quest.lost_city.defeat_tree_spirit",
+      "npc_id": 1163,
+      "combat_level": 101,
+      "hitpoints_observed": {
+        "jagex_2025": 187,
+        "runelite": 85
+      },
+      "fire_weakness_percent": 35,
+      "max_hit": 10,
+      "cast_reserve": 60,
+      "minimum_casts": 9,
+      "credited_magic_xp_tenths": 1035
+    }
+  ],
+  "assumptions": [
+    "Each action models a solo success. The two 60-cast reserves are estimates with no drop or fight success probability assigned.",
+    "Use the higher published Tree Spirit HP for reserve planning and the lower published HP to calculate the base cast XP floor.",
+    "Assume ordinary Fire Strike with no damage-boosting equipment. Ignore damage XP, unused runes and extra loot in the forecast.",
+    "The backup Lumbridge tablet stays in inventory until used. Confirm each outcome before advancing."
+  ],
+  "open_checks": [
+    "Reconcile the Tree Spirit HP discrepancy with a build 242 dungeon capture.",
+    "Measure rune use, duration and damage XP for solo casts and a larger sample of zombie axe attempts."
+  ]
+}

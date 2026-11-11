@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1.0",
+  "profile_id": "profile.fixture.lost_city_combat",
+  "dataset_id": "osrs.main",
+  "dataset_version": "0.13.0",
+  "status": "synthetic",
+  "account_type": "main",
+  "members": true,
+  "objective": [
+    "counted_manual_training_xp_tenths",
+    "priority_skill_elapsed_seconds",
+    "modeled_non_training_seconds",
+    "stable_step_ids"
+  ],
+  "policies": {
+    "quest_lamp_skill_policy": "any_skill",
+    "trade_enabled": true,
+    "gp_policy": "self_funded",
+    "allow_boosts": true,
+    "allow_poh_services": true,
+    "allow_wilderness_travel": true,
+    "allow_death_travel": false,
+    "allow_minigame_teleports": true,
+    "allow_world_switching": false,
+    "allow_player_assistance": true,
+    "allow_repeatable_xp": false,
+    "training_methods": "user_choice",
+    "training_time_in_objective": false,
+    "training_resume_policy": "return_to_route_waypoint",
+    "world": 330
+  },
+  "initial_state": {
+    "location_id": "location.lumbridge.castle_courtyard",
+    "xp_tenths": {
+      "skill.agility": 0,
+      "skill.attack": 0,
+      "skill.construction": 0,
+      "skill.cooking": 0,
+      "skill.crafting": 148330,
+      "skill.defence": 0,
+      "skill.farming": 0,
+      "skill.firemaking": 0,
+      "skill.fishing": 0,
+      "skill.fletching": 0,
+      "skill.herblore": 0,
+      "skill.hitpoints": 11540,
+      "skill.hunter": 0,
+      "skill.magic": 18330,
+      "skill.mining": 0,
+      "skill.prayer": 0,
+      "skill.ranged": 0,
+      "skill.runecraft": 0,
+      "skill.sailing": 0,
+      "skill.slayer": 0,
+      "skill.smithing": 0,
+      "skill.strength": 0,
+      "skill.thieving": 0,
+      "skill.woodcutting": 248150
+    },
+    "completed_action_ids": [],
+    "flags": {
+      "flag.spellbook.standard": true,
+      "flag.travel.varrock_square_selected": true
+    },
+    "counters": {
+      "token.quest_points": 1,
+      "token.bank_coins": 25
+    },
+    "inventory": {
+      "item.air_rune": 25,
+      "item.body_rune": 2,
+      "item.bread": 1,
+      "item.bronze_arrow": 25,
+      "item.bronze_axe": 1,
+      "item.bronze_dagger": 1,
+      "item.bronze_pickaxe": 1,
+      "item.bronze_shortsword": 1,
+      "item.bucket": 1,
+      "item.earth_rune": 4,
+      "item.mind_rune": 15,
+      "item.pot": 1,
+      "item.shortbow": 1,
+      "item.shrimps": 1,
+      "item.small_fishing_net": 1,
+      "item.tinderbox": 1,
+      "item.water_rune": 6,
+      "item.wooden_shield": 1,
+      "item.coins": 4500
+    },
+    "held_rewards": [],
+    "modeled_elapsed_seconds": 0
+  },
+  "goal_action_ids": [
+    "quest.lost_city.complete"
+  ],
+  "assumptions": [
+    "Synthetic funded main at Lumbridge with the standard starter kit and 4,500 carried GP earned before this fixture.",
+    "Magic 13, Woodcutting 36 and Crafting 31 are saved from prior progression.",
+    "The fixture buys the combat runes, knife and a backup Lumbridge tablet with carried coins.",
+    "Quest training steps request XP amounts. The player chooses the methods.",
+    "Train base Prayer to 43 early. Its XP is neutral in the manual XP objective.",
+    "The two dungeon outcomes must succeed in game. Reserve use and incidental XP in the solution are conservative."
+  ],
+  "priority_skill_levels": {
+    "skill.prayer": 43
+  }
+}

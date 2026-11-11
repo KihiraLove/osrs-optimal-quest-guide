@@ -52,7 +52,16 @@ Teleport, carves the staff and enters Zanaris. The modeled rewards are
 three quest points and 1,500 XP each in Crafting and Woodcutting. A carried
 tablet supplies an exit when the spell is unavailable.
 
+`lost-city-combat-profile.json` connects both segments from Lumbridge.
+It starts with Magic 13, Woodcutting 36, Crafting 31 and 4,500 carried GP
+from prior progression. The route pays an estimated 4,143 GP for runes,
+a knife and an escape tablet. It budgets 60 Fire Strikes per encounter
+and credits 138 Magic XP as a floor across the successful fights. Each
+combat step states what must happen before continuing.
+
 ```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-combat-profile.json --beam-width 96 > artifacts/lost-city-combat.json
+quest-optimizer replay artifacts/lost-city-combat.json --catalog data/manifest.json --profile examples/build-242/lost-city-combat-profile.json
 quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-preparation-profile.json > artifacts/lost-city-preparation.json
 quest-optimizer replay artifacts/lost-city-preparation.json --catalog data/manifest.json --profile examples/build-242/lost-city-preparation-profile.json
 quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-completion-profile.json > artifacts/lost-city-completion.json

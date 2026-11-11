@@ -14,6 +14,10 @@ original descriptions of findings. The data uses pinned upstream sources.
 - The Port Sarim deposit box uses the archived object tile and RuneLite ID.
   Patrick Watts's Entrana plugin supplies evidence for the catalog's reviewed
   equipment restrictions. [Pinned source and license](https://github.com/pwatts6060/runelite-plugins/tree/07a86a771674c3a36ed49babc0c47c414c3a57db)
+- Lost City combat planning uses Jagex's combat updates, RuneLite's base
+  Fire Strike XP and NPC health observations, and the pinned Quest Helper
+  dungeon sequence. The combat review records the differing health values
+  and the project's rune reserves.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

@@ -9,24 +9,26 @@
   ],
   "helper_observation": "quest-helper/observations-03.json",
   "entrana_loadout_observation": "entrana-loadout.json",
+  "combat_scenario": "lost-city-combat.json",
   "preparation_stages": [
     "quest.lost_city.start",
     "quest.lost_city.find_shamus",
     "quest.lost_city.descend_entrana"
   ],
   "combat_checkpoint": {
-    "status": "expected",
+    "status": "estimated",
     "required_npc": "Dramen Tree Spirit",
     "observed_combat_level": 101,
     "npc_source": "Quest Helper LostCity.killDramenSpirit",
     "axe_source": "Dungeon zombies can drop a bronze or iron axe.",
     "quest_progress": 3,
     "saved_flag_id": "flag.quest.lost_city.tree_spirit_defeated",
+    "conditional_stages": [
+      "quest.lost_city.get_dungeon_axe",
+      "quest.lost_city.defeat_tree_spirit"
+    ],
     "mandatory_incidental_xp_tenths": null,
-    "open_checks": [
-      "Verify a bounded way to obtain the dungeon axe and the resulting consumables and incidental XP.",
-      "Verify exact combat XP and supply use for the chosen Tree Spirit route."
-    ]
+    "note": "The conditional route credits the minimum base cast XP for the chosen solo method. Exact XP depends on casts and damage."
   },
   "post_combat_stages": [
     "quest.lost_city.cut_branch",
@@ -40,5 +42,5 @@
       "skill.crafting": 15000
     }
   },
-  "notes": "The preparation route banks restricted starter gear in Port Sarim and reaches the dungeon. The post-combat route starts at the saved combat checkpoint."
+  "notes": "The funded route starts at Lumbridge with saved skill progress and purchases its supplies. A separate post-combat profile can resume at the saved checkpoint."
 }

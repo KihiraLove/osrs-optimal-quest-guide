@@ -478,5 +478,66 @@
       "status": "estimated",
       "note": "Transfer each matching stack in the draft loadout in one modeled banking visit."
     }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_lost_city_runes",
+    "name": "Buy runes for the Lost City combat reserve",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 3480
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.air_rune",
+        "quantity": 240
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fire_rune",
+        "quantity": 360
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mind_rune",
+        "quantity": 120
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.project.starter_economy",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.lost_city_combat"
+      ],
+      "status": "estimated",
+      "note": "Buy two 60-cast Fire Strike reserves at the recorded guide-price estimate."
+    }
   }
 ]

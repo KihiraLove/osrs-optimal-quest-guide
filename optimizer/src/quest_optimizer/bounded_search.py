@@ -214,7 +214,24 @@ def _distances(destination, incoming):
     return distances
 
 
-def _required_actions(initial, goals):
+def _unique_action_producers(tables):
+    # A travel effect is an alternative source, even though the guide only
+    # follows mandatory dependencies through actions.
+    producers = defaultdict(set)
+    for table in ("actions", "travel_edges"):
+        for record_id, record in tables[table].items():
+            for effect in record["effects"]:
+                if effect["kind"] == "item":
+                    producers["item", effect["item_id"]].add(record_id)
+                elif effect["kind"] == "flag" and effect["value"]:
+                    producers["flag", effect["token_id"]].add(record_id)
+    return {
+        key: record_id for key, ids in producers.items() if len(ids) == 1
+        for record_id in ids if record_id in tables["actions"]
+    }
+
+
+def _required_actions(initial, goals, producers):
     needed = {}
     remaining = list(goals)
     while remaining:
@@ -224,6 +241,17 @@ def _required_actions(initial, goals):
         record = initial.tables["actions"][action_id]
         rules = list(_mandatory_rules(record["requirements"]))
         remaining.extend(rule["action_id"] for rule in rules if rule["kind"] == "action_completed")
+        for rule in rules:
+            if rule["kind"] == "flag" and rule["value"] and not initial.flags.get(rule["token_id"]):
+                producer = producers.get(("flag", rule["token_id"]))
+                if producer is not None:
+                    remaining.append(producer)
+        for item in record["consumes"] + [rule for rule in rules if rule["kind"] == "item"]:
+            item_id = item["item_id"]
+            if initial.inventory[item_id] + initial.bank_inventory[item_id] < item["quantity"]:
+                producer = producers.get(("item", item_id))
+                if producer is not None:
+                    remaining.append(producer)
         needed[action_id] = rules
     return needed
 
@@ -231,8 +259,9 @@ def _required_actions(initial, goals):
 class _Guide:
     def __init__(self, initial, goals, excluded, priorities, skill_targets):
         actions = initial.tables["actions"]
-        self.needed = _required_actions(initial, goals)
-        self.prioritized = set(_required_actions(initial, priorities))
+        producers = _unique_action_producers(initial.tables)
+        self.needed = _required_actions(initial, goals, producers)
+        self.prioritized = set(_required_actions(initial, priorities, producers))
         self.skill_targets = skill_targets
         self.required_items = {}
         for action_id, rules in self.needed.items():

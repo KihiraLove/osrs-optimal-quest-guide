@@ -8,6 +8,7 @@ from quest_optimizer.bounded_search import solve_bounded
 from quest_optimizer.data import Contracts, DataError, load_catalog, read_json
 from quest_optimizer.replay import verify_solution
 from quest_optimizer.semantics import CatalogValidator
+from quest_optimizer.transitions import RouteState
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -131,7 +132,64 @@ class QuestCollectionTests(unittest.TestCase):
                 self.assertEqual(state["counters"]["token.quest_points"], 3)
                 self.assertTrue(state["flags"]["flag.quest.lost_city.complete"])
 
-    def test_lost_city_completion_requires_the_saved_combat_checkpoint(self):
+    def test_lost_city_replays_the_funded_conditional_combat_route(self):
+        profile = read_json(ROOT / "examples/build-242/lost-city-combat-profile.json")
+        scenario = read_json(RAW / "lost-city-combat.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile, beam_width=96, max_expansions=12000)
+        state = verify_solution(solution, profile, validator)["final_state"]
+        combat_steps = [step for step in solution["steps"] if "planned_outcome" in step]
+        self.assertEqual([step["action_id"] for step in combat_steps], [
+            "quest.lost_city.get_dungeon_axe", "quest.lost_city.defeat_tree_spirit",
+        ])
+        expected_xp = profile["initial_state"]["xp_tenths"]["skill.magic"]
+        for step, encounter in zip(combat_steps, scenario["scenarios"], strict=True):
+            action = validator.tables["actions"][step["action_id"]]
+            self.assertEqual(step["planned_outcome"], action["planned_outcome"])
+            self.assertEqual({cost["item_id"]: cost["quantity"] for cost in action["consumes"]}, {
+                item_id: per_cast * encounter["cast_reserve"]
+                for item_id, per_cast in scenario["fire_strike"]["runes_per_cast"].items()
+            })
+            expected_xp += encounter["credited_magic_xp_tenths"]
+        self.assertEqual(state["xp_tenths"]["skill.magic"], expected_xp)
+        self.assertTrue(state["flags"]["flag.quest.lost_city.tree_spirit_defeated"])
+        self.assertTrue(state["flags"]["flag.quest.lost_city.complete"])
+        self.assertEqual(state["counters"]["token.quest_points"], 4)
+        self.assertEqual(state["inventory"]["item.coins"], 357)
+        self.assertEqual(state["inventory"]["item.air_rune"], 25)
+        self.assertEqual(state["inventory"]["item.mind_rune"], 15)
+        self.assertNotIn("item.fire_rune", state["inventory"])
+        self.assertNotIn("item.lumbridge_teleport_tablet", state["inventory"])
+        self.assertEqual(state["inventory"]["item.dramen_staff"], 1)
+        self.assertEqual(solution["objective"]["counted_manual_training_xp_tenths"], 0)
+        del combat_steps[0]["planned_outcome"]
+        with self.assertRaisesRegex(DataError, "planned_outcome"):
+            verify_solution(solution, profile, validator)
+
+    def test_lost_city_axe_encounter_preserves_the_escape_reserve(self):
+        profile = read_json(ROOT / "examples/build-242/lost-city-combat-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        action = validator.tables["actions"]["quest.lost_city.get_dungeon_axe"]
+        initial = profile["initial_state"]
+        initial.update(
+            location_id=action["start_location_id"],
+            completed_action_ids=["quest.lost_city.descend_entrana"],
+            inventory={cost["item_id"]: cost["quantity"] for cost in action["consumes"]},
+        )
+        step = {
+            "kind": "action", "action_id": action["id"], "planned_outcome": action["planned_outcome"],
+            "modeled_seconds": action["duration"]["expected_seconds"],
+        }
+        state = RouteState(validator.tables, profile["policies"], initial)
+        with self.assertRaisesRegex(DataError, "required items"):
+            state.apply(step)
+        initial["inventory"]["item.lumbridge_teleport_tablet"] = 1
+        state = RouteState(validator.tables, profile["policies"], initial)
+        self.assertEqual(state.apply(step).snapshot()["inventory"], {
+            "item.bronze_axe": 1, "item.lumbridge_teleport_tablet": 1,
+        })
+
+    def test_lost_city_completion_requires_combat_or_saved_progress(self):
         profile = read_json(ROOT / "examples/build-242/lost-city-completion-profile.json")
         del profile["initial_state"]["flags"]["flag.quest.lost_city.tree_spirit_defeated"]
         validator = CatalogValidator(self.catalog, self.contracts)
