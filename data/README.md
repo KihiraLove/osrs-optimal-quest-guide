@@ -1,9 +1,10 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.17.0` loads 24 skill tables and
-170 draft actions, including Fishing Contest and four Recipe for Disaster
-stages, Lost City, The Restless Ghost, the museum route and Enlightened Journey.
+3 November 2026 at 10:00:06 UTC. Dataset `0.18.0` loads 24 skill tables and
+189 draft actions, including Big Chompy Bird Hunting, Fishing Contest, four
+Recipe for Disaster stages, Lost City, The Restless Ghost, the museum route
+and Enlightened Journey.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
 waypoints belongs to the travel graph. An action description identifies any
@@ -42,6 +43,15 @@ successful cook credits 100 Cooking XP. The catalog includes a public walk
 to Port Khazard, a Fishing Trawler grouping teleport from Lumbridge and
 Lumbridge Teleport from the dock. The dive step states the loadout the player
 must verify in game.
+
+The [Big Chompy Bird Hunting review](raw/build-242/big-chompy-bird-hunting-review.json)
+records Rantz's demonstration, the hunt and the roast. Rantz hands over the
+ogre bow during the quest. The player's hunt credits the build 242 Hunter XP,
+and the bow and charged bellows carry forward to the Skrach Uglogwee review.
+The route can gather the seasonings in Feldip or buy them with carried coins.
+It reserves all six possible seasonings because each ogre requests one of two
+ingredients. The Feldip approach includes fairy ring A.K.S. and a surface walk
+from Port Khazard.
 
 [Quest Helper observations](raw/build-242/quest-helper/index.json) cover 209
 journal activities. They identify candidate coordinates, requirements,

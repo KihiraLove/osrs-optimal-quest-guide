@@ -114,6 +114,17 @@ quest-optimizer solve-bounded data/manifest.json examples/build-242/rfd-pirate-p
 quest-optimizer replay artifacts/rfd-pirate-pete.json --catalog data/manifest.json --profile examples/build-242/rfd-pirate-pete-profile.json
 ```
 
+`big-chompy-bird-hunting-profile.json` starts at the Grand Exchange after
+Fishing Contest with Cooking and Ranged 30, Fletching 5 and 2,016 GP. The
+route budgets six arrows for Rantz and eight for the player's hunt. It gathers
+the six possible seasonings in Feldip and keeps the ogre bow and one remaining
+bellows load after the quest. The quest reward raises the fixture to Cooking 31.
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/big-chompy-bird-hunting-profile.json --beam-width 128 --max-expansions 40000 > artifacts/big-chompy-bird-hunting.json
+quest-optimizer replay artifacts/big-chompy-bird-hunting.json --catalog data/manifest.json --profile examples/build-242/big-chompy-bird-hunting-profile.json
+```
+
 The optional progression tests cover the three essence mine task flags in the
 draft catalog. A synthetic fixture compares manual training with a diary task,
 tier completion and NPC lamp claim that together meet the same quest goal.

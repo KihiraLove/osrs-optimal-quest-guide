@@ -124,7 +124,11 @@ class Build242BaselineTests(unittest.TestCase):
         self.assertEqual(report["objective"]["counted_manual_training_xp_tenths"], 0)
         self.assertEqual(report["objective"]["priority_skill_elapsed_seconds"], 0)
         self.assertEqual(report["final_state"]["counters"]["token.quest_points"], 4)
-        self.assertEqual(report["final_state"]["xp_tenths"]["skill.hitpoints"], 11540)
+        lamp_xp = sum(
+            step["gain_xp_tenths"] for step in solution["steps"]
+            if step["kind"] == "reward_use" and step["skill_id"] == "skill.hitpoints"
+        )
+        self.assertEqual(report["final_state"]["xp_tenths"]["skill.hitpoints"], 11540 + lamp_xp)
         purchases = [step["action_id"] for step in solution["steps"]
                      if step.get("action_id", "").startswith("supply.grand_exchange.purchase_")]
         self.assertCountEqual(purchases, [

@@ -30,6 +30,9 @@ original descriptions of findings. The data uses pinned upstream sources.
 - Pirate Pete uses the pinned Quest Helper, RuneLite item and NPC metadata,
   and RuneLite's Cooking calculator. Tip.It records the historical dive
   sequence, and OSRS Guide documents the Fishing Trawler grouping teleport.
+- Big Chompy Bird Hunting uses the pinned Quest Helper and Tip.It's historical
+  walkthrough. Jagex's August 2026 Hunter update supplies the hunt XP.
+  The Feldip ring tile comes from the pinned Shortest Path transport data.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

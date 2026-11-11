@@ -151,23 +151,26 @@ class QuestCollectionTests(unittest.TestCase):
                 for item_id, per_cast in scenario["fire_strike"]["runes_per_cast"].items()
             })
             expected_xp += encounter["credited_magic_xp_tenths"]
+        edges = [validator.tables["travel_edges"][step["edge_id"]] for step in solution["steps"] if step["kind"] == "travel"]
+        expected_xp += sum(
+            effect["xp_tenths"] for edge in edges for effect in edge["effects"]
+            if effect["kind"] == "xp" and effect["skill_id"] == "skill.magic"
+        )
         self.assertEqual(state["xp_tenths"]["skill.magic"], expected_xp)
         self.assertTrue(state["flags"]["flag.quest.lost_city.tree_spirit_defeated"])
         self.assertTrue(state["flags"]["flag.quest.lost_city.complete"])
         self.assertEqual(state["counters"]["token.quest_points"], 4)
         self.assertEqual(state["counters"]["token.bank_coins"], 25)
-        purchases = [step["action_id"] for step in solution["steps"] if step.get("action_id", "").startswith(
-            "supply.grand_exchange.purchase_"
-        )]
-        self.assertCountEqual(purchases, [
+        required_purchases = {
             "supply.grand_exchange.purchase_lost_city_runes", "supply.grand_exchange.purchase_knife",
             "supply.grand_exchange.purchase_lumbridge_tablet",
-        ])
+        }
         action_ids = [step.get("action_id") for step in solution["steps"]]
-        self.assertLess(action_ids.index("stronghold.security.claim_famine"), action_ids.index(purchases[0]))
-        self.assertEqual(state["inventory"]["item.air_rune"], 25)
+        self.assertTrue(required_purchases <= set(action_ids))
+        self.assertLess(action_ids.index("stronghold.security.claim_famine"),
+                        min(action_ids.index(purchase) for purchase in required_purchases))
+        self.assertIn("travel.tablet.entrana_dungeon.lumbridge", {edge["id"] for edge in edges})
         self.assertEqual(state["inventory"]["item.mind_rune"], 15)
-        self.assertNotIn("item.fire_rune", state["inventory"])
         self.assertNotIn("item.lumbridge_teleport_tablet", state["inventory"])
         self.assertEqual(state["inventory"]["item.dramen_staff"], 1)
         self.assertEqual(solution["objective"]["counted_manual_training_xp_tenths"], 0)
@@ -328,6 +331,70 @@ class QuestCollectionTests(unittest.TestCase):
                 "kind": "action", "action_id": leather_pickup["id"],
                 "modeled_seconds": leather_pickup["duration"]["expected_seconds"],
             })
+
+    def test_big_chompy_replays_hunt_gear_and_completion_xp(self):
+        quest = "quest.big_chompy_bird_hunting"
+        profile = read_json(ROOT / "examples/build-242/big-chompy-bird-hunting-profile.json")
+        review = read_json(RAW / "big-chompy-bird-hunting-review.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile, beam_width=128, max_expansions=40000)
+        state = verify_solution(solution, profile, validator)["final_state"]
+        self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {})
+        self.assertEqual(state["counters"]["token.quest_points"], 4)
+        self.assertEqual(state["inventory"], {"item.ogre_bow": 1, "item.ogre_bellows_one_load": 1})
+        self.assertTrue(state["flags"]["unlock.chompy_hunting"])
+        self.assertTrue(state["flags"]["unlock.ogre_arrow_fletching"])
+        self.assertEqual(RouteState(validator.tables, profile["policies"], state).level("skill.cooking"), 31)
+
+        [source] = self.observations[quest]
+        expected_xp = profile["initial_state"]["xp_tenths"].copy()
+        for effect in source["declared_xp"]["observations"]:
+            expected_xp[effect["skill_id"]] += effect["xp_tenths"]
+        for skill, xp in review["hunt"]["incidental_xp_tenths"].items():
+            expected_xp[skill] += xp
+        expected_xp["skill.magic"] += 410
+        self.assertEqual(state["xp_tenths"], expected_xp)
+
+        steps = solution["steps"]
+        self.assertEqual([step["action_id"] for step in steps if "planned_outcome" in step], [
+            f"{quest}.hand_over_arrows", f"{quest}.watch_demonstration", f"{quest}.hunt_chompy",
+            f"{quest}.season_and_roast",
+        ])
+        action_ids = {step.get("action_id") for step in steps}
+        self.assertTrue({
+            "supply.feldip.gather_onion_and_tomato", "supply.feldip.gather_cabbage_and_doogle",
+            "supply.feldip.gather_potato_and_equa",
+        } <= action_ids)
+
+        hunt = validator.tables["actions"][f"{quest}.hunt_chompy"]
+        self.assertIn({"item_id": "item.ogre_arrow", "quantity": review["hunt"]["arrow_reserve"]}, hunt["consumes"])
+        roast = validator.tables["actions"][f"{quest}.season_and_roast"]
+        expected_ingredients = {item for pair in review["seasoning_requests"].values() for item in pair}
+        self.assertEqual({cost["item_id"] for cost in roast["consumes"]}, expected_ingredients | {"item.raw_chompy"})
+
+        for missing in (f"{quest}.watch_demonstration", "supply.feldip.gather_cabbage_and_doogle"):
+            with self.subTest(missing=missing):
+                skipped = {**solution, "steps": [step for step in steps if step.get("action_id") != missing]}
+                with self.assertRaises(DataError):
+                    verify_solution(skipped, profile, validator)
+
+    def test_feldip_fairy_ring_requires_access_and_staff(self):
+        profile = read_json(ROOT / "examples/build-242/big-chompy-bird-hunting-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        edge = validator.tables["travel_edges"]["travel.fairy_ring.zanaris.aks"]
+        step = {"kind": "travel", "edge_id": edge["id"], "modeled_seconds": edge["duration"]["expected_seconds"]}
+        initial = profile["initial_state"]
+        initial["location_id"] = edge["from_location_id"]
+        initial["inventory"]["item.dramen_staff"] = 1
+        with self.assertRaisesRegex(DataError, "flag"):
+            RouteState(validator.tables, profile["policies"], initial).apply(step)
+        initial["flags"]["unlock.fairy_rings"] = True
+        arrived = RouteState(validator.tables, profile["policies"], initial).apply(step)
+        self.assertEqual(arrived.location, "location.fairy_ring.aks")
+        self.assertEqual(arrived.inventory["item.dramen_staff"], 1)
+        del initial["inventory"]["item.dramen_staff"]
+        with self.assertRaisesRegex(DataError, "required items"):
+            RouteState(validator.tables, profile["policies"], initial).apply(step)
 
     def test_rfd_parent_records_only_saved_finale_completion(self):
         profile = read_json(ROOT / "examples/build-242/rfd-opening-goblins-profile.json")

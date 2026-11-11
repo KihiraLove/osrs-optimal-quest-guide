@@ -1,0 +1,842 @@
+[
+  {
+    "id": "quest.big_chompy_bird_hunting.start",
+    "name": "Ask Rantz about hunting a chompy",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz",
+    "end_location_id": "location.feldip_hills.rantz",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.ogre_arrow_fletching",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Rantz introduces ogre arrows. The first dialogue and exact skill check timing remain in review."
+    }
+  },
+  {
+    "id": "quest.big_chompy_bird_hunting.hand_over_arrows",
+    "name": "Give Rantz six ogre arrows",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz",
+    "end_location_id": "location.feldip_hills.rantz",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.big_chompy_bird_hunting.start"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fletching",
+          "minimum_level": 5,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ogre_arrow",
+        "quantity": 6
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 18,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The pinned helper advances to this handover when six arrows are held. The tradeable-arrow path uses the same item ID. The draft keeps the documented Fletching 5 check here pending a below-level handover capture."
+    },
+    "planned_outcome": {
+      "success_condition": "Have Rantz accept six ordinary ogre arrows and continue to his explanation of the hunt.",
+      "if_unmet": "If the handover does not advance the quest, check Rantz’s dialogue and prepare arrows from achey logs, feathers and wolfbone arrowtips before replanning."
+    }
+  },
+  {
+    "id": "quest.big_chompy_bird_hunting.ask_about_bait",
+    "name": "Ask Rantz all the questions about the hunt",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz",
+    "end_location_id": "location.feldip_hills.rantz",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.big_chompy_bird_hunting.hand_over_arrows"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 31,
+      "max_seconds": 70
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The dialogue is needed to open the bellows chest."
+    }
+  },
+  {
+    "id": "quest.big_chompy_bird_hunting.take_bellows",
+    "name": "Unlock and search the chest for ogre bellows",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.bellows_chest",
+    "end_location_id": "location.feldip_hills.bellows_chest",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.big_chompy_bird_hunting.ask_about_bait"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ogre_bellows",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 16,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes opening the chest and taking one empty bellows."
+    }
+  },
+  {
+    "id": "quest.big_chompy_bird_hunting.fill_bellows",
+    "name": "Fill the ogre bellows on the swamp bubbles",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.swamp_bubbles",
+    "end_location_id": "location.feldip_hills.swamp_bubbles",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.big_chompy_bird_hunting.take_bellows"
+    },
+    "consumes": [
+      {
+        "item_id": "item.ogre_bellows",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ogre_bellows_three_loads",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 13
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.big_chompy_bird_hunting",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The empty bellows becomes a three-load bellows."
+    }
+  },
+  {
+    "id": "quest.big_chompy_bird_hunting.inflate_toads",
+    "name": "Use two loads of swamp gas to catch two toads",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.swamp_bubbles",
+    "end_location_id": "location.feldip_hills.swamp_bubbles",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.big_chompy_bird_hunting.fill_bellows"
+    },
+    "consumes": [
+      {
+        "item_id": "item.ogre_bellows_three_loads",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bloated_toad",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ogre_bellows_one_load",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 13,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.big_chompy_bird_hunting",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sets aside one bait for Rantz’s demonstration and one for the player’s hunt. Keep the remaining bellows load."
+    }
+  },
+  {
+    "id": "quest.big_chompy_bird_hunting.show_bait",
+    "name": "Show Rantz a bloated toad",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz",
+    "end_location_id": "location.feldip_hills.rantz",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.big_chompy_bird_hunting.inflate_toads"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bloated_toad",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Rantz marks the clearing for his demonstration."
+    }
+  },
+  {
+    "id": "quest.big_chompy_bird_hunting.watch_demonstration",
+    "name": "Set bait and watch Rantz miss the chompy",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.chompy_clearing",
+    "end_location_id": "location.feldip_hills.chompy_clearing",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.big_chompy_bird_hunting.show_bait"
+    },
+    "consumes": [
+      {
+        "item_id": "item.bloated_toad",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 35,
+      "max_seconds": 95
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.big_chompy_bird_hunting",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes the bird’s arrival and Rantz’s scripted shot."
+    },
+    "planned_outcome": {
+      "success_condition": "Set a bloated toad at the marked spot and wait for Rantz to fire and miss.",
+      "if_unmet": "If the toad despawns first, replace the bait and continue once Rantz has taken his shot."
+    }
+  },
+  {
+    "id": "quest.big_chompy_bird_hunting.receive_bow",
+    "name": "Ask Rantz for a turn and receive the ogre bow",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz",
+    "end_location_id": "location.feldip_hills.rantz",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.big_chompy_bird_hunting.watch_demonstration"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ogre_bow",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 19,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Rantz gives the bow during the quest."
+    }
+  },
+  {
+    "id": "quest.big_chompy_bird_hunting.hunt_chompy",
+    "name": "Bait, shoot and pluck a chompy yourself",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.chompy_clearing",
+    "end_location_id": "location.feldip_hills.chompy_clearing",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.big_chompy_bird_hunting.receive_bow"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ogre_bow",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.ranged",
+          "minimum_level": 30,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bloated_toad",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ogre_arrow",
+        "quantity": 8
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_chompy",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.ranged",
+        "xp_tenths": 400
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hunter",
+        "xp_tenths": 300
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 50,
+      "max_seconds": 145
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.npc_health",
+        "source.jagex.hunter_sweep_up_2026_08_19",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Solo Accurate or Rapid forecast for a 10 HP bird. Debit the full arrow reserve and reconcile recovered arrows and Hitpoints XP after the hunt."
+    },
+    "planned_outcome": {
+      "success_condition": "Equip the ogre bow and ordinary ogre arrows, catch a bird with the bait and kill it on Accurate or Rapid within 8 arrows. Pluck the carcass and pick up the raw chompy.",
+      "if_unmet": "If no bird is caught or the reserve runs out, stop and restock. Replan from actual progress, items and XP."
+    }
+  },
+  {
+    "id": "quest.big_chompy_bird_hunting.show_chompy",
+    "name": "Show Rantz the raw chompy and ask about seasoning",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz",
+    "end_location_id": "location.feldip_hills.rantz",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.big_chompy_bird_hunting.hunt_chompy"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.raw_chompy",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Rantz asks for either onion or potato. Keep the raw bird for the spit."
+    }
+  },
+  {
+    "id": "quest.big_chompy_bird_hunting.ask_children",
+    "name": "Ask Bugs and Fycie what they want in the roast",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.ogre_children",
+    "end_location_id": "location.feldip_hills.ogre_children",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.big_chompy_bird_hunting.show_chompy"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bugs asks for cabbage or equa leaves. Fycie asks for tomato or doogle leaves. Includes the short walk to Fycie and back."
+    }
+  },
+  {
+    "id": "quest.big_chompy_bird_hunting.season_and_roast",
+    "name": "Use the requested seasonings and roast the chompy",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz_spit",
+    "end_location_id": "location.feldip_hills.rantz_spit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.big_chompy_bird_hunting.ask_children"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 30,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_chompy",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.onion",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.potato",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.cabbage",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.equa_leaves",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.tomato",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.doogle_leaves",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.seasoned_chompy",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.big_chompy_bird_hunting",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget all six possible seasonings so any requests can be met. Only the requested three are used in game. Reconcile unused items after cooking. Incidental Cooking XP for the quest dish is in review."
+    },
+    "planned_outcome": {
+      "success_condition": "Use the three ingredients requested by Rantz, Bugs and Fycie and roast the raw bird on Rantz’s spit to obtain a seasoned chompy.",
+      "if_unmet": "If the spit does not produce a seasoned chompy, check the three requests and replan from the observed inventory."
+    }
+  },
+  {
+    "id": "quest.big_chompy_bird_hunting.complete",
+    "name": "Give Rantz the seasoned chompy",
+    "activity_id": "quest.big_chompy_bird_hunting",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz",
+    "end_location_id": "location.feldip_hills.rantz",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.big_chompy_bird_hunting.season_and_roast"
+    },
+    "consumes": [
+      {
+        "item_id": "item.seasoned_chompy",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fletching",
+        "xp_tenths": 2620
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 14700
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.ranged",
+        "xp_tenths": 7350
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.chompy_hunting",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The quest rewards are separate from the bow, bellows and hunt XP."
+    }
+  },
+  {
+    "id": "supply.feldip.gather_onion_and_tomato",
+    "name": "Gather an onion and a tomato",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.feldip_hills.onion_patch",
+    "end_location_id": "location.feldip_hills.onion_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.onion",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.tomato",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 8,
+      "max_seconds": 20
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick up both ingredients from adjacent tiles."
+    }
+  },
+  {
+    "id": "supply.feldip.gather_cabbage_and_doogle",
+    "name": "Gather cabbage and doogle leaves",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.feldip_hills.cabbage_patch",
+    "end_location_id": "location.feldip_hills.cabbage_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cabbage",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.doogle_leaves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes walking to the doogle leaf spawn and returning to the cabbage waypoint."
+    }
+  },
+  {
+    "id": "supply.feldip.gather_potato_and_equa",
+    "name": "Gather a potato and equa leaves",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.feldip_hills.potato_patch",
+    "end_location_id": "location.feldip_hills.potato_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.potato",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.equa_leaves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 13,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes walking to the equa leaf spawn and returning to the potato waypoint."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_chompy_ogre_arrows",
+    "name": "Buy ogre arrows for Rantz and the hunt",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2016
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ogre_arrow",
+        "quantity": 14
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Uses carried coins and a 144 GP guide-price estimate per arrow. Six for Rantz and an eight-arrow reserve."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_chompy_seasonings",
+    "name": "Buy all six possible chompy seasonings",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 573
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.onion",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.potato",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cabbage",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.equa_leaves",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.tomato",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.doogle_leaves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Guide-price estimate for one of each possible request. The cooking forecast reserves all six."
+    }
+  }
+]
