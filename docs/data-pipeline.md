@@ -43,7 +43,7 @@ observation without redistributing the original screen capture.
    combat assumptions. These are secondary-objective estimates. Never add training
    methods or XP/hour data: manual training is a requested amount of XP only.
 
-## Normalisation pipeline to implement
+## Normalisation pipeline
 
 `raw JSON -> deterministic adapters -> normalized collections -> structural +
 semantic checks -> human review -> versioned catalog -> optimizer -> replay ->
@@ -53,7 +53,30 @@ Adapters are offline and source-specific. Normalize names through an explicit
 alias map, use stable IDs, sort records by ID, use canonical units, and preserve
 source links. Emit a change report for added/removed quests, changed requirements,
 reward deltas, coordinates and travel locks. Unknown and conflicting fields go
-into a review queue; never fill them with zero or silently prefer the newest file.
+into a review queue.
+
+```sh
+quest-optimizer normalize-data data/manifest.json --skills data/raw/build-242/skills.json
+quest-optimizer audit-data data/manifest.json
+quest-optimizer diff-data previous/manifest.json data/manifest.json
+```
+
+`normalize-data` validates the merged catalog and writes deterministic JSON to
+stdout. The skill adapter reads the pinned skill index and exact XP curve.
+For other reviewed observations, pass `--observations BATCH` once per local
+file. A batch contains `batch_version: 1`, the matching `game_revision`, a
+`collections` object of catalog record arrays, and an optional `aliases` map
+from source identifiers to canonical IDs. A location can supply `tile` as
+`[x, y, plane]`. A reward or effect can supply `xp` as an integer or exact
+decimal string in XP units. The adapter converts that amount to integer XP
+tenths. Records may declare an `unknown_fields` list for unresolved facts.
+
+Conflicts and explicitly unknown fields stop normalization and print a JSON
+review queue on stderr. The queue includes the conflicting values and their
+evidence where available. Record the human decision in reconciliation and use the
+reviewed values in the catalog and observation batch. `diff-data` reports added
+and removed IDs and changed values by field, including action effects and
+travel requirements.
 
 Commit JSON in small domain batches. Each batch includes the raw observations,
 normalized records, evidence references, coverage updates and relevant fixtures.
@@ -70,9 +93,21 @@ The draft catalog pins the build 242 snapshot from 3 November 2026. Its
 inventoried content and unresolved reviews. A later game snapshot needs an
 explicit revision update and a reconciliation of changed records.
 
-A dataset release requires a complete reviewed coverage ledger, verified required
-facts, recorded estimates/uncertainties, semantic checks and a human-readable diff.
-Hash normalized inputs, profile and schemas into the solution. Keep a changelog
-and invalidate prior solutions after relevant data/model changes. New game updates
-trigger manual review of official notes and affected records; no automatic live
-update happens in either application. CI checks committed files only.
+Use the catalog manifest as the release manifest. Its `coverage_ledger` and
+`release_profile` paths are relative to the manifest. The ledger references
+its journal, diary, reward and optional activity inventories relative to its
+own directory. Reconciliation, attribution and license notices are relative to
+the manifest directory. Link an inventory row to its catalog records with
+`catalog_ids` when it has a different ID. Reward review rows can record exact
+action effects in `expected_effects` keyed by action ID.
+
+Run `quest-optimizer validate-data data/manifest.json --release` with a reviewed
+catalog, a fully reviewed ledger and a reviewed members profile covering the
+quest goals in that ledger. `audit-data` prints the full JSON report. Its exit
+status is 2 for audit errors, and a draft backlog is reported in `pending`.
+The release check requires both lists to be empty.
+
+Record dataset changes in the [changelog](../data/CHANGELOG.md). Hash normalized
+inputs, profile and schemas into solutions and invalidate prior solutions after
+relevant changes. New game updates trigger manual review of official notes and
+affected records. CI checks committed files.

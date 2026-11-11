@@ -16,6 +16,7 @@ from .semantics import CatalogValidator
 
 SCHEMA_NAMES = ("common", "manifest", "catalog", "profile", "solution")
 SCHEMA_VERSION = "0.1.0"
+MANIFEST_ONLY_FIELDS = {"collections", "coverage_ledger", "release_profile"}
 LocalValidator = extend(
     Draft202012Validator,
     type_checker=Draft202012Validator.TYPE_CHECKER.redefine(
@@ -133,13 +134,15 @@ class Contracts:
             raise DataError(f"{name} validation failed:\n" + "\n".join(messages))
 
 
-def _collection_path(directory: Path, value: str) -> Path:
+def local_path(directory: Path, value: str, *, label: str = "Collection", suffix: str = ".json") -> Path:
+    if not isinstance(value, str) or not value.strip():
+        raise DataError(f"{label} path must be a nonempty string")
     candidate = Path(value)
     if candidate.is_absolute() or candidate.drive or ":" in value or "\\" in value:
-        raise DataError(f"Collection path must be relative with forward slashes: {value}")
+        raise DataError(f"{label} path must be relative with forward slashes: {value}")
     resolved = (directory / candidate).resolve()
-    if not resolved.is_relative_to(directory) or resolved.suffix != ".json":
-        raise DataError(f"Collection path must be a JSON file inside {directory}: {value}")
+    if not resolved.is_relative_to(directory) or resolved.suffix != suffix:
+        raise DataError(f"{label} path must be a {suffix} file inside {directory}: {value}")
     return resolved
 
 
@@ -147,14 +150,14 @@ def load_catalog(manifest_path: Path, contracts: Contracts, *, release: bool = F
     manifest_path = manifest_path.resolve()
     manifest = read_json(manifest_path)
     contracts.validate("manifest", manifest)
-    catalog = {key: value for key, value in manifest.items() if key != "collections"}
+    catalog = {key: value for key, value in manifest.items() if key not in MANIFEST_ONLY_FIELDS}
     loaded_paths: set[Path] = set()
     origins: dict[str, list[Path]] = {}
     for name, files in manifest["collections"].items():
         records = []
         origins[name] = []
         for filename in files:
-            path = _collection_path(manifest_path.parent, filename)
+            path = local_path(manifest_path.parent, filename)
             if path in loaded_paths:
                 raise DataError(f"Collection file listed more than once: {path}")
             loaded_paths.add(path)
@@ -170,5 +173,13 @@ def load_catalog(manifest_path: Path, contracts: Contracts, *, release: bool = F
     if release:
         if catalog["status"] != "reviewed" or catalog["coverage_status"] != "complete":
             raise DataError("Release blocked: catalog must be reviewed with complete coverage")
-        raise DataError("Release blocked: independent coverage audit is pending (issue #9)")
+        from .coverage import audit_coverage
+
+        report = audit_coverage(manifest_path, catalog, contracts, manifest=manifest)
+        issues = report["errors"] + report["pending"]
+        if issues:
+            raise DataError(
+                f"Release blocked: coverage audit found {len(issues)} issue(s). "
+                "Run audit-data for the full report.\n" + "\n".join(issues[:12])
+            )
     return catalog

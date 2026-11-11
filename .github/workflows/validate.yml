@@ -20,6 +20,10 @@ jobs:
       - name: Validate committed JSON
         run: |
           quest-optimizer validate-data data/manifest.json
+          if ! quest-optimizer audit-data data/manifest.json > "$RUNNER_TEMP/coverage-audit.json"; then
+            cat "$RUNNER_TEMP/coverage-audit.json"
+            exit 1
+          fi
           quest-optimizer validate-json profile examples/build-242/cooks-assistant-profile.json --catalog data/manifest.json
           quest-optimizer validate-json solution examples/build-242/museum-quiz-solution.json --catalog data/manifest.json --profile examples/build-242/museum-quiz-profile.json
           quest-optimizer validate-json solution examples/build-242/balloon-travel-solution.json --catalog data/manifest.json --profile examples/build-242/balloon-travel-profile.json

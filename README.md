@@ -50,6 +50,8 @@ python -m venv .venv
 # Activate .venv using your shell's usual command.
 python -m pip install -e ./optimizer
 quest-optimizer validate-data data/manifest.json
+quest-optimizer audit-data data/manifest.json
+quest-optimizer normalize-data data/manifest.json --skills data/raw/build-242/skills.json
 quest-optimizer validate-data examples/synthetic/manifest.json
 quest-optimizer validate-json profile examples/synthetic/profile.json --catalog examples/synthetic/manifest.json
 quest-optimizer validate-json solution examples/synthetic/solution.json --catalog examples/synthetic/manifest.json --profile examples/synthetic/profile.json
@@ -61,8 +63,8 @@ python -m unittest discover -s optimizer/tests -v
 Supply the matching `--profile` to check a solution's references, reward trace,
 inventory consumption and supported ordered progression gates.
 Standalone `validate-json` checks shape. Full route replay is tracked in [#10](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/10).
-The `--release` gate requires the independent coverage audit in
-[#9](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/9).
+The `--release` gate requires a reviewed catalog, complete independent
+coverage and a reviewed profile. See [the data pipeline](docs/data-pipeline.md).
 
 ## Documentation
 

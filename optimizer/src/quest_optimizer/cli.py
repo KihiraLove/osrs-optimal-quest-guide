@@ -4,7 +4,9 @@ import argparse
 from pathlib import Path
 import sys
 
+from .coverage import audit_coverage
 from .data import Contracts, DataError, load_catalog, read_json
+from .normalization import canonical_json, catalog_diff, normalize_catalog
 from .semantics import CatalogValidator
 
 
@@ -15,6 +17,15 @@ def main(argv: list[str] | None = None) -> int:
     catalog_parser = commands.add_parser("validate-data", help="Check catalog structure and semantics")
     catalog_parser.add_argument("manifest", type=Path)
     catalog_parser.add_argument("--release", action="store_true", help="Require production release gates")
+    audit_parser = commands.add_parser("audit-data", help="Report coverage, review and reachability gaps as JSON")
+    audit_parser.add_argument("manifest", type=Path)
+    normalize_parser = commands.add_parser("normalize-data", help="Write canonical catalog JSON to stdout")
+    normalize_parser.add_argument("manifest", type=Path)
+    normalize_parser.add_argument("--skills", type=Path, help="Adapt the local RuneLite skill observations")
+    normalize_parser.add_argument("--observations", type=Path, action="append", default=[], metavar="BATCH")
+    diff_parser = commands.add_parser("diff-data", help="Report catalog changes by record and field as JSON")
+    diff_parser.add_argument("before", type=Path)
+    diff_parser.add_argument("after", type=Path)
     document_parser = commands.add_parser("validate-json", help="Check a profile or solution, optionally against its inputs")
     document_parser.add_argument("kind", choices=("profile", "solution"))
     document_parser.add_argument("path", type=Path)
@@ -32,6 +43,21 @@ def main(argv: list[str] | None = None) -> int:
             catalog = load_catalog(args.manifest, contracts, release=args.release)
             print(f"Valid catalog structure and semantics: {catalog['dataset_id']} "
                   f"({catalog['status']}), {len(catalog['actions'])} actions.")
+            if args.release:
+                print("Coverage and release profile audit passed.")
+        elif args.command == "audit-data":
+            catalog = load_catalog(args.manifest, contracts)
+            report = audit_coverage(args.manifest, catalog, contracts)
+            sys.stdout.write(canonical_json(report))
+            return 2 if report["errors"] else 0
+        elif args.command == "normalize-data":
+            catalog = load_catalog(args.manifest, contracts)
+            result = normalize_catalog(catalog, contracts, args.observations, skills=args.skills)
+            sys.stdout.write(canonical_json(result))
+        elif args.command == "diff-data":
+            before = load_catalog(args.before, contracts)
+            after = load_catalog(args.after, contracts)
+            sys.stdout.write(canonical_json(catalog_diff(before, after)))
         else:
             document = read_json(args.path)
             contracts.validate(args.kind, document)

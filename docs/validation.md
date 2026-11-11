@@ -19,18 +19,24 @@ missing base levels and deferred immediate rewards. Full route replay checks
 travel, items, remaining requirements, final XP, objective totals and input hashes
 in #10.
 
-## Remaining production release checks
+## Production release checks
 
-`--release` rejects draft and synthetic catalogs. Reviewed catalogs also require
-the independent coverage audit in [#9](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/9).
+`audit-data` reconciles local catalog records with the independent coverage
+ledger and reports the open review and reachability findings. `--release`
+requires reviewed catalog and profile status and an empty coverage audit.
 
-- Reconcile quest points and kudos with reviewed reward sources.
-- Validate reachability using OR-aware/phase-aware rules and the initial profile;
-  report unsatisfied requirements/cycles without inventing training or supplies.
-- Reconcile the independent coverage ledger with all current quests, RFD parts,
-  diary tasks/claims and admitted optional content at the pinned game revision.
-- Reject synthetic or unresolved facts for production; distinguish measured time
-  ranges from gameplay requirements and publish uncertainty where allowed.
+The audit matches quest, subquest, diary, claim and optional activity records to
+the ledger. It checks reviewed reward effects when supplied, requires a reason
+for each exclusion, and checks provenance references and local attribution.
+Duration estimates are allowed for reviewed transitions.
+
+Reachability follows directed links and evaluates AND and OR requirements from
+the initial profile. It computes possible progress across routes and allows
+manual skill training and waiting. It uses items from the profile or reachable
+producers. The report lists blocked transitions and locations for the selected
+profile. A blocked quest goal prevents release. Optional routes can remain
+unavailable under that profile's policies. Joint route feasibility remains part
+of full replay and search.
 
 ## Transition and solver regression cases
 
