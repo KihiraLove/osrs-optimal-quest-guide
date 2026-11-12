@@ -4,6 +4,7 @@ All entries use the build 242 snapshot from 3 November 2026.
 
 | Version | Changes |
 | --- | --- |
+| 0.30.0 | Added eight Temple Knights, Dorgeshuun, and starter quests, the Black Knights’ Fortress lamps, Guardians of the Rift, and Daddy’s Home housing rewards. |
 | 0.29.0 | Added eight Kourend and Varlamore quests, Client of Kourend’s two lamps, memoir pages and charges, the minecart and quetzal networks, and regional teleports. |
 | 0.28.0 | Added eight Kandarin, Camelot and Dig Site quests, gnome gliders, the Corsair Cove ferry, Fisher Realm travel and the Dig Site completion dependency for Bone Voyage. |
 | 0.27.0 | Added eight Fairytale and Kandarin quests, early spirit-tree travel, Glarial's Tomb banking and the northern Zanaris exit. |
@@ -34,5 +35,5 @@ All entries use the build 242 snapshot from 3 November 2026.
 | 0.2.0 | Added the first quest actions and the pinned Quest Helper observations. |
 | 0.1.0 | Recorded the independent quest, skill, diary and optional content inventory for build 242. |
 
-The coverage audit records the release blockers for 0.29.0. The normalizer and
+The coverage audit records the release blockers for 0.30.0. The normalizer and
 audit use the existing dataset version.

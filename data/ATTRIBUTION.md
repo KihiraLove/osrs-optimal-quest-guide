@@ -67,6 +67,8 @@ original descriptions of findings. The data uses pinned upstream sources.
 - The Kourend and Varlamore batch uses pinned Quest Helper, RuneLite and Shortest
   Path metadata. Jagex supplies the favour removal, memoir charge and minecart
   rules, the Varlamore launch observations and the build 242 Mining reward.
+- The Temple Knights and Lumbridge batch uses pinned Quest Helper, RuneLite and
+  Shortest Path observations, Jagex release notes and historical gameplay guides.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

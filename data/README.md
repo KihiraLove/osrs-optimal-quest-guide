@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.29.0` loads 24 skill tables and
-720 draft actions across 67 journal activities, the museum route and travel
+3 November 2026 at 10:00:06 UTC. Dataset `0.30.0` loads 24 skill tables and
+828 draft actions across 75 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -164,6 +164,12 @@ the Jagex account, bank PIN and authenticator assumptions. Walking to the
 Stronghold opens up to 10,000 GP across the first three rooms. Its four emotes
 support the Varrock Medium task. Count Check offers a one-time lamp in
 Lumbridge Graveyard worth ten times the chosen skill's base level at use.
+
+The [Temple Knights and Lumbridge review](raw/build-242/temple-knights-and-lumbridge-review.json)
+covers eight quests, the Black Knights’ Fortress lamps, Recruitment Drive banking,
+the Dorgeshuun tunnel network, Guardians of the Rift access, and Daddy’s Home’s
+house and crate rewards. Recruitment Drive’s restricted-item list covers every
+item in this catalog version.
 
 The [Kourend and Varlamore review](raw/build-242/kourend-and-varlamore-review.json)
 covers eight quests, Client of Kourend’s two lamps, the five memoir pages and

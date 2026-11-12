@@ -1,0 +1,5127 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_black_knights_disguise",
+    "name": "Buy the fortress disguise",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 350
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bronze_med_helm",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_chainbody",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget for a bronze med helm and iron chainbody."
+    }
+  },
+  {
+    "id": "supply.edgeville_monastery.collect_black_knights_cabbage",
+    "name": "Pick a cabbage at the monastery",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.edgeville_monastery.cabbage_patch",
+    "end_location_id": "location.edgeville_monastery.cabbage_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cabbage",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 7,
+      "max_seconds": 15
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use ordinary cabbage from the monastery patch."
+    }
+  },
+  {
+    "id": "supply.bank.deposit_recruitment_drive_items",
+    "name": "Deposit all carried items for the Temple Knights’ trials",
+    "activity_id": null,
+    "kind": "bank",
+    "start_location_id": "location.falador.east_bank",
+    "end_location_id": "location.falador.east_bank",
+    "requirements": {
+      "kind": "restricted_items",
+      "location_id": "location.recruitment_drive.testing_grounds",
+      "container": "inventory",
+      "present": true
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "bank_transfer",
+        "location_id": "location.recruitment_drive.testing_grounds",
+        "direction": "deposit"
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 2,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Model Falador bank transfer against the full item set used by this draft catalog."
+    }
+  },
+  {
+    "id": "supply.bank.withdraw_recruitment_drive_items",
+    "name": "Recover the trial loadout from Falador bank",
+    "activity_id": null,
+    "kind": "bank",
+    "start_location_id": "location.falador.east_bank",
+    "end_location_id": "location.falador.east_bank",
+    "requirements": {
+      "kind": "restricted_items",
+      "location_id": "location.recruitment_drive.testing_grounds",
+      "container": "bank_inventory",
+      "present": true
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "bank_transfer",
+        "location_id": "location.recruitment_drive.testing_grounds",
+        "direction": "withdraw"
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 2,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Model Falador bank transfer against the full item set used by this draft catalog."
+    }
+  },
+  {
+    "id": "quest.black_knights_fortress.start",
+    "name": "Accept Sir Amik Varze’s assignment",
+    "activity_id": "quest.black_knights_fortress",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_castle.amik_varze",
+    "end_location_id": "location.falador_castle.amik_varze",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 12
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The quest starts at 12 quest points."
+    }
+  },
+  {
+    "id": "quest.black_knights_fortress.infiltrate",
+    "name": "Enter in disguise and reach the listening grill",
+    "activity_id": "quest.black_knights_fortress",
+    "kind": "quest_stage",
+    "start_location_id": "location.black_knights_fortress.door",
+    "end_location_id": "location.black_knights_fortress.grill",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.black_knights_fortress.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_med_helm",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.iron_chainbody",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 100,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Equip the bronze med helm and iron chainbody, use the fortress door, then follow the secret ladders to the grill."
+    },
+    "planned_outcome": {
+      "success_condition": "The player reaches the grill inside the fortress.",
+      "if_unmet": "Wear the disguise at entry and bring food if the knights are dangerous."
+    }
+  },
+  {
+    "id": "quest.black_knights_fortress.listen",
+    "name": "Listen to the potion discussion",
+    "activity_id": "quest.black_knights_fortress",
+    "kind": "quest_stage",
+    "start_location_id": "location.black_knights_fortress.grill",
+    "end_location_id": "location.black_knights_fortress.grill",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.black_knights_fortress.infiltrate"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Listen at the grill to learn which cabbage can spoil the potion."
+    }
+  },
+  {
+    "id": "quest.black_knights_fortress.spoil_potion",
+    "name": "Drop an ordinary cabbage through the hole",
+    "activity_id": "quest.black_knights_fortress",
+    "kind": "quest_stage",
+    "start_location_id": "location.black_knights_fortress.cauldron_hole",
+    "end_location_id": "location.black_knights_fortress.cauldron_hole",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.black_knights_fortress.listen"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.cabbage",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the ordinary cabbage on the hole above the cauldron and watch the result."
+    }
+  },
+  {
+    "id": "quest.black_knights_fortress.complete",
+    "name": "Report the sabotage to Sir Amik Varze",
+    "activity_id": "quest.black_knights_fortress",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_castle.amik_varze",
+    "end_location_id": "location.falador_castle.amik_varze",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.black_knights_fortress.spoil_potion"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 2500
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.black_knights_fortress.combat_lamp",
+        "quantity": 2
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.black_knights_fortress.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Amik awards the quest points, coins and the two build 242 combat lamps."
+    }
+  },
+  {
+    "id": "quest.recruitment_drive.start",
+    "name": "Accept the Temple Knights invitation",
+    "activity_id": "quest.recruitment_drive",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_castle.amik_varze",
+    "end_location_id": "location.falador_castle.amik_varze",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.black_knights_fortress.complete",
+          "value": true
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.druidic_ritual.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Amik after Black Knights’ Fortress and Druidic Ritual."
+    }
+  },
+  {
+    "id": "quest.recruitment_drive.enter_trials",
+    "name": "Enter the Temple Knights’ testing grounds",
+    "activity_id": "quest.recruitment_drive",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_park.tiffy",
+    "end_location_id": "location.recruitment_drive.testing_grounds",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.recruitment_drive.start"
+        },
+        {
+          "kind": "restricted_items",
+          "location_id": "location.recruitment_drive.testing_grounds",
+          "container": "inventory",
+          "present": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 40
+    },
+    "repeat_limit": 3,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Tiffy after banking carried and worn items. Test objects and equipment are supplied inside."
+    }
+  },
+  {
+    "id": "quest.recruitment_drive.pass_trials",
+    "name": "Pass the five Temple Knights’ tests",
+    "activity_id": "quest.recruitment_drive",
+    "kind": "quest_stage",
+    "start_location_id": "location.recruitment_drive.testing_grounds",
+    "end_location_id": "location.falador_park.tiffy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.recruitment_drive.enter_trials"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 117,
+      "expected_seconds": 260,
+      "max_seconds": 546
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.recruitment_drive_update",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Solve the randomly assigned rooms in sequence. Sir Leye’s final hit must use the supplied steel warhammer or bare hands. Tinley’s room requires waiting in place when assigned."
+    },
+    "planned_outcome": {
+      "success_condition": "Five consecutive tests are passed and the player returns to Tiffy.",
+      "if_unmet": "Follow the room-specific instructions. Restart at Tiffy if a trial fails."
+    }
+  },
+  {
+    "id": "quest.recruitment_drive.complete",
+    "name": "Receive the Temple Knights induction rewards",
+    "activity_id": "quest.recruitment_drive",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_park.tiffy",
+    "end_location_id": "location.falador_park.tiffy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.recruitment_drive.pass_trials"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 3000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.initiate_sallet",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.recruitment_drive.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.recruitment_drive_update",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive the fixed XP, coins, Initiate sallet and the Falador respawn option."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_porcine_supplies",
+    "name": "Buy a rope and knife for the Sourhog Cave",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 150
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget for one rope and a reusable knife."
+    }
+  },
+  {
+    "id": "quest.a_porcine_of_interest.start",
+    "name": "Read the Draynor noticeboard",
+    "activity_id": "quest.a_porcine_of_interest",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.porcine_noticeboard",
+    "end_location_id": "location.draynor.porcine_noticeboard",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 13,
+      "max_seconds": 27
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the notice about Sarah’s missing farmhand."
+    }
+  },
+  {
+    "id": "quest.a_porcine_of_interest.speak_to_sarah",
+    "name": "Ask Sarah about the missing farmhand",
+    "activity_id": "quest.a_porcine_of_interest",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_farm.sarah",
+    "end_location_id": "location.falador_farm.sarah",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_porcine_of_interest.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find Sarah at the South Falador farm shop."
+    }
+  },
+  {
+    "id": "quest.a_porcine_of_interest.secure_rope",
+    "name": "Secure a rope at the Strange Hole",
+    "activity_id": "quest.a_porcine_of_interest",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.sourhog_hole",
+    "end_location_id": "location.draynor_manor.sourhog_hole",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_porcine_of_interest.speak_to_sarah"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tie the rope and leave it in place for both visits."
+    }
+  },
+  {
+    "id": "quest.a_porcine_of_interest.inspect_skeleton",
+    "name": "Inspect the skeleton in the cave",
+    "activity_id": "quest.a_porcine_of_interest",
+    "kind": "quest_stage",
+    "start_location_id": "location.sourhog_cave.skeleton",
+    "end_location_id": "location.sourhog_cave.skeleton",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_porcine_of_interest.secure_rope"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the skeleton and follow the clue back to Draynor."
+    }
+  },
+  {
+    "id": "quest.a_porcine_of_interest.get_goggles",
+    "name": "Ask Spria how to fight the sourhog",
+    "activity_id": "quest.a_porcine_of_interest",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.spria",
+    "end_location_id": "location.draynor.spria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_porcine_of_interest.inspect_skeleton"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.reinforced_goggles",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Spria explains the encounter and supplies reinforced goggles."
+    }
+  },
+  {
+    "id": "quest.a_porcine_of_interest.defeat_sourhog",
+    "name": "Defeat Sourhog while wearing the goggles",
+    "activity_id": "quest.a_porcine_of_interest",
+    "kind": "quest_stage",
+    "start_location_id": "location.sourhog_cave.skeleton",
+    "end_location_id": "location.sourhog_cave.skeleton",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_porcine_of_interest.get_goggles"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.reinforced_goggles",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 65,
+      "max_seconds": 137
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear the reinforced goggles and defeat the sourhog."
+    },
+    "planned_outcome": {
+      "success_condition": "The sourhog is defeated.",
+      "if_unmet": "Equip the goggles and bring enough food and ammunition for the fight."
+    }
+  },
+  {
+    "id": "quest.a_porcine_of_interest.collect_foot",
+    "name": "Cut off the sourhog’s foot",
+    "activity_id": "quest.a_porcine_of_interest",
+    "kind": "quest_stage",
+    "start_location_id": "location.sourhog_cave.skeleton",
+    "end_location_id": "location.sourhog_cave.skeleton",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_porcine_of_interest.defeat_sourhog"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.knife",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_longsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.sourhog_foot",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 29
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a knife or a suitable slashing weapon to take the trophy."
+    }
+  },
+  {
+    "id": "quest.a_porcine_of_interest.report_to_sarah",
+    "name": "Show Sarah the sourhog trophy",
+    "activity_id": "quest.a_porcine_of_interest",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_farm.sarah",
+    "end_location_id": "location.falador_farm.sarah",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_porcine_of_interest.collect_foot"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sourhog_foot",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Report the cave investigation to Sarah before speaking to Spria."
+    }
+  },
+  {
+    "id": "quest.a_porcine_of_interest.complete",
+    "name": "Receive the Slayer reward from Spria",
+    "activity_id": "quest.a_porcine_of_interest",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.spria",
+    "end_location_id": "location.draynor.spria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_porcine_of_interest.report_to_sarah"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.slayer",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 5000
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.slayer_reward_points",
+        "delta": 30
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.a_porcine_of_interest.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.porcine_of_interest",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive 1,000 Slayer XP, 5,000 coins and 30 Slayer reward points."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_daddys_home_supplies",
+    "name": "Buy materials and tools for Yarlo’s repairs",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 4300
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_nails",
+        "quantity": 36
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bolt_of_cloth",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.saw",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.capture.daddys_home",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimate a reserve for planks, nails, cloth and reusable tools. Extra nails cover bending."
+    }
+  },
+  {
+    "id": "quest.daddys_home.start",
+    "name": "Ask Marlo about a job",
+    "activity_id": "quest.daddys_home",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.marlo",
+    "end_location_id": "location.varrock.marlo",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Marlo directs the player to Old Man Yarlo."
+    }
+  },
+  {
+    "id": "quest.daddys_home.speak_to_yarlo",
+    "name": "Ask Yarlo what needs replacing",
+    "activity_id": "quest.daddys_home",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.old_man_yarlo",
+    "end_location_id": "location.varrock.old_man_yarlo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.daddys_home.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive permission to replace the broken furniture."
+    }
+  },
+  {
+    "id": "quest.daddys_home.clear_furniture",
+    "name": "Remove the damaged furniture and old carpet",
+    "activity_id": "quest.daddys_home",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.old_man_yarlo",
+    "end_location_id": "location.varrock.old_man_yarlo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.daddys_home.speak_to_yarlo"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 51,
+      "max_seconds": 107
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Clear all seven furniture spots, then report back to Yarlo."
+    }
+  },
+  {
+    "id": "quest.daddys_home.repair_furniture",
+    "name": "Build the ordinary furniture and new carpet",
+    "activity_id": "quest.daddys_home",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.old_man_yarlo",
+    "end_location_id": "location.varrock.old_man_yarlo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.daddys_home.clear_furniture"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.saw",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_nails",
+          "quantity": 20
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plank",
+        "quantity": 10
+      },
+      {
+        "item_id": "item.bolt_of_cloth",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.steel_nails",
+        "quantity": 14
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 88,
+      "max_seconds": 185
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the saw and hammer to replace two stools, two tables, the chair and the carpet."
+    },
+    "planned_outcome": {
+      "success_condition": "All six standard furniture and carpet spots have been restored.",
+      "if_unmet": "Bring additional nails if any bend during construction."
+    }
+  },
+  {
+    "id": "quest.daddys_home.collect_waxwood",
+    "name": "Take three waxwood logs from Yarlo’s crate",
+    "activity_id": "quest.daddys_home",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.old_man_yarlo",
+    "end_location_id": "location.varrock.old_man_yarlo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.daddys_home.repair_furniture"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.waxwood_log",
+        "quantity": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the quest crate for the logs needed for the new bed."
+    }
+  },
+  {
+    "id": "quest.daddys_home.cut_waxwood",
+    "name": "Ask the sawmill operator to cut the waxwood",
+    "activity_id": "quest.daddys_home",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.sawmill_operator",
+    "end_location_id": "location.varrock.sawmill_operator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.daddys_home.collect_waxwood"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.waxwood_log",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.waxwood_plank",
+        "quantity": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand over the three waxwood logs and receive three planks."
+    }
+  },
+  {
+    "id": "quest.daddys_home.build_bed",
+    "name": "Build the waxwood bed and report the repairs",
+    "activity_id": "quest.daddys_home",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.old_man_yarlo",
+    "end_location_id": "location.varrock.old_man_yarlo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.daddys_home.cut_waxwood"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.saw",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.waxwood_plank",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.bolt_of_cloth",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 5440
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 61
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.daddys_home",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Build the bed and report to Yarlo. Record the combined incidental XP from all furniture at this stage."
+    }
+  },
+  {
+    "id": "quest.daddys_home.receive_house",
+    "name": "Receive the Rimmington house from Marlo",
+    "activity_id": "quest.daddys_home",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.marlo",
+    "end_location_id": "location.varrock.marlo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.daddys_home.build_bed"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.player_owned_house",
+          "value": false
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.daddys_home.house_reward_resolved",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.player_owned_house",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.player_owned_house.rimmington",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.daddys_home.house_reward_resolved",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.daddys_home",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The housing reward for a player who does not own a house is a Rimmington house."
+    }
+  },
+  {
+    "id": "quest.daddys_home.receive_cash",
+    "name": "Receive Marlo’s cash reward as an existing homeowner",
+    "activity_id": "quest.daddys_home",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.marlo",
+    "end_location_id": "location.varrock.marlo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.daddys_home.build_bed"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.player_owned_house",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.daddys_home.house_reward_resolved",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 1000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.daddys_home.house_reward_resolved",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.daddys_home",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "An existing homeowner receives 1,000 coins in place of a new house."
+    }
+  },
+  {
+    "id": "quest.daddys_home.complete",
+    "name": "Receive Marlo’s crate and quest rewards",
+    "activity_id": "quest.daddys_home",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.marlo",
+    "end_location_id": "location.varrock.marlo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.daddys_home.build_bed"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.daddys_home.house_reward_resolved",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 4000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.marlos_crate",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.daddys_home.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.quest_month_2026_11_03",
+        "source.capture.daddys_home",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive Marlo’s crate, 400 Construction XP and the quest point added in build 242."
+    }
+  },
+  {
+    "id": "supply.daddys_home.open_marlos_crate",
+    "name": "Open Marlo’s crate",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.marlo",
+    "end_location_id": "location.varrock.marlo",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.marlos_crate",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 25
+      },
+      {
+        "kind": "item",
+        "item_id": "item.oak_plank",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mithril_nails",
+        "quantity": 50
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_bar",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bolt_of_cloth",
+        "quantity": 8
+      },
+      {
+        "kind": "item",
+        "item_id": "item.house_teleport_tablet",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.falador_teleport_tablet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 25
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.daddys_home",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Unpack the Construction supplies and tablets after receiving the crate."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_dorgeshuun_candle",
+    "name": "Buy an ordinary candle for the tunnels",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 20
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.unlit_candle",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 29
+    },
+    "repeat_limit": 2,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget for one candle. It needs a tinderbox before entering the tunnels."
+    }
+  },
+  {
+    "id": "supply.lumbridge.light_dorgeshuun_candle",
+    "name": "Light the candle in the castle courtyard",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.lumbridge.castle_courtyard",
+    "end_location_id": "location.lumbridge.castle_courtyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.unlit_candle",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lit_candle",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 11
+    },
+    "repeat_limit": 2,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Light the candle before entering the tunnels."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_dorgeshuun_ham_disguises",
+    "name": "Buy two complete H.A.M. outfits",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 8500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ham_shirt",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ham_robe",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ham_hood",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ham_cloak",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ham_badge",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ham_gloves",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ham_boots",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimate a Grand Exchange reserve for two of all seven pieces."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.start",
+    "name": "Ask Sigmund and the Duke about the cellar",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.duke",
+    "end_location_id": "location.lumbridge_castle.duke",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.goblin_diplomacy.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rune_mysteries.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start after Goblin Diplomacy and Rune Mysteries."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.ask_witnesses",
+    "name": "Ask the castle witnesses about the cellar",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.castle_courtyard",
+    "end_location_id": "location.lumbridge.castle_courtyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Check Hans, the Cook and nearby witnesses as needed until someone confirms the sighting."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.report_witnesses",
+    "name": "Report the sighting to the Duke",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.duke",
+    "end_location_id": "location.lumbridge_castle.duke",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.ask_witnesses"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get permission to investigate the blocked cellar wall."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.clear_rubble",
+    "name": "Mine the rubble and climb through",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_cellar.rubble",
+    "end_location_id": "location.dorgeshuun_tunnels.kazgar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.report_witnesses"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 17,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a pickaxe on the blockage and climb through with a light source."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.take_brooch",
+    "name": "Take the brooch from the tunnel",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgeshuun_tunnels.kazgar",
+    "end_location_id": "location.dorgeshuun_tunnels.kazgar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.clear_rubble"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lost_tribe_brooch",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 13,
+      "max_seconds": 27
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick up the brooch near the entrance."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.show_brooch",
+    "name": "Show the Duke the brooch",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.duke",
+    "end_location_id": "location.lumbridge_castle.duke",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.take_brooch"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lost_tribe_brooch",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Duke directs the player to the Varrock Palace library."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.read_symbols",
+    "name": "Find and read the goblin symbol book",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.reldo",
+    "end_location_id": "location.varrock.reldo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.show_brooch"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_symbol_book",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the library bookcase and read the book before visiting the generals."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.learn_emotes",
+    "name": "Ask the generals about the brooch",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin_village.generals",
+    "end_location_id": "location.goblin_village.generals",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.read_symbols"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lost_tribe_brooch",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.goblin_symbol_book",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show the brooch and learn how to greet the cave goblins."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.cross_tunnels",
+    "name": "Follow the safe path through the tunnels",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgeshuun_tunnels.kazgar",
+    "end_location_id": "location.dorgeshuun_mine.mistag",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.learn_emotes"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 13,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 105,
+      "max_seconds": 221
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Navigate to the mine with a light source. Avoid the tunnel traps that can put out the candle."
+    },
+    "planned_outcome": {
+      "success_condition": "The player reaches Mistag with a usable light source.",
+      "if_unmet": "Bring a tinderbox to relight the candle if needed and follow the safe tunnel path."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.greet_mistag",
+    "name": "Use the Goblin Bow and speak to Mistag",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgeshuun_mine.mistag",
+    "end_location_id": "location.dorgeshuun_mine.mistag",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.cross_tunnels"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.dorgeshuun.guided_tunnels",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the learned emote. Mistag can now guide the player back through the tunnels."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.tell_duke",
+    "name": "Tell the Duke what Mistag said",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.duke",
+    "end_location_id": "location.lumbridge_castle.duke",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.greet_mistag"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Report the peaceful goblins and learn what was stolen."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.take_sigmund_key",
+    "name": "Pickpocket Sigmund’s key",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.duke",
+    "end_location_id": "location.lumbridge_castle.duke",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.tell_duke"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 13,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lost_tribe_chest_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pickpocket the key from Sigmund."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.search_sigmund_chest",
+    "name": "Search Sigmund’s chest",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.duke",
+    "end_location_id": "location.lumbridge_castle.duke",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.take_sigmund_key"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lost_tribe_chest_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the key on the nearby chest to find the H.A.M. evidence."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.recover_silverware",
+    "name": "Recover the Duke’s silverware in the H.A.M. hideout",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.ham_hideout.crates",
+    "end_location_id": "location.ham_hideout.crates",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.search_sigmund_chest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dukes_silverware",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter through the trapdoor, search the crate and take the silverware."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.receive_treaty",
+    "name": "Return the silverware and take the treaty",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.duke",
+    "end_location_id": "location.lumbridge_castle.duke",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.recover_silverware"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dukes_silverware",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dorgeshuun_peace_treaty",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the Duke the silverware and receive the treaty."
+    }
+  },
+  {
+    "id": "quest.the_lost_tribe.complete",
+    "name": "Deliver the peace treaty to Mistag",
+    "activity_id": "quest.the_lost_tribe",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgeshuun_mine.mistag",
+    "end_location_id": "location.dorgeshuun_mine.mistag",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.receive_treaty"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dorgeshuun_peace_treaty",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 30000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ring_of_life",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_lost_tribe.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive 3,000 Mining XP and a ring of life. The mine and Nardok’s shop are available."
+    }
+  },
+  {
+    "id": "supply.ham_hideout.pickpocket_dorgeshuun_disguises",
+    "name": "Pickpocket both sets of H.A.M. clothes",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.ham_hideout.crates",
+    "end_location_id": "location.ham_hideout.crates",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_to_the_dorgeshuun.start"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 23,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ham_shirt",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ham_robe",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ham_hood",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ham_cloak",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ham_badge",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ham_gloves",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ham_boots",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 176,
+      "expected_seconds": 390,
+      "max_seconds": 819
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect two of each piece using the quest's increased outfit drop rate."
+    },
+    "planned_outcome": {
+      "success_condition": "Two complete seven-piece H.A.M. outfits are held.",
+      "if_unmet": "Keep pickpocketing until both sets are complete. Recover after being caught as needed."
+    }
+  },
+  {
+    "id": "quest.death_to_the_dorgeshuun.start",
+    "name": "Ask Mistag how to help Zanik",
+    "activity_id": "quest.death_to_the_dorgeshuun",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgeshuun_mine.mistag",
+    "end_location_id": "location.dorgeshuun_mine.mistag",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_lost_tribe.complete",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 23,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 23,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start after The Lost Tribe with the required levels."
+    }
+  },
+  {
+    "id": "quest.death_to_the_dorgeshuun.meet_zanik",
+    "name": "Meet Zanik in Lumbridge Castle cellar",
+    "activity_id": "quest.death_to_the_dorgeshuun",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cellar",
+    "end_location_id": "location.lumbridge_castle.cellar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_to_the_dorgeshuun.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Zanik to follow the player to the surface."
+    }
+  },
+  {
+    "id": "quest.death_to_the_dorgeshuun.tour_lumbridge",
+    "name": "Give Zanik a tour of Lumbridge",
+    "activity_id": "quest.death_to_the_dorgeshuun",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.castle_courtyard",
+    "end_location_id": "location.lumbridge.castle_courtyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_to_the_dorgeshuun.meet_zanik"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 93,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Visit the castle and town residents, show Zanik the surface goblins, and finish her dialogue."
+    }
+  },
+  {
+    "id": "quest.death_to_the_dorgeshuun.equip_disguises",
+    "name": "Give Zanik a disguise and equip the other set",
+    "activity_id": "quest.death_to_the_dorgeshuun",
+    "kind": "quest_stage",
+    "start_location_id": "location.ham_hideout.trapdoor",
+    "end_location_id": "location.ham_hideout.trapdoor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_to_the_dorgeshuun.tour_lumbridge"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_shirt",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_robe",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_hood",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_cloak",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_badge",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_gloves",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_boots",
+          "quantity": 2
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ham_shirt",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ham_robe",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ham_hood",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ham_cloak",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ham_badge",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ham_gloves",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ham_boots",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand one complete set to Zanik and keep the other set for the player."
+    }
+  },
+  {
+    "id": "quest.death_to_the_dorgeshuun.listen_to_ham",
+    "name": "Investigate the meeting from the stage",
+    "activity_id": "quest.death_to_the_dorgeshuun",
+    "kind": "quest_stage",
+    "start_location_id": "location.ham_hideout.stage",
+    "end_location_id": "location.ham_hideout.stage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_to_the_dorgeshuun.equip_disguises"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 45,
+      "max_seconds": 95
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Johanhus and wait near the stage until Zanik finishes the dialogue and finds the passage."
+    }
+  },
+  {
+    "id": "quest.death_to_the_dorgeshuun.sneak_past_guards",
+    "name": "Enter the passage and work past the five guards",
+    "activity_id": "quest.death_to_the_dorgeshuun",
+    "kind": "quest_stage",
+    "start_location_id": "location.ham_hideout.stage",
+    "end_location_id": "location.ham_hideout.secret_passage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_to_the_dorgeshuun.listen_to_ham"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 23,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 110,
+      "max_seconds": 231
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Coordinate with Zanik to pass the five guards. Listen at the door when the way is clear."
+    },
+    "planned_outcome": {
+      "success_condition": "The meeting is overheard and the capture scene has played.",
+      "if_unmet": "Use Zanik’s instructions to recover after being caught."
+    }
+  },
+  {
+    "id": "quest.death_to_the_dorgeshuun.find_zanik",
+    "name": "Find Zanik outside the hideout",
+    "activity_id": "quest.death_to_the_dorgeshuun",
+    "kind": "quest_stage",
+    "start_location_id": "location.ham_hideout.zanik_outside",
+    "end_location_id": "location.ham_hideout.zanik_outside",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_to_the_dorgeshuun.sneak_past_guards"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dorgeshuun_zanik_to_juna",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Leave the hideout and inspect Zanik. Bring her to Juna."
+    }
+  },
+  {
+    "id": "quest.death_to_the_dorgeshuun.open_swamp_passage",
+    "name": "Mine the passage to the Lumbridge Swamp Caves",
+    "activity_id": "quest.death_to_the_dorgeshuun",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgeshuun_tunnels.swamp_rubble",
+    "end_location_id": "location.lumbridge_swamp_caves.juna_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_to_the_dorgeshuun.find_zanik"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dorgeshuun_zanik_to_juna",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the pickaxe on the passage wall and climb through toward Juna."
+    }
+  },
+  {
+    "id": "quest.death_to_the_dorgeshuun.revive_zanik",
+    "name": "Gather 20 tears of Guthix for Zanik",
+    "activity_id": "quest.death_to_the_dorgeshuun",
+    "kind": "quest_stage",
+    "start_location_id": "location.tears_of_guthix.juna",
+    "end_location_id": "location.tears_of_guthix.juna",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_to_the_dorgeshuun.open_swamp_passage"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dorgeshuun_zanik_to_juna",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 104,
+      "max_seconds": 218
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Juna with both hands free, collect 20 tears and finish the revival scene."
+    },
+    "planned_outcome": {
+      "success_condition": "Zanik is revived and explains the plan at the mill.",
+      "if_unmet": "Follow Juna’s instructions and gather the full 20 tears."
+    }
+  },
+  {
+    "id": "quest.death_to_the_dorgeshuun.enter_mill",
+    "name": "Hide Zanik in the crate and enter the mill cellar",
+    "activity_id": "quest.death_to_the_dorgeshuun",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.mill_trapdoor",
+    "end_location_id": "location.ham_mill.drill",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_to_the_dorgeshuun.revive_zanik"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_shirt",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_robe",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_hood",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_cloak",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_badge",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ham_boots",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 41,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the crate, arrange the disguise and descend the mill trapdoor."
+    }
+  },
+  {
+    "id": "quest.death_to_the_dorgeshuun.defeat_sigmund",
+    "name": "Defeat the guards and Sigmund",
+    "activity_id": "quest.death_to_the_dorgeshuun",
+    "kind": "quest_stage",
+    "start_location_id": "location.ham_mill.drill",
+    "end_location_id": "location.ham_mill.drill",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_to_the_dorgeshuun.enter_mill"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 43,
+      "expected_seconds": 95,
+      "max_seconds": 200
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use melee or magic when Sigmund’s protection prayer permits it."
+    },
+    "planned_outcome": {
+      "success_condition": "The guards and Sigmund are defeated.",
+      "if_unmet": "Bring sufficient food and a usable melee weapon or runes."
+    }
+  },
+  {
+    "id": "quest.death_to_the_dorgeshuun.destroy_drill",
+    "name": "Destroy the drilling machine",
+    "activity_id": "quest.death_to_the_dorgeshuun",
+    "kind": "quest_stage",
+    "start_location_id": "location.ham_mill.drill",
+    "end_location_id": "location.ham_mill.drill",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_to_the_dorgeshuun.defeat_sigmund"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Smash the drilling machine before leaving."
+    }
+  },
+  {
+    "id": "quest.death_to_the_dorgeshuun.complete",
+    "name": "Leave the mill cellar with Zanik",
+    "activity_id": "quest.death_to_the_dorgeshuun",
+    "kind": "quest_stage",
+    "start_location_id": "location.ham_mill.drill",
+    "end_location_id": "location.dorgeshuun_mine.mill_exit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_to_the_dorgeshuun.destroy_drill"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.ranged",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.ham.storerooms",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.dorgeshuun.special_attacks",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.death_to_the_dorgeshuun.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the south exit to finish the quest. Receive Thieving and Ranged XP and access to the city and storerooms."
+    }
+  },
+  {
+    "id": "supply.turael.buy_enchanted_gem",
+    "name": "Buy an enchanted gem from Turael",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.burthorpe.turael",
+    "end_location_id": "location.burthorpe.turael",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enchanted_gem",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 11,
+      "max_seconds": 23
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.wanted",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy the quest component from the Slayer shop."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_wanted_materials",
+    "name": "Buy the Commorb materials and pursuit supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 600
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.molten_glass",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.law_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pure_essence",
+        "quantity": 20
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.capture.wanted",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimate enough for a law rune, molten glass, 20 unnoted pure essence and a rope."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_wanted_essence",
+    "name": "Buy 20 unnoted rune essence",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 100
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rune_essence",
+        "quantity": 20
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.capture.wanted",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reserve coins for the rune essence alternative to pure essence."
+    }
+  },
+  {
+    "id": "quest.wanted.start",
+    "name": "Ask Sir Tiffy about Temple Knights work",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_park.tiffy",
+    "end_location_id": "location.falador_park.tiffy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 32
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.recruitment_drive.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_lost_tribe.complete",
+          "value": true
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.enter_the_abyss.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Accept the assignment with 32 quest points and the prior quest progress."
+    }
+  },
+  {
+    "id": "quest.wanted.squire",
+    "name": "Speak to Sir Amik about becoming a squire",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_castle.amik_varze",
+    "end_location_id": "location.falador_castle.amik_varze",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Complete the White Knights’ introduction."
+    }
+  },
+  {
+    "id": "quest.wanted.report_to_tiffy",
+    "name": "Report back to Tiffy",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_park.tiffy",
+    "end_location_id": "location.falador_park.tiffy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.squire"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Tiffy after the appointment."
+    }
+  },
+  {
+    "id": "quest.wanted.accept_assignment",
+    "name": "Get Sir Amik’s assignment",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_castle.amik_varze",
+    "end_location_id": "location.falador_castle.amik_varze",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.report_to_tiffy"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sir Amik assigns the pursuit of Solus."
+    }
+  },
+  {
+    "id": "quest.wanted.report_assignment",
+    "name": "Return to Tiffy for a Commorb",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_park.tiffy",
+    "end_location_id": "location.falador_park.tiffy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.accept_assignment"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tiffy offers the material handover and cash alternatives."
+    }
+  },
+  {
+    "id": "quest.wanted.get_commorb_materials",
+    "name": "Trade the components for a Commorb",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_park.tiffy",
+    "end_location_id": "location.falador_park.tiffy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.report_assignment"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.wanted.commorb_received",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.enchanted_gem",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.molten_glass",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.commorb",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.wanted.commorb_received",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Tiffy a law rune, enchanted gem and molten glass."
+    }
+  },
+  {
+    "id": "quest.wanted.buy_commorb",
+    "name": "Pay Tiffy 10,000 coins for a Commorb",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_park.tiffy",
+    "end_location_id": "location.falador_park.tiffy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.report_assignment"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.wanted.commorb_received",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 10000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.commorb",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.wanted.commorb_received",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The cash purchase substitutes for the material handover."
+    }
+  },
+  {
+    "id": "quest.wanted.contact_savant",
+    "name": "Contact Savant with the Commorb",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_park.tiffy",
+    "end_location_id": "location.falador_park.tiffy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.report_assignment"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.commorb",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Contact Savant to receive the investigation instructions."
+    }
+  },
+  {
+    "id": "quest.wanted.question_daquarius",
+    "name": "Question Lord Daquarius",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley_dungeon.lord_daquarius",
+    "end_location_id": "location.taverley_dungeon.lord_daquarius",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.contact_savant"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.commorb",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask him where to find Solus."
+    }
+  },
+  {
+    "id": "quest.wanted.defeat_black_knight",
+    "name": "Defeat a Black Knight and question Daquarius again",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley_dungeon.lord_daquarius",
+    "end_location_id": "location.taverley_dungeon.lord_daquarius",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.question_daquarius"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 64,
+      "max_seconds": 134
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat one of the nearby knights and then ask Daquarius for the lead."
+    },
+    "planned_outcome": {
+      "success_condition": "Daquarius supplies the lead.",
+      "if_unmet": "Bring suitable gear and food for the dungeon approach and the fight."
+    }
+  },
+  {
+    "id": "quest.wanted.offer_rune_essence",
+    "name": "Give the Mage of Zamorak 20 rune essence",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.zamorak_mage",
+    "end_location_id": "location.varrock.zamorak_mage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.defeat_black_knight"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.wanted.essence_delivered",
+          "value": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.commorb",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rune_essence",
+        "quantity": 20
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.wanted.essence_delivered",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use 20 unnoted rune essence to obtain the Canifis lead."
+    }
+  },
+  {
+    "id": "quest.wanted.offer_pure_essence",
+    "name": "Give the Mage of Zamorak 20 pure essence",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.zamorak_mage",
+    "end_location_id": "location.varrock.zamorak_mage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.defeat_black_knight"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.wanted.essence_delivered",
+          "value": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.commorb",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pure_essence",
+        "quantity": 20
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.wanted.essence_delivered",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use 20 unnoted pure essence to obtain the Canifis lead."
+    }
+  },
+  {
+    "id": "quest.wanted.scan_canifis",
+    "name": "Contact Savant and scan Canifis",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.canifis.solus_scan",
+    "end_location_id": "location.canifis.solus_scan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.defeat_black_knight"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.wanted.essence_delivered",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.commorb",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Finish Savant’s message upon arrival and scan the area to obtain the first clue."
+    }
+  },
+  {
+    "id": "quest.wanted.pursue_first_clue",
+    "name": "Follow the first variable clue toward the Champions’ Guild",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.canifis.solus_scan",
+    "end_location_id": "location.varrock.champions_guild_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.scan_canifis"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.commorb",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 235,
+      "max_seconds": 720
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow and scan the revealed intermediate stop. End at the Champions’ Guild for the fixed scan."
+    },
+    "planned_outcome": {
+      "success_condition": "The intermediate scan reveals the Champions’ Guild lead.",
+      "if_unmet": "Use the clue and the currently available transport. Use the rope and light if the swamp caves are selected."
+    }
+  },
+  {
+    "id": "quest.wanted.scan_guild",
+    "name": "Scan the Champions’ Guild",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.champions_guild_door",
+    "end_location_id": "location.varrock.champions_guild_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.pursue_first_clue"
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 32
+        },
+        {
+          "kind": "item",
+          "item_id": "item.commorb",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the Commorb inside the guild’s quest point gate."
+    }
+  },
+  {
+    "id": "quest.wanted.pursue_second_clue",
+    "name": "Follow the next variable clue toward the Dorgesh-Kaan mine",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.champions_guild_door",
+    "end_location_id": "location.dorgeshuun_mine.mistag",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.scan_guild"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.commorb",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 224,
+      "max_seconds": 720
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Scan the revealed stop before travelling to the fixed mine scan."
+    },
+    "planned_outcome": {
+      "success_condition": "The scan reveals the Dorgesh-Kaan mine lead.",
+      "if_unmet": "Use the clue’s destination and return to the tunnels for the fixed scan."
+    }
+  },
+  {
+    "id": "quest.wanted.scan_mine",
+    "name": "Scan the Dorgesh-Kaan mine",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgeshuun_mine.mistag",
+    "end_location_id": "location.dorgeshuun_mine.mistag",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.pursue_second_clue"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.commorb",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the Commorb near Mistag."
+    }
+  },
+  {
+    "id": "quest.wanted.pursue_third_clue",
+    "name": "Follow the last variable clue toward the rune essence mine",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgeshuun_mine.mistag",
+    "end_location_id": "location.varrock.aubury",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.scan_mine"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.commorb",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 237,
+      "max_seconds": 720
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find the revealed stop, scan it, and handle or avoid the summoned knight before the final lead."
+    },
+    "planned_outcome": {
+      "success_condition": "The chase ends at the rune essence mine lead.",
+      "if_unmet": "Follow the clue and leave the summoned knight behind if the encounter is unsafe."
+    }
+  },
+  {
+    "id": "quest.wanted.fight_solus",
+    "name": "Enter the rune essence mine and defeat Solus",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.aubury",
+    "end_location_id": "location.varrock.aubury",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.pursue_third_clue"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "item",
+          "item_id": "item.commorb",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.solus_hat",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 88,
+      "max_seconds": 185
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Aubury for a teleport, finish the confrontation and return to the shop with Solus’s hat."
+    },
+    "planned_outcome": {
+      "success_condition": "Solus is defeated and his hat is available.",
+      "if_unmet": "Bring combat gear, finish the fight and contact Savant if the hat has to be recovered."
+    }
+  },
+  {
+    "id": "quest.wanted.complete",
+    "name": "Deliver Solus’s hat to Sir Amik",
+    "activity_id": "quest.wanted",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_castle.amik_varze",
+    "end_location_id": "location.falador_castle.amik_varze",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.fight_solus"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.solus_hat",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.slayer",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.wanted.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.wanted",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive 5,000 Slayer XP and access to the White Knight armoury."
+    }
+  },
+  {
+    "id": "supply.lumbridge.fill_temple_bucket",
+    "name": "Fill a bucket at the castle kitchen",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.lumbridge.castle_courtyard",
+    "end_location_id": "location.lumbridge.castle_courtyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 25
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the water source near the castle kitchen."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.start",
+    "name": "Ask Wizard Persten about the amulet",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.al_kharid.wizard_persten",
+    "end_location_id": "location.al_kharid.wizard_persten",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.enter_the_abyss.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.runecraft",
+          "minimum_level": 10,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.temple_of_the_eye_amulet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 61
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.guardians_of_the_rift",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start after Enter the Abyss and with base Runecraft 10."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.talk_to_herbert",
+    "name": "Ask Herbert about the eye amulet",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.zamorak_mage",
+    "end_location_id": "location.varrock.zamorak_mage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.temple_of_the_eye_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show the amulet to the Mage of Zamorak in Varrock and learn what he wants."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.get_strong_tea",
+    "name": "Ask the tea seller for a strong tea",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.tea_seller",
+    "end_location_id": "location.varrock.tea_seller",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.talk_to_herbert"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.temple_of_the_eye_strong_tea",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask for the special tea for Herbert."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.give_tea",
+    "name": "Give Herbert the strong tea",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.zamorak_mage",
+    "end_location_id": "location.varrock.zamorak_mage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.get_strong_tea"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.temple_of_the_eye_strong_tea",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Herbert the tea and complete the dialogue so he can send the player to the Abyss."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.enter_abyss",
+    "name": "Take Herbert’s one-time teleport to the Abyss",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.zamorak_mage",
+    "end_location_id": "location.abyss.dark_mage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.give_tea"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.temple_of_the_eye_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket_of_water",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 29
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Accept the one-time quest teleport from Varrock into the Abyss."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.consult_dark_mage",
+    "name": "Get the Dark Mage’s attention",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.abyss.dark_mage",
+    "end_location_id": "location.abyss.dark_mage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.enter_abyss"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.temple_of_the_eye_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket_of_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the water to get his attention and show him the eye amulet."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.record_incantation",
+    "name": "Inspect the active runes and receive the incantation",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.abyss.dark_mage",
+    "end_location_id": "location.abyss.dark_mage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.consult_dark_mage"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.abyssal_incantation",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 41,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow the order shown by the Abyssal runes and ask the Dark Mage for the written incantation."
+    },
+    "planned_outcome": {
+      "success_condition": "The Dark Mage provides the incantation.",
+      "if_unmet": "Follow the current rune order shown in the quest encounter."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.return_to_persten",
+    "name": "Return the amulet to Persten",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.al_kharid.wizard_persten",
+    "end_location_id": "location.al_kharid.wizard_persten",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.record_incantation"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.abyssal_incantation",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.temple_of_the_eye_amulet",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the amulet back to Persten and show the incantation."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.teleport_to_tower",
+    "name": "Take Persten’s teleport to the Wizards’ Tower",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.al_kharid.wizard_persten",
+    "end_location_id": "location.wizards_tower.ground_ladder",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.return_to_persten"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Persten to send the player to the tower."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.show_sedridor",
+    "name": "Show the incantation to Sedridor",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.wizards_tower.sedridor",
+    "end_location_id": "location.wizards_tower.sedridor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.return_to_persten"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.abyssal_incantation",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bring the incantation to the basement archmage."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.solve_traiborn",
+    "name": "Speak to the apprentices and solve Traiborn’s puzzle",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.wizards_tower.traiborn",
+    "end_location_id": "location.wizards_tower.traiborn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.show_sedridor"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 65,
+      "max_seconds": 137
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Traiborn and the three apprentices, then answer his puzzle."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.open_portal",
+    "name": "Perform the incantation with Sedridor",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.wizards_tower.sedridor",
+    "end_location_id": "location.wizards_tower.sedridor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.solve_traiborn"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.abyssal_incantation",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 39,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return downstairs, deliver the incantation and watch the portal open."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.enter_temple",
+    "name": "Enter the quest portal to the Temple of the Eye",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.wizards_tower.sedridor",
+    "end_location_id": "location.temple_of_the_eye.tutorial",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.open_portal"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the portal and finish the arrival scene."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.investigate_temple",
+    "name": "Talk to the apprentices and investigate the temple",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.temple_of_the_eye.tutorial",
+    "end_location_id": "location.temple_of_the_eye.tutorial",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.enter_temple"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 36,
+      "expected_seconds": 81,
+      "max_seconds": 170
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Visit each apprentice, report to Persten and finish the vision and debrief."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.guardians_tutorial",
+    "name": "Complete the Guardians of the Rift tutorial",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.temple_of_the_eye.tutorial",
+    "end_location_id": "location.wizards_tower.sedridor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.investigate_temple"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.runecraft",
+        "xp_tenths": 42100
+      }
+    ],
+    "duration": {
+      "min_seconds": 83,
+      "expected_seconds": 184,
+      "max_seconds": 386
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.guardians_of_the_rift",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the provided tools if needed, craft and deposit guardian stones, and complete the tutorial. Record the combined in-quest Runecraft XP here. The tutorial returns the player to Sedridor."
+    },
+    "planned_outcome": {
+      "success_condition": "The tutorial has closed the rift and the Great Guardian’s dialogue has finished.",
+      "if_unmet": "Follow the tutorial instructions and finish the encounter before leaving."
+    }
+  },
+  {
+    "id": "quest.temple_of_the_eye.complete",
+    "name": "Report to Sedridor after the tutorial",
+    "activity_id": "quest.temple_of_the_eye",
+    "kind": "quest_stage",
+    "start_location_id": "location.wizards_tower.sedridor",
+    "end_location_id": "location.wizards_tower.sedridor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.guardians_tutorial"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.runecraft",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.medium_essence_pouch",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.temple_of_the_eye.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.guardians_of_the_rift",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sedridor grants 5,000 Runecraft XP and the medium pouch. The minigame is unlocked."
+    }
+  }
+]

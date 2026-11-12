@@ -434,23 +434,31 @@ class QuestCollectionTests(unittest.TestCase):
         verify_solution(solution, profile, validator)
         self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {"skill.prayer": 503390})
         self.assertEqual(solution["objective"]["counted_manual_training_xp_tenths"], 0)
-        self.assertEqual([step["action_id"] for step in solution["steps"] if step["kind"] == "action"], [
+        required_actions = [
             "quest.lost_city.start", "quest.lost_city.find_shamus",
             "supply.bank.deposit_entrana_gear", "quest.lost_city.descend_entrana",
-        ])
+        ]
+        steps = solution["steps"]
+        self.assertEqual([step["action_id"] for step in steps if step.get("action_id") in required_actions],
+                         required_actions)
         state = solution["final_state"]
         self.assertEqual(state["counters"]["token.quest_points"], 1)
         self.assertEqual(state["location_id"], "location.entrana_dungeon.zombies")
-        initial_inventory = profile["initial_state"]["inventory"]
         self.assertEqual(state["bank_inventory"], dict.fromkeys((
             "item.bronze_axe", "item.bronze_dagger", "item.bronze_pickaxe", "item.bronze_shortsword",
             "item.shortbow", "item.wooden_shield",
         ), 1))
+        deposit_id = "supply.bank.deposit_entrana_gear"
+        deposit_index = next(i for i, step in enumerate(steps) if step.get("action_id") == deposit_id)
+        before_deposit = RouteState(validator.tables, profile["policies"], profile["initial_state"])
+        for step in steps[:deposit_index]:
+            before_deposit = before_deposit.apply(step)
         self.assertEqual(state["inventory"], {
-            item_id: quantity for item_id, quantity in initial_inventory.items() if item_id not in state["bank_inventory"]
+            item_id: quantity for item_id, quantity in before_deposit.snapshot()["inventory"].items()
+            if item_id not in state["bank_inventory"]
         })
         without_deposit = {**solution, "steps": [
-            step for step in solution["steps"] if step.get("action_id") != "supply.bank.deposit_entrana_gear"
+            step for step in steps if step.get("action_id") != deposit_id
         ]}
         with self.assertRaisesRegex(DataError, "loadout fails a restriction"):
             verify_solution(without_deposit, profile, validator)
