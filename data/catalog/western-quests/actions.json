@@ -1,0 +1,2635 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_witchs_potion_supplies",
+    "name": "Buy cooked meat, an onion and an eye of newt",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 100
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cooked_meat",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.onion",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.eye_of_newt",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use carried coins. Budget 100 GP for the three ingredients."
+    }
+  },
+  {
+    "id": "supply.rimmington.reburn_cooked_meat",
+    "name": "Burn cooked meat on the Rimmington range",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.rimmington.hetty",
+    "end_location_id": "location.rimmington.hetty",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.cooked_meat",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.burnt_meat",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 20,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.witchs_potion",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Walk to the nearby range, use cooked meat on it again to burn it without Cooking XP, and return to Hetty."
+    }
+  },
+  {
+    "id": "quest.witchs_potion.start",
+    "name": "Ask Hetty about the potion",
+    "activity_id": "quest.witchs_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.rimmington.hetty",
+    "end_location_id": "location.rimmington.hetty",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hetty requests the four ingredients."
+    }
+  },
+  {
+    "id": "quest.witchs_potion.obtain_rat_tail",
+    "name": "Kill a small rat for its tail",
+    "activity_id": "quest.witchs_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.rimmington.small_rat",
+    "end_location_id": "location.rimmington.small_rat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.witchs_potion.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rats_tail",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 8,
+      "max_seconds": 20
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.witchs_potion",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Kill the level 1 indoor rat after starting the quest. Incidental XP depends on the combat style."
+    }
+  },
+  {
+    "id": "quest.witchs_potion.hand_in_ingredients",
+    "name": "Give Hetty the four ingredients",
+    "activity_id": "quest.witchs_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.rimmington.hetty",
+    "end_location_id": "location.rimmington.hetty",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.witchs_potion.start"
+    },
+    "consumes": [
+      {
+        "item_id": "item.rats_tail",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.burnt_meat",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.onion",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.eye_of_newt",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the cooked-and-burnt meat, eye of newt, onion and rat’s tail."
+    }
+  },
+  {
+    "id": "quest.witchs_potion.complete",
+    "name": "Drink from Hetty’s cauldron",
+    "activity_id": "quest.witchs_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.rimmington.hetty",
+    "end_location_id": "location.rimmington.hetty",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.witchs_potion.hand_in_ingredients"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 3250
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The reward is granted by drinking from the cauldron."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_witchs_house_supplies",
+    "name": "Buy cheese and food for the Witch’s experiment",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 800
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cheese",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 8
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 800 GP for the cheese and an eight-lobster combat reserve."
+    }
+  },
+  {
+    "id": "quest.witchs_house.start",
+    "name": "Ask the boy about his ball",
+    "activity_id": "quest.witchs_house",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.witchs_house_boy",
+    "end_location_id": "location.taverley.witchs_house_boy",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Starting the quest has no skill or quest gate."
+    }
+  },
+  {
+    "id": "quest.witchs_house.obtain_magnet",
+    "name": "Find the house key and retrieve the magnet",
+    "activity_id": "quest.witchs_house",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.witchs_house_front",
+    "end_location_id": "location.taverley.witchs_house_front",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.witchs_house.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 75,
+      "max_seconds": 160
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.witchs_house",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the plant pot for the door key. Read the diary, go down the ladder and pass the insulated gate wearing leather gloves. Search the nearby boxes for a pair if needed, retrieve the magnet, then go back to the entrance."
+    }
+  },
+  {
+    "id": "quest.witchs_house.enter_shed",
+    "name": "Open the garden and enter the shed",
+    "activity_id": "quest.witchs_house",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.witchs_house_front",
+    "end_location_id": "location.taverley.witchs_house_shed",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.witchs_house.obtain_magnet"
+    },
+    "consumes": [
+      {
+        "item_id": "item.cheese",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 65,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.witchs_house",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bait the mouse with cheese and attach the magnet to open the garden door. Follow the hedge to the fountain for the key, then unlock the shed."
+    },
+    "planned_outcome": {
+      "success_condition": "Avoid the witch while reaching the fountain and opening the shed.",
+      "if_unmet": "If spotted, recover lost quest items and try again. Bring another cheese if the mouse sequence must be repeated."
+    }
+  },
+  {
+    "id": "quest.witchs_house.defeat_experiment",
+    "name": "Defeat all four forms and recover the ball",
+    "activity_id": "quest.witchs_house",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.witchs_house_shed",
+    "end_location_id": "location.taverley.witchs_house_shed",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.witchs_house.enter_shed"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 8
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 95,
+      "expected_seconds": 225,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.witchs_house",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget eight lobsters for the four forms at combat levels 19, 30, 42 and 53. Suitable combat equipment and tactics determine feasibility and incidental XP."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat all four forms with a suitable combat setup, within the food reserve, and take the ball.",
+      "if_unmet": "Improve the setup, replenish food, or use a suitable ranged or magic safe spot before attempting the fight again."
+    }
+  },
+  {
+    "id": "quest.witchs_house.return_with_ball",
+    "name": "Leave the garden with the ball",
+    "activity_id": "quest.witchs_house",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.witchs_house_shed",
+    "end_location_id": "location.taverley.witchs_house_boy",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.witchs_house.defeat_experiment"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.witchs_house",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Retrace the route out of the garden to the boy."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the boy with the ball without being spotted.",
+      "if_unmet": "Recover the ball from the shed again if the witch takes it."
+    }
+  },
+  {
+    "id": "quest.witchs_house.complete",
+    "name": "Return the ball to the boy",
+    "activity_id": "quest.witchs_house",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.witchs_house_boy",
+    "end_location_id": "location.taverley.witchs_house_boy",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.witchs_house.return_with_ball"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 4
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 63250
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 6,325 Hitpoints XP and four quest points."
+    }
+  },
+  {
+    "id": "quest.murder_mystery.start",
+    "name": "Speak to the guard at Sinclair Manor",
+    "activity_id": "quest.murder_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.sinclair_manor.guard",
+    "end_location_id": "location.sinclair_manor.guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The guard authorizes the investigation."
+    }
+  },
+  {
+    "id": "quest.murder_mystery.collect_evidence",
+    "name": "Take the dagger, pot and thread from the crime scene",
+    "activity_id": "quest.murder_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.sinclair_manor.crime_scene",
+    "end_location_id": "location.sinclair_manor.crime_scene",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.murder_mystery.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 59
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick up the criminal’s dagger and pungent pot, and search the window for the thread."
+    }
+  },
+  {
+    "id": "quest.murder_mystery.match_fingerprints",
+    "name": "Match the fingerprints to a suspect",
+    "activity_id": "quest.murder_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.sinclair_manor.crime_scene",
+    "end_location_id": "location.sinclair_manor.guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.murder_mystery.collect_evidence"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 110,
+      "max_seconds": 250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.murder_mystery",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the kitchen flour barrel and two pieces of flypaper from the shed. Find the suspect’s silver item in the barrel associated with the thread, then lift and compare its print and the dagger’s print. Retain the empty pot."
+    },
+    "planned_outcome": {
+      "success_condition": "Compare a matching suspect print with the dagger print.",
+      "if_unmet": "Check the thread and eligible suspect barrels again until the prints match."
+    }
+  },
+  {
+    "id": "quest.murder_mystery.question_gossip",
+    "name": "Ask Gossip about the murder",
+    "activity_id": "quest.murder_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.sinclair_manor.guard",
+    "end_location_id": "location.sinclair_manor.guard",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.murder_mystery.match_fingerprints"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find Gossip immediately south of the gate and return to the guard waypoint."
+    }
+  },
+  {
+    "id": "quest.murder_mystery.question_poison_salesman",
+    "name": "Ask the poison salesman about his customers and the pot",
+    "activity_id": "quest.murder_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.seers_village.poison_salesman",
+    "end_location_id": "location.seers_village.poison_salesman",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.murder_mystery.question_gossip"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask who bought poison and show the pungent pot for separate corroboration."
+    }
+  },
+  {
+    "id": "quest.murder_mystery.verify_suspect",
+    "name": "Question the matching suspect and check their account",
+    "activity_id": "quest.murder_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.sinclair_manor.guard",
+    "end_location_id": "location.sinclair_manor.guard",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.murder_mystery.question_poison_salesman"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 38,
+      "max_seconds": 95
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.murder_mystery",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to the identified suspect inside the manor and search the object associated with their alibi."
+    }
+  },
+  {
+    "id": "quest.murder_mystery.complete",
+    "name": "Present the proof to the Sinclair Manor guard",
+    "activity_id": "quest.murder_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.sinclair_manor.guard",
+    "end_location_id": "location.sinclair_manor.guard",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.murder_mystery.verify_suspect"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 3
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 14060
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 2000
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The guard awards Crafting XP, 2,000 coins and three quest points."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_plague_city_supplies",
+    "name": "Buy the tradeable Plague City ingredients",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1100
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dwellberries",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.chocolate_dust",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.snape_grass",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 34,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 1,100 GP for dwellberries, rope and Bravek’s three cure ingredients."
+    }
+  },
+  {
+    "id": "quest.plague_city.start",
+    "name": "Offer to find Edmond’s daughter",
+    "activity_id": "quest.plague_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.edmond",
+    "end_location_id": "location.ardougne.edmond",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Edmond by his garden."
+    }
+  },
+  {
+    "id": "quest.plague_city.make_gas_mask",
+    "name": "Get a gas mask and Elena’s picture",
+    "activity_id": "quest.plague_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.edmond",
+    "end_location_id": "location.ardougne.edmond",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.plague_city.start"
+    },
+    "consumes": [
+      {
+        "item_id": "item.dwellberries",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.gas_mask",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 51
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.plague_city",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Alrena dwellberries, take the picture from her table, and return to Edmond."
+    }
+  },
+  {
+    "id": "quest.plague_city.dig_into_sewer",
+    "name": "Soften the mud and dig into the sewer",
+    "activity_id": "quest.plague_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.edmond",
+    "end_location_id": "location.ardougne.plague_city_sewer",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.plague_city.make_gas_mask"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 74,
+      "max_seconds": 148
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.plague_city",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick up the garden spade and empty bucket, or use ones already carried. Fill the bucket at the sink and use it on the mud patch four times. Dig with the spade and enter the sewer."
+    }
+  },
+  {
+    "id": "quest.plague_city.open_sewer_grille",
+    "name": "Open the grille and climb through to West Ardougne",
+    "activity_id": "quest.plague_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.plague_city_sewer",
+    "end_location_id": "location.west_ardougne.manhole",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.plague_city.dig_into_sewer"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gas_mask",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Try the grille, attach the rope and ask Edmond to pull. Wear the gas mask to use the pipe."
+    }
+  },
+  {
+    "id": "quest.plague_city.find_elena",
+    "name": "Follow Jethick and Milli’s leads to the marked house",
+    "activity_id": "quest.plague_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.west_ardougne.manhole",
+    "end_location_id": "location.west_ardougne.plague_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.plague_city.open_sewer_grille"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gas_mask",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 92,
+      "max_seconds": 190
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.plague_city",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show the picture to Jethick and follow the lead to the Rehnisons. Ask Milli upstairs, then try the plague house and learn that a warrant is required."
+    }
+  },
+  {
+    "id": "quest.plague_city.obtain_warrant",
+    "name": "Make Bravek’s cure and obtain a warrant",
+    "activity_id": "quest.plague_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.west_ardougne.bravek",
+    "end_location_id": "location.west_ardougne.bravek",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.plague_city.find_elena"
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.chocolate_dust",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.snape_grass",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 36,
+      "max_seconds": 78
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the clerk for access to Bravek. Mix chocolate dust into the milk and add snape grass, then give Bravek the cure and request a warrant."
+    }
+  },
+  {
+    "id": "quest.plague_city.rescue_elena",
+    "name": "Unlock Elena’s cell and return to the street",
+    "activity_id": "quest.plague_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.west_ardougne.plague_house",
+    "end_location_id": "location.west_ardougne.plague_house",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.plague_city.obtain_warrant"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 40,
+      "max_seconds": 94
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the warrant to enter the house, search the barrel for the cell key, and free Elena downstairs."
+    }
+  },
+  {
+    "id": "quest.plague_city.leave_west_ardougne",
+    "name": "Return to Edmond through the manhole and mud tunnel",
+    "activity_id": "quest.plague_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.west_ardougne.manhole",
+    "end_location_id": "location.ardougne.edmond",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.plague_city.rescue_elena"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 34,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the manhole and climb the mud pile to Edmond’s garden."
+    }
+  },
+  {
+    "id": "quest.plague_city.complete",
+    "name": "Tell Edmond that Elena has escaped",
+    "activity_id": "quest.plague_city",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.edmond",
+    "end_location_id": "location.ardougne.edmond",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.plague_city.leave_west_ardougne"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 24250
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ardougne_teleport_scroll",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Edmond awards Mining XP, a quest point and the unread teleport scroll."
+    }
+  },
+  {
+    "id": "quest.plague_city.read_ardougne_teleport_scroll",
+    "name": "Read Edmond’s Ardougne teleport scroll",
+    "activity_id": "quest.plague_city",
+    "kind": "reward_claim",
+    "start_location_id": "location.ardougne.edmond",
+    "end_location_id": "location.ardougne.edmond",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.plague_city.complete"
+    },
+    "consumes": [
+      {
+        "item_id": "item.ardougne_teleport_scroll",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.ardougne_teleport",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 4,
+      "max_seconds": 11
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.plague_city",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the scroll to unlock the spell and teleport tablets."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_ardougne_teleport_tablet",
+    "name": "Buy an Ardougne teleport tablet",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 510
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ardougne_teleport_tablet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 2,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 510 GP for a single tablet. Activation requires reading Edmond’s scroll."
+    }
+  },
+  {
+    "id": "quest.biohazard.start",
+    "name": "Offer to recover Elena’s distillator",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.elena",
+    "end_location_id": "location.ardougne.elena",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.plague_city.complete"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.biohazard",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Requires Plague City. The earlier sewer entry is unavailable for this part of Biohazard."
+    }
+  },
+  {
+    "id": "quest.biohazard.collect_birds",
+    "name": "Collect Jerico’s bird feed and pigeon cage",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.jerico",
+    "end_location_id": "location.ardougne.jerico",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.biohazard.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Jerico, search his cupboard and collect a pigeon cage behind the house."
+    }
+  },
+  {
+    "id": "quest.biohazard.distract_watchtower",
+    "name": "Scatter feed and release the pigeons by the watchtower",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.biohazard_watchtower",
+    "end_location_id": "location.ardougne.biohazard_watchtower",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.biohazard.collect_birds"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.biohazard",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Check with Omart if required, place the feed and release the pigeons from the southeast corner."
+    }
+  },
+  {
+    "id": "quest.biohazard.cross_wall",
+    "name": "Ask Omart to cross the wall using the rope ladder",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.omart",
+    "end_location_id": "location.west_ardougne.kilron",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.biohazard.distract_watchtower"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gas_mask",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Go over the wall with Omart and Kilron’s help."
+    }
+  },
+  {
+    "id": "quest.biohazard.spoil_stew",
+    "name": "Spoil the Mourners’ stew with the rotten apple",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.west_ardougne.mourner_hq",
+    "end_location_id": "location.west_ardougne.mourner_hq",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.biohazard.cross_wall"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 46,
+      "max_seconds": 98
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Squeeze through the fence, take the apple, add it to the cauldron and return to the entrance to learn that a doctor is needed."
+    }
+  },
+  {
+    "id": "quest.biohazard.collect_medical_gown",
+    "name": "Search Sarah’s cupboard for the medical gown",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.west_ardougne.sarah",
+    "end_location_id": "location.west_ardougne.sarah",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.biohazard.spoil_stew"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.medical_gown",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 11,
+      "max_seconds": 24
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The medical gown is distinct from the two-piece priest outfit used in Varrock."
+    }
+  },
+  {
+    "id": "quest.biohazard.recover_distillator",
+    "name": "Use the medical disguise and recover the distillator",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.west_ardougne.mourner_hq",
+    "end_location_id": "location.west_ardougne.mourner_hq",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.biohazard.collect_medical_gown"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.medical_gown",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.distillator",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 64,
+      "max_seconds": 155
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.biohazard",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear the gown, enter and go upstairs. Defeat the Mourner, unlock the cage with the dropped key, search the crate, then go back downstairs."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Mourner and leave the building with the distillator.",
+      "if_unmet": "Use a suitable weapon and food if needed. Retry the fight before continuing."
+    }
+  },
+  {
+    "id": "quest.biohazard.leave_west_ardougne",
+    "name": "Ask Kilron to return to East Ardougne",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.west_ardougne.kilron",
+    "end_location_id": "location.ardougne.omart",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.biohazard.recover_distillator"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the rope ladder with Kilron."
+    }
+  },
+  {
+    "id": "quest.biohazard.reach_chemist",
+    "name": "Exchange the distillator for samples and take the ship to Rimmington",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.elena",
+    "end_location_id": "location.rimmington.biohazard_chemist",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.biohazard.leave_west_ardougne"
+    },
+    "consumes": [
+      {
+        "item_id": "item.distillator",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.coins",
+        "quantity": 30
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 75,
+      "expected_seconds": 132,
+      "max_seconds": 235
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.biohazard",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the plague sample and three vials from Elena. Walk to the Ardougne dock, pay Captain Barnaby 30 GP, then walk to the Chemist. This is one continuous non-teleport leg while the materials are carried."
+    }
+  },
+  {
+    "id": "quest.biohazard.smuggle_reagents",
+    "name": "Arrange the reagent handoffs and walk to southeast Varrock",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.rimmington.biohazard_chemist",
+    "end_location_id": "location.varrock.biohazard_inn",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.biohazard.reach_chemist"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 222,
+      "expected_seconds": 368,
+      "max_seconds": 670
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.biohazard",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get touch paper by asking about Guidor, then give broline to Hops, liquid honey to Chancy and ethenea to Da Vinci. Walk via Falador and southern Varrock to the southeast gate without teleporting with the sample. Recover the vials at the Dancing Donkey Inn after the gate check."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the inn with the plague sample and touch paper and recover all three vials.",
+      "if_unmet": "If a vial or sample breaks, return to Elena for replacements and repeat the appropriate handoffs."
+    }
+  },
+  {
+    "id": "quest.biohazard.claim_priest_gown",
+    "name": "Get Asyff’s one-time free priest outfit",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.asyff",
+    "end_location_id": "location.varrock.asyff",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.biohazard.smuggle_reagents"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.priest_gown_top",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.priest_gown_bottom",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 13,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.biohazard",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The tailor offers one free set during the quest."
+    }
+  },
+  {
+    "id": "quest.biohazard.test_sample",
+    "name": "Wear the priest outfit and have Guidor test the sample",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.biohazard_inn",
+    "end_location_id": "location.varrock.guidor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.biohazard.smuggle_reagents"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.priest_gown_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.priest_gown_bottom",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 38,
+      "max_seconds": 81
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.biohazard",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Walk to Guidor’s house, wear the two pieces so his wife lets you in, and hand Guidor the touch paper, plague sample and recovered reagents."
+    }
+  },
+  {
+    "id": "quest.biohazard.report_to_elena",
+    "name": "Tell Elena the plague is a hoax",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.elena",
+    "end_location_id": "location.ardougne.elena",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.biohazard.test_sample"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to Elena after Guidor’s test. Fragile items have already been handed over."
+    }
+  },
+  {
+    "id": "quest.biohazard.complete",
+    "name": "Report to King Lathas",
+    "activity_id": "quest.biohazard",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.king_lathas",
+    "end_location_id": "location.ardougne.king_lathas",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.biohazard.report_to_elena"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 3
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 12500
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.west_ardougne_gate",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.ardougne_combat_training_camp",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.biohazard",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards Thieving XP and unlocks the main West Ardougne gate and combat training camp."
+    }
+  },
+  {
+    "id": "supply.ardougne.fill_clock_tower_bucket",
+    "name": "Fill a bucket at the well by Brother Cedric",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.ardougne_monastery.cedric",
+    "end_location_id": "location.ardougne_monastery.cedric",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 13,
+      "max_seconds": 27
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.clock_tower",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take the bucket beside the well and fill it with water."
+    }
+  },
+  {
+    "id": "quest.clock_tower.start",
+    "name": "Ask Brother Kojo about the missing cogs",
+    "activity_id": "quest.clock_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.clock_tower_kojo",
+    "end_location_id": "location.ardougne.clock_tower_kojo",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "There are no skill or quest requirements."
+    }
+  },
+  {
+    "id": "quest.clock_tower.install_red_cog",
+    "name": "Collect the red cog and install it on the ground floor",
+    "activity_id": "quest.clock_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.clock_tower_basement",
+    "end_location_id": "location.ardougne.clock_tower_kojo",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.clock_tower.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 70,
+      "max_seconds": 155
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.clock_tower",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow the red door to the cog past the ogres, then return to the tower and use it on the red spindle."
+    }
+  },
+  {
+    "id": "quest.clock_tower.install_blue_cog",
+    "name": "Collect the blue cog via the well-side ladder and install it upstairs",
+    "activity_id": "quest.clock_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne_monastery.cedric",
+    "end_location_id": "location.ardougne.clock_tower_kojo",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.clock_tower.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 82,
+      "max_seconds": 164
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.clock_tower",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Go down the ladder east of Cedric, push the wall at the end of the tunnel and take the cog. Climb into the tower and place the cog on the first-floor blue spindle."
+    }
+  },
+  {
+    "id": "quest.clock_tower.install_black_cog",
+    "name": "Use the bucket of water to recover and install the black cog",
+    "activity_id": "quest.clock_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.clock_tower_basement",
+    "end_location_id": "location.ardougne.clock_tower_basement",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.clock_tower.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket_of_water",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 57,
+      "max_seconds": 127
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.clock_tower",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the black route. Use the water on the hot cog if prompted, then place the cog on the basement spindle."
+    }
+  },
+  {
+    "id": "quest.clock_tower.install_white_cog",
+    "name": "Poison the dungeon rats and install the white cog",
+    "activity_id": "quest.clock_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.clock_tower_basement",
+    "end_location_id": "location.ardougne.clock_tower_kojo",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.clock_tower.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 86,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.clock_tower",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take the poison, operate the rat gates, and put the poison in the trough. Wait for the rats to die, retrieve the white cog and climb up to the second-floor spindle before returning to Kojo."
+    }
+  },
+  {
+    "id": "quest.clock_tower.complete",
+    "name": "Report the repaired clock to Brother Kojo",
+    "activity_id": "quest.clock_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.clock_tower_kojo",
+    "end_location_id": "location.ardougne.clock_tower_kojo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.clock_tower.install_red_cog"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.clock_tower.install_blue_cog"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.clock_tower.install_black_cog"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.clock_tower.install_white_cog"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 500
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 10000
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Build 242 awards 1,000 Firemaking XP alongside the existing coins and quest point."
+    }
+  },
+  {
+    "id": "quest.hazeel_cult.start",
+    "name": "Ask Ceril Carnillean about his missing armour",
+    "activity_id": "quest.hazeel_cult",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.carnillean_house",
+    "end_location_id": "location.ardougne.carnillean_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start by speaking to Ceril in his house."
+    }
+  },
+  {
+    "id": "quest.hazeel_cult.side_with_clivet",
+    "name": "Accept Clivet’s offer and collect the poison",
+    "activity_id": "quest.hazeel_cult",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.hazeel_cave",
+    "end_location_id": "location.ardougne.hazeel_cave",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.hazeel_cult.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 35,
+      "max_seconds": 79
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.hazeel_cult",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the cave, choose to side with Clivet, collect the poison and return to the surface."
+    }
+  },
+  {
+    "id": "quest.hazeel_cult.poison_range",
+    "name": "Use the poison on the kitchen range and speak to Ceril",
+    "activity_id": "quest.hazeel_cult",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.carnillean_house",
+    "end_location_id": "location.ardougne.carnillean_house",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.hazeel_cult.side_with_clivet"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 39,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.hazeel_cult",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the basement kitchen and poison the range. Come back upstairs and confirm the result with Ceril."
+    }
+  },
+  {
+    "id": "quest.hazeel_cult.set_valves",
+    "name": "Set the five sewer valves for Clivet’s raft",
+    "activity_id": "quest.hazeel_cult",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.hazeel_cave",
+    "end_location_id": "location.ardougne.hazeel_cave",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.hazeel_cult.poison_range"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 68,
+      "expected_seconds": 132,
+      "max_seconds": 250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.hazeel_valves",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Turn the valves west of Clock Tower, by the Carnillean home, east of Clock Tower, by the zoo and north of the monastery right, right, left, right and right. Return to the cave entrance."
+    }
+  },
+  {
+    "id": "quest.hazeel_cult.meet_alomone",
+    "name": "Get Hazeel’s mark and take the raft to Alomone",
+    "activity_id": "quest.hazeel_cult",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.hazeel_cave",
+    "end_location_id": "location.ardougne.hazeel_hideout",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.hazeel_cult.set_valves"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hazeels_mark",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 44,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.hazeel_cult",
+        "source.quest_helper.hazeel_valves",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Clivet for the mark, board the raft and speak to Alomone about the scroll."
+    }
+  },
+  {
+    "id": "quest.hazeel_cult.return_to_surface",
+    "name": "Return on the raft to the cave entrance",
+    "activity_id": "quest.hazeel_cult",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.hazeel_hideout",
+    "end_location_id": "location.ardougne.hazeel_cave",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.hazeel_cult.meet_alomone"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return on the raft and climb the stairs to the surface."
+    }
+  },
+  {
+    "id": "quest.hazeel_cult.find_scroll",
+    "name": "Get the cellar key and recover the Hazeel scroll",
+    "activity_id": "quest.hazeel_cult",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.carnillean_house",
+    "end_location_id": "location.ardougne.carnillean_house",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.hazeel_cult.return_to_surface"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 54,
+      "max_seconds": 119
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.hazeel_cult",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the basement crate for a key. Knock on the hidden upstairs wall, climb the ladder and unlock the attic chest, then leave the house."
+    }
+  },
+  {
+    "id": "quest.hazeel_cult.return_with_scroll",
+    "name": "Take the raft back to Alomone with the scroll",
+    "activity_id": "quest.hazeel_cult",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.hazeel_cave",
+    "end_location_id": "location.ardougne.hazeel_hideout",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.hazeel_cult.find_scroll"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.hazeel_valves",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Board the raft and approach Alomone. If needed, reset the same five valves."
+    }
+  },
+  {
+    "id": "quest.hazeel_cult.complete",
+    "name": "Give Alomone the scroll",
+    "activity_id": "quest.hazeel_cult",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.hazeel_hideout",
+    "end_location_id": "location.ardougne.hazeel_hideout",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.hazeel_cult.return_with_scroll"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 2000
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 23,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.hazeel_cult",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Complete the cultist branch. The mark is received earlier from Clivet."
+    }
+  },
+  {
+    "id": "quest.sheep_herder.start",
+    "name": "Speak to Halgrive about the plagued sheep",
+    "activity_id": "quest.sheep_herder",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.halgrive",
+    "end_location_id": "location.ardougne.halgrive",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Halgrive supplies the poisoned sheep feed."
+    }
+  },
+  {
+    "id": "quest.sheep_herder.buy_suit",
+    "name": "Buy Doctor Orbon’s plague outfit",
+    "activity_id": "quest.sheep_herder",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.orbon",
+    "end_location_id": "location.ardougne.orbon",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.sheep_herder.start"
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 100
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 33
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay 100 coins for the plague jacket and trousers."
+    }
+  },
+  {
+    "id": "quest.sheep_herder.collect_cattleprod",
+    "name": "Wear the outfit and collect the cattleprod",
+    "activity_id": "quest.sheep_herder",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.sheep_enclosure",
+    "end_location_id": "location.ardougne.sheep_enclosure",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.sheep_herder.buy_suit"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Equip the jacket and trousers, enter the enclosure and collect the cattleprod near the furnace."
+    }
+  },
+  {
+    "id": "quest.sheep_herder.dispose_red_sheep",
+    "name": "Herd and dispose of one red sheep",
+    "activity_id": "quest.sheep_herder",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.sheep_enclosure",
+    "end_location_id": "location.ardougne.sheep_enclosure",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.sheep_herder.collect_cattleprod"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 85,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.sheep_herder",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prod a red sheep from southeast of the enclosure through the gate. Use Halgrive’s feed and incinerate its bones before doing the next color."
+    },
+    "planned_outcome": {
+      "success_condition": "The red sheep’s bones are incinerated.",
+      "if_unmet": "If the sheep wanders away or resets, guide it through the gate again before feeding it."
+    }
+  },
+  {
+    "id": "quest.sheep_herder.dispose_green_sheep",
+    "name": "Herd and dispose of one green sheep",
+    "activity_id": "quest.sheep_herder",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.sheep_enclosure",
+    "end_location_id": "location.ardougne.sheep_enclosure",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.sheep_herder.collect_cattleprod"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 93,
+      "max_seconds": 230
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.sheep_herder",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prod a green sheep from east of the enclosure through the gate. Use Halgrive’s feed and incinerate its bones before doing the next color."
+    },
+    "planned_outcome": {
+      "success_condition": "The green sheep’s bones are incinerated.",
+      "if_unmet": "If the sheep wanders away or resets, guide it through the gate again before feeding it."
+    }
+  },
+  {
+    "id": "quest.sheep_herder.dispose_blue_sheep",
+    "name": "Herd and dispose of one blue sheep",
+    "activity_id": "quest.sheep_herder",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.sheep_enclosure",
+    "end_location_id": "location.ardougne.sheep_enclosure",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.sheep_herder.collect_cattleprod"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 112,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.sheep_herder",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prod a blue sheep from northwest of the enclosure through the gate. Use Halgrive’s feed and incinerate its bones before doing the next color."
+    },
+    "planned_outcome": {
+      "success_condition": "The blue sheep’s bones are incinerated.",
+      "if_unmet": "If the sheep wanders away or resets, guide it through the gate again before feeding it."
+    }
+  },
+  {
+    "id": "quest.sheep_herder.dispose_yellow_sheep",
+    "name": "Herd and dispose of one yellow sheep",
+    "activity_id": "quest.sheep_herder",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.sheep_enclosure",
+    "end_location_id": "location.ardougne.sheep_enclosure",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.sheep_herder.collect_cattleprod"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 43,
+      "expected_seconds": 96,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.sheep_herder",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prod a yellow sheep from north of the enclosure through the gate. Use Halgrive’s feed and incinerate its bones before doing the next color."
+    },
+    "planned_outcome": {
+      "success_condition": "The yellow sheep’s bones are incinerated.",
+      "if_unmet": "If the sheep wanders away or resets, guide it through the gate again before feeding it."
+    }
+  },
+  {
+    "id": "quest.sheep_herder.complete",
+    "name": "Report the four disposed sheep to Halgrive",
+    "activity_id": "quest.sheep_herder",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.halgrive",
+    "end_location_id": "location.ardougne.halgrive",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sheep_herder.dispose_red_sheep"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sheep_herder.dispose_green_sheep"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sheep_herder.dispose_blue_sheep"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sheep_herder.dispose_yellow_sheep"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 4
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 3100
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hunter",
+        "xp_tenths": 10000
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Build 242 awards 1,000 Hunter XP alongside 3,100 coins and four quest points."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_west_ardougne_teleport_tablet",
+    "name": "Buy a West Ardougne teleport tablet",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 4600
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.west_ardougne_teleport_tablet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 2,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.shortest_path.ardougne_tablets",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 4,600 GP for a single tablet. Requires Biohazard to break the tablet."
+    }
+  }
+]

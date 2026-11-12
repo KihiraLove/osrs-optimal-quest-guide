@@ -1,5 +1,275 @@
 [
   {
+    "id": "review.quest.witchs_potion.completion_rewards",
+    "activity_id": "quest.witchs_potion",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.witchs_potion"
+    ],
+    "catalog_ids": [
+      "quest.witchs_potion.complete"
+    ],
+    "expected_effects": {
+      "quest.witchs_potion.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.magic",
+          "xp_tenths": 3250
+        }
+      ]
+    },
+    "note": "Magic XP and the quest point arrive when the player drinks the potion."
+  },
+  {
+    "id": "review.quest.witchs_house.completion_rewards",
+    "activity_id": "quest.witchs_house",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.witchs_house"
+    ],
+    "catalog_ids": [
+      "quest.witchs_house.complete"
+    ],
+    "expected_effects": {
+      "quest.witchs_house.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 4
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.hitpoints",
+          "xp_tenths": 63250
+        }
+      ]
+    },
+    "note": "Completion XP is separate from variable combat XP in the shed."
+  },
+  {
+    "id": "review.quest.murder_mystery.completion_rewards",
+    "activity_id": "quest.murder_mystery",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.murder_mystery"
+    ],
+    "catalog_ids": [
+      "quest.murder_mystery.complete"
+    ],
+    "expected_effects": {
+      "quest.murder_mystery.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 3
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.crafting",
+          "xp_tenths": 14060
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 2000
+        }
+      ]
+    },
+    "note": "The culprit determines the evidence interactions. The completion rewards are fixed."
+  },
+  {
+    "id": "review.quest.plague_city.completion_rewards",
+    "activity_id": "quest.plague_city",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.plague_city"
+    ],
+    "catalog_ids": [
+      "quest.plague_city.complete",
+      "quest.plague_city.read_ardougne_teleport_scroll"
+    ],
+    "expected_effects": {
+      "quest.plague_city.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.mining",
+          "xp_tenths": 24250
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ardougne_teleport_scroll",
+          "quantity": 1
+        }
+      ],
+      "quest.plague_city.read_ardougne_teleport_scroll": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.ardougne_teleport",
+          "value": true
+        }
+      ]
+    },
+    "note": "The Mining XP and scroll are completion rewards. Reading the scroll separately unlocks travel."
+  },
+  {
+    "id": "review.quest.biohazard.completion_rewards",
+    "activity_id": "quest.biohazard",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.biohazard"
+    ],
+    "catalog_ids": [
+      "quest.biohazard.complete"
+    ],
+    "expected_effects": {
+      "quest.biohazard.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 3
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.thieving",
+          "xp_tenths": 12500
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.west_ardougne_gate",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.ardougne_combat_training_camp",
+          "value": true
+        }
+      ]
+    },
+    "note": "The sample route preserves the fragile materials through both transport legs. The permanent access and XP rewards arrive at King Lathas."
+  },
+  {
+    "id": "review.quest.clock_tower.completion_rewards",
+    "activity_id": "quest.clock_tower",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.clock_tower",
+      "source.jagex.quest_month_2026_11_03"
+    ],
+    "catalog_ids": [
+      "quest.clock_tower.complete"
+    ],
+    "expected_effects": {
+      "quest.clock_tower.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 500
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.firemaking",
+          "xp_tenths": 10000
+        }
+      ]
+    },
+    "note": "The 1,000 Firemaking XP comes from the build 242 publisher reward update."
+  },
+  {
+    "id": "review.quest.hazeel_cult.completion_rewards",
+    "activity_id": "quest.hazeel_cult",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.hazeel_cult",
+      "source.quest_helper.hazeel_valves"
+    ],
+    "catalog_ids": [
+      "quest.hazeel_cult.meet_alomone",
+      "quest.hazeel_cult.complete"
+    ],
+    "expected_effects": {
+      "quest.hazeel_cult.meet_alomone": [
+        {
+          "kind": "item",
+          "item_id": "item.hazeels_mark",
+          "quantity": 1
+        }
+      ],
+      "quest.hazeel_cult.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.thieving",
+          "xp_tenths": 15000
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 2000
+        }
+      ]
+    },
+    "note": "Models the cultist path. The alternate Carnillean path and its 2,005 coins and armour are recorded for later collection."
+  },
+  {
+    "id": "review.quest.sheep_herder.completion_rewards",
+    "activity_id": "quest.sheep_herder",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.sheep_herder",
+      "source.jagex.quest_month_2026_11_03"
+    ],
+    "catalog_ids": [
+      "quest.sheep_herder.complete"
+    ],
+    "expected_effects": {
+      "quest.sheep_herder.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 4
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 3100
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.hunter",
+          "xp_tenths": 10000
+        }
+      ]
+    },
+    "note": "The 1,000 Hunter XP comes from the build 242 publisher reward update. The 100 GP fee is paid before herding."
+  },
+  {
     "id": "review.rfd.freeing_evil_dave.completion_rewards",
     "activity_id": "rfd.freeing_evil_dave",
     "status": "collected",

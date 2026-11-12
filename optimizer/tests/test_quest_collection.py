@@ -41,6 +41,117 @@ class QuestCollectionTests(unittest.TestCase):
         variants = {row["helper_symbol"] for row in self.observations["quest.shield_of_arrav"]}
         self.assertEqual(variants, {"SHIELD_OF_ARRAV_BLACK_ARM_GANG", "SHIELD_OF_ARRAV_PHOENIX_GANG"})
 
+    def test_plague_city_unlocks_travel_separately_and_biohazard_preserves_samples(self):
+        validator = CatalogValidator(self.catalog, self.contracts)
+        baseline = read_json(DATA / "profiles/main-baseline.json")
+        initial = baseline["initial_state"]
+        initial["location_id"] = "location.ardougne.edmond"
+        initial["inventory"].update({
+            "item.coins": 30,
+            "item.dwellberries": 1,
+            "item.rope": 1,
+            "item.bucket_of_milk": 1,
+            "item.chocolate_dust": 1,
+            "item.snape_grass": 1,
+            "item.law_rune": 2,
+        })
+        initial["xp_tenths"]["skill.magic"] = 1200000
+        policies = baseline["policies"]
+        state = RouteState(validator.tables, policies, initial)
+
+        def apply_ids(state, ids):
+            for record_id in ids:
+                travel = record_id.startswith("travel.")
+                record = validator.tables["travel_edges" if travel else "actions"][record_id]
+                step = {
+                    "kind": "travel" if travel else "action",
+                    "edge_id" if travel else "action_id": record_id,
+                    "modeled_seconds": record["duration"]["expected_seconds"],
+                }
+                if "planned_outcome" in record:
+                    step["planned_outcome"] = record["planned_outcome"]
+                state = state.apply(step, record_id)
+            return state
+
+        state = apply_ids(state, (
+            "quest.plague_city.start",
+            "quest.plague_city.make_gas_mask",
+            "quest.plague_city.dig_into_sewer",
+            "quest.plague_city.open_sewer_grille",
+            "quest.plague_city.find_elena",
+            "travel.walk.west_ardougne.plague_house.back",
+            "travel.walk.west_ardougne.bravek.out",
+            "quest.plague_city.obtain_warrant",
+            "travel.walk.west_ardougne.bravek.back",
+            "travel.walk.west_ardougne.plague_house.out",
+            "quest.plague_city.rescue_elena",
+            "travel.walk.west_ardougne.plague_house.back",
+            "quest.plague_city.leave_west_ardougne",
+            "quest.plague_city.complete",
+        ))
+        self.assertEqual(state.snapshot()["inventory"]["item.ardougne_teleport_scroll"], 1)
+        varrock = {**state.snapshot(), "location_id": "location.varrock.square"}
+        with self.assertRaisesRegex(DataError, "flag"):
+            apply_ids(RouteState(validator.tables, policies, varrock), ("travel.spell.varrock.ardougne",))
+
+        state = apply_ids(state, (
+            "quest.plague_city.read_ardougne_teleport_scroll",
+            "travel.walk.ardougne.elena.out",
+            "quest.biohazard.start",
+            "travel.walk.ardougne.jerico.out",
+            "quest.biohazard.collect_birds",
+            "travel.walk.ardougne.biohazard_watchtower.out",
+        ))
+        with self.assertRaisesRegex(DataError, "flag"):
+            apply_ids(state, ("travel.walk.ardougne.main_gate.out",))
+        state = apply_ids(state, (
+            "quest.biohazard.distract_watchtower",
+            "travel.walk.ardougne.omart.out",
+            "quest.biohazard.cross_wall",
+            "travel.walk.west_ardougne.mourner_hq.out",
+            "quest.biohazard.spoil_stew",
+            "travel.walk.west_ardougne.sarah.out",
+            "quest.biohazard.collect_medical_gown",
+            "travel.walk.west_ardougne.sarah.back",
+            "quest.biohazard.recover_distillator",
+            "travel.walk.west_ardougne.mourner_hq.back",
+            "quest.biohazard.leave_west_ardougne",
+            "travel.walk.ardougne.elena_wall.out",
+            "quest.biohazard.reach_chemist",
+            "quest.biohazard.smuggle_reagents",
+        ))
+        with self.assertRaisesRegex(DataError, "required"):
+            apply_ids(state, ("quest.biohazard.test_sample",))
+        state = apply_ids(state, (
+            "travel.walk.varrock.asyff.out",
+            "quest.biohazard.claim_priest_gown",
+            "travel.walk.varrock.asyff.back",
+            "quest.biohazard.test_sample",
+            "travel.walk.varrock.guidor.out",
+            "travel.walk.varrock.aubury.back",
+            "travel.spell.varrock.ardougne",
+            "travel.walk.ardougne.edmond.out",
+            "travel.walk.ardougne.elena.out",
+            "quest.biohazard.report_to_elena",
+            "travel.walk.ardougne.elena_wall.back",
+            "travel.walk.ardougne.castle.out",
+            "travel.walk.ardougne.king_lathas.out",
+            "quest.biohazard.complete",
+            "travel.walk.ardougne.king_lathas.back",
+            "travel.walk.ardougne.castle.back",
+            "travel.walk.ardougne.omart.back",
+            "travel.walk.ardougne.main_gate.out",
+        ))
+        final = state.snapshot()
+        self.assertEqual(final["location_id"], "location.west_ardougne.manhole")
+        self.assertEqual(final["counters"]["token.quest_points"], 5)
+        self.assertEqual(final["xp_tenths"]["skill.mining"], 24250)
+        self.assertEqual(final["xp_tenths"]["skill.thieving"], 12500)
+        self.assertEqual(final["xp_tenths"]["skill.magic"], 1200610)
+        self.assertNotIn("item.coins", final["inventory"])
+        self.assertNotIn("item.ardougne_teleport_scroll", final["inventory"])
+        self.assertTrue(final["flags"]["unlock.ardougne_combat_training_camp"])
+
     def test_evil_dave_replays_both_pet_forms_and_requires_an_approved_stew(self):
         quest = "rfd.freeing_evil_dave"
         validator = CatalogValidator(self.catalog, self.contracts)

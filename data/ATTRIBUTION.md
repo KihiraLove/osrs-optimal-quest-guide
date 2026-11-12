@@ -51,6 +51,10 @@ original descriptions of findings. The data uses pinned upstream sources.
 - Freeing Evil Dave uses pinned Quest Helper, OSRS Guide and Slayermusiq1 for
   the stew sequence, Shortest Path for the cellar and D.K.R., and Jagex's
   announcement for the post-quest behemoth gate.
+- The eight western quests use pinned Quest Helper and RuneLite metadata,
+  gameplay walkthroughs and a Sheep Herder capture. Shortest Path records
+  the Rimmington ferry and Kandarin teleport arrivals. Jagex's build 242
+  Quest Month announcement supplies Clock Tower and Sheep Herder XP.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

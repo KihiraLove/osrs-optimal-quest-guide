@@ -1,10 +1,9 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.24.0` loads 24 skill tables and
-284 draft actions, including Shadow of the Storm, The Golem, Demon Slayer,
-Gertrude's Cat, Big Chompy Bird Hunting, six Recipe for Disaster stages, Lost City,
-The Restless Ghost, the museum route and Enlightened Journey.
+3 November 2026 at 10:00:06 UTC. Dataset `0.25.0` loads 24 skill tables and
+355 draft actions across 35 journal activities, the museum route and travel
+networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
 waypoints belongs to the travel graph. An action description identifies any
@@ -91,6 +90,14 @@ taste tests. The route reserves nine plain stews and six doses of each colour,
 then carries the approved bowl to the feast. It includes fairy ring D.K.R.
 and a Lumbridge Teleport from the cellar. Behemoth access unlocks at completion.
 Hunt durations, active follower growth and actual supply use remain in review.
+
+The [western quest review](raw/build-242/western-quests-review.json) records
+Witch's Potion, Witch's House, Murder Mystery, Plague City, Biohazard, Clock
+Tower, Hazeel Cult and Sheep Herder. Plague City's scroll is a separate
+unlock. Biohazard uses a continuous ferry and walking route with the fragile
+sample. Clock Tower and Sheep Herder include their build 242 XP. Hazeel Cult
+uses Clivet's branch. The alternate branch, incidental combat XP and earlier
+guest access to Ardougne portals remain in review.
 
 [Quest Helper observations](raw/build-242/quest-helper/index.json) cover 209
 journal activities. They identify candidate coordinates, requirements,
