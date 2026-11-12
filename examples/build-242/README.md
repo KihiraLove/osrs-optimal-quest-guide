@@ -119,10 +119,10 @@ Fishing Contest with Cooking and Ranged 30, Fletching 5 and 2,016 GP. The
 route budgets six arrows for Rantz and eight for the player's hunt. It gathers
 the six possible seasonings in Feldip and keeps the ogre bow and one remaining
 bellows load after the quest. The quest reward raises the fixture to Cooking 31.
+The saved itinerary keeps the replay independent of the bounded search budget.
 
 ```sh
-quest-optimizer solve-bounded data/manifest.json examples/build-242/big-chompy-bird-hunting-profile.json --beam-width 160 --max-expansions 80000 > artifacts/big-chompy-bird-hunting.json
-quest-optimizer replay artifacts/big-chompy-bird-hunting.json --catalog data/manifest.json --profile examples/build-242/big-chompy-bird-hunting-profile.json
+quest-optimizer replay examples/build-242/big-chompy-bird-hunting-solution.json --catalog data/manifest.json --profile examples/build-242/big-chompy-bird-hunting-profile.json
 ```
 
 `rfd-skrach-uglogwee-profile.json` starts at the Grand Exchange after the

@@ -1,0 +1,447 @@
+{
+  "schema_version": "0.1.0",
+  "solution_id": "solution.fixture.big_chompy_bird_hunting",
+  "inputs": {
+    "dataset_id": "osrs.main",
+    "dataset_version": "0.25.0",
+    "profile_id": "profile.fixture.big_chompy_bird_hunting",
+    "catalog_sha256": "1574d72fde89d754851082eb8ed646dff9ca5afa8348a98a24a34d051e211117",
+    "profile_sha256": "565a59de1c4ade5bcbd705f851dd64174cbb4b74702020ec7569a5c7aa6a9d4e",
+    "schemas_sha256": "67c5898cc3b30a41d5bf9996b5be36c2a5798fce998844e2adc6d9d26039a5c6"
+  },
+  "policies": {
+    "quest_lamp_skill_policy": "any_skill",
+    "trade_enabled": true,
+    "gp_policy": "self_funded",
+    "allow_boosts": true,
+    "allow_poh_services": false,
+    "allow_wilderness_travel": true,
+    "allow_death_travel": false,
+    "allow_minigame_teleports": true,
+    "allow_world_switching": false,
+    "allow_player_assistance": true,
+    "allow_repeatable_xp": false,
+    "training_methods": "user_choice",
+    "training_time_in_objective": false,
+    "training_resume_policy": "return_to_route_waypoint"
+  },
+  "solver": {
+    "name": "hand-authored-example",
+    "seed": 0,
+    "status": "example",
+    "primary_lower_bound_xp_tenths": null,
+    "secondary_lower_bound_seconds": null,
+    "version": "0.1.0",
+    "proof_artifact": null
+  },
+  "objective": {
+    "order": [
+      "manual_training_xp_tenths",
+      "modeled_non_training_seconds",
+      "stable_step_ids"
+    ],
+    "manual_training_xp_tenths": 0,
+    "modeled_non_training_seconds": 881
+  },
+  "manual_training_xp_tenths_by_skill": {},
+  "steps": [
+    {
+      "step_id": "step.000001",
+      "kind": "action",
+      "action_id": "supply.grand_exchange.purchase_chompy_ogre_arrows",
+      "modeled_seconds": 16,
+      "explanation": "Buy ogre arrows for Rantz and the hunt"
+    },
+    {
+      "step_id": "step.000002",
+      "kind": "travel",
+      "edge_id": "travel.spell.grand_exchange.lumbridge",
+      "modeled_seconds": 5,
+      "explanation": "Cast Lumbridge Teleport"
+    },
+    {
+      "step_id": "step.000003",
+      "kind": "travel",
+      "edge_id": "travel.other.lumbridge.fishing_trawler",
+      "modeled_seconds": 20,
+      "explanation": "Use the Fishing Trawler grouping teleport"
+    },
+    {
+      "step_id": "step.000004",
+      "kind": "travel",
+      "edge_id": "travel.walk.kandarin.khazard_feldip.out",
+      "modeled_seconds": 178,
+      "explanation": "Walk from Port Khazard to Rantz"
+    },
+    {
+      "step_id": "step.000005",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.start",
+      "modeled_seconds": 26,
+      "explanation": "Ask Rantz about hunting a chompy"
+    },
+    {
+      "step_id": "step.000006",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.hand_over_arrows",
+      "modeled_seconds": 18,
+      "explanation": "Give Rantz six ogre arrows",
+      "planned_outcome": {
+        "success_condition": "Have Rantz accept six ordinary ogre arrows and continue to his explanation of the hunt.",
+        "if_unmet": "If the handover does not advance the quest, check Rantz’s dialogue and prepare arrows from achey logs, feathers and wolfbone arrowtips before replanning."
+      }
+    },
+    {
+      "step_id": "step.000007",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.ask_about_bait",
+      "modeled_seconds": 31,
+      "explanation": "Ask Rantz all the questions about the hunt"
+    },
+    {
+      "step_id": "step.000008",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_spit.out",
+      "modeled_seconds": 7,
+      "explanation": "Walk to Rantz’s spit-roast"
+    },
+    {
+      "step_id": "step.000009",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_cave.out",
+      "modeled_seconds": 23,
+      "explanation": "Enter Rantz’s cave and walk to the chest"
+    },
+    {
+      "step_id": "step.000010",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.take_bellows",
+      "modeled_seconds": 16,
+      "explanation": "Unlock and search the chest for ogre bellows"
+    },
+    {
+      "step_id": "step.000011",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_cave.back",
+      "modeled_seconds": 23,
+      "explanation": "Leave Rantz’s cave and return to the spit"
+    },
+    {
+      "step_id": "step.000012",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_spit.back",
+      "modeled_seconds": 7,
+      "explanation": "Walk back to Rantz"
+    },
+    {
+      "step_id": "step.000013",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_swamp.out",
+      "modeled_seconds": 28,
+      "explanation": "Walk to the swamp bubbles"
+    },
+    {
+      "step_id": "step.000014",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.fill_bellows",
+      "modeled_seconds": 5,
+      "explanation": "Fill the ogre bellows on the swamp bubbles"
+    },
+    {
+      "step_id": "step.000015",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.inflate_toads",
+      "modeled_seconds": 13,
+      "explanation": "Use two loads of swamp gas to catch two toads"
+    },
+    {
+      "step_id": "step.000016",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.swamp_onion.out",
+      "modeled_seconds": 15,
+      "explanation": "Walk to the onion and tomato spot"
+    },
+    {
+      "step_id": "step.000017",
+      "kind": "action",
+      "action_id": "supply.feldip.gather_onion_and_tomato",
+      "modeled_seconds": 8,
+      "explanation": "Gather an onion and a tomato"
+    },
+    {
+      "step_id": "step.000018",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.west_seasonings.out",
+      "modeled_seconds": 9,
+      "explanation": "Walk to the cabbage patch"
+    },
+    {
+      "step_id": "step.000019",
+      "kind": "action",
+      "action_id": "supply.feldip.gather_cabbage_and_doogle",
+      "modeled_seconds": 15,
+      "explanation": "Gather cabbage and doogle leaves"
+    },
+    {
+      "step_id": "step.000020",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.west_seasonings.back",
+      "modeled_seconds": 9,
+      "explanation": "Walk back to the onion and tomato spot"
+    },
+    {
+      "step_id": "step.000021",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.swamp_onion.back",
+      "modeled_seconds": 15,
+      "explanation": "Walk back to the swamp"
+    },
+    {
+      "step_id": "step.000022",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_swamp.back",
+      "modeled_seconds": 28,
+      "explanation": "Walk back to Rantz"
+    },
+    {
+      "step_id": "step.000023",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.show_bait",
+      "modeled_seconds": 16,
+      "explanation": "Show Rantz a bloated toad"
+    },
+    {
+      "step_id": "step.000024",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_clearing.out",
+      "modeled_seconds": 14,
+      "explanation": "Walk to Rantz’s hunting clearing"
+    },
+    {
+      "step_id": "step.000025",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.watch_demonstration",
+      "modeled_seconds": 35,
+      "explanation": "Set bait and watch Rantz miss the chompy",
+      "planned_outcome": {
+        "success_condition": "Set a bloated toad at the marked spot and wait for Rantz to fire and miss.",
+        "if_unmet": "If the toad despawns first, replace the bait and continue once Rantz has taken his shot."
+      }
+    },
+    {
+      "step_id": "step.000026",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_clearing.back",
+      "modeled_seconds": 14,
+      "explanation": "Walk back to Rantz"
+    },
+    {
+      "step_id": "step.000027",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.receive_bow",
+      "modeled_seconds": 19,
+      "explanation": "Ask Rantz for a turn and receive the ogre bow"
+    },
+    {
+      "step_id": "step.000028",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_clearing.out",
+      "modeled_seconds": 14,
+      "explanation": "Walk to Rantz’s hunting clearing"
+    },
+    {
+      "step_id": "step.000029",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.hunt_chompy",
+      "modeled_seconds": 50,
+      "explanation": "Bait, shoot and pluck a chompy yourself",
+      "planned_outcome": {
+        "success_condition": "Equip the ogre bow and ordinary ogre arrows, catch a bird with the bait and kill it on Accurate or Rapid within 8 arrows. Pluck the carcass and pick up the raw chompy.",
+        "if_unmet": "If no bird is caught or the reserve runs out, stop and restock. Replan from actual progress, items and XP."
+      }
+    },
+    {
+      "step_id": "step.000030",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.east_seasonings.out",
+      "modeled_seconds": 11,
+      "explanation": "Walk to the potato and equa spot"
+    },
+    {
+      "step_id": "step.000031",
+      "kind": "action",
+      "action_id": "supply.feldip.gather_potato_and_equa",
+      "modeled_seconds": 13,
+      "explanation": "Gather a potato and equa leaves"
+    },
+    {
+      "step_id": "step.000032",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.east_seasonings.back",
+      "modeled_seconds": 11,
+      "explanation": "Walk back to the clearing"
+    },
+    {
+      "step_id": "step.000033",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_clearing.back",
+      "modeled_seconds": 14,
+      "explanation": "Walk back to Rantz"
+    },
+    {
+      "step_id": "step.000034",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.show_chompy",
+      "modeled_seconds": 22,
+      "explanation": "Show Rantz the raw chompy and ask about seasoning"
+    },
+    {
+      "step_id": "step.000035",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_spit.out",
+      "modeled_seconds": 7,
+      "explanation": "Walk to Rantz’s spit-roast"
+    },
+    {
+      "step_id": "step.000036",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_cave.out",
+      "modeled_seconds": 23,
+      "explanation": "Enter Rantz’s cave and walk to the chest"
+    },
+    {
+      "step_id": "step.000037",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.ogre_children.out",
+      "modeled_seconds": 8,
+      "explanation": "Walk to Bugs and Fycie"
+    },
+    {
+      "step_id": "step.000038",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.ask_children",
+      "modeled_seconds": 26,
+      "explanation": "Ask Bugs and Fycie what they want in the roast"
+    },
+    {
+      "step_id": "step.000039",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.ogre_children.back",
+      "modeled_seconds": 8,
+      "explanation": "Walk back to the bellows chest"
+    },
+    {
+      "step_id": "step.000040",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_cave.back",
+      "modeled_seconds": 23,
+      "explanation": "Leave Rantz’s cave and return to the spit"
+    },
+    {
+      "step_id": "step.000041",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.season_and_roast",
+      "modeled_seconds": 15,
+      "explanation": "Use the requested seasonings and roast the chompy",
+      "planned_outcome": {
+        "success_condition": "Use the three ingredients requested by Rantz, Bugs and Fycie and roast the raw bird on Rantz’s spit to obtain a seasoned chompy.",
+        "if_unmet": "If the spit does not produce a seasoned chompy, check the three requests and replan from the observed inventory."
+      }
+    },
+    {
+      "step_id": "step.000042",
+      "kind": "travel",
+      "edge_id": "travel.walk.feldip.rantz_spit.back",
+      "modeled_seconds": 7,
+      "explanation": "Walk back to Rantz"
+    },
+    {
+      "step_id": "step.000043",
+      "kind": "action",
+      "action_id": "quest.big_chompy_bird_hunting.complete",
+      "modeled_seconds": 16,
+      "explanation": "Give Rantz the seasoned chompy"
+    }
+  ],
+  "final_state": {
+    "location_id": "location.feldip_hills.rantz",
+    "xp_tenths": {
+      "skill.agility": 0,
+      "skill.attack": 0,
+      "skill.construction": 0,
+      "skill.cooking": 148330,
+      "skill.crafting": 0,
+      "skill.defence": 0,
+      "skill.farming": 0,
+      "skill.firemaking": 0,
+      "skill.fishing": 35910,
+      "skill.fletching": 6500,
+      "skill.herblore": 0,
+      "skill.hitpoints": 11540,
+      "skill.hunter": 300,
+      "skill.magic": 148740,
+      "skill.mining": 0,
+      "skill.prayer": 0,
+      "skill.ranged": 141380,
+      "skill.runecraft": 0,
+      "skill.sailing": 0,
+      "skill.slayer": 0,
+      "skill.smithing": 0,
+      "skill.strength": 0,
+      "skill.thieving": 0,
+      "skill.woodcutting": 0
+    },
+    "completed_action_ids": [
+      "quest.big_chompy_bird_hunting.ask_about_bait",
+      "quest.big_chompy_bird_hunting.ask_children",
+      "quest.big_chompy_bird_hunting.complete",
+      "quest.big_chompy_bird_hunting.fill_bellows",
+      "quest.big_chompy_bird_hunting.hand_over_arrows",
+      "quest.big_chompy_bird_hunting.hunt_chompy",
+      "quest.big_chompy_bird_hunting.inflate_toads",
+      "quest.big_chompy_bird_hunting.receive_bow",
+      "quest.big_chompy_bird_hunting.season_and_roast",
+      "quest.big_chompy_bird_hunting.show_bait",
+      "quest.big_chompy_bird_hunting.show_chompy",
+      "quest.big_chompy_bird_hunting.start",
+      "quest.big_chompy_bird_hunting.take_bellows",
+      "quest.big_chompy_bird_hunting.watch_demonstration",
+      "quest.fishing_contest.complete",
+      "supply.feldip.gather_cabbage_and_doogle",
+      "supply.feldip.gather_onion_and_tomato",
+      "supply.feldip.gather_potato_and_equa",
+      "supply.grand_exchange.purchase_chompy_ogre_arrows"
+    ],
+    "flags": {
+      "unlock.white_wolf_mountain_tunnel": true,
+      "flag.spellbook.standard": true,
+      "unlock.ogre_arrow_fletching": true,
+      "unlock.chompy_hunting": true
+    },
+    "counters": {
+      "token.quest_points": 4
+    },
+    "inventory": {
+      "item.ogre_bellows_one_load": 1,
+      "item.ogre_bow": 1
+    },
+    "held_rewards": [],
+    "modeled_elapsed_seconds": 881,
+    "cooldowns": {
+      "cooldown.minigame_teleport": 1241
+    },
+    "travel_counts": {
+      "travel.spell.grand_exchange.lumbridge": 1
+    }
+  },
+  "verification": {
+    "schema_valid": true,
+    "replay_valid": true,
+    "catalog_release_ready": false
+  },
+  "limitations": [
+    "The saved itinerary checks the quest mechanics and assumes the stated encounter outcomes.",
+    "Training steps specify XP gains and resume waypoints. The player chooses the method.",
+    "Replay checks the planned success path. Confirm each conditional outcome in game before continuing."
+  ]
+}

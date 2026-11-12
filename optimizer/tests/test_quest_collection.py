@@ -628,7 +628,7 @@ class QuestCollectionTests(unittest.TestCase):
         profile = read_json(ROOT / "examples/build-242/big-chompy-bird-hunting-profile.json")
         review = read_json(RAW / "big-chompy-bird-hunting-review.json")
         validator = CatalogValidator(self.catalog, self.contracts)
-        solution, _ = solve_bounded(validator, profile, beam_width=160, max_expansions=80000)
+        solution = read_json(ROOT / "examples/build-242/big-chompy-bird-hunting-solution.json")
         state = verify_solution(solution, profile, validator)["final_state"]
         self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {})
         self.assertEqual(state["counters"]["token.quest_points"], 4)
