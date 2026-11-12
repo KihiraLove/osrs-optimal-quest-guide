@@ -55,6 +55,9 @@ original descriptions of findings. The data uses pinned upstream sources.
   gameplay walkthroughs and a Sheep Herder capture. Shortest Path records
   the Rimmington ferry and Kandarin teleport arrivals. Jagex's build 242
   Quest Month announcement supplies Clock Tower and Sheep Herder XP.
+- The Morytania and starter quest batch uses pinned Quest Helper, RuneLite
+  item and fairy-ring metadata, and Shortest Path transport data. The build 242
+  Quest Month release supplies the two completion lamps and Cooking XP.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

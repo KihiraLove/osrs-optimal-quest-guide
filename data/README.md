@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.25.0` loads 24 skill tables and
-355 draft actions across 35 journal activities, the museum route and travel
+3 November 2026 at 10:00:06 UTC. Dataset `0.26.0` loads 24 skill tables and
+421 draft actions across 43 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -25,9 +25,10 @@ The journal list preserves the client quest ID. Recipe for Disaster has one
 parent goal and ten child activities in the
 [stage review](raw/build-242/recipe-for-disaster-review.json). Another Cook's
 Quest, Freeing the Goblin Generals, Freeing the Mountain Dwarf, Freeing
-Pirate Pete, Freeing Skrach Uglogwee and Freeing Evil Dave have loaded quest
-actions, ingredients and travel. The parent records saved finale completion
-without awarding its lamp or quest point again. Four stages remain in review.
+Pirate Pete, Freeing Skrach Uglogwee, Freeing Evil Dave and Freeing the
+Lumbridge Guide have loaded quest actions, ingredients and travel. The parent
+records saved finale completion without awarding its lamp or quest point
+again. Three stages remain in review.
 
 The [Fishing Contest review](raw/build-242/fishing-contest-review.json) records
 Vestri's quest route, the contest fee and the tunnel that opens at the trophy
@@ -99,6 +100,15 @@ sample. Clock Tower and Sheep Herder include their build 242 XP. Hazeel Cult
 uses Clivet's branch. The alternate branch, incidental combat XP and earlier
 guest access to Ardougne portals remain in review.
 
+The [Morytania and starter quest review](raw/build-242/morytania-and-starter-quests-review.json)
+covers Priest in Peril, Nature Spirit, In Search of the Myreque, Freeing the
+Lumbridge Guide, Vampyre Slayer, Ernest the Chicken, Romeo & Juliet and
+Pirate's Treasure. Priest in Peril uses two unnoted essence trips. Nature Spirit
+provides the blessed sickle and pouch before the Myreque route. The two new
+build 242 completion lamps are modeled as held items. Their exact retention
+and skill restrictions, incidental XP and the repeat Myreque shortcut remain
+in review.
+
 [Quest Helper observations](raw/build-242/quest-helper/index.json) cover 209
 journal activities. They identify candidate coordinates, requirements,
 source-specific branches, items and rewards. The remaining helper gaps and
@@ -108,9 +118,10 @@ build 242 XP updates, including the separately claimed Demon Slayer reward.
 The [reward registry](raw/build-242/reward-registry.json) records 38 reward
 entries, including seven separate claims. Each claim records its producer ID,
 quest gate, available location evidence and known award details. Null values
-identify fields that need verification. X Marks the Spot and Shadow of the
-Storm have loaded reward producers. The remaining packages stay in review
-while their quest actions or use rules are being collected.
+identify fields that need verification. X Marks the Spot, Shadow of the
+Storm, Ernest the Chicken and Romeo & Juliet have loaded reward producers.
+The remaining packages stay in review while their quest actions or use
+rules are being collected.
 
 [Diary observations](raw/build-242/diaries/index.json) link all 492 tracker IDs
 to helper steps, requirements and item candidates across 48 tiers. Each tier

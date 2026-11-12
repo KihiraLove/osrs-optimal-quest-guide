@@ -1,0 +1,2983 @@
+[
+  {
+    "id": "quest.priest_in_peril.start",
+    "name": "Accept King Roald’s request to check on Drezel",
+    "activity_id": "quest.priest_in_peril",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.king_roald",
+    "end_location_id": "location.varrock.king_roald",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 18,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to King Roald at Varrock Palace."
+    }
+  },
+  {
+    "id": "quest.priest_in_peril.inspect_temple",
+    "name": "Knock on the Paterdomus temple door",
+    "activity_id": "quest.priest_in_peril",
+    "kind": "quest_stage",
+    "start_location_id": "location.paterdomus.temple_door",
+    "end_location_id": "location.paterdomus.temple_door",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.priest_in_peril.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The voices inside ask the player to kill the guardian."
+    }
+  },
+  {
+    "id": "quest.priest_in_peril.defeat_guardian",
+    "name": "Defeat the magic-immune temple guardian",
+    "activity_id": "quest.priest_in_peril",
+    "kind": "quest_stage",
+    "start_location_id": "location.paterdomus.guardian_chamber",
+    "end_location_id": "location.paterdomus.guardian_chamber",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.inspect_temple"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 65,
+      "max_seconds": 184
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fight the level 30 guardian with melee or ranged equipment."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the guardian with melee or ranged combat and survive.",
+      "if_unmet": "Bring a suitable weapon and food before retrying."
+    }
+  },
+  {
+    "id": "quest.priest_in_peril.report_guardian",
+    "name": "Report the guardian’s death to King Roald",
+    "activity_id": "quest.priest_in_peril",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.king_roald",
+    "end_location_id": "location.varrock.king_roald",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.priest_in_peril.defeat_guardian"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Roald explains the guardian protected the temple and sends the player back."
+    }
+  },
+  {
+    "id": "quest.priest_in_peril.obtain_golden_key",
+    "name": "Defeat a Zamorak monk for the golden key",
+    "activity_id": "quest.priest_in_peril",
+    "kind": "quest_stage",
+    "start_location_id": "location.paterdomus.temple_door",
+    "end_location_id": "location.paterdomus.temple_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.report_guardian"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 58,
+      "max_seconds": 154
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the temple, fight a level 30 monk and take the golden key."
+    },
+    "planned_outcome": {
+      "success_condition": "Recover the golden key and return to the temple-door waypoint.",
+      "if_unmet": "Bring suitable combat equipment and recover the key before continuing."
+    }
+  },
+  {
+    "id": "quest.priest_in_peril.talk_to_drezel",
+    "name": "Speak to Drezel through the cell door",
+    "activity_id": "quest.priest_in_peril",
+    "kind": "quest_stage",
+    "start_location_id": "location.paterdomus.drezels_cell",
+    "end_location_id": "location.paterdomus.drezels_cell",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.priest_in_peril.obtain_golden_key"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Drezel explains how to contain the threat in the coffin."
+    }
+  },
+  {
+    "id": "quest.priest_in_peril.get_key_and_water",
+    "name": "Swap keys at the monument and fill a bucket",
+    "activity_id": "quest.priest_in_peril",
+    "kind": "quest_stage",
+    "start_location_id": "location.paterdomus.well",
+    "end_location_id": "location.paterdomus.well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.talk_to_drezel"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exchange the golden key for the iron key and collect murky water. The route uses and retains the bucket."
+    }
+  },
+  {
+    "id": "quest.priest_in_peril.free_drezel",
+    "name": "Open the cell and pour blessed water over the coffin",
+    "activity_id": "quest.priest_in_peril",
+    "kind": "quest_stage",
+    "start_location_id": "location.paterdomus.drezels_cell",
+    "end_location_id": "location.paterdomus.drezels_cell",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.priest_in_peril.get_key_and_water"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 41,
+      "max_seconds": 87
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Unlock the cell. Ask Drezel to bless the water, use it on the coffin, and speak to him again."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.reserve_priest_in_peril_essence",
+    "name": "Buy and bank 50 pure essence",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 100
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.bank.priest_in_peril_essence",
+        "delta": 50
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 100 GP for the essence. Bank the purchase, then carry no more than 25 unnoted essence per handover trip."
+    }
+  },
+  {
+    "id": "supply.varrock.withdraw_priest_in_peril_essence",
+    "name": "Withdraw the first 25 unnoted pure essence",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.east_bank",
+    "end_location_id": "location.varrock.east_bank",
+    "requirements": {
+      "kind": "counter",
+      "token_id": "token.bank.priest_in_peril_essence",
+      "minimum": 25
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.bank.priest_in_peril_essence",
+        "delta": -25
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pure_essence",
+        "quantity": 25
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 10,
+      "max_seconds": 23
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take 25 unnoted essence and bank other items as necessary to free inventory space."
+    }
+  },
+  {
+    "id": "quest.priest_in_peril.deliver_first_essence",
+    "name": "Give Drezel the first 25 unnoted essence",
+    "activity_id": "quest.priest_in_peril",
+    "kind": "quest_stage",
+    "start_location_id": "location.paterdomus.drezel",
+    "end_location_id": "location.paterdomus.drezel",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.priest_in_peril.free_drezel"
+    },
+    "consumes": [
+      {
+        "item_id": "item.pure_essence",
+        "quantity": 25
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Drezel at the barrier and give him the first load. Bank the second load until this delivery is complete."
+    }
+  },
+  {
+    "id": "quest.priest_in_peril.complete",
+    "name": "Give Drezel the remaining 25 unnoted essence",
+    "activity_id": "quest.priest_in_peril",
+    "kind": "quest_stage",
+    "start_location_id": "location.paterdomus.drezel",
+    "end_location_id": "location.paterdomus.drezel",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.priest_in_peril.deliver_first_essence"
+    },
+    "consumes": [
+      {
+        "item_id": "item.pure_essence",
+        "quantity": 25
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 14060
+      },
+      {
+        "kind": "item",
+        "item_id": "item.wolfbane",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.morytania",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Drezel takes the second load, awards Prayer XP and Wolfbane, and opens access to Morytania."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_silver_sickle",
+    "name": "Buy a silver sickle",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 70
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.silver_sickle",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 29
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 70 GP for a ready-made sickle. The route has no Crafting gate to make one."
+    }
+  },
+  {
+    "id": "quest.nature_spirit.start",
+    "name": "Ask Drezel about Filliman Tarlock",
+    "activity_id": "quest.nature_spirit",
+    "kind": "quest_stage",
+    "start_location_id": "location.paterdomus.drezel",
+    "end_location_id": "location.paterdomus.drezel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_restless_ghost.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mort_myre_swamp",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Drezel grants access through the Mort Myre north gate during the quest."
+    }
+  },
+  {
+    "id": "quest.nature_spirit.show_mirror_and_journal",
+    "name": "Show Filliman his reflection and journal",
+    "activity_id": "quest.nature_spirit",
+    "kind": "quest_stage",
+    "start_location_id": "location.mort_myre.grotto",
+    "end_location_id": "location.mort_myre.grotto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.nature_spirit.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 50,
+      "max_seconds": 108
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear the ghostspeak amulet. Take the mirror from beneath the washing bowl and recover the journal from the grotto tree."
+    }
+  },
+  {
+    "id": "quest.nature_spirit.receive_drezels_blessing",
+    "name": "Return to Drezel for his blessing",
+    "activity_id": "quest.nature_spirit",
+    "kind": "quest_stage",
+    "start_location_id": "location.paterdomus.drezel",
+    "end_location_id": "location.paterdomus.drezel",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.nature_spirit.show_mirror_and_journal"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Drezel blesses the player for Filliman’s rite."
+    }
+  },
+  {
+    "id": "quest.nature_spirit.perform_grotto_ritual",
+    "name": "Grow a fungus and set the three ritual stones",
+    "activity_id": "quest.nature_spirit",
+    "kind": "quest_stage",
+    "start_location_id": "location.mort_myre.grotto",
+    "end_location_id": "location.mort_myre.grotto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.nature_spirit.receive_drezels_blessing"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast Filliman’s spell beside a rotten log, pick the fungus, place it and the used scroll on their stones, then stand on the orange stone and speak to Filliman."
+    }
+  },
+  {
+    "id": "quest.nature_spirit.bless_sickle",
+    "name": "Have the Nature Spirit bless the silver sickle",
+    "activity_id": "quest.nature_spirit",
+    "kind": "quest_stage",
+    "start_location_id": "location.mort_myre.grotto",
+    "end_location_id": "location.mort_myre.nature_spirit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.nature_spirit.perform_grotto_ritual"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.silver_sickle",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.blessed_silver_sickle",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.druid_pouch",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mort_myre_bloom",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 36,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter and search the grotto. Give Filliman the sickle and receive it back blessed, with a druid pouch."
+    }
+  },
+  {
+    "id": "quest.nature_spirit.charge_pouch_for_ghasts",
+    "name": "Cast Bloom and charge the druid pouch",
+    "activity_id": "quest.nature_spirit",
+    "kind": "quest_stage",
+    "start_location_id": "location.mort_myre.grotto",
+    "end_location_id": "location.mort_myre.grotto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.nature_spirit.bless_sickle"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.blessed_silver_sickle",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.druid_pouch",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.druid_pouch.charges",
+        "delta": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 53,
+      "max_seconds": 122
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast Bloom beside swamp growths and fill the pouch. Refill Prayer as needed."
+    },
+    "planned_outcome": {
+      "success_condition": "Collect enough growths to have three usable charges.",
+      "if_unmet": "Refill Prayer and gather replacements if a ghast spends a charge."
+    }
+  },
+  {
+    "id": "quest.nature_spirit.defeat_three_ghasts",
+    "name": "Reveal and defeat three ghasts",
+    "activity_id": "quest.nature_spirit",
+    "kind": "quest_stage",
+    "start_location_id": "location.mort_myre.grotto",
+    "end_location_id": "location.mort_myre.grotto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.nature_spirit.charge_pouch_for_ghasts"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.druid_pouch",
+          "quantity": 1
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.druid_pouch.charges",
+          "minimum": 3
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.druid_pouch.charges",
+        "delta": -3
+      }
+    ],
+    "duration": {
+      "min_seconds": 59,
+      "expected_seconds": 145,
+      "max_seconds": 380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reveal and defeat three ghasts around the grotto. The planned route uses three charges."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat three revealed ghasts and return to the grotto entrance.",
+      "if_unmet": "Restore lost charges and bring suitable combat equipment if needed."
+    }
+  },
+  {
+    "id": "quest.nature_spirit.complete",
+    "name": "Speak to the Nature Spirit after the three kills",
+    "activity_id": "quest.nature_spirit",
+    "kind": "quest_stage",
+    "start_location_id": "location.mort_myre.nature_spirit",
+    "end_location_id": "location.mort_myre.nature_spirit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.nature_spirit.defeat_three_ghasts"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 30000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.nature_spirit_altar",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Nature Spirit blesses the grotto and awards the quest’s fixed XP."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_myreque_supplies",
+    "name": "Buy the Myreque weapons, timber, nails and hammer",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 7200
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.steel_longsword",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_shortsword",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_mace",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_warhammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_dagger",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 6
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_nails",
+        "quantity": 225
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 46,
+      "max_seconds": 108
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 7,200 GP at the observed guide prices for six steel weapons, six planks, 225 nails and a hammer."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_myreque_fungus",
+    "name": "Buy five Mort myre fungi",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 600
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mort_myre_fungus",
+        "quantity": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 600 GP for five fungi. Fill the pouch at Cyreg to protect these charges from the walk."
+    }
+  },
+  {
+    "id": "quest.in_search_of_the_myreque.start",
+    "name": "Speak to Vanstrom Klause in Canifis",
+    "activity_id": "quest.in_search_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.canifis.hair_of_the_dog",
+    "end_location_id": "location.canifis.hair_of_the_dog",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.nature_spirit.complete"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 24,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Vanstrom asks for weapons for the Myreque."
+    }
+  },
+  {
+    "id": "quest.in_search_of_the_myreque.fill_pouch_from_fungi",
+    "name": "Fill the druid pouch at Cyreg’s landing",
+    "activity_id": "quest.in_search_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.mortton.cyreg",
+    "end_location_id": "location.mortton.cyreg",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_search_of_the_myreque.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.druid_pouch",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mort_myre_fungus",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.druid_pouch.charges",
+        "delta": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 10,
+      "max_seconds": 24
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fill the pouch after the swamp crossing so the five charges are ready for Cyreg."
+    }
+  },
+  {
+    "id": "quest.in_search_of_the_myreque.fill_pouch_using_bloom",
+    "name": "Collect swamp growths and fill the druid pouch near Cyreg",
+    "activity_id": "quest.in_search_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.mortton.cyreg",
+    "end_location_id": "location.mortton.cyreg",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_search_of_the_myreque.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.druid_pouch",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.blessed_silver_sickle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.druid_pouch.charges",
+        "delta": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 89,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use Bloom in the nearby swamp. Return to the landing with five additional charges."
+    },
+    "planned_outcome": {
+      "success_condition": "Have five usable charges available at the landing.",
+      "if_unmet": "Refill Prayer and replace charges spent by ghasts before talking to Cyreg."
+    }
+  },
+  {
+    "id": "quest.in_search_of_the_myreque.take_swamp_boaty",
+    "name": "Show Cyreg the supplies and take the boat to the Hollows",
+    "activity_id": "quest.in_search_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.mortton.cyreg",
+    "end_location_id": "location.mort_myre.myreque_bridge",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_search_of_the_myreque.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.druid_pouch",
+          "quantity": 1
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.druid_pouch.charges",
+          "minimum": 5
+        },
+        {
+          "kind": "item",
+          "item_id": "item.plank",
+          "quantity": 6
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_nails",
+          "quantity": 225
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_longsword",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_shortsword",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_mace",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_warhammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_dagger",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plank",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.coins",
+        "quantity": 10
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 85,
+      "max_seconds": 168
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show the charged pouch and all six steel weapons. Give Cyreg three planks, pay 10 coins, take the boat and walk to the bridge tree."
+    }
+  },
+  {
+    "id": "quest.in_search_of_the_myreque.repair_bridge",
+    "name": "Repair the three parts of the rope bridge and cross",
+    "activity_id": "quest.in_search_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.mort_myre.myreque_bridge",
+    "end_location_id": "location.mort_myre.curpile",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_search_of_the_myreque.take_swamp_boaty"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 25,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plank",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.steel_nails",
+        "quantity": 225
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 59,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb the tree, use one plank and 75 nails on each of three sections, cross and approach Curpile."
+    }
+  },
+  {
+    "id": "quest.in_search_of_the_myreque.answer_curpile",
+    "name": "Answer Curpile’s questions and enter the hideout",
+    "activity_id": "quest.in_search_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.mort_myre.curpile",
+    "end_location_id": "location.myreque.veliaf",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.in_search_of_the_myreque.repair_bridge"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 63,
+      "max_seconds": 140
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Answer the questions about the boatman and the Myreque. Enter the wooden doors and the hidden alcove leading to Veliaf."
+    },
+    "planned_outcome": {
+      "success_condition": "Answer all questions correctly and reach Veliaf.",
+      "if_unmet": "If sent back to the boat, return over the repaired bridge and retry the questions."
+    }
+  },
+  {
+    "id": "quest.in_search_of_the_myreque.deliver_weapons",
+    "name": "Speak to the Myreque and give Veliaf the weapons",
+    "activity_id": "quest.in_search_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.myreque.veliaf",
+    "end_location_id": "location.myreque.veliaf",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.in_search_of_the_myreque.answer_curpile"
+    },
+    "consumes": [
+      {
+        "item_id": "item.steel_longsword",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.steel_shortsword",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.steel_mace",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.steel_warhammer",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.steel_dagger",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 65,
+      "max_seconds": 133
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Veliaf and introduce yourself to all five members, then deliver the six weapons to Veliaf. The hellhound encounter follows."
+    }
+  },
+  {
+    "id": "quest.in_search_of_the_myreque.defeat_hellhound",
+    "name": "Defeat the Skeleton Hellhound",
+    "activity_id": "quest.in_search_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.myreque.veliaf",
+    "end_location_id": "location.myreque.veliaf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_search_of_the_myreque.deliver_weapons"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 154,
+      "max_seconds": 390
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a suitable combat setup for the level 97 Skeleton Hellhound. Ranged or magic can use a safe spot near the chair."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Skeleton Hellhound and return to Veliaf.",
+      "if_unmet": "Bring appropriate equipment, ammunition or runes and food before retrying."
+    }
+  },
+  {
+    "id": "quest.in_search_of_the_myreque.leave_via_tunnel",
+    "name": "Ask Veliaf how to leave and use the Canifis tunnel",
+    "activity_id": "quest.in_search_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.myreque.veliaf",
+    "end_location_id": "location.canifis.hair_of_the_dog",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.in_search_of_the_myreque.defeat_hellhound"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 54,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Veliaf, leave the alcove and climb the north ladder to the trapdoor behind the Canifis tavern."
+    }
+  },
+  {
+    "id": "quest.in_search_of_the_myreque.complete",
+    "name": "Report to the Stranger in Canifis",
+    "activity_id": "quest.in_search_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.canifis.hair_of_the_dog",
+    "end_location_id": "location.canifis.hair_of_the_dog",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.in_search_of_the_myreque.leave_via_tunnel"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 6000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 6000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 6000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 6000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 6000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.myreque_mortton_route",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Award five sets of 600 XP, two quest points and the quick route to Mort’ton."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_lumbridge_guide.inspect",
+    "name": "Inspect the frozen guide and offer to make the cake",
+    "activity_id": "rfd.freeing_the_lumbridge_guide",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.frozen_lumbridge_guide",
+    "end_location_id": "location.rfd.frozen_lumbridge_guide",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.another_cooks_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.big_chompy_bird_hunting.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.biohazard.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.demon_slayer.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.murder_mystery.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.nature_spirit.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.witchs_house.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 40,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 18,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.rfd_guide_quiz",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Gypsy directs the player to Wizard Traiborn after checking the prerequisites and Cooking."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_guidance_cake_supplies",
+    "name": "Buy an egg, flour, milk and a cake tin",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 290
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.egg",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pot_of_flour",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cake_tin",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 290 GP for the four ordinary tradeable items."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_lumbridge_guide.enchant_and_mix",
+    "name": "Pass Traiborn’s three quizzes and mix the enchanted ingredients",
+    "activity_id": "rfd.freeing_the_lumbridge_guide",
+    "kind": "quest_stage",
+    "start_location_id": "location.wizards_tower.traiborn",
+    "end_location_id": "location.wizards_tower.traiborn",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_the_lumbridge_guide.inspect"
+    },
+    "consumes": [
+      {
+        "item_id": "item.egg",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.pot_of_flour",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.cake_tin",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_guidance_cake",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 101,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.rfd_guide_quiz",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pass the egg’s NPC quiz, the milk’s general questions and the flour’s item questions, then mix the enchanted ingredients in the tin."
+    },
+    "planned_outcome": {
+      "success_condition": "Pass all three quizzes and have the raw cake in the tin.",
+      "if_unmet": "Repeat any failed quiz with Traiborn before leaving the tower."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_lumbridge_guide.cook_cake",
+    "name": "Cook the guidance cake on the Lumbridge range",
+    "activity_id": "rfd.freeing_the_lumbridge_guide",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_lumbridge_guide.enchant_and_mix"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 40,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_guidance_cake",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.guidance_cake",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 8,
+      "max_seconds": 22
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.rfd_guide_quiz",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cook at the range. The reward review tracks the fixed handover XP and records the incidental Cooking XP for follow-up."
+    }
+  },
+  {
+    "id": "rfd.freeing_the_lumbridge_guide.complete",
+    "name": "Give the guidance cake to the frozen Lumbridge Guide",
+    "activity_id": "rfd.freeing_the_lumbridge_guide",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.frozen_lumbridge_guide",
+    "end_location_id": "location.rfd.frozen_lumbridge_guide",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_the_lumbridge_guide.cook_cake"
+    },
+    "consumes": [
+      {
+        "item_id": "item.guidance_cake",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.rfd_lumbridge_guide_chest_stock",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 11,
+      "max_seconds": 25
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.rfd_guide_quiz",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Award one quest point, 2,500 Cooking XP and 2,500 Magic XP."
+    }
+  },
+  {
+    "id": "quest.vampyre_slayer.start",
+    "name": "Ask Morgan about the vampyre",
+    "activity_id": "quest.vampyre_slayer",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.morgan",
+    "end_location_id": "location.draynor.morgan",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Morgan sends the player to Dr Harlow."
+    }
+  },
+  {
+    "id": "supply.draynor.get_morgans_garlic",
+    "name": "Get garlic from Morgan’s upstairs cupboard",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.draynor.morgan",
+    "end_location_id": "location.draynor.morgan",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.vampyre_slayer.start"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.garlic",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb the stairs, search the cupboard and return to Morgan’s waypoint. Garlic weakens Count Draynor."
+    }
+  },
+  {
+    "id": "quest.vampyre_slayer.obtain_stake",
+    "name": "Buy a beer and ask Dr Harlow how to slay the vampyre",
+    "activity_id": "quest.vampyre_slayer",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.blue_moon_inn",
+    "end_location_id": "location.varrock.blue_moon_inn",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.vampyre_slayer.start"
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.vampyre_stake",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 33,
+      "max_seconds": 73
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy a beer from the Blue Moon Inn bartender for 2 GP and give it to Harlow. He supplies the stake."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_quest_hammer",
+    "name": "Buy a hammer",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 80
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 80 GP for a hammer if one is not already carried."
+    }
+  },
+  {
+    "id": "quest.vampyre_slayer.complete",
+    "name": "Defeat Count Draynor and finish with the stake",
+    "activity_id": "quest.vampyre_slayer",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.crypt",
+    "end_location_id": "location.draynor_manor.crypt",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.vampyre_slayer.obtain_stake"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.vampyre_stake",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 3
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 48250
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 103,
+      "max_seconds": 280
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open the coffin and defeat the level 34 vampyre with a hammer and stake carried. Garlic helps with the fight."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Count Draynor and confirm the stake completes the quest.",
+      "if_unmet": "Bring appropriate combat equipment and food, and retrieve a replacement stake from Harlow if needed."
+    }
+  },
+  {
+    "id": "quest.ernest_the_chicken.start",
+    "name": "Ask Veronica about Ernest",
+    "activity_id": "quest.ernest_the_chicken",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.veronica",
+    "end_location_id": "location.draynor_manor.veronica",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 14,
+      "max_seconds": 31
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Veronica asks the player to find Ernest inside the manor."
+    }
+  },
+  {
+    "id": "quest.ernest_the_chicken.speak_to_oddenstein",
+    "name": "Speak to Professor Oddenstein upstairs",
+    "activity_id": "quest.ernest_the_chicken",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.oddenstein",
+    "end_location_id": "location.draynor_manor.oddenstein",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.ernest_the_chicken.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 22,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn which three machine parts are missing."
+    }
+  },
+  {
+    "id": "quest.ernest_the_chicken.prepare_fish_food",
+    "name": "Collect and poison the fish food and take a spade",
+    "activity_id": "quest.ernest_the_chicken",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.front_door",
+    "end_location_id": "location.draynor_manor.front_door",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.ernest_the_chicken.speak_to_oddenstein"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 48,
+      "max_seconds": 104
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect fish food upstairs and poison on the ground floor, then mix them. Pick up the spade in the east room if needed."
+    }
+  },
+  {
+    "id": "quest.ernest_the_chicken.recover_pressure_gauge",
+    "name": "Retrieve the pressure gauge from the fountain",
+    "activity_id": "quest.ernest_the_chicken",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.fountain",
+    "end_location_id": "location.draynor_manor.fountain",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.ernest_the_chicken.prepare_fish_food"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 15,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the poisoned food to clear the piranhas and search the fountain."
+    }
+  },
+  {
+    "id": "quest.ernest_the_chicken.recover_rubber_tube",
+    "name": "Dig up the closet key and retrieve the rubber tube",
+    "activity_id": "quest.ernest_the_chicken",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.front_door",
+    "end_location_id": "location.draynor_manor.front_door",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.ernest_the_chicken.prepare_fish_food"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 47,
+      "max_seconds": 108
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Dig at the compost heap west of the manor, then unlock the ground-floor closet and take the tube. The skeleton can be avoided."
+    }
+  },
+  {
+    "id": "quest.ernest_the_chicken.recover_oil_can",
+    "name": "Solve the basement lever maze and take the oil can",
+    "activity_id": "quest.ernest_the_chicken",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.lever_maze",
+    "end_location_id": "location.draynor_manor.lever_maze",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.ernest_the_chicken.speak_to_oddenstein"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 76,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Toggle the six levers to open the west room and return to the ladder after taking the oil can."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the west room and return with the oil can.",
+      "if_unmet": "Read the current lever positions and work through the doors again if the expected route is blocked."
+    }
+  },
+  {
+    "id": "quest.ernest_the_chicken.complete",
+    "name": "Give the three machine parts to Professor Oddenstein",
+    "activity_id": "quest.ernest_the_chicken",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.oddenstein",
+    "end_location_id": "location.draynor_manor.oddenstein",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ernest_the_chicken.recover_pressure_gauge"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ernest_the_chicken.recover_rubber_tube"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ernest_the_chicken.recover_oil_can"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 4
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 300
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.killerwatt_plane",
+        "value": true
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.ernest_the_chicken.quest_month_lamp",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 20,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Oddenstein restores Ernest. Build 242 fresh completion includes a 500 XP lamp."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_cadava_berries",
+    "name": "Buy cadava berries",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 80
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cadava_berries",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 80 GP for one set of cadava berries."
+    }
+  },
+  {
+    "id": "quest.romeo_juliet.start",
+    "name": "Ask Romeo about Juliet",
+    "activity_id": "quest.romeo_juliet",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.romeo",
+    "end_location_id": "location.varrock.romeo",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 13,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Romeo sends the player to Juliet."
+    }
+  },
+  {
+    "id": "quest.romeo_juliet.get_juliets_message",
+    "name": "Talk to Juliet and take her message",
+    "activity_id": "quest.romeo_juliet",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.juliet",
+    "end_location_id": "location.varrock.juliet",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.romeo_juliet.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 14,
+      "max_seconds": 33
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Juliet gives a message for Romeo."
+    }
+  },
+  {
+    "id": "quest.romeo_juliet.deliver_message",
+    "name": "Give Romeo Juliet’s message",
+    "activity_id": "quest.romeo_juliet",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.romeo",
+    "end_location_id": "location.varrock.romeo",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.romeo_juliet.get_juliets_message"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 13,
+      "max_seconds": 31
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Romeo directs the player to Father Lawrence."
+    }
+  },
+  {
+    "id": "quest.romeo_juliet.consult_lawrence",
+    "name": "Ask Father Lawrence about the marriage",
+    "activity_id": "quest.romeo_juliet",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.father_lawrence",
+    "end_location_id": "location.varrock.father_lawrence",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.romeo_juliet.deliver_message"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Father Lawrence suggests the cadava potion."
+    }
+  },
+  {
+    "id": "quest.romeo_juliet.obtain_cadava_potion",
+    "name": "Give the Apothecary the cadava berries",
+    "activity_id": "quest.romeo_juliet",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.apothecary",
+    "end_location_id": "location.varrock.apothecary",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.romeo_juliet.consult_lawrence"
+    },
+    "consumes": [
+      {
+        "item_id": "item.cadava_berries",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cadava_potion",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 33
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Apothecary makes the potion without an additional coin charge."
+    }
+  },
+  {
+    "id": "quest.romeo_juliet.give_potion_to_juliet",
+    "name": "Give Juliet the cadava potion",
+    "activity_id": "quest.romeo_juliet",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.juliet",
+    "end_location_id": "location.varrock.juliet",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.romeo_juliet.obtain_cadava_potion"
+    },
+    "consumes": [
+      {
+        "item_id": "item.cadava_potion",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 33,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Juliet drinks the potion in the cutscene."
+    }
+  },
+  {
+    "id": "quest.romeo_juliet.complete",
+    "name": "Tell Romeo what happened to Juliet",
+    "activity_id": "quest.romeo_juliet",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.romeo",
+    "end_location_id": "location.varrock.romeo",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.romeo_juliet.give_potion_to_juliet"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 5
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.romeo_juliet.quest_month_lamp",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Finish the final dialogue and cutscene. Build 242 fresh completion includes a 500 XP lamp."
+    }
+  },
+  {
+    "id": "quest.pirates_treasure.start",
+    "name": "Ask Redbeard Frank about treasure",
+    "activity_id": "quest.pirates_treasure",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.redbeard_frank",
+    "end_location_id": "location.port_sarim.redbeard_frank",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 14,
+      "max_seconds": 31
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Frank asks for a bottle of Karamjan rum."
+    }
+  },
+  {
+    "id": "quest.pirates_treasure.hide_rum_in_crate",
+    "name": "Buy rum and hide it in Luthas’s banana shipment",
+    "activity_id": "quest.pirates_treasure",
+    "kind": "quest_stage",
+    "start_location_id": "location.musa_point.zambo",
+    "end_location_id": "location.musa_point.luthas",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.pirates_treasure.start"
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 30
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 30
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 77,
+      "max_seconds": 166
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.rum_smuggling",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy one bottle, ask Luthas for work, pick ten bananas, conceal the rum in the shipping crate and fill it with the bananas. Tell Luthas for the 30 GP wage."
+    }
+  },
+  {
+    "id": "quest.pirates_treasure.recover_rum",
+    "name": "Wear a white apron and recover the rum from Wydin’s crate",
+    "activity_id": "quest.pirates_treasure",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.wydins_crate",
+    "end_location_id": "location.port_sarim.wydins_crate",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.pirates_treasure.hide_rum_in_crate"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.karamjan_rum",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 43,
+      "max_seconds": 94
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.rum_smuggling",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the apron from the Port Sarim fishing shop, ask Wydin for a job and search the imported crate in the back room."
+    }
+  },
+  {
+    "id": "quest.pirates_treasure.give_frank_rum",
+    "name": "Give Redbeard Frank the recovered rum",
+    "activity_id": "quest.pirates_treasure",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.redbeard_frank",
+    "end_location_id": "location.port_sarim.redbeard_frank",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.pirates_treasure.recover_rum"
+    },
+    "consumes": [
+      {
+        "item_id": "item.karamjan_rum",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pirate_chest_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Frank exchanges the bottle for his chest key."
+    }
+  },
+  {
+    "id": "quest.pirates_treasure.read_treasure_clue",
+    "name": "Unlock Frank’s chest at the inn and read the clue",
+    "activity_id": "quest.pirates_treasure",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.blue_moon_inn",
+    "end_location_id": "location.varrock.blue_moon_inn",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.pirates_treasure.give_frank_rum"
+    },
+    "consumes": [
+      {
+        "item_id": "item.pirate_chest_key",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb the inn stairs, use the key on the chest and read the message."
+    }
+  },
+  {
+    "id": "quest.pirates_treasure.complete",
+    "name": "Dig up the treasure in Falador Park",
+    "activity_id": "quest.pirates_treasure",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador.pirate_treasure_cross",
+    "end_location_id": "location.falador.pirate_treasure_cross",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pirates_treasure.read_treasure_clue"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 450
+      },
+      {
+        "kind": "item",
+        "item_id": "item.gold_ring",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.emerald",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 8000
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 51,
+      "max_seconds": 119
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Dig at the cross, deal with the level 4 gardener and dig again for the treasure. Build 242 awards 800 Cooking XP."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the interfering gardener with an appropriate combat setup and dig up the treasure.",
+      "if_unmet": "Return with a spade and a suitable weapon, and finish the dig."
+    }
+  },
+  {
+    "id": "supply.varrock.withdraw_priest_in_peril_second_load",
+    "name": "Withdraw the second 25 unnoted pure essence",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.east_bank",
+    "end_location_id": "location.varrock.east_bank",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "counter",
+          "token_id": "token.bank.priest_in_peril_essence",
+          "minimum": 25
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.deliver_first_essence"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.bank.priest_in_peril_essence",
+        "delta": -25
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pure_essence",
+        "quantity": 25
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 10,
+      "max_seconds": 23
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take 25 unnoted essence and bank other items as necessary to free inventory space."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_salve_graveyard_tablet",
+    "name": "Buy a Salve graveyard teleport tablet",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 4750
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.salve_graveyard_teleport_tablet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.shortest_path.salve_graveyard_tablet",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 4,750 GP. Breaking the tablet requires Priest in Peril."
+    }
+  }
+]

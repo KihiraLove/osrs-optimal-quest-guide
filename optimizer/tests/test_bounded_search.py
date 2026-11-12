@@ -121,10 +121,11 @@ class BoundedSearchTests(unittest.TestCase):
         profile["initial_state"]["inventory"]["item.oak_logs"] = 11
         detour = "transport.balloon.crafting_guild.unlock"
         solution, _ = solve_bounded(validator, profile)
-        # Isolate the comparison with training from the optional antique lamp.
-        baseline, _ = solve_bounded(
-            validator, profile, excluded_actions=(detour, "quest.x_marks_the_spot.complete"),
-        )
+        # Keep the training baseline independent of the available quest lamps.
+        baseline, _ = solve_bounded(validator, profile, excluded_actions=(
+            detour, "quest.x_marks_the_spot.complete",
+            "quest.ernest_the_chicken.complete", "quest.romeo_juliet.complete",
+        ))
         self.assertEqual(solution["steps"][0]["action_id"], detour)
         self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {})
         self.assertEqual(baseline["manual_training_xp_tenths_by_skill"], {"skill.firemaking": 20000})

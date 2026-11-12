@@ -152,6 +152,68 @@ class QuestCollectionTests(unittest.TestCase):
         self.assertNotIn("item.ardougne_teleport_scroll", final["inventory"])
         self.assertTrue(final["flags"]["unlock.ardougne_combat_training_camp"])
 
+    def test_morytania_essence_loads_and_lumbridge_guide_gates(self):
+        validator = CatalogValidator(self.catalog, self.contracts)
+        profile = read_json(DATA / "profiles/main-baseline.json")
+        initial = profile["initial_state"]
+        initial["location_id"] = "location.varrock.east_bank"
+        banked = "token.bank.priest_in_peril_essence"
+        initial["counters"][banked] = 50
+
+        def apply_action(state, action_id):
+            record = validator.tables["actions"][action_id]
+            return state.apply({
+                "kind": "action",
+                "action_id": action_id,
+                "modeled_seconds": record["duration"]["expected_seconds"],
+            })
+
+        def route_state(snapshot):
+            return RouteState(validator.tables, profile["policies"], snapshot)
+
+        first = "supply.varrock.withdraw_priest_in_peril_essence"
+        second = "supply.varrock.withdraw_priest_in_peril_second_load"
+        deliver = "quest.priest_in_peril.deliver_first_essence"
+        complete = "quest.priest_in_peril.complete"
+        state = apply_action(route_state(initial), first)
+        self.assertEqual(state.snapshot()["inventory"]["item.pure_essence"], 25)
+        self.assertEqual(state.snapshot()["counters"][banked], 25)
+        with self.assertRaisesRegex(DataError, "required completed action"):
+            apply_action(state, second)
+
+        drezel = state.snapshot()
+        drezel["location_id"] = "location.paterdomus.drezel"
+        drezel["completed_action_ids"].append("quest.priest_in_peril.free_drezel")
+        with self.assertRaisesRegex(DataError, "required"):
+            apply_action(route_state(drezel), complete)
+        first_delivery = apply_action(route_state(drezel), deliver).snapshot()
+        self.assertNotIn("unlock.morytania", first_delivery["flags"])
+        second_load = {**first_delivery, "location_id": initial["location_id"]}
+        loaded = apply_action(route_state(second_load), second).snapshot()
+        loaded["location_id"] = drezel["location_id"]
+        finished = apply_action(route_state(loaded), complete).snapshot()
+        self.assertEqual(finished["xp_tenths"]["skill.prayer"], 14060)
+        self.assertNotIn("item.pure_essence", finished["inventory"])
+        self.assertTrue(finished["flags"]["unlock.morytania"])
+
+        inspect = "rfd.freeing_the_lumbridge_guide.inspect"
+        guide = route_state(initial).snapshot()
+        guide["location_id"] = "location.rfd.frozen_lumbridge_guide"
+        guide["completed_action_ids"] = [
+            "rfd.another_cooks_quest.complete", "quest.big_chompy_bird_hunting.complete",
+            "quest.biohazard.complete", "quest.demon_slayer.complete", "quest.murder_mystery.complete",
+            "quest.witchs_house.complete",
+        ]
+        guide["xp_tenths"]["skill.cooking"] = 372240
+        with self.assertRaisesRegex(DataError, "required completed action"):
+            apply_action(route_state(guide), inspect)
+        guide["completed_action_ids"].append("quest.nature_spirit.complete")
+        guide["xp_tenths"]["skill.cooking"] -= 1
+        with self.assertRaisesRegex(DataError, "skill|threshold"):
+            apply_action(route_state(guide), inspect)
+        guide["xp_tenths"]["skill.cooking"] += 1
+        self.assertIn(inspect, apply_action(route_state(guide), inspect).completed)
+
     def test_evil_dave_replays_both_pet_forms_and_requires_an_approved_stew(self):
         quest = "rfd.freeing_evil_dave"
         validator = CatalogValidator(self.catalog, self.contracts)

@@ -129,19 +129,21 @@ class Build242BaselineTests(unittest.TestCase):
             if step["kind"] == "reward_use" and step["skill_id"] == "skill.hitpoints"
         )
         self.assertEqual(report["final_state"]["xp_tenths"]["skill.hitpoints"], 11540 + lamp_xp)
-        purchases = [step["action_id"] for step in solution["steps"]
+        purchases = [validator.tables["actions"][step["action_id"]] for step in solution["steps"]
                      if step.get("action_id", "").startswith("supply.grand_exchange.purchase_")]
-        self.assertLessEqual({
-            "supply.grand_exchange.purchase_cooks_assistant", "supply.grand_exchange.purchase_spade",
-        }, set(purchases))
+        bought_items = set()
+        egg_purchases = set()
         for purchase in purchases:
-            record = validator.tables["actions"][purchase]
-            self.assertTrue(all(
-                effect["kind"] == "item" and validator.tables["items"][effect["item_id"]]["tradeable"]
-                for effect in record["effects"]
-            ))
+            for effect in purchase["effects"]:
+                self.assertEqual(effect["kind"], "item")
+                item_id = effect["item_id"]
+                self.assertTrue(validator.tables["items"][item_id]["tradeable"])
+                bought_items.add(item_id)
+                if item_id == "item.egg":
+                    egg_purchases.add(purchase["id"])
+        self.assertLessEqual({"item.egg", "item.bucket_of_milk", "item.pot_of_flour", "item.spade"}, bought_items)
         without_ingredients = {**solution, "steps": [
-            step for step in solution["steps"] if step.get("action_id") != "supply.grand_exchange.purchase_cooks_assistant"
+            step for step in solution["steps"] if step.get("action_id") not in egg_purchases
         ]}
         with self.assertRaisesRegex(DataError, "required items"):
             verify_solution(without_ingredients, profile, validator)

@@ -1,5 +1,337 @@
 [
   {
+    "id": "review.quest.priest_in_peril.completion_rewards",
+    "activity_id": "quest.priest_in_peril",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.priest_in_peril.complete"
+    ],
+    "expected_effects": {
+      "quest.priest_in_peril.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.prayer",
+          "xp_tenths": 14060
+        },
+        {
+          "kind": "item",
+          "item_id": "item.wolfbane",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.morytania",
+          "value": true
+        }
+      ]
+    },
+    "note": "The modeled route uses two loads of unnoted pure essence. The temple guardian is immune to Magic."
+  },
+  {
+    "id": "review.quest.nature_spirit.completion_rewards",
+    "activity_id": "quest.nature_spirit",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.nature_spirit.start",
+      "quest.nature_spirit.bless_sickle",
+      "quest.nature_spirit.complete"
+    ],
+    "expected_effects": {
+      "quest.nature_spirit.start": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.mort_myre_swamp",
+          "value": true
+        }
+      ],
+      "quest.nature_spirit.bless_sickle": [
+        {
+          "kind": "item",
+          "item_id": "item.blessed_silver_sickle",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.druid_pouch",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mort_myre_bloom",
+          "value": true
+        }
+      ],
+      "quest.nature_spirit.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.crafting",
+          "xp_tenths": 30000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.defence",
+          "xp_tenths": 20000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.hitpoints",
+          "xp_tenths": 20000
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.nature_spirit_altar",
+          "value": true
+        }
+      ]
+    },
+    "note": "Mort Myre entry and the blessed sickle are partial-progress unlocks. The grotto altar and fixed XP are completion rewards."
+  },
+  {
+    "id": "review.quest.in_search_of_the_myreque.completion_rewards",
+    "activity_id": "quest.in_search_of_the_myreque",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.in_search_of_the_myreque.complete"
+    ],
+    "expected_effects": {
+      "quest.in_search_of_the_myreque.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.attack",
+          "xp_tenths": 6000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.defence",
+          "xp_tenths": 6000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.strength",
+          "xp_tenths": 6000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.hitpoints",
+          "xp_tenths": 6000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.crafting",
+          "xp_tenths": 6000
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.myreque_mortton_route",
+          "value": true
+        }
+      ]
+    },
+    "note": "The 25 Agility check is modeled at the bridge. Incidental XP and encounter drops await separate verification."
+  },
+  {
+    "id": "review.rfd.freeing_the_lumbridge_guide.completion_rewards",
+    "activity_id": "rfd.freeing_the_lumbridge_guide",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.quest_helper.rfd_guide_quiz"
+    ],
+    "catalog_ids": [
+      "rfd.freeing_the_lumbridge_guide.complete"
+    ],
+    "expected_effects": {
+      "rfd.freeing_the_lumbridge_guide.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.cooking",
+          "xp_tenths": 25000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.magic",
+          "xp_tenths": 25000
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.rfd_lumbridge_guide_chest_stock",
+          "value": true
+        }
+      ]
+    },
+    "note": "All fixed XP and the quest point arrive when the guide is freed."
+  },
+  {
+    "id": "review.quest.vampyre_slayer.completion_rewards",
+    "activity_id": "quest.vampyre_slayer",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.vampyre_slayer.complete"
+    ],
+    "expected_effects": {
+      "quest.vampyre_slayer.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 3
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.attack",
+          "xp_tenths": 48250
+        }
+      ]
+    },
+    "note": "The final blow with the stake and hammer triggers the Attack XP and three quest points. Garlic is optional."
+  },
+  {
+    "id": "review.quest.ernest_the_chicken.completion_rewards",
+    "activity_id": "quest.ernest_the_chicken",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.jagex.quest_month_2026_11_03"
+    ],
+    "catalog_ids": [
+      "quest.ernest_the_chicken.complete"
+    ],
+    "expected_effects": {
+      "quest.ernest_the_chicken.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 4
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 300
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.killerwatt_plane",
+          "value": true
+        },
+        {
+          "kind": "xp_reward",
+          "reward_id": "reward.ernest_the_chicken.quest_month_lamp",
+          "quantity": 1
+        }
+      ]
+    },
+    "note": "Four quest points, 300 GP, Killerwatt access and the publisher’s 500 XP lamp are awarded on fresh completion."
+  },
+  {
+    "id": "review.quest.romeo_juliet.completion_rewards",
+    "activity_id": "quest.romeo_juliet",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.jagex.quest_month_2026_11_03"
+    ],
+    "catalog_ids": [
+      "quest.romeo_juliet.complete"
+    ],
+    "expected_effects": {
+      "quest.romeo_juliet.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 5
+        },
+        {
+          "kind": "xp_reward",
+          "reward_id": "reward.romeo_juliet.quest_month_lamp",
+          "quantity": 1
+        }
+      ]
+    },
+    "note": "Five quest points and the publisher’s 500 XP lamp arrive on fresh completion."
+  },
+  {
+    "id": "review.quest.pirates_treasure.completion_rewards",
+    "activity_id": "quest.pirates_treasure",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.quest_helper.rum_smuggling",
+      "source.jagex.quest_month_2026_11_03"
+    ],
+    "catalog_ids": [
+      "quest.pirates_treasure.hide_rum_in_crate",
+      "quest.pirates_treasure.complete"
+    ],
+    "expected_effects": {
+      "quest.pirates_treasure.hide_rum_in_crate": [
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 30
+        }
+      ],
+      "quest.pirates_treasure.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 450
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gold_ring",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.emerald",
+          "quantity": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.cooking",
+          "xp_tenths": 8000
+        }
+      ]
+    },
+    "note": "Luthas’s wage is paid during the quest. The dig awards the treasure and Build 242 Cooking XP."
+  },
+  {
     "id": "review.quest.witchs_potion.completion_rewards",
     "activity_id": "quest.witchs_potion",
     "status": "collected",
