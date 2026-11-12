@@ -176,6 +176,53 @@ class TravelTests(unittest.TestCase):
         with self.assertRaisesRegex(DataError, "withdrawals require a full bank"):
             CatalogValidator(catalog, self.contracts).validate_catalog()
 
+    def test_waterfall_banks_and_restores_the_restricted_loadout(self):
+        initial = self.profile["initial_state"]
+        initial.update(
+            location_id="location.seers_village.bank",
+            completed_action_ids=["quest.waterfall_quest.obtain_glarials_pebble"],
+            inventory={
+                "item.glarials_pebble": 1, "item.air_rune": 6, "item.logs": 2,
+                "item.bronze_dagger": 1, "item.lobster": 2,
+            },
+        )
+
+        def apply(state, record_id):
+            travel = record_id.startswith("travel.")
+            record = self.edges[record_id] if travel else self.actions[record_id]
+            step = {
+                "kind": "travel" if travel else "action",
+                "edge_id" if travel else "action_id": record_id,
+                "modeled_seconds": record["duration"]["expected_seconds"],
+            }
+            if "planned_outcome" in record:
+                step["planned_outcome"] = record["planned_outcome"]
+            return state.apply(step, record_id)
+
+        state = RouteState(self.validator.tables, self.profile["policies"], initial)
+        approach = "travel.walk.baxtorian.tombstone_bank.out"
+        enter = "travel.other.glarials_tomb.enter"
+        with self.assertRaises(DataError):
+            apply(apply(state, approach), enter)
+
+        state = apply(state, "supply.seers.deposit_waterfall_gear")
+        self.assertEqual(state.snapshot()["bank_inventory"], {
+            "item.air_rune": 6, "item.logs": 2, "item.bronze_dagger": 1,
+        })
+        state = apply(apply(state, approach), enter)
+        self.assertEqual(state.snapshot()["inventory"], {"item.glarials_pebble": 1, "item.lobster": 2})
+        for record_id in (
+            "quest.waterfall_quest.recover_relics",
+            "travel.walk.glarials_tomb.exit",
+            "travel.walk.baxtorian.tombstone_bank.back",
+            "supply.seers.withdraw_waterfall_gear",
+        ):
+            state = apply(state, record_id)
+        self.assertFalse(state.snapshot().get("bank_inventory"))
+        self.assertEqual(state.snapshot()["inventory"], {
+            **initial["inventory"], "item.glarials_amulet": 1, "item.glarials_urn": 1,
+        })
+
     def test_fairy_ring_unlock_precedes_skill_gates_and_ring_travel(self):
         profile = read_json(EXAMPLES / "fairy-ring-access-profile.json")
         [unlock] = profile["priority_action_ids"]
@@ -193,6 +240,31 @@ class TravelTests(unittest.TestCase):
         self.assertEqual(report["objective"]["priority_elapsed_seconds"], sum(
             step.get("modeled_seconds", 0) for step in solution["steps"][:unlock_index + 1]
         ))
+        # The hideout also opens with zero XP in the three later quest skills.
+        state = RouteState(self.validator.tables, profile["policies"], profile["initial_state"])
+        for step in solution["steps"][:unlock_index + 1]:
+            state = state.apply(step)
+        for edge_id in (
+            "travel.walk.zanaris.throne_ring.out",
+            "travel.fairy_ring.zanaris.queen_hideout",
+            "travel.walk.fairytale.queen_hideout.out",
+        ):
+            edge = self.edges[edge_id]
+            state = state.apply({
+                "kind": "travel", "edge_id": edge_id, "modeled_seconds": edge["duration"]["expected_seconds"],
+            })
+        find = self.actions["quest.fairytale_ii_cure_a_queen.find_the_queen"]
+        found = state.apply({
+            "kind": "action", "action_id": find["id"], "modeled_seconds": find["duration"]["expected_seconds"],
+        }).snapshot()
+        found["location_id"] = "location.zanaris.fairy_godfather"
+        pickpocket = self.actions["quest.fairytale_ii_cure_a_queen.pickpocket_godfather"]
+        with self.assertRaisesRegex(DataError, "skill|threshold"):
+            RouteState(self.validator.tables, profile["policies"], found).apply({
+                "kind": "action", "action_id": pickpocket["id"],
+                "modeled_seconds": pickpocket["duration"]["expected_seconds"],
+                "planned_outcome": pickpocket["planned_outcome"],
+            })
         solution["objective"]["priority_elapsed_seconds"] -= 1
         with self.assertRaisesRegex(DataError, "objective.priority_elapsed_seconds"):
             verify_solution(solution, profile, self.validator)

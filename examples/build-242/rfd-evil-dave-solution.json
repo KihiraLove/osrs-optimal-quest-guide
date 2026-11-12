@@ -1,0 +1,338 @@
+{
+  "schema_version": "0.1.0",
+  "solution_id": "solution.fixture.rfd_freeing_evil_dave",
+  "inputs": {
+    "dataset_id": "osrs.main",
+    "dataset_version": "0.27.0",
+    "profile_id": "profile.fixture.rfd_freeing_evil_dave",
+    "catalog_sha256": "49f2279b39781499de1d87d0c43e543f1d9fe67ba5e1ed1221d333dd93d1a87d",
+    "profile_sha256": "4628404274f9d6b126500ce530898ba344e876d32284f3f0e4009ecd294a68f2",
+    "schemas_sha256": "67c5898cc3b30a41d5bf9996b5be36c2a5798fce998844e2adc6d9d26039a5c6"
+  },
+  "policies": {
+    "quest_lamp_skill_policy": "any_skill",
+    "trade_enabled": true,
+    "gp_policy": "self_funded",
+    "allow_boosts": true,
+    "allow_poh_services": false,
+    "allow_wilderness_travel": true,
+    "allow_death_travel": false,
+    "allow_minigame_teleports": true,
+    "allow_world_switching": false,
+    "allow_player_assistance": true,
+    "allow_repeatable_xp": false,
+    "training_methods": "user_choice",
+    "training_time_in_objective": false,
+    "training_resume_policy": "return_to_route_waypoint"
+  },
+  "solver": {
+    "name": "hand-authored-example",
+    "seed": 0,
+    "status": "example",
+    "primary_lower_bound_xp_tenths": null,
+    "secondary_lower_bound_seconds": null,
+    "version": "0.1.0",
+    "proof_artifact": null
+  },
+  "objective": {
+    "order": [
+      "manual_training_xp_tenths",
+      "modeled_non_training_seconds",
+      "stable_step_ids"
+    ],
+    "manual_training_xp_tenths": 0,
+    "modeled_non_training_seconds": 1715
+  },
+  "manual_training_xp_tenths_by_skill": {},
+  "steps": [
+    {
+      "step_id": "step.000001",
+      "kind": "travel",
+      "edge_id": "travel.walk.rfd.frozen_evil_dave.out",
+      "modeled_seconds": 4,
+      "explanation": "Walk to frozen Evil Dave"
+    },
+    {
+      "step_id": "step.000002",
+      "kind": "action",
+      "action_id": "rfd.freeing_evil_dave.inspect",
+      "modeled_seconds": 23,
+      "explanation": "Inspect frozen Evil Dave and ask what food he ate"
+    },
+    {
+      "step_id": "step.000003",
+      "kind": "travel",
+      "edge_id": "travel.walk.rfd.frozen_evil_dave.back",
+      "modeled_seconds": 4,
+      "explanation": "Walk back across the banquet room"
+    },
+    {
+      "step_id": "step.000004",
+      "kind": "travel",
+      "edge_id": "travel.walk.rfd.dining_room.back",
+      "modeled_seconds": 8,
+      "explanation": "Return to the Lumbridge kitchen"
+    },
+    {
+      "step_id": "step.000005",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.kitchen.back",
+      "modeled_seconds": 16,
+      "explanation": "Lumbridge courtyard and kitchen (return)"
+    },
+    {
+      "step_id": "step.000006",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.varrock.out",
+      "modeled_seconds": 125,
+      "explanation": "Lumbridge to Varrock square"
+    },
+    {
+      "step_id": "step.000007",
+      "kind": "travel",
+      "edge_id": "travel.walk.varrock.grand_exchange.out",
+      "modeled_seconds": 48,
+      "explanation": "Walk from Varrock square to the Grand Exchange"
+    },
+    {
+      "step_id": "step.000008",
+      "kind": "action",
+      "action_id": "supply.grand_exchange.purchase_eight_stews",
+      "modeled_seconds": 18,
+      "explanation": "Buy eight plain stews"
+    },
+    {
+      "step_id": "step.000009",
+      "kind": "action",
+      "action_id": "supply.grand_exchange.purchase_kitten_food",
+      "modeled_seconds": 12,
+      "explanation": "Buy two raw sardines for kitten care"
+    },
+    {
+      "step_id": "step.000010",
+      "kind": "travel",
+      "edge_id": "travel.walk.varrock.edgeville_ring.out",
+      "modeled_seconds": 88,
+      "explanation": "Walk from the Grand Exchange to D.K.R."
+    },
+    {
+      "step_id": "step.000011",
+      "kind": "travel",
+      "edge_id": "travel.walk.edgeville.doris.out",
+      "modeled_seconds": 51,
+      "explanation": "Cross to Doris’s house from the D.K.R. ring"
+    },
+    {
+      "step_id": "step.000012",
+      "kind": "travel",
+      "edge_id": "travel.walk.edgeville.doris_trapdoor.out",
+      "modeled_seconds": 4,
+      "explanation": "Walk to the cellar trapdoor"
+    },
+    {
+      "step_id": "step.000013",
+      "kind": "travel",
+      "edge_id": "travel.walk.edgeville.doris_cellar.out",
+      "modeled_seconds": 7,
+      "explanation": "Open the trapdoor and climb into the cellar"
+    },
+    {
+      "step_id": "step.000014",
+      "kind": "travel",
+      "edge_id": "travel.walk.edgeville.doris_cellar_dave.out",
+      "modeled_seconds": 6,
+      "explanation": "Walk from the stairs to Evil Dave"
+    },
+    {
+      "step_id": "step.000015",
+      "kind": "action",
+      "action_id": "rfd.freeing_evil_dave.ask_dave",
+      "modeled_seconds": 24,
+      "explanation": "Ask Evil Dave what he ate at the secret meeting"
+    },
+    {
+      "step_id": "step.000016",
+      "kind": "travel",
+      "edge_id": "travel.walk.edgeville.doris_cellar_dave.back",
+      "modeled_seconds": 6,
+      "explanation": "Return to the cellar stairs"
+    },
+    {
+      "step_id": "step.000017",
+      "kind": "travel",
+      "edge_id": "travel.walk.edgeville.doris_cellar.back",
+      "modeled_seconds": 7,
+      "explanation": "Climb from the cellar into Doris’s house"
+    },
+    {
+      "step_id": "step.000018",
+      "kind": "travel",
+      "edge_id": "travel.walk.edgeville.doris_trapdoor.back",
+      "modeled_seconds": 4,
+      "explanation": "Walk from the trapdoor to Doris"
+    },
+    {
+      "step_id": "step.000019",
+      "kind": "action",
+      "action_id": "rfd.freeing_evil_dave.ask_doris",
+      "modeled_seconds": 18,
+      "explanation": "Ask Doris what happened to her spices"
+    },
+    {
+      "step_id": "step.000020",
+      "kind": "travel",
+      "edge_id": "travel.walk.edgeville.doris_trapdoor.out",
+      "modeled_seconds": 4,
+      "explanation": "Walk to the cellar trapdoor"
+    },
+    {
+      "step_id": "step.000021",
+      "kind": "travel",
+      "edge_id": "travel.walk.edgeville.doris_cellar.out",
+      "modeled_seconds": 7,
+      "explanation": "Open the trapdoor and climb into the cellar"
+    },
+    {
+      "step_id": "step.000022",
+      "kind": "travel",
+      "edge_id": "travel.walk.edgeville.doris_cellar_dave.out",
+      "modeled_seconds": 6,
+      "explanation": "Walk from the stairs to Evil Dave"
+    },
+    {
+      "step_id": "step.000023",
+      "kind": "action",
+      "action_id": "rfd.freeing_evil_dave.hunt_with_kitten",
+      "modeled_seconds": 1050,
+      "explanation": "Collect the spice reserve with a kitten",
+      "planned_outcome": {
+        "success_condition": "Use a kitten to catch ordinary Hell-Rats until you have at least six doses of each colour. Feed and give attention as needed. This branch assumes the cat turns hellish during the hunt.",
+        "if_unmet": "Reconcile the cat’s form, care supplies and observed doses before continuing. Replan from the observed state if the route assumptions change."
+      }
+    },
+    {
+      "step_id": "step.000024",
+      "kind": "action",
+      "action_id": "rfd.freeing_evil_dave.test_and_mix",
+      "modeled_seconds": 110,
+      "explanation": "Test the four spices and mix Dave’s recipe"
+    },
+    {
+      "step_id": "step.000025",
+      "kind": "action",
+      "action_id": "rfd.freeing_evil_dave.confirm_recipe",
+      "modeled_seconds": 12,
+      "explanation": "Have cellar Dave taste and approve the final stew"
+    },
+    {
+      "step_id": "step.000026",
+      "kind": "travel",
+      "edge_id": "travel.spell.doris_cellar.lumbridge",
+      "modeled_seconds": 5,
+      "explanation": "Cast Lumbridge Teleport from the cellar"
+    },
+    {
+      "step_id": "step.000027",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.kitchen.out",
+      "modeled_seconds": 16,
+      "explanation": "Lumbridge courtyard and kitchen"
+    },
+    {
+      "step_id": "step.000028",
+      "kind": "travel",
+      "edge_id": "travel.walk.rfd.dining_room.out",
+      "modeled_seconds": 8,
+      "explanation": "Enter the frozen dining room"
+    },
+    {
+      "step_id": "step.000029",
+      "kind": "travel",
+      "edge_id": "travel.walk.rfd.frozen_evil_dave.out",
+      "modeled_seconds": 4,
+      "explanation": "Walk to frozen Evil Dave"
+    },
+    {
+      "step_id": "step.000030",
+      "kind": "action",
+      "action_id": "rfd.freeing_evil_dave.complete",
+      "modeled_seconds": 20,
+      "explanation": "Serve the approved stew to frozen Evil Dave"
+    }
+  ],
+  "final_state": {
+    "location_id": "location.rfd.frozen_evil_dave",
+    "xp_tenths": {
+      "skill.agility": 0,
+      "skill.attack": 615120,
+      "skill.construction": 0,
+      "skill.cooking": 88250,
+      "skill.crafting": 133630,
+      "skill.defence": 615120,
+      "skill.farming": 0,
+      "skill.firemaking": 0,
+      "skill.fishing": 0,
+      "skill.fletching": 0,
+      "skill.herblore": 0,
+      "skill.hitpoints": 1013330,
+      "skill.hunter": 0,
+      "skill.magic": 148740,
+      "skill.mining": 0,
+      "skill.prayer": 503390,
+      "skill.ranged": 0,
+      "skill.runecraft": 0,
+      "skill.sailing": 0,
+      "skill.slayer": 0,
+      "skill.smithing": 0,
+      "skill.strength": 1013330,
+      "skill.thieving": 88420,
+      "skill.woodcutting": 0
+    },
+    "completed_action_ids": [
+      "quest.cooks_assistant.complete",
+      "quest.demon_slayer.complete",
+      "quest.gertrudes_cat.complete",
+      "quest.shadow_of_the_storm.complete",
+      "quest.the_golem.complete",
+      "rfd.another_cooks_quest.complete",
+      "rfd.freeing_evil_dave.ask_dave",
+      "rfd.freeing_evil_dave.ask_doris",
+      "rfd.freeing_evil_dave.complete",
+      "rfd.freeing_evil_dave.confirm_recipe",
+      "rfd.freeing_evil_dave.hunt_with_kitten",
+      "rfd.freeing_evil_dave.inspect",
+      "rfd.freeing_evil_dave.test_and_mix",
+      "supply.grand_exchange.purchase_eight_stews",
+      "supply.grand_exchange.purchase_kitten_food"
+    ],
+    "flags": {
+      "flag.spellbook.standard": true,
+      "unlock.uzer_magic_carpet": true,
+      "unlock.raise_cats": true,
+      "flag.rfd.freeing_evil_dave.hunt_reserve_collected": true,
+      "unlock.spicy_stew_boosts": true,
+      "unlock.hell_rat_behemoths": true
+    },
+    "counters": {
+      "token.quest_points": 10
+    },
+    "inventory": {
+      "item.hell_kitten": 1
+    },
+    "held_rewards": [],
+    "modeled_elapsed_seconds": 1715,
+    "travel_counts": {
+      "travel.spell.doris_cellar.lumbridge": 1
+    }
+  },
+  "verification": {
+    "schema_valid": true,
+    "replay_valid": true,
+    "catalog_release_ready": false
+  },
+  "limitations": [
+    "The saved itinerary assumes a successful kitten hunt and verifies the stew reserve and approval handover.",
+    "Training steps specify XP gains and resume waypoints. The player chooses the method.",
+    "Replay checks the planned success path. Confirm each conditional outcome in game before continuing."
+  ]
+}

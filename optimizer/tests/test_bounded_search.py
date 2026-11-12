@@ -121,11 +121,16 @@ class BoundedSearchTests(unittest.TestCase):
         profile["initial_state"]["inventory"]["item.oak_logs"] = 11
         detour = "transport.balloon.crafting_guild.unlock"
         solution, _ = solve_bounded(validator, profile)
-        # Keep the training baseline independent of the available quest lamps.
-        baseline, _ = solve_bounded(validator, profile, excluded_actions=(
-            detour, "quest.x_marks_the_spot.complete",
-            "quest.ernest_the_chicken.complete", "quest.romeo_juliet.complete",
-        ))
+        # Isolate a training-only baseline as the catalog gains new XP sources.
+        xp_sources = tuple(
+            action["id"] for action in catalog["actions"]
+            if action["id"] not in profile["goal_action_ids"] and any(
+                effect["kind"] == "xp_reward"
+                or (effect["kind"] == "xp" and effect["skill_id"] == "skill.firemaking")
+                for effect in action["effects"]
+            )
+        )
+        baseline, _ = solve_bounded(validator, profile, excluded_actions=xp_sources)
         self.assertEqual(solution["steps"][0]["action_id"], detour)
         self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {})
         self.assertEqual(baseline["manual_training_xp_tenths_by_skill"], {"skill.firemaking": 20000})

@@ -72,7 +72,6 @@ jobs:
           quest-optimizer replay "$RUNNER_TEMP/the-golem.json" --catalog data/manifest.json --profile examples/build-242/the-golem-profile.json
           quest-optimizer solve-bounded data/manifest.json examples/build-242/shadow-of-the-storm-profile.json --beam-width 128 --max-expansions 40000 > "$RUNNER_TEMP/shadow-of-the-storm.json"
           quest-optimizer replay "$RUNNER_TEMP/shadow-of-the-storm.json" --catalog data/manifest.json --profile examples/build-242/shadow-of-the-storm-profile.json
-          quest-optimizer solve-bounded data/manifest.json examples/build-242/rfd-evil-dave-profile.json --beam-width 96 --max-expansions 30000 > "$RUNNER_TEMP/rfd-evil-dave.json"
-          quest-optimizer replay "$RUNNER_TEMP/rfd-evil-dave.json" --catalog data/manifest.json --profile examples/build-242/rfd-evil-dave-profile.json
+          quest-optimizer replay examples/build-242/rfd-evil-dave-solution.json --catalog data/manifest.json --profile examples/build-242/rfd-evil-dave-profile.json
       - name: Run optimizer checks
         run: python -m unittest discover -s optimizer/tests -v

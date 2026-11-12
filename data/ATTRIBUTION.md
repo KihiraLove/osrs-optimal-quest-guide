@@ -58,6 +58,9 @@ original descriptions of findings. The data uses pinned upstream sources.
 - The Morytania and starter quest batch uses pinned Quest Helper, RuneLite
   item and fairy-ring metadata, and Shortest Path transport data. The build 242
   Quest Month release supplies the two completion lamps and Cooking XP.
+- The Fairytale and Kandarin batch uses pinned Quest Helper, RuneLite's
+  Herblore calculator, Old School gameplay walkthroughs and Shortest Path's
+  spirit tree, fairy ring and quest passage coordinates.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

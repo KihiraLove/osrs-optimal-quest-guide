@@ -1,0 +1,3727 @@
+[
+  {
+    "id": "quest.fight_arena.start",
+    "name": "Ask Lady Servil about her family",
+    "activity_id": "quest.fight_arena",
+    "kind": "quest_stage",
+    "start_location_id": "location.fight_arena.lady_servil",
+    "end_location_id": "location.fight_arena.lady_servil",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Lady Servil asks the player to find her family in the Fight Arena prison."
+    }
+  },
+  {
+    "id": "quest.fight_arena.take_disguise",
+    "name": "Search the chest for Khazard armour",
+    "activity_id": "quest.fight_arena",
+    "kind": "quest_stage",
+    "start_location_id": "location.fight_arena.armour_chest",
+    "end_location_id": "location.fight_arena.armour_chest",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fight_arena.start"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.khazard_helmet",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.khazard_armour",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 14,
+      "max_seconds": 31
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take the helmet and platebody as a prison disguise."
+    }
+  },
+  {
+    "id": "quest.fight_arena.speak_to_guard",
+    "name": "Speak to the guard near the cells",
+    "activity_id": "quest.fight_arena",
+    "kind": "quest_stage",
+    "start_location_id": "location.fight_arena.cell_guard",
+    "end_location_id": "location.fight_arena.cell_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fight_arena.take_disguise"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.khazard_helmet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.khazard_armour",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The guard tells the disguised player he wants something to drink."
+    }
+  },
+  {
+    "id": "supply.fight_arena.buy_khali_brew",
+    "name": "Buy a Khali brew",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.fight_arena.barman",
+    "end_location_id": "location.fight_arena.barman",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fight_arena.speak_to_guard"
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.khali_brew",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 13,
+      "max_seconds": 27
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The barman sells the brew for 5 GP."
+    }
+  },
+  {
+    "id": "quest.fight_arena.get_cell_keys",
+    "name": "Give the guard his drink and get the keys",
+    "activity_id": "quest.fight_arena",
+    "kind": "quest_stage",
+    "start_location_id": "location.fight_arena.cell_guard",
+    "end_location_id": "location.fight_arena.cell_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fight_arena.speak_to_guard"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.khazard_helmet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.khazard_armour",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.khali_brew",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the guard his Khali brew and recover the cell keys."
+    }
+  },
+  {
+    "id": "quest.fight_arena.free_sammy",
+    "name": "Free Sammy and enter the arena",
+    "activity_id": "quest.fight_arena",
+    "kind": "quest_stage",
+    "start_location_id": "location.fight_arena.cell_guard",
+    "end_location_id": "location.fight_arena.arena",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fight_arena.get_cell_keys"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 34,
+      "max_seconds": 78
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Walk to Sammy’s cell, use the keys and follow the cutscene."
+    }
+  },
+  {
+    "id": "quest.fight_arena.defeat_ogre",
+    "name": "Defeat the Khazard Ogre and speak to Hengrad",
+    "activity_id": "quest.fight_arena",
+    "kind": "quest_stage",
+    "start_location_id": "location.fight_arena.arena",
+    "end_location_id": "location.fight_arena.arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fight_arena.free_sammy"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 116,
+      "max_seconds": 288
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the level 63 ogre, then speak to General Khazard and Hengrad during the cell sequence."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the ogre and return to the arena from the cell sequence.",
+      "if_unmet": "Bring suitable gear, food and ammunition or runes before continuing."
+    }
+  },
+  {
+    "id": "quest.fight_arena.defeat_scorpion",
+    "name": "Defeat the Khazard Scorpion",
+    "activity_id": "quest.fight_arena",
+    "kind": "quest_stage",
+    "start_location_id": "location.fight_arena.arena",
+    "end_location_id": "location.fight_arena.arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fight_arena.defeat_ogre"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 118,
+      "max_seconds": 293
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Sammy and defeat the level 44 scorpion. The skeleton can provide a safe spot."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the scorpion and continue to Bouncer’s encounter.",
+      "if_unmet": "Use a suitable safe spot or replenish supplies before retrying."
+    }
+  },
+  {
+    "id": "quest.fight_arena.defeat_bouncer",
+    "name": "Defeat Bouncer and leave the arena",
+    "activity_id": "quest.fight_arena",
+    "kind": "quest_stage",
+    "start_location_id": "location.fight_arena.arena",
+    "end_location_id": "location.fight_arena.cell_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fight_arena.defeat_scorpion"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 70,
+      "expected_seconds": 175,
+      "max_seconds": 425
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat Bouncer and use the arena exit. General Khazard’s fight is optional."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Bouncer and leave the arena alive.",
+      "if_unmet": "Bring sufficient ammunition or runes and healing supplies before retrying."
+    }
+  },
+  {
+    "id": "quest.fight_arena.complete",
+    "name": "Tell Lady Servil that her family is safe",
+    "activity_id": "quest.fight_arena",
+    "kind": "quest_stage",
+    "start_location_id": "location.fight_arena.lady_servil",
+    "end_location_id": "location.fight_arena.lady_servil",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fight_arena.defeat_bouncer"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 121750
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 21750
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 1000
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 19,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Award 12,175 Attack XP, 2,175 Thieving XP, two quest points and 1,000 coins. The uniform was acquired earlier."
+    }
+  },
+  {
+    "id": "quest.tree_gnome_village.start",
+    "name": "Ask King Bolren about the missing orbs",
+    "activity_id": "quest.tree_gnome_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.tree_gnome_village.bolren",
+    "end_location_id": "location.tree_gnome_village.bolren",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 22,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "King Bolren sends the player to Commander Montai on the battlefield."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_ballista_logs",
+    "name": "Buy six logs for Commander Montai",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 115
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 6
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 115 GP for six ordinary logs."
+    }
+  },
+  {
+    "id": "quest.tree_gnome_village.supply_ballista",
+    "name": "Speak to Montai and hand over six logs",
+    "activity_id": "quest.tree_gnome_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.khazard_battlefield.montai",
+    "end_location_id": "location.khazard_battlefield.montai",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.tree_gnome_village.start"
+    },
+    "consumes": [
+      {
+        "item_id": "item.logs",
+        "quantity": 6
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 32,
+      "max_seconds": 68
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Offer to help, hand over the six logs and ask how to find the trackers."
+    }
+  },
+  {
+    "id": "quest.tree_gnome_village.get_ballista_coordinates",
+    "name": "Get the three coordinates from the trackers",
+    "activity_id": "quest.tree_gnome_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.khazard_battlefield.tracker_one",
+    "end_location_id": "location.khazard_battlefield.tracker_one",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.tree_gnome_village.supply_ballista"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 63,
+      "max_seconds": 138
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to all three trackers, including the prisoner, and solve the final tracker’s account-specific coordinate clue."
+    }
+  },
+  {
+    "id": "quest.tree_gnome_village.retrieve_first_orb",
+    "name": "Fire the ballista and recover the first orb",
+    "activity_id": "quest.tree_gnome_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.khazard_battlefield.ballista",
+    "end_location_id": "location.khazard_battlefield.ballista",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.tree_gnome_village.get_ballista_coordinates"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 101,
+      "max_seconds": 226
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the coordinates, enter the breached stronghold, go upstairs, recover the orb from the chest and leave."
+    },
+    "planned_outcome": {
+      "success_condition": "Hit the stronghold with the correct coordinates and recover the first orb.",
+      "if_unmet": "Recheck the third tracker’s clue and input the correct coordinate."
+    }
+  },
+  {
+    "id": "quest.tree_gnome_village.return_first_orb",
+    "name": "Give King Bolren the first orb",
+    "activity_id": "quest.tree_gnome_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.tree_gnome_village.bolren",
+    "end_location_id": "location.tree_gnome_village.bolren",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.tree_gnome_village.retrieve_first_orb"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn that the Khazard Warlord has the other two orbs."
+    }
+  },
+  {
+    "id": "quest.tree_gnome_village.defeat_warlord",
+    "name": "Defeat the Khazard Warlord for the remaining orbs",
+    "activity_id": "quest.tree_gnome_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.khazard_battlefield.warlord",
+    "end_location_id": "location.khazard_battlefield.warlord",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tree_gnome_village.return_first_orb"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 172,
+      "max_seconds": 420
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the warlord with a suitable combat setup and pick up the two orbs."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the warlord and recover the remaining orbs.",
+      "if_unmet": "Replenish supplies and retry with appropriate gear or a ranged safe spot."
+    }
+  },
+  {
+    "id": "quest.tree_gnome_village.complete",
+    "name": "Return the last two orbs to King Bolren",
+    "activity_id": "quest.tree_gnome_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.tree_gnome_village.bolren",
+    "end_location_id": "location.tree_gnome_village.bolren",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.tree_gnome_village.defeat_warlord"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 114500
+      },
+      {
+        "kind": "item",
+        "item_id": "item.gnome_amulet",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.spirit_tree_travel",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 27,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Award the amulet, Attack XP, two quest points and spirit tree access."
+    }
+  },
+  {
+    "id": "quest.waterfall_quest.start",
+    "name": "Speak to Almera about Hudon",
+    "activity_id": "quest.waterfall_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.baxtorian_falls.almera",
+    "end_location_id": "location.baxtorian_falls.almera",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 18,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Almera asks the player to look for her son."
+    }
+  },
+  {
+    "id": "quest.waterfall_quest.reach_hudon",
+    "name": "Board the log raft and speak to Hudon",
+    "activity_id": "quest.waterfall_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.baxtorian_falls.almera",
+    "end_location_id": "location.baxtorian_falls.hudon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.waterfall_quest.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 32,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Board the raft west of Almera. It carries the player to the river islet."
+    }
+  },
+  {
+    "id": "quest.waterfall_quest.read_hadleys_book",
+    "name": "Rope down the falls and read Hadley’s book",
+    "activity_id": "quest.waterfall_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.baxtorian_falls.hudon",
+    "end_location_id": "location.baxtorian_falls.hadley_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.waterfall_quest.reach_hudon"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 59,
+      "max_seconds": 145
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the rope on the downstream rock and overhanging tree. Use the barrel to reach the foot of the falls, then find and read the upstairs book."
+    }
+  },
+  {
+    "id": "quest.waterfall_quest.obtain_glarials_pebble",
+    "name": "Get Glarial’s pebble from Golrie",
+    "activity_id": "quest.waterfall_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.tree_gnome_village.golrie_ladder",
+    "end_location_id": "location.tree_gnome_village.golrie_ladder",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.waterfall_quest.read_hadleys_book"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.glarials_pebble",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 72,
+      "max_seconds": 159
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Descend the ladder, recover the key from the eastern crate, unlock Golrie’s gate and speak to him. Exit the dungeon."
+    }
+  },
+  {
+    "id": "supply.seers.deposit_waterfall_gear",
+    "name": "Deposit restricted gear and runes",
+    "activity_id": null,
+    "kind": "bank",
+    "start_location_id": "location.seers_village.bank",
+    "end_location_id": "location.seers_village.bank",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.waterfall_quest.obtain_glarials_pebble"
+        },
+        {
+          "kind": "restricted_items",
+          "location_id": "location.glarials_tomb.entrance",
+          "container": "inventory",
+          "present": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "bank_transfer",
+        "direction": "deposit",
+        "location_id": "location.glarials_tomb.entrance"
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 29
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.waterfall",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the Seers’ Village bank for the items restricted by Glarial’s Tomb."
+    }
+  },
+  {
+    "id": "supply.seers.withdraw_waterfall_gear",
+    "name": "Withdraw stored gear and runes",
+    "activity_id": null,
+    "kind": "bank",
+    "start_location_id": "location.seers_village.bank",
+    "end_location_id": "location.seers_village.bank",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.waterfall_quest.recover_relics"
+        },
+        {
+          "kind": "restricted_items",
+          "location_id": "location.glarials_tomb.entrance",
+          "container": "bank_inventory",
+          "present": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "bank_transfer",
+        "direction": "withdraw",
+        "location_id": "location.glarials_tomb.entrance"
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 29
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.waterfall",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the Seers’ Village bank for the items restricted by Glarial’s Tomb."
+    }
+  },
+  {
+    "id": "quest.waterfall_quest.recover_relics",
+    "name": "Recover Glarial’s amulet and urn",
+    "activity_id": "quest.waterfall_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.glarials_tomb.entrance",
+    "end_location_id": "location.glarials_tomb.entrance",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.waterfall_quest.obtain_glarials_pebble"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.glarials_amulet",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.glarials_urn",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 90,
+      "max_seconds": 201
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.waterfall",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Avoid the tomb’s monsters, search the western chest for the amulet and the southern coffin for the urn, then return to the ladder."
+    },
+    "planned_outcome": {
+      "success_condition": "Recover both relics and return to the ladder alive.",
+      "if_unmet": "Bring adequate food, maintain a clear route to the exit, and recover the relics before continuing."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_waterfall_supplies",
+    "name": "Buy a rope and the six-pillar rune set",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 150
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.air_rune",
+        "quantity": 6
+      },
+      {
+        "kind": "item",
+        "item_id": "item.water_rune",
+        "quantity": 6
+      },
+      {
+        "kind": "item",
+        "item_id": "item.earth_rune",
+        "quantity": 6
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 150 GP for a rope and six of each elemental rune."
+    }
+  },
+  {
+    "id": "quest.waterfall_quest.enter_waterfall_vault",
+    "name": "Return to the falls and enter the pillar chamber",
+    "activity_id": "quest.waterfall_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.baxtorian_falls.almera",
+    "end_location_id": "location.baxtorian_falls.pillar_chamber",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.waterfall_quest.recover_relics"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.glarials_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.glarials_urn",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 112,
+      "max_seconds": 246
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Board the raft, rope down the rock and tree, then enter with the amulet equipped. Get the key from the eastern crate and take the western route to the pillars."
+    },
+    "planned_outcome": {
+      "success_condition": "Enter the pillar chamber with the amulet and urn.",
+      "if_unmet": "Use the rope at both crossings and avoid the dungeon monsters. Retrieve the key before trying the locked door."
+    }
+  },
+  {
+    "id": "quest.waterfall_quest.activate_pillars",
+    "name": "Use the elemental runes and amulet on the pillars and statue",
+    "activity_id": "quest.waterfall_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.baxtorian_falls.pillar_chamber",
+    "end_location_id": "location.baxtorian_falls.pillar_chamber",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.waterfall_quest.enter_waterfall_vault"
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 6
+      },
+      {
+        "item_id": "item.water_rune",
+        "quantity": 6
+      },
+      {
+        "item_id": "item.earth_rune",
+        "quantity": 6
+      },
+      {
+        "item_id": "item.glarials_amulet",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 45,
+      "max_seconds": 109
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use one of each elemental rune on each of six pillars, then place the amulet on the statue."
+    }
+  },
+  {
+    "id": "quest.waterfall_quest.complete",
+    "name": "Use Glarial’s urn on the chalice",
+    "activity_id": "quest.waterfall_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.baxtorian_falls.pillar_chamber",
+    "end_location_id": "location.baxtorian_falls.pillar_chamber",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.waterfall_quest.activate_pillars"
+    },
+    "consumes": [
+      {
+        "item_id": "item.glarials_urn",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 137500
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 137500
+      },
+      {
+        "kind": "item",
+        "item_id": "item.diamond",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.gold_bar",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mithril_seeds",
+        "quantity": 40
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.waterfall_dungeon",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 13,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the urn on the chalice to award the fixed XP and treasure."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_sea_slug_paste",
+    "name": "Buy swamp paste",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 25
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.swamp_paste",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 11,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 25 GP for one swamp paste."
+    }
+  },
+  {
+    "id": "quest.sea_slug.start",
+    "name": "Ask Caroline about her missing family",
+    "activity_id": "quest.sea_slug",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.caroline",
+    "end_location_id": "location.witchaven.caroline",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Caroline on the coast."
+    }
+  },
+  {
+    "id": "quest.sea_slug.repair_and_board",
+    "name": "Give Holgart swamp paste and sail to the Fishing Platform",
+    "activity_id": "quest.sea_slug",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.caroline",
+    "end_location_id": "location.fishing_platform.holgart",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.sea_slug.start"
+    },
+    "consumes": [
+      {
+        "item_id": "item.swamp_paste",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.fishing_platform_boat_repaired",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Holgart repairs the boat and takes the player to the platform."
+    }
+  },
+  {
+    "id": "quest.sea_slug.find_kennith",
+    "name": "Find Kennith upstairs on the platform",
+    "activity_id": "quest.sea_slug",
+    "kind": "quest_stage",
+    "start_location_id": "location.fishing_platform.holgart",
+    "end_location_id": "location.fishing_platform.holgart",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.sea_slug.repair_and_board"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 45,
+      "max_seconds": 94
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb the northeast ladder, speak to Kennith from the western cabin and go back to Holgart."
+    }
+  },
+  {
+    "id": "quest.sea_slug.go_to_kent",
+    "name": "Take Holgart’s boat to Kent’s island",
+    "activity_id": "quest.sea_slug",
+    "kind": "quest_stage",
+    "start_location_id": "location.fishing_platform.holgart",
+    "end_location_id": "location.fishing_platform.kent_island",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.sea_slug.find_kennith"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Holgart takes the player to the small island."
+    }
+  },
+  {
+    "id": "quest.sea_slug.speak_to_kent",
+    "name": "Speak to Kent and return to the platform",
+    "activity_id": "quest.sea_slug",
+    "kind": "quest_stage",
+    "start_location_id": "location.fishing_platform.kent_island",
+    "end_location_id": "location.fishing_platform.holgart",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.sea_slug.go_to_kent"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 27,
+      "max_seconds": 59
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Kent and then ask Holgart to take you back."
+    }
+  },
+  {
+    "id": "quest.sea_slug.light_torch",
+    "name": "Dry the sticks with broken glass and light the torch",
+    "activity_id": "quest.sea_slug",
+    "kind": "quest_stage",
+    "start_location_id": "location.fishing_platform.holgart",
+    "end_location_id": "location.fishing_platform.holgart",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sea_slug.speak_to_kent"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 30,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 46,
+      "max_seconds": 104
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get the torch from Bailey, take the glass and damp sticks, dry the sticks and rub them together to light it."
+    }
+  },
+  {
+    "id": "quest.sea_slug.rescue_kennith",
+    "name": "Help Kennith through the wall and operate the crane",
+    "activity_id": "quest.sea_slug",
+    "kind": "quest_stage",
+    "start_location_id": "location.fishing_platform.holgart",
+    "end_location_id": "location.fishing_platform.holgart",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.sea_slug.light_torch"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 51,
+      "max_seconds": 113
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Carry the lit torch upstairs, kick the repaired panel, talk to Kennith and use the crane to lower him into the boat. Return to Holgart."
+    }
+  },
+  {
+    "id": "quest.sea_slug.return_to_caroline",
+    "name": "Sail back to the mainland with Holgart",
+    "activity_id": "quest.sea_slug",
+    "kind": "quest_stage",
+    "start_location_id": "location.fishing_platform.holgart",
+    "end_location_id": "location.witchaven.caroline",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.sea_slug.rescue_kennith"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Holgart returns to Caroline’s coast waypoint."
+    }
+  },
+  {
+    "id": "quest.sea_slug.complete",
+    "name": "Tell Caroline that her family is safe",
+    "activity_id": "quest.sea_slug",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.caroline",
+    "end_location_id": "location.witchaven.caroline",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.sea_slug.return_to_caroline"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 71750
+      },
+      {
+        "kind": "item",
+        "item_id": "item.oyster_pearls",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.fishing_platform",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Award 7,175 Fishing XP, oyster pearls and one quest point."
+    }
+  },
+  {
+    "id": "quest.jungle_potion.start",
+    "name": "Ask Trufitus about the jungle potion",
+    "activity_id": "quest.jungle_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.trufitus",
+    "end_location_id": "location.tai_bwo_wannai.trufitus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.druidic_ritual.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 3,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 22,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Trufitus requests the first of five herbs."
+    }
+  },
+  {
+    "id": "quest.jungle_potion.collect_snake_weed",
+    "name": "Collect and clean snake weed",
+    "activity_id": "quest.jungle_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.snake_weed",
+    "end_location_id": "location.tai_bwo_wannai.snake_weed",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.jungle_potion.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 32,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search a marshy vine southwest of the village. Clean the herb before returning."
+    },
+    "planned_outcome": {
+      "success_condition": "Obtain and clean the requested herb.",
+      "if_unmet": "Repeat the search safely until the herb is obtained."
+    }
+  },
+  {
+    "id": "quest.jungle_potion.deliver_snake_weed",
+    "name": "Give Trufitus the snake weed",
+    "activity_id": "quest.jungle_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.trufitus",
+    "end_location_id": "location.tai_bwo_wannai.trufitus",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.jungle_potion.collect_snake_weed"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Trufitus the cleaned herb and discuss the next ingredient."
+    }
+  },
+  {
+    "id": "quest.jungle_potion.collect_ardrigal",
+    "name": "Collect and clean ardrigal",
+    "activity_id": "quest.jungle_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.ardrigal",
+    "end_location_id": "location.tai_bwo_wannai.ardrigal",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.jungle_potion.deliver_snake_weed"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 32,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the palms by the eastern shore and avoid the harpie bug swarms. Clean the herb before returning."
+    },
+    "planned_outcome": {
+      "success_condition": "Obtain and clean the requested herb.",
+      "if_unmet": "Repeat the search safely until the herb is obtained."
+    }
+  },
+  {
+    "id": "quest.jungle_potion.deliver_ardrigal",
+    "name": "Give Trufitus the ardrigal",
+    "activity_id": "quest.jungle_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.trufitus",
+    "end_location_id": "location.tai_bwo_wannai.trufitus",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.jungle_potion.collect_ardrigal"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Trufitus the cleaned herb and discuss the next ingredient."
+    }
+  },
+  {
+    "id": "quest.jungle_potion.collect_sito_foil",
+    "name": "Collect and clean sito foil",
+    "activity_id": "quest.jungle_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.sito_foil",
+    "end_location_id": "location.tai_bwo_wannai.sito_foil",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.jungle_potion.deliver_ardrigal"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 32,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the scorched ground south of the village. Clean the herb before returning."
+    },
+    "planned_outcome": {
+      "success_condition": "Obtain and clean the requested herb.",
+      "if_unmet": "Repeat the search safely until the herb is obtained."
+    }
+  },
+  {
+    "id": "quest.jungle_potion.deliver_sito_foil",
+    "name": "Give Trufitus the sito foil",
+    "activity_id": "quest.jungle_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.trufitus",
+    "end_location_id": "location.tai_bwo_wannai.trufitus",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.jungle_potion.collect_sito_foil"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Trufitus the cleaned herb and discuss the next ingredient."
+    }
+  },
+  {
+    "id": "quest.jungle_potion.collect_volencia_moss",
+    "name": "Collect and clean volencia moss",
+    "activity_id": "quest.jungle_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.volencia_moss",
+    "end_location_id": "location.tai_bwo_wannai.volencia_moss",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.jungle_potion.deliver_sito_foil"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.volencia_moss",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 32,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the mossy rocks at the jungle mine. Clean the herb before returning."
+    },
+    "planned_outcome": {
+      "success_condition": "Obtain and clean the requested herb.",
+      "if_unmet": "Repeat the search safely until the herb is obtained."
+    }
+  },
+  {
+    "id": "quest.jungle_potion.deliver_volencia_moss",
+    "name": "Give Trufitus the volencia moss",
+    "activity_id": "quest.jungle_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.trufitus",
+    "end_location_id": "location.tai_bwo_wannai.trufitus",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.jungle_potion.collect_volencia_moss"
+    },
+    "consumes": [
+      {
+        "item_id": "item.volencia_moss",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Trufitus the cleaned herb and discuss the next ingredient."
+    }
+  },
+  {
+    "id": "supply.tai_bwo_wannai.collect_fairytale_volencia_moss",
+    "name": "Collect and clean a spare volencia moss",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.tai_bwo_wannai.volencia_moss",
+    "end_location_id": "location.tai_bwo_wannai.volencia_moss",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.jungle_potion.deliver_volencia_moss"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.volencia_moss",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 24,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the same jungle mine rocks after the volencia delivery and clean the herb. The spare can be used for an assigned Fairytale I recipe."
+    }
+  },
+  {
+    "id": "quest.jungle_potion.collect_rogues_purse",
+    "name": "Collect and clean rogue’s purse",
+    "activity_id": "quest.jungle_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.rogues_purse",
+    "end_location_id": "location.tai_bwo_wannai.rogues_purse",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.jungle_potion.deliver_volencia_moss"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 50,
+      "max_seconds": 133
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the cave, search the fungus-covered wall in the eastern passage and leave the cave. Clean the herb before returning."
+    },
+    "planned_outcome": {
+      "success_condition": "Obtain and clean the requested herb.",
+      "if_unmet": "Repeat the search safely until the herb is obtained."
+    }
+  },
+  {
+    "id": "quest.jungle_potion.deliver_rogues_purse",
+    "name": "Give Trufitus the rogue’s purse",
+    "activity_id": "quest.jungle_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.trufitus",
+    "end_location_id": "location.tai_bwo_wannai.trufitus",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.jungle_potion.collect_rogues_purse"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Trufitus the cleaned herb and discuss the next ingredient."
+    }
+  },
+  {
+    "id": "quest.jungle_potion.complete",
+    "name": "Finish Trufitus’s potion dialogue",
+    "activity_id": "quest.jungle_potion",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.trufitus",
+    "end_location_id": "location.tai_bwo_wannai.trufitus",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.jungle_potion.deliver_rogues_purse"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 7750
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.tai_bwo_wannai_cleanup",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The fifth herb handover and final dialogue award 775 Herblore XP and one quest point."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_knights_sword_supplies",
+    "name": "Buy a redberry pie and two iron bars",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 525
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.redberry_pie",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_bar",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 525 GP for the pie and two bars."
+    }
+  },
+  {
+    "id": "quest.the_knights_sword.start",
+    "name": "Ask the Squire about the lost sword",
+    "activity_id": "quest.the_knights_sword",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_castle.squire",
+    "end_location_id": "location.falador_castle.squire",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 19,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Squire explains the missing sword and sends the player to Reldo."
+    }
+  },
+  {
+    "id": "quest.the_knights_sword.ask_reldo",
+    "name": "Ask Reldo about the Imcando dwarves",
+    "activity_id": "quest.the_knights_sword",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.reldo",
+    "end_location_id": "location.varrock.reldo",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_knights_sword.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn about Thurgo and redberry pie."
+    }
+  },
+  {
+    "id": "quest.the_knights_sword.give_thurgo_pie",
+    "name": "Give Thurgo a redberry pie and ask about the sword",
+    "activity_id": "quest.the_knights_sword",
+    "kind": "quest_stage",
+    "start_location_id": "location.mudskipper_point.thurgo",
+    "end_location_id": "location.mudskipper_point.thurgo",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_knights_sword.ask_reldo"
+    },
+    "consumes": [
+      {
+        "item_id": "item.redberry_pie",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 25,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the pie, then ask Thurgo to replace the sword. He needs a portrait."
+    }
+  },
+  {
+    "id": "quest.the_knights_sword.ask_about_portrait",
+    "name": "Ask the Squire about a picture of the sword",
+    "activity_id": "quest.the_knights_sword",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_castle.squire",
+    "end_location_id": "location.falador_castle.squire",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_knights_sword.give_thurgo_pie"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Squire explains where Sir Vyvin keeps the portrait."
+    }
+  },
+  {
+    "id": "quest.the_knights_sword.take_portrait",
+    "name": "Take the portrait from Sir Vyvin’s cupboard",
+    "activity_id": "quest.the_knights_sword",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_castle.vyvin_cupboard",
+    "end_location_id": "location.falador_castle.vyvin_cupboard",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_knights_sword.ask_about_portrait"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 23,
+      "max_seconds": 70
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open and search the cupboard when Sir Vyvin is in the other room."
+    },
+    "planned_outcome": {
+      "success_condition": "Take the portrait while Sir Vyvin is away from the cupboard.",
+      "if_unmet": "Wait for him to step out and search again."
+    }
+  },
+  {
+    "id": "quest.the_knights_sword.show_thurgo_portrait",
+    "name": "Show the portrait to Thurgo",
+    "activity_id": "quest.the_knights_sword",
+    "kind": "quest_stage",
+    "start_location_id": "location.mudskipper_point.thurgo",
+    "end_location_id": "location.mudskipper_point.thurgo",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_knights_sword.take_portrait"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Thurgo asks for one blurite ore and two iron bars."
+    }
+  },
+  {
+    "id": "quest.the_knights_sword.mine_blurite",
+    "name": "Mine one blurite ore",
+    "activity_id": "quest.the_knights_sword",
+    "kind": "quest_stage",
+    "start_location_id": "location.asgarnian_ice_dungeon.blurite",
+    "end_location_id": "location.asgarnian_ice_dungeon.blurite",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_knights_sword.show_thurgo_portrait"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 10,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.blurite_ore",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 19,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mine one ore with a usable pickaxe. This route uses the starter bronze pickaxe."
+    },
+    "planned_outcome": {
+      "success_condition": "Mine the ore and leave the cavern safely.",
+      "if_unmet": "Use food or clear a safer route past the ice creatures before retrying."
+    }
+  },
+  {
+    "id": "quest.the_knights_sword.have_thurgo_forge_sword",
+    "name": "Give Thurgo the blurite and two iron bars",
+    "activity_id": "quest.the_knights_sword",
+    "kind": "quest_stage",
+    "start_location_id": "location.mudskipper_point.thurgo",
+    "end_location_id": "location.mudskipper_point.thurgo",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_knights_sword.mine_blurite"
+    },
+    "consumes": [
+      {
+        "item_id": "item.blurite_ore",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.iron_bar",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.faladian_sword",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Thurgo forges the replacement sword."
+    }
+  },
+  {
+    "id": "quest.the_knights_sword.complete",
+    "name": "Give the replacement sword to the Squire",
+    "activity_id": "quest.the_knights_sword",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_castle.squire",
+    "end_location_id": "location.falador_castle.squire",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_knights_sword.have_thurgo_forge_sword"
+    },
+    "consumes": [
+      {
+        "item_id": "item.faladian_sword",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 127250
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.blurite_smithing",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Award one quest point and 12,725 Smithing XP."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_fairytale_secateurs",
+    "name": "Buy secateurs",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 120
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.secateurs",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 120 GP for ordinary secateurs."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.start",
+    "name": "Ask Martin about the failing crops",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.martin",
+    "end_location_id": "location.draynor.martin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lost_city.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.nature_spirit.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_i",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Martin asks the player to talk to five other gardeners."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.consult_frizzy",
+    "name": "Speak to Frizzy at the Port Sarim spirit tree",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.redbeard_frank",
+    "end_location_id": "location.port_sarim.redbeard_frank",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_i_growing_pains.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 19,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_i",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about the Group of Advanced Gardeners. The duration includes walking between the regional waypoint and the patch."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.consult_elstan",
+    "name": "Speak to Elstan at the South Falador allotment",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador.south_farm",
+    "end_location_id": "location.falador.south_farm",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_i_growing_pains.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 33
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_i",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about the Group of Advanced Gardeners. The duration includes walking between the regional waypoint and the patch."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.consult_fayeth",
+    "name": "Speak to Fayeth at the Lumbridge tree patch",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.castle_courtyard",
+    "end_location_id": "location.lumbridge.castle_courtyard",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_i_growing_pains.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 26,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_i",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about the Group of Advanced Gardeners. The duration includes walking between the regional waypoint and the patch."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.consult_dreven",
+    "name": "Speak to Dreven by the Champions’ Guild bush patch",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.champions_guild_patch",
+    "end_location_id": "location.varrock.champions_guild_patch",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_i_growing_pains.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_i",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about the Group of Advanced Gardeners. The duration includes walking between the regional waypoint and the patch."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.consult_heskel",
+    "name": "Speak to Heskel in Falador Park",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador.pirate_treasure_cross",
+    "end_location_id": "location.falador.pirate_treasure_cross",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_i_growing_pains.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_i",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about the Group of Advanced Gardeners. The duration includes walking between the regional waypoint and the patch."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.report_to_martin",
+    "name": "Tell Martin what the five gardeners said",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.martin",
+    "end_location_id": "location.draynor.martin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_i_growing_pains.consult_frizzy"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_i_growing_pains.consult_elstan"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_i_growing_pains.consult_fayeth"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_i_growing_pains.consult_dreven"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_i_growing_pains.consult_heskel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return after consulting five different gardeners. Martin sends the player to Zanaris."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.ask_fairy_godfather",
+    "name": "Ask the Fairy Godfather about the queen",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.zanaris.fairy_godfather",
+    "end_location_id": "location.zanaris.fairy_godfather",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_i_growing_pains.report_to_martin"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Godfather directs the player to Fairy Nuff."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.obtain_symptoms_list",
+    "name": "Ask Fairy Nuff about the queen’s symptoms",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.zanaris.nuff_room",
+    "end_location_id": "location.zanaris.nuff_room",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_i_growing_pains.ask_fairy_godfather"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fairy Nuff gives the symptom list and recommends Zandar."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.consult_zandar",
+    "name": "Give Zandar the symptoms list",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.dark_wizards_tower.zandar",
+    "end_location_id": "location.dark_wizards_tower.zandar",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_i_growing_pains.obtain_symptoms_list"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Zandar directs the player to Malignius Mortifer."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.dig_draynor_skull",
+    "name": "Dig up the Draynor skull",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.fairytale_grave",
+    "end_location_id": "location.draynor_manor.fairytale_grave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_i_growing_pains.consult_zandar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.draynor_skull",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Dig at the marked grave north of Draynor Manor."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.learn_secateurs_ingredients",
+    "name": "Give Mortifer the skull and read the three requested items",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.malignius_mortifer",
+    "end_location_id": "location.port_sarim.malignius_mortifer",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_i_growing_pains.consult_zandar"
+    },
+    "consumes": [
+      {
+        "item_id": "item.draynor_skull",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 27,
+      "max_seconds": 59
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_i",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The three items are assigned to the account. Use the exact items shown in the quest log."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.prepare_tradeable_ingredients",
+    "name": "Buy the three assigned tradeable ingredients",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_i_growing_pains.learn_secateurs_ingredients"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 4500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.fairytale_i.requested_items_ready",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 31,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.capture.fairytale_i",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 4,500 GP for the modeled tradeable assignment. Bring the exact three ingredients from the quest log."
+    },
+    "planned_outcome": {
+      "success_condition": "The assigned three items are tradeable and all three have been bought with the budget.",
+      "if_unmet": "Check the quest log. Use the volencia route if that herb is assigned, or gather items and secure more coins if the market price exceeds the reserve."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.prepare_volencia_ingredients",
+    "name": "Buy the other two items for a volencia moss assignment",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_i_growing_pains.learn_secateurs_ingredients"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.volencia_moss",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 4500
+      },
+      {
+        "item_id": "item.volencia_moss",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.fairytale_i.requested_items_ready",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 25,
+      "max_seconds": 63
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.capture.fairytale_i",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reserve the spare moss for the ritual and buy the other two assigned items within the modeled budget."
+    },
+    "planned_outcome": {
+      "success_condition": "The quest log calls for volencia moss and the two remaining items are available within the reserve.",
+      "if_unmet": "Read the assignment and obtain any missing ingredients before continuing."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.enchant_secateurs",
+    "name": "Have the Nature Spirit enchant the secateurs",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.mort_myre.nature_spirit",
+    "end_location_id": "location.mort_myre.nature_spirit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_i_growing_pains.learn_secateurs_ingredients"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.fairytale_i.requested_items_ready",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.secateurs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.magic_secateurs",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 30,
+      "max_seconds": 68
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_i",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear the amulet and give the Nature Spirit the secateurs and the three assigned ingredients. Protect edible ingredients against ghasts on the swamp approach."
+    },
+    "planned_outcome": {
+      "success_condition": "The Nature Spirit accepts all three ingredients and returns magic secateurs.",
+      "if_unmet": "Replace any item lost in the swamp, then return wearing the ghostspeak amulet."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.defeat_tanglefoot",
+    "name": "Defeat Tanglefoot with magic secateurs",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.zanaris.tanglefoot_lair",
+    "end_location_id": "location.zanaris.tanglefoot_lair",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_i_growing_pains.enchant_secateurs"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.magic_secateurs",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.queens_secateurs_fairytale_i",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 94,
+      "expected_seconds": 252,
+      "max_seconds": 670
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_i",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wield magic secateurs for the level 111 Tanglefoot. Damage depends on Farming and combat setup. Incidental XP depends on the fight. Bring food and pick up the queen’s secateurs after the kill."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Tanglefoot using the magic secateurs and take the queen’s secateurs.",
+      "if_unmet": "Use suitable armour, Prayer and food or a flinching setup. Retry with the secateurs equipped."
+    }
+  },
+  {
+    "id": "quest.fairytale_i_growing_pains.complete",
+    "name": "Return the queen’s secateurs to the Fairy Godfather",
+    "activity_id": "quest.fairytale_i_growing_pains",
+    "kind": "quest_stage",
+    "start_location_id": "location.zanaris.fairy_godfather",
+    "end_location_id": "location.zanaris.fairy_godfather",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_i_growing_pains.defeat_tanglefoot"
+    },
+    "consumes": [
+      {
+        "item_id": "item.queens_secateurs_fairytale_i",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 35000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.fairytale_i.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Godfather awards the fixed XP. The player keeps the enchanted secateurs and can start Fairytale II."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_fairytale_cure_supplies",
+    "name": "Buy a vial of water and a pestle and mortar",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 130
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.vial_of_water",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 130 GP for a vial of water and the reusable pestle and mortar."
+    }
+  },
+  {
+    "id": "quest.fairytale_ii_cure_a_queen.find_the_queen",
+    "name": "Speak to Fairy Nuff in the queen’s hideout",
+    "activity_id": "quest.fairytale_ii_cure_a_queen",
+    "kind": "quest_stage",
+    "start_location_id": "location.fairy_queen_hideout.fairy_nuff",
+    "end_location_id": "location.fairy_queen_hideout.fairy_nuff",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_ii_cure_a_queen.unlock_fairy_rings"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 34,
+      "max_seconds": 73
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn the queen’s condition and why her secateurs must be recovered. The early ring milestone has already been awarded."
+    }
+  },
+  {
+    "id": "quest.fairytale_ii_cure_a_queen.pickpocket_godfather",
+    "name": "Pickpocket the Fairy Godfather for the queen’s secateurs",
+    "activity_id": "quest.fairytale_ii_cure_a_queen",
+    "kind": "quest_stage",
+    "start_location_id": "location.zanaris.fairy_godfather",
+    "end_location_id": "location.zanaris.fairy_godfather",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_ii_cure_a_queen.find_the_queen"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 40,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.queens_secateurs_fairytale_ii",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 25,
+      "max_seconds": 70
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Recover the secateurs using base level 40 Thieving."
+    },
+    "planned_outcome": {
+      "success_condition": "Recover the queen’s secateurs from the Godfather.",
+      "if_unmet": "Retry the pickpocket when it is safe."
+    }
+  },
+  {
+    "id": "quest.fairytale_ii_cure_a_queen.return_secateurs",
+    "name": "Return the queen’s secateurs and learn the potion recipe",
+    "activity_id": "quest.fairytale_ii_cure_a_queen",
+    "kind": "quest_stage",
+    "start_location_id": "location.fairy_queen_hideout.fairy_nuff",
+    "end_location_id": "location.fairy_queen_hideout.fairy_nuff",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_ii_cure_a_queen.pickpocket_godfather"
+    },
+    "consumes": [
+      {
+        "item_id": "item.queens_secateurs_fairytale_ii",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand the secateurs to Fairy Nuff and speak to her again for the magic essence recipe."
+    }
+  },
+  {
+    "id": "quest.fairytale_ii_cure_a_queen.pick_star_flower",
+    "name": "Wait for a fully grown star flower and pick it",
+    "activity_id": "quest.fairytale_ii_cure_a_queen",
+    "kind": "quest_stage",
+    "start_location_id": "location.fairy_ring.ckp",
+    "end_location_id": "location.fairy_ring.ckp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_ii_cure_a_queen.return_secateurs"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 49,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.star_flower",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 54,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Walk from the ring to the star flower. Wait locally for it to reach the full-grown state, then pick it."
+    },
+    "planned_outcome": {
+      "success_condition": "Pick a fully grown star flower with the required Farming level.",
+      "if_unmet": "Wait for another growth cycle and refresh any boost before picking."
+    }
+  },
+  {
+    "id": "quest.fairytale_ii_cure_a_queen.obtain_gorak_claws",
+    "name": "Defeat a gorak on D.I.R. and take its claws",
+    "activity_id": "quest.fairytale_ii_cure_a_queen",
+    "kind": "quest_stage",
+    "start_location_id": "location.fairy_ring.dir",
+    "end_location_id": "location.fairy_ring.dir",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_ii_cure_a_queen.return_secateurs"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.gorak_claws",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 41,
+      "expected_seconds": 134,
+      "max_seconds": 380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat a gorak in its plane and collect the claws."
+    },
+    "planned_outcome": {
+      "success_condition": "Obtain the claws and return to the ring alive.",
+      "if_unmet": "Use suitable equipment and supplies before retrying."
+    }
+  },
+  {
+    "id": "quest.fairytale_ii_cure_a_queen.make_magic_essence",
+    "name": "Grind the claws and mix the magic essence potion",
+    "activity_id": "quest.fairytale_ii_cure_a_queen",
+    "kind": "quest_stage",
+    "start_location_id": "location.zanaris.fairy_ring",
+    "end_location_id": "location.zanaris.fairy_ring",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_ii_cure_a_queen.return_secateurs"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 57,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.star_flower",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.gorak_claws",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.vial_of_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fairytale_magic_essence",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 1300
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 14,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.magic_essence_calculator",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Add the star flower to the vial, grind the claws and mix the powder into the potion. The ordinary magic essence recipe grants 130 Herblore XP."
+    }
+  },
+  {
+    "id": "quest.fairytale_ii_cure_a_queen.revive_queen",
+    "name": "Use the magic essence on the Fairy Queen",
+    "activity_id": "quest.fairytale_ii_cure_a_queen",
+    "kind": "quest_stage",
+    "start_location_id": "location.fairy_queen_hideout.fairy_nuff",
+    "end_location_id": "location.fairy_queen_hideout.fairy_nuff",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_ii_cure_a_queen.make_magic_essence"
+    },
+    "consumes": [
+      {
+        "item_id": "item.fairytale_magic_essence",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the queen a dose of magic essence."
+    }
+  },
+  {
+    "id": "quest.fairytale_ii_cure_a_queen.complete",
+    "name": "Speak to the revived Fairy Queen",
+    "activity_id": "quest.fairytale_ii_cure_a_queen",
+    "kind": "quest_stage",
+    "start_location_id": "location.fairy_queen_hideout.fairy_nuff",
+    "end_location_id": "location.fairy_queen_hideout.fairy_nuff",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.fairytale_ii_cure_a_queen.revive_queen"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 35000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.fairytale_ii.quest_lamp",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.fairy_enhancement_store",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.magic_essence_potion",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 27,
+      "max_seconds": 61
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fairytale_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Award the fixed XP, one 2,500 XP lamp and two quest points."
+    }
+  }
+]

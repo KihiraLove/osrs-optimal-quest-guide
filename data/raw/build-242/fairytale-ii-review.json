@@ -4,7 +4,9 @@
   "source_ids": [
     "source.quest_helper.quest_observations",
     "source.runelite.fairy_rings",
-    "source.runelite.varbits"
+    "source.runelite.varbits",
+    "source.capture.fairytale_ii",
+    "source.shortest_path.fairytale_rings"
   ],
   "unlock_phase": {
     "status": "collected",
@@ -21,9 +23,18 @@
     "skill_requirements": [],
     "quest_progress": 40,
     "trackers": {
-      "FAIRY2_QUEENCURE_QUEST": {"id": 2326, "value": 40},
-      "FAIRYRING_USE": {"id": 2328, "value": 1},
-      "FAIRYRING_PERMISSION": {"id": 2329, "value": 2}
+      "FAIRY2_QUEENCURE_QUEST": {
+        "id": 2326,
+        "value": 40
+      },
+      "FAIRYRING_USE": {
+        "id": 2328,
+        "value": 1
+      },
+      "FAIRYRING_PERMISSION": {
+        "id": 2329,
+        "value": 2
+      }
     },
     "effects": [
       {
@@ -36,10 +47,10 @@
       "AIQ",
       "DIS"
     ],
-    "notes": "The fixture imports Fairytale I and Lost City from saved progress. Lost City completion now produces Zanaris access after the dungeon combat checkpoint."
+    "notes": "The unlock fixture imports Fairytale I and Lost City from saved progress. Both quest completions now produce the flags used by this route."
   },
   "completion_phase": {
-    "status": "expected",
+    "status": "collected",
     "requires_action_id": "quest.fairytale_ii_cure_a_queen.unlock_fairy_rings",
     "completion_action_id": "quest.fairytale_ii_cure_a_queen.complete",
     "ordered_stage_candidates": [
@@ -76,11 +87,13 @@
     },
     "lamp_xp_tenths": 25000,
     "lamp_minimum_level": null,
-    "mandatory_incidental_xp_tenths": null,
+    "mandatory_incidental_xp_tenths": {
+      "skill.herblore": 1300
+    },
     "open_checks": [
-      "Admit the prerequisite chain from Lumbridge including Fairytale I.",
-      "Verify the Gorak combat, mandatory XP, hideout sequence, and item handovers.",
-      "Verify exact lamp eligibility and whether the completion lamp can be held."
-    ]
+      "Verify Gorak incidental combat XP and the star flower growth cycle.",
+      "Verify the exact lamp skill level boundary and retention."
+    ],
+    "modeled_lamp_minimum_level": 30
   }
 }

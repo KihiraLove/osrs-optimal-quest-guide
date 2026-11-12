@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.26.0` loads 24 skill tables and
-421 draft actions across 43 journal activities, the museum route and travel
+3 November 2026 at 10:00:06 UTC. Dataset `0.27.0` loads 24 skill tables and
+510 draft actions across 51 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -119,7 +119,8 @@ The [reward registry](raw/build-242/reward-registry.json) records 38 reward
 entries, including seven separate claims. Each claim records its producer ID,
 quest gate, available location evidence and known award details. Null values
 identify fields that need verification. X Marks the Spot, Shadow of the
-Storm, Ernest the Chicken and Romeo & Juliet have loaded reward producers.
+Storm, Ernest the Chicken, Romeo & Juliet and Fairytale II have loaded reward
+producers.
 The remaining packages stay in review while their quest actions or use
 rules are being collected.
 
@@ -164,11 +165,15 @@ Stronghold opens up to 10,000 GP across the first three rooms. Its four emotes
 support the Varrock Medium task. Count Check offers a one-time lamp in
 Lumbridge Graveyard worth ten times the chosen skill's base level at use.
 
-[The Fairytale II review](raw/build-242/fairytale-ii-review.json) separates
-fairy-ring access at the Godfather conversation from the later skill checks
-and completion rewards. Two staff-gated surface codes are modeled. The
-unlock fixture uses saved Lost City and Fairytale I progress while the
-prerequisite routes and the second phase are in collection.
+The [Fairytale and Kandarin review](raw/build-242/fairytale-and-kandarin-review.json)
+covers both Fairytale quests, Jungle Potion, Fight Arena, Tree Gnome Village,
+Waterfall Quest, Sea Slug and The Knight's Sword. It records the conditional
+secateurs ingredients, Glarial's Tomb banking and the spirit-tree hub.
+
+[The Fairytale II review](raw/build-242/fairytale-ii-review.json) records the
+five-minute Martin stage and the early Godfather conversation. The complete
+Fairytale I route produces the flag for that conversation's quest chain.
+The Farming, Herblore and Thieving checks occur later, on the queen's route.
 
 The [Lost City review](raw/build-242/lost-city-review.json) records the
 Lumbridge Swamp start, the Entrana dungeon descent, the branch and staff skill

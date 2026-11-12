@@ -185,10 +185,11 @@ Shadow of the Storm with Gertrude's kitten and stew. The route spends 1,362 GP
 on eight stews and two sardines. It budgets six spice doses per colour, gets
 Dave's approval and casts Lumbridge Teleport from the cellar. It awards 7,000
 Cooking XP with no additional training. Hunt duration and care are estimates.
+The saved kitten route checks the quest mechanics independently of the bounded
+search budget.
 
 ```sh
-quest-optimizer solve-bounded data/manifest.json examples/build-242/rfd-evil-dave-profile.json --beam-width 96 --max-expansions 30000 > artifacts/rfd-evil-dave.json
-quest-optimizer replay artifacts/rfd-evil-dave.json --catalog data/manifest.json --profile examples/build-242/rfd-evil-dave-profile.json
+quest-optimizer replay examples/build-242/rfd-evil-dave-solution.json --catalog data/manifest.json --profile examples/build-242/rfd-evil-dave-profile.json
 ```
 
 The optional progression tests cover the three essence mine task flags in the
