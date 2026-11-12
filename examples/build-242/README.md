@@ -8,7 +8,7 @@ Prayer block to reach level 43. This block has zero weight in the objective.
 The fixture ends with four quest points and 88 carried coins at the modeled prices.
 
 ```sh
-quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json --beam-width 192 --max-expansions 40000 > artifacts/lumbridge-arrival.json
+quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json --beam-width 144 --max-expansions 60000 > artifacts/lumbridge-arrival.json
 quest-optimizer replay artifacts/lumbridge-arrival.json --catalog data/manifest.json --profile examples/build-242/lumbridge-arrival-profile.json
 ```
 
@@ -167,6 +167,17 @@ waterskins as packed supplies and leaves charge depletion in review.
 ```sh
 quest-optimizer solve-bounded data/manifest.json examples/build-242/the-golem-profile.json --beam-width 128 --max-expansions 40000 > artifacts/the-golem.json
 quest-optimizer replay artifacts/the-golem.json --catalog data/manifest.json --profile examples/build-242/the-golem-profile.json
+```
+
+`shadow-of-the-storm-profile.json` starts after Demon Slayer and The Golem
+with Crafting 30 and prepared combat stats. The route spends 1,731 GP on
+the disguise, silver bar, food reserve, two passes and three carpet rides.
+It assumes successful combat, transforms Silverlight into Darklight and
+resolves the 10,000 XP choice at completion.
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/shadow-of-the-storm-profile.json --beam-width 128 --max-expansions 40000 > artifacts/shadow-of-the-storm.json
+quest-optimizer replay artifacts/shadow-of-the-storm.json --catalog data/manifest.json --profile examples/build-242/shadow-of-the-storm-profile.json
 ```
 
 The optional progression tests cover the three essence mine task flags in the

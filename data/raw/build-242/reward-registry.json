@@ -886,29 +886,31 @@
     {
       "id": "review.quest.shadow_of_the_storm.xp_package",
       "activity_id": "quest.shadow_of_the_storm",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
-        "source.quest_helper.quest_observations"
+        "source.quest_helper.quest_observations",
+        "source.capture.shadow_of_the_storm",
+        "source.capture.shadow_of_the_storm_zybez"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.shadow_of_the_storm.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "choice",
-        "quantity": null,
-        "selection_count": null,
+        "quantity": 1,
+        "selection_count": 1,
         "amount": {
           "kind": "fixed",
           "xp_tenths": 100000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": ["skill.attack", "skill.strength", "skill.defence", "skill.hitpoints", "skill.magic", "skill.ranged"],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": false,
         "reported_pick_or_item_count": 1,
         "reported_eligibility": "combat_except_prayer"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "Select the combat XP in Darklight’s completion dialogue. The helper lists a placeholder item for the choice."
     },
     {
       "id": "review.quest.shield_of_arrav.quest_month_lamp",

@@ -1,0 +1,965 @@
+[
+  {
+    "id": "quest.shadow_of_the_storm.start",
+    "name": "Accept Father Reen’s task in Al Kharid",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.al_kharid.bank_entrance",
+    "end_location_id": "location.al_kharid.bank_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.demon_slayer.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 26,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Father Reen near the bank after Demon Slayer and The Golem."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.talk_to_badden",
+    "name": "Meet Father Badden at Uzer",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.father_badden",
+    "end_location_id": "location.uzer.father_badden",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.dyed_silverlight",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 31,
+      "max_seconds": 70
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bring Silverlight and ask Badden how to enter the cult."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.dye_silverlight",
+    "name": "Darken Silverlight with a black mushroom",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.black_mushrooms",
+    "end_location_id": "location.uzer.black_mushrooms",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.talk_to_badden"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.silverlight",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.black_mushroom",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dyed_silverlight",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 7,
+      "max_seconds": 17
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shadow_of_the_storm",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Rub the mushroom directly on the sword."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.infiltrate",
+    "name": "Show Evil Dave the disguise and enter the throne room",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.evil_dave_entrance",
+    "end_location_id": "location.uzer.throne_denath",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.talk_to_badden"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dyed_silverlight",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.priest_gown_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.priest_gown_bottom",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.black_wizard_hat",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 36,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shadow_of_the_storm",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Equip the dyed sword and the three dark pieces in distinct slots. The cutscene takes you through the portal to Denath."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.meet_denath",
+    "name": "Learn the first incantation from Denath",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.throne_denath",
+    "end_location_id": "location.uzer.throne_denath",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.infiltrate"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.shadow_incantation",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Record the account-specific order Denath gives you."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.get_mould",
+    "name": "Ask Jennifer for the demonic sigil mould",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.throne_jennifer",
+    "end_location_id": "location.uzer.throne_jennifer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.meet_denath"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.demonic_sigil_mould",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 13,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Jennifer for the mould before visiting a furnace."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.ask_matthew",
+    "name": "Ask Matthew what happened to Josef",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.throne_matthew",
+    "end_location_id": "location.uzer.throne_matthew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.meet_denath"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 19,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn about the missing tome."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.make_sigil",
+    "name": "Cast a demonic sigil at the Al Kharid furnace",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.al_kharid.furnace",
+    "end_location_id": "location.al_kharid.furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.get_mould"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.demonic_sigil_mould",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 30,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.silver_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.demonic_sigil",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the mould and silver bar at the furnace. Crafting 30 is checked at this stage. Incidental XP remains in review."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.ask_golem_about_josef",
+    "name": "Ask the clay golem about Josef and the tome",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.clay_golem",
+    "end_location_id": "location.uzer.clay_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.ask_matthew"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to the golem after Matthew mentions Josef."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.search_kilns",
+    "name": "Search Uzer’s kilns for the demonic tome",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.clay_golem",
+    "end_location_id": "location.uzer.clay_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.ask_golem_about_josef"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.demonic_tome",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 95,
+      "max_seconds": 185
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Visit the candidate kilns until you find the book, read it and return to the golem waypoint. The book location varies."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.show_tome",
+    "name": "Show Matthew the tome and prepare the first ritual",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.throne_matthew",
+    "end_location_id": "location.uzer.throne_matthew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.search_kilns"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.demonic_sigil",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.demonic_tome",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.shadow_incantation",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Discuss the reversed incantation and wait for the short dialogue transition into the ritual."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.first_ritual",
+    "name": "Perform the first ritual and recover Denath’s sigil",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.first_ritual_circle",
+    "end_location_id": "location.uzer.first_ritual_circle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.show_tome"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.demonic_sigil",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.demonic_sigil",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 50,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shadow_of_the_storm",
+        "source.capture.shadow_of_the_storm_zybez",
+        "source.quest_helper.shadow_incantation",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Chant the words in the order Denath gave them. Collect his dropped sigil after he vanishes."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.recruit_dave",
+    "name": "Bring Evil Dave back and collect two fallen sigils",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.evil_dave_after_ritual",
+    "end_location_id": "location.uzer.evil_dave_after_ritual",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.first_ritual"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.demonic_sigil",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 34,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shadow_of_the_storm",
+        "source.capture.shadow_of_the_storm_zybez",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect Tanya’s dropped sigil and receive Eric’s sigil from Dave. Includes the brief walk to the dropped item."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.recruit_priests",
+    "name": "Persuade Fathers Badden and Reen to return",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.father_badden",
+    "end_location_id": "location.uzer.father_badden",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.recruit_dave"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.demonic_sigil",
+        "quantity": 2
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 48,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shadow_of_the_storm_zybez",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Recruit both priests at the Uzer ruins. The route allocates two recovered sigils to the priests."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.recover_implement",
+    "name": "Recover the strange implement in the Uzer ruins",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.strange_implement",
+    "end_location_id": "location.uzer.strange_implement",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.recruit_dave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.strange_implement",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 6,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick up an implement here if the one from The Golem is no longer in your inventory."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.recruit_golem",
+    "name": "Use the strange implement to recruit the clay golem",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.clay_golem",
+    "end_location_id": "location.uzer.clay_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.recruit_priests"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.strange_implement",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.demonic_sigil",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 43,
+      "max_seconds": 95
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shadow_of_the_storm_zybez",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Remove the golem’s instruction against entering the temple, then give it a sigil."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.prepare_second_ritual",
+    "name": "Ask Matthew to begin the second ritual",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.throne_matthew",
+    "end_location_id": "location.uzer.throne_matthew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.recruit_golem"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.demonic_sigil",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dyed_silverlight",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 23,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Matthew once Dave, the priests and the golem have returned."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.second_ritual",
+    "name": "Chant the incantation in the tome’s order",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.second_ritual_circle",
+    "end_location_id": "location.uzer.second_ritual_circle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.prepare_second_ritual"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.demonic_sigil",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.demonic_tome",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 45,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.shadow_incantation",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the sigil at the second position and reverse Denath’s word order. Agrith-Naar then appears."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.defeat_agrith_naar",
+    "name": "Defeat Agrith-Naar and finish with dyed Silverlight",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.second_ritual_circle",
+    "end_location_id": "location.uzer.second_ritual_circle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.second_ritual"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dyed_silverlight",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.lobster",
+        "quantity": 8
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.darklight",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 220,
+      "max_seconds": 680
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shadow_of_the_storm",
+        "source.capture.shadow_of_the_storm_zybez",
+        "source.runelite.npc_health",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Finish the fight with dyed Silverlight to obtain Darklight. Debit the eight-lobster reserve and reconcile any leftovers after the encounter. Incidental combat XP depends on the chosen attack style."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat level-100 Agrith-Naar with a suitable combat setup and finish the fight with dyed Silverlight within the planned food reserve.",
+      "if_unmet": "Leave the encounter if possible, then replan from the observed progress and supplies."
+    }
+  },
+  {
+    "id": "quest.shadow_of_the_storm.complete",
+    "name": "Resolve Darklight’s combat XP choice",
+    "activity_id": "quest.shadow_of_the_storm",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.second_ritual_circle",
+    "end_location_id": "location.uzer.second_ritual_circle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.defeat_agrith_naar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.darklight",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.shadow_of_the_storm.combat_choice",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 13,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shadow_of_the_storm",
+        "source.capture.shadow_of_the_storm_zybez",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Unequip Darklight if necessary to reopen the completion dialogue. Select the combat skill immediately."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_shadow_disguise",
+    "name": "Buy the three-piece disguise and a silver bar",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 409
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.priest_gown_top",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.priest_gown_bottom",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.black_wizard_hat",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.silver_bar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimate 409 GP for the priest gown pieces, black wizard hat and silver bar."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_shadow_food",
+    "name": "Buy eight cooked lobsters for the encounter",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 712
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 8
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimate 712 GP for the encounter food reserve."
+    }
+  }
+]

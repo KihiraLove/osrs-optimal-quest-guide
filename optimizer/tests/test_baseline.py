@@ -118,7 +118,7 @@ class Build242BaselineTests(unittest.TestCase):
         self.assertEqual(profile["policies"], self.baseline["policies"])
         self.assertLess(set(profile["goal_action_ids"]), set(self.baseline["goal_action_ids"]))
         validator = CatalogValidator(self.catalog, self.contracts)
-        solution, _ = solve_bounded(validator, profile, beam_width=192, max_expansions=40000)
+        solution, _ = solve_bounded(validator, profile, beam_width=144, max_expansions=60000)
         report = verify_solution(solution, profile, validator)
         self.assertEqual(report["manual_training_xp_tenths_by_skill"], {"skill.prayer": 503390})
         self.assertEqual(report["objective"]["counted_manual_training_xp_tenths"], 0)

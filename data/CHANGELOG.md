@@ -4,6 +4,7 @@ All entries use the build 242 snapshot from 3 November 2026.
 
 | Version | Changes |
 | --- | --- |
+| 0.23.0 | Added Shadow of the Storm, the disguise and furnace visit, both rituals, conditional Agrith-Naar combat, and Darklight's immediate XP choice. |
 | 0.22.0 | Added The Golem, the Shantay Pass and D.L.Q. routes, the two Uzer carpet rides, and the separate throne gem pickup. |
 | 0.21.0 | Added Demon Slayer, the Varrock Palace and sewer route, Traiborn's bones and the Silverlight handover. Recorded the randomized stew search for Freeing Evil Dave. |
 | 0.20.0 | Added Gertrude's Cat, the lumberyard fence and loft, the separate quest and pet kittens, and follower-growth observations for Evil Dave. |
@@ -27,5 +28,5 @@ All entries use the build 242 snapshot from 3 November 2026.
 | 0.2.0 | Added the first quest actions and the pinned Quest Helper observations. |
 | 0.1.0 | Recorded the independent quest, skill, diary and optional content inventory for build 242. |
 
-The coverage audit records the release blockers for 0.22.0. The normalizer and
+The coverage audit records the release blockers for 0.23.0. The normalizer and
 audit use the existing dataset version.

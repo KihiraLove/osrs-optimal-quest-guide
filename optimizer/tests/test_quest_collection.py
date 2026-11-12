@@ -41,6 +41,40 @@ class QuestCollectionTests(unittest.TestCase):
         variants = {row["helper_symbol"] for row in self.observations["quest.shield_of_arrav"]}
         self.assertEqual(variants, {"SHIELD_OF_ARRAV_BLACK_ARM_GANG", "SHIELD_OF_ARRAV_PHOENIX_GANG"})
 
+    def test_shadow_of_the_storm_replays_darklight_and_the_immediate_combat_choice(self):
+        quest = "quest.shadow_of_the_storm"
+        profile = read_json(ROOT / "examples/build-242/shadow-of-the-storm-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile, beam_width=128, max_expansions=40000)
+        report = verify_solution(solution, profile, validator)
+        final = report["final_state"]
+        self.assertEqual(report["manual_training_xp_tenths_by_skill"], {})
+        self.assertEqual(final["counters"]["token.quest_points"], 6)
+        self.assertEqual(final["held_rewards"], [])
+        self.assertEqual(final["inventory"]["item.darklight"], 1)
+        self.assertEqual(final["inventory"]["item.demonic_sigil"], 1)
+        self.assertNotIn("item.dyed_silverlight", final["inventory"])
+        self.assertNotIn("item.coins", final["inventory"])
+        self.assertEqual(final["action_counts"]["supply.uzer.gather_black_mushroom"], 2)
+
+        steps = solution["steps"]
+        complete, choice = steps[-2:]
+        self.assertEqual(complete["action_id"], f"{quest}.complete")
+        self.assertEqual(choice["reward_id"], "reward.shadow_of_the_storm.combat_choice")
+        self.assertEqual(choice["gain_xp_tenths"], 100000)
+        [fight] = [step for step in steps if "planned_outcome" in step]
+        self.assertEqual(fight["action_id"], f"{quest}.defeat_agrith_naar")
+
+        state = RouteState(validator.tables, profile["policies"], profile["initial_state"])
+        for step in steps[:-1]:
+            state = state.apply(step)
+        with self.assertRaisesRegex(DataError, "resolve immediate reward before proceeding"):
+            state.apply({"kind": "wait", "modeled_seconds": 1})
+        with self.assertRaisesRegex(DataError, "ineligible"):
+            state.apply({**choice, "skill_id": "skill.prayer"})
+        ranged = state.apply({**choice, "skill_id": "skill.ranged"}).snapshot()
+        self.assertEqual(ranged["xp_tenths"]["skill.ranged"], 100000)
+
     def test_the_golem_replays_reprogramming_gems_and_carpet_unlock(self):
         profile = read_json(ROOT / "examples/build-242/the-golem-profile.json")
         validator = CatalogValidator(self.catalog, self.contracts)

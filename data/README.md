@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.22.0` loads 24 skill tables and
-249 draft actions, including The Golem, Demon Slayer, Gertrude's Cat,
+3 November 2026 at 10:00:06 UTC. Dataset `0.23.0` loads 24 skill tables and
+271 draft actions, including Shadow of the Storm, The Golem, Demon Slayer, Gertrude's Cat,
 Big Chompy Bird Hunting, five Recipe for Disaster stages, Lost City,
 The Restless Ghost, the museum route and Enlightened Journey.
 Durations estimate each interaction at its
@@ -78,6 +78,13 @@ separate throne gem claim, the Shantay Pass approach, fairy ring D.L.Q., and
 both Uzer carpet directions after completion. Desert heat, incidental
 Thieving XP, and the related Desert Diary credits remain in review.
 
+The [Shadow of the Storm review](raw/build-242/shadow-of-the-storm-review.json)
+records the disguise, furnace, four possible tome locations and both ritual
+orders. The fight converts dyed Silverlight into Darklight. The completion
+dialogue grants one immediate 10,000 XP combat choice. The replay models a
+successful fight and debits a food reserve. Incidental XP and the exact sigil
+handovers remain in review.
+
 [Quest Helper observations](raw/build-242/quest-helper/index.json) cover 209
 journal activities. They identify candidate coordinates, requirements,
 source-specific branches, items and rewards. The remaining helper gaps and
@@ -87,9 +94,9 @@ build 242 XP updates, including the separately claimed Demon Slayer reward.
 The [reward registry](raw/build-242/reward-registry.json) records 38 reward
 entries, including seven separate claims. Each claim records its producer ID,
 quest gate, available location evidence and known award details. Null values
-identify fields that need verification. X Marks the Spot has a loaded producer
-and lamp definition. The other packages stay in review while their quest
-actions or use rules are being collected.
+identify fields that need verification. X Marks the Spot and Shadow of the
+Storm have loaded reward producers. The remaining packages stay in review
+while their quest actions or use rules are being collected.
 
 [Diary observations](raw/build-242/diaries/index.json) link all 492 tracker IDs
 to helper steps, requirements and item candidates across 48 tiers. Each tier

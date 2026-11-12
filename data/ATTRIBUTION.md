@@ -45,6 +45,9 @@ original descriptions of findings. The data uses pinned upstream sources.
 - The Golem uses pinned Quest Helper and RuneLite metadata, Slayermusiq1's
   Old School walkthrough, and Tip.It's historical gameplay observations.
   Shortest Path supplies the desert gate, D.L.Q. and Uzer carpet waypoints.
+- Shadow of the Storm uses pinned Quest Helper, the archived Al Kharid
+  furnace origin, and gameplay observations from Zybez and Old School
+  RuneScape Guides. RuneLite supplies the item and NPC metadata.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

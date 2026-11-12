@@ -1,0 +1,66 @@
+{
+  "game_revision": "osrs-live-242",
+  "activity_id": "quest.shadow_of_the_storm",
+  "status": "collected",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.capture.shadow_of_the_storm",
+    "source.capture.shadow_of_the_storm_zybez",
+    "source.quest_helper.shadow_incantation",
+    "source.jagex.cache_242_map",
+    "source.runelite.objects",
+    "source.runelite.npc_health",
+    "source.tipit.silver_crafting"
+  ],
+  "requirements": {
+    "quest_ids": ["quest.demon_slayer", "quest.the_golem"],
+    "skill_checks": [
+      {"skill_id": "skill.crafting", "minimum_level": 30, "boostable": true, "action_id": "quest.shadow_of_the_storm.make_sigil"}
+    ],
+    "disguise": {
+      "equipped_dark_pieces": 3,
+      "modeled_slots": {"head": "item.black_wizard_hat", "body": "item.priest_gown_top", "legs": "item.priest_gown_bottom"},
+      "weapon": "item.dyed_silverlight",
+      "other_reported_options": ["dyed desert clothing", "black armour", "dark mystic", "ghostly robes", "other recognised dark clothing"],
+      "dye_source": "Apply a black mushroom directly to Silverlight. The shared patch supports a second modeled pickup after The Golem."
+    }
+  },
+  "waypoints": {
+    "father_reen": [3270, 3159, 0],
+    "father_badden": [3490, 3090, 0],
+    "evil_dave_before_ritual": [2721, 4911, 0],
+    "evil_dave_after_ritual": [2721, 4900, 0],
+    "furnace": {"tile": [3273, 3184, 0], "object_id": 2099, "archive_group": 13105, "archive_file": 1},
+    "random_tome_kilns": [[3468, 3124, 0], [3479, 3083, 0], [3473, 3093, 0], [3501, 3085, 0]],
+    "first_ritual": [2718, 4902, 2],
+    "second_ritual": [2720, 4903, 2]
+  },
+  "rituals": {
+    "word_order": ["Denath’s account-specific order", "the tome’s reverse of that order"],
+    "extra_sigils_after_first_ritual": 3,
+    "sigil_sources": ["Denath’s dropped sigil", "Tanya’s dropped sigil", "Eric’s sigil from Evil Dave"],
+    "allocation": "The draft reserves two sigils for the priests and one for the golem, leaving the player’s own.",
+    "sigil_crafting_xp_tenths": null,
+    "historical_sigil_crafting_xp_tenths": 500
+  },
+  "combat": {
+    "npc_id": 911,
+    "combat_level": 100,
+    "listed_hitpoints": 95,
+    "finishing_weapon": "item.dyed_silverlight",
+    "scenario": "A successful solo fight with prepared combat stats and gear and an eight-lobster food reserve. The reserve is debited in full and actual consumption can vary.",
+    "incidental_combat_xp_tenths": null
+  },
+  "rewards": {
+    "defeat_effect": "Transform the dyed sword into Darklight.",
+    "quest_points": 1,
+    "immediate_combat_choice": "reward.shadow_of_the_storm.combat_choice",
+    "xp_tenths": 100000,
+    "nightmare_zone_candidate": "Verify Agrith-Naar access and other Nightmare Zone requirements separately."
+  },
+  "open_checks": [
+    "Verify the exact sigil Crafting XP and per-recruit sigil handovers in build 242.",
+    "Test low-level combat setups, damage XP, armour and food use, and recovery when a fight is interrupted.",
+    "Verify other disguise combinations, replacement Silverlight and Darklight, and equipment retained after the ritual."
+  ]
+}
