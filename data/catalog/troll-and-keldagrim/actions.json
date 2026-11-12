@@ -1,0 +1,6904 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_death_plateau_supplies",
+    "name": "Buy food and an iron bar for Death Plateau",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 550
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bread",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.trout",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.premade_blurberry_special",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.capture.death_plateau",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reserve for unnoted bread and trout, the premade drink and one iron bar."
+    }
+  },
+  {
+    "id": "supply.tenzing.buy_climbing_boots",
+    "name": "Buy climbing boots from Tenzing",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.burthorpe.tenzing",
+    "end_location_id": "location.burthorpe.tenzing",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "quest.death_plateau.ask_tenzing"
+            },
+            {
+              "kind": "flag",
+              "token_id": "flag.quest.death_plateau.complete",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 12
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.climbing_boots",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 25
+    },
+    "repeat_limit": 3,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.death_plateau",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy one pair of climbing boots at the hut."
+    }
+  },
+  {
+    "id": "quest.death_plateau.start",
+    "name": "Accept Denulth’s assignment",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.denulth",
+    "end_location_id": "location.burthorpe.denulth",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask how to recover the guard room combination."
+    }
+  },
+  {
+    "id": "quest.death_plateau.ask_eohric",
+    "name": "Ask Eohric who was on duty",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe_castle.eohric",
+    "end_location_id": "location.burthorpe_castle.eohric",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find out Harold was the guard responsible."
+    }
+  },
+  {
+    "id": "quest.death_plateau.ask_harold",
+    "name": "Ask Harold about the combination",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.harold",
+    "end_location_id": "location.burthorpe.harold",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.ask_eohric"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Harold upstairs at the inn."
+    }
+  },
+  {
+    "id": "quest.death_plateau.ask_eohric_again",
+    "name": "Ask Eohric how to get Harold to talk",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe_castle.eohric",
+    "end_location_id": "location.burthorpe_castle.eohric",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.ask_harold"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn which drink and game will persuade Harold."
+    }
+  },
+  {
+    "id": "quest.death_plateau.collect_ale",
+    "name": "Collect the ale from the downstairs inn bar",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.harold",
+    "end_location_id": "location.burthorpe.harold",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.ask_eohric_again"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.asgarnian_ale",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take an Asgarnian ale and return upstairs to Harold."
+    }
+  },
+  {
+    "id": "quest.death_plateau.give_drinks",
+    "name": "Offer Harold the two drinks",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.harold",
+    "end_location_id": "location.burthorpe.harold",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.collect_ale"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.asgarnian_ale",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.premade_blurberry_special",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Offer the Asgarnian ale and the premade Blurberry Special."
+    }
+  },
+  {
+    "id": "quest.death_plateau.get_iou",
+    "name": "Win Harold’s IOU at dice",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.harold",
+    "end_location_id": "location.burthorpe.harold",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.give_drinks"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 101
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.harolds_iou",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 34,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.death_plateau",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the dialogue and carry 101 coins for the immediate win route. No winnings are credited to the planned cash balance."
+    },
+    "planned_outcome": {
+      "success_condition": "Harold hands over the IOU.",
+      "if_unmet": "Continue playing until Harold is out of coins."
+    }
+  },
+  {
+    "id": "quest.death_plateau.read_iou",
+    "name": "Read the combination on the IOU",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.harold",
+    "end_location_id": "location.burthorpe.harold",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.get_iou"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.harolds_iou",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.death_plateau_combination",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 10,
+      "max_seconds": 21
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the other side of the IOU to record the combination."
+    }
+  },
+  {
+    "id": "quest.death_plateau.open_equipment_room",
+    "name": "Set the five stones in the mechanism",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.stone_mechanism",
+    "end_location_id": "location.burthorpe.stone_mechanism",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.read_iou"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.death_plateau_combination",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 49,
+      "max_seconds": 103
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick up the stones nearby and place them in the arrangement indicated by the IOU."
+    }
+  },
+  {
+    "id": "quest.death_plateau.ask_saba",
+    "name": "Ask Saba about another mountain path",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.saba_cave",
+    "end_location_id": "location.burthorpe.saba_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.open_equipment_room"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 36,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the cave, ask the hermit and return to the entrance."
+    }
+  },
+  {
+    "id": "quest.death_plateau.ask_tenzing",
+    "name": "Ask Tenzing about the secret path",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.tenzing",
+    "end_location_id": "location.burthorpe.tenzing",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.ask_saba"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tenzing asks for spiked boots, ten bread and ten trout."
+    }
+  },
+  {
+    "id": "quest.death_plateau.ask_dunstan",
+    "name": "Ask Dunstan about spiking the boots",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.dunstan",
+    "end_location_id": "location.burthorpe.dunstan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.ask_tenzing"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.climbing_boots",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Dunstan asks for an iron bar and a certificate for his son."
+    }
+  },
+  {
+    "id": "quest.death_plateau.get_certificate",
+    "name": "Ask Denulth for the certificate",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.denulth",
+    "end_location_id": "location.burthorpe.denulth",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.ask_dunstan"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dunstans_certificate",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Denulth gives a certificate to take back to Dunstan."
+    }
+  },
+  {
+    "id": "quest.death_plateau.spike_boots",
+    "name": "Have Dunstan spike the boots",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.dunstan",
+    "end_location_id": "location.burthorpe.dunstan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.get_certificate"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dunstans_certificate",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.climbing_boots",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.spiked_boots",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Dunstan the certificate, iron bar and climbing boots."
+    }
+  },
+  {
+    "id": "quest.death_plateau.give_tenzing_supplies",
+    "name": "Give Tenzing the boots and food",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.tenzing",
+    "end_location_id": "location.burthorpe.tenzing",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.spike_boots"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.spiked_boots",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bread",
+        "quantity": 10
+      },
+      {
+        "item_id": "item.trout",
+        "quantity": 10
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.secret_way_map",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand over the spiked boots and the unnoted food. Receive the map."
+    }
+  },
+  {
+    "id": "quest.death_plateau.inspect_secret_path",
+    "name": "Walk up the secret trail to check it",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.death_plateau.secret_path",
+    "end_location_id": "location.death_plateau.secret_path",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.give_tenzing_supplies"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 36,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow Tenzing’s trail until the alternate route is recorded."
+    }
+  },
+  {
+    "id": "quest.death_plateau.complete",
+    "name": "Deliver the map and combination to Denulth",
+    "activity_id": "quest.death_plateau",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.denulth",
+    "end_location_id": "location.burthorpe.denulth",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_plateau.inspect_secret_path"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.secret_way_map",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.death_plateau_combination",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 30000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_claws",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.death_plateau.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive 3,000 Attack XP, steel claws and access to the mountain route."
+    }
+  },
+  {
+    "id": "quest.troll_stronghold.start",
+    "name": "Accept Denulth’s rescue mission",
+    "activity_id": "quest.troll_stronghold",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.denulth",
+    "end_location_id": "location.burthorpe.denulth",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.death_plateau.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start the rescue after Death Plateau."
+    }
+  },
+  {
+    "id": "quest.troll_stronghold.climb_rocks",
+    "name": "Climb the rocky route to the troll arena",
+    "activity_id": "quest.troll_stronghold",
+    "kind": "quest_stage",
+    "start_location_id": "location.trollheim.climbing_rocks",
+    "end_location_id": "location.trollheim.dad_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_stronghold.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.climbing_boots",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.spiked_boots",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 15,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 56,
+      "max_seconds": 118
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Equip climbing boots and climb the rocks on the secret trail."
+    }
+  },
+  {
+    "id": "quest.troll_stronghold.defeat_dad",
+    "name": "Fight Dad until he yields",
+    "activity_id": "quest.troll_stronghold",
+    "kind": "quest_stage",
+    "start_location_id": "location.trollheim.dad_arena",
+    "end_location_id": "location.trollheim.dad_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_stronghold.climb_rocks"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.troll_stronghold.dad_defeated",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 94,
+      "max_seconds": 197
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the arena gate to safespot him if appropriate. Stop when Dad gives up."
+    },
+    "planned_outcome": {
+      "success_condition": "Dad yields and the far gate can be used.",
+      "if_unmet": "Bring effective combat gear and enough food for the encounter."
+    }
+  },
+  {
+    "id": "quest.troll_stronghold.defeat_general",
+    "name": "Defeat a Troll General for the prison key",
+    "activity_id": "quest.troll_stronghold",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.troll_general",
+    "end_location_id": "location.troll_stronghold.troll_general",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_stronghold.defeat_dad"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.troll_prison_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 109,
+      "max_seconds": 229
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat a General in the stronghold rooms."
+    },
+    "planned_outcome": {
+      "success_condition": "The prison key has dropped and been picked up.",
+      "if_unmet": "Use suitable gear, food or a safespot."
+    }
+  },
+  {
+    "id": "quest.troll_stronghold.get_godric_key",
+    "name": "Get Godric’s key from Twig",
+    "activity_id": "quest.troll_stronghold",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.prison",
+    "end_location_id": "location.troll_stronghold.prison",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_stronghold.defeat_general"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.troll_prison_key",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "skill",
+              "skill_id": "skill.thieving",
+              "minimum_level": 30,
+              "boostable": true
+            },
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "any",
+                  "requirements": [
+                    {
+                      "kind": "item",
+                      "item_id": "item.bronze_shortsword",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.steel_dagger",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.silverlight",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.darklight",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.excalibur",
+                      "quantity": 1
+                    }
+                  ]
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "item",
+                      "item_id": "item.shortbow",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.bronze_arrow",
+                      "quantity": 1
+                    }
+                  ]
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "flag",
+                      "token_id": "flag.spellbook.standard",
+                      "value": true
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.air_rune",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.mind_rune",
+                      "quantity": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.godric_cell_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 69,
+      "max_seconds": 145
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pickpocket Twig at Thieving 30 or defeat him for the key."
+    }
+  },
+  {
+    "id": "quest.troll_stronghold.free_godric",
+    "name": "Unlock Godric’s cell",
+    "activity_id": "quest.troll_stronghold",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.prison",
+    "end_location_id": "location.troll_stronghold.prison",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_stronghold.get_godric_key"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.godric_cell_key",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 25
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open Godric’s cell and finish the rescue dialogue."
+    }
+  },
+  {
+    "id": "quest.troll_stronghold.get_eadgar_key",
+    "name": "Get Eadgar’s key from Berry",
+    "activity_id": "quest.troll_stronghold",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.prison",
+    "end_location_id": "location.troll_stronghold.prison",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_stronghold.defeat_general"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.troll_prison_key",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "skill",
+              "skill_id": "skill.thieving",
+              "minimum_level": 30,
+              "boostable": true
+            },
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "any",
+                  "requirements": [
+                    {
+                      "kind": "item",
+                      "item_id": "item.bronze_shortsword",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.steel_dagger",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.silverlight",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.darklight",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.excalibur",
+                      "quantity": 1
+                    }
+                  ]
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "item",
+                      "item_id": "item.shortbow",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.bronze_arrow",
+                      "quantity": 1
+                    }
+                  ]
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "flag",
+                      "token_id": "flag.spellbook.standard",
+                      "value": true
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.air_rune",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.mind_rune",
+                      "quantity": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.eadgar_cell_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 67,
+      "max_seconds": 141
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pickpocket Berry at Thieving 30 or defeat him for the key."
+    }
+  },
+  {
+    "id": "quest.troll_stronghold.free_eadgar",
+    "name": "Unlock Eadgar’s cell",
+    "activity_id": "quest.troll_stronghold",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.prison",
+    "end_location_id": "location.troll_stronghold.prison",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_stronghold.get_eadgar_key"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.eadgar_cell_key",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.troll_stronghold.eadgar_released",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 13,
+      "max_seconds": 27
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Free Eadgar for his later appearance at Trollheim."
+    }
+  },
+  {
+    "id": "quest.troll_stronghold.complete",
+    "name": "Report Godric’s rescue to Dunstan",
+    "activity_id": "quest.troll_stronghold",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.dunstan",
+    "end_location_id": "location.burthorpe.dunstan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_stronghold.free_godric"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.law_talisman",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.troll_stronghold.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.quest_month_2026_11_03",
+        "source.capture.troll_stronghold",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive a law talisman and the build 242 reward of 2,000 Agility XP."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_troll_romance_supplies",
+    "name": "Buy the sled materials and wax supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2900
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.maple_logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cake_tin",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swamp_tar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_wax",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reserve for the sled components and coating materials."
+    }
+  },
+  {
+    "id": "quest.troll_romance.start",
+    "name": "Ask Ug what is wrong",
+    "activity_id": "quest.troll_romance",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.ug",
+    "end_location_id": "location.troll_stronghold.ug",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.troll_stronghold.complete",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 28,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find Ug inside the stronghold after the rescue quest."
+    }
+  },
+  {
+    "id": "quest.troll_romance.ask_aga",
+    "name": "Ask Aga what flower she wants",
+    "activity_id": "quest.troll_romance",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.aga",
+    "end_location_id": "location.troll_stronghold.aga",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_romance.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about trollweiss and speak to Ug again before leaving."
+    }
+  },
+  {
+    "id": "quest.troll_romance.ask_tenzing",
+    "name": "Ask Tenzing how to reach the flower",
+    "activity_id": "quest.troll_romance",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.tenzing",
+    "end_location_id": "location.burthorpe.tenzing",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_romance.ask_aga"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn about sledding on Trollweiss Mountain."
+    }
+  },
+  {
+    "id": "quest.troll_romance.get_sled",
+    "name": "Have Dunstan make the sled",
+    "activity_id": "quest.troll_romance",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.dunstan",
+    "end_location_id": "location.burthorpe.dunstan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_romance.ask_tenzing"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.maple_logs",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.trollweiss_sled_unwaxed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand over the three sled materials."
+    }
+  },
+  {
+    "id": "quest.troll_romance.wax_sled",
+    "name": "Wax the sled",
+    "activity_id": "quest.troll_romance",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.dunstan",
+    "end_location_id": "location.burthorpe.dunstan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_romance.get_sled"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cake_tin",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket_of_wax",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.swamp_tar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.trollweiss_sled_unwaxed",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.trollweiss_sled",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the tin to prepare the coating and apply it to the sled."
+    }
+  },
+  {
+    "id": "quest.troll_romance.cross_ice_troll_cave",
+    "name": "Cross the ice troll cave to the sled slope",
+    "activity_id": "quest.troll_romance",
+    "kind": "quest_stage",
+    "start_location_id": "location.trollweiss.ice_cave",
+    "end_location_id": "location.trollweiss.sled_slope",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_romance.wax_sled"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.trollweiss_sled",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 44,
+      "expected_seconds": 98,
+      "max_seconds": 206
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cross the cave and head to the top of the sled run."
+    },
+    "planned_outcome": {
+      "success_condition": "The player reaches the sled slope.",
+      "if_unmet": "Bring enough food or protection prayers for the ice trolls."
+    }
+  },
+  {
+    "id": "quest.troll_romance.sled_down",
+    "name": "Equip the sled and slide to the flower patch",
+    "activity_id": "quest.troll_romance",
+    "kind": "quest_stage",
+    "start_location_id": "location.trollweiss.sled_slope",
+    "end_location_id": "location.trollweiss.flower_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_romance.cross_ice_troll_cave"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.trollweiss_sled",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow the sled run down to the rare flower."
+    }
+  },
+  {
+    "id": "quest.troll_romance.take_trollweiss",
+    "name": "Pick the trollweiss flower",
+    "activity_id": "quest.troll_romance",
+    "kind": "quest_stage",
+    "start_location_id": "location.trollweiss.flower_patch",
+    "end_location_id": "location.trollweiss.flower_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_romance.sled_down"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.trollweiss_flower",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 25
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick a flower before returning to Ug."
+    }
+  },
+  {
+    "id": "quest.troll_romance.give_flower",
+    "name": "Bring the flower to Ug",
+    "activity_id": "quest.troll_romance",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.ug",
+    "end_location_id": "location.troll_stronghold.ug",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_romance.take_trollweiss"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.trollweiss_flower",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Ug the flower and agree to challenge Arrg."
+    }
+  },
+  {
+    "id": "quest.troll_romance.defeat_arrg",
+    "name": "Challenge and defeat Arrg",
+    "activity_id": "quest.troll_romance",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.arrg",
+    "end_location_id": "location.troll_stronghold.arrg",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_romance.give_flower"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 134,
+      "max_seconds": 281
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Challenge Arrg, win the arena encounter and return to the stronghold floor."
+    },
+    "planned_outcome": {
+      "success_condition": "Arrg is defeated.",
+      "if_unmet": "Bring suitable combat gear and food or use the arena safespot."
+    }
+  },
+  {
+    "id": "quest.troll_romance.complete",
+    "name": "Report Arrg’s defeat to Ug",
+    "activity_id": "quest.troll_romance",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.ug",
+    "end_location_id": "location.troll_stronghold.ug",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_romance.defeat_arrg"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 80000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 40000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.diamond",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ruby",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.emerald",
+        "quantity": 4
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.troll_romance.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive Agility and Strength XP and the gems. Keep the sled for later use."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_eadgars_ruse_supplies",
+    "name": "Buy ingredients and tools for Eadgar’s Ruse",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 8500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.vodka",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pineapple_chunks",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.grain",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.raw_chicken",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.unfinished_ranarr_potion",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reserve for the food, ranarr potion, logs, bait and pestle and mortar."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.start",
+    "name": "Ask Sanfew what he needs for the ritual",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.sanfew",
+    "end_location_id": "location.taverley.sanfew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.druidic_ritual.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.troll_stronghold.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start after Druidic Ritual and Troll Stronghold."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.ask_burntmeat",
+    "name": "Ask Burntmeat about goutweed",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.burntmeat",
+    "end_location_id": "location.troll_stronghold.burntmeat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn what the cook wants in exchange for the location."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.plan_with_eadgar",
+    "name": "Plan the diversion with Eadgar",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.trollheim.eadgar",
+    "end_location_id": "location.trollheim.eadgar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.ask_burntmeat"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.troll_stronghold.eadgar_released",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Eadgar in his cave after freeing him from the prison."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.get_parrot",
+    "name": "Speak to Parroty Pete and obtain the quest parrot",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne_zoo.parroty_pete",
+    "end_location_id": "location.ardougne_zoo.parroty_pete",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.plan_with_eadgar"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.vodka",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.pineapple_chunks",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.eadgars_drunk_parrot",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask both questions about the parrot and use the quest bait on the aviary hatch."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.show_parrot",
+    "name": "Bring the parrot to Eadgar",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.trollheim.eadgar",
+    "end_location_id": "location.trollheim.eadgar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.get_parrot"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.eadgars_drunk_parrot",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Eadgar explains how to teach the parrot the dialogue."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.hide_parrot",
+    "name": "Hide the parrot in the prison rack",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.prison_rack",
+    "end_location_id": "location.troll_stronghold.prison_rack",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.show_parrot"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.eadgars_drunk_parrot",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 29
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Leave the parrot at the rack while gathering the remaining items."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.get_robe",
+    "name": "Get a dirty robe from Tegid",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.tegid",
+    "end_location_id": "location.taverley.tegid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.hide_parrot"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.eadgars_dirty_robe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Tegid for a robe in south Taverley."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.supply_eadgar",
+    "name": "Deliver the robe and food to Eadgar",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.trollheim.eadgar",
+    "end_location_id": "location.trollheim.eadgar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.get_robe"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.eadgars_dirty_robe",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.grain",
+        "quantity": 10
+      },
+      {
+        "item_id": "item.raw_chicken",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 2
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bring the dirty robe, ten grain, five raw chickens and two logs."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.make_troll_potion",
+    "name": "Prepare the troll thistle potion",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.trollheim.troll_thistle",
+    "end_location_id": "location.troll_stronghold.campfire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.supply_eadgar"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 31,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.unfinished_ranarr_potion",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.eadgars_troll_potion",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 59,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick the thistle and dry it on the existing Troll Stronghold fire. Grind it and add it to the unfinished ranarr potion."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.deliver_troll_potion",
+    "name": "Give Eadgar the troll potion",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.trollheim.eadgar",
+    "end_location_id": "location.trollheim.eadgar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.make_troll_potion"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.eadgars_troll_potion",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Eadgar the prepared potion."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.recover_parrot",
+    "name": "Retrieve the trained parrot",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.prison_rack",
+    "end_location_id": "location.troll_stronghold.prison_rack",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.deliver_troll_potion"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.eadgars_drunk_parrot",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 29
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to the prison after the other parts of the plan are ready."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.get_fake_man",
+    "name": "Return the trained parrot to Eadgar",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.trollheim.eadgar",
+    "end_location_id": "location.trollheim.eadgar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.recover_parrot"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.eadgars_drunk_parrot",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.eadgars_fake_man",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Eadgar the parrot and take the completed decoy."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.distract_burntmeat",
+    "name": "Deliver the decoy to Burntmeat",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.burntmeat",
+    "end_location_id": "location.troll_stronghold.burntmeat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.get_fake_man"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.eadgars_fake_man",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 59
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the decoy to get the information about the storeroom key."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.find_storeroom_key",
+    "name": "Find the storeroom key in the kitchen",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.burntmeat",
+    "end_location_id": "location.troll_stronghold.burntmeat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.distract_burntmeat"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.troll_storeroom_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the drawers near Burntmeat."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.collect_goutweed",
+    "name": "Get past the guards and take goutweed",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.goutweed_store",
+    "end_location_id": "location.troll_stronghold.burntmeat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.find_storeroom_key"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.troll_storeroom_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goutweed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 72,
+      "max_seconds": 151
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the storeroom key and evade the guards to reach the goutweed."
+    },
+    "planned_outcome": {
+      "success_condition": "A goutweed has been taken and the player has returned from the store.",
+      "if_unmet": "Watch the guard paths and retry after being sent back."
+    }
+  },
+  {
+    "id": "quest.eadgars_ruse.complete",
+    "name": "Deliver goutweed to Sanfew",
+    "activity_id": "quest.eadgars_ruse",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.sanfew",
+    "end_location_id": "location.taverley.sanfew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.collect_goutweed"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.goutweed",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 110000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.eadgars_ruse.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive 11,000 Herblore XP and unlock Trollheim Teleport."
+    }
+  },
+  {
+    "id": "supply.troll_stronghold.collect_spare_goutweed",
+    "name": "Collect spare goutweed for later quests",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.troll_stronghold.goutweed_store",
+    "end_location_id": "location.troll_stronghold.goutweed_store",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.eadgars_ruse.complete",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.troll_storeroom_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goutweed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 72,
+      "max_seconds": 151
+    },
+    "repeat_limit": 3,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.eadgars_ruse",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the same guard route to collect an extra goutweed."
+    },
+    "planned_outcome": {
+      "success_condition": "A spare goutweed is held.",
+      "if_unmet": "Avoid the guards and retry after being caught."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_giant_dwarf_statue_supplies",
+    "name": "Buy statue restoration supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coal",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.law_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.air_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.sapphire",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.redberry_pie",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.capture.giant_dwarf",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimate a reserve for the fixed statue materials and Thurgo’s pie."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_giant_dwarf_company_supplies",
+    "name": "Buy ores and bars for the company orders",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 6500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.iron_ore",
+        "quantity": 25
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_bar",
+        "quantity": 15
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.capture.giant_dwarf",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget for selected iron ore and bar orders. The reserve assumes the player declines incompatible requests before accepting."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.start",
+    "name": "Take the boat into Keldagrim for the first time",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.mines_boatman",
+    "end_location_id": "location.keldagrim.veldaban",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 64,
+      "max_seconds": 134
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.giant_dwarf",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to the Boatman and watch the arrival scene after the collision."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.speak_to_veldaban",
+    "name": "Finish the introduction with Commander Veldaban",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.veldaban",
+    "end_location_id": "location.keldagrim.veldaban",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.keldagrim.minecart_access",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Veldaban at the headquarters. Regular Keldagrim boat and minecart services are now available."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.ask_blasidar",
+    "name": "Ask Blasidar about the statue restoration",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.blasidar",
+    "end_location_id": "location.keldagrim.blasidar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.speak_to_veldaban"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Agree to find clothing, boots and the restored battleaxe."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.ask_vermundi",
+    "name": "Ask Vermundi about clothes for the statue",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.vermundi",
+    "end_location_id": "location.keldagrim.vermundi",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.ask_blasidar"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn about the costume book she needs."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.find_costume_book",
+    "name": "Find the costume book in the library",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.librarian",
+    "end_location_id": "location.keldagrim.librarian",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.ask_vermundi"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.keldagrim_costume_book",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the librarian and climb the bookcase. Keep carried weight low enough for the climb."
+    },
+    "planned_outcome": {
+      "success_condition": "The costume book is in hand.",
+      "if_unmet": "Bank heavy gear if the bookcase cannot be climbed."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.start_spinning_machine",
+    "name": "Bring the book and start Vermundi’s machine",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.vermundi",
+    "end_location_id": "location.keldagrim.vermundi",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.find_costume_book"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 12,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 16,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.keldagrim_costume_book",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.coal",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand over the costume book, load a log and coal, then light the machine."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.buy_exquisite_clothes",
+    "name": "Pay Vermundi for the clothes",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.vermundi",
+    "end_location_id": "location.keldagrim.vermundi",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.start_spinning_machine"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 200
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.keldagrim_exquisite_clothes",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Vermundi 200 coins and take the completed clothes."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.ask_saro",
+    "name": "Ask Saro where to find the boots",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.saro",
+    "end_location_id": "location.keldagrim.saro",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.ask_blasidar"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn who bought the boots."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.take_left_boot",
+    "name": "Talk to Dromund and take the left boot",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.dromund",
+    "end_location_id": "location.keldagrim.dromund",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.ask_saro"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 14,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.keldagrim_left_boot",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wait for Dromund to turn away before taking the accessible boot."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.grab_right_boot",
+    "name": "Use Telekinetic Grab on the other boot",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.dromund",
+    "end_location_id": "location.keldagrim.dromund",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.take_left_boot"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 33,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.keldagrim_left_boot",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.air_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.keldagrim_exquisite_boots",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 430
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.magic_calculator",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast from outside the window when Dromund is away from the boot."
+    },
+    "planned_outcome": {
+      "success_condition": "Both boots have been obtained.",
+      "if_unmet": "Wait for Dromund to move before trying again."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.get_axe",
+    "name": "Receive the old battleaxe from Santiri",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.santiri",
+    "end_location_id": "location.keldagrim.santiri",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.ask_blasidar"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.keldagrim_dwarven_battleaxe_old",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Santiri about the ceremonial axe."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.inlay_axe",
+    "name": "Replace the axe’s three sapphires",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.santiri",
+    "end_location_id": "location.keldagrim.santiri",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.get_axe"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.keldagrim_dwarven_battleaxe_old",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.sapphire",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.keldagrim_dwarven_battleaxe_sapphires",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fit the three cut sapphires before seeking an Imcando smith."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.ask_librarian_about_imcando",
+    "name": "Ask about the Imcando dwarves",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.librarian",
+    "end_location_id": "location.keldagrim.librarian",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.inlay_axe"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the librarian where to find an Imcando smith."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.ask_reldo",
+    "name": "Ask Reldo where to find Thurgo",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.reldo",
+    "end_location_id": "location.varrock.reldo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.ask_librarian_about_imcando"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the Varrock library to identify the smith at Mudskipper Point."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.give_thurgo_pie",
+    "name": "Give Thurgo a redberry pie if needed",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.mudskipper_point.thurgo",
+    "end_location_id": "location.mudskipper_point.thurgo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.ask_reldo"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.giant_dwarf.thurgo_pie",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.redberry_pie",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.giant_dwarf.thurgo_pie",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Offer a pie to Thurgo if he has not accepted one before."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.restore_axe",
+    "name": "Ask Thurgo to repair the battleaxe",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.mudskipper_point.thurgo",
+    "end_location_id": "location.mudskipper_point.thurgo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.ask_reldo"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "flag",
+              "token_id": "flag.giant_dwarf.thurgo_pie",
+              "value": true
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_knights_sword.give_thurgo_pie"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_knights_sword.complete"
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.keldagrim_dwarven_battleaxe_sapphires",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.keldagrim_dwarven_battleaxe_restored",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Thurgo the inlaid axe and iron bar after earning his help."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.give_statue_items",
+    "name": "Deliver the clothing, boots and axe to Riki",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.blasidar",
+    "end_location_id": "location.keldagrim.blasidar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.restore_axe"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.grab_right_boot"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.buy_exquisite_clothes"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.keldagrim_dwarven_battleaxe_restored",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.keldagrim_exquisite_boots",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.keldagrim_exquisite_clothes",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand the three pieces to Riki, then speak to Blasidar."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.report_statue",
+    "name": "Tell Veldaban the statue work is ready",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.veldaban",
+    "end_location_id": "location.keldagrim.veldaban",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.give_statue_items"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Veldaban asks for company support for the statue’s head."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.complete_ore_orders",
+    "name": "Complete the Blue Opal secretary’s ore orders",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.blue_opal_secretary",
+    "end_location_id": "location.keldagrim.blue_opal_secretary",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.report_statue"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.iron_ore",
+        "quantity": 25
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 76,
+      "expected_seconds": 168,
+      "max_seconds": 353
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.giant_dwarf",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Accept ore requests that match the carried iron. The planned stock covers five orders of up to five ores each."
+    },
+    "planned_outcome": {
+      "success_condition": "The secretary refers the player to the director.",
+      "if_unmet": "Decline unsuitable jobs before accepting. Finish the secretary’s orders until referred."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.complete_bar_orders",
+    "name": "Complete the director’s bar orders",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.blue_opal_director",
+    "end_location_id": "location.keldagrim.blue_opal_director",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.complete_ore_orders"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.iron_bar",
+        "quantity": 15
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 59,
+      "expected_seconds": 130,
+      "max_seconds": 273
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.giant_dwarf",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Accept the director’s iron bar requests. The planned stock covers up to three orders of five bars."
+    },
+    "planned_outcome": {
+      "success_condition": "The director accepts the player into the company.",
+      "if_unmet": "Decline unsuitable requests before accepting and finish the requested orders."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.join_company",
+    "name": "Join the Blue Opal company and pledge support",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.blue_opal_director",
+    "end_location_id": "location.keldagrim.blue_opal_director",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.complete_bar_orders"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.keldagrim.company.blue_opal",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 61
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Confirm membership and pledge support for the statue discussion."
+    }
+  },
+  {
+    "id": "quest.the_giant_dwarf.complete",
+    "name": "Attend the Consortium meeting with Veldaban",
+    "activity_id": "quest.the_giant_dwarf",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.veldaban",
+    "end_location_id": "location.keldagrim.veldaban",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_giant_dwarf.join_company"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_giant_dwarf.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 63,
+      "max_seconds": 132
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Attend the meeting and receive the six skill rewards and two quest points."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_kelda_farming_tools",
+    "name": "Buy a rake and seed dibber for Kelda hops",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 180
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rake",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.seed_dibber",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reserve for the two reusable farming tools."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_kelda_brewing_supplies",
+    "name": "Buy Kelda brewing ingredients",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_water",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.barley_malt",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.beer_glass",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.capture.forgettable_tale",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy the two filled buckets, two malt and the empty glass. This visit can fit into the growth wait."
+    }
+  },
+  {
+    "id": "supply.keldagrim.buy_forgettable_pub_supplies",
+    "name": "Buy beer and a kebab in East Keldagrim",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.keldagrim.rowdy_dwarf",
+    "end_location_id": "location.keldagrim.rowdy_dwarf",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 30
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.beer",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.kebab",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 59
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.forgettable_tale",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Make a short trip to the pub and kebab seller. The fixed reserve allows for the shop prices."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_rowdy_request_options",
+    "name": "Buy two low-cost items for the Rowdy Dwarf",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 30
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cabbage",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.potato",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.capture.forgettable_tale",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Carry two known request options. The player can request a different item if neither matches."
+    }
+  },
+  {
+    "id": "supply.white_wolf_tunnel.collect_dwarven_stout",
+    "name": "Take a stout near Khorvak",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.white_wolf_tunnel.khorvak",
+    "end_location_id": "location.white_wolf_tunnel.khorvak",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.first_seed"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dwarven_stout",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.forgettable_tale",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take the stout available in the tunnel pub."
+    }
+  },
+  {
+    "id": "supply.keldagrim.take_brewing_pot",
+    "name": "Take a pot in the brewing room",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.keldagrim.kelda_brewing_vat",
+    "end_location_id": "location.keldagrim.kelda_brewing_vat",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pot",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 7,
+      "max_seconds": 15
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.forgettable_tale",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the pot on the brewing room table if needed."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.start",
+    "name": "Ask Veldaban about the Red Axe",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.veldaban",
+    "end_location_id": "location.keldagrim.veldaban",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_giant_dwarf.complete",
+          "value": true
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fishing_contest.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start after The Giant Dwarf and Fishing Contest."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.first_seed",
+    "name": "Give the Drunken Dwarf a beer and get a seed",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.drunken_dwarf",
+    "end_location_id": "location.keldagrim.drunken_dwarf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.beer",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.kelda_seed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bring him a beer and ask about his story."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.rowdy_cabbage",
+    "name": "Give the Rowdy Dwarf a cabbage",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.rowdy_dwarf",
+    "end_location_id": "location.keldagrim.rowdy_dwarf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.first_seed"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.forgettable_tale.rowdy_seed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.cabbage",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.kelda_seed",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.forgettable_tale.rowdy_seed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.forgettable_tale",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wait for the corresponding request before handing over the item."
+    },
+    "planned_outcome": {
+      "success_condition": "The Rowdy Dwarf gives his Kelda seed.",
+      "if_unmet": "Ask for a different request after the dialogue allows it if needed."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.rowdy_potato",
+    "name": "Give the Rowdy Dwarf a potato",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.rowdy_dwarf",
+    "end_location_id": "location.keldagrim.rowdy_dwarf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.first_seed"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.forgettable_tale.rowdy_seed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.potato",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.kelda_seed",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.forgettable_tale.rowdy_seed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.forgettable_tale",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wait for the corresponding request before handing over the item."
+    },
+    "planned_outcome": {
+      "success_condition": "The Rowdy Dwarf gives his Kelda seed.",
+      "if_unmet": "Ask for a different request after the dialogue allows it if needed."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.khorvak_seed",
+    "name": "Give Khorvak a Dwarven stout for a seed",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.white_wolf_tunnel.khorvak",
+    "end_location_id": "location.white_wolf_tunnel.khorvak",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.first_seed"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dwarven_stout",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.kelda_seed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Travel to the White Wolf Mountain tunnel and obtain Khorvak’s seed."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.gauss_seed",
+    "name": "Share a beer with Gauss for a seed",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.gauss",
+    "end_location_id": "location.keldagrim.gauss",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.first_seed"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.beer",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.kelda_seed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Gauss a beer at the west pub."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.plant_kelda",
+    "name": "Prepare the patch and plant four Kelda seeds",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.kelda_hops_patch",
+    "end_location_id": "location.keldagrim.kelda_hops_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.khorvak_seed"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.gauss_seed"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 17,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.forgettable_tale.rowdy_seed",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.kelda_seed",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.forgettable_tale.kelda_growth",
+        "duration_seconds": 1200
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 36,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.forgettable_tale",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Rind for permission, clear the patch and plant four seeds. Other work can proceed during the growth wait."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.harvest_kelda",
+    "name": "Harvest the grown Kelda hops",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.kelda_hops_patch",
+    "end_location_id": "location.keldagrim.kelda_hops_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.plant_kelda"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.forgettable_tale.kelda_growth"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.kelda_hops",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.forgettable_tale",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return when the growth timer is ready."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.get_yeast",
+    "name": "Buy ale yeast from Blandebir",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.kelda_brewing_vat",
+    "end_location_id": "location.keldagrim.kelda_brewing_vat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.first_seed"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 25
+      },
+      {
+        "item_id": "item.pot",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ale_yeast",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 25
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bring an empty pot and 25 coins."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.brew_kelda",
+    "name": "Load the vat and start fermenting Kelda stout",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.kelda_brewing_vat",
+    "end_location_id": "location.keldagrim.kelda_brewing_vat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.harvest_kelda"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 22,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket_of_water",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.barley_malt",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.kelda_hops",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ale_yeast",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pot",
+        "quantity": 1
+      },
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.forgettable_tale.kelda_fermentation",
+        "duration_seconds": 1200
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.forgettable_tale",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Add the water, malt, hops and yeast. The fermentation runs while the player completes other actions."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.draw_stout",
+    "name": "Turn the valve and fill a glass of Kelda stout",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.kelda_brewing_vat",
+    "end_location_id": "location.keldagrim.kelda_brewing_vat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.brew_kelda"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.forgettable_tale.kelda_fermentation"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.beer_glass",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.kelda_stout",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.forgettable_tale",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Check that the brew is ready before drawing it."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.deliver_kelda",
+    "name": "Give the Drunken Dwarf Kelda stout",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.drunken_dwarf",
+    "end_location_id": "location.keldagrim.drunken_dwarf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.draw_stout"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.kelda_stout",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 61
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give him the stout and finish the story dialogue."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.ask_conductor",
+    "name": "Ask the conductor about the sealed route",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.red_axe_cart",
+    "end_location_id": "location.keldagrim.red_axe_cart",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.deliver_kelda"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn whose authority is needed before using the secret cart."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.ask_director",
+    "name": "Ask the Blue Opal director to open the route",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.blue_opal_director",
+    "end_location_id": "location.keldagrim.blue_opal_director",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.ask_conductor"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.keldagrim.company.blue_opal",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the director of the player’s company for permission."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.ride_secret_cart",
+    "name": "Take the secret cart to the junction",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.red_axe_cart",
+    "end_location_id": "location.red_axe_tunnels.junction",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.ask_director"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the reopened cart with hands free."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.solve_first_junction",
+    "name": "Solve the first junction and investigate",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.red_axe_tunnels.junction",
+    "end_location_id": "location.red_axe_tunnels.junction",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.ride_secret_cart"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 44,
+      "expected_seconds": 98,
+      "max_seconds": 206
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find the stones, operate the junction controls and use the first cart to hear the conversation."
+    },
+    "planned_outcome": {
+      "success_condition": "The first Red Axe conversation has been heard.",
+      "if_unmet": "Check the directional signs and use the cart after setting the route."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.solve_second_junction",
+    "name": "Solve the next route and search the records",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.red_axe_tunnels.junction",
+    "end_location_id": "location.red_axe_tunnels.junction",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.solve_first_junction"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 112,
+      "max_seconds": 235
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Adjust the junction for the next cart and inspect the records."
+    },
+    "planned_outcome": {
+      "success_condition": "The relevant records have been examined.",
+      "if_unmet": "Use the control panel and the appropriate track."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.solve_final_junction",
+    "name": "Follow the last route and watch the Red Axe scene",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.red_axe_tunnels.junction",
+    "end_location_id": "location.keldagrim.red_axe_cart",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.solve_second_junction"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 48,
+      "expected_seconds": 107,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Finish the final junction and return to the public cart after the scene."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.report_to_veldaban",
+    "name": "Report the investigation to Veldaban",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.veldaban",
+    "end_location_id": "location.keldagrim.veldaban",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.solve_final_junction"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 59
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Complete the dialogue at the Black Guard headquarters."
+    }
+  },
+  {
+    "id": "quest.forgettable_tale.complete",
+    "name": "Eat a kebab and drink a beer at the east pub",
+    "activity_id": "quest.forgettable_tale",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.rowdy_dwarf",
+    "end_location_id": "location.keldagrim.rowdy_dwarf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.forgettable_tale.report_to_veldaban"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.kebab",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.beer",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mature_dwarven_stout",
+        "quantity": 2
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.forgettable_tale.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 61
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.forgettable_tale",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Finish the memory scene and receive Farming XP, Cooking XP and two mature Dwarven stouts."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_between_a_rock_gold",
+    "name": "Buy four gold bars for Dondakan",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1550
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.gold_bar",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.capture.between_a_rock",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The demonstration bar is reused in the cannonball. Three bars are for the helmet."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.start",
+    "name": "Speak to Dondakan about the rock",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.dondakan",
+    "end_location_id": "location.keldagrim.dondakan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dwarf_cannon.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fishing_contest.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start after Dwarf Cannon and Fishing Contest."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.ask_engineer",
+    "name": "Ask the Dwarven Engineer about the rock",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.dwarven_engineer",
+    "end_location_id": "location.keldagrim.dwarven_engineer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find the engineer in Keldagrim and learn about Rolad."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.ask_rolad",
+    "name": "Ask Rolad about the book pages",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.ice_mountain.rolad",
+    "end_location_id": "location.ice_mountain.rolad",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.ask_engineer"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find Rolad at the Ice Mountain entrance to the Dwarven Mine."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.recover_pages",
+    "name": "Recover the three pages of Dwarven lore",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.dwarven_mine.rolad_pages",
+    "end_location_id": "location.dwarven_mine.rolad_pages",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.ask_rolad"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_pickaxe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.rune_pickaxe",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 104,
+      "max_seconds": 218
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search a minecart, mine a suitable rock and defeat a scorpion to recover the pages."
+    },
+    "planned_outcome": {
+      "success_condition": "All three pages have been recovered.",
+      "if_unmet": "Continue the mining or combat steps until the relevant page appears."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.read_lore",
+    "name": "Give Rolad the pages and read Dwarven lore",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.ice_mountain.rolad",
+    "end_location_id": "location.ice_mountain.rolad",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.recover_pages"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dwarven_lore",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 63
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Have Rolad reassemble the book and read it."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.show_gold_bar",
+    "name": "Show Dondakan the book and a gold bar",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.dondakan",
+    "end_location_id": "location.keldagrim.dondakan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.read_lore"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dwarven_lore",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gold_bar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show how gold can affect the rock, then keep one bar for the cannonball."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.make_cannonball",
+    "name": "Cast a gold cannonball at the furnace",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.furnace",
+    "end_location_id": "location.edgeville.furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.show_gold_bar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ammo_mould",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 50,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.gold_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.golden_cannonball",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the gold bar with an ammo mould at a furnace."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.test_gold_cannonball",
+    "name": "Give Dondakan the gold cannonball to test",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.dondakan",
+    "end_location_id": "location.keldagrim.dondakan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.make_cannonball"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.golden_cannonball",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dondakan_schematic_base",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand over the cannonball. Receive the base and Dondakan’s schematic information."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.ask_engineer_schematic",
+    "name": "Get the engineer’s schematic section",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.dwarven_engineer",
+    "end_location_id": "location.keldagrim.dwarven_engineer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.test_gold_cannonball"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dondakan_schematic_base",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the Dwarven Engineer for their contribution."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.read_lore_schematic",
+    "name": "Find the schematic section in Dwarven lore",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.dwarven_engineer",
+    "end_location_id": "location.keldagrim.dwarven_engineer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.ask_engineer_schematic"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dwarven_lore",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 29
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the book to find its drawing before seeking the final piece."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.ask_khorvak_schematic",
+    "name": "Get Khorvak’s schematic section",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.white_wolf_tunnel.khorvak",
+    "end_location_id": "location.white_wolf_tunnel.khorvak",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.read_lore_schematic"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Khorvak under White Wolf Mountain and finish the schematic conversation."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.assemble_schematic",
+    "name": "Overlay the schematic sections",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.white_wolf_tunnel.khorvak",
+    "end_location_id": "location.white_wolf_tunnel.khorvak",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.ask_khorvak_schematic"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dondakan_schematic_base",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dondakan_schematic_assembled",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 51,
+      "max_seconds": 107
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fit the schematic sections together."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.smith_gold_helmet",
+    "name": "Smith the gold helmet at the Keldagrim anvil",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.dwarven_engineer",
+    "end_location_id": "location.keldagrim.dwarven_engineer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.test_gold_cannonball"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 50,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.gold_bar",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.gold_helmet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use three gold bars and a hammer at the anvil."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.enter_rock",
+    "name": "Wear the helmet and let Dondakan fire the cannon",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.dondakan",
+    "end_location_id": "location.arzinian_mine.avatar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.assemble_schematic"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.smith_gold_helmet"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gold_helmet",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.defence",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_pickaxe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.rune_pickaxe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dondakan_schematic_assembled",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Dondakan the schematic and enter the rock with the helmet equipped."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.mine_inside_rock",
+    "name": "Mine six gold ores inside the rock",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.arzinian_mine.avatar",
+    "end_location_id": "location.arzinian_mine.avatar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.enter_rock"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_pickaxe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.rune_pickaxe",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 40,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gold_helmet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.gold_ore",
+        "quantity": 6
+      }
+    ],
+    "duration": {
+      "min_seconds": 36,
+      "expected_seconds": 79,
+      "max_seconds": 166
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mine six ores while keeping the gold helmet equipped. Mining extra ore can weaken the Avatar."
+    },
+    "planned_outcome": {
+      "success_condition": "Six or more ores are held before the encounter.",
+      "if_unmet": "Keep the helmet equipped and mine more ore if time allows."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.defeat_avatar",
+    "name": "Defeat the Avatar while carrying the mined ore",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.arzinian_mine.avatar",
+    "end_location_id": "location.keldagrim.dondakan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.mine_inside_rock"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gold_helmet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gold_ore",
+          "quantity": 6
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 112,
+      "max_seconds": 235
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the inner rock, keep the helmet and six ores, and defeat the Avatar before returning to Dondakan."
+    },
+    "planned_outcome": {
+      "success_condition": "The Avatar is defeated and the player is outside the rock.",
+      "if_unmet": "Bring suitable combat gear and food. Mining more ore can reduce the Avatar’s combat level."
+    }
+  },
+  {
+    "id": "quest.between_a_rock.complete",
+    "name": "Report the victory to Dondakan",
+    "activity_id": "quest.between_a_rock",
+    "kind": "quest_stage",
+    "start_location_id": "location.keldagrim.dondakan",
+    "end_location_id": "location.keldagrim.dondakan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.between_a_rock.defeat_avatar"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rune_pickaxe",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.between_a_rock.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.between_a_rock",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive 5,000 each in Defence, Mining and Smithing, two quest points and a rune pickaxe."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_slice_of_ham_rope",
+    "name": "Buy a rope for the Lumbridge Swamp Caves",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 90
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reserve one rope for the surface cave entrance."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.start",
+    "name": "Speak to Ur-tag about the railway",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgesh_kaan.ur_tag",
+    "end_location_id": "location.dorgesh_kaan.ur_tag",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.death_to_the_dorgeshuun.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_giant_dwarf.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.attack",
+          "minimum_level": 15,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.prayer",
+          "minimum_level": 25,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start after Death to the Dorgeshuun, The Giant Dwarf and The Dig Site."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.get_excavation_tools",
+    "name": "Ask Tegdak for the excavation tools",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgesh_kaan.railway_tegdak",
+    "end_location_id": "location.dorgesh_kaan.railway_tegdak",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.trowel",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.specimen_brush",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Tegdak inside the railway works. Take a trowel and brush."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.excavate_artefacts",
+    "name": "Excavate all six artefacts",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgesh_kaan.railway_tegdak",
+    "end_location_id": "location.dorgesh_kaan.railway_tegdak",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.get_excavation_tools"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.trowel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 34,
+      "expected_seconds": 75,
+      "max_seconds": 158
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the trowel at the six railway excavation points."
+    },
+    "planned_outcome": {
+      "success_condition": "All six artefacts have been collected.",
+      "if_unmet": "Check the excavation points along the unfinished track."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.clean_artefacts",
+    "name": "Clean the artefacts and show Tegdak",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgesh_kaan.railway_tegdak",
+    "end_location_id": "location.dorgesh_kaan.railway_tegdak",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.excavate_artefacts"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.specimen_brush",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 54,
+      "max_seconds": 113
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the brush at the table, show Tegdak the six pieces and ask Zanik to follow."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.ask_scribe",
+    "name": "Ask the scribe about the artefacts",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgesh_kaan.scribe",
+    "end_location_id": "location.dorgesh_kaan.scribe",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.clean_artefacts"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bring Zanik to the scribe and discuss the mace."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.teleport_with_oldak",
+    "name": "Use Oldak’s sphere with Zanik to reach Goblin Village",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.dorgesh_kaan.oldak",
+    "end_location_id": "location.goblin_village.generals",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.ask_scribe"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Oldak supplies the quest transport so Zanik arrives with the player."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.brief_generals",
+    "name": "Speak to the Goblin Generals",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin_village.generals",
+    "end_location_id": "location.goblin_village.generals",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.teleport_with_oldak"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Wartface and Bentnoze before responding to the attack."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.repel_attack",
+    "name": "Defeat the H.A.M. mage and archer",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin_village.ham_attack",
+    "end_location_id": "location.goblin_village.ham_attack",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.brief_generals"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 34,
+      "expected_seconds": 76,
+      "max_seconds": 160
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use Ranged or Magic against the two attackers from their accessible position."
+    },
+    "planned_outcome": {
+      "success_condition": "The attack is stopped.",
+      "if_unmet": "Bring enough ammunition or runes for both enemies."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.get_ancient_mace",
+    "name": "Speak to the generals after the attack",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin_village.generals",
+    "end_location_id": "location.goblin_village.generals",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.repel_attack"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ancient_mace",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Finish the dialogue and take the ancient mace for the rescue."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.meet_sergeants",
+    "name": "Meet the goblin sergeants in Lumbridge Swamp",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_swamp.goblin_sergeants",
+    "end_location_id": "location.lumbridge_swamp.goblin_sergeants",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.get_ancient_mace"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ancient_mace",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bring the ancient mace and a light source for the caves."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.enter_swamp_caves",
+    "name": "Secure the rope and descend into the swamp caves",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_swamp.goblin_sergeants",
+    "end_location_id": "location.ham_base.slice_stealth",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.meet_sergeants"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the rope at the cave entrance and follow the sergeants to the H.A.M. base."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.sneak_through_base",
+    "name": "Guide the sergeants past the H.A.M. patrols",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.ham_base.slice_stealth",
+    "end_location_id": "location.ham_base.slice_sigmund",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.enter_swamp_caves"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 85,
+      "max_seconds": 179
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the crates for cover, wait for the patrols, and use the ladder to reach Sigmund."
+    },
+    "planned_outcome": {
+      "success_condition": "The sergeants have passed the guards and Sigmund is reachable.",
+      "if_unmet": "Wait for the patrols and follow the sergeants’ timing."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.defeat_sigmund",
+    "name": "Use the ancient mace special attack and defeat Sigmund",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.ham_base.slice_sigmund",
+    "end_location_id": "location.ham_base.slice_sigmund",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.sneak_through_base"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ancient_mace",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.attack",
+          "minimum_level": 15,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.prayer",
+          "minimum_level": 25,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 101,
+      "max_seconds": 212
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the mace’s special attack when Sigmund uses his protection prayer, then finish the fight."
+    },
+    "planned_outcome": {
+      "success_condition": "Sigmund’s protection is removed and he is defeated.",
+      "if_unmet": "Arrive with enough special attack energy and supplies to finish the fight."
+    }
+  },
+  {
+    "id": "quest.another_slice_of_ham.complete",
+    "name": "Untie Zanik and watch the railway opening",
+    "activity_id": "quest.another_slice_of_ham",
+    "kind": "quest_stage",
+    "start_location_id": "location.ham_base.slice_sigmund",
+    "end_location_id": "location.dorgesh_kaan.railway_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.defeat_sigmund"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 30000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 30000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.another_slice_of_ham.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 46,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.another_slice_of_ham",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Free Zanik and watch the opening scene. Receive Mining and Prayer XP and keep the ancient mace."
+    }
+  }
+]

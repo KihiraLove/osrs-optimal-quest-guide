@@ -69,6 +69,9 @@ original descriptions of findings. The data uses pinned upstream sources.
   rules, the Varlamore launch observations and the build 242 Mining reward.
 - The Temple Knights and Lumbridge batch uses pinned Quest Helper, RuneLite and
   Shortest Path observations, Jagex release notes and historical gameplay guides.
+- The troll and Keldagrim quests use pinned Quest Helper and RuneLite metadata,
+  RuneHQ gameplay observations, and Shortest Path transport data. Jagex supplies
+  the build 242 Troll Stronghold reward.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.
