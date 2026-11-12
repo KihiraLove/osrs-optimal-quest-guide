@@ -158,6 +158,17 @@ quest-optimizer solve-bounded data/manifest.json examples/build-242/demon-slayer
 quest-optimizer replay artifacts/demon-slayer.json --catalog data/manifest.json --profile examples/build-242/demon-slayer-profile.json
 ```
 
+`the-golem-profile.json` starts at the Grand Exchange with Crafting 20,
+Thieving 25, four filled waterskins, a hammer, a chisel and 905 GP. The route
+spends 705 GP on materials and two passes, claims six throne gems and finishes
+the quest. The remaining 200 GP covers a carpet ride. The replay treats
+waterskins as packed supplies and leaves charge depletion in review.
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/the-golem-profile.json --beam-width 128 --max-expansions 40000 > artifacts/the-golem.json
+quest-optimizer replay artifacts/the-golem.json --catalog data/manifest.json --profile examples/build-242/the-golem-profile.json
+```
+
 The optional progression tests cover the three essence mine task flags in the
 draft catalog. A synthetic fixture compares manual training with a diary task,
 tier completion and NPC lamp claim that together meet the same quest goal.

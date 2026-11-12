@@ -1,10 +1,10 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.21.0` loads 24 skill tables and
-229 draft actions, including Demon Slayer, Gertrude's Cat, Big Chompy Bird Hunting, five
-Recipe for Disaster stages, Lost City, The Restless Ghost, the museum route
-and Enlightened Journey.
+3 November 2026 at 10:00:06 UTC. Dataset `0.22.0` loads 24 skill tables and
+249 draft actions, including The Golem, Demon Slayer, Gertrude's Cat,
+Big Chompy Bird Hunting, five Recipe for Disaster stages, Lost City,
+The Restless Ghost, the museum route and Enlightened Journey.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
 waypoints belongs to the travel graph. An action description identifies any
@@ -71,6 +71,12 @@ three Silverlight keys, the Varrock Palace and sewer route, and the 25 unnoted
 bones for Traiborn. Sir Prysin gives Silverlight before the Delrith encounter.
 Aris's two post-quest combat lamps, Delrith's incidental combat XP, and the
 Silverlight report for museum kudos remain in review.
+
+The [Golem review](raw/build-242/the-golem-review.json) records the Uzer
+repairs, museum statuette, phoenix feather and final program. It includes a
+separate throne gem claim, the Shantay Pass approach, fairy ring D.L.Q., and
+both Uzer carpet directions after completion. Desert heat, incidental
+Thieving XP, and the related Desert Diary credits remain in review.
 
 [Quest Helper observations](raw/build-242/quest-helper/index.json) cover 209
 journal activities. They identify candidate coordinates, requirements,

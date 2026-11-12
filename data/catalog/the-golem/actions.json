@@ -1,0 +1,854 @@
+[
+  {
+    "id": "quest.the_golem.start",
+    "name": "Speak to the broken clay golem",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.clay_golem",
+    "end_location_id": "location.uzer.clay_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about the golem’s mission and agree to help."
+    }
+  },
+  {
+    "id": "quest.the_golem.repair",
+    "name": "Repair the golem with four soft clay",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.clay_golem",
+    "end_location_id": "location.uzer.clay_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.start"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 20,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.soft_clay",
+        "quantity": 4
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 30,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Apply four pieces of soft clay and talk to the repaired golem about its task."
+    }
+  },
+  {
+    "id": "quest.the_golem.read_letter",
+    "name": "Pick up and read Varmen’s letter",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.varmen_letter",
+    "end_location_id": "location.uzer.varmen_letter",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.repair"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 14,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the letter to learn about Elissa. The route can leave the letter behind after reading it."
+    }
+  },
+  {
+    "id": "quest.the_golem.take_implement",
+    "name": "Pick up the strange implement",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.strange_implement",
+    "end_location_id": "location.uzer.strange_implement",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.read_letter"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.strange_implement",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 6,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick up the implement from the north-west corner of the ruin and retain it for the final reprogramming."
+    }
+  },
+  {
+    "id": "quest.the_golem.talk_to_elissa",
+    "name": "Ask Elissa about the letter",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.elissa",
+    "end_location_id": "location.digsite.elissa",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.read_letter"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_golem.entered_ruin",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Elissa where Varmen’s excavation notes are kept."
+    }
+  },
+  {
+    "id": "quest.the_golem.read_notes",
+    "name": "Find and read Varmen’s excavation notes",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.exam_centre",
+    "end_location_id": "location.digsite.exam_centre",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.talk_to_elissa"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 19,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the south-east bookcase and read the notes about the missing statuette."
+    }
+  },
+  {
+    "id": "quest.the_golem.talk_to_curator",
+    "name": "Ask Curator Haig Halen about the statuette",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_museum.curator",
+    "end_location_id": "location.varrock_museum.curator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.read_notes"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the curator’s statuette dialogue after reading Varmen’s notes."
+    }
+  },
+  {
+    "id": "quest.the_golem.steal_cabinet_key",
+    "name": "Pickpocket the curator for the display cabinet key",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_museum.curator",
+    "end_location_id": "location.varrock_museum.curator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.talk_to_curator"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 25,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.golem_display_cabinet_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 9,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the quest pickpocket option. The draft leaves incidental XP in review."
+    }
+  },
+  {
+    "id": "quest.the_golem.take_statuette",
+    "name": "Retrieve the Uzer statuette upstairs",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_museum.golem_display",
+    "end_location_id": "location.varrock_museum.golem_display",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.steal_cabinet_key"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.golem_display_cabinet_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.golem_statuette",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 10,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open the first-floor display with the cabinet key."
+    }
+  },
+  {
+    "id": "quest.the_golem.open_portal",
+    "name": "Replace the statuette and align the four statues",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.statuette_alcoves",
+    "end_location_id": "location.uzer.statuette_alcoves",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.take_statuette"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.golem_statuette",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 30,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Place the statuette and turn the four statues to open the portal."
+    }
+  },
+  {
+    "id": "quest.the_golem.visit_throne",
+    "name": "Check the dead demon in the throne room",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.throne_room_portal",
+    "end_location_id": "location.uzer.throne_room_portal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.open_portal"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Walk inside the throne room and see that the demon is already dead."
+    }
+  },
+  {
+    "id": "quest.the_golem.report_throne",
+    "name": "Tell the golem what happened to the demon",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.clay_golem",
+    "end_location_id": "location.uzer.clay_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.visit_throne"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Report what you saw. The golem needs new instructions."
+    }
+  },
+  {
+    "id": "quest.the_golem.take_phoenix_feather",
+    "name": "Pluck a feather from the Desert Phoenix",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.desert_phoenix",
+    "end_location_id": "location.uzer.desert_phoenix",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.start"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 25,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.desert_phoenix_feather",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 14,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The timing allows retries. The build 242 incidental XP and diary credit are under review."
+    }
+  },
+  {
+    "id": "quest.the_golem.make_ink",
+    "name": "Grind a black mushroom into an empty vial",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.clay_golem",
+    "end_location_id": "location.uzer.clay_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.repair"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.black_mushroom",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.empty_vial",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.black_mushroom_ink",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 7,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the pestle and mortar to prepare black mushroom ink."
+    }
+  },
+  {
+    "id": "quest.the_golem.make_quill",
+    "name": "Dip the phoenix feather into the ink",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.clay_golem",
+    "end_location_id": "location.uzer.clay_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.make_ink"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.desert_phoenix_feather",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.black_mushroom_ink",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.phoenix_quill_pen",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 6,
+      "max_seconds": 15
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare a phoenix quill pen. The vial’s return remains in review."
+    }
+  },
+  {
+    "id": "quest.the_golem.write_program",
+    "name": "Write the golem’s new program on papyrus",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.clay_golem",
+    "end_location_id": "location.uzer.clay_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.report_throne"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.phoenix_quill_pen",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.papyrus",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.golem_program",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 24
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Write new instructions with the phoenix quill pen."
+    }
+  },
+  {
+    "id": "quest.the_golem.complete",
+    "name": "Open the golem’s head and insert the program",
+    "activity_id": "quest.the_golem",
+    "kind": "quest_stage",
+    "start_location_id": "location.uzer.clay_golem",
+    "end_location_id": "location.uzer.clay_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.write_program"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.strange_implement",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.golem_program",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.uzer_magic_carpet",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 22,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.the_golem",
+        "source.shortest_path.uzer_carpets",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open the golem’s head with the strange implement, then insert the program before the opening closes. The implement can carry forward to Shadow of the Storm."
+    }
+  },
+  {
+    "id": "claim.the_golem.throne_gems",
+    "name": "Pry six cut gems from the throne",
+    "activity_id": "quest.the_golem",
+    "kind": "reward_claim",
+    "start_location_id": "location.uzer.throne_room_portal",
+    "end_location_id": "location.uzer.throne_room_portal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_golem.open_portal"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ruby",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.emerald",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.sapphire",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 19,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.the_golem",
+        "source.tipit.the_golem",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a chisel and hammer on the throne. The estimate includes walking from the return portal and back."
+    }
+  },
+  {
+    "id": "supply.uzer.gather_black_mushroom",
+    "name": "Pick a black mushroom at Uzer",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.uzer.black_mushrooms",
+    "end_location_id": "location.uzer.black_mushrooms",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.black_mushroom",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick a mushroom from the public patch by the ruin stairs."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_golem_materials",
+    "name": "Buy four soft clay, an empty vial, papyrus, and a pestle and mortar",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 695
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.soft_clay",
+        "quantity": 4
+      },
+      {
+        "kind": "item",
+        "item_id": "item.empty_vial",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.papyrus",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Uses the guide-price estimate of 695 GP for the quest materials."
+    }
+  }
+]

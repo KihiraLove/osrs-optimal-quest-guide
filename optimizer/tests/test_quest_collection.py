@@ -41,6 +41,47 @@ class QuestCollectionTests(unittest.TestCase):
         variants = {row["helper_symbol"] for row in self.observations["quest.shield_of_arrav"]}
         self.assertEqual(variants, {"SHIELD_OF_ARRAV_BLACK_ARM_GANG", "SHIELD_OF_ARRAV_PHOENIX_GANG"})
 
+    def test_the_golem_replays_reprogramming_gems_and_carpet_unlock(self):
+        profile = read_json(ROOT / "examples/build-242/the-golem-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile, beam_width=128, max_expansions=40000)
+        report = verify_solution(solution, profile, validator)
+        final = report["final_state"]
+        self.assertEqual(report["manual_training_xp_tenths_by_skill"], {})
+        self.assertEqual(final["counters"]["token.quest_points"], 2)
+        for skill in ("skill.crafting", "skill.thieving"):
+            self.assertEqual(final["xp_tenths"][skill] - profile["initial_state"]["xp_tenths"][skill], 10000)
+        self.assertEqual(final["inventory"]["item.strange_implement"], 1)
+        self.assertEqual(final["inventory"]["item.coins"], 200)
+        self.assertNotIn("item.golem_program", final["inventory"])
+
+        steps = solution["steps"]
+        gem_claim = next(step for step in steps if step.get("action_id") == "claim.the_golem.throne_gems")
+        state = RouteState(validator.tables, profile["policies"], profile["initial_state"])
+        for step in steps[:steps.index(gem_claim)]:
+            state = state.apply(step)
+        before_claim = state.snapshot()
+        self.assertEqual(before_claim["counters"]["token.quest_points"], 1)
+        inventory = state.apply(gem_claim).snapshot()["inventory"]
+        for gem in ("item.ruby", "item.emerald", "item.sapphire"):
+            self.assertNotIn(gem, before_claim["inventory"])
+            self.assertEqual(inventory[gem], 2)
+        with self.assertRaisesRegex(DataError, "repeat limit"):
+            state.apply(gem_claim).apply(gem_claim)
+
+        for direction in ("shantay.uzer", "uzer.shantay"):
+            edge_id = f"travel.carpet.{direction}"
+            edge = validator.tables["travel_edges"][edge_id]
+            ride = {"kind": "travel", "edge_id": edge_id, "modeled_seconds": edge["duration"]["expected_seconds"]}
+            origin = edge["from_location_id"]
+            locked = {**before_claim, "location_id": origin}
+            with self.assertRaisesRegex(DataError, "flag or counter threshold has not been reached"):
+                RouteState(validator.tables, profile["policies"], locked).apply(ride)
+            unlocked = {**final, "location_id": origin}
+            arrival = RouteState(validator.tables, profile["policies"], unlocked).apply(ride).snapshot()
+            self.assertEqual(arrival["location_id"], edge["to_location_id"])
+            self.assertNotIn("item.coins", arrival["inventory"])
+
     def test_demon_slayer_replays_keys_and_silverlight_without_the_separate_claim(self):
         quest = "quest.demon_slayer"
         profile = read_json(ROOT / "examples/build-242/demon-slayer-profile.json")

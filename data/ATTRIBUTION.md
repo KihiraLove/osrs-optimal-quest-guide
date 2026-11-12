@@ -42,6 +42,9 @@ original descriptions of findings. The data uses pinned upstream sources.
 - Demon Slayer uses pinned Quest Helper and RuneLite metadata, Slayermusiq1's
   speedrunning footage, Shortest Path's sewer tiles, and Jagex's update about
   the separate Aris lamps. Quest Helper tracks Evil Dave's random spice doses.
+- The Golem uses pinned Quest Helper and RuneLite metadata, Slayermusiq1's
+  Old School walkthrough, and Tip.It's historical gameplay observations.
+  Shortest Path supplies the desert gate, D.L.Q. and Uzer carpet waypoints.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

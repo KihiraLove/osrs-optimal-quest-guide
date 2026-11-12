@@ -1,0 +1,60 @@
+{
+  "game_revision": "osrs-live-242",
+  "activity_id": "quest.the_golem",
+  "status": "collected",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.quest_helper.diaries",
+    "source.capture.the_golem",
+    "source.tipit.the_golem",
+    "source.runelite.rfd_item_ids",
+    "source.shortest_path.shantay_gate",
+    "source.shortest_path.uzer_carpets",
+    "source.shortest_path.dlq",
+    "source.shortest_path.necklace_of_passage"
+  ],
+  "skill_checks": [
+    {"skill_id": "skill.crafting", "level": 20, "modeled_stage": "quest.the_golem.repair", "boostable": false, "note": "Uses the pinned helper’s base-level declaration. Verify the actual check and boost behavior in build 242."},
+    {"skill_id": "skill.thieving", "level": 25, "modeled_stage": "quest.the_golem.steal_cabinet_key", "boostable": true},
+    {"skill_id": "skill.thieving", "level": 25, "modeled_stage": "quest.the_golem.take_phoenix_feather", "boostable": true}
+  ],
+  "key_waypoints": {
+    "clay_golem": [3485, 3088, 0],
+    "digsite_elissa": [3378, 3428, 0],
+    "exam_centre_bookcase": [3367, 3332, 0],
+    "museum_staircase": [3266, 3452, 0],
+    "museum_statuette_display": [3257, 3453, 1],
+    "desert_phoenix": [3414, 3154, 0],
+    "portal_to_throne": [2720, 4912, 0],
+    "throne_return_portal": [2720, 4883, 2]
+  },
+  "travel": {
+    "southbound_pass_gp": 5,
+    "uzer_carpet_standard_gp": 200,
+    "uzer_carpet_nominal_seconds": 65,
+    "uzer_carpet_unlock": "unlock.uzer_magic_carpet",
+    "desert_heat": "Surface walks require planning for water and possible damage. The walking fixture starts with four full waterskins. Charge loss, heat immunity and refills are pending.",
+    "additional_arrivals": [
+      {"destination": "Eagle's Eyrie", "tile": [3405, 3158, 0], "charged_item_ids": [21146, 21149, 21151, 21153, 21155]},
+      {"destination": "Dig Site scroll arrival", "tile": [3325, 3412, 0], "game_item_id": 12403},
+      {"destination": "Digsite pendant arrival", "tile": [3341, 3445, 0], "charged_item_ids": [11190, 11191, 11192, 11193, 11194]}
+    ]
+  },
+  "rewards": {
+    "quest_points": 1,
+    "fixed_xp_tenths": {"skill.crafting": 10000, "skill.thieving": 10000},
+    "separate_gem_claim": "claim.the_golem.throne_gems",
+    "gem_quantities": {"item.ruby": 2, "item.emerald": 2, "item.sapphire": 2},
+    "incidental_thieving_xp_tenths": null
+  },
+  "related_diary_task_ids": [
+    "diary.desert.easy.task.varp_1198_2",
+    "diary.desert.medium.task.varp_1198_15",
+    "diary.desert.medium.task.varp_1198_16"
+  ],
+  "open_checks": [
+    "Verify the exact Crafting check, incidental Thieving XP and retry timing at the phoenix and curator.",
+    "Check retained vial and quill, repeat pickups, and the exact throne arrival and gem interaction tiles.",
+    "Verify Desert Diary credits, reduced fares, waterskin charge timing and item teleport requirements."
+  ]
+}

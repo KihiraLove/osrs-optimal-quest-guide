@@ -1,5 +1,34 @@
 [
   {
+    "id": "review.quest.the_golem.completion_rewards",
+    "activity_id": "quest.the_golem",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations", "source.shortest_path.uzer_carpets"],
+    "catalog_ids": ["quest.the_golem.complete"],
+    "expected_effects": {
+      "quest.the_golem.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "xp", "skill_id": "skill.crafting", "xp_tenths": 10000},
+        {"kind": "xp", "skill_id": "skill.thieving", "xp_tenths": 10000},
+        {"kind": "flag", "token_id": "unlock.uzer_magic_carpet", "value": true}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.the_golem.throne_gems",
+    "activity_id": "quest.the_golem",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations", "source.capture.the_golem"],
+    "catalog_ids": ["claim.the_golem.throne_gems"],
+    "expected_effects": {
+      "claim.the_golem.throne_gems": [
+        {"kind": "item", "item_id": "item.ruby", "quantity": 2},
+        {"kind": "item", "item_id": "item.emerald", "quantity": 2},
+        {"kind": "item", "item_id": "item.sapphire", "quantity": 2}
+      ]
+    }
+  },
+  {
     "id": "review.quest.demon_slayer.completion_rewards",
     "activity_id": "quest.demon_slayer",
     "status": "collected",
