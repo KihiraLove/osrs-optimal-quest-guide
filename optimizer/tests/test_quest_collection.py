@@ -41,6 +41,39 @@ class QuestCollectionTests(unittest.TestCase):
         variants = {row["helper_symbol"] for row in self.observations["quest.shield_of_arrav"]}
         self.assertEqual(variants, {"SHIELD_OF_ARRAV_BLACK_ARM_GANG", "SHIELD_OF_ARRAV_PHOENIX_GANG"})
 
+    def test_evil_dave_replays_both_pet_forms_and_requires_an_approved_stew(self):
+        quest = "rfd.freeing_evil_dave"
+        validator = CatalogValidator(self.catalog, self.contracts)
+        for cat, hunt, hell_form, gp in (
+            ("item.pet_kitten", "hunt_with_kitten", "item.hell_kitten", 1362),
+            ("item.adult_cat", "hunt_with_adult_cat", "item.hellcat", 1320),
+        ):
+            with self.subTest(cat=cat):
+                profile = read_json(ROOT / "examples/build-242/rfd-evil-dave-profile.json")
+                initial = profile["initial_state"]
+                del initial["inventory"]["item.pet_kitten"]
+                initial["inventory"].update({cat: 1, "item.coins": gp})
+                solution, _ = solve_bounded(validator, profile, beam_width=96, max_expansions=30000)
+                report = verify_solution(solution, profile, validator)
+                final = report["final_state"]
+                self.assertEqual(report["manual_training_xp_tenths_by_skill"], {})
+                self.assertEqual(final["counters"], {"token.quest_points": 10})
+                self.assertEqual(final["inventory"], {hell_form: 1})
+                self.assertEqual(final["xp_tenths"]["skill.cooking"] - initial["xp_tenths"]["skill.cooking"], 70000)
+                self.assertEqual(final["xp_tenths"]["skill.magic"] - initial["xp_tenths"]["skill.magic"], 410)
+                self.assertTrue(final["flags"]["unlock.spicy_stew_boosts"])
+                self.assertTrue(final["flags"]["unlock.hell_rat_behemoths"])
+
+                steps = solution["steps"]
+                [hunt_step] = [step for step in steps if "planned_outcome" in step]
+                self.assertEqual(hunt_step["action_id"], f"{quest}.{hunt}")
+                self.assertIn("travel.spell.doris_cellar.lumbridge", {step.get("edge_id") for step in steps})
+                without_tasting = {**solution, "steps": [
+                    step for step in steps if step.get("action_id") != f"{quest}.confirm_recipe"
+                ]}
+                with self.assertRaisesRegex(DataError, "required completed action"):
+                    verify_solution(without_tasting, profile, validator)
+
     def test_shadow_of_the_storm_replays_darklight_and_the_immediate_combat_choice(self):
         quest = "quest.shadow_of_the_storm"
         profile = read_json(ROOT / "examples/build-242/shadow-of-the-storm-profile.json")
@@ -484,7 +517,7 @@ class QuestCollectionTests(unittest.TestCase):
         profile = read_json(ROOT / "examples/build-242/big-chompy-bird-hunting-profile.json")
         review = read_json(RAW / "big-chompy-bird-hunting-review.json")
         validator = CatalogValidator(self.catalog, self.contracts)
-        solution, _ = solve_bounded(validator, profile, beam_width=128, max_expansions=40000)
+        solution, _ = solve_bounded(validator, profile, beam_width=160, max_expansions=80000)
         state = verify_solution(solution, profile, validator)["final_state"]
         self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {})
         self.assertEqual(state["counters"]["token.quest_points"], 4)

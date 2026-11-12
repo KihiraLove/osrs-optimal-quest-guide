@@ -1,0 +1,89 @@
+{
+  "game_revision": "osrs-live-242",
+  "activity_id": "rfd.freeing_evil_dave",
+  "status": "collected",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.quest_helper.evil_stew",
+    "source.capture.rfd_evil_dave",
+    "source.capture.rfd_evil_dave_video",
+    "source.capture.rfd_hell_kitten",
+    "source.runelite.rfd_item_ids",
+    "source.runelite.cooking_calculator",
+    "source.jagex.cache_242_map",
+    "source.runelite.objects",
+    "source.kitten_tracker.care",
+    "source.shortest_path.varrock_sewer",
+    "source.shortest_path.dkr",
+    "source.jagex.hell_rat_behemoths"
+  ],
+  "prerequisites": {
+    "action_ids": ["rfd.another_cooks_quest.complete", "quest.gertrudes_cat.complete", "quest.shadow_of_the_storm.complete"],
+    "minimum_skill_levels_for_premade_stews": [],
+    "homemade_plain_stew_cooking_level": 25,
+    "homemade_plain_stew_xp_tenths": 1170,
+    "note": "The route uses pre-made stew. Gertrude awards one bowl. The GE sells additional bowls."
+  },
+  "waypoints": {
+    "frozen_dave": [1865, 5323, 0],
+    "doris": [3079, 3494, 0],
+    "cellar_trapdoor": [3077, 3493, 0],
+    "cellar_landing": [3077, 9893, 0],
+    "cellar_dave": [3080, 9889, 0],
+    "fairy_ring_dkr": [3129, 3496, 0],
+    "glory_arrival_candidate": [3087, 3496, 0]
+  },
+  "hunt": {
+    "spice_gate_action_id": "rfd.freeing_evil_dave.ask_doris",
+    "cat_item_ids": {
+      "ordinary_kitten": [1555, 1556, 1557, 1558, 1559, 1560],
+      "ordinary_adult_cat": [1561, 1562, 1563, 1564, 1565, 1566],
+      "hell_kitten": 7583,
+      "adult_hellcat": 7582
+    },
+    "planned_doses_by_colour": {"red": 6, "orange": 6, "brown": 6, "yellow": 6},
+    "planned_kitten_food": {"item.raw_sardine": 2},
+    "expected_seconds_by_form": {"kitten": 1050, "adult_cat": 420},
+    "note": "Duration estimates cover random chasing and collection. The inventory item represents the owned hunting pet, including while following. Ordinary-cat branches assume a successful hell form conversion. Adult routes use an already-grown cat."
+  },
+  "recipe": {
+    "dose_range": {"minimum": 1, "maximum": 3},
+    "actual_doses_vary_by_player": true,
+    "single_colour_tests": [1, 2],
+    "maximum_stews_for_tests": 8,
+    "stews_for_final_recipe": 1,
+    "maximum_total_doses_per_colour": 6,
+    "physical_shaker_ids_by_dose_1_to_4": {
+      "red": [7483, 7482, 7481, 7480],
+      "orange": [7487, 7486, 7485, 7484],
+      "brown": [7491, 7490, 7489, 7488],
+      "yellow": [7495, 7494, 7493, 7492]
+    },
+    "empty_shaker_game_id": 7496,
+    "quest_stew_game_id": 7479,
+    "acceptance_action_id": "rfd.freeing_evil_dave.confirm_recipe"
+  },
+  "rewards": {
+    "quest_points": 1,
+    "fixed_xp_tenths": {"skill.cooking": 70000},
+    "behemoths": "After the rescue, each of four behemoths guarantees four doses of its own colour on a successful fight. The player can heal the pet with fish or milk.",
+    "chest_stock_progress": "Counts as one rescue for Culinaromancer’s Chest stock."
+  },
+  "behemoth_waypoints": {
+    "archive": 5,
+    "location_file_index": 1,
+    "curtain_object_id": 539,
+    "pairing_note": "Pairs each curtain with the nearest colour marker in the archived map. Verify the interactions in game.",
+    "rooms": [
+      {"colour": "red", "curtain": [3078, 9899, 0], "curtain_group": 12442, "marker": [3080, 9902, 0], "marker_object_id": 540, "marker_group": 12442},
+      {"colour": "orange", "curtain": [3072, 9896, 0], "curtain_group": 12442, "marker": [3068, 9896, 0], "marker_object_id": 541, "marker_group": 12186},
+      {"colour": "brown", "curtain": [3082, 9878, 0], "curtain_group": 12442, "marker": [3082, 9874, 0], "marker_object_id": 542, "marker_group": 12442},
+      {"colour": "yellow", "curtain": [3073, 9882, 0], "curtain_group": 12442, "marker": [3069, 9881, 0], "marker_object_id": 543, "marker_group": 12186}
+    ]
+  },
+  "open_checks": [
+    "Verify exact hunt rates, conversion, follower-active growth and care, and other hunting cat forms.",
+    "Measure consumption and leftover supplies, and verify the spice and stew interface on the pinned build.",
+    "Confirm the inferred curtain colours, viable pet combat and boost outcomes. Review combined Culinaromancer’s Chest stock and charged Edgeville teleports."
+  ]
+}

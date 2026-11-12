@@ -1,0 +1,763 @@
+[
+  {
+    "id": "rfd.freeing_evil_dave.inspect",
+    "name": "Inspect frozen Evil Dave and ask what food he ate",
+    "activity_id": "rfd.freeing_evil_dave",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.frozen_evil_dave",
+    "end_location_id": "location.rfd.frozen_evil_dave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.another_cooks_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.gertrudes_cat.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shadow_of_the_storm.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 23,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_evil_dave",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect Dave and hear Aris’s explanation at the feast."
+    }
+  },
+  {
+    "id": "rfd.freeing_evil_dave.ask_dave",
+    "name": "Ask Evil Dave what he ate at the secret meeting",
+    "activity_id": "rfd.freeing_evil_dave",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.evil_dave",
+    "end_location_id": "location.edgeville.evil_dave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_evil_dave.inspect"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_evil_dave",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tell Dave you need the answer for the magic. He describes his mother’s spicy stew."
+    }
+  },
+  {
+    "id": "rfd.freeing_evil_dave.ask_doris",
+    "name": "Ask Doris what happened to her spices",
+    "activity_id": "rfd.freeing_evil_dave",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.doris",
+    "end_location_id": "location.edgeville.doris",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_evil_dave.ask_dave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 18,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_evil_dave",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Doris tells you the Hell-Rats took the spices. This dialogue enables the spice drops."
+    }
+  },
+  {
+    "id": "rfd.freeing_evil_dave.hunt_with_kitten",
+    "name": "Collect the spice reserve with a kitten",
+    "activity_id": "rfd.freeing_evil_dave",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.evil_dave",
+    "end_location_id": "location.edgeville.evil_dave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_evil_dave.ask_doris"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.rfd.freeing_evil_dave.hunt_reserve_collected",
+          "value": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pet_kitten",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_sardine",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.pet_kitten",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.spice.red_doses",
+        "delta": 6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.orange_doses",
+        "delta": 6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.brown_doses",
+        "delta": 6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.yellow_doses",
+        "delta": 6
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.freeing_evil_dave.hunt_reserve_collected",
+        "value": true
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hell_kitten",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 350,
+      "expected_seconds": 1050,
+      "max_seconds": 2700
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.evil_stew",
+        "source.capture.rfd_evil_dave",
+        "source.capture.rfd_evil_dave_video",
+        "source.capture.rfd_hell_kitten",
+        "source.kitten_tracker.care",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget two sardines for care and reconcile unused fish. Spice drops vary by colour and dose. The modeled reserve counts six doses per colour."
+    },
+    "planned_outcome": {
+      "success_condition": "Use a kitten to catch ordinary Hell-Rats until you have at least six doses of each colour. Feed and give attention as needed. This branch assumes the cat turns hellish during the hunt.",
+      "if_unmet": "Reconcile the cat’s form, care supplies and observed doses before continuing. Replan from the observed state if the route assumptions change."
+    }
+  },
+  {
+    "id": "rfd.freeing_evil_dave.hunt_with_hell_kitten",
+    "name": "Collect the spice reserve with a hell-kitten",
+    "activity_id": "rfd.freeing_evil_dave",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.evil_dave",
+    "end_location_id": "location.edgeville.evil_dave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_evil_dave.ask_doris"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.rfd.freeing_evil_dave.hunt_reserve_collected",
+          "value": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hell_kitten",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_sardine",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.spice.red_doses",
+        "delta": 6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.orange_doses",
+        "delta": 6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.brown_doses",
+        "delta": 6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.yellow_doses",
+        "delta": 6
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.freeing_evil_dave.hunt_reserve_collected",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 350,
+      "expected_seconds": 1050,
+      "max_seconds": 2700
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.evil_stew",
+        "source.capture.rfd_evil_dave",
+        "source.capture.rfd_evil_dave_video",
+        "source.capture.rfd_hell_kitten",
+        "source.kitten_tracker.care",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget two sardines for care and reconcile unused fish. Spice drops vary by colour and dose. The modeled reserve counts six doses per colour."
+    },
+    "planned_outcome": {
+      "success_condition": "Use a hell-kitten to catch ordinary Hell-Rats until you have at least six doses of each colour. Feed and give attention as needed.",
+      "if_unmet": "Reconcile the cat’s form, care supplies and observed doses before continuing. Replan from the observed state if the route assumptions change."
+    }
+  },
+  {
+    "id": "rfd.freeing_evil_dave.hunt_with_adult_cat",
+    "name": "Collect the spice reserve with an adult cat",
+    "activity_id": "rfd.freeing_evil_dave",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.evil_dave",
+    "end_location_id": "location.edgeville.evil_dave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_evil_dave.ask_doris"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.rfd.freeing_evil_dave.hunt_reserve_collected",
+          "value": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.adult_cat",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.adult_cat",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.spice.red_doses",
+        "delta": 6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.orange_doses",
+        "delta": 6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.brown_doses",
+        "delta": 6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.yellow_doses",
+        "delta": 6
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.freeing_evil_dave.hunt_reserve_collected",
+        "value": true
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hellcat",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 150,
+      "expected_seconds": 420,
+      "max_seconds": 1300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.evil_stew",
+        "source.capture.rfd_evil_dave",
+        "source.capture.rfd_evil_dave_video",
+        "source.capture.rfd_hell_kitten",
+        "source.kitten_tracker.care",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Spice drops vary by colour and dose. The modeled reserve counts six doses per colour."
+    },
+    "planned_outcome": {
+      "success_condition": "Use an adult cat to catch ordinary Hell-Rats until you have at least six doses of each colour. This branch assumes the cat turns hellish during the hunt.",
+      "if_unmet": "Reconcile the cat’s form, care supplies and observed doses before continuing. Replan from the observed state if the route assumptions change."
+    }
+  },
+  {
+    "id": "rfd.freeing_evil_dave.hunt_with_hellcat",
+    "name": "Collect the spice reserve with an adult hellcat",
+    "activity_id": "rfd.freeing_evil_dave",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.evil_dave",
+    "end_location_id": "location.edgeville.evil_dave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_evil_dave.ask_doris"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.rfd.freeing_evil_dave.hunt_reserve_collected",
+          "value": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hellcat",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.spice.red_doses",
+        "delta": 6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.orange_doses",
+        "delta": 6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.brown_doses",
+        "delta": 6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.yellow_doses",
+        "delta": 6
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.freeing_evil_dave.hunt_reserve_collected",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 150,
+      "expected_seconds": 420,
+      "max_seconds": 1300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.evil_stew",
+        "source.capture.rfd_evil_dave",
+        "source.capture.rfd_evil_dave_video",
+        "source.capture.rfd_hell_kitten",
+        "source.kitten_tracker.care",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Spice drops vary by colour and dose. The modeled reserve counts six doses per colour."
+    },
+    "planned_outcome": {
+      "success_condition": "Use an adult hellcat to catch ordinary Hell-Rats until you have at least six doses of each colour.",
+      "if_unmet": "Reconcile the cat’s form, care supplies and observed doses before continuing. Replan from the observed state if the route assumptions change."
+    }
+  },
+  {
+    "id": "rfd.freeing_evil_dave.test_and_mix",
+    "name": "Test the four spices and mix Dave’s recipe",
+    "activity_id": "rfd.freeing_evil_dave",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.evil_dave",
+    "end_location_id": "location.edgeville.evil_dave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_evil_dave.ask_doris"
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.spice.red_doses",
+          "minimum": 6
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.spice.orange_doses",
+          "minimum": 6
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.spice.brown_doses",
+          "minimum": 6
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.spice.yellow_doses",
+          "minimum": 6
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.stew",
+        "quantity": 9
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.spice.red_doses",
+        "delta": -6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.orange_doses",
+        "delta": -6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.brown_doses",
+        "delta": -6
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.spice.yellow_doses",
+        "delta": -6
+      },
+      {
+        "kind": "item",
+        "item_id": "item.dave_spicy_stew",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 110,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.evil_stew",
+        "source.capture.rfd_evil_dave",
+        "source.capture.rfd_evil_dave_video",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "For each colour test one dose, then test two if needed. Infer three after both fail. Budget eight test stews and one fresh stew. Reconcile unused stews and spice after learning the actual recipe."
+    }
+  },
+  {
+    "id": "rfd.freeing_evil_dave.confirm_recipe",
+    "name": "Have cellar Dave taste and approve the final stew",
+    "activity_id": "rfd.freeing_evil_dave",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.evil_dave",
+    "end_location_id": "location.edgeville.evil_dave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_evil_dave.test_and_mix"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dave_spicy_stew",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 12,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.evil_stew",
+        "source.capture.rfd_evil_dave",
+        "source.capture.rfd_evil_dave_video",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Dave a taste of the finished stew and keep the approved bowl for the feast."
+    }
+  },
+  {
+    "id": "rfd.freeing_evil_dave.complete",
+    "name": "Serve the approved stew to frozen Evil Dave",
+    "activity_id": "rfd.freeing_evil_dave",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.frozen_evil_dave",
+    "end_location_id": "location.rfd.frozen_evil_dave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_evil_dave.confirm_recipe"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dave_spicy_stew",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 70000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.spicy_stew_boosts",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.hell_rat_behemoths",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.rfd_evil_dave",
+        "source.capture.rfd_evil_dave_video",
+        "source.jagex.hell_rat_behemoths",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the approved stew on the frozen guest at the feast."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_eight_stews",
+    "name": "Buy eight plain stews",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1320
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.stew",
+        "quantity": 8
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 18,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Eight tradeable stews for the test reserve. Uses a guide price of 165 GP per bowl."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_stew",
+    "name": "Buy one plain stew",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 165
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.stew",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 22
+    },
+    "repeat_limit": 9,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Top up the carried stew reserve with one bought bowl."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_kitten_food",
+    "name": "Buy two raw sardines for kitten care",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 42
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_sardine",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.kitten_tracker.care",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Two raw sardines at the 21 GP guide price. Keep them for the hunt."
+    }
+  }
+]

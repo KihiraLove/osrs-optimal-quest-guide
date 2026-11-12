@@ -121,7 +121,7 @@ the six possible seasonings in Feldip and keeps the ogre bow and one remaining
 bellows load after the quest. The quest reward raises the fixture to Cooking 31.
 
 ```sh
-quest-optimizer solve-bounded data/manifest.json examples/build-242/big-chompy-bird-hunting-profile.json --beam-width 128 --max-expansions 40000 > artifacts/big-chompy-bird-hunting.json
+quest-optimizer solve-bounded data/manifest.json examples/build-242/big-chompy-bird-hunting-profile.json --beam-width 160 --max-expansions 80000 > artifacts/big-chompy-bird-hunting.json
 quest-optimizer replay artifacts/big-chompy-bird-hunting.json --catalog data/manifest.json --profile examples/build-242/big-chompy-bird-hunting-profile.json
 ```
 
@@ -178,6 +178,17 @@ resolves the 10,000 XP choice at completion.
 ```sh
 quest-optimizer solve-bounded data/manifest.json examples/build-242/shadow-of-the-storm-profile.json --beam-width 128 --max-expansions 40000 > artifacts/shadow-of-the-storm.json
 quest-optimizer replay artifacts/shadow-of-the-storm.json --catalog data/manifest.json --profile examples/build-242/shadow-of-the-storm-profile.json
+```
+
+`rfd-evil-dave-profile.json` starts after the opening, Gertrude's Cat and
+Shadow of the Storm with Gertrude's kitten and stew. The route spends 1,362 GP
+on eight stews and two sardines. It budgets six spice doses per colour, gets
+Dave's approval and casts Lumbridge Teleport from the cellar. It awards 7,000
+Cooking XP with no additional training. Hunt duration and care are estimates.
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/rfd-evil-dave-profile.json --beam-width 96 --max-expansions 30000 > artifacts/rfd-evil-dave.json
+quest-optimizer replay artifacts/rfd-evil-dave.json --catalog data/manifest.json --profile examples/build-242/rfd-evil-dave-profile.json
 ```
 
 The optional progression tests cover the three essence mine task flags in the

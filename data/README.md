@@ -1,9 +1,9 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.23.0` loads 24 skill tables and
-271 draft actions, including Shadow of the Storm, The Golem, Demon Slayer, Gertrude's Cat,
-Big Chompy Bird Hunting, five Recipe for Disaster stages, Lost City,
+3 November 2026 at 10:00:06 UTC. Dataset `0.24.0` loads 24 skill tables and
+284 draft actions, including Shadow of the Storm, The Golem, Demon Slayer,
+Gertrude's Cat, Big Chompy Bird Hunting, six Recipe for Disaster stages, Lost City,
 The Restless Ghost, the museum route and Enlightened Journey.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -26,9 +26,9 @@ The journal list preserves the client quest ID. Recipe for Disaster has one
 parent goal and ten child activities in the
 [stage review](raw/build-242/recipe-for-disaster-review.json). Another Cook's
 Quest, Freeing the Goblin Generals, Freeing the Mountain Dwarf, Freeing
-Pirate Pete and Freeing Skrach Uglogwee have loaded quest actions, ingredients
-and travel. The parent records saved finale completion without awarding its
-lamp or quest point again. Five stages remain in review.
+Pirate Pete, Freeing Skrach Uglogwee and Freeing Evil Dave have loaded quest
+actions, ingredients and travel. The parent records saved finale completion
+without awarding its lamp or quest point again. Four stages remain in review.
 
 The [Fishing Contest review](raw/build-242/fishing-contest-review.json) records
 Vestri's quest route, the contest fee and the tunnel that opens at the trophy
@@ -84,6 +84,13 @@ orders. The fight converts dyed Silverlight into Darklight. The completion
 dialogue grants one immediate 10,000 XP combat choice. The replay models a
 successful fight and debits a food reserve. Incidental XP and the exact sigil
 handovers remain in review.
+
+The [Freeing Evil Dave review](raw/build-242/evil-dave-review.json) records the
+Doris and Dave conversations, kitten and adult cat hunts, and one- and two-dose
+taste tests. The route reserves nine plain stews and six doses of each colour,
+then carries the approved bowl to the feast. It includes fairy ring D.K.R.
+and a Lumbridge Teleport from the cellar. Behemoth access unlocks at completion.
+Hunt durations, active follower growth and actual supply use remain in review.
 
 [Quest Helper observations](raw/build-242/quest-helper/index.json) cover 209
 journal activities. They identify candidate coordinates, requirements,

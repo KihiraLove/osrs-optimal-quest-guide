@@ -48,6 +48,9 @@ original descriptions of findings. The data uses pinned upstream sources.
 - Shadow of the Storm uses pinned Quest Helper, the archived Al Kharid
   furnace origin, and gameplay observations from Zybez and Old School
   RuneScape Guides. RuneLite supplies the item and NPC metadata.
+- Freeing Evil Dave uses pinned Quest Helper, OSRS Guide and Slayermusiq1 for
+  the stew sequence, Shortest Path for the cellar and D.K.R., and Jagex's
+  announcement for the post-quest behemoth gate.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

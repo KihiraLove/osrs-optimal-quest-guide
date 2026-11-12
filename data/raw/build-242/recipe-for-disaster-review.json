@@ -12,7 +12,9 @@
     "source.capture.rfd_skrach_uglogwee",
     "source.runelite.firemaking_calculator",
     "source.quest_helper.evil_stew",
-    "source.shortest_path.varrock_sewer"
+    "source.shortest_path.varrock_sewer",
+    "source.capture.rfd_evil_dave",
+    "source.jagex.hell_rat_behemoths"
   ],
   "activity_id": "quest.recipe_for_disaster",
   "parent_goal": {
@@ -413,9 +415,9 @@
       },
       "review": {
         "duration_seconds": null,
-        "mandatory_incidental_xp_tenths": null,
-        "combat_feasibility": "not_assessed",
-        "notes": "Gertrude’s Cat awards a suitable kitten and one plain stew. Shadow of the Storm and its prerequisites are now replayable. The rescue remains in review for the random spice hunt and taste tests.",
+        "mandatory_incidental_xp_tenths": {},
+        "combat_feasibility": "conditional_cat_hunt",
+        "notes": "The modeled rescue uses a kitten or an adult hunting cat. It reserves up to nine plain stews and six doses per colour. Pet progression, exact consumption and additional uses of the spices remain under review.",
         "stew_search": {
           "eligible_follower": "A hunting cat, including a kitten. Overgrown cats are excluded by the helper.",
           "doris_tile": [3079, 3494, 0],
@@ -426,7 +428,7 @@
           "doses_per_color": {"minimum": 1, "maximum": 3},
           "method": "Catch ordinary Hell-Rats for spice. Test individual colors with Dave, then combine the four accepted quantities in a fresh stew.",
           "quest_stew_game_item_id": 7479,
-          "open_checks": ["Verify failed and successful taste-test consumption, the final stew return dialogue, kitten care and hunting rate, and post-quest behemoth access."]
+          "review_file": "data/raw/build-242/evil-dave-review.json"
         }
       }
     },
@@ -763,7 +765,7 @@
     }
   ],
   "notes": [
-    "Direct gates and fixed completion XP are transcribed from the pinned helper and checked against the journal IDs. The five remaining stages still need their gameplay mechanics verified for catalog admission.",
+    "Direct gates and fixed completion XP are transcribed from the pinned helper and checked against the journal IDs. The four remaining stages still need their gameplay mechanics verified for catalog admission.",
     "The rescue entry and handover coordinates identify instanced interaction areas. Use the source observations for intermediate waypoints and supplies, then verify how to enter or exit each instance.",
     "Skill checks are listed separately so a boost can be evaluated at the relevant phase.",
     "Each of the ten stages contributes its own quest point. The parent goal duplicates no reward."
@@ -773,6 +775,7 @@
     "rfd.freeing_the_goblin_generals",
     "rfd.freeing_the_mountain_dwarf",
     "rfd.freeing_pirate_pete",
-    "rfd.freeing_skrach_uglogwee"
+    "rfd.freeing_skrach_uglogwee",
+    "rfd.freeing_evil_dave"
   ]
 }
