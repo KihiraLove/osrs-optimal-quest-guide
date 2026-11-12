@@ -1,0 +1,4363 @@
+[
+  {
+    "id": "quest.dwarf_cannon.start",
+    "name": "Ask Captain Lawgof about the damaged stockade",
+    "activity_id": "quest.dwarf_cannon",
+    "kind": "quest_stage",
+    "start_location_id": "location.coal_trucks.lawgof",
+    "end_location_id": "location.coal_trucks.lawgof",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 18,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Captain Lawgof supplies replacement railing pieces."
+    }
+  },
+  {
+    "id": "supply.coal_trucks.collect_hammer",
+    "name": "Take the hammer from the building east of Lawgof",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.coal_trucks.lawgof",
+    "end_location_id": "location.coal_trucks.lawgof",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.dwarf_cannon.start"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 13,
+      "max_seconds": 29
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take the available hammer if needed and return to Lawgof’s waypoint."
+    }
+  },
+  {
+    "id": "quest.dwarf_cannon.repair_railings",
+    "name": "Inspect and repair the stockade railings",
+    "activity_id": "quest.dwarf_cannon",
+    "kind": "quest_stage",
+    "start_location_id": "location.coal_trucks.lawgof",
+    "end_location_id": "location.coal_trucks.lawgof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dwarf_cannon.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 79,
+      "max_seconds": 177
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect the six railing positions. Repair the damaged sections with the supplied pieces, then report to Lawgof."
+    },
+    "planned_outcome": {
+      "success_condition": "All damaged railing sections are repaired and Lawgof acknowledges the work.",
+      "if_unmet": "Check the six railing tiles and get replacement pieces from Lawgof if needed."
+    }
+  },
+  {
+    "id": "quest.dwarf_cannon.recover_remains",
+    "name": "Climb the watchtower and collect the dwarf’s remains",
+    "activity_id": "quest.dwarf_cannon",
+    "kind": "quest_stage",
+    "start_location_id": "location.coal_trucks.watchtower",
+    "end_location_id": "location.coal_trucks.watchtower",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.dwarf_cannon.repair_railings"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 36,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb the two ladders and recover the remains. Descend to the surface."
+    }
+  },
+  {
+    "id": "quest.dwarf_cannon.report_remains",
+    "name": "Give Lawgof the remains",
+    "activity_id": "quest.dwarf_cannon",
+    "kind": "quest_stage",
+    "start_location_id": "location.coal_trucks.lawgof",
+    "end_location_id": "location.coal_trucks.lawgof",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.dwarf_cannon.recover_remains"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Lawgof explains that his son Lollk may be in the goblin cave."
+    }
+  },
+  {
+    "id": "quest.dwarf_cannon.rescue_lollk",
+    "name": "Search the goblin cave crates for Lollk",
+    "activity_id": "quest.dwarf_cannon",
+    "kind": "quest_stage",
+    "start_location_id": "location.fishing_guild.dwarf_cannon_cave",
+    "end_location_id": "location.fishing_guild.dwarf_cannon_cave",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.dwarf_cannon.report_remains"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 59,
+      "max_seconds": 131
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the cave and search the northwestern crates. Return to the surface once Lollk escapes."
+    }
+  },
+  {
+    "id": "quest.dwarf_cannon.repair_multicannon",
+    "name": "Report the rescue and repair Lawgof’s multicannon",
+    "activity_id": "quest.dwarf_cannon",
+    "kind": "quest_stage",
+    "start_location_id": "location.coal_trucks.lawgof",
+    "end_location_id": "location.coal_trucks.lawgof",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.dwarf_cannon.rescue_lollk"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 51,
+      "max_seconds": 118
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get the toolkit, match each tool to the broken cannon component and ask Lawgof what to do next."
+    }
+  },
+  {
+    "id": "quest.dwarf_cannon.get_nulodions_notes",
+    "name": "Get the ammo mould and notes from Nulodion",
+    "activity_id": "quest.dwarf_cannon",
+    "kind": "quest_stage",
+    "start_location_id": "location.ice_mountain.nulodion",
+    "end_location_id": "location.ice_mountain.nulodion",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.dwarf_cannon.repair_multicannon"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ammo_mould",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Nulodion gives the mould and instructions to take back to Lawgof."
+    }
+  },
+  {
+    "id": "quest.dwarf_cannon.complete",
+    "name": "Give Nulodion’s instructions to Captain Lawgof",
+    "activity_id": "quest.dwarf_cannon",
+    "kind": "quest_stage",
+    "start_location_id": "location.coal_trucks.lawgof",
+    "end_location_id": "location.coal_trucks.lawgof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dwarf_cannon.get_nulodions_notes"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ammo_mould",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 7500
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.dwarf_multicannon",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 18,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Award 750 Crafting XP and one quest point. The player keeps the ammo mould."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_tower_of_life_tools",
+    "name": "Buy beer, a saw and a hammer",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.beer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.saw",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 500 GP for the beer and reusable tools."
+    }
+  },
+  {
+    "id": "quest.tower_of_life.start",
+    "name": "Ask Effigy about the tower",
+    "activity_id": "quest.tower_of_life",
+    "kind": "quest_stage",
+    "start_location_id": "location.tower_of_life.effigy",
+    "end_location_id": "location.tower_of_life.effigy",
+    "requirements": {
+      "kind": "skill",
+      "skill_id": "skill.construction",
+      "minimum_level": 10,
+      "boostable": false
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Effigy sends the player to Bonafido. The helper lists level 10 Construction."
+    }
+  },
+  {
+    "id": "quest.tower_of_life.speak_to_bonafido",
+    "name": "Ask Bonafido why work has stopped",
+    "activity_id": "quest.tower_of_life",
+    "kind": "quest_stage",
+    "start_location_id": "location.tower_of_life.bonafido",
+    "end_location_id": "location.tower_of_life.bonafido",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.tower_of_life.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bonafido asks the player to dress as a builder."
+    }
+  },
+  {
+    "id": "quest.tower_of_life.assemble_builders_outfit",
+    "name": "Get the four pieces of the builder outfit",
+    "activity_id": "quest.tower_of_life",
+    "kind": "quest_stage",
+    "start_location_id": "location.tower_of_life.bonafido",
+    "end_location_id": "location.tower_of_life.bonafido",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.tower_of_life.speak_to_bonafido"
+    },
+    "consumes": [
+      {
+        "item_id": "item.beer",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.builder_hard_hat",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.builder_shirt",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.builder_trousers",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.builder_boots",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 71,
+      "max_seconds": 158
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Answer Black-eye’s questions for the hat, speak to and pickpocket No Fingers for the boots, give The Guns a beer for the shirt, and search the southern bushes for trousers."
+    }
+  },
+  {
+    "id": "quest.tower_of_life.enter_tower",
+    "name": "Pass Bonafido’s questions and enter the tower",
+    "activity_id": "quest.tower_of_life",
+    "kind": "quest_stage",
+    "start_location_id": "location.tower_of_life.bonafido",
+    "end_location_id": "location.tower_of_life.workshop",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tower_of_life.assemble_builders_outfit"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.builder_hard_hat",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.builder_shirt",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.builder_trousers",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.builder_boots",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 31,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear all four pieces and answer the builder questions before entering."
+    },
+    "planned_outcome": {
+      "success_condition": "Bonafido accepts the outfit and the answers, and the tower opens.",
+      "if_unmet": "Equip all four pieces and repeat the dialogue."
+    }
+  },
+  {
+    "id": "quest.tower_of_life.fix_pressure_machine",
+    "name": "Build and calibrate the pressure machine",
+    "activity_id": "quest.tower_of_life",
+    "kind": "quest_stage",
+    "start_location_id": "location.tower_of_life.workshop",
+    "end_location_id": "location.tower_of_life.workshop",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tower_of_life.enter_tower"
+        },
+        {
+          "kind": "all",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.saw",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.hammer",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 82,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect three sheets, four balls and four valve wheels from the crates, build the machine on the first floor and calibrate it."
+    }
+  },
+  {
+    "id": "quest.tower_of_life.fix_pipe_machine",
+    "name": "Build and connect the pipe machine",
+    "activity_id": "quest.tower_of_life",
+    "kind": "quest_stage",
+    "start_location_id": "location.tower_of_life.workshop",
+    "end_location_id": "location.tower_of_life.workshop",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tower_of_life.enter_tower"
+        },
+        {
+          "kind": "all",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.saw",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.hammer",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 96,
+      "max_seconds": 211
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get four pipes, five rings and six rivets, build the machine on the second floor and arrange the pipe puzzle."
+    }
+  },
+  {
+    "id": "quest.tower_of_life.fix_cage",
+    "name": "Build and assemble the cage",
+    "activity_id": "quest.tower_of_life",
+    "kind": "quest_stage",
+    "start_location_id": "location.tower_of_life.workshop",
+    "end_location_id": "location.tower_of_life.workshop",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tower_of_life.enter_tower"
+        },
+        {
+          "kind": "all",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.saw",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.hammer",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 89,
+      "max_seconds": 198
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect five bars and four binding fluids, then assemble the cage upstairs."
+    }
+  },
+  {
+    "id": "quest.tower_of_life.activate_tower",
+    "name": "Report the repairs and confront the alchemists",
+    "activity_id": "quest.tower_of_life",
+    "kind": "quest_stage",
+    "start_location_id": "location.tower_of_life.workshop",
+    "end_location_id": "location.tower_of_life.workshop",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tower_of_life.fix_pressure_machine"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tower_of_life.fix_pipe_machine"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tower_of_life.fix_cage"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 63,
+      "max_seconds": 140
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Report the machines to Effigy, follow the alchemists upstairs, and talk to the homunculus through the sequence."
+    }
+  },
+  {
+    "id": "quest.tower_of_life.visit_basement",
+    "name": "Find the homunculus in the basement",
+    "activity_id": "quest.tower_of_life",
+    "kind": "quest_stage",
+    "start_location_id": "location.tower_of_life.workshop",
+    "end_location_id": "location.tower_of_life.homunculus",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.tower_of_life.activate_tower"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 27,
+      "max_seconds": 61
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the trapdoor after the alchemists leave."
+    }
+  },
+  {
+    "id": "quest.tower_of_life.complete",
+    "name": "Speak to the homunculus to finish the quest",
+    "activity_id": "quest.tower_of_life",
+    "kind": "quest_stage",
+    "start_location_id": "location.tower_of_life.homunculus",
+    "end_location_id": "location.tower_of_life.homunculus",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.tower_of_life.visit_basement"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.creature_creation",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 18,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Award 1,000 Construction XP and 500 each in Crafting and Thieving."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_observatory_supplies",
+    "name": "Buy three planks, a bronze bar and molten glass",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 430
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.molten_glass",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 430 GP for the professor’s materials."
+    }
+  },
+  {
+    "id": "quest.observatory_quest.start",
+    "name": "Ask the Observatory professor what needs repairing",
+    "activity_id": "quest.observatory_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.observatory.professor",
+    "end_location_id": "location.observatory.professor",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 18,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The professor asks for planks, a bronze bar and molten glass."
+    }
+  },
+  {
+    "id": "quest.observatory_quest.deliver_repair_materials",
+    "name": "Give the professor the repair materials",
+    "activity_id": "quest.observatory_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.observatory.professor",
+    "end_location_id": "location.observatory.professor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.observatory_quest.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.molten_glass",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plank",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.bronze_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 29,
+      "max_seconds": 66
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand over three planks, a bronze bar and the glass. The route reserves the glass for lens making when the professor returns it."
+    }
+  },
+  {
+    "id": "quest.observatory_quest.recover_lens_mould",
+    "name": "Search the dungeon and recover the lens mould",
+    "activity_id": "quest.observatory_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.observatory.dungeon_entrance",
+    "end_location_id": "location.observatory.dungeon_entrance",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.observatory_quest.deliver_repair_materials"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.observatory_lens_mould",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 43,
+      "expected_seconds": 109,
+      "max_seconds": 265
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find the kitchen key in the marked chests. Trap or defeat the goblin guard, take the mould from the stove and exit the dungeon."
+    },
+    "planned_outcome": {
+      "success_condition": "Recover the mould and return to the dungeon entrance.",
+      "if_unmet": "Check the eligible chests and use the safe guard-trapping path if avoiding combat."
+    }
+  },
+  {
+    "id": "quest.observatory_quest.make_lens",
+    "name": "Show the mould and make the replacement lens",
+    "activity_id": "quest.observatory_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.observatory.professor",
+    "end_location_id": "location.observatory.professor",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.observatory_quest.recover_lens_mould"
+    },
+    "consumes": [
+      {
+        "item_id": "item.molten_glass",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.observatory_lens_mould",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.observatory_lens",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 27,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to the professor for the glass, form the lens and keep it ready for installation."
+    }
+  },
+  {
+    "id": "quest.observatory_quest.install_lens",
+    "name": "Give the finished lens to the professor",
+    "activity_id": "quest.observatory_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.observatory.professor",
+    "end_location_id": "location.observatory.professor",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.observatory_quest.make_lens"
+    },
+    "consumes": [
+      {
+        "item_id": "item.observatory_lens",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand over the replacement lens. The professor goes to the observatory."
+    }
+  },
+  {
+    "id": "quest.observatory_quest.reach_telescope",
+    "name": "Walk through the dungeon to the telescope",
+    "activity_id": "quest.observatory_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.observatory.dungeon_entrance",
+    "end_location_id": "location.observatory.telescope",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.observatory_quest.install_lens"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 66,
+      "max_seconds": 139
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow the dungeon path to the observatory staircase, then go up to the telescope."
+    }
+  },
+  {
+    "id": "quest.observatory_quest.complete",
+    "name": "Use the telescope and tell the professor which constellation appeared",
+    "activity_id": "quest.observatory_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.observatory.telescope",
+    "end_location_id": "location.observatory.telescope",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.observatory_quest.reach_telescope"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 22500
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 36,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "View the constellation, wait for the cutscene and choose the correct name. Award the guaranteed 2,250 Crafting XP."
+    },
+    "planned_outcome": {
+      "success_condition": "Identify the constellation shown by the telescope.",
+      "if_unmet": "Review the observation and select the matching constellation."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_dig_site_supplies",
+    "name": "Buy the Dig Site exam and excavation supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 800
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cup_of_tea",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.empty_vial",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.opal",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.charcoal",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 32,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget 800 GP for the tea, vial, cut opal, charcoal, two ropes and pestle and mortar."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.start",
+    "name": "Ask the Examiner about Earth Sciences",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.exam_centre",
+    "end_location_id": "location.digsite.exam_centre",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 10,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 10,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 25,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.dig_site",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Examiner gives a letter for Curator Haig Halen."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.stamp_letter",
+    "name": "Have Curator Haig Halen sign the letter",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_museum.curator",
+    "end_location_id": "location.varrock_museum.curator",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get the recommendation stamped at the Varrock Museum."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.register_for_exams",
+    "name": "Return the sealed letter to the Examiner",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.exam_centre",
+    "end_location_id": "location.digsite.exam_centre",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.stamp_letter"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Register for the exams. Ask the students about topics you have not yet studied."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.find_teddy",
+    "name": "Find the teddy in the bushes",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.exam_centre",
+    "end_location_id": "location.digsite.exam_centre",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.register_for_exams"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 46,
+      "max_seconds": 99
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Walk to the bushes north of the Exam Centre, find the teddy and return to the waypoint."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.pan_for_cup",
+    "name": "Give the guide tea and pan for the special cup",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.panning_guide",
+    "end_location_id": "location.digsite.panning_guide",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.register_for_exams"
+    },
+    "consumes": [
+      {
+        "item_id": "item.cup_of_tea",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 50,
+      "max_seconds": 132
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take a tray and give the guide a cup of tea. Pan and inspect the tray until the special cup is found."
+    },
+    "planned_outcome": {
+      "success_condition": "Recover the special cup from the panning tray.",
+      "if_unmet": "Repeat panning and check the tray again."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.pickpocket_workmen",
+    "name": "Obtain the specimen brush and animal skull from the workmen",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.workmen",
+    "end_location_id": "location.digsite.workmen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_dig_site.register_for_exams"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 25,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.specimen_brush",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 50,
+      "max_seconds": 170
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pickpocket workmen until both items are obtained."
+    },
+    "planned_outcome": {
+      "success_condition": "Obtain the brush and animal skull.",
+      "if_unmet": "Repeat the pickpockets, healing if necessary."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.learn_first_exam",
+    "name": "Return the students’ belongings and learn the first exam topics",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.students",
+    "end_location_id": "location.digsite.students",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_dig_site.find_teddy"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_dig_site.pan_for_cup"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_dig_site.pickpocket_workmen"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 65,
+      "max_seconds": 142
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return the teddy, cup and skull to the corresponding students and speak to each again for their answers."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.pass_first_exam",
+    "name": "Pass the level-one Earth Sciences exam",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.exam_centre",
+    "end_location_id": "location.digsite.exam_centre",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.learn_first_exam"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the answers learned from the three students and receive the first certificate and the trowel."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.learn_second_exam",
+    "name": "Ask the students about level-two Earth Sciences",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.students",
+    "end_location_id": "location.digsite.students",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.pass_first_exam"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 59,
+      "max_seconds": 122
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to all three students for the second exam topics."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.pass_second_exam",
+    "name": "Pass the level-two Earth Sciences exam",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.exam_centre",
+    "end_location_id": "location.digsite.exam_centre",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.learn_second_exam"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 30,
+      "max_seconds": 66
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the students’ answers and receive the second certificate."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.learn_third_exam",
+    "name": "Give the student an opal and learn the level-three topics",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.students",
+    "end_location_id": "location.digsite.students",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.pass_second_exam"
+    },
+    "consumes": [
+      {
+        "item_id": "item.opal",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 65,
+      "max_seconds": 136
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the cut opal to the northwestern student and speak to all three about the final exam."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.pass_third_exam",
+    "name": "Pass the level-three exam and collect a specimen jar",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.exam_centre",
+    "end_location_id": "location.digsite.exam_centre",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.learn_third_exam"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.specimen_jar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 39,
+      "max_seconds": 83
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get the third certificate and take a jar from the cupboard in the western room."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.excavate_talisman",
+    "name": "Excavate the ancient talisman",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.level_three_soil",
+    "end_location_id": "location.digsite.level_three_soil",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_dig_site.pass_third_exam"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.specimen_jar",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.specimen_brush",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.digsite_ancient_talisman",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 49,
+      "max_seconds": 139
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the trowel on the level-three soil while carrying the brush and jar."
+    },
+    "planned_outcome": {
+      "success_condition": "Find the ancient talisman in the level-three soil.",
+      "if_unmet": "Continue digging until the talisman is recovered."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.get_invitation",
+    "name": "Show the talisman to the archaeological expert",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.exam_centre",
+    "end_location_id": "location.digsite.exam_centre",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.excavate_talisman"
+    },
+    "consumes": [
+      {
+        "item_id": "item.digsite_ancient_talisman",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 22,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The expert gives a letter authorizing use of the shafts."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.search_west_shaft",
+    "name": "Show the invitation, enter the west shaft and inspect the blockage",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.west_winch",
+    "end_location_id": "location.digsite.west_winch",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.get_invitation"
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 57,
+      "max_seconds": 123
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show a workman the invitation, attach one rope, descend, take an arcenia root, inspect the obstruction and climb back out."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.visit_doug",
+    "name": "Attach a second rope and speak to Doug Deeping",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.northeast_winch",
+    "end_location_id": "location.digsite.northeast_winch",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.search_west_shaft"
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 46,
+      "max_seconds": 101
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Descend the northeastern shaft. Doug gives a key to the chest in the supply tent."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.retrieve_reagents",
+    "name": "Retrieve the two unidentified quest reagents",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.chemical_tent",
+    "end_location_id": "location.digsite.chemical_tent",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.visit_doug"
+    },
+    "consumes": [
+      {
+        "item_id": "item.empty_vial",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 39,
+      "max_seconds": 85
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use Doug’s key on the tent chest, and use the trowel and empty vial at the nearby barrel. Keep the quest items for the expert."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.prepare_compound",
+    "name": "Identify the reagents with the expert and prepare the quest compound",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.exam_centre",
+    "end_location_id": "location.digsite.exam_centre",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_dig_site.retrieve_reagents"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.charcoal",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 58,
+      "max_seconds": 121
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the unidentified items on the expert. Use the game’s mixing steps with the ground charcoal and the root."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.recover_stone_tablet",
+    "name": "Clear the west shaft obstruction and recover the stone tablet",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.west_winch",
+    "end_location_id": "location.digsite.west_winch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_dig_site.prepare_compound"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 69,
+      "max_seconds": 159
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Descend the west shaft, apply the quest compound to the obstruction and use the tinderbox. Move clear of the game effect, collect the tablet and climb out."
+    }
+  },
+  {
+    "id": "quest.the_dig_site.complete",
+    "name": "Give the stone tablet to the archaeological expert",
+    "activity_id": "quest.the_dig_site",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.exam_centre",
+    "end_location_id": "location.digsite.exam_centre",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_dig_site.recover_stone_tablet"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 153000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.gold_bar",
+        "quantity": 2
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_dig_site.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.varrock_museum_specimen_cleaning",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 22,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Award Mining and Herblore XP, two gold bars and two quest points. This completion flag can satisfy Bone Voyage’s Dig Site gate."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.start",
+    "name": "Ask Captain Tock about his crew’s curse",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.corsair_tock",
+    "end_location_id": "location.port_sarim.corsair_tock",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Captain Tock directs the player to the departure west of Rimmington."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.sail_to_cove",
+    "name": "Meet Captain Tock and sail to Corsair Cove",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.rimmington.corsair_landing",
+    "end_location_id": "location.corsair_cove.landing",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_corsair_curse.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take Tock’s ship to the Cove."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.hear_ithois_story",
+    "name": "Speak to Ithoi in his hut",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.corsair_cove.ithois_hut",
+    "end_location_id": "location.corsair_cove.ithois_hut",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_corsair_curse.sail_to_cove"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ithoi gives his account of the crew’s illness."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.hear_crew_stories",
+    "name": "Hear the crew’s accounts",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.corsair_cove.crew_huts",
+    "end_location_id": "location.corsair_cove.crew_huts",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_corsair_curse.hear_ithois_story"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 45,
+      "max_seconds": 102
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Arsen, Colin and Gnocci in their huts."
+    }
+  },
+  {
+    "id": "supply.corsair_cove.collect_spade",
+    "name": "Collect the spade from the sand",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.corsair_cove.crew_huts",
+    "end_location_id": "location.corsair_cove.crew_huts",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_corsair_curse.sail_to_cove"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take the spade south of the crew huts and return."
+    }
+  },
+  {
+    "id": "supply.corsair_cove.collect_tinderbox",
+    "name": "Collect the tinderbox near Gnocci",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.corsair_cove.crew_huts",
+    "end_location_id": "location.corsair_cove.crew_huts",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_corsair_curse.sail_to_cove"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the tinderbox in Gnocci’s hut and return."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.obtain_ogre_artefact",
+    "name": "Tell Captain Tock about the crew’s stories",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.corsair_cove.landing",
+    "end_location_id": "location.corsair_cove.landing",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_corsair_curse.hear_crew_stories"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Board the ship and ask Tock for the artefact."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.return_ogre_artefact",
+    "name": "Return the ogre artefact to Chief Tess",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.corsair_cove.tess_cave",
+    "end_location_id": "location.corsair_cove.tess_cave",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_corsair_curse.obtain_ogre_artefact"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 34,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the cave, return the artefact to Tess and climb out."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.dig_up_doll",
+    "name": "Dig next to the tree to investigate the doll",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.corsair_cove.doll_dig",
+    "end_location_id": "location.corsair_cove.doll_dig",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_corsair_curse.return_ogre_artefact"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Dig at the marked tile and check what was buried."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.look_through_telescope",
+    "name": "Look through Ithoi’s telescope",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.corsair_cove.ithois_hut",
+    "end_location_id": "location.corsair_cove.ithois_hut",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_corsair_curse.dig_up_doll"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Check what the telescope shows."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.resolve_curse_stories",
+    "name": "Return to Gnocci, Arsen and Colin with the findings",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.corsair_cove.crew_huts",
+    "end_location_id": "location.corsair_cove.crew_huts",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_corsair_curse.look_through_telescope"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 40,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Resolve the three accounts using what the player found."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.report_to_tock",
+    "name": "Tell Captain Tock the stories were explained",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.corsair_cove.landing",
+    "end_location_id": "location.corsair_cove.landing",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_corsair_curse.resolve_curse_stories"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 18,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tock asks the player to check the food."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.investigate_the_food",
+    "name": "Ask Gnocci and Arsen about the food",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.corsair_cove.crew_huts",
+    "end_location_id": "location.corsair_cove.crew_huts",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_corsair_curse.report_to_tock"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 31,
+      "max_seconds": 70
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about the source of the crew’s food."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.expose_sabotage",
+    "name": "Speak to Ithoi and light the driftwood beneath his hut",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.corsair_cove.ithois_hut",
+    "end_location_id": "location.corsair_cove.ithois_hut",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_corsair_curse.investigate_the_food"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 49,
+      "max_seconds": 112
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Ithoi, go down the ramp, use the tinderbox on the driftwood and watch the cutscene."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.report_sabotage",
+    "name": "Tell Captain Tock what happened beneath the hut",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.corsair_cove.landing",
+    "end_location_id": "location.corsair_cove.landing",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_corsair_curse.expose_sabotage"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tock asks the player to confront Ithoi."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.defeat_ithoi",
+    "name": "Defeat Ithoi in his hut",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.corsair_cove.ithois_hut",
+    "end_location_id": "location.corsair_cove.ithois_hut",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_corsair_curse.report_sabotage"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 71,
+      "max_seconds": 196
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat Ithoi the Navigator, who uses Magic."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Ithoi and survive the fight.",
+      "if_unmet": "Return with a suitable combat setup and food."
+    }
+  },
+  {
+    "id": "quest.the_corsair_curse.complete",
+    "name": "Report Ithoi’s defeat to Captain Tock",
+    "activity_id": "quest.the_corsair_curse",
+    "kind": "quest_stage",
+    "start_location_id": "location.corsair_cove.landing",
+    "end_location_id": "location.corsair_cove.landing",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_corsair_curse.defeat_ithoi"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 12000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.corsair_cove_bank",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 19,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Build 242 awards 1,200 Firemaking XP and two quest points, and opens the bank and ferry."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.help_femi",
+    "name": "Help Femi carry sacks through the Stronghold gate",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.gnome_stronghold.femi_gate",
+    "end_location_id": "location.gnome_stronghold.femi_gate",
+    "requirements": {
+      "kind": "flag",
+      "token_id": "flag.the_grand_tree.glough_guards",
+      "value": false
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.grand_tree",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Help with the sacks before Glough sets the guard to earn a favor for the return trip."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.start",
+    "name": "Ask King Narnode what is happening to the Grand Tree",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.king_narnode",
+    "end_location_id": "location.grand_tree.king_narnode",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 36,
+      "max_seconds": 79
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.grand_tree",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to King Narnode through the opening sequence. He supplies the translation book and bark sample."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.consult_hazelmere",
+    "name": "Show Hazelmere the bark and translate his message",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.hazelmere",
+    "end_location_id": "location.yanille.hazelmere",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 35,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb the ladder, show him the bark and use the translation book for the message."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.deliver_translation",
+    "name": "Tell King Narnode what Hazelmere discovered",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.king_narnode",
+    "end_location_id": "location.grand_tree.king_narnode",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.consult_hazelmere"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tell the king about the Daconia stone. He directs the player to Glough."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.question_glough",
+    "name": "Ask Glough about Hazelmere’s message",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.gnome_stronghold.glough_house",
+    "end_location_id": "location.gnome_stronghold.glough_house",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.deliver_translation"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb to Glough’s house and question him."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.visit_charlie",
+    "name": "Report back to the king and speak to Charlie",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.king_narnode",
+    "end_location_id": "location.grand_tree.charlies_cell",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.question_glough"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 52,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Report to the king and climb to Charlie’s cell. Charlie directs the player to Glough’s journal."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.find_gloughs_journal",
+    "name": "Search Glough’s cupboard and get taken to the cell",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.gnome_stronghold.glough_house",
+    "end_location_id": "location.grand_tree.charlies_cell",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.visit_charlie"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 42,
+      "max_seconds": 93
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find Glough’s journal, confront him and let the arrest sequence play out."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.escape_by_glider",
+    "name": "Speak to Charlie and Narnode and escape to Karamja",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.charlies_cell",
+    "end_location_id": "location.karamja.shipyard_gate",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.find_gloughs_journal"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.the_grand_tree.glough_guards",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 58,
+      "max_seconds": 129
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get the Shipyard password from Charlie and take the quest-only glider with Errdo. Walk from the landing to the gate."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.enter_shipyard",
+    "name": "Give the Shipyard password and find the foreman",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.karamja.shipyard_gate",
+    "end_location_id": "location.karamja.shipyard_foreman",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.escape_by_glider"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 42,
+      "max_seconds": 91
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Glough’s password at the gate and walk to the foreman’s dock."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.get_lumber_order",
+    "name": "Answer the foreman’s questions and get the lumber order",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.karamja.shipyard_foreman",
+    "end_location_id": "location.karamja.shipyard_gate",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.enter_shipyard"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 40,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Answer the questions about Glough in the foreman’s office, then leave the Shipyard."
+    },
+    "planned_outcome": {
+      "success_condition": "The foreman accepts the answers and gives the lumber order.",
+      "if_unmet": "Use Charlie’s information and retry the foreman dialogue."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.return_with_femis_help",
+    "name": "Ask Femi to return the favor",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.gnome_stronghold.femi_gate",
+    "end_location_id": "location.spirit_tree.gnome_stronghold",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_grand_tree.get_lumber_order"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_grand_tree.help_femi"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.grand_tree",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Femi helps the player return through the gate for free after receiving help with her sacks."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.pay_femi_to_enter",
+    "name": "Pay Femi for help entering the Stronghold",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.gnome_stronghold.femi_gate",
+    "end_location_id": "location.spirit_tree.gnome_stronghold",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.get_lumber_order"
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1000
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.grand_tree",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "This route uses the 1,000 GP gate payment when Femi has no earlier favor to repay."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.deliver_lumber_order",
+    "name": "Return to King Narnode with the lumber order",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.king_narnode",
+    "end_location_id": "location.grand_tree.king_narnode",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_grand_tree.get_lumber_order"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "flag",
+              "token_id": "unlock.spirit_tree_travel",
+              "value": true
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_grand_tree.pay_femi_to_enter"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_grand_tree.return_with_femis_help"
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 24,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return by the Stronghold spirit tree or with Femi’s help. Give the king the lumber order."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.get_gloughs_key",
+    "name": "Talk to Anita and receive Glough’s key",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.gnome_stronghold.anita_house",
+    "end_location_id": "location.gnome_stronghold.anita_house",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.deliver_lumber_order"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 63
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb to Anita’s room and speak to her about Glough."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.take_invasion_plans",
+    "name": "Use Anita’s key and recover the invasion plans",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.gnome_stronghold.glough_house",
+    "end_location_id": "location.gnome_stronghold.glough_house",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.get_gloughs_key"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Unlock Glough’s chest and take the plans."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.give_plans_to_king",
+    "name": "Give the invasion plans to King Narnode",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.king_narnode",
+    "end_location_id": "location.grand_tree.king_narnode",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.take_invasion_plans"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Narnode gives four twigs for the watchtower puzzle."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.open_watchtower_trapdoor",
+    "name": "Climb the watchtower, arrange the twigs and descend",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.gnome_stronghold.glough_house",
+    "end_location_id": "location.grand_tree.daconia_roots",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_grand_tree.give_plans_to_king"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 25,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 46,
+      "max_seconds": 103
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb the tree at Glough’s house, arrange T, U, Z and O, and descend the trapdoor into the demon sequence."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.defeat_black_demon",
+    "name": "Defeat the Black Demon under the Grand Tree",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.daconia_roots",
+    "end_location_id": "location.grand_tree.daconia_roots",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_grand_tree.open_watchtower_trapdoor"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 59,
+      "expected_seconds": 183,
+      "max_seconds": 502
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.grand_tree",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the level 172 quest demon. Use suitable combat gear and supplies. A ranged or Magic safe spot is possible."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the demon and reach King Narnode in the cave.",
+      "if_unmet": "Use the safe spot with suitable ammunition or runes, and return with enough supplies."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.find_daconia_stone",
+    "name": "Ask Narnode about the roots and find the Daconia stone",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.daconia_roots",
+    "end_location_id": "location.grand_tree.daconia_roots",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.defeat_black_demon"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 52,
+      "max_seconds": 148
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Narnode, then search the cave roots for the stone."
+    },
+    "planned_outcome": {
+      "success_condition": "Recover the Daconia stone from the roots.",
+      "if_unmet": "Check the remaining roots before returning to Narnode."
+    }
+  },
+  {
+    "id": "quest.the_grand_tree.complete",
+    "name": "Give King Narnode the Daconia stone",
+    "activity_id": "quest.the_grand_tree",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.daconia_roots",
+    "end_location_id": "location.grand_tree.daconia_roots",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.find_daconia_stone"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 5
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 184000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 79000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 21500
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.gnome_gliders",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.gnome_stronghold_spirit_tree_departure",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Award the fixed XP and unlock gliders and the Stronghold spirit tree departure."
+    }
+  },
+  {
+    "id": "quest.merlins_crystal.start",
+    "name": "Ask Arthur, Gawain and Lancelot about Merlin",
+    "activity_id": "quest.merlins_crystal",
+    "kind": "quest_stage",
+    "start_location_id": "location.camelot.king_arthur",
+    "end_location_id": "location.camelot.king_arthur",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 78,
+      "max_seconds": 161
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn who trapped Merlin and how to reach the keep."
+    }
+  },
+  {
+    "id": "quest.merlins_crystal.ride_crate",
+    "name": "Ride Arhein’s crate to Keep Le Faye",
+    "activity_id": "quest.merlins_crystal",
+    "kind": "quest_stage",
+    "start_location_id": "location.catherby.arhein_crate",
+    "end_location_id": "location.keep_le_faye.mordred",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.merlins_crystal.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 53,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.merlins_crystal",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Arrange shipment passage and hide in the crate, then climb to Mordred."
+    }
+  },
+  {
+    "id": "quest.merlins_crystal.fight_mordred",
+    "name": "Defeat Sir Mordred and speak to Morgan",
+    "activity_id": "quest.merlins_crystal",
+    "kind": "quest_stage",
+    "start_location_id": "location.keep_le_faye.mordred",
+    "end_location_id": "location.keep_le_faye.mordred",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.merlins_crystal.ride_crate"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 63,
+      "max_seconds": 184
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Force Morgan to intervene and finish her dialogue."
+    },
+    "planned_outcome": {
+      "success_condition": "Morgan explains how to release Merlin.",
+      "if_unmet": "Bring effective gear and food, and repeat the fight if the conversation was interrupted."
+    }
+  },
+  {
+    "id": "quest.merlins_crystal.collect_wax",
+    "name": "Collect wax from a Catherby beehive",
+    "activity_id": "quest.merlins_crystal",
+    "kind": "quest_stage",
+    "start_location_id": "location.catherby.beehives",
+    "end_location_id": "location.catherby.beehives",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.merlins_crystal.fight_mordred"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_wax",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 42,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect repellent from Catherby before using a hive."
+    }
+  },
+  {
+    "id": "quest.merlins_crystal.get_candle",
+    "name": "Trade the wax for a black candle",
+    "activity_id": "quest.merlins_crystal",
+    "kind": "quest_stage",
+    "start_location_id": "location.catherby.candle_maker",
+    "end_location_id": "location.catherby.candle_maker",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.merlins_crystal.fight_mordred"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket_of_wax",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket_of_wax",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.black_candle",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to the Candle Maker twice to obtain the candle."
+    }
+  },
+  {
+    "id": "supply.combat.merlins_crystal_bat_bones",
+    "name": "Collect bat bones near Keep Le Faye",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.keep_le_faye.bats",
+    "end_location_id": "location.keep_le_faye.bats",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bat_bones",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 28,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.merlins_crystal",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat a giant bat and pick up its bones."
+    }
+  },
+  {
+    "id": "quest.merlins_crystal.ask_lady",
+    "name": "Ask the Lady of the Lake for Excalibur",
+    "activity_id": "quest.merlins_crystal",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.lady_of_the_lake",
+    "end_location_id": "location.taverley.lady_of_the_lake",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.merlins_crystal.fight_mordred"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 23,
+      "max_seconds": 51
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Lady sends the player to Port Sarim for a trial."
+    }
+  },
+  {
+    "id": "quest.merlins_crystal.give_bread",
+    "name": "Give the beggar bread and receive Excalibur",
+    "activity_id": "quest.merlins_crystal",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.jewellery_shop",
+    "end_location_id": "location.port_sarim.jewellery_shop",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.merlins_crystal.ask_lady"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bread",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bread",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.excalibur",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Try the shop door, give the beggar the loaf and receive Excalibur during the encounter."
+    }
+  },
+  {
+    "id": "quest.merlins_crystal.read_inscription",
+    "name": "Read the altar inscription in Varrock",
+    "activity_id": "quest.merlins_crystal",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.thrantax_altar",
+    "end_location_id": "location.varrock.thrantax_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.merlins_crystal.fight_mordred"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn the words needed for the Camelot ritual."
+    }
+  },
+  {
+    "id": "quest.merlins_crystal.perform_ritual",
+    "name": "Perform the ritual at the Camelot star",
+    "activity_id": "quest.merlins_crystal",
+    "kind": "quest_stage",
+    "start_location_id": "location.camelot.ritual_star",
+    "end_location_id": "location.camelot.ritual_star",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.merlins_crystal.read_inscription"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.excalibur",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.black_candle",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bat_bones",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.black_candle",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bat_bones",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.merlins_crystal",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Light the candle, drop the bones on the star and use the altar’s words."
+    },
+    "planned_outcome": {
+      "success_condition": "The spirit agrees to release Merlin.",
+      "if_unmet": "Obtain a fresh candle if the incorrect words were used."
+    }
+  },
+  {
+    "id": "quest.merlins_crystal.free_merlin",
+    "name": "Use Excalibur on Merlin’s crystal",
+    "activity_id": "quest.merlins_crystal",
+    "kind": "quest_stage",
+    "start_location_id": "location.camelot.merlins_crystal",
+    "end_location_id": "location.camelot.merlins_crystal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.merlins_crystal.perform_ritual"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.excalibur",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 11,
+      "max_seconds": 27
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.merlins_crystal",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the sword from inventory on the crystal. The item interaction does not require wielding the sword."
+    }
+  },
+  {
+    "id": "quest.merlins_crystal.complete",
+    "name": "Report Merlin’s release to King Arthur",
+    "activity_id": "quest.merlins_crystal",
+    "kind": "quest_stage",
+    "start_location_id": "location.camelot.king_arthur",
+    "end_location_id": "location.camelot.king_arthur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.merlins_crystal.free_merlin"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 6
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 1000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.merlins_crystal.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.merlins_crystal",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Excalibur is obtained during the trial. Arthur awards the quest points and the Quest Month Firemaking reward."
+    }
+  },
+  {
+    "id": "quest.holy_grail.start",
+    "name": "Accept Arthur’s quest and consult Merlin",
+    "activity_id": "quest.holy_grail",
+    "kind": "quest_stage",
+    "start_location_id": "location.camelot.king_arthur",
+    "end_location_id": "location.camelot.king_arthur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.merlins_crystal.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 43,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Begin with King Arthur and speak to Merlin upstairs."
+    }
+  },
+  {
+    "id": "quest.holy_grail.consult_high_priest",
+    "name": "Speak to the High Priest and the Crone",
+    "activity_id": "quest.holy_grail",
+    "kind": "quest_stage",
+    "start_location_id": "location.entrana.high_priest",
+    "end_location_id": "location.entrana.high_priest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.holy_grail.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 34,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Finish the church conversations on Entrana to learn about the Fisher Realm."
+    }
+  },
+  {
+    "id": "quest.holy_grail.receive_napkin",
+    "name": "Receive the holy table napkin from Galahad",
+    "activity_id": "quest.holy_grail",
+    "kind": "quest_stage",
+    "start_location_id": "location.mcgrubors_wood.galahad",
+    "end_location_id": "location.mcgrubors_wood.galahad",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.holy_grail.consult_high_priest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.holy_table_napkin",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 25,
+      "max_seconds": 59
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Galahad for an item from the Fisher Realm."
+    }
+  },
+  {
+    "id": "quest.holy_grail.take_whistles",
+    "name": "Pick up two magic whistles at Draynor Manor",
+    "activity_id": "quest.holy_grail",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.magic_whistles",
+    "end_location_id": "location.draynor_manor.magic_whistles",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.holy_grail.receive_napkin"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.holy_table_napkin",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.magic_whistle",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 14,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Carry the napkin upstairs to reveal the two whistles."
+    }
+  },
+  {
+    "id": "quest.holy_grail.enter_realm",
+    "name": "Blow a whistle under the Brimhaven watchtower",
+    "activity_id": "quest.holy_grail",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimhaven.grail_watchtower",
+    "end_location_id": "location.fisher_realm.titan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.holy_grail.take_whistles"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.magic_whistle",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.excalibur",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 10,
+      "max_seconds": 23
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the first version of the Fisher Realm carrying Excalibur."
+    }
+  },
+  {
+    "id": "quest.holy_grail.defeat_titan",
+    "name": "Defeat the Black Knight Titan with an Excalibur finishing blow",
+    "activity_id": "quest.holy_grail",
+    "kind": "quest_stage",
+    "start_location_id": "location.fisher_realm.titan",
+    "end_location_id": "location.fisher_realm.titan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.holy_grail.enter_realm"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.attack",
+          "minimum_level": 20,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.excalibur",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 34,
+      "expected_seconds": 99,
+      "max_seconds": 263
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.holy_grail",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wield Excalibur for the finishing blow. Speak to the fisherman across the bridge before leaving the first realm."
+    },
+    "planned_outcome": {
+      "success_condition": "The Titan is defeated with Excalibur and the fisherman explains the bell.",
+      "if_unmet": "Bring effective gear and food, save Excalibur for the final blow, and finish the fisherman’s dialogue."
+    }
+  },
+  {
+    "id": "quest.holy_grail.meet_fisher_king",
+    "name": "Ring the bell and meet the Fisher King",
+    "activity_id": "quest.holy_grail",
+    "kind": "quest_stage",
+    "start_location_id": "location.fisher_realm.grail_bell",
+    "end_location_id": "location.fisher_realm.grail_bell",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.holy_grail.defeat_titan"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 47,
+      "max_seconds": 109
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick up the bell outside the wall, ring it there, climb the stairs and finish the Fisher King’s dialogue."
+    }
+  },
+  {
+    "id": "quest.holy_grail.receive_feather",
+    "name": "Report to Arthur and receive the magic gold feather",
+    "activity_id": "quest.holy_grail",
+    "kind": "quest_stage",
+    "start_location_id": "location.camelot.king_arthur",
+    "end_location_id": "location.camelot.king_arthur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.holy_grail.meet_fisher_king"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.magic_gold_feather",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 22,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Arthur gives a feather to help locate Percival."
+    }
+  },
+  {
+    "id": "quest.holy_grail.free_percival",
+    "name": "Free Percival and give him a magic whistle",
+    "activity_id": "quest.holy_grail",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin_village.percival",
+    "end_location_id": "location.goblin_village.percival",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.holy_grail.receive_feather"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.magic_gold_feather",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.magic_whistle",
+          "quantity": 2
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.magic_whistle",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.fisher_realm.restored",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 28,
+      "max_seconds": 66
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open the sacks and give Percival one of the two whistles."
+    }
+  },
+  {
+    "id": "quest.holy_grail.return_to_realm",
+    "name": "Blow the remaining whistle under the watchtower",
+    "activity_id": "quest.holy_grail",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimhaven.grail_watchtower",
+    "end_location_id": "location.fisher_realm.restored_castle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.holy_grail.free_percival"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.magic_whistle",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.magic_gold_feather",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 13,
+      "max_seconds": 29
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to the restored realm and approach the castle."
+    }
+  },
+  {
+    "id": "quest.holy_grail.take_grail",
+    "name": "Collect the grail upstairs in the restored castle",
+    "activity_id": "quest.holy_grail",
+    "kind": "quest_stage",
+    "start_location_id": "location.fisher_realm.restored_castle",
+    "end_location_id": "location.fisher_realm.restored_castle",
+    "requirements": {
+      "kind": "flag",
+      "token_id": "unlock.fisher_realm.restored",
+      "value": true
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.holy_grail",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 39,
+      "max_seconds": 85
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the castle and take the grail on the upper floor."
+    }
+  },
+  {
+    "id": "quest.holy_grail.complete",
+    "name": "Deliver the grail to King Arthur",
+    "activity_id": "quest.holy_grail",
+    "kind": "quest_stage",
+    "start_location_id": "location.camelot.king_arthur",
+    "end_location_id": "location.camelot.king_arthur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.holy_grail.take_grail"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.holy_grail",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.holy_grail",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 11000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 15300
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.holy_grail.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 51
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.holy_grail",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand over the grail to Arthur."
+    }
+  }
+]

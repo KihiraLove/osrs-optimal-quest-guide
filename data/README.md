@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.27.0` loads 24 skill tables and
-510 draft actions across 51 journal activities, the museum route and travel
+3 November 2026 at 10:00:06 UTC. Dataset `0.28.0` loads 24 skill tables and
+620 draft actions across 59 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -136,8 +136,8 @@ loaded. Complete diary tiers and their claims remain in review.
 The [museum review](raw/build-242/museum-review.json) links all 14 quiz plaques to
 the [archived object tiles](raw/build-242/museum-map.json). Each plaque gives two
 kudos and Orlando Smith separately awards 1,000 XP in Hunter and Slayer. The
-draft Bone Voyage route checks 100 kudos and imports The Dig Site completion from
-profile history while that quest is being normalized. Bone Voyage unlocks the
+draft Bone Voyage route checks 100 kudos and The Dig Site completion. The Dig
+Site also unlocks specimen cleaning in the museum. Bone Voyage unlocks the
 barge edges and walking routes to six camp facility sites. Clerk rewards, camp
 construction, additional travel activations, and fossil acquisition and exhibits
 are in gameplay review.
@@ -164,6 +164,11 @@ the Jagex account, bank PIN and authenticator assumptions. Walking to the
 Stronghold opens up to 10,000 GP across the first three rooms. Its four emotes
 support the Varrock Medium task. Count Check offers a one-time lamp in
 Lumbridge Graveyard worth ten times the chosen skill's base level at use.
+
+The [Kandarin, Camelot and Dig Site review](raw/build-242/kandarin-camelot-and-digsite-review.json)
+covers eight quests, the Dig Site dependency for Bone Voyage, the Corsair Cove
+ferry, gnome gliders and the Fisher Realm. Observatory Quest credits its fixed
+Crafting XP and quest points. The randomized constellation rewards are omitted.
 
 The [Fairytale and Kandarin review](raw/build-242/fairytale-and-kandarin-review.json)
 covers both Fairytale quests, Jungle Potion, Fight Arena, Tree Gnome Village,

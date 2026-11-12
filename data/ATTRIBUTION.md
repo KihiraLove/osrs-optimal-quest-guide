@@ -61,6 +61,9 @@ original descriptions of findings. The data uses pinned upstream sources.
 - The Fairytale and Kandarin batch uses pinned Quest Helper, RuneLite's
   Herblore calculator, Old School gameplay walkthroughs and Shortest Path's
   spirit tree, fairy ring and quest passage coordinates.
+- The Kandarin, Camelot and Dig Site quests use pinned Quest Helper and RuneLite
+  metadata, historical RuneHQ walkthroughs, and Shortest Path glider, ferry and
+  fairy-ring records. Jagex supplies the build 242 Firemaking rewards.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.

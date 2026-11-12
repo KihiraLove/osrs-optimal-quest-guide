@@ -123,7 +123,15 @@ class Build242BaselineTests(unittest.TestCase):
         self.assertEqual(report["manual_training_xp_tenths_by_skill"], {"skill.prayer": 503390})
         self.assertEqual(report["objective"]["counted_manual_training_xp_tenths"], 0)
         self.assertEqual(report["objective"]["priority_skill_elapsed_seconds"], 0)
-        self.assertEqual(report["final_state"]["counters"]["token.quest_points"], 4)
+        quest_points = profile["initial_state"]["counters"]["token.quest_points"]
+        for step in solution["steps"]:
+            if step["kind"] == "action":
+                action = validator.tables["actions"][step["action_id"]]
+                quest_points += sum(
+                    effect["delta"] for effect in action["effects"]
+                    if effect["kind"] == "counter" and effect["token_id"] == "token.quest_points"
+                )
+        self.assertEqual(report["final_state"]["counters"]["token.quest_points"], quest_points)
         lamp_xp = sum(
             step["gain_xp_tenths"] for step in solution["steps"]
             if step["kind"] == "reward_use" and step["skill_id"] == "skill.hitpoints"
@@ -141,7 +149,8 @@ class Build242BaselineTests(unittest.TestCase):
                 bought_items.add(item_id)
                 if item_id == "item.egg":
                     egg_purchases.add(purchase["id"])
-        self.assertLessEqual({"item.egg", "item.bucket_of_milk", "item.pot_of_flour", "item.spade"}, bought_items)
+        self.assertLessEqual({"item.egg", "item.bucket_of_milk", "item.pot_of_flour"}, bought_items)
+        self.assertGreaterEqual(report["final_state"]["inventory"]["item.spade"], 1)
         without_ingredients = {**solution, "steps": [
             step for step in solution["steps"] if step.get("action_id") not in egg_purchases
         ]}
