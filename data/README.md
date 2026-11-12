@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.19.0` loads 24 skill tables and
-208 draft actions, including Big Chompy Bird Hunting, Fishing Contest, five
+3 November 2026 at 10:00:06 UTC. Dataset `0.20.0` loads 24 skill tables and
+218 draft actions, including Gertrude's Cat, Big Chompy Bird Hunting, five
 Recipe for Disaster stages, Lost City, The Restless Ghost, the museum route
 and Enlightened Journey.
 Durations estimate each interaction at its
@@ -58,6 +58,13 @@ the fallen tree, signal fire and return ride with Bugs and Fycie. The route
 can reach Karamja independently via Captain Barnaby or fairy ring C.K.R.
 The hunt uses two bellows loads per balloon toad and the rescue awards
 repeat boat access. The post-quest fares and burn recovery remain in review.
+
+The [Gertrude's Cat review](raw/build-242/gertrudes-cat-review.json) records
+the 100 GP fee, Fluffs' loft, the crate search and the return to Gertrude
+for direct Cooking XP, a pet kitten, chocolate cake and stew. It also links
+the two nearby Varrock diary tasks and records the nominal three-hour growth
+clock while a kitten follows. Follower time and care remain in review for
+the Evil Dave route.
 
 [Quest Helper observations](raw/build-242/quest-helper/index.json) cover 209
 journal activities. They identify candidate coordinates, requirements,

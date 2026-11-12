@@ -1,0 +1,383 @@
+[
+  {
+    "id": "quest.gertrudes_cat.start",
+    "name": "Ask Gertrude about her missing cat",
+    "activity_id": "quest.gertrudes_cat",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.gertrude",
+    "end_location_id": "location.varrock.gertrude",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "No skill or quest prerequisites. Gertrude sends the player to her sons."
+    }
+  },
+  {
+    "id": "supply.varrock.gather_gertrude_doogle",
+    "name": "Gather a doogle leaf behind Gertrude’s house",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.gertrude",
+    "end_location_id": "location.varrock.gertrude",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.doogle_leaves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 11,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.gertrudes_cat",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes the short walk behind the house to the leaves and back to the route waypoint."
+    }
+  },
+  {
+    "id": "quest.gertrudes_cat.season_sardine",
+    "name": "Use the doogle leaf on the raw sardine",
+    "activity_id": "quest.gertrudes_cat",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.gertrude",
+    "end_location_id": "location.varrock.gertrude",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.gertrudes_cat.start"
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_sardine",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.doogle_leaves",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.seasoned_sardine",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Make a seasoned sardine after talking to Gertrude. The recipe gives no modeled incidental XP."
+    }
+  },
+  {
+    "id": "quest.gertrudes_cat.pay_children",
+    "name": "Pay Shilop or Wilough to reveal Fluffs’ location",
+    "activity_id": "quest.gertrudes_cat",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.shilop",
+    "end_location_id": "location.varrock.shilop",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.gertrudes_cat.start"
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 100
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 22,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay 100 carried coins and learn that Fluffs is at the lumberyard."
+    }
+  },
+  {
+    "id": "quest.gertrudes_cat.give_milk",
+    "name": "Check Fluffs and give her a bucket of milk",
+    "activity_id": "quest.gertrudes_cat",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.lumberyard_fluffs",
+    "end_location_id": "location.varrock.lumberyard_fluffs",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.gertrudes_cat.pay_children"
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 15,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes checking Fluffs and feeding the milk. The forecast spends the bucket of milk. Verify the empty container after the interaction."
+    }
+  },
+  {
+    "id": "quest.gertrudes_cat.give_sardine",
+    "name": "Feed Fluffs the seasoned sardine and check on her",
+    "activity_id": "quest.gertrudes_cat",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.lumberyard_fluffs",
+    "end_location_id": "location.varrock.lumberyard_fluffs",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.gertrudes_cat.give_milk"
+    },
+    "consumes": [
+      {
+        "item_id": "item.seasoned_sardine",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "After feeding Fluffs, try to pick her up and listen for the kittens."
+    }
+  },
+  {
+    "id": "quest.gertrudes_cat.find_fluffs_kitten",
+    "name": "Search the lumberyard crates for Fluffs’ kittens",
+    "activity_id": "quest.gertrudes_cat",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.lumberyard_ladder",
+    "end_location_id": "location.varrock.lumberyard_ladder",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.gertrudes_cat.give_sardine"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fluffs_kitten",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 27,
+      "max_seconds": 85
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.gertrudes_cat",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes moving among the eligible crates and returning to the ladder. The matching crate varies."
+    },
+    "planned_outcome": {
+      "success_condition": "Search the eligible crates downstairs until you find Fluffs’ kittens. Return to the ladder with the quest bundle.",
+      "if_unmet": "If a crate is empty, check the other eligible crates. Continue after finding the kittens."
+    }
+  },
+  {
+    "id": "quest.gertrudes_cat.return_fluffs_kitten",
+    "name": "Bring Fluffs’ kittens back to her upstairs",
+    "activity_id": "quest.gertrudes_cat",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.lumberyard_fluffs",
+    "end_location_id": "location.varrock.lumberyard_fluffs",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.gertrudes_cat.find_fluffs_kitten"
+    },
+    "consumes": [
+      {
+        "item_id": "item.fluffs_kitten",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 21,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes the cutscene in which Fluffs and the kittens return home."
+    }
+  },
+  {
+    "id": "quest.gertrudes_cat.complete",
+    "name": "Return to Gertrude for your kitten",
+    "activity_id": "quest.gertrudes_cat",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.gertrude",
+    "end_location_id": "location.varrock.gertrude",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.gertrudes_cat.return_fluffs_kitten"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 15250
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pet_kitten",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.chocolate_cake",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.stew",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.raise_cats",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Gertrude awards Cooking XP directly, a pet kitten and two foods. The pet kitten is distinct from the quest bundle."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_gertrudes_cat_supplies",
+    "name": "Buy a raw sardine and bucket of milk",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 50
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_sardine",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 35
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Uses carried coins and a 50 GP guide-price estimate for the food for Fluffs."
+    }
+  }
+]

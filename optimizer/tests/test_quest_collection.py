@@ -41,6 +41,46 @@ class QuestCollectionTests(unittest.TestCase):
         variants = {row["helper_symbol"] for row in self.observations["quest.shield_of_arrav"]}
         self.assertEqual(variants, {"SHIELD_OF_ARRAV_BLACK_ARM_GANG", "SHIELD_OF_ARRAV_PHOENIX_GANG"})
 
+    def test_gertrudes_cat_replays_the_quest_bundle_and_pet_reward(self):
+        quest = "quest.gertrudes_cat"
+        profile = read_json(ROOT / "examples/build-242/gertrudes-cat-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile, beam_width=96)
+        state = verify_solution(solution, profile, validator)["final_state"]
+        self.assertEqual(solution["manual_training_xp_tenths_by_skill"], {})
+        self.assertEqual(state["counters"]["token.quest_points"], 2)
+        self.assertEqual(state["inventory"], {"item.chocolate_cake": 1, "item.pet_kitten": 1, "item.stew": 1})
+        self.assertEqual(state["held_rewards"], [])
+        self.assertTrue(state["flags"]["unlock.raise_cats"])
+        [source] = self.observations[quest]
+        expected_xp = profile["initial_state"]["xp_tenths"].copy()
+        for effect in source["declared_xp"]["observations"]:
+            expected_xp[effect["skill_id"]] += effect["xp_tenths"]
+        self.assertEqual(state["xp_tenths"], expected_xp)
+
+        steps = solution["steps"]
+        edges = [step["edge_id"] for step in steps if step["kind"] == "travel"]
+        self.assertEqual(edges.count("travel.walk.varrock.lumberyard_ladder.out"), 2)
+        self.assertEqual(edges.count("travel.walk.varrock.lumberyard_ladder.back"), 2)
+        self.assertIn("travel.walk.varrock.lumberyard_fence.out", edges)
+        self.assertEqual([step["action_id"] for step in steps if "planned_outcome" in step], [
+            f"{quest}.find_fluffs_kitten",
+        ])
+
+        handover = next(step for step in steps if step.get("action_id") == f"{quest}.return_fluffs_kitten")
+        initial = profile["initial_state"]
+        before_handover = RouteState(validator.tables, profile["policies"], initial)
+        for step in steps[:steps.index(handover)]:
+            before_handover = before_handover.apply(step)
+        self.assertEqual(before_handover.snapshot()["inventory"], {"item.fluffs_kitten": 1})
+        with_pet = {**before_handover.snapshot(), "inventory": {"item.pet_kitten": 1}}
+        with self.assertRaisesRegex(DataError, "consumes 1 of 'item.fluffs_kitten'"):
+            RouteState(validator.tables, profile["policies"], with_pet).apply(handover)
+
+        without_milk = {**solution, "steps": [step for step in steps if step.get("action_id") != f"{quest}.give_milk"]}
+        with self.assertRaisesRegex(DataError, "required completed action"):
+            verify_solution(without_milk, profile, validator)
+
     def test_restless_ghost_replays_from_lumbridge_with_no_manual_xp(self):
         quest = "quest.the_restless_ghost"
         [source] = self.observations[quest]

@@ -8,7 +8,7 @@ Prayer block to reach level 43. This block has zero weight in the objective.
 The fixture ends with four quest points and 88 carried coins at the modeled prices.
 
 ```sh
-quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json --beam-width 192 > artifacts/lumbridge-arrival.json
+quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json --beam-width 192 --max-expansions 40000 > artifacts/lumbridge-arrival.json
 quest-optimizer replay artifacts/lumbridge-arrival.json --catalog data/manifest.json --profile examples/build-242/lumbridge-arrival-profile.json
 ```
 
@@ -136,6 +136,16 @@ route for replay or for use as an incumbent.
 
 ```sh
 quest-optimizer replay examples/build-242/rfd-skrach-uglogwee-solution.json --catalog data/manifest.json --profile examples/build-242/rfd-skrach-uglogwee-profile.json
+```
+
+`gertrudes-cat-profile.json` starts at the Grand Exchange with one quest
+point and 150 GP. The route buys the sardine and milk, gathers a doogle leaf
+and pays the children 100 GP. It visits Fluffs upstairs, retrieves her kittens
+from a crate and returns to Gertrude for the pet kitten and 1,525 Cooking XP.
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/gertrudes-cat-profile.json --beam-width 96 > artifacts/gertrudes-cat.json
+quest-optimizer replay artifacts/gertrudes-cat.json --catalog data/manifest.json --profile examples/build-242/gertrudes-cat-profile.json
 ```
 
 The optional progression tests cover the three essence mine task flags in the

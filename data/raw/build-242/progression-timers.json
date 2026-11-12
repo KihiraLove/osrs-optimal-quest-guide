@@ -3,7 +3,8 @@
   "source_ids": [
     "source.quest_helper.quest_observations",
     "source.quest_helper.diaries",
-    "source.capture.rfd_rock_cake"
+    "source.capture.rfd_rock_cake",
+    "source.kitten_tracker.care"
   ],
   "timers": [
     {
@@ -157,6 +158,19 @@
         "Other route activity"
       ],
       "notes": "Historical sources disagree on the passive cooling duration. Verify the build 242 timer and inventory, bank and logout behavior. Ice gloves and the Icefiend routes are already modeled."
+    },
+    {
+      "id": "gertrudes_cat.kitten_growth",
+      "status": "expected",
+      "start": "Set the pet kitten to follow after Gertrude’s Cat",
+      "blocked_until_ready": [
+        "Use the adult cat form"
+      ],
+      "duration_seconds": 10800,
+      "may_overlap": [
+        "Questing, travel and player-chosen training while the kitten can follow and receive care"
+      ],
+      "notes": "The nominal clock counts 120 growth ticks of 90 seconds. Carried, banked or offline time does not count. Some interfaces pause progress, and a neglected kitten can leave. The adult form awaits a follower-aware catalog route."
     }
   ],
   "notes": "The growing patches, brewing vat and diary fruit are separate clocks. Pending values and access routes require gameplay review before catalog admission."

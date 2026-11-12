@@ -36,6 +36,9 @@ original descriptions of findings. The data uses pinned upstream sources.
 - Skrach Uglogwee uses the pinned Quest Helper and Tip.It's historical
   sequence. The RuneLite calculators and NPC health snapshot support the
   incidental XP, and Shortest Path records the Karamja transport waypoints.
+- Gertrude's Cat uses pinned Quest Helper and RuneLite IDs, an Old School
+  RuneHQ walkthrough, and Shortest Path's fence and scroll tiles. Kitten
+  Tracker supplies the follower growth and care observations.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.
