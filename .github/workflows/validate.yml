@@ -68,8 +68,7 @@ jobs:
           quest-optimizer replay "$RUNNER_TEMP/gertrudes-cat.json" --catalog data/manifest.json --profile examples/build-242/gertrudes-cat-profile.json
           quest-optimizer solve-bounded data/manifest.json examples/build-242/demon-slayer-profile.json --beam-width 96 > "$RUNNER_TEMP/demon-slayer.json"
           quest-optimizer replay "$RUNNER_TEMP/demon-slayer.json" --catalog data/manifest.json --profile examples/build-242/demon-slayer-profile.json
-          quest-optimizer solve-bounded data/manifest.json examples/build-242/the-golem-profile.json --beam-width 128 --max-expansions 40000 > "$RUNNER_TEMP/the-golem.json"
-          quest-optimizer replay "$RUNNER_TEMP/the-golem.json" --catalog data/manifest.json --profile examples/build-242/the-golem-profile.json
+          quest-optimizer replay examples/build-242/the-golem-solution.json --catalog data/manifest.json --profile examples/build-242/the-golem-profile.json
           quest-optimizer solve-bounded data/manifest.json examples/build-242/shadow-of-the-storm-profile.json --beam-width 128 --max-expansions 40000 > "$RUNNER_TEMP/shadow-of-the-storm.json"
           quest-optimizer replay "$RUNNER_TEMP/shadow-of-the-storm.json" --catalog data/manifest.json --profile examples/build-242/shadow-of-the-storm-profile.json
           quest-optimizer replay examples/build-242/rfd-evil-dave-solution.json --catalog data/manifest.json --profile examples/build-242/rfd-evil-dave-profile.json

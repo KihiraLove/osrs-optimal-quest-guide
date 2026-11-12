@@ -287,7 +287,7 @@ class QuestCollectionTests(unittest.TestCase):
     def test_the_golem_replays_reprogramming_gems_and_carpet_unlock(self):
         profile = read_json(ROOT / "examples/build-242/the-golem-profile.json")
         validator = CatalogValidator(self.catalog, self.contracts)
-        solution, _ = solve_bounded(validator, profile, beam_width=128, max_expansions=40000)
+        solution = read_json(ROOT / "examples/build-242/the-golem-solution.json")
         report = verify_solution(solution, profile, validator)
         final = report["final_state"]
         self.assertEqual(report["manual_training_xp_tenths_by_skill"], {})

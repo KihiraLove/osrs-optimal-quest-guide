@@ -1,0 +1,4594 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_client_feather",
+    "name": "Buy a feather for Veos",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.feather",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budget five coins for a feather."
+    }
+  },
+  {
+    "id": "quest.client_of_kourend.start",
+    "name": "Accept Veos’s work",
+    "activity_id": "quest.client_of_kourend",
+    "kind": "quest_stage",
+    "start_location_id": "location.piscarilius.veos",
+    "end_location_id": "location.piscarilius.veos",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.x_marks_the_spot.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.veos_enchanted_scroll",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Veos supplies the scroll after X Marks the Spot."
+    }
+  },
+  {
+    "id": "quest.client_of_kourend.prepare_quill",
+    "name": "Enchant a feather with Veos’s scroll",
+    "activity_id": "quest.client_of_kourend",
+    "kind": "quest_stage",
+    "start_location_id": "location.piscarilius.veos",
+    "end_location_id": "location.piscarilius.veos",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.veos_enchanted_scroll",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.feather",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.veos_enchanted_quill",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 10,
+      "max_seconds": 21
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a feather on the scroll."
+    }
+  },
+  {
+    "id": "quest.client_of_kourend.survey_piscarilius",
+    "name": "Interview Leenz",
+    "activity_id": "quest.client_of_kourend",
+    "kind": "quest_stage",
+    "start_location_id": "location.piscarilius.general_store",
+    "end_location_id": "location.piscarilius.general_store",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.prepare_quill"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.veos_enchanted_scroll",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.veos_enchanted_quill",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask what visitors can do in the city and record the answer. The five interviews can be done in any order."
+    }
+  },
+  {
+    "id": "quest.client_of_kourend.survey_hosidius",
+    "name": "Interview Horace",
+    "activity_id": "quest.client_of_kourend",
+    "kind": "quest_stage",
+    "start_location_id": "location.hosidius.general_store",
+    "end_location_id": "location.hosidius.general_store",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.prepare_quill"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.veos_enchanted_scroll",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.veos_enchanted_quill",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask what visitors can do in the city and record the answer. The five interviews can be done in any order."
+    }
+  },
+  {
+    "id": "quest.client_of_kourend.survey_shayzien",
+    "name": "Interview Jennifer",
+    "activity_id": "quest.client_of_kourend",
+    "kind": "quest_stage",
+    "start_location_id": "location.shayzien.general_store",
+    "end_location_id": "location.shayzien.general_store",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.prepare_quill"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.veos_enchanted_scroll",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.veos_enchanted_quill",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask what visitors can do in the city and record the answer. The five interviews can be done in any order."
+    }
+  },
+  {
+    "id": "quest.client_of_kourend.survey_lovakengj",
+    "name": "Interview Munty",
+    "activity_id": "quest.client_of_kourend",
+    "kind": "quest_stage",
+    "start_location_id": "location.lovakengj.general_store",
+    "end_location_id": "location.lovakengj.general_store",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.prepare_quill"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.veos_enchanted_scroll",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.veos_enchanted_quill",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask what visitors can do in the city and record the answer. The five interviews can be done in any order."
+    }
+  },
+  {
+    "id": "quest.client_of_kourend.survey_arceuus",
+    "name": "Interview Regath",
+    "activity_id": "quest.client_of_kourend",
+    "kind": "quest_stage",
+    "start_location_id": "location.arceuus.general_store",
+    "end_location_id": "location.arceuus.general_store",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.prepare_quill"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.veos_enchanted_scroll",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.veos_enchanted_quill",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask what visitors can do in the city and record the answer. The five interviews can be done in any order."
+    }
+  },
+  {
+    "id": "quest.client_of_kourend.receive_orb",
+    "name": "Return the survey to Veos",
+    "activity_id": "quest.client_of_kourend",
+    "kind": "quest_stage",
+    "start_location_id": "location.piscarilius.veos",
+    "end_location_id": "location.piscarilius.veos",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.survey_piscarilius"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.survey_hosidius"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.survey_shayzien"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.survey_lovakengj"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.survey_arceuus"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.veos_mysterious_orb",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Report all five interviews and receive the mysterious orb."
+    }
+  },
+  {
+    "id": "quest.client_of_kourend.activate_orb",
+    "name": "Activate the orb at the Dark Altar",
+    "activity_id": "quest.client_of_kourend",
+    "kind": "quest_stage",
+    "start_location_id": "location.arceuus.dark_altar",
+    "end_location_id": "location.arceuus.dark_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.receive_orb"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.veos_mysterious_orb",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 29
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Activate the orb near the altar and watch the client’s scene."
+    }
+  },
+  {
+    "id": "quest.client_of_kourend.complete",
+    "name": "Report the Dark Altar visit to Veos",
+    "activity_id": "quest.client_of_kourend",
+    "kind": "quest_stage",
+    "start_location_id": "location.piscarilius.veos",
+    "end_location_id": "location.piscarilius.veos",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.activate_orb"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.client_of_kourend.antique_lamp",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.kharedsts_memoirs",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.client_of_kourend.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.children_of_the_sun",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Veos awards the memoirs and two lamps. Completion enables Kourend Castle Teleport."
+    }
+  },
+  {
+    "id": "quest.the_queen_of_thieves.start",
+    "name": "Accept Tomas Lawry’s investigation",
+    "activity_id": "quest.the_queen_of_thieves",
+    "kind": "quest_stage",
+    "start_location_id": "location.piscarilius.tomas_lawry",
+    "end_location_id": "location.piscarilius.tomas_lawry",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.x_marks_the_spot.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.client_of_kourend.complete",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 20,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start the investigation in northern Port Piscarilius."
+    }
+  },
+  {
+    "id": "quest.the_queen_of_thieves.feed_robert",
+    "name": "Ask about the Warrens and give Robert stew",
+    "activity_id": "quest.the_queen_of_thieves",
+    "kind": "quest_stage",
+    "start_location_id": "location.piscarilius.robert_oreilly",
+    "end_location_id": "location.piscarilius.robert_oreilly",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_queen_of_thieves.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.stew",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to the woman on the way to Robert, then give him a bowl of stew."
+    }
+  },
+  {
+    "id": "quest.the_queen_of_thieves.talk_to_devan",
+    "name": "Take the assignment from Devan Rutter",
+    "activity_id": "quest.the_queen_of_thieves",
+    "kind": "quest_stage",
+    "start_location_id": "location.warrens.devan",
+    "end_location_id": "location.warrens.devan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_queen_of_thieves.feed_robert"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Descend through the manhole and speak with Devan."
+    }
+  },
+  {
+    "id": "quest.the_queen_of_thieves.confront_conrad",
+    "name": "Complete Devan’s assignment at Conrad’s house",
+    "activity_id": "quest.the_queen_of_thieves",
+    "kind": "quest_stage",
+    "start_location_id": "location.piscarilius.conrad_king",
+    "end_location_id": "location.piscarilius.conrad_king",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_queen_of_thieves.talk_to_devan"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use Conrad’s quest interaction and select a dialogue outcome."
+    }
+  },
+  {
+    "id": "quest.the_queen_of_thieves.report_to_devan",
+    "name": "Report the assignment to Devan",
+    "activity_id": "quest.the_queen_of_thieves",
+    "kind": "quest_stage",
+    "start_location_id": "location.warrens.devan",
+    "end_location_id": "location.warrens.devan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_queen_of_thieves.confront_conrad"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return through the manhole and receive the introduction."
+    }
+  },
+  {
+    "id": "quest.the_queen_of_thieves.meet_queen",
+    "name": "Speak to the Queen of Thieves",
+    "activity_id": "quest.the_queen_of_thieves",
+    "kind": "quest_stage",
+    "start_location_id": "location.warrens.shauna",
+    "end_location_id": "location.warrens.shauna",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_queen_of_thieves.report_to_devan"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn where Hughes keeps the documents."
+    }
+  },
+  {
+    "id": "quest.the_queen_of_thieves.pick_hughes_chest",
+    "name": "Pick the lock on Hughes’ chest",
+    "activity_id": "quest.the_queen_of_thieves",
+    "kind": "quest_stage",
+    "start_location_id": "location.kingstown.hughes_chest",
+    "end_location_id": "location.kingstown.hughes_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_queen_of_thieves.meet_queen"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 20,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hughes_letter",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 59
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick the chest upstairs and take the letter."
+    }
+  },
+  {
+    "id": "quest.the_queen_of_thieves.deliver_letter",
+    "name": "Give Lawry the letter",
+    "activity_id": "quest.the_queen_of_thieves",
+    "kind": "quest_stage",
+    "start_location_id": "location.piscarilius.tomas_lawry",
+    "end_location_id": "location.piscarilius.tomas_lawry",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_queen_of_thieves.pick_hughes_chest"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.hughes_letter",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Report the investigation before returning to the Warrens."
+    }
+  },
+  {
+    "id": "quest.the_queen_of_thieves.complete",
+    "name": "Receive the Queen of Thieves rewards",
+    "activity_id": "quest.the_queen_of_thieves",
+    "kind": "quest_stage",
+    "start_location_id": "location.warrens.shauna",
+    "end_location_id": "location.warrens.shauna",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_queen_of_thieves.deliver_letter"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 2000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.memoir_page.fishers_flute",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_queen_of_thieves.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Shauna awards Thieving XP, coins and the Port Piscarilius memoir page. Warrens access remains available."
+    }
+  },
+  {
+    "id": "quest.the_depths_of_despair.start",
+    "name": "Ask Lord Kandur about Artur",
+    "activity_id": "quest.the_depths_of_despair",
+    "kind": "quest_stage",
+    "start_location_id": "location.hosidius.lord_kandur",
+    "end_location_id": "location.hosidius.lord_kandur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.x_marks_the_spot.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.client_of_kourend.complete",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 18,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Chef Olivia inside the house before leaving."
+    }
+  },
+  {
+    "id": "quest.the_depths_of_despair.read_envoy",
+    "name": "Find and read The Varlamore Envoy",
+    "activity_id": "quest.the_depths_of_despair",
+    "kind": "quest_stage",
+    "start_location_id": "location.arceuus.library_galana",
+    "end_location_id": "location.arceuus.library_galana",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_depths_of_despair.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 112,
+      "max_seconds": 235
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Galana which book Artur consulted, search the indicated shelves and read the book."
+    },
+    "planned_outcome": {
+      "success_condition": "The book directs the player to Crabclaw Caves.",
+      "if_unmet": "Ask Galana for the shelf and follow the current library hint."
+    }
+  },
+  {
+    "id": "quest.the_depths_of_despair.reach_artur",
+    "name": "Cross the Crabclaw Caves to Artur",
+    "activity_id": "quest.the_depths_of_despair",
+    "kind": "quest_stage",
+    "start_location_id": "location.hosidius.crabclaw_caves",
+    "end_location_id": "location.crabclaw_caves.lower_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_depths_of_despair.read_envoy"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 18,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 100,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the crevice and stepping stones, climb the rocks and descend to Artur."
+    }
+  },
+  {
+    "id": "quest.the_depths_of_despair.defeat_sand_snake",
+    "name": "Defeat the Sand Snake",
+    "activity_id": "quest.the_depths_of_despair",
+    "kind": "quest_stage",
+    "start_location_id": "location.crabclaw_caves.lower_entrance",
+    "end_location_id": "location.crabclaw_caves.lower_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_depths_of_despair.reach_artur"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 65,
+      "max_seconds": 137
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Artur and defeat the snake in the lower cave."
+    },
+    "planned_outcome": {
+      "success_condition": "The snake is defeated and the chest can be searched.",
+      "if_unmet": "Bring suitable combat gear and food before entering."
+    }
+  },
+  {
+    "id": "quest.the_depths_of_despair.recover_accord",
+    "name": "Take the Royal Accord of Twill",
+    "activity_id": "quest.the_depths_of_despair",
+    "kind": "quest_stage",
+    "start_location_id": "location.crabclaw_caves.lower_entrance",
+    "end_location_id": "location.crabclaw_caves.lower_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_depths_of_despair.defeat_sand_snake"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.royal_accord_of_twill",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 13,
+      "max_seconds": 27
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the chest after the fight and speak to Artur."
+    }
+  },
+  {
+    "id": "quest.the_depths_of_despair.complete",
+    "name": "Return the accord to Lord Kandur",
+    "activity_id": "quest.the_depths_of_despair",
+    "kind": "quest_stage",
+    "start_location_id": "location.hosidius.lord_kandur",
+    "end_location_id": "location.hosidius.lord_kandur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_depths_of_despair.recover_accord"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.royal_accord_of_twill",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 4000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.memoir_page.lunch_by_the_lancalliums",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_depths_of_despair.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive Agility XP, coins and the Hosidius memoir page."
+    }
+  },
+  {
+    "id": "quest.the_forsaken_tower.start",
+    "name": "Accept Lady Vulcana’s request",
+    "activity_id": "quest.the_forsaken_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.lovakengj.lady_vulcana",
+    "end_location_id": "location.lovakengj.lady_vulcana",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.x_marks_the_spot.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.client_of_kourend.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Lady Vulcana directs the player to Undor."
+    }
+  },
+  {
+    "id": "quest.the_forsaken_tower.consult_undor",
+    "name": "Ask Undor about Dinh’s hammer",
+    "activity_id": "quest.the_forsaken_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.wintertodt.undor",
+    "end_location_id": "location.wintertodt.undor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_forsaken_tower.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Undor at the Wintertodt Camp."
+    }
+  },
+  {
+    "id": "quest.the_forsaken_tower.inspect_case",
+    "name": "Inspect the tower display case",
+    "activity_id": "quest.the_forsaken_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.forsaken_tower.display_case",
+    "end_location_id": "location.forsaken_tower.display_case",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_forsaken_tower.consult_undor"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Identify the mechanisms holding the hammer."
+    }
+  },
+  {
+    "id": "supply.forsaken_tower.collect_tinderbox",
+    "name": "Take a tinderbox from the tower cupboard",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.forsaken_tower.display_case",
+    "end_location_id": "location.forsaken_tower.display_case",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_forsaken_tower.inspect_case"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 10,
+      "max_seconds": 22
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the cupboard on the ground floor near the furnace if a tinderbox is needed."
+    }
+  },
+  {
+    "id": "quest.the_forsaken_tower.prepare_furnace",
+    "name": "Measure coolant and light the furnace",
+    "activity_id": "quest.the_forsaken_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.forsaken_tower.display_case",
+    "end_location_id": "location.forsaken_tower.display_case",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_forsaken_tower.inspect_case"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 46,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find both jugs, measure the coolant using the dispenser, add it to the furnace and light the furnace."
+    }
+  },
+  {
+    "id": "quest.the_forsaken_tower.repair_power",
+    "name": "Restore the basement power grid",
+    "activity_id": "quest.the_forsaken_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.forsaken_tower.power_grid",
+    "end_location_id": "location.forsaken_tower.power_grid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_forsaken_tower.prepare_furnace"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 48,
+      "max_seconds": 101
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search for the crank, turn on the generator and reconnect the grid."
+    }
+  },
+  {
+    "id": "quest.the_forsaken_tower.restore_refinery",
+    "name": "Restore the first-floor refinery",
+    "activity_id": "quest.the_forsaken_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.forsaken_tower.first_floor",
+    "end_location_id": "location.forsaken_tower.first_floor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_forsaken_tower.repair_power"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 56,
+      "max_seconds": 118
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the cupboard notes, identify the correct fluid and use it to activate the refinery."
+    }
+  },
+  {
+    "id": "quest.the_forsaken_tower.rebalance_pylons",
+    "name": "Rebalance the three upper-floor pylons",
+    "activity_id": "quest.the_forsaken_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.forsaken_tower.top_floor",
+    "end_location_id": "location.forsaken_tower.top_floor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_forsaken_tower.restore_refinery"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 60,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Move the disks among the three pylons in the required order to release the final lock."
+    }
+  },
+  {
+    "id": "quest.the_forsaken_tower.retrieve_hammer",
+    "name": "Remove Dinh’s hammer",
+    "activity_id": "quest.the_forsaken_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.forsaken_tower.display_case",
+    "end_location_id": "location.forsaken_tower.display_case",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_forsaken_tower.rebalance_pylons"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dinhs_hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 25
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open the display case after restoring the mechanisms."
+    }
+  },
+  {
+    "id": "quest.the_forsaken_tower.deliver_hammer",
+    "name": "Return the hammer to Undor",
+    "activity_id": "quest.the_forsaken_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.wintertodt.undor",
+    "end_location_id": "location.wintertodt.undor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_forsaken_tower.retrieve_hammer"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dinhs_hammer",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Undor the hammer before reporting back."
+    }
+  },
+  {
+    "id": "quest.the_forsaken_tower.complete",
+    "name": "Report to Lady Vulcana",
+    "activity_id": "quest.the_forsaken_tower",
+    "kind": "quest_stage",
+    "start_location_id": "location.lovakengj.lady_vulcana",
+    "end_location_id": "location.lovakengj.lady_vulcana",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_forsaken_tower.deliver_hammer"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 6000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.memoir_page.jewelry_of_jubilation",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_forsaken_tower.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.children_of_the_sun",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive Mining and Smithing XP, coins and the Lovakengj page. Minecart rides are now free."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_tale_rope",
+    "name": "Buy rope for the mountain crevice",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 90
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reserve enough coins for a rope."
+    }
+  },
+  {
+    "id": "quest.the_ascent_of_arceuus.start",
+    "name": "Ask Mori about the disturbance",
+    "activity_id": "quest.the_ascent_of_arceuus",
+    "kind": "quest_stage",
+    "start_location_id": "location.arceuus.mori",
+    "end_location_id": "location.arceuus.mori",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.x_marks_the_spot.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.client_of_kourend.complete",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.hunter",
+          "minimum_level": 12,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mori asks the player to inform the council."
+    }
+  },
+  {
+    "id": "quest.the_ascent_of_arceuus.report_to_andrews",
+    "name": "Warn Councillor Andrews",
+    "activity_id": "quest.the_ascent_of_arceuus",
+    "kind": "quest_stage",
+    "start_location_id": "location.kourend_castle.andrews",
+    "end_location_id": "location.kourend_castle.andrews",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ascent_of_arceuus.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find the councillor upstairs and explain Mori’s report."
+    }
+  },
+  {
+    "id": "quest.the_ascent_of_arceuus.return_to_mori",
+    "name": "Bring the councillor’s response to Mori",
+    "activity_id": "quest.the_ascent_of_arceuus",
+    "kind": "quest_stage",
+    "start_location_id": "location.arceuus.mori",
+    "end_location_id": "location.arceuus.mori",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ascent_of_arceuus.report_to_andrews"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mori directs the player to the Tower of Magic."
+    }
+  },
+  {
+    "id": "quest.the_ascent_of_arceuus.fight_tormented_souls",
+    "name": "Enter the tower and defeat the tormented souls",
+    "activity_id": "quest.the_ascent_of_arceuus",
+    "kind": "quest_stage",
+    "start_location_id": "location.arceuus.tower_of_magic_door",
+    "end_location_id": "location.tower_of_magic.tormented_souls",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ascent_of_arceuus.return_to_mori"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 46,
+      "expected_seconds": 103,
+      "max_seconds": 216
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the quest instance and clear the souls on the ground floor."
+    },
+    "planned_outcome": {
+      "success_condition": "The ground-floor souls have been defeated.",
+      "if_unmet": "Bring sufficient equipment, ammo or runes and food."
+    }
+  },
+  {
+    "id": "quest.the_ascent_of_arceuus.consult_trobin",
+    "name": "Speak to Lord Arceuus upstairs",
+    "activity_id": "quest.the_ascent_of_arceuus",
+    "kind": "quest_stage",
+    "start_location_id": "location.tower_of_magic.lord_arceuus",
+    "end_location_id": "location.tower_of_magic.lord_arceuus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ascent_of_arceuus.fight_tormented_souls"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn how to locate the soul of the deceased."
+    }
+  },
+  {
+    "id": "quest.the_ascent_of_arceuus.consult_tasakaal",
+    "name": "Ask Kaal-Ket-Jor about the soul",
+    "activity_id": "quest.the_ascent_of_arceuus",
+    "kind": "quest_stage",
+    "start_location_id": "location.mount_karuulm.elevator",
+    "end_location_id": "location.mount_karuulm.elevator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ascent_of_arceuus.consult_trobin"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 62,
+      "max_seconds": 130
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the dungeon lift, speak to Kaal-Ket-Jor and return to the surface."
+    }
+  },
+  {
+    "id": "quest.the_ascent_of_arceuus.track_soul",
+    "name": "Inspect the grave and track the soul",
+    "activity_id": "quest.the_ascent_of_arceuus",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.mysterious_grave",
+    "end_location_id": "location.kebos.trapped_soul",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ascent_of_arceuus.consult_tasakaal"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.hunter",
+          "minimum_level": 12,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 84,
+      "max_seconds": 176
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow the inspection trail from the grave to the final clue."
+    }
+  },
+  {
+    "id": "quest.the_ascent_of_arceuus.free_trapped_soul",
+    "name": "Defeat the trapped soul",
+    "activity_id": "quest.the_ascent_of_arceuus",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.trapped_soul",
+    "end_location_id": "location.kebos.trapped_soul",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ascent_of_arceuus.track_soul"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fight the trapped soul at the end of the trail."
+    },
+    "planned_outcome": {
+      "success_condition": "The trapped soul encounter is resolved.",
+      "if_unmet": "Use suitable gear and food and finish the encounter before leaving."
+    }
+  },
+  {
+    "id": "quest.the_ascent_of_arceuus.return_to_tasakaal",
+    "name": "Report the encounter to Kaal-Ket-Jor",
+    "activity_id": "quest.the_ascent_of_arceuus",
+    "kind": "quest_stage",
+    "start_location_id": "location.mount_karuulm.elevator",
+    "end_location_id": "location.mount_karuulm.elevator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ascent_of_arceuus.free_trapped_soul"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 61,
+      "max_seconds": 128
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reenter the dungeon, report the encounter, then return to the surface."
+    }
+  },
+  {
+    "id": "quest.the_ascent_of_arceuus.find_device",
+    "name": "Search the rocks near the Dark Altar",
+    "activity_id": "quest.the_ascent_of_arceuus",
+    "kind": "quest_stage",
+    "start_location_id": "location.arceuus.dark_altar",
+    "end_location_id": "location.arceuus.dark_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ascent_of_arceuus.return_to_tasakaal"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect rocks until the device is found."
+    }
+  },
+  {
+    "id": "quest.the_ascent_of_arceuus.complete",
+    "name": "Report the discovery to Lord Arceuus",
+    "activity_id": "quest.the_ascent_of_arceuus",
+    "kind": "quest_stage",
+    "start_location_id": "location.tower_of_magic.lord_arceuus",
+    "end_location_id": "location.tower_of_magic.lord_arceuus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ascent_of_arceuus.find_device"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hunter",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.runecraft",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 2000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.memoir_page.a_dark_disposition",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_ascent_of_arceuus.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive Hunter XP, Runecraft XP, coins and the Arceuus memoir page."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.start",
+    "name": "Accept Phileas Rimor’s investigation",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.shayzien.phileas_rimor",
+    "end_location_id": "location.shayzien.phileas_rimor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.x_marks_the_spot.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.client_of_kourend.complete",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.strength",
+          "minimum_level": 16,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 10,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Phileas sends the player to the Arceuus Archive."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.enter_archive",
+    "name": "Ask Archeio to send you to the archive",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.arceuus.library_archeio",
+    "end_location_id": "location.arceuus_archive.pagida",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the archive guardian’s teleport, then speak to Pagida."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.solve_archive_device",
+    "name": "Solve the archive combat-style puzzle",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.arceuus_archive.device",
+    "end_location_id": "location.arceuus_archive.device",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.enter_archive"
+        },
+        {
+          "kind": "all",
+          "requirements": [
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 73,
+      "max_seconds": 153
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Move the device into position and switch between Melee, Ranged and Magic as the puzzle requires. Bare hands can be used for the melee strike."
+    },
+    "planned_outcome": {
+      "success_condition": "The device is solved and the skeleton can be investigated.",
+      "if_unmet": "Bring ranged ammunition and runes and switch styles to match the device clues."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.investigate_skeleton",
+    "name": "Investigate the skeleton in the archive",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.arceuus_archive.device",
+    "end_location_id": "location.arceuus_archive.device",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.solve_archive_device"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect the skeleton beyond the device to learn what happened."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.report_to_phileas",
+    "name": "Report the archive discovery to Phileas",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.shayzien.phileas_rimor",
+    "end_location_id": "location.shayzien.phileas_rimor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.investigate_skeleton"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Phileas asks the player to consult Shiro."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.report_to_shiro",
+    "name": "Brief Shiro in the war tent",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.shayzien.shiro",
+    "end_location_id": "location.shayzien.shiro",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.report_to_phileas"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Shiro upstairs and learn about the mountain expedition."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.meet_duffy",
+    "name": "Meet Duffy at Mount Quidamortem",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.quidamortem.duffy",
+    "end_location_id": "location.quidamortem.duffy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.report_to_shiro"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Duffy where to look for the cave entrance."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.open_crevice",
+    "name": "Secure rope at the crevice",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.quidamortem.altar_crevice",
+    "end_location_id": "location.quidamortem.altar_crevice",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.meet_duffy"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the rope to make the crevice traversable."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.clear_cavern",
+    "name": "Clear the rockfall and push the boulder",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.quidamortem.altar_crevice",
+    "end_location_id": "location.quidamortem_cavern.unstable_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.open_crevice"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 10,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.strength",
+          "minimum_level": 16,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 55,
+      "max_seconds": 116
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Descend, mine the rockfall and push the boulder to reach the barrier."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.defeat_corrupt_lizardman",
+    "name": "Defeat the corrupt lizardman",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.quidamortem_cavern.unstable_altar",
+    "end_location_id": "location.quidamortem_cavern.unstable_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.clear_cavern"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 68,
+      "max_seconds": 143
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Try the barrier and complete the fight before investigating the altar."
+    },
+    "planned_outcome": {
+      "success_condition": "The lizardman is defeated and the altar is accessible.",
+      "if_unmet": "Bring suitable combat gear, food and antipoison if needed."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.inspect_altar",
+    "name": "Inspect the unstable altar",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.quidamortem_cavern.unstable_altar",
+    "end_location_id": "location.quidamortem_cavern.unstable_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.defeat_corrupt_lizardman"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect the altar before returning to Duffy."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.return_to_duffy",
+    "name": "Bring Duffy to the cavern",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.quidamortem.duffy",
+    "end_location_id": "location.quidamortem.duffy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.inspect_altar"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Report the discovery to Duffy on the surface."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.consult_gnosi",
+    "name": "Return to the altar and speak to Gnosi",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.quidamortem.altar_crevice",
+    "end_location_id": "location.quidamortem_cavern.unstable_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.return_to_duffy"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 56,
+      "max_seconds": 118
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Descend the fixed rope, retrace the cave route, then speak to Duffy and Gnosi at the altar."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.report_final_discovery",
+    "name": "Tell Shiro what you found",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.shayzien.shiro",
+    "end_location_id": "location.shayzien.shiro",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.consult_gnosi"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Brief Shiro on the conversation at the altar."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.check_phileas_tent",
+    "name": "Check Phileas’s tent",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.shayzien.phileas_rimor",
+    "end_location_id": "location.shayzien.phileas_rimor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.report_final_discovery"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow up at Phileas’s tent before the final report."
+    }
+  },
+  {
+    "id": "quest.tale_of_the_righteous.complete",
+    "name": "Return to Shiro to finish the investigation",
+    "activity_id": "quest.tale_of_the_righteous",
+    "kind": "quest_stage",
+    "start_location_id": "location.shayzien.shiro",
+    "end_location_id": "location.shayzien.shiro",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tale_of_the_righteous.check_phileas_tent"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 8000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.memoir_page.history_and_hearsay",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.tale_of_the_righteous.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive coins, the Shayzien memoir page and the build 242 Mining XP reward."
+    }
+  },
+  {
+    "id": "quest.children_of_the_sun.start",
+    "name": "Speak to Alina and watch the delegation arrive",
+    "activity_id": "quest.children_of_the_sun",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.alina",
+    "end_location_id": "location.varrock.alina",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 61
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Alina introduces the Varlamore delegation’s visit to Varrock."
+    }
+  },
+  {
+    "id": "quest.children_of_the_sun.tail_guard",
+    "name": "Follow the suspicious guard through Varrock",
+    "activity_id": "quest.children_of_the_sun",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.alina",
+    "end_location_id": "location.varrock.guard_tailing_end",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 51,
+      "expected_seconds": 114,
+      "max_seconds": 239
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow the guard and use the hiding points to keep out of sight."
+    },
+    "planned_outcome": {
+      "success_condition": "The guard’s route reveals the meeting place.",
+      "if_unmet": "Restart the tail if the guard notices the player or gets too far away."
+    }
+  },
+  {
+    "id": "quest.children_of_the_sun.investigate_door",
+    "name": "Investigate the meeting place",
+    "activity_id": "quest.children_of_the_sun",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.bandit_door",
+    "end_location_id": "location.varrock.bandit_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.tail_guard"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Try the door and watch the encounter."
+    }
+  },
+  {
+    "id": "quest.children_of_the_sun.tell_tobyn",
+    "name": "Report the meeting to Sergeant Tobyn",
+    "activity_id": "quest.children_of_the_sun",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.sergeant_tobyn",
+    "end_location_id": "location.varrock.sergeant_tobyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.investigate_door"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tobyn gives instructions for identifying the guards."
+    }
+  },
+  {
+    "id": "quest.children_of_the_sun.mark_guards",
+    "name": "Mark four guards and correct the mistaken mark",
+    "activity_id": "quest.children_of_the_sun",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.sergeant_tobyn",
+    "end_location_id": "location.varrock.sergeant_tobyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.tell_tobyn"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 78,
+      "max_seconds": 164
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Check the guards around the square and eastern streets. Finish by reporting back to Tobyn."
+    },
+    "planned_outcome": {
+      "success_condition": "Four intended guards are marked and the mistaken mark has been removed.",
+      "if_unmet": "Check the current mark list and speak to Tobyn again."
+    }
+  },
+  {
+    "id": "quest.children_of_the_sun.complete",
+    "name": "Meet Tobyn on the palace roof",
+    "activity_id": "quest.children_of_the_sun",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.palace_tobyn_roof",
+    "end_location_id": "location.varrock.palace_tobyn_roof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.mark_guards"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.children_of_the_sun.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.children_of_the_sun",
+        "source.jagex.varlamore_part_one",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Tobyn upstairs and finish the audience. Regulus can now take the player to Varlamore."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.start",
+    "name": "Accept Ennius’s request in Civitas illa Fortis",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.ennius_start",
+    "end_location_id": "location.fortis.ennius_start",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.children_of_the_sun.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.varlamore.first_arrival",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start after travelling to Varlamore with Primio."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.consult_metzli",
+    "name": "Ask Metzli how to meet the prince",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.temple_metzli",
+    "end_location_id": "location.fortis.temple_metzli",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Metzli in the temple."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.meet_prince",
+    "name": "Meet Prince Itzla in the crypt",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.crypt_prince",
+    "end_location_id": "location.fortis.crypt_prince",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.consult_metzli"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.varlamore_crest",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find the prince in the crypt and receive the Varlamore crest."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.report_to_ennius",
+    "name": "Brief Ennius in Sunrise Palace",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.ennius_palace",
+    "end_location_id": "location.fortis.ennius_palace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.meet_prince"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tell Ennius what the prince said and learn which knights to visit."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.meet_cothon_knight",
+    "name": "Show the crest to the Cothon knight",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.cothon_knight",
+    "end_location_id": "location.fortis.cothon_knight",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.report_to_ennius"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.varlamore_crest",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn which crate the knight wants checked."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.search_cothon_crate",
+    "name": "Search the marked Cothon crate",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.cothon_crate",
+    "end_location_id": "location.fortis.cothon_crate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.meet_cothon_knight"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 29
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect the crate on the north-east side of the Cothon."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.help_cothon_knight",
+    "name": "Tell the Cothon knight what was in the crate",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.cothon_knight",
+    "end_location_id": "location.fortis.cothon_knight",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.search_cothon_crate"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Report the crate search."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.help_colosseum_knight",
+    "name": "Win the training bout against the Colosseum knight",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.colosseum_knight",
+    "end_location_id": "location.fortis.colosseum_knight",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.report_to_ennius"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.varlamore_crest",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "any",
+                  "requirements": [
+                    {
+                      "kind": "item",
+                      "item_id": "item.bronze_shortsword",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.steel_dagger",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.silverlight",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.darklight",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.excalibur",
+                      "quantity": 1
+                    }
+                  ]
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "item",
+                      "item_id": "item.shortbow",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.bronze_arrow",
+                      "quantity": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "any",
+                  "requirements": [
+                    {
+                      "kind": "item",
+                      "item_id": "item.bronze_shortsword",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.steel_dagger",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.silverlight",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.darklight",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.excalibur",
+                      "quantity": 1
+                    }
+                  ]
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "flag",
+                      "token_id": "flag.spellbook.standard",
+                      "value": true
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.air_rune",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.mind_rune",
+                      "quantity": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "item",
+                      "item_id": "item.shortbow",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.bronze_arrow",
+                      "quantity": 1
+                    }
+                  ]
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "flag",
+                      "token_id": "flag.spellbook.standard",
+                      "value": true
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.air_rune",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.mind_rune",
+                      "quantity": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 100,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show the crest, accept the bout, switch combat styles to bypass protection prayers and speak to the knight again."
+    },
+    "planned_outcome": {
+      "success_condition": "The knight acknowledges the won bout.",
+      "if_unmet": "Bring gear for two effective styles and switch when the protection prayer changes."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.help_pub_knights",
+    "name": "Lead the pub knight to the fountain",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.pub_knights",
+    "end_location_id": "location.fortis.knight_fountain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.report_to_ennius"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.varlamore_crest",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 71,
+      "max_seconds": 149
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show the crest, keep the knight following and speak after they sober up at the fountain."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.meet_bazaar_knight",
+    "name": "Ask the Bazaar knight about the stolen amulet",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.bazaar_knight",
+    "end_location_id": "location.fortis.bazaar_knight",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.report_to_ennius"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.varlamore_crest",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show the crest and ask which citizen has the amulet."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.recover_amulet",
+    "name": "Pickpocket the stolen amulet",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.bazaar_knight",
+    "end_location_id": "location.fortis.bazaar_knight",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.meet_bazaar_knight"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.twilight_stolen_amulet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find the nearby quest citizen and recover the amulet."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.help_bazaar_knight",
+    "name": "Give the stolen amulet back to the Bazaar knight",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.bazaar_knight",
+    "end_location_id": "location.fortis.bazaar_knight",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.recover_amulet"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.twilight_stolen_amulet",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return the recovered amulet."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.report_knights",
+    "name": "Report the four knights’ findings",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.ennius_palace",
+    "end_location_id": "location.fortis.ennius_palace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.help_cothon_knight"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.help_colosseum_knight"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.help_pub_knights"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.help_bazaar_knight"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Finish all four tasks in any order before reporting to Ennius."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.find_letter",
+    "name": "Find and read the letter at the knights’ headquarters",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.knight_hq_chest",
+    "end_location_id": "location.fortis.knight_hq_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.report_knights"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.twilight_incriminating_letter",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 45,
+      "max_seconds": 95
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the upper-floor chest and read the letter."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.deliver_letter",
+    "name": "Report the letter to Ennius",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.ennius_palace",
+    "end_location_id": "location.fortis.ennius_palace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.find_letter"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.twilight_incriminating_letter",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show the letter and get directions to the Teomat."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.get_feed",
+    "name": "Ask Regulus for help reaching the Teomat",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.renu",
+    "end_location_id": "location.fortis.renu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.deliver_letter"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.twilight_quetzal_feed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Regulus gives the player feed for Renu."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.feed_renu",
+    "name": "Feed Renu",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.renu",
+    "end_location_id": "location.fortis.renu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.get_feed"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.twilight_quetzal_feed",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.varlamore.renu",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 13,
+      "max_seconds": 27
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Feed Renu to unlock the quest flight."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.meet_prince_at_teomat",
+    "name": "Meet Prince Itzla at the Teomat",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.varlamore.teomat_prince",
+    "end_location_id": "location.varlamore.teomat_prince",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.feed_renu"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fly to the Teomat and speak to the prince."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.ask_metzli",
+    "name": "Speak to Metzli near the Teomat",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.varlamore.teomat_metzli",
+    "end_location_id": "location.varlamore.teomat_metzli",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.meet_prince_at_teomat"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Metzli in the northern building and prepare for the attack."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.defend_teomat",
+    "name": "Defeat the eight cultists at the Teomat",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.varlamore.teomat_metzli",
+    "end_location_id": "location.varlamore.teomat_metzli",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.ask_metzli"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 87,
+      "expected_seconds": 194,
+      "max_seconds": 407
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fight the attacking cultists through the encounter and watch the aftermath."
+    },
+    "planned_outcome": {
+      "success_condition": "The eight cultists have been defeated and the aftermath scene has played.",
+      "if_unmet": "Bring sufficient combat supplies and finish the attack sequence before leaving."
+    }
+  },
+  {
+    "id": "quest.twilights_promise.complete",
+    "name": "Report the attack to Prince Itzla",
+    "activity_id": "quest.twilights_promise",
+    "kind": "quest_stage",
+    "start_location_id": "location.varlamore.teomat_prince",
+    "end_location_id": "location.varlamore.teomat_prince",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.defend_teomat"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 30000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.twilights_promise.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.varlamore_part_one",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive Thieving XP and unlock the regular quetzal service and Civitas illa Fortis spell."
+    }
+  },
+  {
+    "id": "supply.memoirs.insert_fishers_flute",
+    "name": "Insert The Fisher’s Flute in Kharedst’s memoirs",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.warrens.shauna",
+    "end_location_id": "location.warrens.shauna",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.kharedsts_memoirs",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.memoir_page.fishers_flute",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.memoir_page.fishers_flute",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.memoir_page.fishers_flute",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.kharedsts_memoirs.charges",
+        "delta": 20
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 19
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.children_of_the_sun",
+        "source.shortest_path.kourend_varlamore_items",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Insert the page as a separate interaction after receiving it. Twenty charges are added to the shared pool."
+    }
+  },
+  {
+    "id": "supply.memoirs.insert_lunch_by_the_lancalliums",
+    "name": "Insert Lunch by the Lancalliums in Kharedst’s memoirs",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.hosidius.lord_kandur",
+    "end_location_id": "location.hosidius.lord_kandur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.kharedsts_memoirs",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.memoir_page.lunch_by_the_lancalliums",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.memoir_page.lunch_by_the_lancalliums",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.memoir_page.lunch_by_the_lancalliums",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.kharedsts_memoirs.charges",
+        "delta": 20
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 19
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.children_of_the_sun",
+        "source.shortest_path.kourend_varlamore_items",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Insert the page as a separate interaction after receiving it. Twenty charges are added to the shared pool."
+    }
+  },
+  {
+    "id": "supply.memoirs.insert_jewelry_of_jubilation",
+    "name": "Insert Jewelry of Jubilation in Kharedst’s memoirs",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.lovakengj.lady_vulcana",
+    "end_location_id": "location.lovakengj.lady_vulcana",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.kharedsts_memoirs",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.memoir_page.jewelry_of_jubilation",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.memoir_page.jewelry_of_jubilation",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.memoir_page.jewelry_of_jubilation",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.kharedsts_memoirs.charges",
+        "delta": 20
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 19
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.children_of_the_sun",
+        "source.shortest_path.kourend_varlamore_items",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Insert the page as a separate interaction after receiving it. Twenty charges are added to the shared pool."
+    }
+  },
+  {
+    "id": "supply.memoirs.insert_a_dark_disposition",
+    "name": "Insert A Dark Disposition in Kharedst’s memoirs",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.tower_of_magic.lord_arceuus",
+    "end_location_id": "location.tower_of_magic.lord_arceuus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.kharedsts_memoirs",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.memoir_page.a_dark_disposition",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.memoir_page.a_dark_disposition",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.memoir_page.a_dark_disposition",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.kharedsts_memoirs.charges",
+        "delta": 20
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 19
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.children_of_the_sun",
+        "source.shortest_path.kourend_varlamore_items",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Insert the page as a separate interaction after receiving it. Twenty charges are added to the shared pool."
+    }
+  },
+  {
+    "id": "supply.memoirs.insert_history_and_hearsay",
+    "name": "Insert History and Hearsay in Kharedst’s memoirs",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.shayzien.shiro",
+    "end_location_id": "location.shayzien.shiro",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.kharedsts_memoirs",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.memoir_page.history_and_hearsay",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.memoir_page.history_and_hearsay",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.memoir_page.history_and_hearsay",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.kharedsts_memoirs.charges",
+        "delta": 20
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 19
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.children_of_the_sun",
+        "source.shortest_path.kourend_varlamore_items",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Insert the page as a separate interaction after receiving it. Twenty charges are added to the shared pool."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_queen_stew",
+    "name": "Buy stew for Robert O’Reilly",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 160
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.stew",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Set aside a small Grand Exchange reserve for one bowl of stew."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_kourend_castle_tablet",
+    "name": "Buy one Kourend Castle teleport tablet",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.client_of_kourend.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 800
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.kourend_castle_teleport_tablet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 38
+    },
+    "repeat_limit": 3,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.shortest_path.kourend_varlamore_items",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Grand Exchange reserve is an estimate."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_civitas_illa_fortis_tablet",
+    "name": "Buy one Civitas illa Fortis teleport tablet",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.twilights_promise.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.varlamore.first_arrival",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 650
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.civitas_illa_fortis_teleport_tablet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 38
+    },
+    "repeat_limit": 3,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.shortest_path.kourend_varlamore_items",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Grand Exchange reserve is an estimate."
+    }
+  }
+]

@@ -1,0 +1,602 @@
+{
+  "schema_version": "0.1.0",
+  "solution_id": "solution.bounded.profile.fixture.the_golem",
+  "inputs": {
+    "dataset_id": "osrs.main",
+    "dataset_version": "0.29.0",
+    "profile_id": "profile.fixture.the_golem",
+    "catalog_sha256": "5398f50012fcfe27a6375ac2a3fe4cec537f7967497a8bdeac17d42cc49b4995",
+    "profile_sha256": "81ad16049c00d1ba5f96fe706bea4898f01fe3390a1e65e22c51dfc3c8a62acb",
+    "schemas_sha256": "67c5898cc3b30a41d5bf9996b5be36c2a5798fce998844e2adc6d9d26039a5c6"
+  },
+  "policies": {
+    "quest_lamp_skill_policy": "any_skill",
+    "trade_enabled": true,
+    "gp_policy": "self_funded",
+    "allow_boosts": true,
+    "allow_poh_services": false,
+    "allow_wilderness_travel": true,
+    "allow_death_travel": false,
+    "allow_minigame_teleports": true,
+    "allow_world_switching": false,
+    "allow_player_assistance": true,
+    "allow_repeatable_xp": false,
+    "training_methods": "user_choice",
+    "training_time_in_objective": false,
+    "training_resume_policy": "return_to_route_waypoint"
+  },
+  "solver": {
+    "name": "bounded-beam",
+    "seed": 0,
+    "status": "example",
+    "primary_lower_bound_xp_tenths": 0,
+    "secondary_lower_bound_seconds": null,
+    "version": "0.1.0",
+    "proof_artifact": null
+  },
+  "objective": {
+    "order": [
+      "manual_training_xp_tenths",
+      "modeled_non_training_seconds",
+      "stable_step_ids"
+    ],
+    "manual_training_xp_tenths": 0,
+    "modeled_non_training_seconds": 2583
+  },
+  "manual_training_xp_tenths_by_skill": {},
+  "steps": [
+    {
+      "step_id": "step.000001",
+      "kind": "action",
+      "action_id": "supply.grand_exchange.purchase_golem_materials",
+      "modeled_seconds": 20,
+      "explanation": "Buy four soft clay, an empty vial, papyrus, and a pestle and mortar"
+    },
+    {
+      "step_id": "step.000002",
+      "kind": "travel",
+      "edge_id": "travel.walk.varrock.grand_exchange.back",
+      "modeled_seconds": 48,
+      "explanation": "Walk from the Grand Exchange to Varrock square"
+    },
+    {
+      "step_id": "step.000003",
+      "kind": "travel",
+      "edge_id": "travel.walk.varrock.aubury.out",
+      "modeled_seconds": 25,
+      "explanation": "Varrock square and Aubury"
+    },
+    {
+      "step_id": "step.000004",
+      "kind": "travel",
+      "edge_id": "travel.walk.digsite.exam_to_varrock.back",
+      "modeled_seconds": 110,
+      "explanation": "Walk from south-east Varrock to the Exam Centre"
+    },
+    {
+      "step_id": "step.000005",
+      "kind": "travel",
+      "edge_id": "travel.walk.al_kharid.digsite.out",
+      "modeled_seconds": 170,
+      "explanation": "Follow the road south to Al Kharid"
+    },
+    {
+      "step_id": "step.000006",
+      "kind": "travel",
+      "edge_id": "travel.walk.al_kharid.shantay.out",
+      "modeled_seconds": 48,
+      "explanation": "Walk to the Shantay Pass gate"
+    },
+    {
+      "step_id": "step.000007",
+      "kind": "travel",
+      "edge_id": "travel.walk.shantay.buy_and_use_pass",
+      "modeled_seconds": 18,
+      "explanation": "Buy a pass from Shantay and enter the desert"
+    },
+    {
+      "step_id": "step.000008",
+      "kind": "travel",
+      "edge_id": "travel.walk.desert.shantay_uzer.out",
+      "modeled_seconds": 168,
+      "explanation": "Walk from Shantay Pass to Uzer"
+    },
+    {
+      "step_id": "step.000009",
+      "kind": "action",
+      "action_id": "quest.the_golem.start",
+      "modeled_seconds": 22,
+      "explanation": "Speak to the broken clay golem"
+    },
+    {
+      "step_id": "step.000010",
+      "kind": "action",
+      "action_id": "quest.the_golem.repair",
+      "modeled_seconds": 30,
+      "explanation": "Repair the golem with four soft clay"
+    },
+    {
+      "step_id": "step.000011",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.desert_phoenix.out",
+      "modeled_seconds": 85,
+      "explanation": "Walk from Uzer to the Desert Phoenix"
+    },
+    {
+      "step_id": "step.000012",
+      "kind": "action",
+      "action_id": "quest.the_golem.take_phoenix_feather",
+      "modeled_seconds": 14,
+      "explanation": "Pluck a feather from the Desert Phoenix"
+    },
+    {
+      "step_id": "step.000013",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.desert_phoenix.back",
+      "modeled_seconds": 85,
+      "explanation": "Walk from the Desert Phoenix to Uzer"
+    },
+    {
+      "step_id": "step.000014",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.golem_letter.out",
+      "modeled_seconds": 8,
+      "explanation": "Walk from the golem to the letter"
+    },
+    {
+      "step_id": "step.000015",
+      "kind": "action",
+      "action_id": "quest.the_golem.read_letter",
+      "modeled_seconds": 14,
+      "explanation": "Pick up and read Varmen’s letter"
+    },
+    {
+      "step_id": "step.000016",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.golem_letter.back",
+      "modeled_seconds": 8,
+      "explanation": "Walk from the letter to the golem"
+    },
+    {
+      "step_id": "step.000017",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.golem_stairs.out",
+      "modeled_seconds": 7,
+      "explanation": "Walk to the Uzer ruin staircase"
+    },
+    {
+      "step_id": "step.000018",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.mushrooms.out",
+      "modeled_seconds": 4,
+      "explanation": "Walk to the black mushroom patch"
+    },
+    {
+      "step_id": "step.000019",
+      "kind": "action",
+      "action_id": "supply.uzer.gather_black_mushroom",
+      "modeled_seconds": 5,
+      "explanation": "Pick a black mushroom at Uzer"
+    },
+    {
+      "step_id": "step.000020",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.mushrooms.back",
+      "modeled_seconds": 4,
+      "explanation": "Walk from the mushrooms to the ruin staircase"
+    },
+    {
+      "step_id": "step.000021",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.ruin_staircase.out",
+      "modeled_seconds": 7,
+      "explanation": "Descend into the Uzer ruins"
+    },
+    {
+      "step_id": "step.000022",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.ruin_staircase.back",
+      "modeled_seconds": 7,
+      "explanation": "Climb out of the Uzer ruins"
+    },
+    {
+      "step_id": "step.000023",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.golem_stairs.back",
+      "modeled_seconds": 7,
+      "explanation": "Walk from the ruin staircase to the golem"
+    },
+    {
+      "step_id": "step.000024",
+      "kind": "action",
+      "action_id": "quest.the_golem.make_ink",
+      "modeled_seconds": 7,
+      "explanation": "Grind a black mushroom into an empty vial"
+    },
+    {
+      "step_id": "step.000025",
+      "kind": "action",
+      "action_id": "quest.the_golem.make_quill",
+      "modeled_seconds": 6,
+      "explanation": "Dip the phoenix feather into the ink"
+    },
+    {
+      "step_id": "step.000026",
+      "kind": "travel",
+      "edge_id": "travel.walk.desert.shantay_uzer.back",
+      "modeled_seconds": 168,
+      "explanation": "Walk from Uzer to Shantay Pass"
+    },
+    {
+      "step_id": "step.000027",
+      "kind": "travel",
+      "edge_id": "travel.walk.shantay.leave_desert",
+      "modeled_seconds": 8,
+      "explanation": "Leave the desert through Shantay Pass"
+    },
+    {
+      "step_id": "step.000028",
+      "kind": "travel",
+      "edge_id": "travel.walk.al_kharid.shantay.back",
+      "modeled_seconds": 48,
+      "explanation": "Walk from Shantay Pass to the Al Kharid bank"
+    },
+    {
+      "step_id": "step.000029",
+      "kind": "travel",
+      "edge_id": "travel.walk.al_kharid.digsite.back",
+      "modeled_seconds": 170,
+      "explanation": "Follow the road north from Al Kharid to the Exam Centre"
+    },
+    {
+      "step_id": "step.000030",
+      "kind": "travel",
+      "edge_id": "travel.walk.digsite.exam_centre.back",
+      "modeled_seconds": 84,
+      "explanation": "Walk from the Exam Centre to Elissa"
+    },
+    {
+      "step_id": "step.000031",
+      "kind": "action",
+      "action_id": "quest.the_golem.talk_to_elissa",
+      "modeled_seconds": 21,
+      "explanation": "Ask Elissa about the letter"
+    },
+    {
+      "step_id": "step.000032",
+      "kind": "travel",
+      "edge_id": "travel.walk.digsite.exam_centre.out",
+      "modeled_seconds": 84,
+      "explanation": "Walk from Elissa to the Exam Centre"
+    },
+    {
+      "step_id": "step.000033",
+      "kind": "action",
+      "action_id": "quest.the_golem.read_notes",
+      "modeled_seconds": 19,
+      "explanation": "Find and read Varmen’s excavation notes"
+    },
+    {
+      "step_id": "step.000034",
+      "kind": "travel",
+      "edge_id": "travel.walk.digsite.exam_to_varrock.out",
+      "modeled_seconds": 110,
+      "explanation": "Walk from the Exam Centre to south-east Varrock"
+    },
+    {
+      "step_id": "step.000035",
+      "kind": "travel",
+      "edge_id": "travel.walk.varrock.aubury.back",
+      "modeled_seconds": 25,
+      "explanation": "Varrock square and Aubury (return)"
+    },
+    {
+      "step_id": "step.000036",
+      "kind": "travel",
+      "edge_id": "travel.walk.varrock.museum.out",
+      "modeled_seconds": 32,
+      "explanation": "Varrock square and the museum"
+    },
+    {
+      "step_id": "step.000037",
+      "kind": "action",
+      "action_id": "quest.the_golem.talk_to_curator",
+      "modeled_seconds": 19,
+      "explanation": "Ask Curator Haig Halen about the statuette"
+    },
+    {
+      "step_id": "step.000038",
+      "kind": "action",
+      "action_id": "quest.the_golem.steal_cabinet_key",
+      "modeled_seconds": 9,
+      "explanation": "Pickpocket the curator for the display cabinet key"
+    },
+    {
+      "step_id": "step.000039",
+      "kind": "travel",
+      "edge_id": "travel.walk.varrock_museum.golem_display.out",
+      "modeled_seconds": 20,
+      "explanation": "Climb to the statuette display"
+    },
+    {
+      "step_id": "step.000040",
+      "kind": "action",
+      "action_id": "quest.the_golem.take_statuette",
+      "modeled_seconds": 10,
+      "explanation": "Retrieve the Uzer statuette upstairs"
+    },
+    {
+      "step_id": "step.000041",
+      "kind": "travel",
+      "edge_id": "travel.walk.varrock_museum.golem_display.back",
+      "modeled_seconds": 20,
+      "explanation": "Descend to the curator"
+    },
+    {
+      "step_id": "step.000042",
+      "kind": "travel",
+      "edge_id": "travel.walk.varrock.museum.back",
+      "modeled_seconds": 32,
+      "explanation": "Varrock square and the museum (return)"
+    },
+    {
+      "step_id": "step.000043",
+      "kind": "travel",
+      "edge_id": "travel.walk.varrock.aubury.out",
+      "modeled_seconds": 25,
+      "explanation": "Varrock square and Aubury"
+    },
+    {
+      "step_id": "step.000044",
+      "kind": "travel",
+      "edge_id": "travel.walk.digsite.exam_to_varrock.back",
+      "modeled_seconds": 110,
+      "explanation": "Walk from south-east Varrock to the Exam Centre"
+    },
+    {
+      "step_id": "step.000045",
+      "kind": "travel",
+      "edge_id": "travel.walk.al_kharid.digsite.out",
+      "modeled_seconds": 170,
+      "explanation": "Follow the road south to Al Kharid"
+    },
+    {
+      "step_id": "step.000046",
+      "kind": "travel",
+      "edge_id": "travel.walk.al_kharid.shantay.out",
+      "modeled_seconds": 48,
+      "explanation": "Walk to the Shantay Pass gate"
+    },
+    {
+      "step_id": "step.000047",
+      "kind": "travel",
+      "edge_id": "travel.walk.shantay.buy_and_use_pass",
+      "modeled_seconds": 18,
+      "explanation": "Buy a pass from Shantay and enter the desert"
+    },
+    {
+      "step_id": "step.000048",
+      "kind": "travel",
+      "edge_id": "travel.walk.desert.shantay_uzer.out",
+      "modeled_seconds": 168,
+      "explanation": "Walk from Shantay Pass to Uzer"
+    },
+    {
+      "step_id": "step.000049",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.golem_stairs.out",
+      "modeled_seconds": 7,
+      "explanation": "Walk to the Uzer ruin staircase"
+    },
+    {
+      "step_id": "step.000050",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.ruin_staircase.out",
+      "modeled_seconds": 7,
+      "explanation": "Descend into the Uzer ruins"
+    },
+    {
+      "step_id": "step.000051",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.ruin_alcoves.out",
+      "modeled_seconds": 13,
+      "explanation": "Walk to the statuette alcoves"
+    },
+    {
+      "step_id": "step.000052",
+      "kind": "action",
+      "action_id": "quest.the_golem.open_portal",
+      "modeled_seconds": 30,
+      "explanation": "Replace the statuette and align the four statues"
+    },
+    {
+      "step_id": "step.000053",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.ruin_portal.out",
+      "modeled_seconds": 15,
+      "explanation": "Walk from the alcoves to the portal"
+    },
+    {
+      "step_id": "step.000054",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.ruin_implement.out",
+      "modeled_seconds": 9,
+      "explanation": "Walk to the strange implement"
+    },
+    {
+      "step_id": "step.000055",
+      "kind": "action",
+      "action_id": "quest.the_golem.take_implement",
+      "modeled_seconds": 6,
+      "explanation": "Pick up the strange implement"
+    },
+    {
+      "step_id": "step.000056",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.ruin_implement.back",
+      "modeled_seconds": 9,
+      "explanation": "Walk from the implement to the portal"
+    },
+    {
+      "step_id": "step.000057",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.throne_portal.out",
+      "modeled_seconds": 9,
+      "explanation": "Enter the demon’s throne room"
+    },
+    {
+      "step_id": "step.000058",
+      "kind": "action",
+      "action_id": "claim.the_golem.throne_gems",
+      "modeled_seconds": 19,
+      "explanation": "Pry six cut gems from the throne"
+    },
+    {
+      "step_id": "step.000059",
+      "kind": "action",
+      "action_id": "quest.the_golem.visit_throne",
+      "modeled_seconds": 12,
+      "explanation": "Check the dead demon in the throne room"
+    },
+    {
+      "step_id": "step.000060",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.throne_portal.back",
+      "modeled_seconds": 9,
+      "explanation": "Return to the lower Uzer ruins"
+    },
+    {
+      "step_id": "step.000061",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.ruin_portal.back",
+      "modeled_seconds": 15,
+      "explanation": "Walk from the portal to the alcoves"
+    },
+    {
+      "step_id": "step.000062",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.ruin_alcoves.back",
+      "modeled_seconds": 13,
+      "explanation": "Walk from the alcoves to the staircase"
+    },
+    {
+      "step_id": "step.000063",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.ruin_staircase.back",
+      "modeled_seconds": 7,
+      "explanation": "Climb out of the Uzer ruins"
+    },
+    {
+      "step_id": "step.000064",
+      "kind": "travel",
+      "edge_id": "travel.walk.uzer.golem_stairs.back",
+      "modeled_seconds": 7,
+      "explanation": "Walk from the ruin staircase to the golem"
+    },
+    {
+      "step_id": "step.000065",
+      "kind": "action",
+      "action_id": "quest.the_golem.report_throne",
+      "modeled_seconds": 20,
+      "explanation": "Tell the golem what happened to the demon"
+    },
+    {
+      "step_id": "step.000066",
+      "kind": "action",
+      "action_id": "quest.the_golem.write_program",
+      "modeled_seconds": 9,
+      "explanation": "Write the golem’s new program on papyrus"
+    },
+    {
+      "step_id": "step.000067",
+      "kind": "action",
+      "action_id": "quest.the_golem.complete",
+      "modeled_seconds": 22,
+      "explanation": "Open the golem’s head and insert the program"
+    }
+  ],
+  "final_state": {
+    "location_id": "location.uzer.clay_golem",
+    "xp_tenths": {
+      "skill.agility": 0,
+      "skill.attack": 0,
+      "skill.construction": 0,
+      "skill.cooking": 0,
+      "skill.crafting": 54700,
+      "skill.defence": 0,
+      "skill.farming": 0,
+      "skill.firemaking": 0,
+      "skill.fishing": 0,
+      "skill.fletching": 0,
+      "skill.herblore": 0,
+      "skill.hitpoints": 11540,
+      "skill.hunter": 0,
+      "skill.magic": 0,
+      "skill.mining": 0,
+      "skill.prayer": 0,
+      "skill.ranged": 0,
+      "skill.runecraft": 0,
+      "skill.sailing": 0,
+      "skill.slayer": 0,
+      "skill.smithing": 0,
+      "skill.strength": 0,
+      "skill.thieving": 88420,
+      "skill.woodcutting": 0
+    },
+    "completed_action_ids": [
+      "claim.the_golem.throne_gems",
+      "quest.the_golem.complete",
+      "quest.the_golem.make_ink",
+      "quest.the_golem.make_quill",
+      "quest.the_golem.open_portal",
+      "quest.the_golem.read_letter",
+      "quest.the_golem.read_notes",
+      "quest.the_golem.repair",
+      "quest.the_golem.report_throne",
+      "quest.the_golem.start",
+      "quest.the_golem.steal_cabinet_key",
+      "quest.the_golem.take_implement",
+      "quest.the_golem.take_phoenix_feather",
+      "quest.the_golem.take_statuette",
+      "quest.the_golem.talk_to_curator",
+      "quest.the_golem.talk_to_elissa",
+      "quest.the_golem.visit_throne",
+      "quest.the_golem.write_program",
+      "supply.grand_exchange.purchase_golem_materials",
+      "supply.uzer.gather_black_mushroom"
+    ],
+    "flags": {
+      "flag.spellbook.standard": true,
+      "flag.quest.the_golem.entered_ruin": true,
+      "unlock.uzer_magic_carpet": true
+    },
+    "counters": {
+      "token.quest_points": 2
+    },
+    "inventory": {
+      "item.coins": 200,
+      "item.waterskin_4": 4,
+      "item.hammer": 1,
+      "item.chisel": 1,
+      "item.pestle_and_mortar": 1,
+      "item.phoenix_quill_pen": 1,
+      "item.golem_display_cabinet_key": 1,
+      "item.strange_implement": 1,
+      "item.ruby": 2,
+      "item.emerald": 2,
+      "item.sapphire": 2
+    },
+    "held_rewards": [],
+    "modeled_elapsed_seconds": 2583
+  },
+  "verification": {
+    "schema_valid": true,
+    "replay_valid": true,
+    "catalog_release_ready": false
+  },
+  "limitations": [
+    "Bounded beam search with width 128, 40000 allowed expansions and seed 0.",
+    "The reported lower bound relaxes award ordering, prerequisites and mutually exclusive reward picks.",
+    "Training steps specify XP gains and resume waypoints. The player chooses the method."
+  ]
+}
