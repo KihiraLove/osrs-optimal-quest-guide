@@ -67,5 +67,7 @@ jobs:
           quest-optimizer replay examples/build-242/rfd-skrach-uglogwee-solution.json --catalog data/manifest.json --profile examples/build-242/rfd-skrach-uglogwee-profile.json
           quest-optimizer solve-bounded data/manifest.json examples/build-242/gertrudes-cat-profile.json --beam-width 96 > "$RUNNER_TEMP/gertrudes-cat.json"
           quest-optimizer replay "$RUNNER_TEMP/gertrudes-cat.json" --catalog data/manifest.json --profile examples/build-242/gertrudes-cat-profile.json
+          quest-optimizer solve-bounded data/manifest.json examples/build-242/demon-slayer-profile.json --beam-width 96 > "$RUNNER_TEMP/demon-slayer.json"
+          quest-optimizer replay "$RUNNER_TEMP/demon-slayer.json" --catalog data/manifest.json --profile examples/build-242/demon-slayer-profile.json
       - name: Run optimizer checks
         run: python -m unittest discover -s optimizer/tests -v

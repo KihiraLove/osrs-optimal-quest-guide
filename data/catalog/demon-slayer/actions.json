@@ -1,0 +1,452 @@
+[
+  {
+    "id": "quest.demon_slayer.start",
+    "name": "Pay Aris for the vision and learn the incantation",
+    "activity_id": "quest.demon_slayer",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.aris",
+    "end_location_id": "location.varrock.aris",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 55,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay one coin. Record the player-specific incantation during the vision."
+    }
+  },
+  {
+    "id": "quest.demon_slayer.ask_prysin",
+    "name": "Ask Sir Prysin about Silverlight and the three keys",
+    "activity_id": "quest.demon_slayer",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.sir_prysin",
+    "end_location_id": "location.varrock.sir_prysin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.demon_slayer.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 32,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prysin identifies the drain key and the keys held by Rovin and Traiborn."
+    }
+  },
+  {
+    "id": "quest.demon_slayer.get_rovin_key",
+    "name": "Get the first Silverlight key from Captain Rovin",
+    "activity_id": "quest.demon_slayer",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.captain_rovin",
+    "end_location_id": "location.varrock.captain_rovin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.demon_slayer.ask_prysin"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.silverlight_key_rovin",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 25,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Rovin for his key on the second floor."
+    }
+  },
+  {
+    "id": "quest.demon_slayer.flush_prysin_key",
+    "name": "Flush Prysin’s key into the Varrock sewer",
+    "activity_id": "quest.demon_slayer",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.palace_drain",
+    "end_location_id": "location.varrock.palace_drain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.demon_slayer.ask_prysin"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket_of_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.demon_slayer.drain_flushed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 8,
+      "max_seconds": 18
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pour a carried bucket of water into the drain and retain the empty bucket."
+    }
+  },
+  {
+    "id": "quest.demon_slayer.recover_prysin_key",
+    "name": "Retrieve the rusty Silverlight key from the sewer",
+    "activity_id": "quest.demon_slayer",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.sewer_silverlight_key",
+    "end_location_id": "location.varrock.sewer_silverlight_key",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.demon_slayer.drain_flushed",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.silverlight_key_prysin",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 15
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The rusty key appears after the drain is flushed."
+    }
+  },
+  {
+    "id": "quest.demon_slayer.get_traiborn_key",
+    "name": "Give Wizard Traiborn 25 unnoted bones",
+    "activity_id": "quest.demon_slayer",
+    "kind": "quest_stage",
+    "start_location_id": "location.wizards_tower.traiborn",
+    "end_location_id": "location.wizards_tower.traiborn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.demon_slayer.ask_prysin"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bones",
+        "quantity": 25
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.silverlight_key_traiborn",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 42,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The modeled route brings 25 at once. The game also accepts partial deliveries."
+    }
+  },
+  {
+    "id": "quest.demon_slayer.receive_silverlight",
+    "name": "Exchange all three keys for Silverlight",
+    "activity_id": "quest.demon_slayer",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.sir_prysin",
+    "end_location_id": "location.varrock.sir_prysin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.demon_slayer.ask_prysin"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.silverlight_key_rovin",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.silverlight_key_prysin",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.silverlight_key_traiborn",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.silverlight",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sir Prysin unlocks the sword case before the Delrith encounter."
+    }
+  },
+  {
+    "id": "quest.demon_slayer.complete",
+    "name": "Weaken Delrith with Silverlight and say the banishing incantation",
+    "activity_id": "quest.demon_slayer",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.delrith_circle",
+    "end_location_id": "location.varrock.delrith_circle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.demon_slayer.receive_silverlight"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.silverlight",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 70,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.npc_health",
+        "source.capture.demon_slayer",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Equip Silverlight. The duration assumes a successful encounter focused on Delrith. Incidental combat XP is pending an in-game check of the weakening and banishment."
+    }
+  },
+  {
+    "id": "supply.varrock.gather_palace_bucket",
+    "name": "Pick up a bucket above the palace kitchen",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.palace_bucket_spawn",
+    "end_location_id": "location.varrock.palace_bucket_spawn",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 15
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Public bucket spawn on the first floor. One pickup is modeled."
+    }
+  },
+  {
+    "id": "supply.varrock.fill_palace_bucket",
+    "name": "Fill a bucket at the Varrock Palace sink",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.palace_kitchen_sink",
+    "end_location_id": "location.varrock.palace_kitchen_sink",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 15
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use one empty bucket on the sink."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_demon_slayer_bones",
+    "name": "Buy 25 regular bones",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1175
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bones",
+        "quantity": 25
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The snapshot estimates 47 GP per bone. Withdraw and carry them unnoted."
+    }
+  }
+]

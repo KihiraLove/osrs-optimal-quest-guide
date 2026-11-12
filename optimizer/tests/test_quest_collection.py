@@ -41,6 +41,38 @@ class QuestCollectionTests(unittest.TestCase):
         variants = {row["helper_symbol"] for row in self.observations["quest.shield_of_arrav"]}
         self.assertEqual(variants, {"SHIELD_OF_ARRAV_BLACK_ARM_GANG", "SHIELD_OF_ARRAV_PHOENIX_GANG"})
 
+    def test_demon_slayer_replays_keys_and_silverlight_without_the_separate_claim(self):
+        quest = "quest.demon_slayer"
+        profile = read_json(ROOT / "examples/build-242/demon-slayer-profile.json")
+        validator = CatalogValidator(self.catalog, self.contracts)
+        solution, _ = solve_bounded(validator, profile, beam_width=96)
+        report = verify_solution(solution, profile, validator)
+        self.assertEqual(report["manual_training_xp_tenths_by_skill"], {})
+        self.assertEqual(report["final_state"]["inventory"], {"item.bucket": 1, "item.silverlight": 1})
+        self.assertEqual(report["final_state"]["counters"]["token.quest_points"], 4)
+        self.assertEqual(report["final_state"]["held_rewards"], [])
+
+        state = RouteState(validator.tables, profile["policies"], profile["initial_state"])
+        for step in solution["steps"]:
+            if step.get("action_id") == f"{quest}.get_traiborn_key":
+                snapshot = state.snapshot()
+                self.assertEqual(snapshot["inventory"]["item.bones"], 25)
+                short = {**snapshot, "inventory": {**snapshot["inventory"], "item.bones": 24}}
+                with self.assertRaisesRegex(DataError, "consumes 25 of 'item.bones'"):
+                    RouteState(validator.tables, profile["policies"], short).apply(step)
+            state = state.apply(step)
+            if step.get("action_id") == f"{quest}.receive_silverlight":
+                snapshot = state.snapshot()
+                self.assertEqual(snapshot["inventory"], {"item.bucket": 1, "item.silverlight": 1})
+                self.assertEqual(snapshot["counters"]["token.quest_points"], 1)
+
+        edges = {step["edge_id"] for step in solution["steps"] if step["kind"] == "travel"}
+        self.assertTrue({
+            "travel.walk.varrock.sewer_manhole.out",
+            "travel.walk.varrock.sewer_manhole.back",
+            "travel.walk.wizards_tower.traiborn_stairs.out",
+        } <= edges)
+
     def test_gertrudes_cat_replays_the_quest_bundle_and_pet_reward(self):
         quest = "quest.gertrudes_cat"
         profile = read_json(ROOT / "examples/build-242/gertrudes-cat-profile.json")

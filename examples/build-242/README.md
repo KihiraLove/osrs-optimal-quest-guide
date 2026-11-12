@@ -148,6 +148,16 @@ quest-optimizer solve-bounded data/manifest.json examples/build-242/gertrudes-ca
 quest-optimizer replay artifacts/gertrudes-cat.json --catalog data/manifest.json --profile examples/build-242/gertrudes-cat-profile.json
 ```
 
+`demon-slayer-profile.json` starts at the Grand Exchange with an empty bucket,
+one quest point and 1,176 GP. The route buys 25 unnoted bones, pays Aris,
+recovers all three keys and trades them for Silverlight. The Delrith encounter
+assumes a successful melee fight and awards three quest points at banishment.
+
+```sh
+quest-optimizer solve-bounded data/manifest.json examples/build-242/demon-slayer-profile.json --beam-width 96 > artifacts/demon-slayer.json
+quest-optimizer replay artifacts/demon-slayer.json --catalog data/manifest.json --profile examples/build-242/demon-slayer-profile.json
+```
+
 The optional progression tests cover the three essence mine task flags in the
 draft catalog. A synthetic fixture compares manual training with a diary task,
 tier completion and NPC lamp claim that together meet the same quest goal.

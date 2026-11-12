@@ -39,6 +39,9 @@ original descriptions of findings. The data uses pinned upstream sources.
 - Gertrude's Cat uses pinned Quest Helper and RuneLite IDs, an Old School
   RuneHQ walkthrough, and Shortest Path's fence and scroll tiles. Kitten
   Tracker supplies the follower growth and care observations.
+- Demon Slayer uses pinned Quest Helper and RuneLite metadata, Slayermusiq1's
+  speedrunning footage, Shortest Path's sewer tiles, and Jagex's update about
+  the separate Aris lamps. Quest Helper tracks Evil Dave's random spice doses.
 - The roster and XP curve use RuneLite's `Skill` and `Experience` sources.
   The journal inventory uses RuneLite's `Quest` enum (copyright 2019, Abex).
   Diary and museum tracker identities use RuneLite's generated game constants.
