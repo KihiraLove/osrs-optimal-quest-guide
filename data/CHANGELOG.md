@@ -4,6 +4,7 @@ All entries use the build 242 snapshot from 3 November 2026.
 
 | Version | Changes |
 | --- | --- |
+| 0.33.0 | Added eight pirate, Myreque and starter activities, the Rum Deal growth timer, post-quest claims, discounted charter travel, and two diary tasks. |
 | 0.32.0 | Added seven quests and Tarn's Lair, including overlapping garden timers, the white tree fruit diary task, Ectofuntus travel and Salve amulet crafts. |
 | 0.31.0 | Added eight troll and Keldagrim quests, two independent Kelda timers, Trollheim Teleport, minecarts and the Dorgesh-Kaan railway. |
 | 0.30.0 | Added eight Temple Knights, Dorgeshuun, and starter quests, the Black Knights’ Fortress lamps, Guardians of the Rift, and Daddy’s Home housing rewards. |
@@ -37,5 +38,5 @@ All entries use the build 242 snapshot from 3 November 2026.
 | 0.2.0 | Added the first quest actions and the pinned Quest Helper observations. |
 | 0.1.0 | Recorded the independent quest, skill, diary and optional content inventory for build 242. |
 
-The coverage audit records the release blockers for 0.32.0. The normalizer and
+The coverage audit records the release blockers for 0.33.0. The normalizer and
 audit use the existing dataset version.

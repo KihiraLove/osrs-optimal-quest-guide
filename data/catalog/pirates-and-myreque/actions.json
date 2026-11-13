@@ -1,0 +1,6227 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_zogre_brutal_combat_supplies",
+    "name": "Buy zogre brutal combat supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 10500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.composite_ogre_bow",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rune_brutal_arrow",
+        "quantity": 55
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.zogre_flesh_eaters.start",
+    "name": "Investigate the Zogre outbreak for Grish",
+    "activity_id": "quest.zogre_flesh_eaters",
+    "kind": "quest_stage",
+    "start_location_id": "location.zogre_tombs.grish",
+    "end_location_id": "location.zogre_tombs.grish",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.big_chompy_bird_hunting.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.jungle_potion.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 38,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.zogre_flesh_eaters",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get permission to enter the tombs."
+    }
+  },
+  {
+    "id": "quest.zogre_flesh_eaters.search",
+    "name": "Defeat the zombie and search the tombs",
+    "activity_id": "quest.zogre_flesh_eaters",
+    "kind": "quest_stage",
+    "start_location_id": "location.zogre_tombs.brentle_skeleton",
+    "end_location_id": "location.zogre_tombs.brentle_skeleton",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.zogre_flesh_eaters.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.zogre_black_prism",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 61,
+      "expected_seconds": 135,
+      "max_seconds": 290
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.zogre_flesh_eaters",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the skeleton and kill Brentle's zombie. Open the backpack for a knife and the tankard, find the torn page and pry open the coffin for its prism."
+    },
+    "planned_outcome": {
+      "success_condition": "Brentle is defeated and the three clues are collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.zogre_flesh_eaters.consult",
+    "name": "Ask Zavistic Rarve about the clues",
+    "activity_id": "quest.zogre_flesh_eaters",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.wizards_guild_bell",
+    "end_location_id": "location.yanille.wizards_guild_bell",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.zogre_flesh_eaters.search"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.zogre_black_prism",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.zogre_flesh_eaters",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ring the Wizards' Guild bell for Zavistic. Entry to the guild is unnecessary."
+    }
+  },
+  {
+    "id": "quest.zogre_flesh_eaters.portrait",
+    "name": "Search Sithik's room and draw his portrait",
+    "activity_id": "quest.zogre_flesh_eaters",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.sithik",
+    "end_location_id": "location.yanille.sithik",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.zogre_flesh_eaters.consult"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 87,
+      "max_seconds": 187
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.zogre_flesh_eaters",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the room for the books and drawing supplies. Retry the drawing if needed."
+    }
+  },
+  {
+    "id": "quest.zogre_flesh_eaters.identify",
+    "name": "Have the innkeeper identify Sithik",
+    "activity_id": "quest.zogre_flesh_eaters",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.dragon_inn",
+    "end_location_id": "location.yanille.dragon_inn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.zogre_flesh_eaters.portrait"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 37,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.zogre_flesh_eaters",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show the tankard and the accurate portrait. Get the portrait signed."
+    }
+  },
+  {
+    "id": "quest.zogre_flesh_eaters.potion",
+    "name": "Report the evidence to Zavistic",
+    "activity_id": "quest.zogre_flesh_eaters",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.wizards_guild_bell",
+    "end_location_id": "location.yanille.wizards_guild_bell",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.zogre_flesh_eaters.identify"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.zogre_flesh_eaters",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the wizard the signed portrait and books. Receive the transformation potion."
+    }
+  },
+  {
+    "id": "quest.zogre_flesh_eaters.interrogate",
+    "name": "Transform Sithik and question him",
+    "activity_id": "quest.zogre_flesh_eaters",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.sithik",
+    "end_location_id": "location.yanille.sithik",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.zogre_flesh_eaters.potion"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 41,
+      "expected_seconds": 92,
+      "max_seconds": 198
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.zogre_flesh_eaters",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Put the potion in his tea, leave the room and return after he transforms. Ask about the undead and the disease cure."
+    }
+  },
+  {
+    "id": "quest.zogre_flesh_eaters.prepare_boss",
+    "name": "Get the tomb key and learn about brutal arrows",
+    "activity_id": "quest.zogre_flesh_eaters",
+    "kind": "quest_stage",
+    "start_location_id": "location.zogre_tombs.grish",
+    "end_location_id": "location.zogre_tombs.grish",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.zogre_flesh_eaters.interrogate"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.zogre_tomb_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 46,
+      "max_seconds": 99
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.zogre_flesh_eaters",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Grish gives the tomb key and explains composite ogre equipment."
+    }
+  },
+  {
+    "id": "quest.zogre_flesh_eaters.slash_bash",
+    "name": "Defeat Slash Bash",
+    "activity_id": "quest.zogre_flesh_eaters",
+    "kind": "quest_stage",
+    "start_location_id": "location.zogre_tombs.slash_bash",
+    "end_location_id": "location.zogre_tombs.slash_bash",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.zogre_flesh_eaters.prepare_boss"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.ranged",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.composite_ogre_bow",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rune_brutal_arrow",
+        "quantity": 35
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ogre_artefact",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 81,
+      "expected_seconds": 180,
+      "max_seconds": 387
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.zogre_flesh_eaters",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the stand to start the fight. Use a composite ogre bow with brutal arrows. Reserve up to 35 shots in this route."
+    },
+    "planned_outcome": {
+      "success_condition": "Slash Bash is defeated and the ogre artefact recovered.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.zogre_flesh_eaters.complete",
+    "name": "Return the ogre artefact to Grish",
+    "activity_id": "quest.zogre_flesh_eaters",
+    "kind": "quest_stage",
+    "start_location_id": "location.zogre_tombs.grish",
+    "end_location_id": "location.zogre_tombs.grish",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.zogre_flesh_eaters.slash_bash"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 4,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 8,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.ranged",
+          "minimum_level": 30,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ogre_artefact",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fletching",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.ranged",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ourg_bones",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.zogre_bones",
+        "quantity": 2
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.zogre_flesh_eaters.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.zogre_flesh_eaters",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 2,000 XP each in Fletching, Ranged and Herblore, three Ourg bones and two Zogre bones. Unlocks brutal arrows and Relicym's balm."
+    }
+  },
+  {
+    "id": "claim.zogre_flesh_eaters.sell_prism_to_zavistic",
+    "name": "Sell the black prism to Zavistic",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.yanille.wizards_guild_bell",
+    "end_location_id": "location.yanille.wizards_guild_bell",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.zogre_flesh_eaters.complete"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.zogre_black_prism",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 2000
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.zogre_flesh_eaters",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sell the surviving quest prism for 2,000 coins. The sale consumes the prism."
+    }
+  },
+  {
+    "id": "supply.turael.buy_slayer_gloves",
+    "name": "Buy Slayer gloves",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.burthorpe.turael",
+    "end_location_id": "location.burthorpe.turael",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 200
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slayer_gloves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy Slayer gloves from the Slayer equipment shop."
+    }
+  },
+  {
+    "id": "quest.rum_deal.start",
+    "name": "Speak to Pirate Pete and travel to Braindeath Island",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.ectofuntus.pirate_pete",
+    "end_location_id": "location.braindeath_island.brewery",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.zogre_flesh_eaters.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start Rum Deal at the dock north-east of the Ectofuntus. Pirate Pete transports you to the brewery."
+    }
+  },
+  {
+    "id": "quest.rum_deal.get_seed",
+    "name": "Get the blindweed seed and farming tools",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.brewery",
+    "end_location_id": "location.braindeath_island.brewery",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.blindweed_seed",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rake",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.seed_dibber",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 48,
+      "max_seconds": 103
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Braindeath. Pick up the farming tools from the cupboard in the brewery basement."
+    }
+  },
+  {
+    "id": "quest.rum_deal.plant_blindweed",
+    "name": "Plant the blindweed seed",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.blindweed",
+    "end_location_id": "location.braindeath_island.blindweed",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.get_seed"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 40,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.blindweed_seed",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.rum_deal.blindweed",
+        "duration_seconds": 300
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Clear the patch and plant the seed. The five-minute planning clock allows travel and other work."
+    }
+  },
+  {
+    "id": "quest.rum_deal.harvest_blindweed",
+    "name": "Pick the mature blindweed",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.blindweed",
+    "end_location_id": "location.braindeath_island.blindweed",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.plant_blindweed"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.rum_deal.blindweed"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.blindweed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 19
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Harvest when the growth timer is ready."
+    }
+  },
+  {
+    "id": "quest.rum_deal.add_blindweed",
+    "name": "Show Braindeath the blindweed and load the hopper",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.brewery",
+    "end_location_id": "location.braindeath_island.brewery",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.harvest_blindweed"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.blindweed",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 54,
+      "max_seconds": 116
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Braindeath, climb upstairs to add the blindweed, then return and ask for the next ingredient."
+    }
+  },
+  {
+    "id": "quest.rum_deal.fetch_water",
+    "name": "Collect stagnant water",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.stagnant_pool",
+    "end_location_id": "location.braindeath_island.stagnant_pool",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.add_blindweed"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 11,
+      "max_seconds": 24
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fill the bucket from the pool past 50% Luke."
+    }
+  },
+  {
+    "id": "quest.rum_deal.add_water",
+    "name": "Add the stagnant water to the hopper",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.hopper",
+    "end_location_id": "location.braindeath_island.hopper",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.fetch_water"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pour the water into the hopper and retain the empty bucket."
+    }
+  },
+  {
+    "id": "quest.rum_deal.sluglings",
+    "name": "Get the fishing gear and catch five sluglings",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.brewery",
+    "end_location_id": "location.braindeath_island.brewery",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.add_water"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fishing",
+          "minimum_level": 50,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 116,
+      "max_seconds": 249
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Braindeath supplies a bowl with a net attached. Catch five sluglings south of the brewery and return."
+    }
+  },
+  {
+    "id": "quest.rum_deal.pressure",
+    "name": "Load the pressure barrel and pull its lever",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.pressure_barrel",
+    "end_location_id": "location.braindeath_island.pressure_barrel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.sluglings"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Add five catches and activate the pressure barrel."
+    }
+  },
+  {
+    "id": "quest.rum_deal.wrench",
+    "name": "Ask for the wrench and try the controls",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.brewery",
+    "end_location_id": "location.braindeath_island.brewery",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.pressure"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 42,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 41,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the wrench and try hitting the controls. Braindeath sends you to Davey."
+    }
+  },
+  {
+    "id": "quest.rum_deal.bless_wrench",
+    "name": "Have Davey bless the wrench",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.davey",
+    "end_location_id": "location.braindeath_island.davey",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.wrench"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.prayer",
+          "minimum_level": 47,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.holy_wrench",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Restore Prayer before the blessing. Davey checks at least 47 available Prayer points, which the model represents with the level gate and completion condition."
+    },
+    "planned_outcome": {
+      "success_condition": "The player has at least 47 current Prayer points and Davey blesses the wrench.",
+      "if_unmet": "Restore or boost Prayer points before speaking to Davey."
+    }
+  },
+  {
+    "id": "quest.rum_deal.evil_spirit",
+    "name": "Defeat the evil spirit in the controls",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.controls",
+    "end_location_id": "location.braindeath_island.controls",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.bless_wrench"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.holy_wrench",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 68,
+      "expected_seconds": 150,
+      "max_seconds": 323
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the holy wrench on the control panel and defeat the spirit."
+    },
+    "planned_outcome": {
+      "success_condition": "The evil spirit has been defeated.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.rum_deal.spider",
+    "name": "Get a fever spider body and add it to the hopper",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.brewery",
+    "end_location_id": "location.braindeath_island.brewery",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.evil_spirit"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 42,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slayer_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 65,
+      "expected_seconds": 145,
+      "max_seconds": 312
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Braindeath, defeat a fever spider in the basement and take its body upstairs to the hopper. Wear Slayer gloves to avoid disease."
+    },
+    "planned_outcome": {
+      "success_condition": "A fever spider has been defeated and its body added to the hopper.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.rum_deal.donnie",
+    "name": "Fill a bucket at the tap and give Donnie the swill",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.brewery",
+    "end_location_id": "location.braindeath_island.donnie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.spider"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 55,
+      "max_seconds": 118
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the unsanitary swill and take it to Donnie south of the brewery."
+    }
+  },
+  {
+    "id": "quest.rum_deal.complete",
+    "name": "Report Donnie's response to Braindeath",
+    "activity_id": "quest.rum_deal",
+    "kind": "quest_stage",
+    "start_location_id": "location.braindeath_island.brewery",
+    "end_location_id": "location.braindeath_island.brewery",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.donnie"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 70000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 70000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 70000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.rum_deal.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rum_deal",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 7,000 Fishing, Farming and Prayer XP. The holy wrench was obtained earlier."
+    }
+  },
+  {
+    "id": "quest.cabin_fever.start",
+    "name": "Agree to crew Bill Teach's ship",
+    "activity_id": "quest.cabin_fever",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.bill_teach",
+    "end_location_id": "location.port_phasmatys.bill_teach",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pirates_treasure.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 42,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 45,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 50,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.ranged",
+          "minimum_level": 40,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.cabin_fever",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Bill Teach in the Green Ghost inn at Port Phasmatys."
+    }
+  },
+  {
+    "id": "quest.cabin_fever.sail",
+    "name": "Board the ship and set sail",
+    "activity_id": "quest.cabin_fever",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.bill_teach_gangplank",
+    "end_location_id": "location.cabin_fever.bill_teach_ship",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cabin_fever.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.cabin_fever",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cross the gangplank and speak to Bill aboard ship."
+    }
+  },
+  {
+    "id": "quest.cabin_fever.sabotage",
+    "name": "Sabotage the enemy ship's gunpowder barrel",
+    "activity_id": "quest.cabin_fever",
+    "kind": "quest_stage",
+    "start_location_id": "location.cabin_fever.bill_teach_ship",
+    "end_location_id": "location.cabin_fever.bill_teach_ship",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cabin_fever.sail"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 68,
+      "expected_seconds": 150,
+      "max_seconds": 323
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.cabin_fever",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the rope, fuse and tinderbox onboard. Swing across, light the fuse on the enemy barrel and return."
+    }
+  },
+  {
+    "id": "quest.cabin_fever.repair",
+    "name": "Patch and waterproof the three holes",
+    "activity_id": "quest.cabin_fever",
+    "kind": "quest_stage",
+    "start_location_id": "location.cabin_fever.bill_teach_ship",
+    "end_location_id": "location.cabin_fever.bill_teach_ship",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cabin_fever.sabotage"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 108,
+      "max_seconds": 232
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.cabin_fever",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the ship's repair locker and fix each hole with two planks, ten tacks and one swamp paste."
+    }
+  },
+  {
+    "id": "quest.cabin_fever.loot",
+    "name": "Bring ten plunder back to Bill's hold",
+    "activity_id": "quest.cabin_fever",
+    "kind": "quest_stage",
+    "start_location_id": "location.cabin_fever.bill_teach_ship",
+    "end_location_id": "location.cabin_fever.bill_teach_ship",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cabin_fever.repair"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 81,
+      "expected_seconds": 180,
+      "max_seconds": 387
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.cabin_fever",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Swing across and search the enemy hold until ten pieces of plunder are collected. Allow for respawns, then deposit it in Bill's hold."
+    }
+  },
+  {
+    "id": "quest.cabin_fever.cannon",
+    "name": "Replace the broken cannon barrel",
+    "activity_id": "quest.cabin_fever",
+    "kind": "quest_stage",
+    "start_location_id": "location.cabin_fever.bill_teach_ship",
+    "end_location_id": "location.cabin_fever.bill_teach_ship",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cabin_fever.loot"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 47,
+      "max_seconds": 101
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.cabin_fever",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the spare cannon barrel from the gun locker."
+    }
+  },
+  {
+    "id": "quest.cabin_fever.canisters",
+    "name": "Load and fire canisters at the enemy crew",
+    "activity_id": "quest.cabin_fever",
+    "kind": "quest_stage",
+    "start_location_id": "location.cabin_fever.bill_teach_ship",
+    "end_location_id": "location.cabin_fever.bill_teach_ship",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cabin_fever.cannon"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 115,
+      "max_seconds": 247
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.cabin_fever",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Gather ammunition onboard. Load powder, ram it, load a canister, add a fuse, fire and clean the barrel. Repeat until Bill calls for cannonballs."
+    }
+  },
+  {
+    "id": "quest.cabin_fever.complete",
+    "name": "Fire the cannonballs and finish the voyage",
+    "activity_id": "quest.cabin_fever",
+    "kind": "quest_stage",
+    "start_location_id": "location.cabin_fever.bill_teach_ship",
+    "end_location_id": "location.mos_le_harmless.bill_teach_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cabin_fever.canisters"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 70000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 70000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 70000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.little_book_o_piracy",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.cabin_fever.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 115,
+      "max_seconds": 247
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.cabin_fever",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Finish the fight and arrive at Mos Le'Harmless. Awards 7,000 Agility, Crafting and Smithing XP, and the book. Speak to Bill again for the coins."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_great_brain_robbery_supplies",
+    "name": "Buy great brain robbery supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 9000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 8
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_nails",
+        "quantity": 200
+      },
+      {
+        "kind": "item",
+        "item_id": "item.wooden_cat",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.holy_symbol",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.start",
+    "name": "Speak to Brother Tranquility at the docks",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.mos_le_harmless.tranquility",
+    "end_location_id": "location.mos_le_harmless.tranquility",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rum_deal.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cabin_fever.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_pirate_pete.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 16,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.prayer",
+          "minimum_level": 50,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.little_book_o_piracy",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start at Mos Le'Harmless with Cabin Fever and Pirate Pete's rescue complete."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.repair_stairs",
+    "name": "Repair the stairs beneath Harmony's statue",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.harmony_island.saradomin_statue",
+    "end_location_id": "location.harmony_island.spyhole",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.diving_apparatus",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fishbowl_helmet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plank",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.steel_nails",
+        "quantity": 100
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 121,
+      "max_seconds": 260
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the underwater tunnel in the diving gear and repair the far staircase with four planks and a nail reserve."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.spy",
+    "name": "Look through the peephole",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.harmony_island.spyhole",
+    "end_location_id": "location.harmony_island.spyhole",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.repair_stairs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Discover Mi-Gor's work through the peephole."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.report",
+    "name": "Tell Brother Tranquility what you saw",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.harmony_island.tranquility",
+    "end_location_id": "location.harmony_island.tranquility",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.spy"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return through the tunnel and report to Brother Tranquility."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.book",
+    "name": "Find and read the prayer book",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville_monastery.harmony_prayer_book",
+    "end_location_id": "location.edgeville_monastery.harmony_prayer_book",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.report"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.holy_symbol",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.harmony_prayer_book",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the southwestern bookcase in the Edgeville Monastery."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.prayer",
+    "name": "Recite the prayer on Harmony",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.harmony_island.tranquility",
+    "end_location_id": "location.harmony_island.tranquility",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.book"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.holy_symbol",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.harmony_prayer_book",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear a holy symbol and recite the prayer to protect yourself from the gas. Speak to Brother Tranquility."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.doctor",
+    "name": "Ask Dr Fenkenstrain to help the monks",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.fenkenstrain_castle.upper_doctor",
+    "end_location_id": "location.fenkenstrain_castle.upper_doctor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.prayer"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Fenkenstrain on the upper floor of his castle."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.crate_parts",
+    "name": "Arrange shipment with Rufus",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.canifis.rufus",
+    "end_location_id": "location.canifis.rufus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.doctor"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.ring_of_charos",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.ring_of_charos_a",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 43,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear the Ring of charos to obtain the crate parts and instructions. The activated ring also works."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.build_crate",
+    "name": "Build the crate and pack it with ten wooden cats",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.fenkenstrain_castle.upper_doctor",
+    "end_location_id": "location.fenkenstrain_castle.upper_doctor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.crate_parts"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.ring_of_charos",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.ring_of_charos_a",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plank",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.steel_nails",
+        "quantity": 100
+      },
+      {
+        "item_id": "item.wooden_cat",
+        "quantity": 10
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 53,
+      "max_seconds": 114
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Build the crate and its floor near the doctor, pack it with wooden cats and summon Rufus for inspection."
+    },
+    "planned_outcome": {
+      "success_condition": "The shipment crate is built and inspected.",
+      "if_unmet": "Dismiss any following pet before Rufus checks the shipment."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.ship_doctor",
+    "name": "Attach the shipping order to Fenkenstrain's crate",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.fenkenstrain_castle.upper_doctor",
+    "end_location_id": "location.fenkenstrain_castle.upper_doctor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.build_crate"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Send Fenkenstrain to Harmony Island."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.mill",
+    "name": "Ask Fenkenstrain which surgical tools he needs",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.harmony_island.windmill_basement",
+    "end_location_id": "location.harmony_island.windmill_basement",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.ship_doctor"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find the doctor in the windmill basement."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.powder",
+    "name": "Retrieve the fuse and powder keg",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.harmony_island.powder_ship",
+    "end_location_id": "location.harmony_island.powder_ship",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.mill"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.diving_apparatus",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fishbowl_helmet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 63,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Equip diving gear and search the powder ship for the fuse and keg. Take the tinderbox there if needed."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.breach",
+    "name": "Blow open the church door",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.harmony_island.church_entrance",
+    "end_location_id": "location.harmony_island.church_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.powder"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Put the keg and fuse against the door and light it."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.tools",
+    "name": "Recover the surgical tools from sorebones",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.harmony_island.mi_gor",
+    "end_location_id": "location.harmony_island.mi_gor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.breach"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 95,
+      "expected_seconds": 210,
+      "max_seconds": 452
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat sorebones until they drop the cranial clamp, brain tongs, three bell jars and thirty skull staples."
+    },
+    "planned_outcome": {
+      "success_condition": "All the surgical items have been recovered.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.operate",
+    "name": "Give the doctor the surgical tools",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.harmony_island.windmill_basement",
+    "end_location_id": "location.harmony_island.windmill_basement",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.tools"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 43,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand in the tools and hammer to help restore the monks."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.blessing",
+    "name": "Talk to the restored Brother Tranquility",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.harmony_island.tranquility",
+    "end_location_id": "location.harmony_island.tranquility",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.operate"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive the monks' blessing before confronting Mi-Gor."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.barrelchest",
+    "name": "Defeat Barrelchest and take the broken anchor",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.harmony_island.mi_gor",
+    "end_location_id": "location.harmony_island.mi_gor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.blessing"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.barrelchest_anchor_broken",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 81,
+      "expected_seconds": 180,
+      "max_seconds": 387
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Confront Mi-Gor and defeat Barrelchest. Collect the broken anchor after the fight."
+    },
+    "planned_outcome": {
+      "success_condition": "Barrelchest is defeated and the broken anchor collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.the_great_brain_robbery.complete",
+    "name": "Report back to Brother Tranquility",
+    "activity_id": "quest.the_great_brain_robbery",
+    "kind": "quest_stage",
+    "start_location_id": "location.harmony_island.tranquility",
+    "end_location_id": "location.harmony_island.tranquility",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.barrelchest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 60000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 30000
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.the_great_brain_robbery.blessed_lamp",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_great_brain_robbery.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 6,000 Prayer XP, 2,000 Construction XP, 3,000 Crafting XP and a held 5,000 XP lamp. Keep the prayer book and broken anchor already obtained."
+    }
+  },
+  {
+    "id": "claim.the_great_brain_robbery.repair_anchor",
+    "name": "Have Smith repair the Barrelchest anchor",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.mos_le_harmless.bill_teach_dock",
+    "end_location_id": "location.mos_le_harmless.bill_teach_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.complete"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.barrelchest_anchor_broken",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.coins",
+        "quantity": 230000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.barrelchest_anchor",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_great_brain_robbery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Smith repairs the broken anchor for 230,000 coins after the quest."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_burgh_repair_supplies",
+    "name": "Buy burgh repair supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 6000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 11
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_nails",
+        "quantity": 44
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swamp_paste",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_axe",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 4
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_bar",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coal",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.shrimps",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_burgh_delivery_supplies",
+    "name": "Buy burgh delivery supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 6400
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_mackerel",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.raw_thin_snail",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.silver_sickle",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.soft_clay",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.silver_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mithril_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.sapphire",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cosmic_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.water_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.start",
+    "name": "Speak to Veliaf in the Myreque hideout",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.myreque.veliaf",
+    "end_location_id": "location.myreque.veliaf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_search_of_the_myreque.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 25,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 15,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 7,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Veliaf asks you to establish a new base in Burgh de Rott."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.admission",
+    "name": "Put food in the chest outside Burgh de Rott",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.burgh_de_rott.food_chest",
+    "end_location_id": "location.burgh_de_rott.food_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.shrimps",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the town one piece of food to gain access."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.clear_basement",
+    "name": "Clear the inn trapdoor and basement rubble",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.burgh_de_rott.inn_rubble",
+    "end_location_id": "location.burgh_de_rott.inn_rubble",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.admission"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 15,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 74,
+      "expected_seconds": 164,
+      "max_seconds": 353
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Razvan, then mine the blocked trapdoor and use the spade and buckets to remove the rubble. Empty the buckets outside."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.repair_shop",
+    "name": "Repair the shop roof and wall",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.burgh_de_rott.aurel",
+    "end_location_id": "location.burgh_de_rott.aurel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.clear_basement"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plank",
+        "quantity": 6
+      },
+      {
+        "item_id": "item.steel_nails",
+        "quantity": 24
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 73,
+      "max_seconds": 157
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Repair the roof and wall with six planks and 24 nails. Speak to Aurel about the delivery crate."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.stock_shop",
+    "name": "Fill Aurel's crate and restock the shop",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.burgh_de_rott.aurel",
+    "end_location_id": "location.burgh_de_rott.aurel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.repair_shop"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bronze_axe",
+        "quantity": 10
+      },
+      {
+        "item_id": "item.tinderbox",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.raw_mackerel",
+        "quantity": 10
+      },
+      {
+        "item_id": "item.raw_thin_snail",
+        "quantity": 10
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.burgh_de_rott.shop_stocked",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Aurel ten bronze axes, three tinderboxes and ten of the raw fish or snails he requested. This route reserves both possible foods and does not credit the unused food."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.repair_bank",
+    "name": "Repair the bank and recruit Cornelius",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.burgh_de_rott.bank",
+    "end_location_id": "location.burgh_de_rott.bank",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.stock_shop"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plank",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.steel_nails",
+        "quantity": 20
+      },
+      {
+        "item_id": "item.swamp_paste",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.burgh_de_rott.bank",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 67,
+      "max_seconds": 144
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Repair the booth and wall, then ask Cornelius to be the banker."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.repair_furnace",
+    "name": "Repair and relight the furnace",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.burgh_de_rott.furnace",
+    "end_location_id": "location.burgh_de_rott.furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.repair_bank"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.steel_bar",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.coal",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 51,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Razvan, use two steel bars to repair the furnace, add coal and light it."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.fight",
+    "name": "Defeat Gadderanks and his vampyre juvinates",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.burgh_de_rott.aurel",
+    "end_location_id": "location.burgh_de_rott.aurel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.repair_furnace"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.silver_sickle",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.blessed_silver_sickle",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.blessed_axe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.gadderhammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 68,
+      "expected_seconds": 150,
+      "max_seconds": 323
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Investigate the shop and protect Wiskit. Use a weapon that can damage vampyre juvinates. Speak to Gadderanks after the fight and receive his hammer from Aurel."
+    },
+    "planned_outcome": {
+      "success_condition": "Gadderanks and the two juvinates have been defeated.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.escort",
+    "name": "Escort Ivan Strom to Paterdomus",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.myreque.veliaf",
+    "end_location_id": "location.paterdomus.drezel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.fight"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.silver_sickle",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.blessed_silver_sickle",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.blessed_axe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 72,
+      "expected_seconds": 160,
+      "max_seconds": 344
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Discuss the escort with the Myreque, keep Ivan alive and defeat the juvinates on the short route."
+    },
+    "planned_outcome": {
+      "success_condition": "Ivan Strom reaches Paterdomus alive.",
+      "if_unmet": "Bring food for Ivan and allow extra time for his escort."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.get_library_key",
+    "name": "Ask Drezel for the library key",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.paterdomus.drezel",
+    "end_location_id": "location.paterdomus.drezel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.escort"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.temple_library_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Drezel about Ivandis and the temple library."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.read_book",
+    "name": "Read The Sleeping Seven",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.paterdomus.sleeping_seven_bookcase",
+    "end_location_id": "location.paterdomus.sleeping_seven_bookcase",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.get_library_key"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find the book about Ivandis and read it."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.mould",
+    "name": "Take a clay impression from Ivandis's tomb",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.myreque.ivandis_tomb",
+    "end_location_id": "location.myreque.ivandis_tomb",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.read_book"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.soft_clay",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ivandis_rod_mould",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use soft clay on the coffin to make the rod mould."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.make_rod",
+    "name": "Make and enchant the silvthrill rod",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.burgh_de_rott.furnace",
+    "end_location_id": "location.burgh_de_rott.furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.mould"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ivandis_rod_mould",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 25,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 7,
+          "boostable": false
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.silver_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.mithril_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.sapphire",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.water_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.cosmic_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enchanted_silvthrill_rod",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 175
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the repaired furnace with the mould, then cast Lvl-1 Enchant on the rod."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.bless_rod",
+    "name": "Lower the enchanted rod into the River Salve",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.paterdomus.well",
+    "end_location_id": "location.paterdomus.well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.make_rod"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.enchanted_silvthrill_rod",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rod_of_ivandis_10",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a rope to dip the enchanted rod into the Salve at the well."
+    }
+  },
+  {
+    "id": "quest.in_aid_of_the_myreque.complete",
+    "name": "Give the Rod of Ivandis to Veliaf",
+    "activity_id": "quest.in_aid_of_the_myreque",
+    "kind": "quest_stage",
+    "start_location_id": "location.burgh_de_rott.veliaf",
+    "end_location_id": "location.burgh_de_rott.veliaf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.bless_rod"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rod_of_ivandis_10",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.in_aid_of_the_myreque.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.in_aid_of_the_myreque",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 2,000 Attack, Strength, Defence and Crafting XP. Opens Temple Trekking."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_souls_bane_supplies",
+    "name": "Buy souls bane supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 200
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.a_souls_bane.start",
+    "name": "Ask Launa about her family",
+    "activity_id": "quest.a_souls_bane",
+    "kind": "quest_stage",
+    "start_location_id": "location.tolnas_rift.launa",
+    "end_location_id": "location.tolnas_rift.launa",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_souls_bane",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Agree to search for Launa's family in the rift."
+    }
+  },
+  {
+    "id": "quest.a_souls_bane.enter",
+    "name": "Secure a rope and enter the rift",
+    "activity_id": "quest.a_souls_bane",
+    "kind": "quest_stage",
+    "start_location_id": "location.tolnas_rift.entrance",
+    "end_location_id": "location.tolnas_rift.anger_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_souls_bane.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_souls_bane",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Attach the rope and climb down into the anger room."
+    }
+  },
+  {
+    "id": "quest.a_souls_bane.anger",
+    "name": "Clear the anger room",
+    "activity_id": "quest.a_souls_bane",
+    "kind": "quest_stage",
+    "start_location_id": "location.tolnas_rift.anger_room",
+    "end_location_id": "location.tolnas_rift.fear_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_souls_bane.enter"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 100,
+      "max_seconds": 215
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_souls_bane",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take the matching weapon from the rack for each angry creature. Enter the next chamber when the rage meter fills."
+    },
+    "planned_outcome": {
+      "success_condition": "The anger room is cleared and its exit opens.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.a_souls_bane.fear",
+    "name": "Defeat five fear reapers",
+    "activity_id": "quest.a_souls_bane",
+    "kind": "quest_stage",
+    "start_location_id": "location.tolnas_rift.fear_room",
+    "end_location_id": "location.tolnas_rift.confusion_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_souls_bane.anger"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 115,
+      "max_seconds": 247
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_souls_bane",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search different holes to reveal the reapers. Use the exit after five kills."
+    },
+    "planned_outcome": {
+      "success_condition": "Five fear reapers have been defeated.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.a_souls_bane.confusion",
+    "name": "Find and defeat the real confusion beasts",
+    "activity_id": "quest.a_souls_bane",
+    "kind": "quest_stage",
+    "start_location_id": "location.tolnas_rift.confusion_room",
+    "end_location_id": "location.tolnas_rift.hopelessness_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_souls_bane.fear"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 62,
+      "expected_seconds": 138,
+      "max_seconds": 297
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_souls_bane",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Identify the beast that takes damage. Repeat until the real exit is revealed."
+    },
+    "planned_outcome": {
+      "success_condition": "The real exit in the confusion room has opened.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.a_souls_bane.hopeless",
+    "name": "Defeat the hopeless creatures and cross the bridge",
+    "activity_id": "quest.a_souls_bane",
+    "kind": "quest_stage",
+    "start_location_id": "location.tolnas_rift.hopelessness_room",
+    "end_location_id": "location.tolnas_rift.final_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_souls_bane.confusion"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 68,
+      "expected_seconds": 150,
+      "max_seconds": 323
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_souls_bane",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat each creature three times and cross the bridge."
+    },
+    "planned_outcome": {
+      "success_condition": "The bridge appears and the player crosses it.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.a_souls_bane.heads",
+    "name": "Defeat Tolna's three heads",
+    "activity_id": "quest.a_souls_bane",
+    "kind": "quest_stage",
+    "start_location_id": "location.tolnas_rift.final_room",
+    "end_location_id": "location.tolnas_rift.launa",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_souls_bane.hopeless"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 56,
+      "expected_seconds": 124,
+      "max_seconds": 267
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_souls_bane",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat all three heads and speak to Tolna to return to the surface."
+    },
+    "planned_outcome": {
+      "success_condition": "All three heads are defeated and Tolna returns to normal.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.a_souls_bane.complete",
+    "name": "Speak to Tolna outside the rift",
+    "activity_id": "quest.a_souls_bane",
+    "kind": "quest_stage",
+    "start_location_id": "location.tolnas_rift.launa",
+    "end_location_id": "location.tolnas_rift.launa",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_souls_bane.heads"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 500
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.a_souls_bane.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_souls_bane",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 500 Defence XP, 500 Hitpoints XP and 500 coins. Unlocks repeat access to the rift."
+    }
+  },
+  {
+    "id": "diary.varrock.medium.task.varp_1176_21",
+    "name": "Enter Tolna's rift after A Soul's Bane",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.tolnas_rift.entrance",
+    "end_location_id": "location.tolnas_rift.anger_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_souls_bane.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.varrock.medium.task.varp_1176_21",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.varrock.medium.task.varp_1176_21",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 11,
+      "max_seconds": 24
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb into Tolna's rift after quest completion to record the Varrock Medium task."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_rag_and_bone_man_supplies",
+    "name": "Buy rag and bone man supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 750
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pot",
+        "quantity": 8
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 8
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_i.start",
+    "name": "Get the bone list from the Odd Old Man",
+    "activity_id": "quest.rag_and_bone_man_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Accept the collection list. The eight monsters drop their quest bones after starting."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_i.collect_rat",
+    "name": "Collect giant rat bone",
+    "activity_id": "quest.rag_and_bone_man_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.rag_giant_rat",
+    "end_location_id": "location.varrock.rag_giant_rat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_rat_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the listed monster and pick up its quest drop."
+    },
+    "planned_outcome": {
+      "success_condition": "The quest bone is collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_i.collect_unicorn",
+    "name": "Collect unicorn bone",
+    "activity_id": "quest.rag_and_bone_man_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.rag_unicorn",
+    "end_location_id": "location.varrock.rag_unicorn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_unicorn_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the listed monster and pick up its quest drop."
+    },
+    "planned_outcome": {
+      "success_condition": "The quest bone is collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_i.collect_bear",
+    "name": "Collect bear ribs",
+    "activity_id": "quest.rag_and_bone_man_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.rag_bear",
+    "end_location_id": "location.varrock.rag_bear",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bear_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 69,
+      "max_seconds": 148
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the listed monster and pick up its quest drop."
+    },
+    "planned_outcome": {
+      "success_condition": "The quest bone is collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_i.collect_ram",
+    "name": "Collect ram skull",
+    "activity_id": "quest.rag_and_bone_man_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.rag_ram",
+    "end_location_id": "location.varrock.rag_ram",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_ram_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the listed monster and pick up its quest drop."
+    },
+    "planned_outcome": {
+      "success_condition": "The quest bone is collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_i.collect_goblin",
+    "name": "Collect goblin skull",
+    "activity_id": "quest.rag_and_bone_man_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.rag_goblin",
+    "end_location_id": "location.lumbridge.rag_goblin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_goblin_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the listed monster and pick up its quest drop."
+    },
+    "planned_outcome": {
+      "success_condition": "The quest bone is collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_i.collect_frog",
+    "name": "Collect big frog leg",
+    "activity_id": "quest.rag_and_bone_man_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_swamp.rag_big_frog",
+    "end_location_id": "location.lumbridge_swamp.rag_big_frog",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_frog_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the listed monster and pick up its quest drop."
+    },
+    "planned_outcome": {
+      "success_condition": "The quest bone is collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_i.collect_monkey",
+    "name": "Collect monkey paw",
+    "activity_id": "quest.rag_and_bone_man_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.musa_point.rag_monkey",
+    "end_location_id": "location.musa_point.rag_monkey",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_monkey_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the listed monster and pick up its quest drop."
+    },
+    "planned_outcome": {
+      "success_condition": "The quest bone is collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_i.collect_bat",
+    "name": "Collect giant bat wing",
+    "activity_id": "quest.rag_and_bone_man_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.karamja_volcano.rag_giant_bat",
+    "end_location_id": "location.karamja_volcano.rag_giant_bat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bat_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the listed monster and pick up its quest drop."
+    },
+    "planned_outcome": {
+      "success_condition": "The quest bone is collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_i.vinegar",
+    "name": "Buy eight jugs of vinegar from Fortunato",
+    "activity_id": "quest.rag_and_bone_man_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.fortunato",
+    "end_location_id": "location.draynor.fortunato",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 8
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_vinegar",
+        "quantity": 8
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Fortunato about the Odd Old Man, then buy eight jugs for eight coins."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_i.clean",
+    "name": "Clean the eight bones on the pot-boiler",
+    "activity_id": "quest.rag_and_bone_man_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.vinegar"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.collect_rat"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.collect_unicorn"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.collect_bear"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.collect_ram"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.collect_goblin"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.collect_frog"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.collect_monkey"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.collect_bat"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 8
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.logs",
+        "quantity": 8
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 8
+      },
+      {
+        "item_id": "item.rag_rat_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_unicorn_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_bear_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_ram_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_goblin_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_frog_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_monkey_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_bat_bone",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 86,
+      "expected_seconds": 191,
+      "max_seconds": 411
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Add vinegar and a bone to each pot. Burn one log per bone in the boiler, then remove the pot when its bone is clean. Timing assumes staying at the boiler and includes the successive heating waits."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_i.complete",
+    "name": "Give the Odd Old Man the clean bones",
+    "activity_id": "quest.rag_and_bone_man_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.clean"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.rag_and_bone_man_i.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 500 Cooking XP and 500 Prayer XP. Unlocks the second bone list."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_skippy_supplies",
+    "name": "Buy skippy supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 980
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_water",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.chocolate_dust",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.snape_grass",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bowl_of_water",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.leather_gloves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "supply.skippy_and_the_mogres.make_nettle_tea",
+    "name": "Brew nettle tea for Skippy",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.draynor.jail_dig",
+    "end_location_id": "location.draynor.jail_dig",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 20,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bowl_of_water",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.nettle_tea",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 51,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick nettles with gloves and boil them in a bowl of water over a lit log."
+    }
+  },
+  {
+    "id": "miniquest.skippy_and_the_mogres.sober",
+    "name": "Sober up Skippy with a bucket of water",
+    "activity_id": "miniquest.skippy_and_the_mogres",
+    "kind": "quest_stage",
+    "start_location_id": "location.mudskipper_point.skippy",
+    "end_location_id": "location.mudskipper_point.skippy",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket_of_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the bucket on Skippy and keep the empty bucket."
+    }
+  },
+  {
+    "id": "miniquest.skippy_and_the_mogres.tea",
+    "name": "Give Skippy nettle tea",
+    "activity_id": "miniquest.skippy_and_the_mogres",
+    "kind": "quest_stage",
+    "start_location_id": "location.mudskipper_point.skippy",
+    "end_location_id": "location.mudskipper_point.skippy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.skippy_and_the_mogres.sober"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.nettle_tea",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bowl",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Skippy and give him nettle tea."
+    }
+  },
+  {
+    "id": "miniquest.skippy_and_the_mogres.mix",
+    "name": "Mix the hangover cure",
+    "activity_id": "miniquest.skippy_and_the_mogres",
+    "kind": "quest_stage",
+    "start_location_id": "location.mudskipper_point.skippy",
+    "end_location_id": "location.mudskipper_point.skippy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.skippy_and_the_mogres.tea"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.chocolate_dust",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.snape_grass",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hangover_cure",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mix chocolate dust into the milk, then add snape grass."
+    }
+  },
+  {
+    "id": "miniquest.skippy_and_the_mogres.complete",
+    "name": "Give Skippy the hangover cure",
+    "activity_id": "miniquest.skippy_and_the_mogres",
+    "kind": "quest_stage",
+    "start_location_id": "location.mudskipper_point.skippy",
+    "end_location_id": "location.mudskipper_point.skippy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.skippy_and_the_mogres.mix"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.hangover_cure",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.miniquest.skippy_and_the_mogres.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn how to draw out mogres with fishing explosives. Fighting them requires 32 Slayer."
+    }
+  },
+  {
+    "id": "supply.turael.buy_fishing_explosive",
+    "name": "Buy a fishing explosive",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.burthorpe.turael",
+    "end_location_id": "location.burthorpe.turael",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 60
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fishing_explosive",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Slayer equipment shops stock fishing explosives."
+    }
+  },
+  {
+    "id": "diary.falador.medium.task.varp_1186_15",
+    "name": "Kill a mogre at Mudskipper Point",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.mudskipper_point.ominous_fishing_spot",
+    "end_location_id": "location.mudskipper_point.ominous_fishing_spot",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.skippy_and_the_mogres.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 32,
+          "boostable": true
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.falador.medium.task.varp_1186_15",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fishing_explosive",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.falador.medium.task.varp_1186_15",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 34,
+      "expected_seconds": 75,
+      "max_seconds": 161
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Throw a fishing explosive at an ominous fishing spot and defeat the mogre."
+    },
+    "planned_outcome": {
+      "success_condition": "The summoned mogre is defeated.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "claim.cabin_fever.bill_teach_coins",
+    "name": "Claim Bill Teach's 10,000 coins",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.mos_le_harmless.bill_teach_dock",
+    "end_location_id": "location.mos_le_harmless.bill_teach_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cabin_fever.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 10000
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.cabin_fever",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Bill Teach once more after the quest to collect the payment."
+    }
+  }
+]

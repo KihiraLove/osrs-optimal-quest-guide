@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.32.0` loads 24 skill tables and
-1,084 draft actions across 91 journal activities, the museum route and travel
+3 November 2026 at 10:00:06 UTC. Dataset `0.33.0` loads 24 skill tables and
+1,189 draft actions across 99 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -228,3 +228,8 @@ records seven quests and Tarn's Lair. It includes separate crop and fruit
 readiness checks, Port Phasmatys fares, the Ectophial, and the optional Salve
 amulet crafts. The recurring Tears of Guthix XP claim and exact growth timings
 remain in review.
+
+The [pirates and Myreque review](raw/build-242/pirates-and-myreque-review.json)
+records the pirate chain through Harmony Island, the Burgh de Rott repairs,
+Tolna's rift, the first bone list and Skippy. It includes overlapping
+blindweed growth, two diary tasks and separate post-quest reward claims.
