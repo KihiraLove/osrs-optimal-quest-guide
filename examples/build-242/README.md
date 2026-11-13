@@ -1,14 +1,15 @@
 # Build 242 fixtures
 
 `lumbridge-arrival-profile.json` uses the self-funded baseline with three quest
-goals. It withdraws 25 banked coins and sells the starter dagger to buy a spade.
-X Marks the Spot supplies the coins for the Cook's Assistant ingredients.
-The route also completes The Restless Ghost. It starts with a 50,339 XP
-Prayer block to reach level 43. This block has zero weight in the objective.
-The fixture ends with four quest points and 88 carried coins at the modeled prices.
+goals. The saved route uses the first Stronghold of Security reward to buy a
+spade and the Cook's Assistant ingredients. It completes Cook's Assistant,
+The Restless Ghost and X Marks the Spot. It starts with 50,339 Prayer XP to
+reach level 43. That XP has zero weight in the objective. The bounded search
+uses the saved route as its starting incumbent.
 
 ```sh
-quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json --beam-width 144 --max-expansions 60000 > artifacts/lumbridge-arrival.json
+cp examples/build-242/lumbridge-arrival-solution.json artifacts/lumbridge-arrival-incumbent.json
+quest-optimizer solve-bounded data/manifest.json examples/build-242/lumbridge-arrival-profile.json --beam-width 144 --max-expansions 60000 --incumbent artifacts/lumbridge-arrival-incumbent.json > artifacts/lumbridge-arrival.json
 quest-optimizer replay artifacts/lumbridge-arrival.json --catalog data/manifest.json --profile examples/build-242/lumbridge-arrival-profile.json
 ```
 
@@ -170,8 +171,8 @@ quest-optimizer replay artifacts/the-golem.json --catalog data/manifest.json --p
 ```
 
 `shadow-of-the-storm-profile.json` starts after Demon Slayer and The Golem
-with Crafting 30 and prepared combat stats. The route spends 1,731 GP on
-the disguise, silver bar, food reserve, two passes and three carpet rides.
+with Crafting 30 and prepared combat stats. It supplies 1,731 GP for the
+disguise, silver bar, food reserve and desert travel.
 It assumes successful combat, transforms Silverlight into Darklight and
 resolves the 10,000 XP choice at completion.
 

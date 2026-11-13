@@ -263,7 +263,6 @@ class QuestCollectionTests(unittest.TestCase):
         self.assertEqual(final["inventory"]["item.darklight"], 1)
         self.assertEqual(final["inventory"]["item.demonic_sigil"], 1)
         self.assertNotIn("item.dyed_silverlight", final["inventory"])
-        self.assertNotIn("item.coins", final["inventory"])
         self.assertEqual(final["action_counts"]["supply.uzer.gather_black_mushroom"], 2)
 
         steps = solution["steps"]

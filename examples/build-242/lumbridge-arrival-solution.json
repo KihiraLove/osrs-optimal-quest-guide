@@ -1,0 +1,573 @@
+{
+  "schema_version": "0.1.0",
+  "solution_id": "solution.example.lumbridge_arrival",
+  "inputs": {
+    "dataset_id": "osrs.main",
+    "dataset_version": "0.35.0",
+    "profile_id": "profile.fixture.lumbridge_arrival",
+    "catalog_sha256": "3e5110277d10b67cfe921d194c5d1af6fd1f673f755dc68570e1465098d26664",
+    "profile_sha256": "2938b92766a10efd917e73607be7a0e125bbe62feac25ee1979a1d3394b49575",
+    "schemas_sha256": "67c5898cc3b30a41d5bf9996b5be36c2a5798fce998844e2adc6d9d26039a5c6"
+  },
+  "policies": {
+    "quest_lamp_skill_policy": "any_skill",
+    "trade_enabled": true,
+    "gp_policy": "self_funded",
+    "allow_boosts": true,
+    "allow_poh_services": true,
+    "allow_wilderness_travel": true,
+    "allow_death_travel": false,
+    "allow_minigame_teleports": true,
+    "allow_world_switching": false,
+    "allow_player_assistance": true,
+    "allow_repeatable_xp": false,
+    "training_methods": "user_choice",
+    "training_time_in_objective": false,
+    "training_resume_policy": "return_to_route_waypoint",
+    "world": 330,
+    "has_jagex_account": true,
+    "has_bank_pin": true,
+    "has_authenticator": true
+  },
+  "solver": {
+    "name": "catalog-replay",
+    "seed": 0,
+    "status": "feasible",
+    "primary_lower_bound_xp_tenths": 0,
+    "secondary_lower_bound_seconds": null,
+    "version": "0.1.0",
+    "proof_artifact": null
+  },
+  "objective": {
+    "order": [
+      "counted_manual_training_xp_tenths",
+      "priority_skill_elapsed_seconds",
+      "modeled_non_training_seconds",
+      "stable_step_ids"
+    ],
+    "manual_training_xp_tenths": 503390,
+    "modeled_non_training_seconds": 1873,
+    "priority_skill_elapsed_seconds": 0,
+    "counted_manual_training_xp_tenths": 0
+  },
+  "manual_training_xp_tenths_by_skill": {
+    "skill.prayer": 503390
+  },
+  "steps": [
+    {
+      "step_id": "step.000001",
+      "kind": "training",
+      "skill_id": "skill.prayer",
+      "before_xp_tenths": 0,
+      "gain_xp_tenths": 503390,
+      "after_xp_tenths": 503390,
+      "required_by": [
+        "skill.prayer"
+      ],
+      "resume_location_id": "location.lumbridge.castle_courtyard",
+      "explanation": "Gain 503390 XP tenths and resume at this waypoint."
+    },
+    {
+      "step_id": "step.000002",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.church.out",
+      "modeled_seconds": 14,
+      "explanation": "Lumbridge courtyard and church"
+    },
+    {
+      "step_id": "step.000003",
+      "kind": "action",
+      "action_id": "quest.the_restless_ghost.start",
+      "modeled_seconds": 20,
+      "explanation": "Accept Father Aereck's request"
+    },
+    {
+      "step_id": "step.000004",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.church.back",
+      "modeled_seconds": 14,
+      "explanation": "Lumbridge courtyard and church (return)"
+    },
+    {
+      "step_id": "step.000005",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.pub.out",
+      "modeled_seconds": 22,
+      "explanation": "Lumbridge courtyard and the Sheared Ram"
+    },
+    {
+      "step_id": "step.000006",
+      "kind": "action",
+      "action_id": "quest.x_marks_the_spot.start",
+      "modeled_seconds": 20,
+      "explanation": "Accept Veos's request"
+    },
+    {
+      "step_id": "step.000007",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.pub.back",
+      "modeled_seconds": 22,
+      "explanation": "Lumbridge courtyard and the Sheared Ram (return)"
+    },
+    {
+      "step_id": "step.000008",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.varrock.out",
+      "modeled_seconds": 125,
+      "explanation": "Lumbridge to Varrock square"
+    },
+    {
+      "step_id": "step.000009",
+      "kind": "travel",
+      "edge_id": "travel.walk.varrock.grand_exchange.out",
+      "modeled_seconds": 48,
+      "explanation": "Walk from Varrock square to the Grand Exchange"
+    },
+    {
+      "step_id": "step.000010",
+      "kind": "travel",
+      "edge_id": "travel.walk.stronghold.ge.back",
+      "modeled_seconds": 94,
+      "explanation": "Barbarian Village and the Grand Exchange"
+    },
+    {
+      "step_id": "step.000011",
+      "kind": "travel",
+      "edge_id": "travel.walk.stronghold.war",
+      "modeled_seconds": 115,
+      "explanation": "Enter the Stronghold and traverse the Vault of War"
+    },
+    {
+      "step_id": "step.000012",
+      "kind": "action",
+      "action_id": "stronghold.security.claim_war",
+      "modeled_seconds": 12,
+      "explanation": "Open the Gift of Peace"
+    },
+    {
+      "step_id": "step.000013",
+      "kind": "travel",
+      "edge_id": "travel.walk.stronghold.war_exit",
+      "modeled_seconds": 12,
+      "explanation": "Climb the Vault of War exit ladder"
+    },
+    {
+      "step_id": "step.000014",
+      "kind": "travel",
+      "edge_id": "travel.walk.stronghold.ge.out",
+      "modeled_seconds": 94,
+      "explanation": "Barbarian Village and the Grand Exchange"
+    },
+    {
+      "step_id": "step.000015",
+      "kind": "action",
+      "action_id": "supply.grand_exchange.purchase_cooks_assistant",
+      "modeled_seconds": 30,
+      "explanation": "Buy the Cook's Assistant ingredients"
+    },
+    {
+      "step_id": "step.000016",
+      "kind": "action",
+      "action_id": "supply.grand_exchange.purchase_spade",
+      "modeled_seconds": 12,
+      "explanation": "Buy a spade"
+    },
+    {
+      "step_id": "step.000017",
+      "kind": "travel",
+      "edge_id": "travel.walk.varrock.grand_exchange.back",
+      "modeled_seconds": 48,
+      "explanation": "Walk from the Grand Exchange to Varrock square"
+    },
+    {
+      "step_id": "step.000018",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.varrock.back",
+      "modeled_seconds": 125,
+      "explanation": "Lumbridge to Varrock square (return)"
+    },
+    {
+      "step_id": "step.000019",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.bob.out",
+      "modeled_seconds": 16,
+      "explanation": "Lumbridge courtyard and Bob's axes"
+    },
+    {
+      "step_id": "step.000020",
+      "kind": "action",
+      "action_id": "quest.x_marks_the_spot.dig_bob",
+      "modeled_seconds": 15,
+      "explanation": "Dig by Bob's axes"
+    },
+    {
+      "step_id": "step.000021",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.bob.back",
+      "modeled_seconds": 16,
+      "explanation": "Lumbridge courtyard and Bob's axes (return)"
+    },
+    {
+      "step_id": "step.000022",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.west_dig.out",
+      "modeled_seconds": 25,
+      "explanation": "Lumbridge courtyard and the west dig"
+    },
+    {
+      "step_id": "step.000023",
+      "kind": "action",
+      "action_id": "quest.x_marks_the_spot.dig_castle",
+      "modeled_seconds": 15,
+      "explanation": "Dig behind Lumbridge Castle"
+    },
+    {
+      "step_id": "step.000024",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.west_dig.back",
+      "modeled_seconds": 25,
+      "explanation": "Lumbridge courtyard and the west dig (return)"
+    },
+    {
+      "step_id": "step.000025",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.kitchen.out",
+      "modeled_seconds": 16,
+      "explanation": "Lumbridge courtyard and kitchen"
+    },
+    {
+      "step_id": "step.000026",
+      "kind": "action",
+      "action_id": "quest.cooks_assistant.complete",
+      "modeled_seconds": 35,
+      "explanation": "Give the ingredients to the Cook"
+    },
+    {
+      "step_id": "step.000027",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.kitchen.back",
+      "modeled_seconds": 16,
+      "explanation": "Lumbridge courtyard and kitchen (return)"
+    },
+    {
+      "step_id": "step.000028",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.urhney.out",
+      "modeled_seconds": 56,
+      "explanation": "Lumbridge courtyard and Father Urhney's hut"
+    },
+    {
+      "step_id": "step.000029",
+      "kind": "action",
+      "action_id": "quest.the_restless_ghost.get_amulet",
+      "modeled_seconds": 20,
+      "explanation": "Receive the ghostspeak amulet from Father Urhney"
+    },
+    {
+      "step_id": "step.000030",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.urhney.back",
+      "modeled_seconds": 56,
+      "explanation": "Lumbridge courtyard and Father Urhney's hut (return)"
+    },
+    {
+      "step_id": "step.000031",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.church.out",
+      "modeled_seconds": 14,
+      "explanation": "Lumbridge courtyard and church"
+    },
+    {
+      "step_id": "step.000032",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.graveyard.out",
+      "modeled_seconds": 10,
+      "explanation": "Lumbridge church and graveyard coffin"
+    },
+    {
+      "step_id": "step.000033",
+      "kind": "action",
+      "action_id": "quest.the_restless_ghost.speak_to_ghost",
+      "modeled_seconds": 35,
+      "explanation": "Wear the amulet and speak to the restless ghost"
+    },
+    {
+      "step_id": "step.000034",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.graveyard.back",
+      "modeled_seconds": 10,
+      "explanation": "Lumbridge church and graveyard coffin (return)"
+    },
+    {
+      "step_id": "step.000035",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.church.back",
+      "modeled_seconds": 14,
+      "explanation": "Lumbridge courtyard and church (return)"
+    },
+    {
+      "step_id": "step.000036",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.adventurer_camp.out",
+      "modeled_seconds": 42,
+      "explanation": "Lumbridge and the adventurers' camp"
+    },
+    {
+      "step_id": "step.000037",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.shamus_tree.out",
+      "modeled_seconds": 10,
+      "explanation": "Adventurers' camp and Shamus's tree"
+    },
+    {
+      "step_id": "step.000038",
+      "kind": "travel",
+      "edge_id": "travel.walk.draynor.shamus_tree.back",
+      "modeled_seconds": 39,
+      "explanation": "Draynor and Shamus's tree (return)"
+    },
+    {
+      "step_id": "step.000039",
+      "kind": "travel",
+      "edge_id": "travel.walk.draynor.wizards_tower.out",
+      "modeled_seconds": 75,
+      "explanation": "Draynor and Wizards' Tower"
+    },
+    {
+      "step_id": "step.000040",
+      "kind": "travel",
+      "edge_id": "travel.walk.wizards_tower.basement_ladder.out",
+      "modeled_seconds": 5,
+      "explanation": "Descend to the Wizards' Tower basement"
+    },
+    {
+      "step_id": "step.000041",
+      "kind": "travel",
+      "edge_id": "travel.walk.wizards_tower.ghost_altar.out",
+      "modeled_seconds": 16,
+      "explanation": "Wizards' Tower basement ladder and skull altar"
+    },
+    {
+      "step_id": "step.000042",
+      "kind": "action",
+      "action_id": "quest.the_restless_ghost.take_skull",
+      "modeled_seconds": 15,
+      "explanation": "Take the ghost's skull from the altar"
+    },
+    {
+      "step_id": "step.000043",
+      "kind": "travel",
+      "edge_id": "travel.walk.wizards_tower.ghost_altar.back",
+      "modeled_seconds": 16,
+      "explanation": "Wizards' Tower basement ladder and skull altar (return)"
+    },
+    {
+      "step_id": "step.000044",
+      "kind": "travel",
+      "edge_id": "travel.walk.wizards_tower.basement_ladder.back",
+      "modeled_seconds": 5,
+      "explanation": "Descend to the Wizards' Tower basement (return)"
+    },
+    {
+      "step_id": "step.000045",
+      "kind": "travel",
+      "edge_id": "travel.walk.draynor.wizards_tower.back",
+      "modeled_seconds": 75,
+      "explanation": "Draynor and Wizards' Tower (return)"
+    },
+    {
+      "step_id": "step.000046",
+      "kind": "travel",
+      "edge_id": "travel.walk.draynor.shamus_tree.out",
+      "modeled_seconds": 39,
+      "explanation": "Draynor and Shamus's tree"
+    },
+    {
+      "step_id": "step.000047",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.shamus_tree.back",
+      "modeled_seconds": 10,
+      "explanation": "Adventurers' camp and Shamus's tree (return)"
+    },
+    {
+      "step_id": "step.000048",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.adventurer_camp.back",
+      "modeled_seconds": 42,
+      "explanation": "Lumbridge and the adventurers' camp (return)"
+    },
+    {
+      "step_id": "step.000049",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.church.out",
+      "modeled_seconds": 14,
+      "explanation": "Lumbridge courtyard and church"
+    },
+    {
+      "step_id": "step.000050",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.graveyard.out",
+      "modeled_seconds": 10,
+      "explanation": "Lumbridge church and graveyard coffin"
+    },
+    {
+      "step_id": "step.000051",
+      "kind": "action",
+      "action_id": "quest.the_restless_ghost.complete",
+      "modeled_seconds": 35,
+      "explanation": "Return the skull to the coffin"
+    },
+    {
+      "step_id": "step.000052",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.graveyard.back",
+      "modeled_seconds": 10,
+      "explanation": "Lumbridge church and graveyard coffin (return)"
+    },
+    {
+      "step_id": "step.000053",
+      "kind": "travel",
+      "edge_id": "travel.walk.lumbridge.church.back",
+      "modeled_seconds": 14,
+      "explanation": "Lumbridge courtyard and church (return)"
+    },
+    {
+      "step_id": "step.000054",
+      "kind": "travel",
+      "edge_id": "travel.walk.draynor.lumbridge.back",
+      "modeled_seconds": 75,
+      "explanation": "Draynor to Lumbridge Castle (return)"
+    },
+    {
+      "step_id": "step.000055",
+      "kind": "action",
+      "action_id": "quest.x_marks_the_spot.dig_draynor",
+      "modeled_seconds": 15,
+      "explanation": "Dig near Draynor jail"
+    },
+    {
+      "step_id": "step.000056",
+      "kind": "travel",
+      "edge_id": "travel.walk.draynor.digs.back",
+      "modeled_seconds": 25,
+      "explanation": "Draynor pig pen and jail (return)"
+    },
+    {
+      "step_id": "step.000057",
+      "kind": "action",
+      "action_id": "quest.x_marks_the_spot.dig_casket",
+      "modeled_seconds": 15,
+      "explanation": "Recover the ancient casket"
+    },
+    {
+      "step_id": "step.000058",
+      "kind": "travel",
+      "edge_id": "travel.walk.port_sarim.draynor.back",
+      "modeled_seconds": 30,
+      "explanation": "Port Sarim to the Draynor pig pen (return)"
+    },
+    {
+      "step_id": "step.000059",
+      "kind": "action",
+      "action_id": "quest.x_marks_the_spot.complete",
+      "modeled_seconds": 20,
+      "explanation": "Give the ancient casket to Veos"
+    }
+  ],
+  "final_state": {
+    "location_id": "location.port_sarim.veos",
+    "xp_tenths": {
+      "skill.agility": 0,
+      "skill.attack": 0,
+      "skill.construction": 0,
+      "skill.cooking": 3000,
+      "skill.crafting": 0,
+      "skill.defence": 0,
+      "skill.farming": 0,
+      "skill.firemaking": 0,
+      "skill.fishing": 0,
+      "skill.fletching": 0,
+      "skill.herblore": 0,
+      "skill.hitpoints": 11540,
+      "skill.hunter": 0,
+      "skill.magic": 0,
+      "skill.mining": 0,
+      "skill.prayer": 514640,
+      "skill.ranged": 0,
+      "skill.runecraft": 0,
+      "skill.sailing": 0,
+      "skill.slayer": 0,
+      "skill.smithing": 0,
+      "skill.strength": 0,
+      "skill.thieving": 0,
+      "skill.woodcutting": 0
+    },
+    "completed_action_ids": [
+      "quest.cooks_assistant.complete",
+      "quest.the_restless_ghost.complete",
+      "quest.the_restless_ghost.get_amulet",
+      "quest.the_restless_ghost.speak_to_ghost",
+      "quest.the_restless_ghost.start",
+      "quest.the_restless_ghost.take_skull",
+      "quest.x_marks_the_spot.complete",
+      "quest.x_marks_the_spot.dig_bob",
+      "quest.x_marks_the_spot.dig_casket",
+      "quest.x_marks_the_spot.dig_castle",
+      "quest.x_marks_the_spot.dig_draynor",
+      "quest.x_marks_the_spot.start",
+      "stronghold.security.claim_war",
+      "supply.grand_exchange.purchase_cooks_assistant",
+      "supply.grand_exchange.purchase_spade"
+    ],
+    "flags": {
+      "flag.spellbook.standard": true,
+      "flag.travel.varrock_square_selected": true,
+      "unlock.stronghold.flap": true,
+      "unlock.cooks_range": true
+    },
+    "counters": {
+      "token.quest_points": 4,
+      "token.bank_coins": 25
+    },
+    "inventory": {
+      "item.air_rune": 25,
+      "item.body_rune": 2,
+      "item.bread": 1,
+      "item.bronze_arrow": 25,
+      "item.bronze_axe": 1,
+      "item.bronze_dagger": 1,
+      "item.bronze_pickaxe": 1,
+      "item.bronze_shortsword": 1,
+      "item.bucket": 1,
+      "item.earth_rune": 4,
+      "item.mind_rune": 15,
+      "item.pot": 1,
+      "item.shortbow": 1,
+      "item.shrimps": 1,
+      "item.small_fishing_net": 1,
+      "item.tinderbox": 1,
+      "item.water_rune": 6,
+      "item.wooden_shield": 1,
+      "item.coins": 1963,
+      "item.spade": 1,
+      "item.ghostspeak_amulet": 1
+    },
+    "held_rewards": [
+      {
+        "instance_id": "reward.x_marks_the_spot.ancient_lamp.instance.1",
+        "reward_id": "reward.x_marks_the_spot.ancient_lamp",
+        "remaining_picks": 1
+      }
+    ],
+    "modeled_elapsed_seconds": 1873
+  },
+  "verification": {
+    "schema_valid": true,
+    "replay_valid": true,
+    "catalog_release_ready": false
+  },
+  "limitations": [
+    "Hand-assembled route through the three starter quests and the first Stronghold of Security reward.",
+    "Training steps specify XP gains and resume waypoints. The player chooses the method."
+  ]
+}
