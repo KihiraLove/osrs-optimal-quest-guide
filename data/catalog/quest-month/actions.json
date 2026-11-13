@@ -1,0 +1,2288 @@
+[
+  {
+    "id": "quest.mudfoots_big_adventure.start",
+    "name": "Offer to find the Lumbridge outlaws",
+    "activity_id": "quest.mudfoots_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.captain_harlan",
+    "end_location_id": "location.lumbridge.captain_harlan",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mudfoots_big_adventure",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Captain Harlan about the robbery outside the general store."
+    }
+  },
+  {
+    "id": "quest.mudfoots_big_adventure.find_mudfoot",
+    "name": "Ask Mudfoot about the stolen goods",
+    "activity_id": "quest.mudfoots_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.mudfoot_cottage",
+    "end_location_id": "location.lumbridge.mudfoot_cottage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mudfoots_big_adventure.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mudfoots_big_adventure",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Mudfoot in blue armour by the ruined cottage south of the cow field."
+    }
+  },
+  {
+    "id": "quest.mudfoots_big_adventure.confront",
+    "name": "Confront the outlaw at the general store",
+    "activity_id": "quest.mudfoots_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.captain_harlan",
+    "end_location_id": "location.lumbridge.captain_harlan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mudfoots_big_adventure.find_mudfoot"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mudfoots_big_adventure",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to the shop, confront the outlaw and follow the cutscene."
+    }
+  },
+  {
+    "id": "quest.mudfoots_big_adventure.defeat_archer",
+    "name": "Defeat the archer and retrieve the bow",
+    "activity_id": "quest.mudfoots_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.mudfoot_chicken_field",
+    "end_location_id": "location.lumbridge.mudfoot_chicken_field",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mudfoots_big_adventure.confront"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "item",
+                      "item_id": "item.shortbow",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.bronze_arrow",
+                      "quantity": 1
+                    }
+                  ]
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "flag",
+                      "token_id": "flag.spellbook.standard",
+                      "value": true
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.air_rune",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.mind_rune",
+                      "quantity": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shortbow",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_arrow",
+        "quantity": 80
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 62,
+      "max_seconds": 133
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mudfoots_big_adventure",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Mudfoot by the windmill chicken field. Stab is effective here. Pick up the shortbow and bronze arrows. Incidental combat XP and ammunition or rune use are variable."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the archer and collect the ranged equipment.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.mudfoots_big_adventure.defeat_mage",
+    "name": "Defeat the mage by the H.A.M. hideout",
+    "activity_id": "quest.mudfoots_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.ham_hideout.trapdoor",
+    "end_location_id": "location.ham_hideout.trapdoor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mudfoots_big_adventure.defeat_archer"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "item",
+                      "item_id": "item.shortbow",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.bronze_arrow",
+                      "quantity": 1
+                    }
+                  ]
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "flag",
+                      "token_id": "flag.spellbook.standard",
+                      "value": true
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.air_rune",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.mind_rune",
+                      "quantity": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.staff",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 65,
+      "max_seconds": 140
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mudfoots_big_adventure",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Mudfoot outside the hideout and defeat the second outlaw. Ranged is effective. Pick up the staff. Incidental combat XP and ammunition or rune use are variable."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the mage and collect the staff.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.mudfoots_big_adventure.defeat_warrior",
+    "name": "Defeat the warrior in Lumbridge graveyard",
+    "activity_id": "quest.mudfoots_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.graveyard_coffin",
+    "end_location_id": "location.lumbridge.graveyard_coffin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mudfoots_big_adventure.defeat_mage"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.iron_scimitar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 68,
+      "max_seconds": 146
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mudfoots_big_adventure",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Confront the warrior in the graveyard. He uses Protect from Melee. Cast a combat spell or use a bow. Pick up the iron scimitar. Incidental combat XP and ammunition or rune use are variable."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the warrior and collect the scimitar.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.mudfoots_big_adventure.complete",
+    "name": "Share the bounty with Mudfoot",
+    "activity_id": "quest.mudfoots_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.captain_harlan",
+    "end_location_id": "location.lumbridge.captain_harlan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mudfoots_big_adventure.defeat_warrior"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 500
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.mudfoots_big_adventure.antique_lamp",
+        "quantity": 4
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.mudfoots_big_adventure.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 38,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mudfoots_big_adventure",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Captain Harlan to complete the quest. Receive your 500-coin share and four 500 XP combat lamps."
+    }
+  },
+  {
+    "id": "quest.the_writings_on_the_wall.start",
+    "name": "Ask Betty about the murder",
+    "activity_id": "quest.the_writings_on_the_wall",
+    "kind": "quest_stage",
+    "start_location_id": "location.lands_end.betty",
+    "end_location_id": "location.lands_end.betty",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 22,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 20,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 45,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_writings_on_the_wall",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Betty and get Sergeant Hudson's permission to investigate."
+    }
+  },
+  {
+    "id": "quest.the_writings_on_the_wall.search_lands_end",
+    "name": "Inspect the Land's End crime scene",
+    "activity_id": "quest.the_writings_on_the_wall",
+    "kind": "quest_stage",
+    "start_location_id": "location.lands_end.betty",
+    "end_location_id": "location.lands_end.betty",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_writings_on_the_wall.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.writings_father_letter",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.writings_newspaper_cutting",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 55,
+      "max_seconds": 118
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_writings_on_the_wall",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect the body and blood, read the letter and search the shelves for the newspaper cutting."
+    }
+  },
+  {
+    "id": "quest.the_writings_on_the_wall.question_witnesses",
+    "name": "Question Lan and Hugor",
+    "activity_id": "quest.the_writings_on_the_wall",
+    "kind": "quest_stage",
+    "start_location_id": "location.lands_end.lan_the_butcher",
+    "end_location_id": "location.lands_end.lan_the_butcher",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_writings_on_the_wall.search_lands_end"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.writings_bloody_knife",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 43,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_writings_on_the_wall",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Lan and Hugor. Inspect the bloody knife."
+    }
+  },
+  {
+    "id": "quest.the_writings_on_the_wall.report_lands_end",
+    "name": "Report the evidence to Betty and Hudson",
+    "activity_id": "quest.the_writings_on_the_wall",
+    "kind": "quest_stage",
+    "start_location_id": "location.lands_end.betty",
+    "end_location_id": "location.lands_end.betty",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_writings_on_the_wall.question_witnesses"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.writings_father_letter",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.writings_newspaper_cutting",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.writings_bloody_knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 36,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_writings_on_the_wall",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the Land's End clues, talk to Betty and report back to Sergeant Hudson."
+    }
+  },
+  {
+    "id": "quest.the_writings_on_the_wall.search_uncle",
+    "name": "Investigate Betty's uncle's house",
+    "activity_id": "quest.the_writings_on_the_wall",
+    "kind": "quest_stage",
+    "start_location_id": "location.hosidius.bettys_uncle",
+    "end_location_id": "location.hosidius.bettys_uncle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_writings_on_the_wall.report_lands_end"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.writings_human_head",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.writings_uncle_letter",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.writings_certificate",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 100,
+      "max_seconds": 215
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_writings_on_the_wall",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb through the west window, let Betty in, then inspect the cellar, bookcase and compost bin."
+    }
+  },
+  {
+    "id": "quest.the_writings_on_the_wall.escape_jail",
+    "name": "Question the witnesses and escape the cell",
+    "activity_id": "quest.the_writings_on_the_wall",
+    "kind": "quest_stage",
+    "start_location_id": "location.hosidius.bettys_uncle",
+    "end_location_id": "location.piscarilius.writings_jail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_writings_on_the_wall.search_uncle"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.writings_human_head",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.writings_uncle_letter",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.writings_certificate",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 41,
+      "expected_seconds": 91,
+      "max_seconds": 196
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_writings_on_the_wall",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Question Joyce and the monk, read the clues and continue into the arrest cutscene. Pull the plank from the cell wall and climb out into Port Piscarilius."
+    }
+  },
+  {
+    "id": "quest.the_writings_on_the_wall.search_jensen",
+    "name": "Investigate Captain Jensen's house",
+    "activity_id": "quest.the_writings_on_the_wall",
+    "kind": "quest_stage",
+    "start_location_id": "location.piscarilius.captain_jensen",
+    "end_location_id": "location.piscarilius.captain_jensen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_writings_on_the_wall.escape_jail"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 36,
+      "expected_seconds": 81,
+      "max_seconds": 174
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_writings_on_the_wall",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect the body, drawers, bed and wardrobe."
+    }
+  },
+  {
+    "id": "quest.the_writings_on_the_wall.return_jail",
+    "name": "Return to the jail and inspect the blood",
+    "activity_id": "quest.the_writings_on_the_wall",
+    "kind": "quest_stage",
+    "start_location_id": "location.piscarilius.writings_jail",
+    "end_location_id": "location.piscarilius.writings_jail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_writings_on_the_wall.search_jensen"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 46,
+      "max_seconds": 99
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_writings_on_the_wall",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb back through the opening and inspect the blood in the jail before travelling to Shayzien."
+    }
+  },
+  {
+    "id": "quest.the_writings_on_the_wall.war_tent",
+    "name": "Follow Hudson's lead from the Shayzien war tent",
+    "activity_id": "quest.the_writings_on_the_wall",
+    "kind": "quest_stage",
+    "start_location_id": "location.shayzien.shiro",
+    "end_location_id": "location.shayzien.writings_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_writings_on_the_wall.return_jail"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 44,
+      "max_seconds": 95
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_writings_on_the_wall",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Visit the Shayzien Encampment and watch the cutscene that moves the player to the crime scene approach."
+    }
+  },
+  {
+    "id": "quest.the_writings_on_the_wall.question_kyle",
+    "name": "Investigate the Shayzien house and speak to Kyle",
+    "activity_id": "quest.the_writings_on_the_wall",
+    "kind": "quest_stage",
+    "start_location_id": "location.shayzien.writings_house",
+    "end_location_id": "location.shayzien.writings_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_writings_on_the_wall.war_tent"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 43,
+      "expected_seconds": 95,
+      "max_seconds": 204
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_writings_on_the_wall",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect the body, shelves and blood. Talk to Kyle and Sergeant Hudson."
+    }
+  },
+  {
+    "id": "quest.the_writings_on_the_wall.complete",
+    "name": "Solve the island cipher and finish the investigation",
+    "activity_id": "quest.the_writings_on_the_wall",
+    "kind": "quest_stage",
+    "start_location_id": "location.hosidius.writings_island",
+    "end_location_id": "location.hosidius.writings_island",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_writings_on_the_wall.question_kyle"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.writings_father_letter",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.writings_newspaper_cutting",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.writings_bloody_knife",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.writings_human_head",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.writings_uncle_letter",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.writings_certificate",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.amulet_of_sight",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_writings_on_the_wall.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 44,
+      "expected_seconds": 98,
+      "max_seconds": 211
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_writings_on_the_wall",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_03",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect the plant between the trees, descend through the trapdoor and solve the cipher. The last cutscene returns the player to the island and awards the amulet."
+    }
+  },
+  {
+    "id": "quest.the_birds_and_the_wasps.start",
+    "name": "Offer to collect bees for Farmer Bea",
+    "activity_id": "quest.the_birds_and_the_wasps",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.farmer_bea",
+    "end_location_id": "location.digsite.farmer_bea",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_birds_and_the_wasps",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Farmer Bea at her farm on the ridge east of Varrock's south-east mine."
+    }
+  },
+  {
+    "id": "quest.the_birds_and_the_wasps.take_bee_box",
+    "name": "Get the bee box from the Varrock dealer",
+    "activity_id": "quest.the_birds_and_the_wasps",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.bee_dealer",
+    "end_location_id": "location.varrock.bee_dealer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_birds_and_the_wasps.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bee_box",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_birds_and_the_wasps",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to the bee dealer by the Grand Exchange and accept the box."
+    }
+  },
+  {
+    "id": "quest.the_birds_and_the_wasps.deliver_bee_box",
+    "name": "Carry the box to Farmer Bea and get the wasp equipment",
+    "activity_id": "quest.the_birds_and_the_wasps",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.farmer_bea",
+    "end_location_id": "location.digsite.farmer_bea",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_birds_and_the_wasps.take_bee_box"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bee_box",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bee_hunters_hat",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.butterfly_net",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.insect_repellent",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 48,
+      "max_seconds": 103
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_birds_and_the_wasps",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Keep the insects settled on the way back and give the box to Bea. After the hive scene, take the repellent and use the protective hat and net."
+    },
+    "planned_outcome": {
+      "success_condition": "Bring the box back to Bea.",
+      "if_unmet": "Check and shake the box as prompted on the return trip and follow Bea's dialogue."
+    }
+  },
+  {
+    "id": "quest.the_birds_and_the_wasps.catch_wasps",
+    "name": "Calm and net the wasps",
+    "activity_id": "quest.the_birds_and_the_wasps",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.beas_hives",
+    "end_location_id": "location.digsite.beas_hives",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_birds_and_the_wasps.deliver_bee_box"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bee_hunters_hat",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.butterfly_net",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.insect_repellent",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 45,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_birds_and_the_wasps",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear the bee hat, spray furious wasps and catch enough calm wasps with the net for Bea. Food helps if the swarms sting the player."
+    }
+  },
+  {
+    "id": "quest.the_birds_and_the_wasps.learn_bird_snaring",
+    "name": "Report to Bea and collect a bird snare",
+    "activity_id": "quest.the_birds_and_the_wasps",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.farmer_bea",
+    "end_location_id": "location.digsite.farmer_bea",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_birds_and_the_wasps.catch_wasps"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bird_snare",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 47,
+      "max_seconds": 101
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_birds_and_the_wasps",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show Bea the stings. Follow the hive scene and take the snare for the bird trapping lesson."
+    }
+  },
+  {
+    "id": "quest.the_birds_and_the_wasps.trap_buzzards",
+    "name": "Trap honey buzzards and gather feathers",
+    "activity_id": "quest.the_birds_and_the_wasps",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.beas_hives",
+    "end_location_id": "location.digsite.beas_hives",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_birds_and_the_wasps.learn_bird_snaring"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bird_snare",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 73,
+      "max_seconds": 157
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_birds_and_the_wasps",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Set, check and reset a bird snare in the nearby Hunter field until enough feathers have been caught."
+    }
+  },
+  {
+    "id": "quest.the_birds_and_the_wasps.fletch_darts",
+    "name": "Fletch the quest darts and show them to Bea",
+    "activity_id": "quest.the_birds_and_the_wasps",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.farmer_bea",
+    "end_location_id": "location.digsite.farmer_bea",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_birds_and_the_wasps.trap_buzzards"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 49,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_birds_and_the_wasps",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Combine the stings and feathers, then show the darts to Bea. The required catch quantities are included in these quest stages."
+    }
+  },
+  {
+    "id": "quest.the_birds_and_the_wasps.complete",
+    "name": "Finish Bea's farm lesson",
+    "activity_id": "quest.the_birds_and_the_wasps",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.farmer_bea",
+    "end_location_id": "location.digsite.farmer_bea",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_birds_and_the_wasps.fletch_darts"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hunter",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fletching",
+        "xp_tenths": 2500
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.beas_hunter_field",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_birds_and_the_wasps.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 50,
+      "max_seconds": 108
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_birds_and_the_wasps",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Finish the last hive scene and speak to Bea to unlock both wasp swarms, both honey buzzards and the dart exchange."
+    }
+  },
+  {
+    "id": "claim.beas_supplies.wasp_darts",
+    "name": "Exchange 35 wasp darts for Bea's supplies",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.digsite.farmer_bea",
+    "end_location_id": "location.digsite.farmer_bea",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.beas_hunter_field",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.wasp_dart",
+        "quantity": 35
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.beas_supplies",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 100,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_birds_and_the_wasps",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use Bea's Swap-darts menu after the quest. The bag contains variable supplies."
+    }
+  },
+  {
+    "id": "claim.beas_supplies.killer_wasp_darts",
+    "name": "Exchange 20 killer wasp darts for Bea's supplies",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.digsite.farmer_bea",
+    "end_location_id": "location.digsite.farmer_bea",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.beas_hunter_field",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.killer_wasp_dart",
+        "quantity": 20
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.beas_supplies",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 100,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_birds_and_the_wasps",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use Bea's Swap-darts menu after the quest. The bag contains variable supplies."
+    }
+  },
+  {
+    "id": "supply.shell_of_a_friend.borrow_axe",
+    "name": "Pick up the local bronze axe",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.haunted_woods.snail_grove",
+    "end_location_id": "location.haunted_woods.snail_grove",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_shell_of_a_friend.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bronze_axe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 6,
+      "max_seconds": 13
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_shell_of_a_friend",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick up the local axe from the quest material area if needed. The axe tier and tile are estimates."
+    }
+  },
+  {
+    "id": "quest.a_shell_of_a_friend.start",
+    "name": "Speak to the juvenile snail",
+    "activity_id": "quest.a_shell_of_a_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_woods.juvenile_snail",
+    "end_location_id": "location.haunted_woods.juvenile_snail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 16,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 15,
+          "boostable": false
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.druidic_ritual.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_shell_of_a_friend",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wade to the small island east of Canifis and talk to the snail."
+    }
+  },
+  {
+    "id": "quest.a_shell_of_a_friend.collect_leaves",
+    "name": "Collect fresh leaves",
+    "activity_id": "quest.a_shell_of_a_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_woods.snail_grove",
+    "end_location_id": "location.haunted_woods.snail_grove",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_shell_of_a_friend.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.iron_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.mithril_axe",
+                  "quantity": 1
+                },
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.woodcutting",
+                  "minimum_level": 21,
+                  "boostable": false
+                }
+              ]
+            },
+            {
+              "kind": "item",
+              "item_id": "item.blessed_axe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.snail_fresh_leaves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_shell_of_a_friend",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get a pile of fresh leaves from the nearby trees."
+    }
+  },
+  {
+    "id": "quest.a_shell_of_a_friend.defeat_leech",
+    "name": "Feed the snail and defeat the leech",
+    "activity_id": "quest.a_shell_of_a_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_woods.juvenile_snail",
+    "end_location_id": "location.haunted_woods.juvenile_snail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_shell_of_a_friend.collect_leaves"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "item",
+                      "item_id": "item.shortbow",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.bronze_arrow",
+                      "quantity": 1
+                    }
+                  ]
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "flag",
+                      "token_id": "flag.spellbook.standard",
+                      "value": true
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.air_rune",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.mind_rune",
+                      "quantity": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.snail_fresh_leaves",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 78,
+      "max_seconds": 168
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_shell_of_a_friend",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bring the leaves to the snail and defeat the level-39 leech that appears. Speak to the snail after the fight."
+    },
+    "planned_outcome": {
+      "success_condition": "Feed the snail and defeat the leech.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.a_shell_of_a_friend.collect_dew",
+    "name": "Cut a dew-covered branch",
+    "activity_id": "quest.a_shell_of_a_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_woods.snail_grove",
+    "end_location_id": "location.haunted_woods.snail_grove",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_shell_of_a_friend.defeat_leech"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.iron_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.mithril_axe",
+                  "quantity": 1
+                },
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.woodcutting",
+                  "minimum_level": 21,
+                  "boostable": false
+                }
+              ]
+            },
+            {
+              "kind": "item",
+              "item_id": "item.blessed_axe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.snail_dew_branch",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_shell_of_a_friend",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use an axe on the nearby trees to cut a dew-covered branch."
+    }
+  },
+  {
+    "id": "quest.a_shell_of_a_friend.strip_branch",
+    "name": "Strip the dew-covered branch",
+    "activity_id": "quest.a_shell_of_a_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_woods.snail_grove",
+    "end_location_id": "location.haunted_woods.snail_grove",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.a_shell_of_a_friend.collect_dew"
+    },
+    "consumes": [
+      {
+        "item_id": "item.snail_dew_branch",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.snail_restorative_dew",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_shell_of_a_friend",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Strip the branch to collect restorative dew."
+    }
+  },
+  {
+    "id": "quest.a_shell_of_a_friend.apply_dew",
+    "name": "Treat and name the snail",
+    "activity_id": "quest.a_shell_of_a_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_woods.juvenile_snail",
+    "end_location_id": "location.haunted_woods.juvenile_snail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_shell_of_a_friend.strip_branch"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.snail_restorative_dew",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_shell_of_a_friend",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Apply the restorative dew and choose a name for the snail."
+    }
+  },
+  {
+    "id": "quest.a_shell_of_a_friend.collect_sticks",
+    "name": "Gather strong sticks for the shelter",
+    "activity_id": "quest.a_shell_of_a_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_woods.snail_grove",
+    "end_location_id": "location.haunted_woods.snail_grove",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_shell_of_a_friend.apply_dew"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.iron_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.mithril_axe",
+                  "quantity": 1
+                },
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.woodcutting",
+                  "minimum_level": 21,
+                  "boostable": false
+                }
+              ]
+            },
+            {
+              "kind": "item",
+              "item_id": "item.blessed_axe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.snail_strong_sticks",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_shell_of_a_friend",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cut the dry sticks needed for the shelter from the nearby trees."
+    }
+  },
+  {
+    "id": "quest.a_shell_of_a_friend.build_shelter",
+    "name": "Build the snail's shelter",
+    "activity_id": "quest.a_shell_of_a_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_woods.juvenile_snail",
+    "end_location_id": "location.haunted_woods.juvenile_snail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_shell_of_a_friend.collect_sticks"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.snail_strong_sticks",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 38,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_shell_of_a_friend",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the sticks at the island to construct a shelter beside the snail."
+    }
+  },
+  {
+    "id": "quest.a_shell_of_a_friend.defeat_hunter",
+    "name": "Defeat SnelmLover500",
+    "activity_id": "quest.a_shell_of_a_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_woods.juvenile_snail",
+    "end_location_id": "location.haunted_woods.juvenile_snail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_shell_of_a_friend.build_shelter"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "item",
+                      "item_id": "item.shortbow",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.bronze_arrow",
+                      "quantity": 1
+                    }
+                  ]
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "flag",
+                      "token_id": "flag.spellbook.standard",
+                      "value": true
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.air_rune",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.mind_rune",
+                      "quantity": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 43,
+      "expected_seconds": 95,
+      "max_seconds": 204
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_shell_of_a_friend",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Confront and defeat the level-50 hunter who threatens the snail."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat SnelmLover500 and protect the snail.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.a_shell_of_a_friend.complete",
+    "name": "Return to the snail and receive the pink snelm",
+    "activity_id": "quest.a_shell_of_a_friend",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_woods.juvenile_snail",
+    "end_location_id": "location.haunted_woods.juvenile_snail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_shell_of_a_friend.defeat_hunter"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pink_snelm",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.a_shell_of_a_friend.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_shell_of_a_friend",
+        "source.jagex.cache_242_2026_11_11",
+        "source.jagex.quest_month_2026_11_11",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to the juvenile snail to finish the quest and receive the cosmetic shell."
+    }
+  },
+  {
+    "id": "claim.the_writings_on_the_wall.buy_amulet",
+    "name": "Buy another amulet of sight from Sergeant Hudson",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.shayzien.shiro",
+    "end_location_id": "location.shayzien.shiro",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_writings_on_the_wall.complete"
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.amulet_of_sight",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.quest_month_2026_11_03",
+        "source.capture.the_writings_on_the_wall"
+      ],
+      "status": "estimated",
+      "note": "Jagex confirms the separate Hudson sale. Catalog models one purchase at the Shayzien Encampment. Verify his standing tile and price in game."
+    }
+  }
+]

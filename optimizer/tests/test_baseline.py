@@ -59,7 +59,7 @@ class Build242BaselineTests(unittest.TestCase):
 
     def test_goals_keep_journal_identity_and_separate_subquests(self):
         journal = self.entries["journal"]
-        self.assertEqual(len(journal), 216)
+        self.assertEqual(len(journal), 218)
         self.assertEqual(len({entry["id"] for entry in journal}), len(journal))
         self.assertEqual(len({entry["client_quest_id"] for entry in journal}), len(journal))
         goal_ids = [entry["goal_action_id"] for entry in journal
@@ -70,6 +70,19 @@ class Build242BaselineTests(unittest.TestCase):
         self.assertNotIn("goal_action_id", tutorial)
         self.assertIn("quest.daddys_home.complete", goal_ids)
         self.assertIn("quest.recipe_for_disaster.complete", goal_ids)
+        quest_month = {
+            "quest.mudfoots_big_adventure": 17230,
+            "quest.the_writings_on_the_wall": 17231,
+            "quest.a_shell_of_a_friend": 17315,
+            "quest.the_birds_and_the_wasps": 17316,
+        }
+        actions = {action["id"] for action in self.catalog["actions"]}
+        for entry in journal:
+            if entry["id"] in quest_month:
+                self.assertEqual(entry["client_quest_id"], quest_month[entry["id"]])
+                self.assertEqual(entry["status"], "collected")
+                self.assertIn(entry["goal_action_id"], actions)
+        self.assertLessEqual(quest_month.keys(), {entry["id"] for entry in journal})
         subquests = [entry for entry in journal if entry["kind"] == "subquest"]
         self.assertEqual(len(subquests), 10)
         self.assertTrue(all(entry["parent_id"] == "quest.recipe_for_disaster" for entry in subquests))

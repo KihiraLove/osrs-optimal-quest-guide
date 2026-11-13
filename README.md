@@ -3,7 +3,7 @@
 An offline Python quest-order optimizer for trade-enabled Old School RuneScape
 main accounts, followed later by a separate GitHub Pages viewer.
 
-The draft data pins live build 242 from 3 November 2026. The main baseline
+The draft data pins live build 242 from 11 November 2026. The main baseline
 starts in Lumbridge with one quest point, the starter kit and 25 banked coins.
 The self-funded starter fixture runs three quests from that state. The full
 route depends on the remaining catalog entries.

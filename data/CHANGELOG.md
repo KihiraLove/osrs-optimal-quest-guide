@@ -1,9 +1,11 @@
 # Dataset changelog
 
-All entries use the build 242 snapshot from 3 November 2026.
+Dataset 0.37.0 uses the 11 November 2026 build 242 snapshot. Earlier
+entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.37.0 | Added the four Quest Month quests from 3 and 11 November, Mudfoot's four lamps, the Amulet of Sight and Bea's supply-bag exchanges. |
 | 0.36.0 | Added seven quests, Alfred Grimhand's Barcrawl, Tourist Trap XP choices, five runecraft altar approaches and four Desert diary tasks. |
 | 0.35.0 | Added eight quests, both Shield of Arrav gang routes, build 242 rewards, the Chaos Altar approaches, a museum claim and an Ardougne diary task. |
 | 0.34.0 | Added eight Fremennik and Kandarin quests, lyre alternatives, ferry and house travel, two workshop routes and two diary tasks. |
@@ -41,5 +43,5 @@ All entries use the build 242 snapshot from 3 November 2026.
 | 0.2.0 | Added the first quest actions and the pinned Quest Helper observations. |
 | 0.1.0 | Recorded the independent quest, skill, diary and optional content inventory for build 242. |
 
-The coverage audit records the release blockers for 0.36.0. The normalizer and
+The coverage audit records the release blockers for 0.37.0. The normalizer and
 audit use the existing dataset version.

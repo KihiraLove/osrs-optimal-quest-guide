@@ -89,7 +89,8 @@ need state reachability analysis, not an indiscriminate DAG rejection.
 
 ## Release and maintenance
 
-The draft catalog pins the build 242 snapshot from 3 November 2026. Its
+The draft catalog pins OpenRS2 archive 2762, the build 242 snapshot from
+11 November 2026. Its
 [coverage ledger](../data/coverage/build-242.json) identifies the independently
 inventoried content and unresolved reviews. A later game snapshot needs an
 explicit revision update and a reconciliation of changed records.

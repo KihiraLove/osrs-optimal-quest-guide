@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.36.0` loads 24 skill tables and
-1,528 draft actions across 123 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.37.0` loads 24 skill tables and
+1,568 draft actions across 127 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -115,7 +115,7 @@ source-specific branches, items and rewards. The remaining helper gaps and
 all uncollected entries are explicit in the inventory. The
 [publisher reward changes](raw/build-242/quest-month-rewards.json) identify the
 build 242 XP updates, including the separately claimed Demon Slayer reward.
-The [reward registry](raw/build-242/reward-registry.json) records 38 reward
+The [reward registry](raw/build-242/reward-registry.json) records 39 reward
 entries, including seven separate claims. Each claim records its producer ID,
 quest gate, available location evidence and known award details. Null values
 identify fields that need verification. X Marks the Spot, Shadow of the
@@ -247,3 +247,7 @@ claim for the Ardougne diary.
 The [Kebos, desert and Kandarin review](raw/build-242/kebos-desert-and-kandarin-review.json)
 records seven quests and Alfred Grimhand's Barcrawl, the Tourist Trap XP
 selections, five Slug Menace altars and four Desert diary tasks.
+
+The [Quest Month weeks one and two review](raw/build-242/quest-month-week-two-review.json)
+records the four November quests, their rewards and the journal changes between
+the two build 242 archives.
