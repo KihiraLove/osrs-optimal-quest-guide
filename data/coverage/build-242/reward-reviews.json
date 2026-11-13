@@ -1203,10 +1203,11 @@
   {
     "id": "review.quest.below_ice_mountain.quest_month_xp",
     "activity_id": "quest.below_ice_mountain",
-    "status": "expected",
+    "status": "collected",
     "source_ids": ["source.jagex.quest_month_2026_11_03"],
     "delivery": "completion",
-    "legacy_claim": "review_if_already_completed"
+    "legacy_claim": "review_if_already_completed",
+    "catalog_ids": ["quest.below_ice_mountain.complete"]
   },
   {
     "id": "review.quest.black_knights_fortress.quest_month_xp",
@@ -1303,10 +1304,11 @@
   {
     "id": "review.quest.prince_ali_rescue.quest_month_xp",
     "activity_id": "quest.prince_ali_rescue",
-    "status": "expected",
+    "status": "collected",
     "source_ids": ["source.jagex.quest_month_2026_11_03"],
     "delivery": "completion",
-    "legacy_claim": "review_if_already_completed"
+    "legacy_claim": "review_if_already_completed",
+    "catalog_ids": ["quest.prince_ali_rescue.complete"]
   },
   {
     "id": "review.quest.romeo_juliet.quest_month_xp",
@@ -1335,10 +1337,11 @@
   {
     "id": "review.quest.shield_of_arrav.quest_month_xp",
     "activity_id": "quest.shield_of_arrav",
-    "status": "expected",
+    "status": "collected",
     "source_ids": ["source.jagex.quest_month_2026_11_03"],
     "delivery": "completion",
-    "legacy_claim": "review_if_already_completed"
+    "legacy_claim": "review_if_already_completed",
+    "catalog_ids": ["quest.shield_of_arrav.complete"]
   },
   {
     "id": "review.quest.tale_of_the_righteous.quest_month_xp",
@@ -4125,5 +4128,339 @@
       ]
     },
     "note": "Awards 1,000 Crafting XP, 1,000 Prayer XP, 750 coins and three quest points. Keep the enchanted key."
+  },
+  {
+    "id": "review.quest.prince_ali_rescue.completion_rewards",
+    "activity_id": "quest.prince_ali_rescue",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.prince_ali_rescue",
+      "source.jagex.quest_month_2026_11_03",
+      "source.jagex.quest_month_2026_11_03"
+    ],
+    "catalog_ids": [
+      "quest.prince_ali_rescue.complete"
+    ],
+    "expected_effects": {
+      "quest.prince_ali_rescue.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 700
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.smithing",
+          "xp_tenths": 5000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.crafting",
+          "xp_tenths": 5000
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.prince_ali_rescue.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Awards three quest points, 700 coins, 500 Smithing XP and 500 Crafting XP. Unlocks free gate passage and the Sorceress's Garden introduction."
+  },
+  {
+    "id": "review.quest.shield_of_arrav.completion_rewards",
+    "activity_id": "quest.shield_of_arrav",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.shield_of_arrav",
+      "source.jagex.quest_month_2026_11_03",
+      "source.jagex.quest_month_2026_11_03"
+    ],
+    "catalog_ids": [
+      "quest.shield_of_arrav.complete"
+    ],
+    "expected_effects": {
+      "quest.shield_of_arrav.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 600
+        },
+        {
+          "kind": "xp_reward",
+          "reward_id": "reward.shield_of_arrav.quest_month_lamp",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.shield_of_arrav.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Awards one quest point, 600 coins and the build 242 completion lamp."
+  },
+  {
+    "id": "review.quest.below_ice_mountain.completion_rewards",
+    "activity_id": "quest.below_ice_mountain",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.below_ice_mountain",
+      "source.jagex.quest_month_2026_11_03",
+      "source.jagex.quest_month_2026_11_03"
+    ],
+    "catalog_ids": [
+      "quest.below_ice_mountain.complete"
+    ],
+    "expected_effects": {
+      "quest.below_ice_mountain.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 2000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.mining",
+          "xp_tenths": 12000
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.below_ice_mountain.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Awards one quest point, 2,000 coins and 1,200 Mining XP. The Ruins of Camdozaal and steak sandwich recipe become available."
+  },
+  {
+    "id": "review.quest.sleeping_giants.completion_rewards",
+    "activity_id": "quest.sleeping_giants",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.sleeping_giants"
+    ],
+    "catalog_ids": [
+      "quest.sleeping_giants.complete"
+    ],
+    "expected_effects": {
+      "quest.sleeping_giants.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.smithing",
+          "xp_tenths": 60000
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.sleeping_giants.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Awards one quest point and 6,000 Smithing XP. Unlocks repeat Giants' Foundry commissions."
+  },
+  {
+    "id": "review.quest.misthalin_mystery.completion_rewards",
+    "activity_id": "quest.misthalin_mystery",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.misthalin_mystery"
+    ],
+    "catalog_ids": [
+      "quest.misthalin_mystery.complete"
+    ],
+    "expected_effects": {
+      "quest.misthalin_mystery.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.crafting",
+          "xp_tenths": 6000
+        },
+        {
+          "kind": "item",
+          "item_id": "item.uncut_ruby",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.uncut_emerald",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.uncut_sapphire",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.misthalin_mystery.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Awards one quest point, 600 Crafting XP and three uncut gems."
+  },
+  {
+    "id": "review.quest.tribal_totem.completion_rewards",
+    "activity_id": "quest.tribal_totem",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.tribal_totem"
+    ],
+    "catalog_ids": [
+      "quest.tribal_totem.complete"
+    ],
+    "expected_effects": {
+      "quest.tribal_totem.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.thieving",
+          "xp_tenths": 17750
+        },
+        {
+          "kind": "item",
+          "item_id": "item.swordfish",
+          "quantity": 5
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.tribal_totem.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Kangai grants 1 quest point, 1,775 Thieving XP and five cooked swordfish."
+  },
+  {
+    "id": "review.quest.the_hand_in_the_sand.completion_rewards",
+    "activity_id": "quest.the_hand_in_the_sand",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.the_hand_in_the_sand"
+    ],
+    "catalog_ids": [
+      "quest.the_hand_in_the_sand.complete"
+    ],
+    "expected_effects": {
+      "quest.the_hand_in_the_sand.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.thieving",
+          "xp_tenths": 10000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.crafting",
+          "xp_tenths": 90000
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_hand_in_the_sand.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Receive 1 quest point, 1,000 Thieving XP and 9,000 Crafting XP. Bert's daily bank delivery becomes available. The Wizards’ Guild rune shop also becomes available with guild access."
+  },
+  {
+    "id": "review.quest.what_lies_below.completion_rewards",
+    "activity_id": "quest.what_lies_below",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.capture.what_lies_below"
+    ],
+    "catalog_ids": [
+      "quest.what_lies_below.complete"
+    ],
+    "expected_effects": {
+      "quest.what_lies_below.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.runecraft",
+          "xp_tenths": 80000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.defence",
+          "xp_tenths": 20000
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.what_lies_below.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Receive 1 quest point, 8,000 Runecraft XP and 2,000 Defence XP. Keep the beacon ring."
+  },
+  {
+    "id": "review.quest.what_lies_below.museum_kudos",
+    "activity_id": "quest.what_lies_below",
+    "status": "collected",
+    "source_ids": [
+      "source.capture.dagonhai_museum_report",
+      "source.runelite.varbits"
+    ],
+    "catalog_ids": [
+      "claim.what_lies_below.minas"
+    ],
+    "expected_effects": {
+      "claim.what_lies_below.minas": [
+        {
+          "kind": "counter",
+          "token_id": "token.museum.kudos",
+          "delta": 5
+        }
+      ]
+    },
+    "note": "Visit Historian Minas after completing What Lies Below and show Dagon'hai history."
   }
 ]

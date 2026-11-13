@@ -1,0 +1,4516 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_prince_ali_rescue_supplies",
+    "name": "Buy prince ali rescue supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1300
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ball_of_wool",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.yellow_dye",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.redberries",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ashes",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_water",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pot_of_flour",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.soft_clay",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pink_skirt",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.beer",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.prince_ali_rescue.start",
+    "name": "Ask Hassan how to help",
+    "activity_id": "quest.prince_ali_rescue",
+    "kind": "quest_stage",
+    "start_location_id": "location.al_kharid.hassan",
+    "end_location_id": "location.al_kharid.hassan",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.prince_ali_rescue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hassan sends you to the spymaster."
+    }
+  },
+  {
+    "id": "quest.prince_ali_rescue.osman",
+    "name": "Get rescue instructions from Osman",
+    "activity_id": "quest.prince_ali_rescue",
+    "kind": "quest_stage",
+    "start_location_id": "location.al_kharid.osman",
+    "end_location_id": "location.al_kharid.osman",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prince_ali_rescue.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.prince_ali_rescue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn how to disguise Prince Ali and copy the key."
+    }
+  },
+  {
+    "id": "quest.prince_ali_rescue.wig",
+    "name": "Get a wig from Ned and dye it yellow",
+    "activity_id": "quest.prince_ali_rescue",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.ned",
+    "end_location_id": "location.draynor.ned",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prince_ali_rescue.osman"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ball_of_wool",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.yellow_dye",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ali_dyed_wig",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.prince_ali_rescue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Ned three balls of wool and use yellow dye on the wig."
+    }
+  },
+  {
+    "id": "quest.prince_ali_rescue.paste",
+    "name": "Have Aggie make the skin paste",
+    "activity_id": "quest.prince_ali_rescue",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.aggie",
+    "end_location_id": "location.draynor.aggie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prince_ali_rescue.osman"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.redberries",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ashes",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.pot_of_flour",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bucket_of_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ali_skin_paste",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.prince_ali_rescue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Aggie redberries, ash, flour and water. The model budgets the containers with the ingredients."
+    }
+  },
+  {
+    "id": "quest.prince_ali_rescue.impression",
+    "name": "Get a clay impression of Lady Keli's key",
+    "activity_id": "quest.prince_ali_rescue",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.jail_lady_keli",
+    "end_location_id": "location.draynor.jail_lady_keli",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prince_ali_rescue.osman"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.soft_clay",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ali_key_print",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 37,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.prince_ali_rescue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Persuade Lady Keli to let you handle the key and take an impression in soft clay."
+    }
+  },
+  {
+    "id": "quest.prince_ali_rescue.cast_key",
+    "name": "Make the bronze key at a furnace",
+    "activity_id": "quest.prince_ali_rescue",
+    "kind": "quest_stage",
+    "start_location_id": "location.al_kharid.furnace",
+    "end_location_id": "location.al_kharid.furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prince_ali_rescue.impression"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ali_key_print",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bronze_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ali_bronze_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.prince_ali_rescue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.new_player_improvements_2026_01_14"
+      ],
+      "status": "estimated",
+      "note": "Use the key print and a bronze bar at the furnace. The player casts the key in the current quest route."
+    }
+  },
+  {
+    "id": "quest.prince_ali_rescue.leela",
+    "name": "Plan the break-in with Leela",
+    "activity_id": "quest.prince_ali_rescue",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.leela",
+    "end_location_id": "location.draynor.leela",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prince_ali_rescue.wig"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prince_ali_rescue.paste"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prince_ali_rescue.cast_key"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pink_skirt",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.beer",
+          "quantity": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.prince_ali_rescue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show Leela the disguise and key. She explains how to handle the guard."
+    }
+  },
+  {
+    "id": "quest.prince_ali_rescue.rescue",
+    "name": "Distract Joe, restrain Lady Keli and free Prince Ali",
+    "activity_id": "quest.prince_ali_rescue",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.jail_lady_keli",
+    "end_location_id": "location.draynor.jail_lady_keli",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prince_ali_rescue.leela"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.beer",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ali_bronze_key",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ali_dyed_wig",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ali_skin_paste",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.pink_skirt",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 55,
+      "max_seconds": 118
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.prince_ali_rescue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Joe three beers, tie up Lady Keli, unlock the cell and give Ali the disguise. Pass the jail guards without engaging them if possible."
+    }
+  },
+  {
+    "id": "quest.prince_ali_rescue.complete",
+    "name": "Report the rescue to Hassan",
+    "activity_id": "quest.prince_ali_rescue",
+    "kind": "quest_stage",
+    "start_location_id": "location.al_kharid.hassan",
+    "end_location_id": "location.al_kharid.hassan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prince_ali_rescue.rescue"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 700
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.prince_ali_rescue.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.prince_ali_rescue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.quest_month_2026_11_03"
+      ],
+      "status": "estimated",
+      "note": "Awards three quest points, 700 coins, 500 Smithing XP and 500 Crafting XP. Unlocks free gate passage and the Sorceress's Garden introduction."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.start",
+    "name": "Read the Shield of Arrav book and speak to Reldo",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.reldo",
+    "end_location_id": "location.varrock.reldo",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Reldo, find the book and ask him about the gangs."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.phoenix_join",
+    "name": "Pay Baraek for the Phoenix Gang location",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.baraek",
+    "end_location_id": "location.varrock.baraek",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.shield_of_arrav.black_arm",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 20
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.shield_of_arrav.phoenix",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Commit to the Phoenix route and pay Baraek 20 coins for the location."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.straven",
+    "name": "Ask Straven how to join the Phoenix Gang",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_phoenix.straven",
+    "end_location_id": "location.varrock_phoenix.straven",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.phoenix_join"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Straven asks you to recover the intelligence report."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.jonny",
+    "name": "Defeat Jonny the Beard for the report",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.blue_moon_inn",
+    "end_location_id": "location.varrock.blue_moon_inn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.straven"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 52,
+      "max_seconds": 112
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat Jonny in the Blue Moon Inn and take his report."
+    },
+    "planned_outcome": {
+      "success_condition": "Jonny's report has been recovered.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.phoenix_shield",
+    "name": "Give Straven the report and take the shield half",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_phoenix.shield_chest",
+    "end_location_id": "location.varrock_phoenix.shield_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.jonny"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.phoenix_weapon_store_key",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.arrav_phoenix_shield",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 47,
+      "max_seconds": 101
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show Straven the report, collect the storeroom key and search the chest."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.phoenix_certificate",
+    "name": "Give Haig the Phoenix shield half",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_museum.curator",
+    "end_location_id": "location.varrock_museum.curator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.phoenix_shield"
+        },
+        {
+          "kind": "policy",
+          "name": "allow_player_assistance",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.arrav_phoenix_shield",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.phoenix_weapon_store_key",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.arrav_phoenix_certificate",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give your partner the weapon storeroom key and show the curator your shield half."
+    },
+    "planned_outcome": {
+      "success_condition": "The partner has received the storeroom key and the curator issued the certificate halves.",
+      "if_unmet": "Arrange a Black Arm Gang partner."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.black_arm_join",
+    "name": "Speak to Charlie and agree to help Katrine",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.katrine",
+    "end_location_id": "location.varrock.katrine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.shield_of_arrav.phoenix",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.shield_of_arrav.black_arm",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 51,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Charlie about the alley, then join Katrine's route."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.black_arm_key",
+    "name": "Receive the Phoenix storeroom key from a partner",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.phoenix_weapon_ladder",
+    "end_location_id": "location.varrock.phoenix_weapon_ladder",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.black_arm_join"
+        },
+        {
+          "kind": "policy",
+          "name": "allow_player_assistance",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.phoenix_weapon_store_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Arrange for a Phoenix Gang partner to give you a key."
+    },
+    "planned_outcome": {
+      "success_condition": "A Phoenix Gang partner provides the key.",
+      "if_unmet": "Arrange a Phoenix Gang partner."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.black_arm_crossbows",
+    "name": "Defeat the Weaponsmaster and take two crossbows",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.phoenix_weapon_ladder",
+    "end_location_id": "location.varrock.phoenix_weapon_ladder",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.black_arm_key"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.phoenix_weapon_store_key",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.phoenix_crossbow",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 36,
+      "expected_seconds": 81,
+      "max_seconds": 174
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the key to enter, defeat the Weaponsmaster, collect two crossbows and leave the storeroom."
+    },
+    "planned_outcome": {
+      "success_condition": "The Weaponsmaster is defeated and two crossbows have been collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.black_arm_shield",
+    "name": "Give Katrine two crossbows and collect her shield half",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.katrine",
+    "end_location_id": "location.varrock.black_arm_cupboard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.black_arm_crossbows"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.phoenix_crossbow",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.arrav_black_arm_shield",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 39,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Katrine the crossbows, then search the upstairs cupboard."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.black_arm_certificate",
+    "name": "Give Haig the Black Arm shield half",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_museum.curator",
+    "end_location_id": "location.varrock_museum.curator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.black_arm_shield"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.arrav_black_arm_shield",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.arrav_black_arm_certificate",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The curator gives two matching certificate halves."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.combine_phoenix",
+    "name": "Exchange Phoenix and Black Arm certificates",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_museum.curator",
+    "end_location_id": "location.varrock_museum.curator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.phoenix_certificate"
+        },
+        {
+          "kind": "policy",
+          "name": "allow_player_assistance",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.arrav_phoenix_certificate",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.arrav_full_certificate",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 33,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exchange one half with the partner and combine the two types."
+    },
+    "planned_outcome": {
+      "success_condition": "A partner has provided a matching certificate half.",
+      "if_unmet": "Arrange a Black Arm Gang partner."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.combine_black_arm",
+    "name": "Exchange Black Arm and Phoenix certificates",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_museum.curator",
+    "end_location_id": "location.varrock_museum.curator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.black_arm_certificate"
+        },
+        {
+          "kind": "policy",
+          "name": "allow_player_assistance",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.arrav_black_arm_certificate",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.arrav_full_certificate",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 33,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exchange one half with the partner and combine the two types."
+    },
+    "planned_outcome": {
+      "success_condition": "A partner has provided a matching certificate half.",
+      "if_unmet": "Arrange a Phoenix Gang partner."
+    }
+  },
+  {
+    "id": "quest.shield_of_arrav.complete",
+    "name": "Give the completed certificate to King Roald",
+    "activity_id": "quest.shield_of_arrav",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.king_roald",
+    "end_location_id": "location.varrock.king_roald",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "quest.shield_of_arrav.combine_phoenix"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.shield_of_arrav.combine_black_arm"
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.arrav_full_certificate",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 600
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.shield_of_arrav.quest_month_lamp",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.shield_of_arrav.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.shield_of_arrav",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.quest_month_2026_11_03"
+      ],
+      "status": "estimated",
+      "note": "Awards one quest point, 600 coins and the build 242 completion lamp."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_below_ice_mountain_supplies",
+    "name": "Buy below ice mountain supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 550
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bread",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cooked_meat",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.asgarnian_ale",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.below_ice_mountain.start",
+    "name": "Ask Willow about her excavation",
+    "activity_id": "quest.below_ice_mountain",
+    "kind": "quest_stage",
+    "start_location_id": "location.ice_mountain.willow_south",
+    "end_location_id": "location.ice_mountain.willow_south",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 16
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.below_ice_mountain",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Requires 16 quest points. Willow asks you to recruit her crew."
+    }
+  },
+  {
+    "id": "quest.below_ice_mountain.checkal",
+    "name": "Ask Checkal to join the crew",
+    "activity_id": "quest.below_ice_mountain",
+    "kind": "quest_stage",
+    "start_location_id": "location.barbarian_village.checkal",
+    "end_location_id": "location.barbarian_village.checkal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.below_ice_mountain",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Checkal asks you to show strength first."
+    }
+  },
+  {
+    "id": "quest.below_ice_mountain.flex",
+    "name": "Learn the Flex emote from Atlas",
+    "activity_id": "quest.below_ice_mountain",
+    "kind": "quest_stage",
+    "start_location_id": "location.barbarian_village.atlas",
+    "end_location_id": "location.barbarian_village.atlas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.checkal"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 38,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.below_ice_mountain",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Atlas and complete his strength exercises."
+    }
+  },
+  {
+    "id": "quest.below_ice_mountain.recruit_checkal",
+    "name": "Flex for Checkal",
+    "activity_id": "quest.below_ice_mountain",
+    "kind": "quest_stage",
+    "start_location_id": "location.barbarian_village.checkal",
+    "end_location_id": "location.barbarian_village.checkal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.flex"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.below_ice_mountain",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Perform the Flex emote and recruit Checkal."
+    }
+  },
+  {
+    "id": "quest.below_ice_mountain.marley",
+    "name": "Find out what Marley wants",
+    "activity_id": "quest.below_ice_mountain",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.marley",
+    "end_location_id": "location.edgeville.marley",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.below_ice_mountain",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Marley asks for a steak sandwich."
+    }
+  },
+  {
+    "id": "quest.below_ice_mountain.learn_sandwich",
+    "name": "Learn the steak sandwich recipe",
+    "activity_id": "quest.below_ice_mountain",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.blue_moon_inn",
+    "end_location_id": "location.varrock.blue_moon_inn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.marley"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.below_ice_mountain",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the cook at the Blue Moon Inn how to make the sandwich."
+    }
+  },
+  {
+    "id": "quest.below_ice_mountain.make_sandwich",
+    "name": "Make a steak sandwich and give it to Marley",
+    "activity_id": "quest.below_ice_mountain",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.marley",
+    "end_location_id": "location.edgeville.marley",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.learn_sandwich"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bread",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.cooked_meat",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.below_ice_mountain",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Slice the bread, add cooked meat and hand it to Marley."
+    }
+  },
+  {
+    "id": "quest.below_ice_mountain.recruit_burntof",
+    "name": "Give Burntof an ale and beat him at rock-paper-scissors",
+    "activity_id": "quest.below_ice_mountain",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador.burntof",
+    "end_location_id": "location.falador.burntof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.asgarnian_ale",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 48,
+      "max_seconds": 103
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.below_ice_mountain",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Burntof an Asgarnian ale and play until you win."
+    }
+  },
+  {
+    "id": "quest.below_ice_mountain.excavate",
+    "name": "Meet the crew at the excavation",
+    "activity_id": "quest.below_ice_mountain",
+    "kind": "quest_stage",
+    "start_location_id": "location.ice_mountain.willow_dig",
+    "end_location_id": "location.ice_mountain.camdozaal_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.recruit_checkal"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.make_sandwich"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.recruit_burntof"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 43,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.below_ice_mountain",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Willow and enter the excavation after the crew opens the passage."
+    }
+  },
+  {
+    "id": "quest.below_ice_mountain.guardian",
+    "name": "Overcome the Ancient Guardian",
+    "activity_id": "quest.below_ice_mountain",
+    "kind": "quest_stage",
+    "start_location_id": "location.ice_mountain.camdozaal_entrance",
+    "end_location_id": "location.ice_mountain.camdozaal_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.excavate"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "any",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_shortsword",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.steel_dagger",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.silverlight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.darklight",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.excalibur",
+                  "quantity": 1
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "item",
+                      "item_id": "item.shortbow",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.bronze_arrow",
+                      "quantity": 1
+                    }
+                  ]
+                },
+                {
+                  "kind": "all",
+                  "requirements": [
+                    {
+                      "kind": "flag",
+                      "token_id": "flag.spellbook.standard",
+                      "value": true
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.air_rune",
+                      "quantity": 1
+                    },
+                    {
+                      "kind": "item",
+                      "item_id": "item.mind_rune",
+                      "quantity": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.mining",
+                  "minimum_level": 10,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_pickaxe",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 100,
+      "max_seconds": 215
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.below_ice_mountain",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the guardian or mine the four pillars at level 10 Mining."
+    },
+    "planned_outcome": {
+      "success_condition": "The Ancient Guardian is defeated.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.below_ice_mountain.complete",
+    "name": "Finish the excavation cutscene",
+    "activity_id": "quest.below_ice_mountain",
+    "kind": "quest_stage",
+    "start_location_id": "location.ice_mountain.camdozaal_entrance",
+    "end_location_id": "location.ice_mountain.camdozaal_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.guardian"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 2000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 12000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.below_ice_mountain.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.below_ice_mountain",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.quest_month_2026_11_03"
+      ],
+      "status": "estimated",
+      "note": "Awards one quest point, 2,000 coins and 1,200 Mining XP. The Ruins of Camdozaal and steak sandwich recipe become available."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_sleeping_giants_supplies",
+    "name": "Buy sleeping giants supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 490
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.oak_logs",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_nails",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.raw_wool",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.chisel",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.sleeping_giants.start",
+    "name": "Approach the hill giant and speak to Kovac",
+    "activity_id": "quest.sleeping_giants",
+    "kind": "quest_stage",
+    "start_location_id": "location.desert_plateau.kovac",
+    "end_location_id": "location.desert_plateau.kovac",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 15,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 34,
+      "max_seconds": 73
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.sleeping_giants",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Interact with the giant at the cave entrance, then speak to Kovac."
+    }
+  },
+  {
+    "id": "quest.sleeping_giants.polish",
+    "name": "Repair the polishing wheel",
+    "activity_id": "quest.sleeping_giants",
+    "kind": "quest_stage",
+    "start_location_id": "location.giants_foundry.polishing_wheel",
+    "end_location_id": "location.giants_foundry.polishing_wheel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sleeping_giants.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_logs",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.bronze_nails",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.raw_wool",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.sleeping_giants",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Repair the wheel with a hammer, two oak logs, five nails and one piece of raw wool."
+    }
+  },
+  {
+    "id": "quest.sleeping_giants.grind",
+    "name": "Repair the grindstone",
+    "activity_id": "quest.sleeping_giants",
+    "kind": "quest_stage",
+    "start_location_id": "location.giants_foundry.grindstone",
+    "end_location_id": "location.giants_foundry.grindstone",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sleeping_giants.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.sleeping_giants",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a chisel on the damaged grindstone."
+    }
+  },
+  {
+    "id": "quest.sleeping_giants.trip",
+    "name": "Repair the trip hammer",
+    "activity_id": "quest.sleeping_giants",
+    "kind": "quest_stage",
+    "start_location_id": "location.giants_foundry.trip_hammer",
+    "end_location_id": "location.giants_foundry.trip_hammer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sleeping_giants.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_logs",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bronze_nails",
+        "quantity": 5
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.sleeping_giants",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use one oak log and five nails with a hammer."
+    }
+  },
+  {
+    "id": "quest.sleeping_giants.mould",
+    "name": "Set the sword mould and pour the trial sword",
+    "activity_id": "quest.sleeping_giants",
+    "kind": "quest_stage",
+    "start_location_id": "location.giants_foundry.supply_crate",
+    "end_location_id": "location.giants_foundry.supply_crate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sleeping_giants.polish"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sleeping_giants.grind"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sleeping_giants.trip"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 60,
+      "max_seconds": 129
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.sleeping_giants",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get a commission from Kovac. Select the mould and fill the crucible with the trial metal from the supply crate."
+    }
+  },
+  {
+    "id": "quest.sleeping_giants.preform",
+    "name": "Cool the mould and take out the preform",
+    "activity_id": "quest.sleeping_giants",
+    "kind": "quest_stage",
+    "start_location_id": "location.giants_foundry.supply_crate",
+    "end_location_id": "location.giants_foundry.supply_crate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sleeping_giants.mould"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.sleeping_giants",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use ice gloves or cool the mould using the bucket and waterfall on site, then pick up the preform with empty hands. The time includes collecting the water."
+    }
+  },
+  {
+    "id": "quest.sleeping_giants.forge",
+    "name": "Forge the commission sword",
+    "activity_id": "quest.sleeping_giants",
+    "kind": "quest_stage",
+    "start_location_id": "location.giants_foundry.trip_hammer",
+    "end_location_id": "location.giants_foundry.trip_hammer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sleeping_giants.preform"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 121,
+      "max_seconds": 260
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.sleeping_giants",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Work at the trip hammer, grindstone and polishing wheel while the metal is in each machine's temperature range."
+    },
+    "planned_outcome": {
+      "success_condition": "The trial sword has been finished to Kovac's standard.",
+      "if_unmet": "Reheat or cool the preform as needed."
+    }
+  },
+  {
+    "id": "quest.sleeping_giants.complete",
+    "name": "Give Kovac the finished sword",
+    "activity_id": "quest.sleeping_giants",
+    "kind": "quest_stage",
+    "start_location_id": "location.giants_foundry.supply_crate",
+    "end_location_id": "location.giants_foundry.supply_crate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sleeping_giants.forge"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 60000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.sleeping_giants.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.sleeping_giants",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards one quest point and 6,000 Smithing XP. Unlocks repeat Giants' Foundry commissions."
+    }
+  },
+  {
+    "id": "quest.misthalin_mystery.start",
+    "name": "Ask Abigale about the manor",
+    "activity_id": "quest.misthalin_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_swamp.abigale",
+    "end_location_id": "location.lumbridge_swamp.abigale",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.misthalin_mystery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Abigale in the south-east of Lumbridge Swamp."
+    }
+  },
+  {
+    "id": "quest.misthalin_mystery.manor",
+    "name": "Recover the front door key and enter the manor",
+    "activity_id": "quest.misthalin_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.misthalin_manor.rainwater_barrel",
+    "end_location_id": "location.misthalin_manor.library_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.misthalin_mystery.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 57,
+      "max_seconds": 123
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.misthalin_mystery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the nearby bucket. Use it on the rainwater barrel, search for the key and unlock the manor."
+    }
+  },
+  {
+    "id": "quest.misthalin_mystery.ruby",
+    "name": "Solve the library clue and find the ruby key",
+    "activity_id": "quest.misthalin_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.misthalin_manor.library_door",
+    "end_location_id": "location.misthalin_manor.library_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.misthalin_mystery.manor"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 54,
+      "max_seconds": 116
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.misthalin_mystery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take the knife, examine the pink door, read the note and cut open the painting."
+    }
+  },
+  {
+    "id": "quest.misthalin_mystery.blast_wall",
+    "name": "Light the candles and open the garden route",
+    "activity_id": "quest.misthalin_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.misthalin_manor.ruby_room",
+    "end_location_id": "location.misthalin_manor.garden_fence",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.misthalin_mystery.ruby"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 60,
+      "max_seconds": 129
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.misthalin_mystery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take a tinderbox, light the candles and light the barrel fuse. Leave the room and climb through the damaged wall."
+    }
+  },
+  {
+    "id": "quest.misthalin_mystery.emerald",
+    "name": "Follow the garden clue for the emerald key",
+    "activity_id": "quest.misthalin_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.misthalin_manor.garden_fence",
+    "end_location_id": "location.misthalin_manor.garden_fence",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.misthalin_mystery.blast_wall"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 47,
+      "max_seconds": 101
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.misthalin_mystery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Watch through the trees, read the note and solve its clue to obtain the emerald key."
+    }
+  },
+  {
+    "id": "quest.misthalin_mystery.sapphire",
+    "name": "Solve the fireplace gem sequence",
+    "activity_id": "quest.misthalin_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.misthalin_manor.fireplace",
+    "end_location_id": "location.misthalin_manor.fireplace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.misthalin_mystery.emerald"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 60,
+      "max_seconds": 129
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.misthalin_mystery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the emerald key to continue, read the next clue and solve the gem puzzle inside the fireplace."
+    }
+  },
+  {
+    "id": "quest.misthalin_mystery.mirror",
+    "name": "Defeat the mirror puzzle and confront the killer",
+    "activity_id": "quest.misthalin_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.misthalin_manor.sapphire_room",
+    "end_location_id": "location.misthalin_manor.sapphire_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.misthalin_mystery.sapphire"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 115,
+      "max_seconds": 247
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.misthalin_mystery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the mirror to reflect the knives, watch the reveal, and use the killer's knife for the final dialogue scene."
+    },
+    "planned_outcome": {
+      "success_condition": "The mirror puzzle and killer reveal are complete.",
+      "if_unmet": "Watch the wardrobes for the next attack and try again."
+    }
+  },
+  {
+    "id": "quest.misthalin_mystery.complete",
+    "name": "Report to Mandy outside the manor",
+    "activity_id": "quest.misthalin_mystery",
+    "kind": "quest_stage",
+    "start_location_id": "location.misthalin_manor.mandy",
+    "end_location_id": "location.misthalin_manor.mandy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.misthalin_mystery.mirror"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 6000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.uncut_ruby",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.uncut_emerald",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.uncut_sapphire",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.misthalin_mystery.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.misthalin_mystery",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards one quest point, 600 Crafting XP and three uncut gems."
+    }
+  },
+  {
+    "id": "quest.tribal_totem.start",
+    "name": "Ask Kangai Mau about the stolen totem",
+    "activity_id": "quest.tribal_totem",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimhaven.kangai_mau",
+    "end_location_id": "location.brimhaven.kangai_mau",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 33,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.tribal_totem",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Kangai asks for his tribe's totem."
+    }
+  },
+  {
+    "id": "quest.tribal_totem.redirect_crate",
+    "name": "Move the address label and arrange delivery",
+    "activity_id": "quest.tribal_totem",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.rpdt_depot",
+    "end_location_id": "location.ardougne.rpdt_depot",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tribal_totem.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 52,
+      "max_seconds": 112
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.tribal_totem",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the label from the north-eastern crate on Cromperty's teleport crate, then have the depot employee ship it."
+    }
+  },
+  {
+    "id": "quest.tribal_totem.teleport",
+    "name": "Have Cromperty teleport you into the mansion",
+    "activity_id": "quest.tribal_totem",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.cromperty",
+    "end_location_id": "location.ardougne.handlemort_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tribal_totem.redirect_crate"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.tribal_totem",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask to be teleported after the crate has been delivered."
+    }
+  },
+  {
+    "id": "quest.tribal_totem.disarm_stairs",
+    "name": "Unlock the door and disarm the trapped staircase",
+    "activity_id": "quest.tribal_totem",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.handlemort_door",
+    "end_location_id": "location.ardougne.handlemort_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tribal_totem.teleport"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 21,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.tribal_totem",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter KURT, then use Investigate on the stairs before climbing."
+    }
+  },
+  {
+    "id": "quest.tribal_totem.take_totem",
+    "name": "Retrieve the totem from the upstairs chest",
+    "activity_id": "quest.tribal_totem",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.handlemort_chest",
+    "end_location_id": "location.ardougne.handlemort_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tribal_totem.disarm_stairs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tribal_totem",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.tribal_totem",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open and search the chest."
+    }
+  },
+  {
+    "id": "quest.tribal_totem.complete",
+    "name": "Return the totem to Kangai Mau",
+    "activity_id": "quest.tribal_totem",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimhaven.kangai_mau",
+    "end_location_id": "location.brimhaven.kangai_mau",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tribal_totem.take_totem"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tribal_totem",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 17750
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swordfish",
+        "quantity": 5
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.tribal_totem.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.tribal_totem",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Kangai grants 1 quest point, 1,775 Thieving XP and five cooked swordfish."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_hand_in_the_sand_supplies",
+    "name": "Buy hand in the sand supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 420
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.empty_vial",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.redberries",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.white_berries",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lantern_lens",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_sand",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.earth_rune",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.leather_gloves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "supply.yanille.dragon_inn_beer",
+    "name": "Buy a beer from the Dragon Inn bartender",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.yanille.dragon_inn",
+    "end_location_id": "location.yanille.dragon_inn",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.beer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 10,
+      "max_seconds": 22
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The bartender sells a beer for 2 GP."
+    }
+  },
+  {
+    "id": "quest.the_hand_in_the_sand.start",
+    "name": "Ask Bert about the hand in the sandpit",
+    "activity_id": "quest.the_hand_in_the_sand",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.bert",
+    "end_location_id": "location.yanille.bert",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.sandy_hand",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 33,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive the hand from Bert."
+    }
+  },
+  {
+    "id": "quest.the_hand_in_the_sand.captain",
+    "name": "Give the Guard Captain a beer and show him the hand",
+    "activity_id": "quest.the_hand_in_the_sand",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.dragon_inn",
+    "end_location_id": "location.yanille.dragon_inn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_hand_in_the_sand.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sandy_hand",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.beer",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.beer_soaked_hand",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The captain sends you to the Wizards' Guild."
+    }
+  },
+  {
+    "id": "quest.the_hand_in_the_sand.report_hand",
+    "name": "Ring the guild bell and show Zavistic the hand",
+    "activity_id": "quest.the_hand_in_the_sand",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.wizards_guild_bell",
+    "end_location_id": "location.yanille.wizards_guild_bell",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_hand_in_the_sand.captain"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.beer_soaked_hand",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Zavistic asks you to investigate the altered hours."
+    }
+  },
+  {
+    "id": "quest.the_hand_in_the_sand.bert_rota",
+    "name": "Ask Bert for a copy of his rota",
+    "activity_id": "quest.the_hand_in_the_sand",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.bert",
+    "end_location_id": "location.yanille.bert",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_hand_in_the_sand.report_hand"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.berts_rota",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bert supplies his rota."
+    }
+  },
+  {
+    "id": "quest.the_hand_in_the_sand.sandy_rota",
+    "name": "Search Sandy's desk and pickpocket Sandy",
+    "activity_id": "quest.the_hand_in_the_sand",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimhaven.sandy",
+    "end_location_id": "location.brimhaven.sandy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_hand_in_the_sand.bert_rota"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 17,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.sandys_rota",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.sandys_sand",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 47,
+      "max_seconds": 101
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Retry the pickpocket until Sandy's sand is obtained."
+    },
+    "planned_outcome": {
+      "success_condition": "Retrieve Sandy's rota and successfully pickpocket sand.",
+      "if_unmet": "Allow extra time for pickpocket retries."
+    }
+  },
+  {
+    "id": "quest.the_hand_in_the_sand.bert_scroll",
+    "name": "Compare the rotas with Bert and collect the scroll",
+    "activity_id": "quest.the_hand_in_the_sand",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.bert",
+    "end_location_id": "location.yanille.bert",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_hand_in_the_sand.sandy_rota"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.berts_rota",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.sandys_rota",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hand_in_the_sand_scroll",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 33,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read both rotas and ask about the discrepancy."
+    }
+  },
+  {
+    "id": "quest.the_hand_in_the_sand.get_orb",
+    "name": "Give Zavistic the scroll and get the recording orb",
+    "activity_id": "quest.the_hand_in_the_sand",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.wizards_guild_bell",
+    "end_location_id": "location.yanille.wizards_guild_bell",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_hand_in_the_sand.bert_scroll"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.hand_in_the_sand_scroll",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.magical_orb",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 33,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Zavistic at the bell after getting Bert's scroll."
+    }
+  },
+  {
+    "id": "quest.the_hand_in_the_sand.make_serum",
+    "name": "Help Betty prepare the truth serum",
+    "activity_id": "quest.the_hand_in_the_sand",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.betty",
+    "end_location_id": "location.port_sarim.betty",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_hand_in_the_sand.get_orb"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 49,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.empty_vial",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.redberries",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.white_berries",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.lantern_lens",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.sandys_sand",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.truth_serum",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.hand_in_the_sand.serum_ready",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 41,
+      "expected_seconds": 90,
+      "max_seconds": 194
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the berries and vial to dye the lens, then use it from the doorway to focus light on the counter. Add Sandy's sand."
+    }
+  },
+  {
+    "id": "quest.the_hand_in_the_sand.record_sandy",
+    "name": "Dose Sandy's coffee and record his confession",
+    "activity_id": "quest.the_hand_in_the_sand",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimhaven.sandy",
+    "end_location_id": "location.brimhaven.sandy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_hand_in_the_sand.make_serum"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.magical_orb",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.truth_serum",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.recorded_magical_orb",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 84,
+      "max_seconds": 181
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Distract Sandy, add the serum, activate the orb and ask all the questions."
+    }
+  },
+  {
+    "id": "quest.the_hand_in_the_sand.refill_sand",
+    "name": "Report the confession and supply Zavistic's spell",
+    "activity_id": "quest.the_hand_in_the_sand",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.wizards_guild_bell",
+    "end_location_id": "location.yanille.wizards_guild_bell",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_hand_in_the_sand.record_sandy"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.recorded_magical_orb",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.earth_rune",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.bucket_of_sand",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 47,
+      "max_seconds": 101
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand over the recording, five earth runes and a bucket of sand."
+    }
+  },
+  {
+    "id": "quest.the_hand_in_the_sand.mazion",
+    "name": "Ask Mazion about the wizard's remains",
+    "activity_id": "quest.the_hand_in_the_sand",
+    "kind": "quest_stage",
+    "start_location_id": "location.entrana.sandpit",
+    "end_location_id": "location.entrana.sandpit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_hand_in_the_sand.refill_sand"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.wizards_head",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reach Entrana with a permitted loadout and receive the wizard's head."
+    }
+  },
+  {
+    "id": "quest.the_hand_in_the_sand.complete",
+    "name": "Give the wizard's head to Zavistic",
+    "activity_id": "quest.the_hand_in_the_sand",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.wizards_guild_bell",
+    "end_location_id": "location.yanille.wizards_guild_bell",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_hand_in_the_sand.mazion"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.wizards_head",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 90000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_hand_in_the_sand.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive 1 quest point, 1,000 Thieving XP and 9,000 Crafting XP. Bert's daily bank delivery becomes available. The Wizards’ Guild rune shop also becomes available with guild access."
+    }
+  },
+  {
+    "id": "supply.the_hand_in_the_sand.zavistic_port_sarim",
+    "name": "Give Zavistic a vial for his Port Sarim teleport",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.yanille.wizards_guild_bell",
+    "end_location_id": "location.port_sarim.betty",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_hand_in_the_sand.get_orb"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.hand_in_the_sand.serum_ready",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.empty_vial",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_hand_in_the_sand",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The optional quest teleport uses a separate empty vial from Betty's recipe."
+    }
+  },
+  {
+    "id": "diary.ardougne.medium.task.varp_1196_18",
+    "name": "Ask Bert to deliver sand to your bank",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.yanille.bert",
+    "end_location_id": "location.yanille.bert",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_hand_in_the_sand.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.ardougne.medium.task.varp_1196_18",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.ardougne.medium.task.varp_1196_18",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.hand_in_the_sand.bert_banked_sand",
+        "delta": 84
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One manual delivery is modeled. Bert sends 84 buckets to the bank, giving the Ardougne diary credit."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_what_lies_below_supplies",
+    "name": "Buy what lies below supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 420
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.chaos_rune",
+        "quantity": 15
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bowl",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_chaos_talisman",
+    "name": "Buy chaos talisman",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 450
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.chaos_talisman",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.what_lies_below.start",
+    "name": "Offer to recover Rat Burgiss's missing papers",
+    "activity_id": "quest.what_lies_below",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.rat_burgiss",
+    "end_location_id": "location.varrock.rat_burgiss",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rune_mysteries.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.runecraft",
+          "minimum_level": 35,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rats_folder",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.what_lies_below",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Requires Rune Mysteries and 35 Runecraft. Rat supplies an empty folder."
+    }
+  },
+  {
+    "id": "quest.what_lies_below.outlaws",
+    "name": "Defeat five Outlaws and file the stolen papers",
+    "activity_id": "quest.what_lies_below",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.outlaw_camp",
+    "end_location_id": "location.varrock.outlaw_camp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.what_lies_below.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rats_folder",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rats_full_folder",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 59,
+      "expected_seconds": 132,
+      "max_seconds": 284
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.what_lies_below",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick up all five papers and put them into Rat's folder."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat five Outlaws and fill Rat's folder.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.what_lies_below.rat_letter",
+    "name": "Give Rat the papers and collect his letter",
+    "activity_id": "quest.what_lies_below",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.rat_burgiss",
+    "end_location_id": "location.varrock.rat_burgiss",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.what_lies_below.outlaws"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rats_full_folder",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rats_letter",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.what_lies_below",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Rat asks you to deliver his letter to Surok."
+    }
+  },
+  {
+    "id": "quest.what_lies_below.surok_request",
+    "name": "Deliver Rat's letter and receive Surok's wand",
+    "activity_id": "quest.what_lies_below",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.surok_magis",
+    "end_location_id": "location.varrock.surok_magis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.what_lies_below.rat_letter"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rats_letter",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.chaos_wand",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.surok_diary",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 51,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.what_lies_below",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hear Surok's request and take his diary and the metal wand."
+    }
+  },
+  {
+    "id": "quest.what_lies_below.infuse_wand",
+    "name": "Infuse the wand at the Chaos Altar",
+    "activity_id": "quest.what_lies_below",
+    "kind": "quest_stage",
+    "start_location_id": "location.chaos_altar.altar",
+    "end_location_id": "location.chaos_altar.altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.what_lies_below.surok_request"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.chaos_wand",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.chaos_rune",
+        "quantity": 15
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.infused_chaos_wand",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.what_lies_below",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the metal wand with fifteen chaos runes. The altar can be reached via the Abyss, the Wilderness ruins, or the tunnel."
+    }
+  },
+  {
+    "id": "quest.what_lies_below.return_wand",
+    "name": "Give Surok the infused wand and bowl",
+    "activity_id": "quest.what_lies_below",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.surok_magis",
+    "end_location_id": "location.varrock.surok_magis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.what_lies_below.infuse_wand"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.infused_chaos_wand",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bowl",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.suroks_letter",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.what_lies_below",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive Surok's letter for Rat."
+    }
+  },
+  {
+    "id": "quest.what_lies_below.inform_rat",
+    "name": "Report Surok's plans to Rat Burgiss",
+    "activity_id": "quest.what_lies_below",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.rat_burgiss",
+    "end_location_id": "location.varrock.rat_burgiss",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.what_lies_below.return_wand"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.suroks_letter",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.what_lies_below",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Rat asks you to find Zaff."
+    }
+  },
+  {
+    "id": "quest.what_lies_below.zaff_beacon",
+    "name": "Ask Zaff for the beacon ring",
+    "activity_id": "quest.what_lies_below",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.zaff",
+    "end_location_id": "location.varrock.zaff",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.what_lies_below.inform_rat"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.beacon_ring",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 33,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.what_lies_below",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bring the ring to the palace to summon Zaff at the right time."
+    }
+  },
+  {
+    "id": "quest.what_lies_below.stop_roald",
+    "name": "Subdue King Roald and operate the beacon ring",
+    "activity_id": "quest.what_lies_below",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.surok_magis",
+    "end_location_id": "location.varrock.surok_magis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.what_lies_below.zaff_beacon"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "item",
+          "item_id": "item.beacon_ring",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 115,
+      "max_seconds": 247
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.what_lies_below",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bring Roald to 1 Hitpoint and operate the ring to summon Zaff."
+    },
+    "planned_outcome": {
+      "success_condition": "Reduce King Roald to 1 Hitpoint and successfully summon Zaff.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.what_lies_below.complete",
+    "name": "Report the rescue to Rat Burgiss",
+    "activity_id": "quest.what_lies_below",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.rat_burgiss",
+    "end_location_id": "location.varrock.rat_burgiss",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.what_lies_below.stop_roald"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.runecraft",
+        "xp_tenths": 80000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.what_lies_below.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.what_lies_below",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive 1 quest point, 8,000 Runecraft XP and 2,000 Defence XP. Keep the beacon ring."
+    }
+  },
+  {
+    "id": "supply.what_lies_below.excavate_tunnel",
+    "name": "Excavate the Chaos shortcut at the statue",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.saradomin_statue",
+    "end_location_id": "location.varrock.saradomin_statue",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.what_lies_below.surok_request"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 42,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.surok_diary",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dagonhai_history",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.chaos_tunnel",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 36,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.what_lies_below",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Anna about the statue, show her the books and use the bronze pickaxe she provides to excavate the statue."
+    }
+  },
+  {
+    "id": "supply.what_lies_below.take_dagonhai_history",
+    "name": "Take Dagon'hai history from the Varrock library",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.surok_magis",
+    "end_location_id": "location.varrock.surok_magis",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dagonhai_history",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.what_lies_below",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the palace library bookcase for the history. It is used for the tunnel and later museum report."
+    }
+  },
+  {
+    "id": "claim.what_lies_below.minas",
+    "name": "Show Dagon'hai history to Historian Minas",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.varrock_museum.historian_minas",
+    "end_location_id": "location.varrock_museum.historian_minas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.what_lies_below.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dagonhai_history",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.museum.kudos",
+        "delta": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.dagonhai_museum_report",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The upstairs report credits five museum kudos and carries no XP lamp."
+    }
+  },
+  {
+    "id": "supply.sorceress_garden.ask_osman",
+    "name": "Ask Osman about sq'irkjuice",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.al_kharid.osman",
+    "end_location_id": "location.al_kharid.osman",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prince_ali_rescue.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.sorceress_garden",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.shortest_path.sorceress_garden",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "After the rescue, ask Osman about the Sorceress and her sq'irkjuice."
+    }
+  }
+]
