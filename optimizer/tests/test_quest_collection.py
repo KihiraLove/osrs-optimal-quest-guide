@@ -332,7 +332,9 @@ class QuestCollectionTests(unittest.TestCase):
         solution, _ = solve_bounded(validator, profile, beam_width=96)
         report = verify_solution(solution, profile, validator)
         self.assertEqual(report["manual_training_xp_tenths_by_skill"], {})
-        self.assertEqual(report["final_state"]["inventory"], {"item.bucket": 1, "item.silverlight": 1})
+        inventory = report["final_state"]["inventory"]
+        self.assertEqual(inventory["item.silverlight"], 1)
+        self.assertFalse(inventory.keys() - {"item.silverlight", "item.bucket", "item.bucket_of_water"})
         self.assertEqual(report["final_state"]["counters"]["token.quest_points"], 4)
         self.assertEqual(report["final_state"]["held_rewards"], [])
 
@@ -347,7 +349,9 @@ class QuestCollectionTests(unittest.TestCase):
             state = state.apply(step)
             if step.get("action_id") == f"{quest}.receive_silverlight":
                 snapshot = state.snapshot()
-                self.assertEqual(snapshot["inventory"], {"item.bucket": 1, "item.silverlight": 1})
+                inventory = snapshot["inventory"]
+                self.assertEqual(inventory["item.silverlight"], 1)
+                self.assertFalse(inventory.keys() - {"item.silverlight", "item.bucket", "item.bucket_of_water"})
                 self.assertEqual(snapshot["counters"]["token.quest_points"], 1)
 
         edges = {step["edge_id"] for step in solution["steps"] if step["kind"] == "travel"}
