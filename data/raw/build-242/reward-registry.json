@@ -1043,29 +1043,35 @@
     {
       "id": "review.quest.the_fremennik_isles.xp_package",
       "activity_id": "quest.the_fremennik_isles",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
-        "source.quest_helper.quest_observations"
+        "source.quest_helper.quest_observations",
+        "source.capture.fremennik_isles"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.the_fremennik_isles.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "choice",
-        "quantity": null,
-        "selection_count": null,
+        "quantity": 1,
+        "selection_count": 2,
         "amount": {
           "kind": "fixed",
           "xp_tenths": 100000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": [
+          "skill.attack",
+          "skill.strength",
+          "skill.defence",
+          "skill.hitpoints"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": false,
         "reported_pick_or_item_count": 2,
         "reported_eligibility": "combat"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "The draft models the choices as two immediate selections in Mawnis's dialogue. The same skill may be selected twice."
     },
     {
       "id": "review.quest.the_great_brain_robbery.xp_package",

@@ -1,0 +1,5771 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_fremennik_trials_supplies",
+    "name": "Buy fremennik trials supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 3700
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.beer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.raw_shark",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.onion",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.potato",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cabbage",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ring_of_recoil",
+        "quantity": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "supply.fremennik_trials.hunt_lyre",
+    "name": "Hunt Lanzig for a lyre",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.rellekka.lanzig_house",
+    "end_location_id": "location.rellekka.lanzig_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.fremennik_trials.lyre_obtained",
+          "value": false
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.ask_bard"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fremennik_lyre",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.fremennik_trials.lyre_obtained",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 203,
+      "expected_seconds": 450,
+      "max_seconds": 968
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat Lanzig until he drops a lyre. The time is an estimate for a random drop."
+    },
+    "planned_outcome": {
+      "success_condition": "A lyre has dropped and been picked up.",
+      "if_unmet": "Continue hunting until a lyre drops."
+    }
+  },
+  {
+    "id": "supply.fremennik_trials.get_pet_rock",
+    "name": "Collect a pet rock from Askeladden",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.rellekka.brundt",
+    "end_location_id": "location.rellekka.brundt",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.fremennik_trials.pet_rock_collected",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fremennik_pet_rock",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.fremennik_trials.pet_rock_collected",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Askeladden outside the longhall."
+    }
+  },
+  {
+    "id": "supply.fremennik_trials.enchant_lyre",
+    "name": "Offer a raw shark at Fossegrimen's altar",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.fremennik.fossegrimen_altar",
+    "end_location_id": "location.fremennik.fossegrimen_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fremennik_lyre",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_shark",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "charge.fremennik_lyre",
+        "delta": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Offer one raw shark to charge the lyre. Budget two charges for this offer."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_trials.start",
+    "name": "Ask Brundt to join the Fremennik",
+    "activity_id": "quest.the_fremennik_trials",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.brundt",
+    "end_location_id": "location.rellekka.brundt",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Brundt asks for seven votes. The trials can be undertaken independently."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_trials.ask_bard",
+    "name": "Ask Olaf about his vote",
+    "activity_id": "quest.the_fremennik_trials",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.olaf_bard",
+    "end_location_id": "location.rellekka.olaf_bard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Olaf asks for a performance on an enchanted lyre."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_trials.olaf_vote",
+    "name": "Perform with the enchanted lyre",
+    "activity_id": "quest.the_fremennik_trials",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.stage",
+    "end_location_id": "location.rellekka.stage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.ask_bard"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fremennik_lyre",
+          "quantity": 1
+        },
+        {
+          "kind": "counter",
+          "token_id": "charge.fremennik_lyre",
+          "minimum": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter past the bouncer and perform for Olaf's vote."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_trials.ask_manni",
+    "name": "Challenge Manni to a drinking contest",
+    "activity_id": "quest.the_fremennik_trials",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.manni",
+    "end_location_id": "location.rellekka.manni",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Accept the contest and learn why you need a substitute keg."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_trials.purchase_keg",
+    "name": "Buy the low-alcohol keg",
+    "activity_id": "quest.the_fremennik_trials",
+    "kind": "quest_stage",
+    "start_location_id": "location.seers_village.poison_salesman",
+    "end_location_id": "location.seers_village.poison_salesman",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.ask_manni"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 250
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fremennik_low_alcohol_keg",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy the low-alcohol keg from the Poison Salesman."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_trials.workman",
+    "name": "Get the strange object from the council workman",
+    "activity_id": "quest.the_fremennik_trials",
+    "kind": "quest_stage",
+    "start_location_id": "location.fremennik.council_workman",
+    "end_location_id": "location.fremennik.council_workman",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.ask_manni"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.beer",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fremennik_firecracker",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the council workman a beer in exchange for the object."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_trials.manni_vote",
+    "name": "Distract the hall and win the drinking contest",
+    "activity_id": "quest.the_fremennik_trials",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.manni",
+    "end_location_id": "location.rellekka.manni",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.purchase_keg"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.workman"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fremennik_low_alcohol_keg",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.fremennik_firecracker",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 43,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Light the object and put it in the pipe, swap the kegs and beat Manni."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_trials.hunt_draugen",
+    "name": "Track and defeat the Draugen",
+    "activity_id": "quest.the_fremennik_trials",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.sigli",
+    "end_location_id": "location.rellekka.sigli",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 80,
+      "expected_seconds": 178,
+      "max_seconds": 383
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get Sigli's talisman, use it to track the wandering Draugen and return its essence to Sigli."
+    },
+    "planned_outcome": {
+      "success_condition": "The talisman has captured the Draugen's essence and Sigli grants his vote.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_trials.sigmund_vote",
+    "name": "Complete Sigmund's trading chain",
+    "activity_id": "quest.the_fremennik_trials",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.sigmund",
+    "end_location_id": "location.rellekka.sigmund",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 5000
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 106,
+      "expected_seconds": 235,
+      "max_seconds": 505
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Trade through the thirteen Rellekka contacts, starting with the sailor. Use Askeladden's 5,000-coin promise to turn the chain around, then give Sigmund his flower."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_trials.thorvald_vote",
+    "name": "Pass Thorvald's combat trial",
+    "activity_id": "quest.the_fremennik_trials",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.thorvald",
+    "end_location_id": "location.rellekka.thorvald",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_recoil",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 100,
+      "expected_seconds": 222,
+      "max_seconds": 477
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the challenge with no forbidden gear equipped or carried. Defeat the first three forms of Koschei. Complete the fourth form or accept the arena's safe defeat, then receive Thorvald's vote."
+    },
+    "planned_outcome": {
+      "success_condition": "The arena accepts the loadout and Thorvald grants his vote.",
+      "if_unmet": "Bank forbidden gear before entry and bring food and recoil rings as needed."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_trials.swensen_vote",
+    "name": "Solve Swensen's portal maze",
+    "activity_id": "quest.the_fremennik_trials",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.swensen",
+    "end_location_id": "location.rellekka.swensen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 65,
+      "max_seconds": 140
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the south, west, east, north, south, east and north portals."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_trials.peer_vote",
+    "name": "Solve Peer the Seer's house puzzle",
+    "activity_id": "quest.the_fremennik_trials",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.peer_house",
+    "end_location_id": "location.rellekka.peer_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 115,
+      "max_seconds": 247
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter with the required empty loadout, solve the door, water and frozen-key puzzles, then exit and collect Peer's vote."
+    },
+    "planned_outcome": {
+      "success_condition": "Peer accepts the entry loadout and his key opens the exit.",
+      "if_unmet": "Bank items before entering the house."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_trials.complete",
+    "name": "Report all seven votes to Brundt",
+    "activity_id": "quest.the_fremennik_trials",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.brundt",
+    "end_location_id": "location.rellekka.brundt",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.olaf_vote"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.manni_vote"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.hunt_draugen"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.sigmund_vote"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.thorvald_vote"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.swensen_vote"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.peer_vote"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 3
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 28120
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 28120
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 28120
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 28120
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 28120
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fletching",
+        "xp_tenths": 28120
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 28120
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 28120
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 28120
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 28120
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_fremennik_trials.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards three quest points and approximately 2,812 XP in each of ten skills. Fremennik ports and facilities become available."
+    }
+  },
+  {
+    "id": "quest.olafs_quest.start",
+    "name": "Ask Olaf about his shipwreck",
+    "activity_id": "quest.olafs_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.fremennik.olaf_hradson",
+    "end_location_id": "location.fremennik.olaf_hradson",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.olafs_quest",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Olaf asks for windswept logs."
+    }
+  },
+  {
+    "id": "quest.olafs_quest.cut",
+    "name": "Cut windswept logs",
+    "activity_id": "quest.olafs_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.fremennik.windswept_tree",
+    "end_location_id": "location.fremennik.windswept_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.olafs_quest.start"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 50,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_axe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.windswept_logs",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.olafs_quest",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Chop a log from the windswept tree."
+    }
+  },
+  {
+    "id": "quest.olafs_quest.carvings",
+    "name": "Give Olaf the log for two carvings",
+    "activity_id": "quest.olafs_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.fremennik.olaf_hradson",
+    "end_location_id": "location.fremennik.olaf_hradson",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.olafs_quest.cut"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.windswept_logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.olafs_quest",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Olaf makes carvings for Ingrid and Volf."
+    }
+  },
+  {
+    "id": "quest.olafs_quest.ingrid",
+    "name": "Deliver Ingrid's carving",
+    "activity_id": "quest.olafs_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.ingrid",
+    "end_location_id": "location.rellekka.ingrid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.olafs_quest.carvings"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bread",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.olafs_quest",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ingrid gives you a loaf of bread."
+    }
+  },
+  {
+    "id": "quest.olafs_quest.volf",
+    "name": "Deliver Volf's carving",
+    "activity_id": "quest.olafs_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.volf",
+    "end_location_id": "location.rellekka.volf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.olafs_quest.carvings"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cooked_shark",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.olafs_quest",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Volf gives you a cooked shark in return for his carving."
+    }
+  },
+  {
+    "id": "quest.olafs_quest.map",
+    "name": "Warm Olaf's fire and feed him",
+    "activity_id": "quest.olafs_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.fremennik.olaf_hradson",
+    "end_location_id": "location.fremennik.olaf_hradson",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.olafs_quest.ingrid"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.olafs_quest.volf"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 40,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bread",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.olafs_quest",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the damp planks on the embers. Give Olaf food and get his map."
+    }
+  },
+  {
+    "id": "quest.olafs_quest.enter_cavern",
+    "name": "Dig at the windswept tree",
+    "activity_id": "quest.olafs_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.fremennik.windswept_tree",
+    "end_location_id": "location.brine_rat_cavern.skeleton",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.olafs_quest.map"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.olafs_quest",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Dig beside the tree and descend to the skeletons."
+    }
+  },
+  {
+    "id": "quest.olafs_quest.key",
+    "name": "Defeat a Skeleton Fremennik for its key",
+    "activity_id": "quest.olafs_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.brine_rat_cavern.skeleton",
+    "end_location_id": "location.brine_rat_cavern.skeleton",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.olafs_quest.enter_cavern"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 66,
+      "max_seconds": 142
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.olafs_quest",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Obtain a gate key from a skeleton."
+    },
+    "planned_outcome": {
+      "success_condition": "The skeleton has been defeated and its key collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.olafs_quest.bridge",
+    "name": "Solve the picture puzzle and cross the walkway",
+    "activity_id": "quest.olafs_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.brine_rat_cavern.picture_door",
+    "end_location_id": "location.brine_rat_cavern.ulfric",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.olafs_quest.key"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 65,
+      "expected_seconds": 145,
+      "max_seconds": 312
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.olafs_quest",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open the picture door, collect the barrel and rope repairs, walk over the slippery bridge and use the matching keyhole."
+    },
+    "planned_outcome": {
+      "success_condition": "The repaired bridge and keyed gate have been crossed.",
+      "if_unmet": "Recover from a failed crossing and retry."
+    }
+  },
+  {
+    "id": "quest.olafs_quest.ulfric",
+    "name": "Defeat Ulfric",
+    "activity_id": "quest.olafs_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.brine_rat_cavern.ulfric",
+    "end_location_id": "location.brine_rat_cavern.ulfric",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.olafs_quest.bridge"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 58,
+      "expected_seconds": 128,
+      "max_seconds": 275
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.olafs_quest",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the chest to summon and defeat Ulfric."
+    },
+    "planned_outcome": {
+      "success_condition": "Ulfric is defeated.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.olafs_quest.complete",
+    "name": "Open Ulfric's treasure chest",
+    "activity_id": "quest.olafs_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.brine_rat_cavern.ulfric",
+    "end_location_id": "location.brine_rat_cavern.ulfric",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.olafs_quest.ulfric"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 120000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 20000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ruby",
+        "quantity": 4
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.olafs_quest.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.olafs_quest",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 12,000 Defence XP, 20,000 coins and four rubies."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_mountain_daughter_supplies",
+    "name": "Buy mountain daughter supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 850
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.leather_gloves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "supply.mountain_camp.open_approach",
+    "name": "Climb into Mountain Camp using a rope",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.mountain_camp.boulder",
+    "end_location_id": "location.mountain_camp.hamal",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.mountain_camp.entered",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a rope on the boulder to reach the camp."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.start",
+    "name": "Ask Hamal about his missing daughter",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.mountain_camp.hamal",
+    "end_location_id": "location.mountain_camp.hamal",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hamal asks for help finding Asleif."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.first_pool",
+    "name": "Gather mud and a pole, then cross to the pool",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.mountain_camp.lake_tree",
+    "end_location_id": "location.mountain_camp.shining_pool",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.plank",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 20,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 64,
+      "max_seconds": 138
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use mud to climb the tree, vault with the pole and cross the stones with a plank. Listen to the pool."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.ask_hamal",
+    "name": "Tell Hamal what the pool asked",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.mountain_camp.hamal",
+    "end_location_id": "location.mountain_camp.hamal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.first_pool"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Hamal and Jokul about peace and a source of food."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.svidi",
+    "name": "Find Svidi and discuss safe passage",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.fremennik.svidi",
+    "end_location_id": "location.fremennik.svidi",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.ask_hamal"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find the wandering Svidi east of Rellekka."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.guarantee",
+    "name": "Get Brundt's offer of safe passage",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.brundt",
+    "end_location_id": "location.rellekka.brundt",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.svidi"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Brundt in Rellekka."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.rock",
+    "name": "Take a fragment from the ancient rock",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.mountain_camp.hamal",
+    "end_location_id": "location.mountain_camp.hamal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.guarantee"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a pickaxe on the camp's ancient rock."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.peace",
+    "name": "Deliver the rock fragment to Brundt",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.brundt",
+    "end_location_id": "location.rellekka.brundt",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.rock"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bring the fragment and receive the guarantee for Svidi."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.deliver",
+    "name": "Give Svidi the guarantee",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.fremennik.svidi",
+    "end_location_id": "location.fremennik.svidi",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.peace"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Svidi the promise of safe passage."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.pearl",
+    "name": "Pick a white pearl for the camp",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.white_wolf_mountain.white_pearl_bush",
+    "end_location_id": "location.white_wolf_mountain.white_pearl_bush",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.ask_hamal"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.white_pearl_seed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear gloves to pick the fruit, eat it and retain the seed."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.report",
+    "name": "Bring Hamal the news and the white pearl seed",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.mountain_camp.hamal",
+    "end_location_id": "location.mountain_camp.hamal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.pearl"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.deliver"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.white_pearl_seed",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Hamal the seed and explain the agreement."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.investigate_pool",
+    "name": "Ask Asleif how she died",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.mountain_camp.shining_pool",
+    "end_location_id": "location.mountain_camp.shining_pool",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.report"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to the pool to learn about the Kendal."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.kendal",
+    "name": "Defeat the Kendal and recover Asleif",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.mountain_camp.kendal",
+    "end_location_id": "location.mountain_camp.kendal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.investigate_pool"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 61,
+      "expected_seconds": 135,
+      "max_seconds": 290
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Confront the Kendal, defeat him and take Asleif's remains."
+    },
+    "planned_outcome": {
+      "success_condition": "The Kendal is defeated and Asleif's remains have been recovered.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.return_corpse",
+    "name": "Bring Asleif back to Hamal",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.mountain_camp.hamal",
+    "end_location_id": "location.mountain_camp.hamal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.kendal"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Hamal and gather rocks for the burial."
+    }
+  },
+  {
+    "id": "quest.mountain_daughter.complete",
+    "name": "Bury Asleif and build the cairn",
+    "activity_id": "quest.mountain_daughter",
+    "kind": "quest_stage",
+    "start_location_id": "location.mountain_camp.shining_pool",
+    "end_location_id": "location.mountain_camp.shining_pool",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.return_corpse"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mountain_daughter_bearhead",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.mountain_daughter.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 45,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mountain_daughter",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Ragnar to help with the burial. Complete the cairn with five muddy rocks. Awards 1,000 Attack XP, 2,000 Prayer XP and a Bearhead."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_fremennik_isles_supplies",
+    "name": "Buy fremennik isles supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 10000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_tuna",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.tin_ore",
+        "quantity": 8
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coal",
+        "quantity": 7
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mithril_ore",
+        "quantity": 6
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 8
+      },
+      {
+        "kind": "item",
+        "item_id": "item.split_arctic_pine_log",
+        "quantity": 8
+      },
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_neitiznot_combat_gear",
+    "name": "Buy neitiznot combat gear",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 12500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.yak_hide_body",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.yak_hide_legs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.neitiznot_shield",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.start",
+    "name": "Ask Mord Gunnars about Jatizso",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.gunnars_jetty",
+    "end_location_id": "location.rellekka.gunnars_jetty",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Mord on the northern Rellekka jetty."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.tuna",
+    "name": "Feed the king's cat a raw tuna",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.jatizso.king_gjuki",
+    "end_location_id": "location.jatizso.king_gjuki",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_tuna",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Gjuki a tuna for his cat."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.ore",
+    "name": "Supply the ore Gjuki requests",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.jatizso.king_gjuki",
+    "end_location_id": "location.jatizso.king_gjuki",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.tuna"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tin_ore",
+        "quantity": 8
+      },
+      {
+        "item_id": "item.coal",
+        "quantity": 7
+      },
+      {
+        "item_id": "item.mithril_ore",
+        "quantity": 6
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mining level determines the ore. The supply bundle reserves eight tin ore, seven coal and six mithril ore. The model debits the reserve and omits variable ore payment."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.outfit",
+    "name": "Take the silly jester outfit",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.jatizso.king_gjuki",
+    "end_location_id": "location.jatizso.king_gjuki",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.ore"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.jester_hat",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.jester_top",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.jester_tights",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.jester_boots",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open the chest behind the throne after Gjuki gives permission."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.spy_first",
+    "name": "Spy on Mawnis for Slug",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.neitiznot.slug",
+    "end_location_id": "location.neitiznot.slug",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.outfit"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.jester_hat",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.jester_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.jester_tights",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.jester_boots",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 2500
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 94,
+      "max_seconds": 202
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear the jester outfit, perform and report what you heard. Slug pays 2,500 coins."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.show_logs",
+    "name": "Show Mawnis the bridge supplies",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.neitiznot.mawnis",
+    "end_location_id": "location.neitiznot.mawnis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.spy_first"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.split_arctic_pine_log",
+          "quantity": 8
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 8
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 1500
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bring eight split logs, eight ropes and a knife. Mawnis pays 1,500 coins for the supplies."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.repair_west_bridge",
+    "name": "Repair the western rope bridge",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.neitiznot.west_bridge",
+    "end_location_id": "location.neitiznot.west_bridge",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.show_logs"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 20,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.split_arctic_pine_log",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.rope",
+        "quantity": 4
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use four split logs and four ropes to repair the western bridge."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.repair_east_bridge",
+    "name": "Repair the eastern rope bridge",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.neitiznot.east_bridge",
+    "end_location_id": "location.neitiznot.east_bridge",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.show_logs"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 20,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.split_arctic_pine_log",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.rope",
+        "quantity": 4
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use four split logs and four ropes to repair the eastern bridge."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.report_bridges",
+    "name": "Report both repaired bridges",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.neitiznot.mawnis",
+    "end_location_id": "location.neitiznot.mawnis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.repair_west_bridge"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.repair_east_bridge"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 1500
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mawnis pays 1,500 coins and sends you to check on Gjuki."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.window_tax",
+    "name": "Collect the window tax for Gjuki",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.jatizso.king_gjuki",
+    "end_location_id": "location.jatizso.king_gjuki",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.report_bridges"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 108,
+      "max_seconds": 232
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the required shopkeeper taxes and give them to Gjuki. Tax collections are quest funds."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.beard_tax",
+    "name": "Collect and turn in the beard tax",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.jatizso.king_gjuki",
+    "end_location_id": "location.jatizso.king_gjuki",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.window_tax"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 105,
+      "max_seconds": 226
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the second set of taxes and return the bag to Gjuki."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.spy_second",
+    "name": "Spy on Mawnis a second time",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.neitiznot.slug",
+    "end_location_id": "location.neitiznot.slug",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.beard_tax"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.jester_hat",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.jester_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.jester_tights",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.jester_boots",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 2500
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 94,
+      "max_seconds": 202
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Perform as the jester again, then tell Slug what you learned. Slug pays 2,500 coins."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.decree",
+    "name": "Report to Gjuki and collect his decree",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.jatizso.king_gjuki",
+    "end_location_id": "location.jatizso.king_gjuki",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.spy_second"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Gjuki sends a decree declaring that he will attack the trolls."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.show_armour",
+    "name": "Deliver the decree and show Mawnis the troll gear",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.neitiznot.mawnis",
+    "end_location_id": "location.neitiznot.mawnis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.decree"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.yak_hide_body",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.yak_hide_legs",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.neitiznot_shield",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 36,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear yak-hide armour and a Neitiznot shield. The main-account route buys the gear already made."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.trolls",
+    "name": "Defeat ten ice trolls in the cave",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.fremennik_isles.troll_cave_entrance",
+    "end_location_id": "location.fremennik_isles.ice_troll_king",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.show_armour"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.yak_hide_body",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.yak_hide_legs",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.neitiznot_shield",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 106,
+      "expected_seconds": 236,
+      "max_seconds": 507
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the cave, collect supplies from the honour guards if needed and defeat ten trolls before crossing to the king."
+    },
+    "planned_outcome": {
+      "success_condition": "Ten trolls are defeated and the player reaches the Ice Troll King.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.king",
+    "name": "Defeat the Ice Troll King and take his head",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.fremennik_isles.ice_troll_king",
+    "end_location_id": "location.fremennik_isles.troll_cave_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.trolls"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 75,
+      "expected_seconds": 167,
+      "max_seconds": 359
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the king with melee, take his head and leave by the eastern bridge and ladder."
+    },
+    "planned_outcome": {
+      "success_condition": "The king has been defeated and his head recovered.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_isles.complete",
+    "name": "Give the Ice Troll King's head to Mawnis",
+    "activity_id": "quest.the_fremennik_isles",
+    "kind": "quest_stage",
+    "start_location_id": "location.neitiznot.mawnis",
+    "end_location_id": "location.neitiznot.mawnis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.king"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.helm_of_neitiznot",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.fremennik_isles.combat_choices",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_fremennik_isles.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 37,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_isles",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards the Helm of Neitiznot, 5,000 Crafting XP, 5,000 Construction XP, 10,000 Woodcutting XP and two immediate 10,000-XP combat choices."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_elemental_workshop_supplies",
+    "name": "Buy elemental workshop supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2600
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coal",
+        "quantity": 12
+      },
+      {
+        "kind": "item",
+        "item_id": "item.thread",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_i.start",
+    "name": "Read and cut the battered book",
+    "activity_id": "quest.elemental_workshop_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.seers_village.elemental_bookcase",
+    "end_location_id": "location.seers_village.elemental_bookcase",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.battered_workshop_key",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.workshop_slashed_book",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the book and use a knife on it to find the key."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_i.water",
+    "name": "Start the workshop water wheel",
+    "activity_id": "quest.elemental_workshop_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.water_lever",
+    "end_location_id": "location.elemental_workshop.water_lever",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_i.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Turn the two water controls, then pull the lever."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_i.air",
+    "name": "Repair and activate the bellows",
+    "activity_id": "quest.elemental_workshop_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.bellows",
+    "end_location_id": "location.elemental_workshop.bellows",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_i.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.thread",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 50,
+      "max_seconds": 108
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find leather and a needle in the workshop crates. Sew the bellows with thread and pull its lever."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_i.fire",
+    "name": "Fill the stone bowl with lava and heat the furnace",
+    "activity_id": "quest.elemental_workshop_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.furnace",
+    "end_location_id": "location.elemental_workshop.furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_i.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 45,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the central crates for a stone bowl. Fill it from the lava trough and use it on the furnace."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_i.ore",
+    "name": "Mine a rock and defeat an earth elemental",
+    "activity_id": "quest.elemental_workshop_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.earth_elementals",
+    "end_location_id": "location.elemental_workshop.earth_elementals",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_i.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 20,
+          "boostable": false
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.elemental_ore",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 77,
+      "max_seconds": 166
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Attempt to mine an elemental rock, then defeat the earth elemental and collect the ore."
+    },
+    "planned_outcome": {
+      "success_condition": "The elemental is defeated and the ore collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_i.forge",
+    "name": "Smelt the elemental bar",
+    "activity_id": "quest.elemental_workshop_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.furnace",
+    "end_location_id": "location.elemental_workshop.furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_i.water"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_i.air"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_i.fire"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_i.ore"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 20,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.elemental_ore",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.coal",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.elemental_bar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Smelt the ore with four coal at the restored furnace."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_i.complete",
+    "name": "Make the elemental shield",
+    "activity_id": "quest.elemental_workshop_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.workbench",
+    "end_location_id": "location.elemental_workshop.workbench",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_i.forge"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 20,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.workshop_slashed_book",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.elemental_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.elemental_shield",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.elemental_workshop_i.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_i",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the workbench with a hammer and the slashed book. Awards 5,000 Crafting XP, 5,000 Smithing XP and the shield."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_ii.start",
+    "name": "Read the beaten book and its note",
+    "activity_id": "quest.elemental_workshop_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.digsite.beaten_bookcase",
+    "end_location_id": "location.digsite.beaten_bookcase",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_i.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.workshop_beaten_book",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_ii",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the Exam Centre bookcase, then read the book and note."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_ii.find_hatch_key",
+    "name": "Find the hatch key in the machinery",
+    "activity_id": "quest.elemental_workshop_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.water_lever",
+    "end_location_id": "location.elemental_workshop.water_lever",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_ii",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the northern machinery as directed by the note."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_ii.schematics",
+    "name": "Take the crane schematics",
+    "activity_id": "quest.elemental_workshop_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.crane",
+    "end_location_id": "location.elemental_workshop.crane",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_ii.find_hatch_key"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_ii",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the lower workshop crate for the crane schematics."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_ii.ores",
+    "name": "Defeat two elementals for their ore",
+    "activity_id": "quest.elemental_workshop_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.earth_elementals",
+    "end_location_id": "location.elemental_workshop.earth_elementals",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_ii.schematics"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 20,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.elemental_ore",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 59,
+      "expected_seconds": 130,
+      "max_seconds": 280
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_ii",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mine two elemental rocks and collect the ore from the two fights."
+    },
+    "planned_outcome": {
+      "success_condition": "Two pieces of elemental ore have been collected.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_ii.forge",
+    "name": "Smelt two elemental bars",
+    "activity_id": "quest.elemental_workshop_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.furnace",
+    "end_location_id": "location.elemental_workshop.furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_ii.ores"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 30,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.elemental_ore",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.coal",
+        "quantity": 8
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.elemental_bar",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 33,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_ii",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Smelt both pieces of ore using eight coal."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_ii.claw",
+    "name": "Smith a new crane claw",
+    "activity_id": "quest.elemental_workshop_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.workbench",
+    "end_location_id": "location.elemental_workshop.workbench",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_ii.forge"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.elemental_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.workshop_crane_claw",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_ii",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the schematics and shape one bar into a new claw."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_ii.repair",
+    "name": "Repair the crane, pipe, junction box and fan cogs",
+    "activity_id": "quest.elemental_workshop_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.crane",
+    "end_location_id": "location.elemental_workshop.crane",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_ii.claw"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.workshop_crane_claw",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 105,
+      "max_seconds": 226
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_ii",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fit the replacement claw. Search the crates for the pipe and three cogs, repair the pipe and junction box, and fit the cogs."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_ii.prime_bar",
+    "name": "Prime the remaining elemental bar",
+    "activity_id": "quest.elemental_workshop_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.crane",
+    "end_location_id": "location.elemental_workshop.crane",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_ii.repair"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.elemental_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.primed_elemental_bar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 57,
+      "expected_seconds": 126,
+      "max_seconds": 271
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_ii",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Heat and flatten the bar, then use the water tank and wind tunnel. Retrieve the primed bar from the jig."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_ii.extract_mind",
+    "name": "Infuse the primed bar in the mind extractor",
+    "activity_id": "quest.elemental_workshop_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.mind_extractor",
+    "end_location_id": "location.elemental_workshop.mind_extractor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_ii.prime_bar"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 20,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.primed_elemental_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mind_bar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 34,
+      "max_seconds": 73
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_ii",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Place the bar in the extractor, sit in the chair and retrieve the mind bar."
+    }
+  },
+  {
+    "id": "quest.elemental_workshop_ii.complete",
+    "name": "Smith the mind helmet",
+    "activity_id": "quest.elemental_workshop_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.elemental_workshop.workbench",
+    "end_location_id": "location.elemental_workshop.workbench",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.elemental_workshop_ii.extract_mind"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.workshop_beaten_book",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mind_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 75000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 75000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mind_helm",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.elemental_workshop_ii.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.elemental_workshop_ii",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the workbench with the beaten book and hammer. Awards 7,500 Crafting XP, 7,500 Smithing XP and the mind helmet."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_eagles_peak_supplies",
+    "name": "Buy eagles peak supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 620
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.yellow_dye",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swamp_tar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.eagles_peak.start",
+    "name": "Ask Charlie about the missing ferret",
+    "activity_id": "quest.eagles_peak",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne_zoo.charlie",
+    "end_location_id": "location.ardougne_zoo.charlie",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.eagles_peak",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Charlie sends you to find Nickolaus."
+    }
+  },
+  {
+    "id": "quest.eagles_peak.feather",
+    "name": "Find the metal feather in the bird book",
+    "activity_id": "quest.eagles_peak",
+    "kind": "quest_stage",
+    "start_location_id": "location.eagles_peak.nickolaus_camp",
+    "end_location_id": "location.eagles_peak.nickolaus_camp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.metal_eagle_feather",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.eagles_peak",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the books at the abandoned camp and take the metal feather."
+    }
+  },
+  {
+    "id": "quest.eagles_peak.shout",
+    "name": "Talk to Nickolaus across the chasm",
+    "activity_id": "quest.eagles_peak",
+    "kind": "quest_stage",
+    "start_location_id": "location.eagles_peak.nickolaus",
+    "end_location_id": "location.eagles_peak.nickolaus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.feather"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.eagles_peak",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Nickolaus asks for a disguise to get past the eagle."
+    }
+  },
+  {
+    "id": "quest.eagles_peak.feathers",
+    "name": "Collect ten eagle feathers",
+    "activity_id": "quest.eagles_peak",
+    "kind": "quest_stage",
+    "start_location_id": "location.eagles_peak.main_cavern",
+    "end_location_id": "location.eagles_peak.main_cavern",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.shout"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.eagles_peak",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect feathers from the piles in the main cavern."
+    }
+  },
+  {
+    "id": "quest.eagles_peak.disguise",
+    "name": "Have Asyff make the eagle costumes",
+    "activity_id": "quest.eagles_peak",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.asyff",
+    "end_location_id": "location.varrock.asyff",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.feathers"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.yellow_dye",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.swamp_tar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.coins",
+        "quantity": 50
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.eagle_cape",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.eagle_beak",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.eagles_peak",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Asyff ten feathers, yellow dye, swamp tar and 50 coins to receive two disguises."
+    }
+  },
+  {
+    "id": "quest.eagles_peak.bronze",
+    "name": "Solve the bronze feather winch puzzle",
+    "activity_id": "quest.eagles_peak",
+    "kind": "quest_stage",
+    "start_location_id": "location.eagles_peak.bronze_feather",
+    "end_location_id": "location.eagles_peak.bronze_feather",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.shout"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 83,
+      "max_seconds": 178
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.eagles_peak",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Attempt to take the feather, operate the four winches, and collect it."
+    }
+  },
+  {
+    "id": "quest.eagles_peak.silver",
+    "name": "Track the kebbit for the silver feather",
+    "activity_id": "quest.eagles_peak",
+    "kind": "quest_stage",
+    "start_location_id": "location.eagles_peak.silver_feather",
+    "end_location_id": "location.eagles_peak.silver_feather",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.shout"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.hunter",
+          "minimum_level": 27,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 46,
+      "expected_seconds": 103,
+      "max_seconds": 221
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.eagles_peak",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect the pedestal and follow the track. Threaten the kebbit and collect the feather."
+    }
+  },
+  {
+    "id": "quest.eagles_peak.gold",
+    "name": "Solve the gold feather bird-seed maze",
+    "activity_id": "quest.eagles_peak",
+    "kind": "quest_stage",
+    "start_location_id": "location.eagles_peak.gold_feather",
+    "end_location_id": "location.eagles_peak.gold_feather",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.shout"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 59,
+      "expected_seconds": 130,
+      "max_seconds": 280
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.eagles_peak",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Gather seed and use the levers and feeders to move the mechanical eagles out of the way."
+    }
+  },
+  {
+    "id": "quest.eagles_peak.rescue",
+    "name": "Open the feather door and rescue Nickolaus",
+    "activity_id": "quest.eagles_peak",
+    "kind": "quest_stage",
+    "start_location_id": "location.eagles_peak.feather_door",
+    "end_location_id": "location.eagles_peak.nickolaus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.bronze"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.silver"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.gold"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.disguise"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.eagle_cape",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.eagle_beak",
+          "quantity": 2
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.eagle_cape",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.eagle_beak",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 47,
+      "max_seconds": 101
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.eagles_peak",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use all three feathers on the door, wear the eagle disguise, pass the guard and give the second costume to Nickolaus."
+    }
+  },
+  {
+    "id": "quest.eagles_peak.ferret",
+    "name": "Meet Nickolaus and take the ferret",
+    "activity_id": "quest.eagles_peak",
+    "kind": "quest_stage",
+    "start_location_id": "location.eagles_peak.nickolaus_camp",
+    "end_location_id": "location.eagles_peak.nickolaus_camp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.rescue"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.eagle_peak_ferret",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.eagles_peak",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to the camp and learn how to use box traps."
+    }
+  },
+  {
+    "id": "quest.eagles_peak.complete",
+    "name": "Return the ferret to Charlie",
+    "activity_id": "quest.eagles_peak",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne_zoo.charlie",
+    "end_location_id": "location.ardougne_zoo.charlie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.ferret"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.eagle_peak_ferret",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hunter",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.eagles_peak.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.eagles_peak",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 2,500 Hunter XP and two quest points. Opens box trapping and eagle travel."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_making_history_supplies",
+    "name": "Buy making history supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 550
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.sapphire_amulet",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.making_history.start",
+    "name": "Ask Jorral how to save the outpost",
+    "activity_id": "quest.making_history",
+    "kind": "quest_stage",
+    "start_location_id": "location.outpost.jorral",
+    "end_location_id": "location.outpost.jorral",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_restless_ghost.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.making_history",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hear about the three witnesses."
+    }
+  },
+  {
+    "id": "quest.making_history.key",
+    "name": "Get the enchanted key from the silver merchant",
+    "activity_id": "quest.making_history",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.market",
+    "end_location_id": "location.ardougne.market",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enchanted_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.making_history",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Erin about the outpost. He gives you the enchanted key."
+    }
+  },
+  {
+    "id": "quest.making_history.chest",
+    "name": "Find and open the buried chest",
+    "activity_id": "quest.making_history",
+    "kind": "quest_stage",
+    "start_location_id": "location.castle_wars.enchanted_key_dig",
+    "end_location_id": "location.castle_wars.enchanted_key_dig",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.key"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.making_history",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the key's temperature to locate the chest. Dig it up and open it to recover the journal."
+    }
+  },
+  {
+    "id": "quest.making_history.blanin",
+    "name": "Learn about Dron from Blanin",
+    "activity_id": "quest.making_history",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.blanin",
+    "end_location_id": "location.rellekka.blanin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.making_history",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Blanin about his brother to prepare for Dron's questions."
+    }
+  },
+  {
+    "id": "quest.making_history.dron",
+    "name": "Answer Dron's questions about himself",
+    "activity_id": "quest.making_history",
+    "kind": "quest_stage",
+    "start_location_id": "location.rellekka.dron",
+    "end_location_id": "location.rellekka.dron",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.blanin"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.making_history",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Demonstrate that you know Dron, then record his account of the outpost."
+    }
+  },
+  {
+    "id": "quest.making_history.droalak",
+    "name": "Ask Droalak about his memories",
+    "activity_id": "quest.making_history",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.droalak",
+    "end_location_id": "location.port_phasmatys.droalak",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.making_history",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear the Ghostspeak amulet and speak to Droalak outside the general store."
+    }
+  },
+  {
+    "id": "quest.making_history.melina",
+    "name": "Give Melina the sapphire amulet",
+    "activity_id": "quest.making_history",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.melina",
+    "end_location_id": "location.port_phasmatys.melina",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.droalak"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sapphire_amulet",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.making_history",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear the Ghostspeak amulet and deliver the sapphire amulet to Melina."
+    }
+  },
+  {
+    "id": "quest.making_history.scroll",
+    "name": "Tell Droalak that Melina forgave him",
+    "activity_id": "quest.making_history",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.droalak",
+    "end_location_id": "location.port_phasmatys.droalak",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.melina"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.making_history",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Droalak gives you a scroll about the outpost."
+    }
+  },
+  {
+    "id": "quest.making_history.evidence",
+    "name": "Bring Jorral all three accounts",
+    "activity_id": "quest.making_history",
+    "kind": "quest_stage",
+    "start_location_id": "location.outpost.jorral",
+    "end_location_id": "location.outpost.jorral",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.chest"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.dron"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.scroll"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.making_history",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Jorral the evidence. He writes a letter for King Lathas."
+    }
+  },
+  {
+    "id": "quest.making_history.lathas",
+    "name": "Give King Lathas the letter",
+    "activity_id": "quest.making_history",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.king_lathas",
+    "end_location_id": "location.ardougne.king_lathas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.evidence"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.making_history",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Lathas the evidence and receive his reply."
+    }
+  },
+  {
+    "id": "quest.making_history.complete",
+    "name": "Return to Jorral with the king's reply",
+    "activity_id": "quest.making_history",
+    "kind": "quest_stage",
+    "start_location_id": "location.outpost.jorral",
+    "end_location_id": "location.outpost.jorral",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.lathas"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 3
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 750
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.making_history.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.making_history",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 1,000 Crafting XP, 1,000 Prayer XP, 750 coins and three quest points. Keep the enchanted key."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_necklace_of_passage",
+    "name": "Buy a necklace of passage",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.necklace_of_passage_5",
+        "quantity": 1
+      },
+      {
+        "kind": "counter",
+        "token_id": "charge.necklace_of_passage",
+        "delta": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.making_history",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy a necklace with five remaining charges."
+    }
+  },
+  {
+    "id": "diary.fremennik.medium.task.varp_1184_11",
+    "name": "Slay a brine rat",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.brine_rat_cavern.brine_rat",
+    "end_location_id": "location.brine_rat_cavern.brine_rat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.olafs_quest.enter_cavern"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 47,
+          "boostable": true
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.fremennik.medium.task.varp_1184_11",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.fremennik.medium.task.varp_1184_11",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 73,
+      "max_seconds": 157
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Perform the task at the marked diary location."
+    },
+    "planned_outcome": {
+      "success_condition": "The brine rat has been defeated.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "diary.fremennik.medium.task.varp_1184_13",
+    "name": "Mine coal in Rellekka",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.rellekka.coal_rocks",
+    "end_location_id": "location.rellekka.coal_rocks",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 30,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.fremennik.medium.task.varp_1184_13",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.fremennik.medium.task.varp_1184_13",
+        "value": true
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coal",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 500
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Perform the task at the marked diary location."
+    }
+  },
+  {
+    "id": "supply.fremennik_trials.cut_branch",
+    "name": "Cut a swaying branch",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.fremennik.swaying_tree",
+    "end_location_id": "location.fremennik.swaying_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.ask_bard"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 40,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_axe",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.fremennik_trials.lyre_obtained",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fremennik_swaying_branch",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Chop the swaying tree east of Rellekka."
+    }
+  },
+  {
+    "id": "supply.fremennik_trials.get_fleece",
+    "name": "Make stone soup for Lalli",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.fremennik.lalli",
+    "end_location_id": "location.fremennik.lalli",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.ask_bard"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.fremennik_trials.lyre_obtained",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fremennik_pet_rock",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.onion",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.potato",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.cabbage",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fremennik_golden_fleece",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 48,
+      "max_seconds": 103
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Lalli about the other human. Add the pet rock, onion, potato and cabbage to his stew for golden fleece."
+    }
+  },
+  {
+    "id": "supply.fremennik_trials.spin_fleece",
+    "name": "Spin the golden fleece",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.seers_village.lyre_spinning_wheel",
+    "end_location_id": "location.seers_village.lyre_spinning_wheel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 40,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fremennik_golden_fleece",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fremennik_golden_wool",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the Seers' Village spinning wheel."
+    }
+  },
+  {
+    "id": "supply.fremennik_trials.make_lyre",
+    "name": "Fletch and string the lyre",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.seers_village.lyre_spinning_wheel",
+    "end_location_id": "location.seers_village.lyre_spinning_wheel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.fletching",
+          "minimum_level": 25,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.fremennik_trials.lyre_obtained",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fremennik_swaying_branch",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.fremennik_golden_wool",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fremennik_lyre",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.fremennik_trials.lyre_obtained",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.fremennik_trials",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fletch the branch with a knife and string it with golden wool."
+    }
+  }
+]
