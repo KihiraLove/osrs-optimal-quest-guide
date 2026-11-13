@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.31.0` loads 24 skill tables and
-969 draft actions across 83 journal activities, the museum route and travel
+3 November 2026 at 10:00:06 UTC. Dataset `0.32.0` loads 24 skill tables and
+1,084 draft actions across 91 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -222,3 +222,9 @@ public house portals from Rimmington use the World 330 host assumption.
 amulet and skull pickups, the route that leaves the skeleton behind, and the
 Prayer XP and quest point at the coffin. It also records the remaining gameplay
 checks for the waypoint and duration estimates.
+
+The [Morytania and garden review](raw/build-242/morytania-and-garden-review.json)
+records seven quests and Tarn's Lair. It includes separate crop and fruit
+readiness checks, Port Phasmatys fares, the Ectophial, and the optional Salve
+amulet crafts. The recurring Tears of Guthix XP claim and exact growth timings
+remain in review.

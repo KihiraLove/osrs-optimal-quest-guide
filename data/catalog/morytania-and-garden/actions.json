@@ -1,0 +1,6284 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_fenkenstrain_supplies",
+    "name": "Buy the tools and metal for Fenkenstrain",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 790
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.silver_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_wire",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.needle",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.thread",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated purchase budget for the listed supplies."
+    }
+  },
+  {
+    "id": "quest.creature_of_fenkenstrain.start",
+    "name": "Accept Fenkenstrain’s assignment",
+    "activity_id": "quest.creature_of_fenkenstrain",
+    "kind": "quest_stage",
+    "start_location_id": "location.fenkenstrain_castle.doctor",
+    "end_location_id": "location.fenkenstrain_castle.doctor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_restless_ghost.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fenkenstrain",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Fenkenstrain in his castle."
+    }
+  },
+  {
+    "id": "quest.creature_of_fenkenstrain.search_books",
+    "name": "Find the amulet pieces in the castle bookcases",
+    "activity_id": "quest.creature_of_fenkenstrain",
+    "kind": "quest_stage",
+    "start_location_id": "location.fenkenstrain_castle.bookcases",
+    "end_location_id": "location.fenkenstrain_castle.bookcases",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fenkenstrain_star_amulet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 41,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fenkenstrain",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search both upstairs bookcases and combine the amulet pieces."
+    }
+  },
+  {
+    "id": "quest.creature_of_fenkenstrain.get_head",
+    "name": "Ask the Gardener Ghost to help find his head",
+    "activity_id": "quest.creature_of_fenkenstrain",
+    "kind": "quest_stage",
+    "start_location_id": "location.fenkenstrain_castle.gardener",
+    "end_location_id": "location.haunted_woods.lestwit_grave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fenkenstrain_head",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 82,
+      "max_seconds": 172
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fenkenstrain",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear the Ghostspeak amulet, follow the gardener to the Haunted Woods and dig at Lestwit’s grave."
+    }
+  },
+  {
+    "id": "quest.creature_of_fenkenstrain.get_brain",
+    "name": "Buy the pickled brain in Canifis",
+    "activity_id": "quest.creature_of_fenkenstrain",
+    "kind": "quest_stage",
+    "start_location_id": "location.canifis.hair_of_the_dog",
+    "end_location_id": "location.canifis.hair_of_the_dog",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 50
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pickled_brain",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fenkenstrain",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Roavar for food and pay 50 coins for the pickled brain."
+    }
+  },
+  {
+    "id": "quest.creature_of_fenkenstrain.enter_memorial",
+    "name": "Open the memorial and descend",
+    "activity_id": "quest.creature_of_fenkenstrain",
+    "kind": "quest_stage",
+    "start_location_id": "location.fenkenstrain_castle.memorial",
+    "end_location_id": "location.experiment_cave.experiment",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.search_books"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fenkenstrain_star_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fenkenstrain",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the star amulet to open the memorial."
+    }
+  },
+  {
+    "id": "quest.creature_of_fenkenstrain.recover_parts",
+    "name": "Defeat the Experiment and recover the body parts",
+    "activity_id": "quest.creature_of_fenkenstrain",
+    "kind": "quest_stage",
+    "start_location_id": "location.experiment_cave.experiment",
+    "end_location_id": "location.fenkenstrain_castle.experiment_cave_graves",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.enter_memorial"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 101,
+      "max_seconds": 212
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fenkenstrain",
+        "source.project.early_quest_timing",
+        "source.shortest_path.quest_passages"
+      ],
+      "status": "estimated",
+      "note": "Kill the experiment for its key. Leave the cave via the northwest ladder and dig up three body parts on the burial island."
+    },
+    "planned_outcome": {
+      "success_condition": "The torso, arms and legs have been recovered.",
+      "if_unmet": "Defeat the level 51 Experiment, collect its key and search all three graves."
+    }
+  },
+  {
+    "id": "quest.creature_of_fenkenstrain.deliver_parts",
+    "name": "Give Fenkenstrain the assembled head and body parts",
+    "activity_id": "quest.creature_of_fenkenstrain",
+    "kind": "quest_stage",
+    "start_location_id": "location.fenkenstrain_castle.doctor",
+    "end_location_id": "location.fenkenstrain_castle.doctor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.recover_parts"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.get_brain"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.get_head"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fenkenstrain_head",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.pickled_brain",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.needle",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.thread",
+        "quantity": 5
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fenkenstrain",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fit the brain into the head and give the doctor the parts, needle and thread."
+    }
+  },
+  {
+    "id": "quest.creature_of_fenkenstrain.recover_mould",
+    "name": "Make an extended brush and find the conductor mould",
+    "activity_id": "quest.creature_of_fenkenstrain",
+    "kind": "quest_stage",
+    "start_location_id": "location.fenkenstrain_castle.gardener",
+    "end_location_id": "location.fenkenstrain_castle.gardener",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.deliver_parts"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bronze_wire",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.conductor_mould",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 66,
+      "max_seconds": 139
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fenkenstrain",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask for the shed key, take the brush and three canes, bind them with bronze wire and use the brush on the upstairs fireplace."
+    }
+  },
+  {
+    "id": "quest.creature_of_fenkenstrain.make_conductor",
+    "name": "Cast a lightning conductor",
+    "activity_id": "quest.creature_of_fenkenstrain",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.furnace",
+    "end_location_id": "location.edgeville.furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.recover_mould"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.conductor_mould",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 20,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.silver_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lightning_conductor",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fenkenstrain",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the conductor mould and a silver bar at the furnace."
+    }
+  },
+  {
+    "id": "quest.creature_of_fenkenstrain.repair_conductor",
+    "name": "Install the conductor on the roof",
+    "activity_id": "quest.creature_of_fenkenstrain",
+    "kind": "quest_stage",
+    "start_location_id": "location.fenkenstrain_castle.conductor",
+    "end_location_id": "location.fenkenstrain_castle.conductor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.make_conductor"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lightning_conductor",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fenkenstrain",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Replace the damaged conductor and speak to Fenkenstrain for the tower key."
+    }
+  },
+  {
+    "id": "quest.creature_of_fenkenstrain.hear_creature",
+    "name": "Listen to the creature in the tower",
+    "activity_id": "quest.creature_of_fenkenstrain",
+    "kind": "quest_stage",
+    "start_location_id": "location.fenkenstrain_castle.creature",
+    "end_location_id": "location.fenkenstrain_castle.creature",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.repair_conductor"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 35,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fenkenstrain",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the key and speak to the creature to learn what happened."
+    }
+  },
+  {
+    "id": "quest.creature_of_fenkenstrain.complete",
+    "name": "Pickpocket the Ring of charos from Fenkenstrain",
+    "activity_id": "quest.creature_of_fenkenstrain",
+    "kind": "quest_stage",
+    "start_location_id": "location.fenkenstrain_castle.doctor",
+    "end_location_id": "location.fenkenstrain_castle.doctor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.hear_creature"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 25,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ring_of_charos",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.creature_of_fenkenstrain.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.fenkenstrain",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pickpocket the doctor to receive the Ring of charos, 1,000 Thieving XP and two quest points."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_garden_tools",
+    "name": "Buy garden tools and filled watering can",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 820
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rake",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.seed_dibber",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.secateurs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.watering_can_full",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.gardening_trowel",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fishing_rod",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated purchase budget for the listed supplies."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_garden_supplies",
+    "name": "Buy seeds, cures, compost and a filled plant pot",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 790
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.plant_cure",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.plant_pot_filled",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.compost",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.marigold_seed",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.onion_seed",
+        "quantity": 6
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cabbage_seed",
+        "quantity": 6
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rune_essence",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated purchase budget for the listed supplies."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.start",
+    "name": "Accept Ellamaria’s garden request",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_palace.ellamaria",
+    "end_location_id": "location.varrock_palace.ellamaria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.creature_of_fenkenstrain.complete",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 25,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Ellamaria about the garden."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.activate_ring",
+    "name": "Answer the Wise Old Man’s questions",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.wise_old_man",
+    "end_location_id": "location.draynor.wise_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ring_of_charos",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ring_of_charos_a",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 56,
+      "max_seconds": 118
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Answer the questions to activate the Ring of charos."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.plant_marigolds",
+    "name": "Plant marigolds",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_farm.elstan",
+    "end_location_id": "location.falador_farm.elstan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.activate_ring"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_charos_a",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watering_can_full",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.marigold_seed",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.garden_of_tranquillity.marigolds",
+        "duration_seconds": 1200
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 42,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Clear the patch, talk to the gardener with the activated ring, plant and water the crop."
+    },
+    "planned_outcome": {
+      "success_condition": "A quest crop has been planted.",
+      "if_unmet": "Carry extra seeds and use the available patches if the crop fails."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.check_marigolds",
+    "name": "Show the gardener the grown marigolds",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_farm.elstan",
+    "end_location_id": "location.falador_farm.elstan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.plant_marigolds"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_charos_a",
+          "quantity": 1
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.garden_of_tranquillity.marigolds"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.garden_delphinium_seed",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Harvest a grown marigold and give it to Elstan for delphinium seeds."
+    },
+    "planned_outcome": {
+      "success_condition": "The gardener supplies the quest seeds.",
+      "if_unmet": "Cure or replant a failed crop and return once it has grown."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.plant_onions",
+    "name": "Plant onions",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.lyra",
+    "end_location_id": "location.port_phasmatys.lyra",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.activate_ring"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_charos_a",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watering_can_full",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.onion_seed",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.garden_of_tranquillity.onions",
+        "duration_seconds": 2400
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 42,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Clear the patch, talk to the gardener with the activated ring, plant and water the crop."
+    },
+    "planned_outcome": {
+      "success_condition": "A quest crop has been planted.",
+      "if_unmet": "Carry extra seeds and use the available patches if the crop fails."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.check_onions",
+    "name": "Show the gardener the grown onions",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.lyra",
+    "end_location_id": "location.port_phasmatys.lyra",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.plant_onions"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_charos_a",
+          "quantity": 1
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.garden_of_tranquillity.onions"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.garden_pink_orchid_seed",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.garden_yellow_orchid_seed",
+        "quantity": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show Lyra her fully grown onions for the two colors of orchid seeds."
+    },
+    "planned_outcome": {
+      "success_condition": "The gardener supplies the quest seeds.",
+      "if_unmet": "Cure or replant a failed crop and return once it has grown."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.plant_cabbages",
+    "name": "Plant cabbages",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.north_ardougne.kragen",
+    "end_location_id": "location.north_ardougne.kragen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.activate_ring"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_charos_a",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watering_can_full",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.cabbage_seed",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.garden_of_tranquillity.cabbages",
+        "duration_seconds": 2400
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 42,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Clear the patch, talk to the gardener with the activated ring, plant and water the crop."
+    },
+    "planned_outcome": {
+      "success_condition": "A quest crop has been planted.",
+      "if_unmet": "Carry extra seeds and use the available patches if the crop fails."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.check_cabbages",
+    "name": "Show the gardener the grown cabbages",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.north_ardougne.kragen",
+    "end_location_id": "location.north_ardougne.kragen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.plant_cabbages"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_charos_a",
+          "quantity": 1
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.garden_of_tranquillity.cabbages"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.garden_snowdrop_seed",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show Kragen his fully grown cabbages for snowdrop seeds."
+    },
+    "planned_outcome": {
+      "success_condition": "The gardener supplies the quest seeds.",
+      "if_unmet": "Cure or replant a failed crop and return once it has grown."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.ask_dantaera",
+    "name": "Ask Dantaera how to save the white tree",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.catherby.dantaera",
+    "end_location_id": "location.catherby.dantaera",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.activate_ring"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_charos_a",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Dantaera about the tree with the activated ring."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.water_cutting",
+    "name": "Take, pot and water the white tree cutting",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.ice_mountain.white_tree",
+    "end_location_id": "location.ice_mountain.white_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.ask_dantaera"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.secateurs",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gardening_trowel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watering_can_full",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plant_pot_filled",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.white_tree_watered_cutting",
+        "quantity": 1
+      },
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.garden_of_tranquillity.white_tree_sapling",
+        "duration_seconds": 300
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 35,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take the cutting with secateurs, put it in the filled pot and water it."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.ask_althric",
+    "name": "Ask Brother Althric about the roses",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville_monastery.althric",
+    "end_location_id": "location.edgeville_monastery.althric",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.activate_ring"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_charos_a",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn how to obtain his rose seeds."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.put_ring_in_well",
+    "name": "Put the activated ring in the Edgeville well",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.well",
+    "end_location_id": "location.edgeville.well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.ask_althric"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ring_of_charos_a",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Put the ring in the well so you can return to the monastery without it."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.collect_roses",
+    "name": "Collect the three colours of rose seed",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville_monastery.althric",
+    "end_location_id": "location.edgeville_monastery.althric",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.put_ring_in_well"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.garden_white_rose_seed",
+        "quantity": 4
+      },
+      {
+        "kind": "item",
+        "item_id": "item.garden_red_rose_seed",
+        "quantity": 4
+      },
+      {
+        "kind": "item",
+        "item_id": "item.garden_pink_rose_seed",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 29,
+      "max_seconds": 61
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get permission and collect the rose seeds."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.recover_ring",
+    "name": "Fish the Ring of charos out of the well",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.well",
+    "end_location_id": "location.edgeville.well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.collect_roses"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fishing_rod",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ring_of_charos_a",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a fishing rod to recover the ring."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.try_cure",
+    "name": "Try ordinary plant cure on Bernald’s vines",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.bernald",
+    "end_location_id": "location.burthorpe.bernald",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.activate_ring"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_charos_a",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plant_cure",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Bernald and try the ordinary cure."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.learn_cure",
+    "name": "Ask Alain how to improve plant cure",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley.alain",
+    "end_location_id": "location.taverley.alain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.try_cure"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_charos_a",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Unequip the ring before speaking to Alain."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.cure_vines",
+    "name": "Cure the vines and ask for seeds",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.bernald",
+    "end_location_id": "location.burthorpe.bernald",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.learn_cure"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_charos_a",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rune_essence",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.plant_cure",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.garden_vine_seed",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 31,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Break and grind essence, strengthen the second cure and use it on the vines. Equip the ring to ask for seeds."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.plant_tree",
+    "name": "Plant the grown white tree sapling",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_palace.white_tree",
+    "end_location_id": "location.varrock_palace.white_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.water_cutting"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.garden_of_tranquillity.white_tree_sapling"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.white_tree_watered_cutting",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.garden_of_tranquillity.white_tree_bloom",
+        "duration_seconds": 900
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the watered cutting once it has become a sapling."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.plant_delphinium",
+    "name": "Plant the delphiniums",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_palace.ellamaria",
+    "end_location_id": "location.varrock_palace.ellamaria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.check_marigolds"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watering_can_full",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.garden_delphinium_seed",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.garden_of_tranquillity.delphinium",
+        "duration_seconds": 900
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Plant Elstan’s seeds in the palace garden."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.plant_orchids",
+    "name": "Compost both pots and plant the orchids",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_palace.ellamaria",
+    "end_location_id": "location.varrock_palace.ellamaria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.check_onions"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watering_can_full",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.garden_pink_orchid_seed",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.garden_yellow_orchid_seed",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.compost",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.garden_of_tranquillity.orchids",
+        "duration_seconds": 900
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 38,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use compost in the pots and plant both colours of orchid."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.plant_snowdrops",
+    "name": "Plant the snowdrops",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_palace.ellamaria",
+    "end_location_id": "location.varrock_palace.ellamaria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.check_cabbages"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watering_can_full",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.garden_snowdrop_seed",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.garden_of_tranquillity.snowdrops",
+        "duration_seconds": 900
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Plant Kragen’s seeds in the palace garden."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.plant_roses",
+    "name": "Plant the three colours of roses",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_palace.ellamaria",
+    "end_location_id": "location.varrock_palace.ellamaria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.collect_roses"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watering_can_full",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.garden_red_rose_seed",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.garden_white_rose_seed",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.garden_pink_rose_seed",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.garden_of_tranquillity.roses",
+        "duration_seconds": 900
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 39,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Plant the three rose patches."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.plant_vine",
+    "name": "Plant the vine",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_palace.ellamaria",
+    "end_location_id": "location.varrock_palace.ellamaria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.cure_vines"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watering_can_full",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.garden_vine_seed",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.garden_of_tranquillity.vine",
+        "duration_seconds": 900
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Plant Bernald’s seeds in the garden."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.borrow_trolley",
+    "name": "Ask Ellamaria for the trolley",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_palace.ellamaria",
+    "end_location_id": "location.varrock_palace.ellamaria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.activate_ring"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.garden_trolley",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Borrow the trolley to move both statues."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.move_lumbridge_statue",
+    "name": "Move the Lumbridge statue into the garden",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.king_statue",
+    "end_location_id": "location.varrock_palace.ellamaria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.borrow_trolley"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.garden_trolley",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 48,
+      "expected_seconds": 119,
+      "max_seconds": 250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the trolley and follow the quest statue transport route to the marked palace plinth."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.move_falador_statue",
+    "name": "Move the Falador statue into the garden",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador.saradomin_statue",
+    "end_location_id": "location.varrock_palace.ellamaria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.borrow_trolley"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.garden_trolley",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 44,
+      "expected_seconds": 110,
+      "max_seconds": 231
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the trolley and follow the quest statue transport route to the marked palace plinth."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.show_garden",
+    "name": "Tell Ellamaria the garden is ready",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_palace.ellamaria",
+    "end_location_id": "location.varrock_palace.ellamaria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.plant_tree"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.plant_delphinium"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.plant_orchids"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.plant_snowdrops"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.plant_roses"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.plant_vine"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.move_lumbridge_statue"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.move_falador_statue"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.garden_of_tranquillity.white_tree_bloom"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.garden_of_tranquillity.delphinium"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.garden_of_tranquillity.orchids"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.garden_of_tranquillity.snowdrops"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.garden_of_tranquillity.roses"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.garden_of_tranquillity.vine"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wait until every planted garden patch is ready and both statues are in place."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.invite_roald",
+    "name": "Invite King Roald to visit the garden",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.king_roald",
+    "end_location_id": "location.varrock_palace.ellamaria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.show_garden"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_charos_a",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 35,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear the activated ring and lead King Roald to the garden."
+    }
+  },
+  {
+    "id": "quest.garden_of_tranquillity.complete",
+    "name": "Finish the conversation with Ellamaria",
+    "activity_id": "quest.garden_of_tranquillity",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_palace.ellamaria",
+    "end_location_id": "location.varrock_palace.ellamaria",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.invite_roald"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.supercompost_potion_4",
+        "quantity": 1
+      },
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.garden_of_tranquillity.white_tree_fruit",
+        "duration_seconds": 300
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.garden_of_tranquillity.complete",
+        "value": true
+      },
+      {
+        "kind": "item",
+        "item_id": "item.apple_tree_seed",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.acorn",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.guam_seed",
+        "quantity": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive two quest points, 5,000 Farming XP, a four-dose supercompost potion, an apple tree seed, an acorn and five guam seeds. First fruit grows on a separate post-quest timer."
+    }
+  },
+  {
+    "id": "diary.varrock.medium.task.varp_1176_26",
+    "name": "Pick a white tree fruit",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.varrock_palace.white_tree",
+    "end_location_id": "location.varrock_palace.white_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.garden_of_tranquillity.complete",
+          "value": true
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.garden_of_tranquillity.white_tree_fruit"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.varrock.medium.task.varp_1176_26",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.varrock.medium.task.varp_1176_26",
+        "value": true
+      },
+      {
+        "kind": "item",
+        "item_id": "item.white_tree_fruit",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 120
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 19
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.diaries",
+        "source.capture.garden_of_tranquillity",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick a grown fruit in Ellamaria’s garden to satisfy the Varrock Medium task."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_ghosts_ahoy_supplies",
+    "name": "Buy Ghosts Ahoy supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 5500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.oak_longbow",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.blue_dye",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.red_dye",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.yellow_dye",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.silk",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.needle",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.thread",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.leather_gloves",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bowl_of_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated purchase budget for the listed supplies."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_ectofuntus_bones",
+    "name": "Buy bones for the Ectofuntus",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1300
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bones",
+        "quantity": 12
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated purchase budget for the listed supplies."
+    }
+  },
+  {
+    "id": "supply.ectofuntus.worship_first",
+    "name": "Worship at the Ectofuntus",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.ectofuntus.altar",
+    "end_location_id": "location.ectofuntus.altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bones",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ecto_token",
+        "quantity": 20
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 720
+      }
+    ],
+    "duration": {
+      "min_seconds": 56,
+      "expected_seconds": 140,
+      "max_seconds": 294
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Grind four normal bones, gather slime, worship, and collect the tokens. Reuse the bucket and pot one bone at a time. Normal bones give 18 Prayer XP each. Speak to the ghost disciple after each set to collect the tokens."
+    }
+  },
+  {
+    "id": "supply.ectofuntus.worship_second",
+    "name": "Worship at the Ectofuntus",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.ectofuntus.altar",
+    "end_location_id": "location.ectofuntus.altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bones",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ecto_token",
+        "quantity": 20
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 720
+      }
+    ],
+    "duration": {
+      "min_seconds": 56,
+      "expected_seconds": 140,
+      "max_seconds": 294
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Grind four normal bones, gather slime, worship, and collect the tokens. Reuse the bucket and pot one bone at a time. Normal bones give 18 Prayer XP each. Speak to the ghost disciple after each set to collect the tokens."
+    }
+  },
+  {
+    "id": "supply.ectofuntus.worship_third",
+    "name": "Worship at the Ectofuntus",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.ectofuntus.altar",
+    "end_location_id": "location.ectofuntus.altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bones",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ecto_token",
+        "quantity": 20
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 720
+      }
+    ],
+    "duration": {
+      "min_seconds": 56,
+      "expected_seconds": 140,
+      "max_seconds": 294
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Grind four normal bones, gather slime, worship, and collect the tokens. Reuse the bucket and pot one bone at a time. Normal bones give 18 Prayer XP each. Speak to the ghost disciple after each set to collect the tokens."
+    }
+  },
+  {
+    "id": "supply.ghosts_ahoy.make_nettle_tea",
+    "name": "Make nettle tea",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.draynor.jail_dig",
+    "end_location_id": "location.draynor.jail_dig",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 20,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bowl_of_water",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.nettle_tea",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 50,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick nettles near Draynor jail while wearing gloves. Add them to a bowl of water and heat the mixture on a lit log. Incidental XP remains in review."
+    }
+  },
+  {
+    "id": "supply.ghosts_ahoy.fetch_slime",
+    "name": "Fill a bucket with ectoplasm",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.ectofuntus.altar",
+    "end_location_id": "location.ectofuntus.altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_slime",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 44,
+      "expected_seconds": 110,
+      "max_seconds": 231
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Descend to the slime pool under the Ectofuntus and return with the bucket."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.start",
+    "name": "Hear Velorina's request",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.velorina",
+    "end_location_id": "location.port_phasmatys.velorina",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_restless_ghost.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear a Ghostspeak amulet to start."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.ask_necrovarus",
+    "name": "Ask Necrovarus to release the ghosts",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.ectofuntus.necrovarus",
+    "end_location_id": "location.ectofuntus.necrovarus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The disciple's master refuses."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.ask_velorina",
+    "name": "Return to Velorina",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.velorina",
+    "end_location_id": "location.port_phasmatys.velorina",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.ask_necrovarus"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn that the Old Crone can help."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.tea",
+    "name": "Serve the Old Crone nettle tea",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.morytania.old_crone",
+    "end_location_id": "location.morytania.old_crone",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.ask_velorina"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.nettle_tea",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 52,
+      "max_seconds": 109
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pour the tea into her cup and add milk. Offer to repair the model ship."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.repair_ship",
+    "name": "Repair the Old Crone's ship and match the rigging",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.morytania.haunted_shipwreck",
+    "end_location_id": "location.morytania.haunted_shipwreck",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.tea"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.needle",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.red_dye",
+          "quantity": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.blue_dye",
+          "quantity": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.yellow_dye",
+          "quantity": 3
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.silk",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.thread",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 66,
+      "max_seconds": 139
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sew the sail and inspect the shipwreck's flags. The three colors are randomized. The supply bundle reserves three of each color."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.first_scrap",
+    "name": "Return the repaired ship for a map scrap",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.morytania.old_crone",
+    "end_location_id": "location.morytania.old_crone",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.repair_ship"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show the correctly colored model to the Old Crone."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.second_scrap",
+    "name": "Defeat the giant lobster and open the captain's chest",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.morytania.haunted_shipwreck",
+    "end_location_id": "location.morytania.haunted_shipwreck",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.tea"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 44,
+      "expected_seconds": 110,
+      "max_seconds": 231
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the hold chest, defeat the level 32 lobster, and unlock the captain's chest upstairs."
+    },
+    "planned_outcome": {
+      "success_condition": "The giant lobster is defeated and the map scrap recovered.",
+      "if_unmet": "Budget additional time and supplies for the fight if needed."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.third_scrap",
+    "name": "Cross the gangplank and find the third scrap",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.morytania.haunted_shipwreck",
+    "end_location_id": "location.morytania.shipwreck_third_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.tea"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 25,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 70,
+      "max_seconds": 147
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cross the gangplank and jump the rocks north of the shipwreck."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.assemble_map",
+    "name": "Assemble the treasure map",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.morytania.shipwreck_third_chest",
+    "end_location_id": "location.morytania.shipwreck_third_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.first_scrap"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.second_scrap"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.third_scrap"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Combine the three scraps."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.book",
+    "name": "Dig for the Book of haricanto",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.dragontooth_island.harithanto_book",
+    "end_location_id": "location.dragontooth_island.harithanto_book",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.assemble_map"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 25
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Dig at the marked spot on Dragontooth Island."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.manual",
+    "name": "Trade Robin's autograph for the translation manual",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.ak_haranu",
+    "end_location_id": "location.port_phasmatys.ak_haranu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.tea"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_longbow",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.coins",
+        "quantity": 100
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 100,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Ak-Haranu, win four rounds of Rune Draw with Robin, and exchange the signed oak longbow. The coin cost budgets the game."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.bedsheet",
+    "name": "Get and disguise the bedsheet",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.green_ghost_inn",
+    "end_location_id": "location.port_phasmatys.green_ghost_inn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.tea"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket_of_slime",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 31,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get the bedsheet from the innkeeper and dye it with ectoplasm."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.petition",
+    "name": "Collect ten signatures for Gravingas",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.gravingas",
+    "end_location_id": "location.port_phasmatys.gravingas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.bedsheet"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 50
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 48,
+      "expected_seconds": 120,
+      "max_seconds": 252
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear the disguised bedsheet and collect signatures. The budget includes a paid signature if needed."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.robes",
+    "name": "Present the petition and take the mystical robes",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.ectofuntus.necrovarus",
+    "end_location_id": "location.ectofuntus.necrovarus_robes",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.petition"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 54,
+      "max_seconds": 113
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick up the key Necrovarus drops, then climb upstairs and open the locked room."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.enchant",
+    "name": "Have the Old Crone enchant the Ghostspeak amulet",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.morytania.old_crone",
+    "end_location_id": "location.morytania.old_crone",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.book"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.manual"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.robes"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the Crone the book, manual and robes. Treat the temporary enchantment as quest progress."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.release",
+    "name": "Compel Necrovarus to release the ghosts",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.ectofuntus.necrovarus",
+    "end_location_id": "location.ectofuntus.necrovarus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.enchant"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Equip the enchanted amulet and order Necrovarus to free the ghosts."
+    }
+  },
+  {
+    "id": "quest.ghosts_ahoy.complete",
+    "name": "Tell Velorina the ghosts are free",
+    "activity_id": "quest.ghosts_ahoy",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.velorina",
+    "end_location_id": "location.port_phasmatys.velorina",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.release"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 24000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ectophial",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.ghosts_ahoy.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.ghosts_ahoy",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards two quest points, 2,400 Prayer XP and a refillable Ectophial. Subsequent gate entries are free."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_animal_magnetism_supplies",
+    "name": "Buy Animal Magnetism supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 3100
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.iron_bar",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mithril_axe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.holy_symbol",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hard_leather",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.polished_buttons",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated purchase budget for the listed supplies."
+    }
+  },
+  {
+    "id": "quest.animal_magnetism.start",
+    "name": "Ask Ava about her bed",
+    "activity_id": "quest.animal_magnetism",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.ava",
+    "end_location_id": "location.draynor_manor.ava",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_restless_ghost.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ernest_the_chicken.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 18,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 19,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.ranged",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 35,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.animal_magnetism",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start with The Restless Ghost, Ernest the Chicken and Priest in Peril complete. All four skill gates are unboostable."
+    }
+  },
+  {
+    "id": "quest.animal_magnetism.alice",
+    "name": "Talk to Alice and her husband",
+    "activity_id": "quest.animal_magnetism",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.alice",
+    "end_location_id": "location.port_phasmatys.alices_husband",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.animal_magnetism.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 95,
+      "max_seconds": 200
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.animal_magnetism",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pass messages between Alice and her husband until they request a translation amulet."
+    }
+  },
+  {
+    "id": "quest.animal_magnetism.crone",
+    "name": "Ask the Old Crone for a crone-made amulet",
+    "activity_id": "quest.animal_magnetism",
+    "kind": "quest_stage",
+    "start_location_id": "location.morytania.old_crone",
+    "end_location_id": "location.morytania.old_crone",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.animal_magnetism.alice"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 29,
+      "max_seconds": 61
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.animal_magnetism",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Old Crone makes a second amulet. Keep the original Ghostspeak amulet."
+    }
+  },
+  {
+    "id": "quest.animal_magnetism.chickens",
+    "name": "Give the amulet and buy two undead chickens",
+    "activity_id": "quest.animal_magnetism",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_phasmatys.alices_husband",
+    "end_location_id": "location.port_phasmatys.alices_husband",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.animal_magnetism.crone"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ecto_token",
+        "quantity": 20
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.undead_chicken_sack",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 55,
+      "max_seconds": 116
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.animal_magnetism",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the husband the crone-made amulet and buy two undead chickens for 10 ecto-tokens each."
+    }
+  },
+  {
+    "id": "quest.animal_magnetism.deliver_chickens",
+    "name": "Give Ava the undead chickens",
+    "activity_id": "quest.animal_magnetism",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.ava",
+    "end_location_id": "location.draynor_manor.ava",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.animal_magnetism.chickens"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.undead_chicken_sack",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.animal_magnetism",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ava asks for a magnet."
+    }
+  },
+  {
+    "id": "quest.animal_magnetism.get_iron",
+    "name": "Give five iron bars to the witch",
+    "activity_id": "quest.animal_magnetism",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.witch",
+    "end_location_id": "location.draynor_manor.witch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.animal_magnetism.deliver_chickens"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.iron_bar",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.selected_iron",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 25,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.animal_magnetism",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The witch hands over a selected iron bar."
+    }
+  },
+  {
+    "id": "quest.animal_magnetism.make_magnet",
+    "name": "Hammer the selected iron while facing north",
+    "activity_id": "quest.animal_magnetism",
+    "kind": "quest_stage",
+    "start_location_id": "location.rimmington.iron_mine",
+    "end_location_id": "location.rimmington.iron_mine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.animal_magnetism.get_iron"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.selected_iron",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bar_magnet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 19,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.animal_magnetism",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a hammer on the iron in the Rimmington mine while facing north."
+    }
+  },
+  {
+    "id": "quest.animal_magnetism.try_tree",
+    "name": "Deliver the magnet and attempt to chop an undead tree",
+    "activity_id": "quest.animal_magnetism",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.ava",
+    "end_location_id": "location.draynor_manor.ava",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.animal_magnetism.make_magnet"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.mithril_axe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bar_magnet",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 68,
+      "max_seconds": 143
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.animal_magnetism",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Ava the magnet, try an undead tree outside with a normal axe, and ask Ava how to cut it."
+    }
+  },
+  {
+    "id": "quest.animal_magnetism.bless_axe",
+    "name": "Exchange the mithril axe and holy symbol with Turael",
+    "activity_id": "quest.animal_magnetism",
+    "kind": "quest_stage",
+    "start_location_id": "location.burthorpe.turael",
+    "end_location_id": "location.burthorpe.turael",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.animal_magnetism.try_tree"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mithril_axe",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.holy_symbol",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.blessed_axe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 28,
+      "max_seconds": 59
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.animal_magnetism",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Trade the two items for the blessed axe."
+    }
+  },
+  {
+    "id": "quest.animal_magnetism.twigs",
+    "name": "Cut undead twigs and give them to Ava",
+    "activity_id": "quest.animal_magnetism",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.ava",
+    "end_location_id": "location.draynor_manor.ava",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.animal_magnetism.bless_axe"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.blessed_axe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 50,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.animal_magnetism",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the blessed axe to cut an undead tree in the manor grounds and bring the twigs to Ava."
+    }
+  },
+  {
+    "id": "quest.animal_magnetism.translate",
+    "name": "Translate Ava's notes",
+    "activity_id": "quest.animal_magnetism",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.ava",
+    "end_location_id": "location.draynor_manor.ava",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.animal_magnetism.twigs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.avas_pattern",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.animal_magnetism",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Solve the notes puzzle, return the translation, and receive the pattern."
+    }
+  },
+  {
+    "id": "quest.animal_magnetism.make_container",
+    "name": "Make Ava's container",
+    "activity_id": "quest.animal_magnetism",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.ava",
+    "end_location_id": "location.draynor_manor.ava",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.animal_magnetism.translate"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.avas_pattern",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.hard_leather",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.polished_buttons",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.avas_container",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 18,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.animal_magnetism",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the pattern with hard leather and polished buttons."
+    }
+  },
+  {
+    "id": "quest.animal_magnetism.complete",
+    "name": "Give the container to Ava",
+    "activity_id": "quest.animal_magnetism",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor_manor.ava",
+    "end_location_id": "location.draynor_manor.ava",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.animal_magnetism.make_container"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.avas_container",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fletching",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.slayer",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.animal_magnetism.complete",
+        "value": true
+      },
+      {
+        "kind": "item",
+        "item_id": "item.avas_device",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.animal_magnetism",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards one quest point, 1,000 Crafting, Fletching and Slayer XP, and 2,500 Woodcutting XP. Ava gives an attractor below 50 Ranged or an accumulator at 50 Ranged or above. The inventory entry represents the device at either tier."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_shades_of_mortton_supplies",
+    "name": "Buy Shades of Mort'ton supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tarromin_potion_unf",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ashes",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated purchase budget for the listed supplies."
+    }
+  },
+  {
+    "id": "quest.shades_of_mortton.start",
+    "name": "Find and read Herbi Flax's diary",
+    "activity_id": "quest.shades_of_mortton",
+    "kind": "quest_stage",
+    "start_location_id": "location.mortton.herbi_flax_shelf",
+    "end_location_id": "location.mortton.herbi_flax_shelf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shades_of_mortton",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the shelf in the ruined house to learn the Serum 207 recipe."
+    }
+  },
+  {
+    "id": "quest.shades_of_mortton.mix_serum",
+    "name": "Mix two vials of Serum 207",
+    "activity_id": "quest.shades_of_mortton",
+    "kind": "quest_stage",
+    "start_location_id": "location.mortton.herbi_flax_shelf",
+    "end_location_id": "location.mortton.herbi_flax_shelf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shades_of_mortton.start"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 15,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tarromin_potion_unf",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.ashes",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.serum_207_dose",
+        "quantity": 6
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 1000
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 18,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shades_of_mortton",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Combine two unfinished tarromin potions with two ashes. Record the potion as six doses and the two mixing awards."
+    }
+  },
+  {
+    "id": "quest.shades_of_mortton.razmire",
+    "name": "Temporarily cure Razmire",
+    "activity_id": "quest.shades_of_mortton",
+    "kind": "quest_stage",
+    "start_location_id": "location.mortton.razmire",
+    "end_location_id": "location.mortton.razmire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shades_of_mortton.mix_serum"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.serum_207_dose",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shades_of_mortton",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use one dose of Serum 207 to learn what the town needs."
+    }
+  },
+  {
+    "id": "quest.shades_of_mortton.gather_remains",
+    "name": "Defeat five Loar shades and collect the remains",
+    "activity_id": "quest.shades_of_mortton",
+    "kind": "quest_stage",
+    "start_location_id": "location.mortton.loar_shades",
+    "end_location_id": "location.mortton.loar_shades",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shades_of_mortton.razmire"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.loar_remains",
+        "quantity": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 82,
+      "expected_seconds": 205,
+      "max_seconds": 431
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shades_of_mortton",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Kill five Loar shades and collect their remains."
+    },
+    "planned_outcome": {
+      "success_condition": "Five shades are defeated and their remains collected.",
+      "if_unmet": "Allow additional combat time and bring food as needed."
+    }
+  },
+  {
+    "id": "quest.shades_of_mortton.buy_materials",
+    "name": "Return to Razmire and buy temple supplies",
+    "activity_id": "quest.shades_of_mortton",
+    "kind": "quest_stage",
+    "start_location_id": "location.mortton.razmire",
+    "end_location_id": "location.mortton.razmire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shades_of_mortton.gather_remains"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.serum_207_dose",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.coins",
+        "quantity": 1200
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.timber_beam",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.limestone_brick",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swamp_paste",
+        "quantity": 25
+      },
+      {
+        "kind": "item",
+        "item_id": "item.olive_oil_4",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 38,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shades_of_mortton",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use another dose and ask about the remains. Buy timber beams, limestone bricks, swamp paste and olive oil from his stores."
+    }
+  },
+  {
+    "id": "quest.shades_of_mortton.ask_ulsquire",
+    "name": "Cure Ulsquire and discuss the remains",
+    "activity_id": "quest.shades_of_mortton",
+    "kind": "quest_stage",
+    "start_location_id": "location.mortton.ulsquire",
+    "end_location_id": "location.mortton.ulsquire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shades_of_mortton.buy_materials"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.loar_remains",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.serum_207_dose",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 34,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shades_of_mortton",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show Ulsquire the remains, then ask how to lay a shade to rest."
+    }
+  },
+  {
+    "id": "quest.shades_of_mortton.make_oil",
+    "name": "Repair the temple and make sacred oil",
+    "activity_id": "quest.shades_of_mortton",
+    "kind": "quest_stage",
+    "start_location_id": "location.mortton.temple_flame",
+    "end_location_id": "location.mortton.temple_flame",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shades_of_mortton.ask_ulsquire"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 20,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.timber_beam",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.limestone_brick",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.swamp_paste",
+        "quantity": 25
+      },
+      {
+        "item_id": "item.olive_oil_4",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.sacred_oil_1",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 150,
+      "max_seconds": 315
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shades_of_mortton",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Repair the temple to 100% and gain at least 10% sanctity. Light the central flame and bless the olive oil. The materials reserve is sized for a group repair."
+    },
+    "planned_outcome": {
+      "success_condition": "The temple flame is burning and the olive oil has been blessed.",
+      "if_unmet": "Repair or defend the temple longer if other players are unavailable."
+    }
+  },
+  {
+    "id": "quest.shades_of_mortton.burn_remains",
+    "name": "Lay a Loar shade to rest",
+    "activity_id": "quest.shades_of_mortton",
+    "kind": "quest_stage",
+    "start_location_id": "location.mortton.south_pyre",
+    "end_location_id": "location.mortton.south_pyre",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shades_of_mortton.make_oil"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 5,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sacred_oil_1",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.loar_remains",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 500
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 27,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shades_of_mortton",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Oil the logs, then use the pyre logs, remains and tinderbox on a funeral pyre. Random pyre loot is outside this step's effects."
+    }
+  },
+  {
+    "id": "quest.shades_of_mortton.complete",
+    "name": "Report the cremation to Ulsquire",
+    "activity_id": "quest.shades_of_mortton",
+    "kind": "quest_stage",
+    "start_location_id": "location.mortton.ulsquire",
+    "end_location_id": "location.mortton.ulsquire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shades_of_mortton.burn_remains"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.serum_207_dose",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 3
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.shades_of_mortton.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shades_of_mortton",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards three quest points, 2,000 Crafting and 2,000 Herblore XP. The permanent cure can be prepared separately."
+    }
+  },
+  {
+    "id": "supply.mortton.make_serum_208",
+    "name": "Make Serum 208",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.mortton.temple_flame",
+    "end_location_id": "location.mortton.temple_flame",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.shades_of_mortton.complete",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.serum_207_dose",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.timber_beam",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.limestone_brick",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.swamp_paste",
+        "quantity": 25
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.serum_208_dose",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 100,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shades_of_mortton",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reach 20% sanctity and bless a vial with at least two doses. Reserve building materials for this separate visit."
+    },
+    "planned_outcome": {
+      "success_condition": "The temple is repaired and the serum is blessed.",
+      "if_unmet": "Allow extra time for repairs if the temple is damaged."
+    }
+  },
+  {
+    "id": "supply.mortton.buy_repair_supplies",
+    "name": "Buy extra temple repair supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.mortton.razmire",
+    "end_location_id": "location.mortton.razmire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.shades_of_mortton.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 900
+      },
+      {
+        "item_id": "item.serum_207_dose",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.timber_beam",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.limestone_brick",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swamp_paste",
+        "quantity": 25
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shades_of_mortton",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Trade with Razmire when temporarily or permanently cured. Budget includes a temporary cure on this purchase route."
+    }
+  },
+  {
+    "id": "supply.mortton.permanently_cure_razmire",
+    "name": "Cure Razmire permanently",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.mortton.razmire",
+    "end_location_id": "location.mortton.razmire",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.serum_208_dose",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.mortton.razmire_cured",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shades_of_mortton",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use Serum 208 on Razmire to unlock permanent access to his stores."
+    }
+  },
+  {
+    "id": "supply.mortton.mix_more_serum",
+    "name": "Make another vial of Serum 207",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.mortton.herbi_flax_shelf",
+    "end_location_id": "location.mortton.herbi_flax_shelf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shades_of_mortton.start"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 15,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tarromin_potion_unf",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ashes",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.serum_207_dose",
+        "quantity": 3
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 500
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 13,
+      "max_seconds": 27
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.shades_of_mortton",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Combine ashes with an unfinished tarromin potion for three more doses."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_serum_207_ingredients",
+    "name": "Buy a second batch of serum ingredients",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 480
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tarromin_potion_unf",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ashes",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated purchase budget for the listed supplies."
+    }
+  },
+  {
+    "id": "quest.haunted_mine.start",
+    "name": "Speak to the Zealot and pickpocket his key",
+    "activity_id": "quest.haunted_mine",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_mine.zealot",
+    "end_location_id": "location.haunted_mine.zealot",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 35,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.zealots_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 39,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.haunted_mine",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the Zealot about the mine, then take his key when he refuses entry."
+    }
+  },
+  {
+    "id": "quest.haunted_mine.send_fungus",
+    "name": "Set the cart points and send a glowing fungus",
+    "activity_id": "quest.haunted_mine",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_mine.cart_panel",
+    "end_location_id": "location.haunted_mine.south_surface_tunnel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.haunted_mine.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 58,
+      "expected_seconds": 145,
+      "max_seconds": 305
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.haunted_mine",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the panel, set the levers to reach the northwestern collection cart, pick a glowing fungus and place it in the cart. Return to the surface for the northern entrance."
+    }
+  },
+  {
+    "id": "quest.haunted_mine.collect_fungus",
+    "name": "Recover the glowing fungus from the cart",
+    "activity_id": "quest.haunted_mine",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_mine.fungus_cart",
+    "end_location_id": "location.haunted_mine.fungus_cart",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.haunted_mine.send_fungus"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.glowing_fungus",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 25
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.haunted_mine",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the fungus from the northwestern cart. Keep it underground and use dry paths."
+    }
+  },
+  {
+    "id": "quest.haunted_mine.take_lift",
+    "name": "Unlock the lift and descend to the boss",
+    "activity_id": "quest.haunted_mine",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_mine.lift_valve",
+    "end_location_id": "location.haunted_mine.treus_dayth",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.haunted_mine.collect_fungus"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.zealots_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.glowing_fungus",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.chisel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 60,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.haunted_mine",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the Zealot's key on the valve, turn it and immediately run to the lift before it is closed. Pick up the nearby chisel before descending."
+    }
+  },
+  {
+    "id": "quest.haunted_mine.fight_dayth",
+    "name": "Defeat Treus Dayth and pick up the crystal-mine key",
+    "activity_id": "quest.haunted_mine",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_mine.treus_dayth",
+    "end_location_id": "location.haunted_mine.treus_dayth",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.haunted_mine.take_lift"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crystal_mine_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 70,
+      "expected_seconds": 175,
+      "max_seconds": 368
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.haunted_mine",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Attempt to pick up the key to start the fight. Avoid the moving equipment and defeat Treus Dayth."
+    },
+    "planned_outcome": {
+      "success_condition": "Treus Dayth is defeated and the crystal-mine key recovered.",
+      "if_unmet": "Bring food and budget additional time for the moving machinery and boss."
+    }
+  },
+  {
+    "id": "quest.haunted_mine.complete",
+    "name": "Cut a salve shard from the crystal outcrop",
+    "activity_id": "quest.haunted_mine",
+    "kind": "quest_stage",
+    "start_location_id": "location.haunted_mine.crystal_outcrop",
+    "end_location_id": "location.haunted_mine.crystal_outcrop",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.haunted_mine.fight_dayth"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.crystal_mine_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 220000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.salve_shard",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.haunted_mine.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 17,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.haunted_mine",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open the crystal chamber and cut the first salve shard. Awards two quest points and 22,000 Strength XP."
+    }
+  },
+  {
+    "id": "supply.haunted_mine.string_salve_amulet",
+    "name": "String a Salve amulet",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.haunted_mine.crystal_outcrop",
+    "end_location_id": "location.haunted_mine.crystal_outcrop",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.haunted_mine.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.salve_shard",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ball_of_wool",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.salve_amulet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.haunted_mine",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Attach a ball of wool to the shard. This is a separate craft after the quest."
+    }
+  },
+  {
+    "id": "miniquest.lair_of_tarn_razorlor.fight_tarn",
+    "name": "Defeat Tarn Razorlor and his ghost",
+    "activity_id": "miniquest.lair_of_tarn_razorlor",
+    "kind": "quest_stage",
+    "start_location_id": "location.tarns_lair.tarn_razorlor",
+    "end_location_id": "location.tarns_lair.diary_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.haunted_mine.complete",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 40,
+          "boostable": false
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 63,
+      "expected_seconds": 158,
+      "max_seconds": 332
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fight both forms of Tarn and advance through the passage north of the arena."
+    },
+    "planned_outcome": {
+      "success_condition": "Both forms of Tarn have been defeated.",
+      "if_unmet": "Bring food and budget additional time for the fight."
+    }
+  },
+  {
+    "id": "miniquest.lair_of_tarn_razorlor.complete",
+    "name": "Collect Tarn's diary",
+    "activity_id": "miniquest.lair_of_tarn_razorlor",
+    "kind": "quest_stage",
+    "start_location_id": "location.tarns_lair.diary_room",
+    "end_location_id": "location.tarns_lair.diary_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.lair_of_tarn_razorlor.fight_tarn"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.slayer",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.tarns_diary",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 10,
+      "max_seconds": 21
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the diary to earn 5,000 Slayer XP and unlock Salve amulet enchantment."
+    }
+  },
+  {
+    "id": "supply.tarns_lair.enchant_salve_amulet",
+    "name": "Enchant a Salve amulet",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.tarns_lair.diary_room",
+    "end_location_id": "location.tarns_lair.diary_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.lair_of_tarn_razorlor.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tarns_diary",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.salve_amulet",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.salve_amulet_e",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use Tarn's diary on the amulet. Keep the diary."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_tears_of_guthix_supplies",
+    "name": "Buy Tears of Guthix supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2200
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bullseye_lantern_empty",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.sapphire",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swamp_tar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.chisel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated purchase budget for the listed supplies."
+    }
+  },
+  {
+    "id": "supply.tears_of_guthix.make_sapphire_lantern",
+    "name": "Fill and light a sapphire lantern",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.rimmington.biohazard_chemist",
+    "end_location_id": "location.rimmington.biohazard_chemist",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 49,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bullseye_lantern_empty",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.sapphire",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.swamp_tar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.sapphire_lantern",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.tears_of_guthix",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Swap the lens for a sapphire, fuel the lantern using swamp tar at the chemist's still, then light it."
+    }
+  },
+  {
+    "id": "supply.lumbridge_swamp_caves.attach_rope",
+    "name": "Attach a rope to the swamp cave entrance",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.lumbridge_swamp.cave_rope_entrance",
+    "end_location_id": "location.lumbridge_swamp.cave_rope_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.lumbridge_swamp_caves.rope_placed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 10,
+      "max_seconds": 21
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.tears_of_guthix",
+        "source.shortest_path.quest_passages",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Attach a rope to the dark hole for repeat access."
+    }
+  },
+  {
+    "id": "quest.tears_of_guthix.start",
+    "name": "Tell Juna a story about your adventures",
+    "activity_id": "quest.tears_of_guthix",
+    "kind": "quest_stage",
+    "start_location_id": "location.tears_of_guthix.juna",
+    "end_location_id": "location.tears_of_guthix.juna",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 43
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.tears_of_guthix",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Juna requires at least 43 quest points and asks for a stone bowl."
+    }
+  },
+  {
+    "id": "quest.tears_of_guthix.cross",
+    "name": "Use the sapphire lantern on a light creature",
+    "activity_id": "quest.tears_of_guthix",
+    "kind": "quest_stage",
+    "start_location_id": "location.tears_of_guthix.light_creature",
+    "end_location_id": "location.tears_of_guthix.magic_rock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tears_of_guthix.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.sapphire_lantern",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 23,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.tears_of_guthix",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Attract a light creature to cross the chasm."
+    }
+  },
+  {
+    "id": "quest.tears_of_guthix.make_bowl",
+    "name": "Mine the magic stone and carve a bowl",
+    "activity_id": "quest.tears_of_guthix",
+    "kind": "quest_stage",
+    "start_location_id": "location.tears_of_guthix.magic_rock",
+    "end_location_id": "location.tears_of_guthix.magic_rock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tears_of_guthix.cross"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 20,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 20,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_pickaxe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.rune_pickaxe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.guthix_stone_bowl",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.tears_of_guthix",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mine the special stone and use a chisel to make the bowl."
+    }
+  },
+  {
+    "id": "quest.tears_of_guthix.complete",
+    "name": "Give the stone bowl to Juna",
+    "activity_id": "quest.tears_of_guthix",
+    "kind": "quest_stage",
+    "start_location_id": "location.tears_of_guthix.juna",
+    "end_location_id": "location.tears_of_guthix.juna",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tears_of_guthix.make_bowl"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.guthix_stone_bowl",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.tears_of_guthix.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 22,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.capture.tears_of_guthix",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards one quest point, 1,000 Crafting XP and access to the Tears of Guthix activity. Weekly XP claims remain in review."
+    }
+  }
+]
