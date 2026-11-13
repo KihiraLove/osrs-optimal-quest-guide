@@ -87,6 +87,8 @@ See the [search benchmarks](docs/search-benchmarks.md).
 
 ## Documentation
 
+- [Add catalog activities and coordinate parallel batches](docs/adding-activities.md)
+- [Numbered activity tracker](docs/activity-tracker.md) and [achievement diary tracker](docs/diary-tracker.md)
 - [Scope, assumptions and optimisation objective](docs/scope.md)
 - [Data model and JSON contracts](docs/data-model.md)
 - [Gathering, cleaning and maintaining data](docs/data-pipeline.md)

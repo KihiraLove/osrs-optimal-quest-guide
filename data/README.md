@@ -14,6 +14,11 @@ independently of the catalog. It links to the pinned journal, diary task, reward
 review and optional activity lists. Later data batches reconcile their output
 against these IDs. The ledger uses these statuses.
 
+Use the [numbered activity tracker](../docs/activity-tracker.md) and
+[achievement diary tracker](../docs/diary-tracker.md) to choose pending entries.
+The [contributor guide](../docs/adding-activities.md) describes batch assignments,
+catalog records and verification.
+
 | Status | Meaning |
 | --- | --- |
 | `expected` | Identified from a source and awaiting normalized mechanics |

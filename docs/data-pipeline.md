@@ -1,5 +1,9 @@
 # Data acquisition, cleaning and maintenance
 
+For implementation steps and parallel handoffs, see
+[Adding catalog activities](adding-activities.md). Choose work from the
+[activity tracker](activity-tracker.md) or [achievement diary tracker](diary-tracker.md).
+
 ## Local-first rule
 
 Neither application downloads game data. Do not add a Wiki client, scraper or

@@ -17,6 +17,8 @@ jobs:
           python-version: '3.11'
       - name: Install optimizer
         run: python -m pip install -e ./optimizer
+      - name: Check generated activity trackers
+        run: python tools/render_activity_tracker.py --check
       - name: Validate committed JSON
         run: |
           quest-optimizer validate-data data/manifest.json
