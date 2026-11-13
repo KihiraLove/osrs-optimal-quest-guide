@@ -1,0 +1,4857 @@
+[
+  {
+    "id": "quest.the_ides_of_milk.start",
+    "name": "Talk to Cassius about his milk business",
+    "activity_id": "quest.the_ides_of_milk",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.cassius",
+    "end_location_id": "location.lumbridge.cassius",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ides_of_milk",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Cassius by the lake north-west of Lumbridge.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ides_of_milk.question_gillie",
+    "name": "Ask Gillie about cow husbandry",
+    "activity_id": "quest.the_ides_of_milk",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.gillie_groats",
+    "end_location_id": "location.lumbridge.gillie_groats",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ides_of_milk.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ides_of_milk",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Gillie in the cow field.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ides_of_milk.get_book",
+    "name": "Ask Seth and find The Groats Principles",
+    "activity_id": "quest.the_ides_of_milk",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.seth_groats",
+    "end_location_id": "location.lumbridge.seth_groats",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ides_of_milk.question_gillie"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.groats_principles",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ides_of_milk",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to Seth and search the shelves for the book.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ides_of_milk.try_cassius_sample",
+    "name": "Bring Cassius the book and taste his milk",
+    "activity_id": "quest.the_ides_of_milk",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.cassius",
+    "end_location_id": "location.lumbridge.cassius",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ides_of_milk.get_book"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.groats_principles",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 49,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ides_of_milk",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Give Cassius the book, drink the sample and talk to him again.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ides_of_milk.consult_duke",
+    "name": "Discuss the milk business with Duke Horacio",
+    "activity_id": "quest.the_ides_of_milk",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.duke",
+    "end_location_id": "location.lumbridge_castle.duke",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ides_of_milk.try_cassius_sample"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ides_of_milk",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to the Duke upstairs in Lumbridge Castle.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ides_of_milk.try_gillie_sample",
+    "name": "Compare Gillie's milk and ask about Brutus",
+    "activity_id": "quest.the_ides_of_milk",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.gillie_groats",
+    "end_location_id": "location.lumbridge.gillie_groats",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ides_of_milk.consult_duke"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ides_of_milk",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Drink Gillie's sample and continue her dialogue about the bull.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ides_of_milk.defeat_brutus",
+    "name": "Defeat Brutus in the cow pen",
+    "activity_id": "quest.the_ides_of_milk",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.brutus_pen",
+    "end_location_id": "location.lumbridge.brutus_pen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ides_of_milk.try_gillie_sample"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 88,
+      "max_seconds": 189
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ides_of_milk",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Open the gate and defeat the level-30 bull. Avoid the slam and charge. Protect from Melee helps against ordinary hits.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Brutus in the quest encounter.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.the_ides_of_milk.report_to_gillie",
+    "name": "Report Brutus's defeat to Gillie",
+    "activity_id": "quest.the_ides_of_milk",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.gillie_groats",
+    "end_location_id": "location.lumbridge.gillie_groats",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ides_of_milk.defeat_brutus"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ides_of_milk",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Gillie after the fight.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ides_of_milk.complete",
+    "name": "Return to Cassius and finish the quest",
+    "activity_id": "quest.the_ides_of_milk",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.cassius",
+    "end_location_id": "location.lumbridge.cassius",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ides_of_milk.report_to_gillie"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.brutus_cow_boss",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_ides_of_milk.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ides_of_milk",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Cassius finishes the quest and unlocks the repeatable boss.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "claim.the_ides_of_milk.gillie_groats",
+    "name": "Claim Gillie's Cowbell amulet and magic lamp",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.lumbridge.gillie_groats",
+    "end_location_id": "location.lumbridge.gillie_groats",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ides_of_milk.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cowbell_amulet",
+        "quantity": 1
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.the_ides_of_milk.gillie_lamp",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.cow_boss_2026_02_25",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Gillie after completing the quest.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_ruff_situation_supplies",
+    "name": "Buy ruff situation supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 800
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bear_fur",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.grain",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.needle",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.thread",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Purchase an estimated supply bundle at the Grand Exchange.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.a_ruff_situation.start",
+    "name": "Offer to help Talia at the dog shelter",
+    "activity_id": "quest.a_ruff_situation",
+    "kind": "quest_stage",
+    "start_location_id": "location.ice_mountain.dog_shelter",
+    "end_location_id": "location.ice_mountain.dog_shelter",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 15,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 36,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_ruff_situation",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to Talia about the missing puppies.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.a_ruff_situation.ask_gertrude",
+    "name": "Ask Gertrude about the stray dog",
+    "activity_id": "quest.a_ruff_situation",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.gertrude",
+    "end_location_id": "location.varrock.gertrude",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_ruff_situation.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_ruff_situation",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Gertrude at her house.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.a_ruff_situation.follow_to_den",
+    "name": "Follow the stray dog to its den",
+    "activity_id": "quest.a_ruff_situation",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.stray_dog",
+    "end_location_id": "location.varrock.stray_dog_den",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_ruff_situation.ask_gertrude"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_ruff_situation",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Interact with the dog south of Varrock's west bank and follow it to the den.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.a_ruff_situation.inspect_den",
+    "name": "Inspect the stray dog's den",
+    "activity_id": "quest.a_ruff_situation",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.stray_dog_den",
+    "end_location_id": "location.varrock.stray_dog_den",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_ruff_situation.follow_to_den"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 45,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_ruff_situation",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Inspect the rough bedding, chewed box and torn newspaper. Interact with the dog so it can pick up the scent.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.a_ruff_situation.follow_to_cooks_guild",
+    "name": "Follow the dog to the Cooks' Guild",
+    "activity_id": "quest.a_ruff_situation",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.stray_dog_den",
+    "end_location_id": "location.varrock.cooks_guild_stray",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_ruff_situation.inspect_den"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_ruff_situation",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Follow the dog and watch the cutscene north of the Cooks' Guild.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.a_ruff_situation.speak_to_picklenose",
+    "name": "Ask Picklenose about the missing puppy",
+    "activity_id": "quest.a_ruff_situation",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.picklenose",
+    "end_location_id": "location.varrock.picklenose",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_ruff_situation.follow_to_cooks_guild"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_ruff_situation",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Dismiss any active pet, get the dog to follow and speak to Picklenose.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.a_ruff_situation.sew_stuffed_dog",
+    "name": "Sew a stuffed dog with needle and thread",
+    "activity_id": "quest.a_ruff_situation",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.picklenose",
+    "end_location_id": "location.varrock.picklenose",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_ruff_situation.speak_to_picklenose"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.needle",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.ruff_stuffed_dog_made",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grain",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bear_fur",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.thread",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ruff_stuffed_dog",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.ruff_stuffed_dog_made",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_ruff_situation",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use grain on fur with a needle and thread.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.a_ruff_situation.sew_with_costume_needle",
+    "name": "Sew a stuffed dog with the Costume needle",
+    "activity_id": "quest.a_ruff_situation",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.picklenose",
+    "end_location_id": "location.varrock.picklenose",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_ruff_situation.speak_to_picklenose"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.costume_needle",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.ruff_stuffed_dog_made",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grain",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bear_fur",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ruff_stuffed_dog",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.ruff_stuffed_dog_made",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_ruff_situation",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use grain on fur with the Costume needle.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.a_ruff_situation.retrieve_pug",
+    "name": "Trade the stuffed dog for the pug puppy",
+    "activity_id": "quest.a_ruff_situation",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.picklenose",
+    "end_location_id": "location.varrock.picklenose",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_ruff_situation.speak_to_picklenose"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ruff_stuffed_dog",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ruff_pug_puppy",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_ruff_situation",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Give Picklenose the toy, then pick up the puppy.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.a_ruff_situation.follow_to_wall",
+    "name": "Follow the dog to the west wall",
+    "activity_id": "quest.a_ruff_situation",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.picklenose",
+    "end_location_id": "location.varrock.stray_dog_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_ruff_situation.retrieve_pug"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 43,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_ruff_situation",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Follow the stray dog and watch the cutscene.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.a_ruff_situation.defeat_outlaws",
+    "name": "Defeat the two puppy thieves",
+    "activity_id": "quest.a_ruff_situation",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.puppy_outlaws",
+    "end_location_id": "location.varrock.puppy_outlaws",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_ruff_situation.follow_to_wall"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 83,
+      "max_seconds": 178
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_ruff_situation",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to the dog, then defeat the level-22 and level-23 outlaws.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat both outlaws and finish the encounter.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.a_ruff_situation.collect_puppies",
+    "name": "Collect the remaining rescued puppies at the den",
+    "activity_id": "quest.a_ruff_situation",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.stray_dog_den",
+    "end_location_id": "location.varrock.stray_dog_den",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_ruff_situation.defeat_outlaws"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ruff_labrador_puppy",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ruff_spaniel_puppy",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_ruff_situation",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to the dog after the fight and collect the remaining labrador and spaniel at the den.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.a_ruff_situation.complete",
+    "name": "Return all three puppies to Talia",
+    "activity_id": "quest.a_ruff_situation",
+    "kind": "quest_stage",
+    "start_location_id": "location.ice_mountain.dog_shelter",
+    "end_location_id": "location.ice_mountain.dog_shelter",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_ruff_situation.collect_puppies"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ruff_labrador_puppy",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ruff_pug_puppy",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ruff_spaniel_puppy",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.ice_mountain_puppy_adoption",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.a_ruff_situation.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 38,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.a_ruff_situation",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Hand the three puppies to Talia and unlock adoption.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.locus_oasis.axe",
+    "name": "Take the axe beside Marcellus",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.locus_oasis.marcellus",
+    "end_location_id": "location.locus_oasis.marcellus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bronze_axe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 6,
+      "max_seconds": 13
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Take the axe from the log by Marcellus.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.start",
+    "name": "Hear Marcellus's side of the dispute",
+    "activity_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.marcellus",
+    "end_location_id": "location.locus_oasis.marcellus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 15,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to Marcellus at Locus Oasis.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.speak_to_blue_frogs",
+    "name": "Talk to the blue frogs",
+    "activity_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.blue_frogs",
+    "end_location_id": "location.locus_oasis.blue_frogs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to the frogs north-east of the oasis.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.report_to_marcellus",
+    "name": "Report the blue frogs' concerns",
+    "activity_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.marcellus",
+    "end_location_id": "location.locus_oasis.marcellus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.speak_to_blue_frogs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Return to Marcellus.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.get_garys_plan",
+    "name": "Discuss Gary's plan",
+    "activity_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.blue_frogs",
+    "end_location_id": "location.locus_oasis.blue_frogs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.report_to_marcellus"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Sue and Gary about the flies.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.question_yellow_frogs",
+    "name": "Talk to the yellow frogs",
+    "activity_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.yellow_frogs",
+    "end_location_id": "location.locus_oasis.yellow_frogs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.get_garys_plan"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Dave and Jane.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.sabotage_lily_pad",
+    "name": "Chop the orange tree and sabotage the lily pad",
+    "activity_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.yellow_frogs",
+    "end_location_id": "location.locus_oasis.yellow_frogs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.question_yellow_frogs"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.iron_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.woodcutting",
+                  "minimum_level": 21,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mithril_axe",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 33,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use an axe on the orange tree and sabotage the nearby lily pad.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.report_sabotage",
+    "name": "Tell Sue and Gary about the lily pad",
+    "activity_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.blue_frogs",
+    "end_location_id": "location.locus_oasis.blue_frogs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.sabotage_lily_pad"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Return to the blue frogs.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.discuss_missing_flies",
+    "name": "Talk to Marcellus about the missing flies",
+    "activity_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.marcellus",
+    "end_location_id": "location.locus_oasis.marcellus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.report_sabotage"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Hear Marcellus's account.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.arrange_plushy",
+    "name": "Discuss the plan to frame the flies",
+    "activity_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.blue_frogs",
+    "end_location_id": "location.locus_oasis.blue_frogs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.discuss_missing_flies"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to Sue and Gary about their plan.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.take_plushy",
+    "name": "Open Marcellus's chest",
+    "activity_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.marcellus_chest",
+    "end_location_id": "location.locus_oasis.marcellus_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.arrange_plushy"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.frog_plushy",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Solve the chest code and take the frog plushy.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.defeat_cuthbert",
+    "name": "Plant the plushy and defeat Cuthbert",
+    "activity_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.cuthbert",
+    "end_location_id": "location.locus_oasis.cuthbert",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.take_plushy"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.frog_plushy",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 34,
+      "max_seconds": 73
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Plant the plushy at the dung and defeat Cuthbert.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Cuthbert, Lord of Dread.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.tell_marcellus",
+    "name": "Tell Marcellus what happened",
+    "activity_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.marcellus",
+    "end_location_id": "location.locus_oasis.marcellus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.defeat_cuthbert"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Return to Marcellus with the outcome.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.complete",
+    "name": "Resolve the dispute with Sue and Gary",
+    "activity_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.blue_frogs",
+    "end_location_id": "location.locus_oasis.blue_frogs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.tell_marcellus"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.locus_oasis_hardwood_patch",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_ribbiting_tale_of_a_lily_pad_labour_dispute.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_ribbiting_tale_of_a_lily_pad_labour_dispute",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Sue and Gary to finish and unlock the hardwood patch.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_vale_totems_supplies",
+    "name": "Buy vale totems supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.oak_logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.oak_shortbow_unstrung",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Purchase an estimated supply bundle at the Grand Exchange.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.vale_totems.start",
+    "name": "Learn about spirit totems from Ranulph",
+    "activity_id": "miniquest.vale_totems",
+    "kind": "quest_stage",
+    "start_location_id": "location.auburnvale.ranulph",
+    "end_location_id": "location.auburnvale.ranulph",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fletching",
+          "minimum_level": 20,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.vale_totems",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to Ranulph in western Auburnvale.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.vale_totems.build_oak_base",
+    "name": "Build the oak totem base",
+    "activity_id": "miniquest.vale_totems",
+    "kind": "quest_stage",
+    "start_location_id": "location.auburnvale.tutorial_totem",
+    "end_location_id": "location.auburnvale.tutorial_totem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.vale_totems.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.vale_totems",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use a knife and oak log to build the base.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.vale_totems.learn_carving",
+    "name": "Ask Isadora how to carve spirit animals",
+    "activity_id": "miniquest.vale_totems",
+    "kind": "quest_stage",
+    "start_location_id": "location.auburnvale.isadora",
+    "end_location_id": "location.auburnvale.isadora",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.vale_totems.build_oak_base"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.vale_totems",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Isadora about the visible spirits.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.vale_totems.carve_animals",
+    "name": "Carve the three visible spirit animals",
+    "activity_id": "miniquest.vale_totems",
+    "kind": "quest_stage",
+    "start_location_id": "location.auburnvale.tutorial_totem",
+    "end_location_id": "location.auburnvale.tutorial_totem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.vale_totems.learn_carving"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.vale_totems",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Carve the matching animals into the totem.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.vale_totems.learn_decoration",
+    "name": "Ask Isadora how to decorate the totem",
+    "activity_id": "miniquest.vale_totems",
+    "kind": "quest_stage",
+    "start_location_id": "location.auburnvale.isadora",
+    "end_location_id": "location.auburnvale.isadora",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.vale_totems.carve_animals"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.vale_totems",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Return to Isadora after carving.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.vale_totems.decorate_oak_totem",
+    "name": "Decorate the oak totem with four unstrung shortbows",
+    "activity_id": "miniquest.vale_totems",
+    "kind": "quest_stage",
+    "start_location_id": "location.auburnvale.tutorial_totem",
+    "end_location_id": "location.auburnvale.tutorial_totem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.vale_totems.learn_decoration"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_shortbow_unstrung",
+        "quantity": 4
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.vale_totems",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Apply four matching oak decorations. The route uses oak shortbows (u).",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.vale_totems.show_finished_totem",
+    "name": "Show Isadora the decorated totem",
+    "activity_id": "miniquest.vale_totems",
+    "kind": "quest_stage",
+    "start_location_id": "location.auburnvale.isadora",
+    "end_location_id": "location.auburnvale.isadora",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.vale_totems.decorate_oak_totem"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.vale_totems",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Isadora about the decorated totem.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.vale_totems.claim_tutorial_offering",
+    "name": "Collect the tutorial offering",
+    "activity_id": "miniquest.vale_totems",
+    "kind": "quest_stage",
+    "start_location_id": "location.auburnvale.tutorial_totem",
+    "end_location_id": "location.auburnvale.tutorial_totem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.vale_totems.show_finished_totem"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.vale_totems",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Collect the ent's offering. Its exact amount is in review.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.vale_totems.complete",
+    "name": "Finish the tutorial with Isadora",
+    "activity_id": "miniquest.vale_totems",
+    "kind": "quest_stage",
+    "start_location_id": "location.auburnvale.isadora",
+    "end_location_id": "location.auburnvale.isadora",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.vale_totems.claim_tutorial_offering"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.vale_totems",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.miniquest.vale_totems.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.vale_totems",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to Isadora to unlock the regular activity.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.hunter_guild.buy_box_trap",
+    "name": "Buy a box trap from Imia",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.hunter_guild.imia",
+    "end_location_id": "location.hunter_guild.imia",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.complete"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 41
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.box_trap",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 13,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Pay Imia 41 coins for a box trap.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.at_first_light.take_needle",
+    "name": "Pick up a needle in the guild",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.hunter_guild.needle",
+    "end_location_id": "location.hunter_guild.needle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.needle",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 6,
+      "max_seconds": 13
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Pick up the needle in the south-east corner.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.at_first_light.take_hammer",
+    "name": "Pick up a hammer by Atza's house",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.fortis.atza_hammer",
+    "end_location_id": "location.fortis.atza_hammer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 6,
+      "max_seconds": 13
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Pick up the hammer in the house north of Atza.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_jerboa_tails",
+    "name": "Buy jerboa tails",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.jerboa_tail",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Purchase an estimated supply bundle at the Grand Exchange.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.start",
+    "name": "Ask Apatura about the Hunters' Guild",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.hunter_guild.apatura",
+    "end_location_id": "location.hunter_guild.apatura",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eagles_peak.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.hunter",
+          "minimum_level": 46,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 27,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 33,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to Guildmaster Apatura on the surface.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.speak_to_verity_and_wolf",
+    "name": "Talk to Verity and obtain Wolf's toy mouse",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.hunter_guild.verity",
+    "end_location_id": "location.hunter_guild.verity",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.toy_mouse",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 34,
+      "max_seconds": 73
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to the guild scribe and Wolf by the bar.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.inspect_kikos_bed",
+    "name": "Distract Kiko and inspect its bed",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.hunter_guild.kiko_bed",
+    "end_location_id": "location.hunter_guild.kiko_bed",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.speak_to_verity_and_wolf"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.toy_mouse",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 36,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Wind the toy mouse, distract Kiko and inspect the damaged bed.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.speak_to_wolf",
+    "name": "Report Kiko's damaged bed to Wolf",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.hunter_guild.verity",
+    "end_location_id": "location.hunter_guild.verity",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.inspect_kikos_bed"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Wolf before searching for Fox.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.find_fox",
+    "name": "Find the injured Guild Hunter Fox",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.avium_savannah.hunter_fox",
+    "end_location_id": "location.avium_savannah.hunter_fox",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.speak_to_wolf"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to Fox near the savannah crevice.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.take_smooth_leaf",
+    "name": "Pick the smooth leaf",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.avium_savannah.smooth_leaf",
+    "end_location_id": "location.avium_savannah.smooth_leaf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.find_fox"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.afl_smooth_leaf",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 19
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Search the bush near Fox.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.take_sticky_leaf",
+    "name": "Pick the sticky leaf at Locus Oasis",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.locus_oasis.sticky_leaf",
+    "end_location_id": "location.locus_oasis.sticky_leaf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.find_fox"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.afl_sticky_leaf",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 19
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Search the rough-looking bush.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.trap_jerboas",
+    "name": "Catch two embertailed jerboas",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.avium_savannah.embertailed_jerboas",
+    "end_location_id": "location.avium_savannah.embertailed_jerboas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.find_fox"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.box_trap",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.jerboa_tail",
+        "quantity": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hunter",
+        "xp_tenths": 2740
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 70,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing",
+        "source.runelite.embertailed_jerboa"
+      ],
+      "note": "Use a box trap to catch two jerboas for their tails.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.treat_fox",
+    "name": "Make a poultice and treat Fox",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.avium_savannah.hunter_fox",
+    "end_location_id": "location.avium_savannah.hunter_fox",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.take_smooth_leaf"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.take_sticky_leaf"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.afl_smooth_leaf",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.afl_sticky_leaf",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.jerboa_tail",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.afl_fur_sample",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Combine the two leaves and a jerboa tail. Keep a second tail for Kiko's bed.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.repair_atzas_equipment",
+    "name": "Set up Atza's equipment and receive trimmed fur",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.atza",
+    "end_location_id": "location.fortis.atza",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.treat_fox"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.afl_fur_sample",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.afl_trimmed_fur",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 53,
+      "max_seconds": 114
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Bring the fur sample to Atza and use a hammer to set up the equipment pile. Collect the trimmed fur.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.get_foxs_report",
+    "name": "Get Fox's report",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.avium_savannah.hunter_fox",
+    "end_location_id": "location.avium_savannah.hunter_fox",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.repair_atzas_equipment"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.afl_report",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Return to Fox for his report.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.hand_in_report",
+    "name": "Give Verity Fox's report",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.hunter_guild.verity",
+    "end_location_id": "location.hunter_guild.verity",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.get_foxs_report"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.afl_report",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to Verity in the guild basement.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.repair_cat_bed",
+    "name": "Repair Kiko's bed",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.hunter_guild.kiko_bed",
+    "end_location_id": "location.hunter_guild.kiko_bed",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.hand_in_report"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.needle",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.costume_needle",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.afl_trimmed_fur",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.jerboa_tail",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 37,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use the remaining tail and trimmed fur on the bed with a needle.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.at_first_light.complete",
+    "name": "Report to Apatura and finish the quest",
+    "activity_id": "quest.at_first_light",
+    "kind": "quest_stage",
+    "start_location_id": "location.hunter_guild.apatura",
+    "end_location_id": "location.hunter_guild.apatura",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.at_first_light.repair_cat_bed"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hunter",
+        "xp_tenths": 45000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 8000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.master_hunter_rumours",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.at_first_light.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.at_first_light",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Return to the surface and speak to Apatura. Master rumours have a separate Hunter gate.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.start",
+    "name": "Inspect the Grand Museum's empty display",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.museum_diadem_display",
+    "end_location_id": "location.fortis.museum_diadem_display",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 25,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Inspect the missing diadem display in Civitas illa Fortis.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.speak_to_herminius",
+    "name": "Ask Curator Herminius about the diadem",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.museum_curator_herminius",
+    "end_location_id": "location.fortis.museum_curator_herminius",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ethically_acquired_antiquities.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Herminius in the Grand Museum.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.inspect_theft",
+    "name": "Examine the tools and display",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.museum_diadem_display",
+    "end_location_id": "location.fortis.museum_diadem_display",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ethically_acquired_antiquities.speak_to_herminius"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Inspect the tools left behind the case and examine the case again.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.question_visitors",
+    "name": "Question three museum visitors",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.museum_curator_herminius",
+    "end_location_id": "location.fortis.museum_curator_herminius",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ethically_acquired_antiquities.inspect_theft"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 47,
+      "max_seconds": 101
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to a citizen, an academic and a tourist.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.ask_regulus",
+    "name": "Ask Regulus Cento about suspicious travellers",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.renu",
+    "end_location_id": "location.fortis.renu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ethically_acquired_antiquities.question_visitors"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Regulus south of the museum.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.take_tattered_sail",
+    "name": "Take the crew's tattered sail",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.charter_dock",
+    "end_location_id": "location.fortis.charter_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ethically_acquired_antiquities.ask_regulus"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.eaa_tattered_sail",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Ask a Trader Crewmember about the traveller and accept the sail repair.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.repair_sail",
+    "name": "Get Artima to repair the sail",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.artima",
+    "end_location_id": "location.fortis.artima",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ethically_acquired_antiquities.take_tattered_sail"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.eaa_tattered_sail",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.eaa_fixed_sail",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 45,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Ask Artima at her crafting shop.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.return_repaired_sail",
+    "name": "Return the sail and learn the next lead",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.charter_dock",
+    "end_location_id": "location.fortis.charter_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ethically_acquired_antiquities.repair_sail"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.eaa_fixed_sail",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Give the repaired sail to the crew and ask about the traveller.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.ask_trader_stan",
+    "name": "Question Trader Stan or his crew in Port Sarim",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.charter_dock",
+    "end_location_id": "location.port_sarim.charter_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ethically_acquired_antiquities.return_repaired_sail"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Ask at the southern charter dock.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.read_bettys_notes",
+    "name": "Question Betty and read her notes",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.betty",
+    "end_location_id": "location.port_sarim.betty",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ethically_acquired_antiquities.ask_trader_stan"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.eaa_betty_notes",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 33,
+      "max_seconds": 71
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to Betty in the Port Sarim rune shop and read the notes.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.question_haig",
+    "name": "Question Curator Haig Halen and take the key",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_museum.curator",
+    "end_location_id": "location.varrock_museum.curator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ethically_acquired_antiquities.read_bettys_notes"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.eaa_betty_notes",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.eaa_storeroom_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 46,
+      "max_seconds": 99
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to Haig Halen, then pickpocket his storeroom key.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.find_diadem",
+    "name": "Search the storeroom crate for Xerna's diadem",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_museum.diadem_storeroom",
+    "end_location_id": "location.varrock_museum.diadem_storeroom",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ethically_acquired_antiquities.question_haig"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.eaa_storeroom_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.xernas_diadem",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use the key to enter the north-east storeroom and search the crate.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.confront_haig",
+    "name": "Confront Haig Halen about the diadem",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_museum.curator",
+    "end_location_id": "location.varrock_museum.curator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ethically_acquired_antiquities.find_diadem"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.xernas_diadem",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.eaa_storeroom_key",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.eaa_betty_notes",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 63,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Show the diadem, fill the shame meter and finish the cutscene.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.ethically_acquired_antiquities.complete",
+    "name": "Report the recovery to Curator Herminius",
+    "activity_id": "quest.ethically_acquired_antiquities",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.museum_curator_herminius",
+    "end_location_id": "location.fortis.museum_curator_herminius",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ethically_acquired_antiquities.confront_haig"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 60000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 5000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.ethically_acquired_antiquities.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.ethically_acquired_antiquities",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Return to the Grand Museum and collect the fee.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.meat_and_greet.start",
+    "name": "Ask Emelio about his kebab stall",
+    "activity_id": "quest.meat_and_greet",
+    "kind": "quest_stage",
+    "start_location_id": "location.outer_fortis.emelio",
+    "end_location_id": "location.outer_fortis.emelio",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 37,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.meat_and_greet",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to Emelio outside the south-eastern entrance to the city.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.meat_and_greet.ask_spice_merchant",
+    "name": "Ask the spice merchant about the missing delivery",
+    "activity_id": "quest.meat_and_greet",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.bazaar_spice_merchant",
+    "end_location_id": "location.fortis.bazaar_spice_merchant",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.meat_and_greet.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.meat_and_greet",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Question the merchant in the Fortis Bazaar.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.meat_and_greet.ask_alba",
+    "name": "Ask Alba why the deliveries stopped",
+    "activity_id": "quest.meat_and_greet",
+    "kind": "quest_stage",
+    "start_location_id": "location.ortus_farm.alba",
+    "end_location_id": "location.ortus_farm.alba",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.meat_and_greet.ask_spice_merchant"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.meat_and_greet",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Alba in the farmhouse.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.meat_and_greet.defeat_dire_wolf",
+    "name": "Defeat the Dire Wolf Alpha",
+    "activity_id": "quest.meat_and_greet",
+    "kind": "quest_stage",
+    "start_location_id": "location.varlamore.dire_wolf_den",
+    "end_location_id": "location.varlamore.dire_wolf_den",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.meat_and_greet.ask_alba"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 46,
+      "expected_seconds": 103,
+      "max_seconds": 221
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.meat_and_greet",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Fight the alpha in the den. The pups attack with Ranged.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Dire Wolf Alpha.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.meat_and_greet.report_to_alba",
+    "name": "Report the wolf's defeat to Alba",
+    "activity_id": "quest.meat_and_greet",
+    "kind": "quest_stage",
+    "start_location_id": "location.ortus_farm.alba",
+    "end_location_id": "location.ortus_farm.alba",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.meat_and_greet.defeat_dire_wolf"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.meat_and_greet",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Return to Alba to restore the supply chain.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.meat_and_greet.prepare_test_kebab",
+    "name": "Prepare Emelio's test recipe",
+    "activity_id": "quest.meat_and_greet",
+    "kind": "quest_stage",
+    "start_location_id": "location.outer_fortis.emelio",
+    "end_location_id": "location.outer_fortis.emelio",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.meat_and_greet.report_to_alba"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mag_test_kebab",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 43,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.meat_and_greet",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use four parts meat, two salad, one spice and three sauce.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.meat_and_greet.test_kebab_with_renata",
+    "name": "Let Renata taste the kebab",
+    "activity_id": "quest.meat_and_greet",
+    "kind": "quest_stage",
+    "start_location_id": "location.outer_fortis.renata",
+    "end_location_id": "location.outer_fortis.renata",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.meat_and_greet.prepare_test_kebab"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mag_test_kebab",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.meat_and_greet",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Give the test kebab to Renata and hear her verdict.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.meat_and_greet.collect_colosseum_samples",
+    "name": "Collect two kebabs for the Colosseum",
+    "activity_id": "quest.meat_and_greet",
+    "kind": "quest_stage",
+    "start_location_id": "location.outer_fortis.emelio",
+    "end_location_id": "location.outer_fortis.emelio",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.meat_and_greet.test_kebab_with_renata"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mag_colosseum_kebab",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.meat_and_greet",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Tell Emelio the recipe works and collect the two samples.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.meat_and_greet.give_lelia_sample",
+    "name": "Offer Lelia one kebab sample",
+    "activity_id": "quest.meat_and_greet",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.colosseum_lelia",
+    "end_location_id": "location.fortis.colosseum_lelia",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.meat_and_greet.collect_colosseum_samples"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mag_colosseum_kebab",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 36,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.meat_and_greet",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Offer a sample to Lelia and ask about selling kebabs.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.meat_and_greet.enter_quest_arena",
+    "name": "Enter the trial arena with the remaining kebab",
+    "activity_id": "quest.meat_and_greet",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.colosseum_lelia",
+    "end_location_id": "location.fortis.quest_minotaur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.meat_and_greet.give_lelia_sample"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mag_colosseum_kebab",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.meat_and_greet",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Tell Lelia you are ready and bring the remaining kebab.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.meat_and_greet.defeat_minotaur",
+    "name": "Defeat the Colosseum minotaur",
+    "activity_id": "quest.meat_and_greet",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.quest_minotaur",
+    "end_location_id": "location.fortis.colosseum_lelia",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.meat_and_greet.enter_quest_arena"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mag_colosseum_kebab",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 111,
+      "max_seconds": 239
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.meat_and_greet",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Eat the test kebab during the fight. Protect from Melee helps against ordinary attacks. When the minotaur shouts, Protect from Magic helps against its special attack.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Eat the kebab and defeat the minotaur.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.meat_and_greet.report_to_lelia",
+    "name": "Report the arena result to Lelia",
+    "activity_id": "quest.meat_and_greet",
+    "kind": "quest_stage",
+    "start_location_id": "location.fortis.colosseum_lelia",
+    "end_location_id": "location.fortis.colosseum_lelia",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.meat_and_greet.defeat_minotaur"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.meat_and_greet",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Lelia after the fight.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.meat_and_greet.complete",
+    "name": "Tell Emelio the advertising worked",
+    "activity_id": "quest.meat_and_greet",
+    "kind": "quest_stage",
+    "start_location_id": "location.outer_fortis.emelio",
+    "end_location_id": "location.outer_fortis.emelio",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.meat_and_greet.report_to_lelia"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 80000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.emelio_kebab_shop",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.meat_and_greet.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.meat_and_greet",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Return to Emelio and unlock his kebab shop.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.start",
+    "name": "Talk to Patzi outside Villa Lucens",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.patzi",
+    "end_location_id": "location.aldarin.patzi",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.children_of_the_sun.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 34,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 32,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 36,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Patzi at the villa entrance.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.steal_uniform",
+    "name": "Steal a butler's uniform",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.butler_uniform_house",
+    "end_location_id": "location.aldarin.butler_uniform_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.doti_butler_shirt",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.doti_butler_pants",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 38,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "When the guard moves away, enter the window, search the wardrobe and leave.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.return_to_patzi",
+    "name": "Show Patzi the butler disguise",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.patzi",
+    "end_location_id": "location.aldarin.patzi",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.steal_uniform"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doti_butler_shirt",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doti_butler_pants",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Patzi and finish the dialogue.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.enter_villa",
+    "name": "Equip the uniform and enter Villa Lucens",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.villa_head_butler",
+    "end_location_id": "location.aldarin.villa_lucens_party",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.return_to_patzi"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doti_butler_shirt",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doti_butler_pants",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Wear the uniform and talk to the Head Butler. He holds your equipment during the investigation.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.question_guests",
+    "name": "Question the party guests and report to Patzi",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.villa_lucens_party",
+    "end_location_id": "location.aldarin.villa_lucens_party",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.enter_villa"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 58,
+      "max_seconds": 125
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Patzi, then introduce yourself to Constantinius, Cozyac, Pavo and Xocotla before reporting back.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.find_wine",
+    "name": "Find the antique wine",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.villa_antique_wine",
+    "end_location_id": "location.aldarin.villa_antique_wine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.question_guests"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Look for the wine in the south room of the villa cellar.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.find_body",
+    "name": "Investigate the body in the east room",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.villa_livius",
+    "end_location_id": "location.aldarin.villa_lucens_party",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.find_wine"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Check on the man in the cellar. The cutscene returns you to the ground floor.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.speak_to_guards",
+    "name": "Explain what happened to Stradius and Hutza",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.villa_lucens_party",
+    "end_location_id": "location.aldarin.villa_lucens_party",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.find_body"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 48,
+      "max_seconds": 103
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to the guards and begin the investigation.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.collect_cellar_clues",
+    "name": "Inspect the six cellar clues",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.villa_wine_cellar",
+    "end_location_id": "location.aldarin.villa_wine_cellar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.speak_to_guards"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 78,
+      "max_seconds": 168
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Inspect the entrance jug, box and stool in the south room, and the pottery, wine storage and Livius in the east room.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.interrogate_guests",
+    "name": "Interrogate the guests and brief the guards",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.villa_lucens_party",
+    "end_location_id": "location.aldarin.villa_lucens_party",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.collect_cellar_clues"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 54,
+      "max_seconds": 116
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Question the four guests, Patzi and Adala, then tell the guards what you found.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.pickpocket_suspects",
+    "name": "Pickpocket the suspects and inspect the evidence",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.villa_lucens_party",
+    "end_location_id": "location.aldarin.villa_lucens_party",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.interrogate_guests"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.doti_wine_labels",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.doti_threatening_note",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.doti_drinking_flask",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.doti_shipping_contract",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 69,
+      "max_seconds": 148
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Recover and inspect the wine labels, threatening note, drinking flask and shipping contract.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.make_accusation",
+    "name": "Tell the guards you are ready to accuse a suspect",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.villa_lucens_party",
+    "end_location_id": "location.aldarin.villa_lucens_top_floor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.pickpocket_suspects"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.doti_wine_labels",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.doti_threatening_note",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.doti_drinking_flask",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.doti_shipping_contract",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Show the guards the evidence. Their dialogue takes you upstairs.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.question_adala",
+    "name": "Confront Adala and get her confession",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.villa_lucens_top_floor",
+    "end_location_id": "location.aldarin.villa_lucens_top_floor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.make_accusation"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 105,
+      "max_seconds": 226
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Question the suspects, accuse Adala and fight her unarmed. Get her confession and brief the guards.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.leave_upper_floor",
+    "name": "Return to the Villa Lucens ground floor",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.villa_lucens_top_floor",
+    "end_location_id": "location.aldarin.villa_lucens_party",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.question_adala"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Climb down both flights of stairs.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.ask_stradius_at_theatre",
+    "name": "Ask Stradius about the theatre",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.theatre_backstage",
+    "end_location_id": "location.aldarin.theatre_backstage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.leave_upper_floor"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "After taking the cliff route, speak to Stradius by the theatre.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.investigate_backstage",
+    "name": "Investigate backstage and question the Costumer",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.theatre_costumer",
+    "end_location_id": "location.aldarin.theatre_costumer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.ask_stradius_at_theatre"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 34,
+      "expected_seconds": 75,
+      "max_seconds": 161
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Search the crate, bookshelf and costume rack. Ask about the actors, poison, costume and passage.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.accuse_naiatli",
+    "name": "Report to Stradius and accuse Naiatli",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.theatre_backstage",
+    "end_location_id": "location.aldarin.theatre_backstage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.investigate_backstage"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Report the theatre evidence to Stradius.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.confront_naiatli",
+    "name": "Confront Naiatli and Clodius",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.theatre_stage",
+    "end_location_id": "location.aldarin.theatre_stage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.accuse_naiatli"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 84,
+      "max_seconds": 181
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Attack Naiatli when she runs and deal with Clodius when he appears.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Finish the theatre confrontation and speak to Naiatli.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.death_on_the_isle.complete",
+    "name": "Report to the guards at the villa",
+    "activity_id": "quest.death_on_the_isle",
+    "kind": "quest_stage",
+    "start_location_id": "location.aldarin.villa_lucens_party",
+    "end_location_id": "location.aldarin.villa_lucens_party",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.confront_naiatli"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 75000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.death_on_the_isle.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 36,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Stradius or Hutza and recover the possessions held during the quest.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "claim.death_on_the_isle.costume_needle",
+    "name": "Claim the Costume needle from the Costumer",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.aldarin.theatre_costumer",
+    "end_location_id": "location.aldarin.theatre_costumer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.death_on_the_isle.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.costume_needle",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.death_on_the_isle",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Return to the theatre cellar and speak to the Costumer after the quest.",
+      "status": "estimated"
+    }
+  }
+]

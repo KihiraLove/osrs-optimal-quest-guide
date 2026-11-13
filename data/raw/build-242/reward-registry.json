@@ -245,10 +245,11 @@
     {
       "id": "claim.the_ides_of_milk.gillie_groats",
       "activity_id": "quest.the_ides_of_milk",
-      "status": "expected",
+      "status": "collected",
       "delivery": "post_quest_claim",
       "source_ids": [
-        "source.quest_helper.quest_observations"
+        "source.quest_helper.quest_observations",
+        "source.jagex.cow_boss_2026_02_25"
       ],
       "producer_action_id": "claim.the_ides_of_milk.gillie_groats",
       "repeat_limit": 1,
@@ -260,13 +261,13 @@
           "kind": "fixed",
           "xp_tenths": 10000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": ["skill.attack", "skill.strength", "skill.defence", "skill.hitpoints", "skill.ranged", "skill.magic", "skill.prayer"],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_eligibility": "combat_and_prayer"
       },
-      "notes": "Verify exact NPC tile, award timing, skill eligibility and minimum level. The helper also mentions the cow bell amulet.",
+      "notes": "Gillie gives the lamp and Cowbell amulet in one post-quest dialogue. Minimum level and retention remain in review.",
       "requires": {
         "kind": "all",
         "requirements": [
@@ -278,10 +279,10 @@
       },
       "claim_location": {
         "name": "Gillie Groats",
-        "tile": null,
+        "tile": [3253, 3270, 0],
         "anchor": "TheIdesOfMilk.getUnlockRewards"
       },
-      "claim_duration_seconds": null
+      "claim_duration_seconds": 25
     },
     {
       "id": "claim.while_guthix_sleeps.kuradal",

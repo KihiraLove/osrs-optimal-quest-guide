@@ -1,10 +1,11 @@
 # Dataset changelog
 
-Dataset 0.37.0 uses the 11 November 2026 build 242 snapshot. Earlier
+Dataset versions from 0.37.0 use the 11 November 2026 build 242 snapshot. Earlier
 entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.38.0 | Added seven quests and the Vale Totems miniquest, the Cowbell amulet and Gillie lamp claim, Aldarin ferry and charters, and the Costume needle claim. |
 | 0.37.0 | Added the four Quest Month quests from 3 and 11 November, Mudfoot's four lamps, the Amulet of Sight and Bea's supply-bag exchanges. |
 | 0.36.0 | Added seven quests, Alfred Grimhand's Barcrawl, Tourist Trap XP choices, five runecraft altar approaches and four Desert diary tasks. |
 | 0.35.0 | Added eight quests, both Shield of Arrav gang routes, build 242 rewards, the Chaos Altar approaches, a museum claim and an Ardougne diary task. |
@@ -43,5 +44,5 @@ entries use the 3 November build 242 snapshot.
 | 0.2.0 | Added the first quest actions and the pinned Quest Helper observations. |
 | 0.1.0 | Recorded the independent quest, skill, diary and optional content inventory for build 242. |
 
-The coverage audit records the release blockers for 0.37.0. The normalizer and
+The coverage audit records the release blockers for 0.38.0. The normalizer and
 audit use the existing dataset version.
