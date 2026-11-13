@@ -1,0 +1,7108 @@
+[
+  {
+    "id": "quest.the_garden_of_death.start",
+    "name": "Search the excavation tent and read the journal",
+    "activity_id": "quest.the_garden_of_death",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.death_garden_tent",
+    "end_location_id": "location.kebos.death_garden_tent",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 20,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.secateurs",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_garden_of_death",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the camp for secateurs and read the excavation journal."
+    }
+  },
+  {
+    "id": "quest.the_garden_of_death.translate_first",
+    "name": "Translate the first stone tablet",
+    "activity_id": "quest.the_garden_of_death",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.death_garden_first_tablet",
+    "end_location_id": "location.kebos.death_garden_first_tablet",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_garden_of_death.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.garden_of_death_translations",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 45,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_garden_of_death",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the stone table and inspect the carvings. Record island, water, time, vessel and north."
+    }
+  },
+  {
+    "id": "quest.the_garden_of_death.translate_molch",
+    "name": "Cut the vines and translate the Molch tablet",
+    "activity_id": "quest.the_garden_of_death",
+    "kind": "quest_stage",
+    "start_location_id": "location.molch_island.death_garden_tablet",
+    "end_location_id": "location.molch_island.death_garden_tablet",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_garden_of_death.translate_first"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.secateurs",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.garden_of_death_translations",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 58,
+      "max_seconds": 125
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_garden_of_death",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect and cut the vines, inspect the carvings, then record west, poison, body, food and earth."
+    }
+  },
+  {
+    "id": "quest.the_garden_of_death.translate_xeric",
+    "name": "Translate the Xeric's Shrine tablet",
+    "activity_id": "quest.the_garden_of_death",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.xeric_shrine_garden_tablet",
+    "end_location_id": "location.kebos.xeric_shrine_garden_tablet",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_garden_of_death.translate_molch"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.garden_of_death_translations",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 50,
+      "max_seconds": 108
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_garden_of_death",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect the carvings and record make, yes, no, move, arrive, east and south."
+    }
+  },
+  {
+    "id": "quest.the_garden_of_death.translate_morra",
+    "name": "Translate the Morra ruins tablet",
+    "activity_id": "quest.the_garden_of_death",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.morra_garden_tablet",
+    "end_location_id": "location.kebos.morra_garden_tablet",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_garden_of_death.translate_xeric"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.garden_of_death_translations",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 55,
+      "max_seconds": 118
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_garden_of_death",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect the last garden's carvings, then record few, big, sun, moon, life, death, mind, home, air and fire."
+    }
+  },
+  {
+    "id": "quest.the_garden_of_death.complete",
+    "name": "Read the warning note and final tablet",
+    "activity_id": "quest.the_garden_of_death",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.morra_garden_tablet",
+    "end_location_id": "location.kebos.morra_garden_tablet",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_garden_of_death.translate_morra"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_garden_of_death.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_garden_of_death",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the final table for its warning note and tablet, then read both. Awards 10,000 Farming XP."
+    }
+  },
+  {
+    "id": "quest.getting_ahead.start",
+    "name": "Ask Gordon about the missing animals",
+    "activity_id": "quest.getting_ahead",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.gordon",
+    "end_location_id": "location.kebos.gordon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 26,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.getting_ahead",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Gordon asks you to investigate with Mary."
+    }
+  },
+  {
+    "id": "quest.getting_ahead.mary",
+    "name": "Ask Mary where the beast went",
+    "activity_id": "quest.getting_ahead",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.mary",
+    "end_location_id": "location.kebos.mary",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.getting_ahead.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pot_of_flour",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.getting_ahead",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mary explains the trail. Take the pot of flour in the farmhouse."
+    }
+  },
+  {
+    "id": "quest.getting_ahead.flour_trail",
+    "name": "Dust the gate with flour and inspect the tracks",
+    "activity_id": "quest.getting_ahead",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.farm_flour_gate",
+    "end_location_id": "location.kebos.farm_flour_gate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.getting_ahead.mary"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pot_of_flour",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pot",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 39,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.getting_ahead",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use flour on the farm gate and follow the prints towards the mine."
+    }
+  },
+  {
+    "id": "quest.getting_ahead.defeat",
+    "name": "Defeat the Headless Beast",
+    "activity_id": "quest.getting_ahead",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.headless_beast",
+    "end_location_id": "location.kebos.headless_beast",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.getting_ahead.flour_trail"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 110,
+      "max_seconds": 237
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.getting_ahead",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the level 82 beast in the mine and return with the news."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Headless Beast.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.getting_ahead.report",
+    "name": "Tell Gordon why there is no head to bring back",
+    "activity_id": "quest.getting_ahead",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.gordon",
+    "end_location_id": "location.kebos.gordon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.getting_ahead.defeat"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.getting_ahead",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to Gordon and then seek Mary's advice."
+    }
+  },
+  {
+    "id": "quest.getting_ahead.sculpt",
+    "name": "Sculpt a substitute head from soft clay",
+    "activity_id": "quest.getting_ahead",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.mary",
+    "end_location_id": "location.kebos.mary",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.getting_ahead.report"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.soft_clay",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.clay_head",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 48,
+      "max_seconds": 103
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.getting_ahead",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the knife on soft clay, and get Gordon's feedback before decorating the head."
+    }
+  },
+  {
+    "id": "quest.getting_ahead.fur",
+    "name": "Stitch fur onto the clay head",
+    "activity_id": "quest.getting_ahead",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.gordon",
+    "end_location_id": "location.kebos.gordon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.getting_ahead.sculpt"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.needle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.clay_head",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bear_fur",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.thread",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fur_head",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 34,
+      "max_seconds": 73
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.getting_ahead",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a needle and thread to attach bear fur and show Gordon."
+    }
+  },
+  {
+    "id": "quest.getting_ahead.dye",
+    "name": "Colour the fur-covered head",
+    "activity_id": "quest.getting_ahead",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.mary",
+    "end_location_id": "location.kebos.mary",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.getting_ahead.fur"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fur_head",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.red_dye",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bloody_head",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.getting_ahead",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the farmhouse red dye and show Gordon the result on the way to mounting it."
+    }
+  },
+  {
+    "id": "quest.getting_ahead.mount",
+    "name": "Mount the replica head in the farmhouse",
+    "activity_id": "quest.getting_ahead",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.mary",
+    "end_location_id": "location.kebos.mary",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.getting_ahead.dye"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.saw",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bloody_head",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.plank",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.bronze_nails",
+        "quantity": 6
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 38,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.getting_ahead",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the planks and nails with a hammer and saw."
+    }
+  },
+  {
+    "id": "quest.getting_ahead.complete",
+    "name": "Collect Gordon's reward",
+    "activity_id": "quest.getting_ahead",
+    "kind": "quest_stage",
+    "start_location_id": "location.kebos.gordon",
+    "end_location_id": "location.kebos.gordon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.getting_ahead.mount"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 40000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 32000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 3000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.getting_ahead.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.getting_ahead",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 4,000 Crafting XP, 3,200 Construction XP and 3,000 GP, and unlocks the tannery."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_getting_ahead_fur",
+    "name": "Buy getting ahead fur",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 450
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bear_fur",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "supply.getting_ahead.farm_tools",
+    "name": "Gather the farm's tools, thread and dye",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.kebos.mary",
+    "end_location_id": "location.kebos.mary",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.getting_ahead.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.needle",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.thread",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.red_dye",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.saw",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_nails",
+        "quantity": 6
+      }
+    ],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 74,
+      "max_seconds": 159
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.getting_ahead",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the knife and dye inside, needle and thread upstairs, and saw, hammer and nails in the farm yard."
+    }
+  },
+  {
+    "id": "supply.getting_ahead.clay_and_planks",
+    "name": "Collect the mine's planks and prepare soft clay",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.kebos.headless_cave_entrance",
+    "end_location_id": "location.kebos.headless_cave_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.getting_ahead.flour_trail"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.soft_clay",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 58,
+      "max_seconds": 125
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.getting_ahead",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect two planks. Use the pickaxe, clay rocks and water with the farm supplies to prepare one soft clay. The time includes returning to the mine entrance."
+    }
+  },
+  {
+    "id": "miniquest.alfred_grimhands_barcrawl.start",
+    "name": "Get the official Barcrawl card",
+    "activity_id": "miniquest.alfred_grimhands_barcrawl",
+    "kind": "quest_stage",
+    "start_location_id": "location.barbarian_outpost.barcrawl_guard",
+    "end_location_id": "location.barbarian_outpost.barcrawl_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.barcrawl_card",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.alfred_grimhands_barcrawl",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The guard issues the card for the ten drinks."
+    }
+  },
+  {
+    "id": "miniquest.alfred_grimhands_barcrawl.blue_moon",
+    "name": "Order Uncle Humphrey's Gutrot",
+    "activity_id": "miniquest.alfred_grimhands_barcrawl",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.blue_moon_inn",
+    "end_location_id": "location.varrock.blue_moon_inn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.barcrawl_card",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 50
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.alfred_grimhands_barcrawl",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay the bartender for the drink and get the card marked."
+    }
+  },
+  {
+    "id": "miniquest.alfred_grimhands_barcrawl.jolly_boar",
+    "name": "Order Olde Suspiciouse",
+    "activity_id": "miniquest.alfred_grimhands_barcrawl",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.jolly_boar_inn",
+    "end_location_id": "location.varrock.jolly_boar_inn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.barcrawl_card",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 10
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.alfred_grimhands_barcrawl",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay the bartender for the drink and get the card marked."
+    }
+  },
+  {
+    "id": "miniquest.alfred_grimhands_barcrawl.rising_sun",
+    "name": "Order Hand of Death cocktail",
+    "activity_id": "miniquest.alfred_grimhands_barcrawl",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador.rising_sun_inn",
+    "end_location_id": "location.falador.rising_sun_inn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.barcrawl_card",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 70
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.alfred_grimhands_barcrawl",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay the bartender for the drink and get the card marked."
+    }
+  },
+  {
+    "id": "miniquest.alfred_grimhands_barcrawl.rusty_anchor",
+    "name": "Order Black Skull Ale",
+    "activity_id": "miniquest.alfred_grimhands_barcrawl",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.rusty_anchor",
+    "end_location_id": "location.port_sarim.rusty_anchor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.barcrawl_card",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 8
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.alfred_grimhands_barcrawl",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay the bartender for the drink and get the card marked."
+    }
+  },
+  {
+    "id": "miniquest.alfred_grimhands_barcrawl.karamja_spirits",
+    "name": "Order Ape Bite Liqueur",
+    "activity_id": "miniquest.alfred_grimhands_barcrawl",
+    "kind": "quest_stage",
+    "start_location_id": "location.musa_point.zambo",
+    "end_location_id": "location.musa_point.zambo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.barcrawl_card",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 7
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.alfred_grimhands_barcrawl",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay the bartender for the drink and get the card marked."
+    }
+  },
+  {
+    "id": "miniquest.alfred_grimhands_barcrawl.dead_mans_chest",
+    "name": "Order Old Supergrog",
+    "activity_id": "miniquest.alfred_grimhands_barcrawl",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimhaven.dead_mans_chest",
+    "end_location_id": "location.brimhaven.dead_mans_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.barcrawl_card",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 15
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.alfred_grimhands_barcrawl",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay the bartender for the drink and get the card marked."
+    }
+  },
+  {
+    "id": "miniquest.alfred_grimhands_barcrawl.flying_horse",
+    "name": "Order Heart Stopper",
+    "activity_id": "miniquest.alfred_grimhands_barcrawl",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.flying_horse_inn",
+    "end_location_id": "location.ardougne.flying_horse_inn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.barcrawl_card",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 8
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.alfred_grimhands_barcrawl",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay the bartender for the drink and get the card marked. Check Hitpoints before drinking."
+    },
+    "planned_outcome": {
+      "success_condition": "Survive the Heart Stopper and get the card stamped.",
+      "if_unmet": "Restore Hitpoints before ordering the drink."
+    }
+  },
+  {
+    "id": "miniquest.alfred_grimhands_barcrawl.foresters_arms",
+    "name": "Order Liverbane",
+    "activity_id": "miniquest.alfred_grimhands_barcrawl",
+    "kind": "quest_stage",
+    "start_location_id": "location.seers_village.foresters_arms",
+    "end_location_id": "location.seers_village.foresters_arms",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.barcrawl_card",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 18
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.alfred_grimhands_barcrawl",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay the bartender for the drink and get the card marked."
+    }
+  },
+  {
+    "id": "miniquest.alfred_grimhands_barcrawl.blurberry",
+    "name": "Order Fire Toad Blast",
+    "activity_id": "miniquest.alfred_grimhands_barcrawl",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.blurberry",
+    "end_location_id": "location.grand_tree.blurberry",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.barcrawl_card",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 10
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.alfred_grimhands_barcrawl",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay the bartender for the drink and get the card marked."
+    }
+  },
+  {
+    "id": "miniquest.alfred_grimhands_barcrawl.dragon_inn",
+    "name": "Order Fire Brandy",
+    "activity_id": "miniquest.alfred_grimhands_barcrawl",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.dragon_inn",
+    "end_location_id": "location.yanille.dragon_inn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.barcrawl_card",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 12
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.alfred_grimhands_barcrawl",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay the bartender for the drink and get the card marked."
+    }
+  },
+  {
+    "id": "miniquest.alfred_grimhands_barcrawl.complete",
+    "name": "Show the guard the finished Barcrawl card",
+    "activity_id": "miniquest.alfred_grimhands_barcrawl",
+    "kind": "quest_stage",
+    "start_location_id": "location.barbarian_outpost.barcrawl_guard",
+    "end_location_id": "location.barbarian_outpost.barcrawl_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.blue_moon"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.jolly_boar"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.rising_sun"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.rusty_anchor"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.karamja_spirits"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.dead_mans_chest"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.flying_horse"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.foresters_arms"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.blurberry"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.dragon_inn"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.barcrawl_card",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.miniquest.alfred_grimhands_barcrawl.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.alfred_grimhands_barcrawl",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Opens the Barbarian Outpost and makes the vial-smashing dialogue available. The ten drinks total 208 GP before fares."
+    }
+  },
+  {
+    "id": "quest.scorpion_catcher.start",
+    "name": "Ask Thormac about his missing scorpions",
+    "activity_id": "quest.scorpion_catcher",
+    "kind": "quest_stage",
+    "start_location_id": "location.sorcerers_tower.thormac",
+    "end_location_id": "location.sorcerers_tower.thormac",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.scorpion_cage",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.scorpion_catcher",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Thormac issues a cage and refers you to a seer. The Outpost access gate applies at the third scorpion."
+    }
+  },
+  {
+    "id": "quest.scorpion_catcher.seer",
+    "name": "Ask a seer where to find the scorpions",
+    "activity_id": "quest.scorpion_catcher",
+    "kind": "quest_stage",
+    "start_location_id": "location.seers_village.scorpion_seer",
+    "end_location_id": "location.seers_village.scorpion_seer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.scorpion_catcher.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.scorpion_catcher",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about the hidden room in Taverley Dungeon."
+    }
+  },
+  {
+    "id": "quest.scorpion_catcher.catch_taverley",
+    "name": "Find and catch the Taverley scorpion",
+    "activity_id": "quest.scorpion_catcher",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley_dungeon.scorpion_wall",
+    "end_location_id": "location.taverley_dungeon.scorpion_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.scorpion_catcher.seer"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.scorpion_cage",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.scorpion_catcher",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the false wall near the poison spiders and use the cage inside."
+    }
+  },
+  {
+    "id": "quest.scorpion_catcher.catch_monastery",
+    "name": "Catch the monastery scorpion",
+    "activity_id": "quest.scorpion_catcher",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville_monastery.scorpion",
+    "end_location_id": "location.edgeville_monastery.scorpion",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.scorpion_catcher.catch_taverley"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.scorpion_cage",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.scorpion_catcher",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the cage on the scorpion upstairs."
+    }
+  },
+  {
+    "id": "quest.scorpion_catcher.catch_outpost",
+    "name": "Catch the Barbarian Outpost scorpion",
+    "activity_id": "quest.scorpion_catcher",
+    "kind": "quest_stage",
+    "start_location_id": "location.barbarian_outpost.scorpion",
+    "end_location_id": "location.barbarian_outpost.scorpion",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.scorpion_catcher.catch_monastery"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.scorpion_cage",
+          "quantity": 1
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.scorpion_catcher",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the cage on the third scorpion."
+    }
+  },
+  {
+    "id": "quest.scorpion_catcher.complete",
+    "name": "Return all three scorpions to Thormac",
+    "activity_id": "quest.scorpion_catcher",
+    "kind": "quest_stage",
+    "start_location_id": "location.sorcerers_tower.thormac",
+    "end_location_id": "location.sorcerers_tower.thormac",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.scorpion_catcher.catch_outpost"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.scorpion_cage",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 66250
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.scorpion_catcher.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.scorpion_catcher",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 6,625 Strength XP and unlocks Thormac's mystic staff service."
+    }
+  },
+  {
+    "id": "supply.scorpion_catcher.kill_jailer",
+    "name": "Defeat the jailer and take the cell key",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.taverley_dungeon.jailer",
+    "end_location_id": "location.taverley_dungeon.jailer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.taverley_jail_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 46,
+      "max_seconds": 99
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.scorpion_catcher",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the jailer in the Black Knights' section to get his key."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the jailer and collect his key.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "supply.scorpion_catcher.get_dusty_key",
+    "name": "Free Velrak and ask about the dungeon",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.taverley_dungeon.velrak",
+    "end_location_id": "location.taverley_dungeon.velrak",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.taverley_jail_key",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dusty_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.scorpion_catcher",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Unlock Velrak's cell and ask about the deeper dungeon to get a dusty key."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_spirits_of_the_elid_supplies",
+    "name": "Buy spirits of the elid supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 570
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bronze_spear",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.needle",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.thread",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.law_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.air_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.unlit_candle",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.spirits_of_the_elid.start",
+    "name": "Ask Awusah why Nardah has no water",
+    "activity_id": "quest.spirits_of_the_elid",
+    "kind": "quest_stage",
+    "start_location_id": "location.nardah.awusah",
+    "end_location_id": "location.nardah.awusah",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the mayor about Nardah's drought."
+    }
+  },
+  {
+    "id": "quest.spirits_of_the_elid.ballad",
+    "name": "Ask Ghaslor for the Ballad of Jareesh",
+    "activity_id": "quest.spirits_of_the_elid",
+    "kind": "quest_stage",
+    "start_location_id": "location.nardah.ghaslor",
+    "end_location_id": "location.nardah.ghaslor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the ballad to learn where the Elid's source is."
+    }
+  },
+  {
+    "id": "quest.spirits_of_the_elid.key",
+    "name": "Telegrab the ancestral key from the shrine",
+    "activity_id": "quest.spirits_of_the_elid",
+    "kind": "quest_stage",
+    "start_location_id": "location.nardah.elidinis_shrine",
+    "end_location_id": "location.nardah.elidinis_shrine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.ballad"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 33,
+          "boostable": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.elid_ancestral_key",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 430
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast Telekinetic Grab with the standard spellbook from a tile where the key is visible."
+    }
+  },
+  {
+    "id": "quest.spirits_of_the_elid.robes",
+    "name": "Search the shrine cupboard and repair the robes",
+    "activity_id": "quest.spirits_of_the_elid",
+    "kind": "quest_stage",
+    "start_location_id": "location.nardah.elidinis_shrine",
+    "end_location_id": "location.nardah.elidinis_shrine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.ballad"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.needle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.thread",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.elid_robe_top",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.elid_robe_bottom",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 34,
+      "max_seconds": 73
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take both torn pieces from the cupboard and stitch them with a needle and two thread."
+    }
+  },
+  {
+    "id": "quest.spirits_of_the_elid.lower_rope",
+    "name": "Attach a rope at the headwaters and descend",
+    "activity_id": "quest.spirits_of_the_elid",
+    "kind": "quest_stage",
+    "start_location_id": "location.elid.river_cave_entrance",
+    "end_location_id": "location.elid.ancestral_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.key"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.robes"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a rope on the root and descend into the cave."
+    }
+  },
+  {
+    "id": "quest.spirits_of_the_elid.open_ancestral",
+    "name": "Wear the robes and open the ancestral door",
+    "activity_id": "quest.spirits_of_the_elid",
+    "kind": "quest_stage",
+    "start_location_id": "location.elid.ancestral_door",
+    "end_location_id": "location.elid.ancestral_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.lower_rope"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.elid_ancestral_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.elid_robe_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.elid_robe_bottom",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Equip both repaired robe pieces and use the key."
+    }
+  },
+  {
+    "id": "quest.spirits_of_the_elid.white_channel",
+    "name": "Defeat the white golem and clear its channel",
+    "activity_id": "quest.spirits_of_the_elid",
+    "kind": "quest_stage",
+    "start_location_id": "location.elid.white_golem",
+    "end_location_id": "location.elid.white_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.open_ancestral"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 37,
+          "boostable": true
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_spear",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 89,
+      "max_seconds": 191
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a stab weapon, then disarm the trap blocking the channel."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the white golem and clear the trap.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.spirits_of_the_elid.grey_channel",
+    "name": "Defeat the grey golem and mine its blockage",
+    "activity_id": "quest.spirits_of_the_elid",
+    "kind": "quest_stage",
+    "start_location_id": "location.elid.grey_golem",
+    "end_location_id": "location.elid.grey_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.open_ancestral"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 37,
+          "boostable": true
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_spear",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.adamant_scimitar",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 89,
+      "max_seconds": 191
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a slash weapon, then mine the rocks blocking the channel."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the grey golem and mine the blockage.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.spirits_of_the_elid.black_channel",
+    "name": "Defeat the black golem and shoot the target",
+    "activity_id": "quest.spirits_of_the_elid",
+    "kind": "quest_stage",
+    "start_location_id": "location.elid.black_golem",
+    "end_location_id": "location.elid.black_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.open_ancestral"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.ranged",
+          "minimum_level": 37,
+          "boostable": true
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_spear",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_mace",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_warhammer",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "kind": "item",
+          "item_id": "item.shortbow",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bronze_arrow",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 89,
+      "max_seconds": 191
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a crush weapon, then shoot the channel's target with a bow."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the black golem and hit the target.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.spirits_of_the_elid.spirits",
+    "name": "Speak to the water spirits beyond the channels",
+    "activity_id": "quest.spirits_of_the_elid",
+    "kind": "quest_stage",
+    "start_location_id": "location.elid.water_spirits",
+    "end_location_id": "location.elid.water_spirits",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.white_channel"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.grey_channel"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.black_channel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn why the village must return the statue."
+    }
+  },
+  {
+    "id": "quest.spirits_of_the_elid.shoes",
+    "name": "Speak to Awusah and cut the soles from his shoes",
+    "activity_id": "quest.spirits_of_the_elid",
+    "kind": "quest_stage",
+    "start_location_id": "location.nardah.awusah",
+    "end_location_id": "location.nardah.awusah",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.spirits"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.elid_shoe_soles",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take the shoes and cut off the soles for the genie."
+    }
+  },
+  {
+    "id": "quest.spirits_of_the_elid.genie",
+    "name": "Exchange the soles for the statuette",
+    "activity_id": "quest.spirits_of_the_elid",
+    "kind": "quest_stage",
+    "start_location_id": "location.nardah.genie",
+    "end_location_id": "location.nardah.genie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.shoes"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.elid_shoe_soles",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.elidinis_statuette",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 38,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk to the genie and trade the soles."
+    }
+  },
+  {
+    "id": "quest.spirits_of_the_elid.complete",
+    "name": "Return the statuette to its plinth",
+    "activity_id": "quest.spirits_of_the_elid",
+    "kind": "quest_stage",
+    "start_location_id": "location.nardah.elidinis_shrine",
+    "end_location_id": "location.nardah.elidinis_shrine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.genie"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.elidinis_statuette",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 80000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.nardah_shrine",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.spirits_of_the_elid.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 2 quest points, 8,000 Prayer XP, 1,000 Thieving XP and 1,000 Magic XP."
+    }
+  },
+  {
+    "id": "supply.spirits_of_the_elid.lower_crevice_rope",
+    "name": "Lower a rope into the Nardah crevice",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.nardah.crevice",
+    "end_location_id": "location.nardah.genie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.shoes"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a rope and carry a lit light source to descend."
+    }
+  },
+  {
+    "id": "quest.the_feud.start",
+    "name": "Ask Ali Morrisane about his nephew",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.al_kharid.ali_morrisane",
+    "end_location_id": "location.al_kharid.ali_morrisane",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 30,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Requires 30 Thieving. Morrisane sends you to Pollnivneach."
+    }
+  },
+  {
+    "id": "quest.the_feud.disguise",
+    "name": "Buy a headpiece and beard and make the disguise",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.al_kharid.ali_morrisane",
+    "end_location_id": "location.al_kharid.ali_morrisane",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 51
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.desert_disguise",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy the pieces from Morrisane and combine them."
+    }
+  },
+  {
+    "id": "quest.the_feud.drunken_ali",
+    "name": "Buy three beers and question Drunken Ali",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.barman",
+    "end_location_id": "location.pollnivneach.barman",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 6
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 42,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy beer from Ali the Barman and give the beers one at a time."
+    }
+  },
+  {
+    "id": "quest.the_feud.ask_thug",
+    "name": "Ask the Menaphites about the dispute",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.menaphite_thug",
+    "end_location_id": "location.pollnivneach.menaphite_thug",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.drunken_ali"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the thug about a return of the camel."
+    }
+  },
+  {
+    "id": "quest.the_feud.ask_bandit",
+    "name": "Ask the bandits about the dispute",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.bandit",
+    "end_location_id": "location.pollnivneach.bandit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.drunken_ali"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the bandit what would settle the dispute."
+    }
+  },
+  {
+    "id": "quest.the_feud.buy_camels",
+    "name": "Buy two camels and collect the receipts",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.camel_seller",
+    "end_location_id": "location.pollnivneach.camel_seller",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.ask_thug"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.ask_bandit"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.camel_receipt",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Offer Ali the Camel Man 500 GP."
+    }
+  },
+  {
+    "id": "quest.the_feud.thug_receipt",
+    "name": "Offer the Menaphites a camel receipt",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.menaphite_thug",
+    "end_location_id": "location.pollnivneach.menaphite_thug",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.buy_camels"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.camel_receipt",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the thug one of the receipts."
+    }
+  },
+  {
+    "id": "quest.the_feud.bandit_receipt",
+    "name": "Offer the bandits a camel receipt",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.bandit",
+    "end_location_id": "location.pollnivneach.bandit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.buy_camels"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.camel_receipt",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the bandit the other receipt."
+    }
+  },
+  {
+    "id": "quest.the_feud.operator_job",
+    "name": "Ask Ali the Operator to join the Menaphites",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.ali_the_operator",
+    "end_location_id": "location.pollnivneach.ali_the_operator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.thug_receipt"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.bandit_receipt"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Accept the first job."
+    }
+  },
+  {
+    "id": "quest.the_feud.pickpocket",
+    "name": "Pickpocket three villagers using the three methods",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.villagers",
+    "end_location_id": "location.pollnivneach.villagers",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.operator_job"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 10
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.oak_blackjack",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 43,
+      "expected_seconds": 95,
+      "max_seconds": 204
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pickpocket once normally, pay the urchin to distract the second, and learn to blackjack the third from Ali the Operator. The time includes the return conversations."
+    },
+    "planned_outcome": {
+      "success_condition": "Complete the three successful pickpockets.",
+      "if_unmet": "Retry the pickpockets and follow Ali the Operator's advice."
+    }
+  },
+  {
+    "id": "quest.the_feud.jewels",
+    "name": "Steal the mayor's wife's jewels",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.mayor_villa",
+    "end_location_id": "location.pollnivneach.mayor_villa",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.pickpocket"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.disguise"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.desert_disguise",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 66,
+      "max_seconds": 142
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get the key from Ali the Operator, check the villa from the cactus and open the upstairs safe. Wear the disguise and gloves."
+    }
+  },
+  {
+    "id": "quest.the_feud.traitor",
+    "name": "Return the jewels and identify the traitor",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.ali_the_operator",
+    "end_location_id": "location.pollnivneach.ali_the_operator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.jewels"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 58,
+      "max_seconds": 125
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Deliver the jewels, ask the Menaphite thug, then report the traitor to the Operator."
+    }
+  },
+  {
+    "id": "quest.the_feud.snake_gear",
+    "name": "Get a snake charm and basket from the charmer",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.snake_charmer",
+    "end_location_id": "location.pollnivneach.snake_charmer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.traitor"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.snake_charm",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.snake_basket",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Put coins into the money pot. Reserve two coins for the basket and charm."
+    }
+  },
+  {
+    "id": "quest.the_feud.catch_snake",
+    "name": "Charm a snake west of the tent",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.ali_the_operator",
+    "end_location_id": "location.pollnivneach.ali_the_operator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.snake_gear"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.snake_charm",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.snake_basket",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.filled_snake_basket",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the charm and catch the snake in the basket."
+    }
+  },
+  {
+    "id": "quest.the_feud.dung",
+    "name": "Collect dung from the camel trough",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.camel_seller",
+    "end_location_id": "location.pollnivneach.camel_seller",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.traitor"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.feud_camel_dung",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 44,
+      "max_seconds": 95
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get a bucket and sauce nearby, feed the camel and collect dung. The duration includes the short animation."
+    },
+    "planned_outcome": {
+      "success_condition": "Collect the camel dung requested by the hag.",
+      "if_unmet": "Try the trough again if the first dung is unsuitable."
+    }
+  },
+  {
+    "id": "quest.the_feud.brew",
+    "name": "Have Ali the Hag prepare the poison",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.ali_the_hag",
+    "end_location_id": "location.pollnivneach.ali_the_hag",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.catch_snake"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.dung"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.filled_snake_basket",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.feud_camel_dung",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hags_poison",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the hag the snake and dung."
+    }
+  },
+  {
+    "id": "quest.the_feud.poison",
+    "name": "Identify the traitor's drink and add the poison",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.barman",
+    "end_location_id": "location.pollnivneach.barman",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.brew"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.hags_poison",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 36,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the bartender about the traitor and use the poison on the drink."
+    }
+  },
+  {
+    "id": "quest.the_feud.menaphite",
+    "name": "Confront and defeat the Menaphite Leader",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.ali_the_operator",
+    "end_location_id": "location.pollnivneach.ali_the_operator",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.poison"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.willow_blackjack",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 109,
+      "max_seconds": 234
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Report to Ali the Operator and defeat the level 75 Menaphite. Take the willow blackjack drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Menaphite and collect the willow blackjack.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.the_feud.champion",
+    "name": "Defeat the Bandit Champion and take the scimitar",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.bandit_champion",
+    "end_location_id": "location.pollnivneach.bandit_champion",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.menaphite"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "item",
+          "item_id": "item.willow_blackjack",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.adamant_scimitar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 46,
+      "expected_seconds": 102,
+      "max_seconds": 219
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask a villager about the gangs and confront the Bandit Leader. Defeat the summoned champion while carrying the willow blackjack to collect the scimitar."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Bandit Champion and collect his adamant scimitar.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.the_feud.mayor",
+    "name": "Ask Ali the Mayor about the missing nephew",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.pollnivneach.mayor",
+    "end_location_id": "location.pollnivneach.mayor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.champion"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The mayor provides the final information."
+    }
+  },
+  {
+    "id": "quest.the_feud.complete",
+    "name": "Report back to Ali Morrisane",
+    "activity_id": "quest.the_feud",
+    "kind": "quest_stage",
+    "start_location_id": "location.al_kharid.ali_morrisane",
+    "end_location_id": "location.al_kharid.ali_morrisane",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.mayor"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 150000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 500
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_feud.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_feud",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive 1 quest point, 15,000 Thieving XP and 500 GP. Completion opens Rogue Trader."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_tourist_trap_desert_clothes",
+    "name": "Buy tourist trap desert clothes",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 325
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.desert_shirt",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.desert_robe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.desert_boots",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_tourist_trap_dart_supplies",
+    "name": "Buy tourist trap dart supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 355
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bronze_bar",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.feather",
+        "quantity": 50
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.start",
+    "name": "Ask Irena about her missing daughter",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.shantay_pass.irena",
+    "end_location_id": "location.shantay_pass.irena",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Irena asks you to find Ana in the mining camp."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.captain",
+    "name": "Defeat the Mercenary Captain",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.desert_mining_camp.mercenary_captain",
+    "end_location_id": "location.desert_mining_camp.mercenary_captain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.desert_camp_metal_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 41,
+      "expected_seconds": 90,
+      "max_seconds": 194
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Challenge the captain by asking about a fight with his guards. Take the metal key."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the captain and collect his metal key.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.trade_clothes",
+    "name": "Trade desert clothing with the slave",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.desert_mining_camp.slave",
+    "end_location_id": "location.desert_mining_camp.slave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.captain"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.desert_shirt",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.desert_robe",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.desert_boots",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slave_shirt",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.slave_robe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.slave_boots",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter with weapons and armour unequipped. Swap the three desert clothing pieces for the slave outfit."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.guard_request",
+    "name": "Ask the guard about going deeper into the mine",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.desert_mining_camp.mine_guard",
+    "end_location_id": "location.desert_mining_camp.mine_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.trade_clothes"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear the slave clothes. The guard wants a Tenti pineapple."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.shabim",
+    "name": "Ask Al Shabim for the pineapple",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.bedabin_camp.al_shabim",
+    "end_location_id": "location.bedabin_camp.al_shabim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.guard_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bedabin_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Agree to steal the plans from Siad and take the chest key."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.plans",
+    "name": "Distract Captain Siad and take the plans",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.desert_mining_camp.siad",
+    "end_location_id": "location.desert_mining_camp.siad",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.shabim"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bedabin_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.technical_plans",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 60,
+      "max_seconds": 129
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the books and distract Siad with talk of sailing. Use the key on the chest."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.approve_plans",
+    "name": "Show the technical plans to Al Shabim",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.bedabin_camp.al_shabim",
+    "end_location_id": "location.bedabin_camp.al_shabim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.plans"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.technical_plans",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get permission to use the experimental anvil in the north tent."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.prototype",
+    "name": "Smith and fletch the prototype dart",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.bedabin_camp.experimental_anvil",
+    "end_location_id": "location.bedabin_camp.experimental_anvil",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.approve_plans"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 20,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fletching",
+          "minimum_level": 10,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.technical_plans",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bronze_bar",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.feather",
+        "quantity": 50
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.prototype_dart",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 61,
+      "max_seconds": 131
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the anvil to make the tip, then add the feathers. Budget three bars and 50 feathers for the success path. The route charges the full reserve as a conservative estimate of materials used."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully make the prototype dart.",
+      "if_unmet": "Bring spare bars and feathers if extra attempts are needed."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.exchange_dart",
+    "name": "Exchange the prototype for the pineapple",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.bedabin_camp.al_shabim",
+    "end_location_id": "location.bedabin_camp.al_shabim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.prototype"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.prototype_dart",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tenti_pineapple",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_dart",
+        "quantity": 6
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.smith_darts",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Al Shabim teaches dart smithing and gives you the pineapple and six bronze darts."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.bribe_guard",
+    "name": "Give the guard the pineapple",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.desert_mining_camp.mine_guard",
+    "end_location_id": "location.desert_mining_camp.mine_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.exchange_dart"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tenti_pineapple",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear slave clothes and bribe the guard to access the lower mine."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.get_barrel",
+    "name": "Find a barrel near the mine cart",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.desert_mining_camp.barrels",
+    "end_location_id": "location.desert_mining_camp.barrels",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.bribe_guard"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.desert_mine_barrel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the empty barrels near the cart."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.rescue_ana",
+    "name": "Talk to Ana and hide her in the barrel",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.desert_mining_camp.ana",
+    "end_location_id": "location.desert_mining_camp.ana",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.get_barrel"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.desert_mine_barrel",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ana_in_barrel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Keep the escape plan secret and hide Ana in the empty barrel."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.send_ana_up",
+    "name": "Return by cart and load Ana on the winch",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.desert_mining_camp.barrels",
+    "end_location_id": "location.desert_mining_camp.barrels",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.rescue_ana"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ana_in_barrel",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 50,
+      "max_seconds": 108
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Send the barrel on the cart, take the cart yourself, retrieve the barrel and use the winch bucket."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.winch",
+    "name": "Operate the surface winch and retrieve Ana",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.desert_mining_camp.winch",
+    "end_location_id": "location.desert_mining_camp.winch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.send_ana_up"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ana_in_barrel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect Ana from the barrel west of the winch."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.escape",
+    "name": "Load Ana on the cart and persuade the driver",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.desert_mining_camp.winch",
+    "end_location_id": "location.desert_mining_camp.mercenary_captain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.winch"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ana_in_barrel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 64,
+      "max_seconds": 138
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the barrel on the cart, persuade the driver and search the cart to escape the camp."
+    },
+    "planned_outcome": {
+      "success_condition": "The cart driver takes you and Ana outside the camp.",
+      "if_unmet": "Follow the successful dialogue sequence and recover Ana if she is returned to the mines."
+    }
+  },
+  {
+    "id": "quest.the_tourist_trap.complete",
+    "name": "Return Ana to Irena and collect the reward",
+    "activity_id": "quest.the_tourist_trap",
+    "kind": "quest_stage",
+    "start_location_id": "location.shantay_pass.irena",
+    "end_location_id": "location.shantay_pass.irena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_tourist_trap.escape"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ana_in_barrel",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.wrought_iron_key",
+        "quantity": 1
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.the_tourist_trap.skill_choices",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_tourist_trap.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.desert_mining_camp.wrought_iron_gate",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.capture.tourist_trap_xp"
+      ],
+      "status": "estimated",
+      "note": "Irena gives two immediate 4,650 XP choices, 2 quest points and the wrought iron key."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_slug_menace_supplies",
+    "name": "Buy slug menace supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1550
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.chisel",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swamp_paste",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rune_essence",
+        "quantity": 15
+      },
+      {
+        "kind": "item",
+        "item_id": "item.air_talisman",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.water_talisman",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.earth_talisman",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fire_talisman",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mind_talisman",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account purchase budget."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.start",
+    "name": "Accept the Witchaven assignment from Sir Tiffy",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_park.tiffy",
+    "end_location_id": "location.falador_park.tiffy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.wanted.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sea_slug.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.runecraft",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 30,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.commorb_v2",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Complete Wanted! and Sea Slug and meet the four level 30 requirements. Sir Tiffy issues or upgrades the Commorb."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.contact",
+    "name": "Meet Col. O'Niall on the pier",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.oniall",
+    "end_location_id": "location.witchaven.oniall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 31,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about the villagers and the three people of interest."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.hobb",
+    "name": "Interview Mayor Hobb",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.mayor_hobb",
+    "end_location_id": "location.witchaven.mayor_hobb",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.contact"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about the village."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.maledict",
+    "name": "Interview Brother Maledict",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.brother_maledict",
+    "end_location_id": "location.witchaven.brother_maledict",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.contact"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about the villagers."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.holgart",
+    "name": "Speak to Holgart by the boat",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.jeb",
+    "end_location_id": "location.witchaven.jeb",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.contact"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about the fishing platform."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.report",
+    "name": "Report the three interviews to O'Niall",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.oniall",
+    "end_location_id": "location.witchaven.oniall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.hobb"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.maledict"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.holgart"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "O'Niall sends you to investigate the ruins."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.scan_door",
+    "name": "Scan the imposing door and collect the dead slug",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven_dungeon.imposing_door",
+    "end_location_id": "location.witchaven_dungeon.imposing_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.report"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.commorb_v2",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_door_transcript",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.dead_sea_slug",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 39,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow Savant's instructions at the door and take the dead sea slug."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.translate",
+    "name": "Ask Jorral to interpret the transcript",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.outpost.jorral",
+    "end_location_id": "location.outpost.jorral",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.scan_door"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_door_transcript",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak with Jorral and Savant to learn the history of Mother Mallum."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.report_history",
+    "name": "Report Jorral's findings to O'Niall",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.oniall",
+    "end_location_id": "location.witchaven.oniall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.translate"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to Witchaven and ask O'Niall what to do next."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.request_pages",
+    "name": "Ask Maledict about the missing pages",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.brother_maledict",
+    "end_location_id": "location.witchaven.brother_maledict",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.report_history"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 37,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Watch the scene and ask the priest how to renew the seal."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.page_one",
+    "name": "Search the mayor's desk for the first page",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.mayor_hobb",
+    "end_location_id": "location.witchaven.mayor_hobb",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.request_pages"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_page_1",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 13,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take the first page from the desk."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.page_two",
+    "name": "Ask Lovecraft for the second page",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.ezekial_lovecraft",
+    "end_location_id": "location.witchaven.ezekial_lovecraft",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.request_pages"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_page_2",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Get the second page from the shopkeeper."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.page_fragments",
+    "name": "Collect the third-page fragments",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.oniall",
+    "end_location_id": "location.witchaven.oniall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.request_pages"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_page_fragment_1",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.slug_page_fragment_2",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.slug_page_fragment_3",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "O'Niall hands over the three fragments."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.test_paste",
+    "name": "Consult Savant about the torn page",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.oniall",
+    "end_location_id": "location.witchaven.oniall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.page_fragments"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.swamp_paste",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Attempt to use swamp paste. Savant stops you and suggests the dead slug."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.get_glue",
+    "name": "Ask Bailey for sea slug glue",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.fishing_platform.bailey",
+    "end_location_id": "location.fishing_platform.bailey",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.test_paste"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dead_sea_slug",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.sea_slug_glue",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Bailey the dead slug on the Fishing Platform."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.assemble_pages",
+    "name": "Assemble the third page and read the instructions",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.brother_maledict",
+    "end_location_id": "location.witchaven.brother_maledict",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.get_glue"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.page_one"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.page_two"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sea_slug_glue",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.slug_page_fragment_1",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.slug_page_fragment_2",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.slug_page_fragment_3",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_page_3",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 43,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use Bailey's glue to assemble the fragments, then read all the pages."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.shape_air",
+    "name": "Shape the blank air quest rune",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.brother_maledict",
+    "end_location_id": "location.witchaven.brother_maledict",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.assemble_pages"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_1",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_2",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_3",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.the_slug_menace.shaped_air",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rune_essence",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_blank_air",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.the_slug_menace.shaped_air",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the pages and carve essence with a chisel. The route reserves three essence per rune for failed attempts."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully shape the blank air rune.",
+      "if_unmet": "Retry the carving if the essence crumbles."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.charge_air",
+    "name": "Charge the air quest rune",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.runecraft.air_altar",
+    "end_location_id": "location.runecraft.air_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_slug_menace.shape_air"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_slug_menace.shape_air_pure"
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.slug_blank_air",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_charged_air",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the shaped blank on the altar."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.shape_water",
+    "name": "Shape the blank water quest rune",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.brother_maledict",
+    "end_location_id": "location.witchaven.brother_maledict",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.assemble_pages"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_1",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_2",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_3",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.the_slug_menace.shaped_water",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rune_essence",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_blank_water",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.the_slug_menace.shaped_water",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the pages and carve essence with a chisel. The route reserves three essence per rune for failed attempts."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully shape the blank water rune.",
+      "if_unmet": "Retry the carving if the essence crumbles."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.charge_water",
+    "name": "Charge the water quest rune",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.runecraft.water_altar",
+    "end_location_id": "location.runecraft.water_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_slug_menace.shape_water"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_slug_menace.shape_water_pure"
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.slug_blank_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_charged_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the shaped blank on the altar."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.shape_earth",
+    "name": "Shape the blank earth quest rune",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.brother_maledict",
+    "end_location_id": "location.witchaven.brother_maledict",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.assemble_pages"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_1",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_2",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_3",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.the_slug_menace.shaped_earth",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rune_essence",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_blank_earth",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.the_slug_menace.shaped_earth",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the pages and carve essence with a chisel. The route reserves three essence per rune for failed attempts."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully shape the blank earth rune.",
+      "if_unmet": "Retry the carving if the essence crumbles."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.charge_earth",
+    "name": "Charge the earth quest rune",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.runecraft.earth_altar",
+    "end_location_id": "location.runecraft.earth_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_slug_menace.shape_earth"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_slug_menace.shape_earth_pure"
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.slug_blank_earth",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_charged_earth",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the shaped blank on the altar."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.shape_fire",
+    "name": "Shape the blank fire quest rune",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.brother_maledict",
+    "end_location_id": "location.witchaven.brother_maledict",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.assemble_pages"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_1",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_2",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_3",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.the_slug_menace.shaped_fire",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rune_essence",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_blank_fire",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.the_slug_menace.shaped_fire",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the pages and carve essence with a chisel. The route reserves three essence per rune for failed attempts."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully shape the blank fire rune.",
+      "if_unmet": "Retry the carving if the essence crumbles."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.charge_fire",
+    "name": "Charge the fire quest rune",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.runecraft.fire_altar",
+    "end_location_id": "location.runecraft.fire_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_slug_menace.shape_fire"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_slug_menace.shape_fire_pure"
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.slug_blank_fire",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_charged_fire",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the shaped blank on the altar."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.shape_mind",
+    "name": "Shape the blank mind quest rune",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.brother_maledict",
+    "end_location_id": "location.witchaven.brother_maledict",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.assemble_pages"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_1",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_2",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_3",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.the_slug_menace.shaped_mind",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rune_essence",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_blank_mind",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.the_slug_menace.shaped_mind",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the pages and carve essence with a chisel. The route reserves three essence per rune for failed attempts."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully shape the blank mind rune.",
+      "if_unmet": "Retry the carving if the essence crumbles."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.charge_mind",
+    "name": "Charge the mind quest rune",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.runecraft.mind_altar",
+    "end_location_id": "location.runecraft.mind_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_slug_menace.shape_mind"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_slug_menace.shape_mind_pure"
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.slug_blank_mind",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_charged_mind",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the shaped blank on the altar."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.unseal",
+    "name": "Place all five charged quest runes on the door",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven_dungeon.imposing_door",
+    "end_location_id": "location.witchaven_dungeon.imposing_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.charge_air"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.charge_water"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.charge_earth"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.charge_fire"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.charge_mind"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.slug_charged_air",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.slug_charged_water",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.slug_charged_earth",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.slug_charged_fire",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.slug_charged_mind",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 49
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Insert each matching quest rune into the imposing door."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.defeat",
+    "name": "Defeat the Slug Prince",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven_dungeon.imposing_door",
+    "end_location_id": "location.falador_park.tiffy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.unseal"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.adamant_scimitar",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 48,
+      "expected_seconds": 106,
+      "max_seconds": 228
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only melee damage can hurt the prince. After victory, Savant teleports the player to Falador Park."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Slug Prince with melee.",
+      "if_unmet": "Allow extra time and bring suitable gear and food."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.complete",
+    "name": "Report the fight to Sir Tiffy",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.falador_park.tiffy",
+    "end_location_id": "location.falador_park.tiffy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.defeat"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.runecraft",
+        "xp_tenths": 35000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 35000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 35000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.proselyte_armour",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_slug_menace.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 30,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Awards 1 quest point and 3,500 XP each in Runecraft, Crafting and Thieving. Proselyte rank becomes available."
+    }
+  },
+  {
+    "id": "supply.spirits_of_the_elid.light_candle",
+    "name": "Light a candle for the crevice",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.nardah.awusah",
+    "end_location_id": "location.nardah.awusah",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.shoes"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.unlit_candle",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lit_candle",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 11
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.spirits_of_the_elid",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a tinderbox on an unlit candle before going below ground."
+    }
+  },
+  {
+    "id": "diary.desert.medium.task.varp_1198_18",
+    "name": "Pray at the Elidinis statuette",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.nardah.elidinis_shrine",
+    "end_location_id": "location.nardah.elidinis_shrine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.nardah_shrine",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.desert.medium.task.varp_1198_18",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.desert.medium.task.varp_1198_18",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pray at the shrine after restoring the statuette."
+    }
+  },
+  {
+    "id": "diary.desert.medium.task.varp_1198_21",
+    "name": "Visit the Nardah genie",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.nardah.genie",
+    "end_location_id": "location.nardah.genie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.spirits_of_the_elid.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.desert.medium.task.varp_1198_21",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.desert.medium.task.varp_1198_21",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to the genie after completing Spirits of the Elid."
+    }
+  },
+  {
+    "id": "diary.desert.hard.task.varp_1198_24",
+    "name": "Knock out and pickpocket a Menaphite thug",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.pollnivneach.menaphite_thug",
+    "end_location_id": "location.pollnivneach.menaphite_thug",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 65,
+          "boostable": false
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.oak_blackjack",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.willow_blackjack",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.desert.hard.task.varp_1198_24",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.desert.hard.task.varp_1198_24",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Successfully blackjack and pickpocket a Menaphite thug."
+    }
+  },
+  {
+    "id": "diary.desert.easy.task.varp_1198_11",
+    "name": "Take a magic carpet from Shantay Pass to Pollnivneach",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.shantay_pass.rug_merchant",
+    "end_location_id": "location.pollnivneach.north_carpet",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.desert.easy.task.varp_1198_11",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 200
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.desert.easy.task.varp_1198_11",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay the fare and ride to northern Pollnivneach to record the diary task."
+    }
+  },
+  {
+    "id": "supply.getting_ahead.hunt_fur",
+    "name": "Hunt a bear by the Kebos farm",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.kebos.gordon",
+    "end_location_id": "location.kebos.gordon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.getting_ahead.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.steel_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.shortbow",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bear_fur",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 58,
+      "max_seconds": 125
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.getting_ahead",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find a nearby grizzly or black bear and collect its fur. The time includes returning to the farm."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat a nearby bear and collect its fur.",
+      "if_unmet": "Use suitable combat gear and try another bear if needed."
+    }
+  },
+  {
+    "id": "supply.barcrawl.learn_vial_smashing",
+    "name": "Ask the guard about smashing empty vials",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.barbarian_outpost.barcrawl_guard",
+    "end_location_id": "location.barbarian_outpost.barcrawl_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.alfred_grimhands_barcrawl.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.barb_outpost_vial_smashing",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 20,
+      "max_seconds": 43
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.alfred_grimhands_barcrawl",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Discuss vial smashing with the guard after finishing the Barcrawl."
+    }
+  },
+  {
+    "id": "supply.shantay.desert_clothing",
+    "name": "Buy a desert outfit from Shantay",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.shantay_pass.north_gate",
+    "end_location_id": "location.shantay_pass.north_gate",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 100
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.desert_shirt",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.desert_robe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.desert_boots",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_tourist_trap",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Purchase the shirt, robe and boots from Shantay. The total is an estimated shop budget."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.shape_air_pure",
+    "name": "Shape the blank air rune from pure essence",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.brother_maledict",
+    "end_location_id": "location.witchaven.brother_maledict",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.assemble_pages"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_1",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_2",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_3",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.the_slug_menace.shaped_air",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pure_essence",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_blank_air",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.the_slug_menace.shaped_air",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the pages and carve essence with a chisel. The route reserves three essence per rune for failed attempts."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully shape the blank air rune.",
+      "if_unmet": "Retry the carving if the essence crumbles."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.shape_water_pure",
+    "name": "Shape the blank water rune from pure essence",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.brother_maledict",
+    "end_location_id": "location.witchaven.brother_maledict",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.assemble_pages"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_1",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_2",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_3",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.the_slug_menace.shaped_water",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pure_essence",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_blank_water",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.the_slug_menace.shaped_water",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the pages and carve essence with a chisel. The route reserves three essence per rune for failed attempts."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully shape the blank water rune.",
+      "if_unmet": "Retry the carving if the essence crumbles."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.shape_earth_pure",
+    "name": "Shape the blank earth rune from pure essence",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.brother_maledict",
+    "end_location_id": "location.witchaven.brother_maledict",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.assemble_pages"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_1",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_2",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_3",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.the_slug_menace.shaped_earth",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pure_essence",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_blank_earth",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.the_slug_menace.shaped_earth",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the pages and carve essence with a chisel. The route reserves three essence per rune for failed attempts."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully shape the blank earth rune.",
+      "if_unmet": "Retry the carving if the essence crumbles."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.shape_fire_pure",
+    "name": "Shape the blank fire rune from pure essence",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.brother_maledict",
+    "end_location_id": "location.witchaven.brother_maledict",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.assemble_pages"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_1",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_2",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_3",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.the_slug_menace.shaped_fire",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pure_essence",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_blank_fire",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.the_slug_menace.shaped_fire",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the pages and carve essence with a chisel. The route reserves three essence per rune for failed attempts."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully shape the blank fire rune.",
+      "if_unmet": "Retry the carving if the essence crumbles."
+    }
+  },
+  {
+    "id": "quest.the_slug_menace.shape_mind_pure",
+    "name": "Shape the blank mind rune from pure essence",
+    "activity_id": "quest.the_slug_menace",
+    "kind": "quest_stage",
+    "start_location_id": "location.witchaven.brother_maledict",
+    "end_location_id": "location.witchaven.brother_maledict",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_slug_menace.assemble_pages"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_1",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_2",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.slug_page_3",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.the_slug_menace.shaped_mind",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pure_essence",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.slug_blank_mind",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.the_slug_menace.shaped_mind",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 16,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_slug_menace",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the pages and carve essence with a chisel. The route reserves three essence per rune for failed attempts."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully shape the blank mind rune.",
+      "if_unmet": "Retry the carving if the essence crumbles."
+    }
+  }
+]

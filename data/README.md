@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-3 November 2026 at 10:00:06 UTC. Dataset `0.35.0` loads 24 skill tables and
-1,392 draft actions across 115 journal activities, the museum route and travel
+3 November 2026 at 10:00:06 UTC. Dataset `0.36.0` loads 24 skill tables and
+1,528 draft actions across 123 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -243,3 +243,7 @@ The [Misthalin and Kandarin review](raw/build-242/misthalin-and-kandarin-review.
 records eight quests, both Shield of Arrav gang routes, the Al Kharid gate and
 Foundry travel, the What Lies Below museum report, and Bert's first sand
 claim for the Ardougne diary.
+
+The [Kebos, desert and Kandarin review](raw/build-242/kebos-desert-and-kandarin-review.json)
+records seven quests and Alfred Grimhand's Barcrawl, the Tourist Trap XP
+selections, five Slug Menace altars and four Desert diary tasks.
