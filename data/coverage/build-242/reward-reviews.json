@@ -1244,8 +1244,9 @@
   {
     "id": "review.quest.family_crest.quest_month_xp",
     "activity_id": "quest.family_crest",
-    "status": "expected",
+    "status": "collected",
     "source_ids": ["source.jagex.quest_month_2026_11_03"],
+    "catalog_ids": ["quest.family_crest.complete"],
     "delivery": "completion",
     "legacy_claim": "review_if_already_completed"
   },
@@ -5338,5 +5339,597 @@
       ]
     },
     "note": "The Costumer awards the needle after the quest."
+  },
+  {
+    "id": "review.quest.family_crest.completion_rewards",
+    "activity_id": "quest.family_crest",
+    "status": "collected",
+    "source_ids": [
+      "source.capture.family_crest",
+      "source.jagex.quest_month_2026_11_03"
+    ],
+    "catalog_ids": [
+      "quest.family_crest.complete"
+    ],
+    "expected_effects": {
+      "quest.family_crest.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_gauntlets",
+          "quantity": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.mining",
+          "xp_tenths": 20000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.smithing",
+          "xp_tenths": 20000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.crafting",
+          "xp_tenths": 20000
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.family_crest.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Combine all three pieces and return the crest. The November reward adds 2,000 XP each in Mining, Smithing and Crafting."
+  },
+  {
+    "id": "review.miniquest.family_pest.completion_rewards",
+    "activity_id": "miniquest.family_pest",
+    "status": "collected",
+    "source_ids": [
+      "source.capture.family_pest"
+    ],
+    "catalog_ids": [
+      "miniquest.family_pest.complete"
+    ],
+    "expected_effects": {
+      "miniquest.family_pest.complete": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.family_pest_gauntlets",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.miniquest.family_pest.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Pay the one-time fee to be able to own all three kinds of enchanted gauntlets."
+  },
+  {
+    "id": "review.quest.horror_from_the_deep.completion_rewards",
+    "activity_id": "quest.horror_from_the_deep",
+    "status": "collected",
+    "source_ids": [
+      "source.capture.horror_from_the_deep"
+    ],
+    "catalog_ids": [
+      "quest.horror_from_the_deep.complete"
+    ],
+    "expected_effects": {
+      "quest.horror_from_the_deep.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lighthouse_rusty_casket",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.lighthouse_dagannoth_dungeon",
+          "value": true
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.magic",
+          "xp_tenths": 46620
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.ranged",
+          "xp_tenths": 46620
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.strength",
+          "xp_tenths": 46620
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.horror_from_the_deep.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Use matching attacks as the mother changes colour. A single style is possible by waiting for its phase. Take the rusty casket."
+  },
+  {
+    "id": "review.miniquest.in_search_of_knowledge.completion_rewards",
+    "activity_id": "miniquest.in_search_of_knowledge",
+    "status": "collected",
+    "source_ids": [
+      "source.capture.in_search_of_knowledge",
+      "source.jagex.forthos_dungeon"
+    ],
+    "catalog_ids": [
+      "miniquest.in_search_of_knowledge.complete"
+    ],
+    "expected_effects": {
+      "miniquest.in_search_of_knowledge.complete": [
+        {
+          "kind": "xp_reward",
+          "reward_id": "reward.in_search_of_knowledge.lamp",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.miniquest.in_search_of_knowledge.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Talk to Logosia after returning all three restored tomes to complete the miniquest and collect the 10,000 XP lamp."
+  },
+  {
+    "id": "review.miniquest.bear_your_soul.completion_rewards",
+    "activity_id": "miniquest.bear_your_soul",
+    "status": "collected",
+    "source_ids": [
+      "source.capture.bear_your_soul"
+    ],
+    "catalog_ids": [
+      "miniquest.bear_your_soul.complete"
+    ],
+    "expected_effects": {
+      "miniquest.bear_your_soul.complete": [
+        {
+          "kind": "item",
+          "item_id": "item.soul_bearer",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.miniquest.bear_your_soul.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Find the Key Master in his cave off Taverley Dungeon and ask him to repair it."
+  },
+  {
+    "id": "review.quest.devious_minds.completion_rewards",
+    "activity_id": "quest.devious_minds",
+    "status": "collected",
+    "source_ids": [
+      "source.capture.devious_minds",
+      "source.jagex.quest_month_2026_11_11"
+    ],
+    "catalog_ids": [
+      "quest.devious_minds.complete"
+    ],
+    "expected_effects": {
+      "quest.devious_minds.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.smithing",
+          "xp_tenths": 65000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.fletching",
+          "xp_tenths": 50000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.runecraft",
+          "xp_tenths": 50000
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.devious_minds.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Report to Sir Tiffy in Falador Park."
+  },
+  {
+    "id": "review.family_crest.enchant_gauntlets",
+    "activity_id": "quest.family_crest",
+    "status": "collected",
+    "source_ids": [
+      "source.capture.family_crest",
+      "source.project.early_quest_timing"
+    ],
+    "catalog_ids": [
+      "claim.family_crest.cooking_gauntlets",
+      "claim.family_crest.goldsmith_gauntlets",
+      "claim.family_crest.chaos_gauntlets"
+    ],
+    "expected_effects": {
+      "claim.family_crest.cooking_gauntlets": [
+        {
+          "kind": "item",
+          "item_id": "item.cooking_gauntlets",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.family_crest_gauntlets_enchanted",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.family_crest.owned_cooking_gauntlets",
+          "value": true
+        }
+      ],
+      "claim.family_crest.goldsmith_gauntlets": [
+        {
+          "kind": "item",
+          "item_id": "item.goldsmith_gauntlets",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.family_crest_gauntlets_enchanted",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.family_crest.owned_goldsmith_gauntlets",
+          "value": true
+        }
+      ],
+      "claim.family_crest.chaos_gauntlets": [
+        {
+          "kind": "item",
+          "item_id": "item.chaos_gauntlets",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.family_crest_gauntlets_enchanted",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.family_crest.owned_chaos_gauntlets",
+          "value": true
+        }
+      ]
+    },
+    "note": "Choose one free gauntlet enchantment from the corresponding brother."
+  },
+  {
+    "id": "review.family_pest.spare_gauntlets",
+    "activity_id": "miniquest.family_pest",
+    "status": "collected",
+    "source_ids": [
+      "source.capture.family_pest",
+      "source.project.early_quest_timing"
+    ],
+    "catalog_ids": [
+      "claim.family_pest.cooking_gauntlets",
+      "claim.family_pest.goldsmith_gauntlets",
+      "claim.family_pest.chaos_gauntlets"
+    ],
+    "expected_effects": {
+      "claim.family_pest.cooking_gauntlets": [
+        {
+          "kind": "item",
+          "item_id": "item.cooking_gauntlets",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.family_crest.owned_cooking_gauntlets",
+          "value": true
+        }
+      ],
+      "claim.family_pest.goldsmith_gauntlets": [
+        {
+          "kind": "item",
+          "item_id": "item.goldsmith_gauntlets",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.family_crest.owned_goldsmith_gauntlets",
+          "value": true
+        }
+      ],
+      "claim.family_pest.chaos_gauntlets": [
+        {
+          "kind": "item",
+          "item_id": "item.chaos_gauntlets",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.family_crest.owned_chaos_gauntlets",
+          "value": true
+        }
+      ]
+    },
+    "note": "Dimintheis supplies missing gauntlet types after the fee is paid."
+  },
+  {
+    "id": "review.horror_from_the_deep.first_god_book",
+    "activity_id": "quest.horror_from_the_deep",
+    "status": "collected",
+    "source_ids": [
+      "source.capture.horror_from_the_deep",
+      "source.project.early_quest_timing"
+    ],
+    "catalog_ids": [
+      "claim.horror_from_the_deep.saradomin_book",
+      "claim.horror_from_the_deep.zamorak_book",
+      "claim.horror_from_the_deep.guthix_book",
+      "claim.horror_from_the_deep.bandos_book",
+      "claim.horror_from_the_deep.armadyl_book",
+      "claim.horror_from_the_deep.ancient_book"
+    ],
+    "expected_effects": {
+      "claim.horror_from_the_deep.saradomin_book": [
+        {
+          "kind": "item",
+          "item_id": "item.damaged_saradomin_book",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.first_god_book_claimed",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.owned_saradomin_book",
+          "value": true
+        }
+      ],
+      "claim.horror_from_the_deep.zamorak_book": [
+        {
+          "kind": "item",
+          "item_id": "item.damaged_zamorak_book",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.first_god_book_claimed",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.owned_zamorak_book",
+          "value": true
+        }
+      ],
+      "claim.horror_from_the_deep.guthix_book": [
+        {
+          "kind": "item",
+          "item_id": "item.damaged_guthix_book",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.first_god_book_claimed",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.owned_guthix_book",
+          "value": true
+        }
+      ],
+      "claim.horror_from_the_deep.bandos_book": [
+        {
+          "kind": "item",
+          "item_id": "item.damaged_bandos_book",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.first_god_book_claimed",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.owned_bandos_book",
+          "value": true
+        }
+      ],
+      "claim.horror_from_the_deep.armadyl_book": [
+        {
+          "kind": "item",
+          "item_id": "item.damaged_armadyl_book",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.first_god_book_claimed",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.owned_armadyl_book",
+          "value": true
+        }
+      ],
+      "claim.horror_from_the_deep.ancient_book": [
+        {
+          "kind": "item",
+          "item_id": "item.damaged_ancient_book",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.first_god_book_claimed",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.owned_ancient_book",
+          "value": true
+        }
+      ]
+    },
+    "note": "Jossik opens the casket to grant one choice of damaged god book."
+  },
+  {
+    "id": "review.horror_from_the_deep.other_god_books",
+    "activity_id": "quest.horror_from_the_deep",
+    "status": "collected",
+    "source_ids": [
+      "source.capture.horror_from_the_deep",
+      "source.project.early_quest_timing"
+    ],
+    "catalog_ids": [
+      "supply.horror_from_the_deep.buy_saradomin_book",
+      "supply.horror_from_the_deep.buy_zamorak_book",
+      "supply.horror_from_the_deep.buy_guthix_book",
+      "supply.horror_from_the_deep.buy_bandos_book",
+      "supply.horror_from_the_deep.buy_armadyl_book",
+      "supply.horror_from_the_deep.buy_ancient_book"
+    ],
+    "expected_effects": {
+      "supply.horror_from_the_deep.buy_saradomin_book": [
+        {
+          "kind": "item",
+          "item_id": "item.damaged_saradomin_book",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.owned_saradomin_book",
+          "value": true
+        }
+      ],
+      "supply.horror_from_the_deep.buy_zamorak_book": [
+        {
+          "kind": "item",
+          "item_id": "item.damaged_zamorak_book",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.owned_zamorak_book",
+          "value": true
+        }
+      ],
+      "supply.horror_from_the_deep.buy_guthix_book": [
+        {
+          "kind": "item",
+          "item_id": "item.damaged_guthix_book",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.owned_guthix_book",
+          "value": true
+        }
+      ],
+      "supply.horror_from_the_deep.buy_bandos_book": [
+        {
+          "kind": "item",
+          "item_id": "item.damaged_bandos_book",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.owned_bandos_book",
+          "value": true
+        }
+      ],
+      "supply.horror_from_the_deep.buy_armadyl_book": [
+        {
+          "kind": "item",
+          "item_id": "item.damaged_armadyl_book",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.owned_armadyl_book",
+          "value": true
+        }
+      ],
+      "supply.horror_from_the_deep.buy_ancient_book": [
+        {
+          "kind": "item",
+          "item_id": "item.damaged_ancient_book",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.lighthouse.owned_ancient_book",
+          "value": true
+        }
+      ]
+    },
+    "note": "Other book types cost 5,000 coins apiece."
+  },
+  {
+    "id": "review.in_search_of_knowledge.spare_pages",
+    "activity_id": "miniquest.in_search_of_knowledge",
+    "status": "collected",
+    "source_ids": [
+      "source.jagex.forthos_dungeon",
+      "source.project.early_quest_timing"
+    ],
+    "catalog_ids": [
+      "claim.in_search_of_knowledge.sell_sun_page",
+      "claim.in_search_of_knowledge.sell_moon_page",
+      "claim.in_search_of_knowledge.sell_temple_page"
+    ],
+    "expected_effects": {
+      "claim.in_search_of_knowledge.sell_sun_page": [
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 1000
+        }
+      ],
+      "claim.in_search_of_knowledge.sell_moon_page": [
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 1000
+        }
+      ],
+      "claim.in_search_of_knowledge.sell_temple_page": [
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 1000
+        }
+      ]
+    },
+    "note": "Logosia pays 1,000 coins per spare page."
   }
 ]
