@@ -1,0 +1,2834 @@
+[
+  {
+    "id": "quest.roving_elves.talk_to_islwyn",
+    "name": "Start Roving Elves with Islwyn",
+    "activity_id": "quest.roving_elves",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.talk_to_islwyn",
+    "end_location_id": "location.roving.talk_to_islwyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.waterfall_quest.complete"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "skill",
+              "skill_id": "skill.agility",
+              "minimum_level": 56,
+              "boostable": true
+            },
+            {
+              "kind": "flag",
+              "token_id": "unlock.port_tyras_charter",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "supply.roving.purchase_supplies",
+    "name": "Collect spade, ropes and non-combat tomb provisions",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.roving.talk_to_islwyn",
+    "end_location_id": "location.roving.talk_to_islwyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.talk_to_islwyn"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 45000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 12
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.roving_elves.talk_to_eluned",
+    "name": "Ask Eluned about the consecration seed",
+    "activity_id": "quest.roving_elves",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.talk_to_eluned",
+    "end_location_id": "location.roving.talk_to_eluned",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "supply.roving.purchase_supplies"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.roving_elves.enter_glarials_tombstone",
+    "name": "Enter Glarial’s Tomb with the pebble",
+    "activity_id": "quest.roving_elves",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.enter_glarials_tombstone",
+    "end_location_id": "location.roving.enter_glarials_tombstone",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.talk_to_eluned"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.glarials_pebble",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.roving_elves.kill_guardian",
+    "name": "Defeat the moss guardian in unarmed combat",
+    "activity_id": "quest.roving_elves",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.kill_guardian",
+    "end_location_id": "location.roving.kill_guardian",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.enter_glarials_tombstone"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.roving_consecration_seed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 95,
+      "expected_seconds": 190,
+      "max_seconds": 570
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    },
+    "planned_outcome": {
+      "success_condition": "A level-84 moss guardian is defeated without prohibited tomb equipment and drops the seed.",
+      "if_unmet": "Recover, heal or restock, then retry; do not credit the next stage."
+    }
+  },
+  {
+    "id": "quest.roving_elves.return_seed_to_eluned",
+    "name": "Have Eluned enchant the consecration seed",
+    "activity_id": "quest.roving_elves",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.return_seed_to_eluned",
+    "end_location_id": "location.roving.return_seed_to_eluned",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.kill_guardian"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.roving_consecration_seed",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.roving_enchanted_seed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.roving_elves.board_raft",
+    "name": "Board the raft by the waterfall",
+    "activity_id": "quest.roving_elves",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.board_raft",
+    "end_location_id": "location.roving.board_raft",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.return_seed_to_eluned"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.roving_elves.use_rope_on_rock",
+    "name": "Attach the rope to the waterfall rock",
+    "activity_id": "quest.roving_elves",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.use_rope_on_rock",
+    "end_location_id": "location.roving.use_rope_on_rock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.board_raft"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.roving_elves.use_rope_on_tree",
+    "name": "Attach the second rope to the tree",
+    "activity_id": "quest.roving_elves",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.use_rope_on_tree",
+    "end_location_id": "location.roving.use_rope_on_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.use_rope_on_rock"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.roving_elves.enter_falls",
+    "name": "Enter Waterfall Dungeon with Glarial’s amulet",
+    "activity_id": "quest.roving_elves",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.enter_falls",
+    "end_location_id": "location.roving.enter_falls",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.use_rope_on_tree"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.glarials_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.roving_elves.search_falls_crate",
+    "name": "Search the waterfall crate for a key",
+    "activity_id": "quest.roving_elves",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.search_falls_crate",
+    "end_location_id": "location.roving.search_falls_crate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.enter_falls"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.roving_waterfall_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.roving_elves.use_key_on_falls_door",
+    "name": "Plant the enchanted seed in Glarial’s resting place",
+    "activity_id": "quest.roving_elves",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.use_key_on_falls_door",
+    "end_location_id": "location.roving.use_key_on_falls_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.search_falls_crate"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.roving_waterfall_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.roving_enchanted_seed",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.roving_glarial_ritual",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.roving_elves.return_to_islwyn",
+    "name": "Report the burial ritual to Islwyn",
+    "activity_id": "quest.roving_elves",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.return_to_islwyn",
+    "end_location_id": "location.roving.return_to_islwyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.use_key_on_falls_door"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.roving_glarial_ritual",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.roving_elves.complete",
+    "name": "Complete Roving Elves and unlock the crystal equipment choice",
+    "activity_id": "quest.roving_elves",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.return_to_islwyn",
+    "end_location_id": "location.roving.return_to_islwyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.return_to_islwyn"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.roving_elves_complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.crystal_weapon_eligibility",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.roving_elves.claim_crystal_bow",
+    "name": "Choose the 500-charge crystal bow",
+    "activity_id": "quest.roving_elves",
+    "kind": "reward_claim",
+    "start_location_id": "location.roving.return_to_islwyn",
+    "end_location_id": "location.roving.return_to_islwyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.roving_crystal_choice_claimed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.roving_crystal_bow_500",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.roving_crystal_choice_claimed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.roving_elves.claim_crystal_shield",
+    "name": "Choose the 500-charge crystal shield",
+    "activity_id": "quest.roving_elves",
+    "kind": "reward_claim",
+    "start_location_id": "location.roving.return_to_islwyn",
+    "end_location_id": "location.roving.return_to_islwyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.roving_crystal_choice_claimed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.roving_crystal_shield_500",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.roving_crystal_choice_claimed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "supply.roving.recover_pebble_from_golrie",
+    "name": "Recover a lost Glarial pebble from Golrie",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.roving.enter_glarials_tombstone",
+    "end_location_id": "location.roving.enter_glarials_tombstone",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.waterfall_quest.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.glarials_pebble",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.talk_to_eluned_to_start",
+    "name": "Ask Eluned to take you to Arianwyn",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.roving.talk_to_eluned",
+    "end_location_id": "location.roving.talk_to_eluned",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.roving_elves.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.big_chompy_bird_hunting.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.sheep_herder.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.ranged",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 50,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.talk_to_arianwyn",
+    "name": "Meet Arianwyn in Lletya and receive a four-charge crystal",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.talk_to_arianwyn",
+    "end_location_id": "location.mep1.talk_to_arianwyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.talk_to_eluned_to_start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_teleport_crystal_four",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.lletya_access",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.mep1_teleport_charges",
+        "delta": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "supply.mep1.buy_infiltration_supplies",
+    "name": "Buy dyes, sewing materials and gnome supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.mep1.talk_to_arianwyn",
+    "end_location_id": "location.mep1.talk_to_arianwyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.talk_to_arianwyn"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 115000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bear_fur",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.silk",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_yellow_dye",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.red_dye",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_blue_dye",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_green_dye",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_water",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.feather",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.magic_logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.leather",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_toad_crunchies",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ogre_bellows",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coal",
+        "quantity": 15
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.kill_mourner",
+    "name": "Defeat the disguised mourner at Arandar",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.kill_mourner",
+    "end_location_id": "location.mep1.kill_mourner",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "supply.mep1.buy_infiltration_supplies"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_gas_mask",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_bloody_top",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_ripped_trousers",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_mourner_boots",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_mourner_gloves",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_mourner_cloak",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_mourner_letter",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 120,
+      "max_seconds": 360
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    },
+    "planned_outcome": {
+      "success_condition": "A level-11 mourner is defeated; survive the guaranteed combat-stat drain and collect all seven disguise pieces.",
+      "if_unmet": "Recover, heal or restock, then retry; do not credit the next stage."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.search_laundry",
+    "name": "Steal Tegid’s soap and wash blood from the mourner top",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.search_laundry",
+    "end_location_id": "location.mep1.search_laundry",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.kill_mourner"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 50,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket_of_water",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep1_bloody_top",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bucket_of_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_clean_top",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.talk_to_oronwen",
+    "name": "Have Oronwen mend the ripped trousers",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.talk_to_oronwen",
+    "end_location_id": "location.mep1.talk_to_oronwen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.search_laundry"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep1_ripped_trousers",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bear_fur",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.silk",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_repaired_trousers",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.enter_mourner_base",
+    "name": "Enter West Ardougne Mourner Headquarters in disguise",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.enter_mourner_base",
+    "end_location_id": "location.mep1.enter_mourner_base",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.talk_to_oronwen"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_gas_mask",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_clean_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_repaired_trousers",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_cloak",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_letter",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.enter_basement",
+    "name": "Descend to the head mourner",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.enter_basement",
+    "end_location_id": "location.mep1.enter_basement",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.enter_mourner_base"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.talk_to_essyllt",
+    "name": "Receive the broken sheep-dyeing device and cell key",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.talk_to_essyllt",
+    "end_location_id": "location.mep1.talk_to_essyllt",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.enter_basement"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_broken_device",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_tarnished_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.talk_to_gnome",
+    "name": "Learn the gnome tinkerer’s weaknesses",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.talk_to_gnome",
+    "end_location_id": "location.mep1.talk_to_gnome",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.talk_to_essyllt"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_tarnished_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.enter_mourner_base_for_gnome",
+    "name": "Return through the headquarters toward the imprisoned gnome",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.enter_mourner_base_for_gnome",
+    "end_location_id": "location.mep1.enter_mourner_base_for_gnome",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.talk_to_gnome"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.enter_basement_for_gnome",
+    "name": "Unlock the gnome’s basement cell",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.enter_basement_for_gnome",
+    "end_location_id": "location.mep1.enter_basement_for_gnome",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.enter_mourner_base_for_gnome"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_tarnished_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.use_feather_on_gnome",
+    "name": "Tickle the captive gnome while holding toad crunchies",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.use_feather_on_gnome",
+    "end_location_id": "location.mep1.use_feather_on_gnome",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.enter_basement_for_gnome"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.feather",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_toad_crunchies",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.enter_mourner_base_after_torture",
+    "name": "Return to the headquarters after the gnome agrees",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.enter_mourner_base_after_torture",
+    "end_location_id": "location.mep1.enter_mourner_base_after_torture",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.use_feather_on_gnome"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.enter_basement_after_torture",
+    "name": "Go back to the gnome with requested repair materials",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.enter_basement_after_torture",
+    "end_location_id": "location.mep1.enter_basement_after_torture",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.enter_mourner_base_after_torture"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.talk_to_gnome_with_items",
+    "name": "Discuss release and the device repair",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.talk_to_gnome_with_items",
+    "end_location_id": "location.mep1.talk_to_gnome_with_items",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.enter_basement_after_torture"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.magic_logs",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.release_gnome",
+    "name": "Release the gnome from the rack",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.release_gnome",
+    "end_location_id": "location.mep1.release_gnome",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.talk_to_gnome_with_items"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.give_gnome_items",
+    "name": "Give the gnome the logs, leather and food to fix the device",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.give_gnome_items",
+    "end_location_id": "location.mep1.give_gnome_items",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.release_gnome"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.magic_logs",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.leather",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.mep1_toad_crunchies",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.mep1_broken_device",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_fixed_device",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.ask_about_toads",
+    "name": "Ask the gnome how the device shoots coloured toads",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.ask_about_toads",
+    "end_location_id": "location.mep1.ask_about_toads",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.give_gnome_items"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.get_toads",
+    "name": "Dye four ogre bellows loads and inflate one toad of each colour",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.get_toads",
+    "end_location_id": "location.mep1.get_toads",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.ask_about_toads"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ogre_bellows",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.red_dye",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.mep1_yellow_dye",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.mep1_blue_dye",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.mep1_green_dye",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_red_toad",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_yellow_toad",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_green_toad",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep1_blue_toad",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    },
+    "planned_outcome": {
+      "success_condition": "Four colour-coded swamp toads are obtained from Feldip Hills using dyed bellows.",
+      "if_unmet": "Recover, heal or restock, then retry; do not credit the next stage."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.shoot_green_toad",
+    "name": "Shoot the green sheep with the matching toad",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.shoot_green_toad",
+    "end_location_id": "location.mep1.shoot_green_toad",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.get_toads"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_fixed_device",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep1_green_toad",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    },
+    "planned_outcome": {
+      "success_condition": "The green sheep flock has been recoloured; if the shot misses, obtain a new matching toad.",
+      "if_unmet": "Recover, heal or restock, then retry; do not credit the next stage."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.shoot_red_toad",
+    "name": "Shoot the red sheep with the matching toad",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.shoot_red_toad",
+    "end_location_id": "location.mep1.shoot_red_toad",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.shoot_green_toad"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_fixed_device",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep1_red_toad",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    },
+    "planned_outcome": {
+      "success_condition": "The red sheep flock has been recoloured; if the shot misses, obtain a new matching toad.",
+      "if_unmet": "Recover, heal or restock, then retry; do not credit the next stage."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.shoot_yellow_toad",
+    "name": "Shoot the yellow sheep with the matching toad",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.shoot_yellow_toad",
+    "end_location_id": "location.mep1.shoot_yellow_toad",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.shoot_red_toad"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_fixed_device",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep1_yellow_toad",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    },
+    "planned_outcome": {
+      "success_condition": "The yellow sheep flock has been recoloured; if the shot misses, obtain a new matching toad.",
+      "if_unmet": "Recover, heal or restock, then retry; do not credit the next stage."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.shoot_blue_toad",
+    "name": "Shoot the blue sheep with the matching toad",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.shoot_blue_toad",
+    "end_location_id": "location.mep1.shoot_blue_toad",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.shoot_yellow_toad"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_fixed_device",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep1_blue_toad",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    },
+    "planned_outcome": {
+      "success_condition": "The blue sheep flock has been recoloured; if the shot misses, obtain a new matching toad.",
+      "if_unmet": "Recover, heal or restock, then retry; do not credit the next stage."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.enter_base_after_sheep",
+    "name": "Return to the Mourner Headquarters after recolouring the sheep",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.enter_base_after_sheep",
+    "end_location_id": "location.mep1.enter_base_after_sheep",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.shoot_blue_toad"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.enter_basement_after_sheep",
+    "name": "Descend to Essyllt for the second assignment",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.enter_basement_after_sheep",
+    "end_location_id": "location.mep1.enter_basement_after_sheep",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.enter_base_after_sheep"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.talk_to_essyllt_after_sheep",
+    "name": "Receive the poisoned-food assignment",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.talk_to_essyllt_after_sheep",
+    "end_location_id": "location.mep1.talk_to_essyllt_after_sheep",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.enter_basement_after_sheep"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep1_sheep_recoloured",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.pick_up_rotten_apple",
+    "name": "Find a rotten apple beside the Mourner Headquarters",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.pick_up_rotten_apple",
+    "end_location_id": "location.mep1.pick_up_rotten_apple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.talk_to_essyllt_after_sheep"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_rotten_apple",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.talk_to_elena",
+    "name": "Ask Elena to analyse the rotten apple",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.talk_to_elena",
+    "end_location_id": "location.mep1.talk_to_elena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.pick_up_rotten_apple"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep1_rotten_apple",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_sieve",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.pick_up_barrel",
+    "name": "Take an empty barrel from the orchard",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.pick_up_barrel",
+    "end_location_id": "location.mep1.pick_up_barrel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.talk_to_elena"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_empty_barrel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.use_barrel_on_pile",
+    "name": "Gather rotten apples into the barrel",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.use_barrel_on_pile",
+    "end_location_id": "location.mep1.use_barrel_on_pile",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.pick_up_barrel"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep1_empty_barrel",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_rotten_apple_barrel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.use_apples_on_press",
+    "name": "Press the rotten apples into an apple mixture",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.use_apples_on_press",
+    "end_location_id": "location.mep1.use_apples_on_press",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.use_barrel_on_pile"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep1_rotten_apple_barrel",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_apple_barrel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "supply.mep1.collect_tar_for_naphtha",
+    "name": "Collect a replacement coal-tar barrel from Isafdar",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.regicide.fill2_barrels",
+    "end_location_id": "location.regicide.fill2_barrels",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.use_apples_on_press"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.regicide_tar_barrel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.get_naphtha",
+    "name": "Distil a fresh barrel of naphtha using coal",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.get_naphtha",
+    "end_location_id": "location.mep1.get_naphtha",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "supply.mep1.collect_tar_for_naphtha"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.regicide_tar_barrel",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.coal",
+        "quantity": 10
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.regicide_naphtha_barrel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    },
+    "planned_outcome": {
+      "success_condition": "The fractionalising still yields one barrel of naphtha; bad pressure and heat may require extra coal.",
+      "if_unmet": "Recover, heal or restock, then retry; do not credit the next stage."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.mix_naphtha_and_apples",
+    "name": "Combine the apple mash, naphtha and sieve into toxic naphtha",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.get_naphtha",
+    "end_location_id": "location.mep1.get_naphtha",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.get_naphtha"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_sieve",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep1_apple_barrel",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.regicide_naphtha_barrel",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_toxic_naphtha",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.cook_naphtha",
+    "name": "Heat toxic naphtha on a cooking range, making two powders",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.cook_naphtha",
+    "end_location_id": "location.mep1.cook_naphtha",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.mix_naphtha_and_apples"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep1_toxic_naphtha",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep1_toxic_powder",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.use_powder_on_food1",
+    "name": "Poison the first East Ardougne grain sack",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.use_powder_on_food1",
+    "end_location_id": "location.mep1.use_powder_on_food1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.cook_naphtha"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep1_toxic_powder",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    },
+    "planned_outcome": {
+      "success_condition": "One sack is successfully poisoned.",
+      "if_unmet": "Recover, heal or restock, then retry; do not credit the next stage."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.use_powder_on_food2",
+    "name": "Poison the second East Ardougne grain sack",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.use_powder_on_food2",
+    "end_location_id": "location.mep1.use_powder_on_food2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.use_powder_on_food1"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep1_toxic_powder",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    },
+    "planned_outcome": {
+      "success_condition": "A second distinct sack is successfully poisoned.",
+      "if_unmet": "Recover, heal or restock, then retry; do not credit the next stage."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.enter_mourner_base_after_poison",
+    "name": "Re-enter the Mourner Headquarters with the disguise",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.enter_mourner_base_after_poison",
+    "end_location_id": "location.mep1.enter_mourner_base_after_poison",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.use_powder_on_food2"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_gas_mask",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_clean_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_repaired_trousers",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_cloak",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_letter",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.enter_mourner_basement_after_poison",
+    "name": "Reach Essyllt with the completed sabotage",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.enter_mourner_basement_after_poison",
+    "end_location_id": "location.mep1.enter_mourner_basement_after_poison",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.enter_mourner_base_after_poison"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.talk_to_essyllt_after_poison",
+    "name": "Report the poisoning to Essyllt",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.talk_to_essyllt_after_poison",
+    "end_location_id": "location.mep1.talk_to_essyllt_after_poison",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.enter_mourner_basement_after_poison"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.return_to_arianwyn",
+    "name": "Return to Lletya and report the mourner findings",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.return_to_arianwyn",
+    "end_location_id": "location.mep1.return_to_arianwyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.talk_to_essyllt_after_poison"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.complete",
+    "name": "Complete Mourning’s End Part I with Arianwyn",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep1.return_to_arianwyn",
+    "end_location_id": "location.mep1.return_to_arianwyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.return_to_arianwyn"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 400000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 250000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep1_complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mourner_hq_basement",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.enter_mourner_base_no_pass",
+    "name": "Try the Mourner HQ without an entry pass",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "other",
+    "start_location_id": "location.mep1.enter_mourner_base",
+    "end_location_id": "location.mep1.enter_mourner_base",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.kill_mourner"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    },
+    "planned_outcome": {
+      "success_condition": "Guard denies entry until disguise is repaired and the letter is shown.",
+      "if_unmet": "Recover, heal or restock, then retry; do not credit the next stage."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_i.talk_to_elena_no_apple",
+    "name": "Speak to Elena without a local rotten apple",
+    "activity_id": "quest.mournings_end_part_i",
+    "kind": "other",
+    "start_location_id": "location.mep1.talk_to_elena",
+    "end_location_id": "location.mep1.talk_to_elena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.talk_to_essyllt_after_sheep"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage or necessary resource transformation, with provisional duration and cost."
+    },
+    "planned_outcome": {
+      "success_condition": "Elena requests the special rotten apple; obtain it before advancing.",
+      "if_unmet": "Recover, heal or restock, then retry; do not credit the next stage."
+    }
+  }
+]

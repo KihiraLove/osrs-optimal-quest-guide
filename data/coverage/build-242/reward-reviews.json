@@ -7148,5 +7148,126 @@
       ]
     },
     "note": "3 quest points, 13,750 Agility XP, 15,000 coins and quest-unlocked Tirannwn/charter/halberd access; Arandar opens at Iorwerth letter stage."
+  },
+  {
+    "id": "review.quest.roving_elves.completion_rewards",
+    "activity_id": "quest.roving_elves",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.roving_elves.complete",
+      "quest.roving_elves.claim_crystal_bow",
+      "quest.roving_elves.claim_crystal_shield"
+    ],
+    "expected_effects": {
+      "quest.roving_elves.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.strength",
+          "xp_tenths": 100000
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.roving_elves_complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.crystal_weapon_eligibility",
+          "value": true
+        }
+      ],
+      "quest.roving_elves.claim_crystal_bow": [
+        {
+          "kind": "item",
+          "item_id": "item.roving_crystal_bow_500",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.roving_crystal_choice_claimed",
+          "value": true
+        }
+      ],
+      "quest.roving_elves.claim_crystal_shield": [
+        {
+          "kind": "item",
+          "item_id": "item.roving_crystal_shield_500",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.roving_crystal_choice_claimed",
+          "value": true
+        }
+      ]
+    },
+    "note": "One chosen 500-charge crystal weapon is claimed once; 1 QP and 10,000 Strength XP at completion."
+  },
+  {
+    "id": "review.quest.mournings_end_part_i.completion_rewards",
+    "activity_id": "quest.mournings_end_part_i",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.mournings_end_part_i.talk_to_arianwyn",
+      "quest.mournings_end_part_i.complete"
+    ],
+    "expected_effects": {
+      "quest.mournings_end_part_i.talk_to_arianwyn": [
+        {
+          "kind": "item",
+          "item_id": "item.mep1_teleport_crystal_four",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.lletya_access",
+          "value": true
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.mep1_teleport_charges",
+          "delta": 4
+        }
+      ],
+      "quest.mournings_end_part_i.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.thieving",
+          "xp_tenths": 400000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.hitpoints",
+          "xp_tenths": 250000
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mep1_complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mourner_hq_basement",
+          "value": true
+        }
+      ]
+    },
+    "note": "Four-charge teleport crystal is received early; 2 QP, 40,000 Thieving and 25,000 Hitpoints XP at completion."
   }
 ]
