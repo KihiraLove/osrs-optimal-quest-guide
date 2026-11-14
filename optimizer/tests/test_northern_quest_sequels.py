@@ -21,23 +21,18 @@ class NorthernQuestSequelsTests(unittest.TestCase):
         cls.tables = CatalogValidator(load_catalog(ROOT / "data/manifest.json", contracts), contracts).tables
         cls.profile = read_json(ROOT / "data/profiles/main-baseline.json")
 
-    def seed(self, upstream=True):
+    def seed(self, missing=()):
         initial = {**self.profile["initial_state"]}
         initial["location_id"] = "location.troll_stronghold.burntmeat"
         initial["xp_tenths"] = {key: 10000000 for key in initial["xp_tenths"]}
         initial["counters"] = {**initial["counters"], "token.quest_points": 100}
-        initial["completed_action_ids"] = [
+        earlier = [
             "quest.swan_song.complete", "quest.romeo_juliet.complete",
             "quest.the_fremennik_isles.complete", "quest.lunar_diplomacy.complete",
-            "quest.mountain_daughter.complete",
+            "quest.mountain_daughter.complete", "quest.my_arms_big_adventure.complete",
+            "quest.cold_war.complete", "quest.heroes_quest.complete",
         ]
-        initial["flags"] = {**initial["flags"]}
-        if upstream:
-            initial["flags"].update({
-                "external.northern.my_arms_big_adventure": True,
-                "external.northern.cold_war": True,
-                "external.northern.heroes_quest": True,
-            })
+        initial["completed_action_ids"] = [action for action in earlier if action not in missing]
         initial["inventory"] = {**initial["inventory"], "item.coins": 200000,
                                 "item.ice_gloves": 1, "item.fremennik_pet_rock": 1,
                                 "item.lunar_seal_of_passage": 1}
@@ -85,12 +80,10 @@ class NorthernQuestSequelsTests(unittest.TestCase):
         with self.assertRaises(DataError):
             self.act(RouteState(self.tables,self.profile["policies"],snap),EX+"complete")
 
-    def test_unmerged_pr_prerequisites_are_not_silent(self):
-        state=self.seed(upstream=False)
-        with self.assertRaises(DataError):
-            self.act(state,ARM+"start")
-        with self.assertRaises(DataError):
-            self.act(state,EX+"start")
+    def test_upstream_quest_completions_are_required(self):
+        for quest, target in (("my_arms_big_adventure", ARM), ("cold_war", ARM), ("heroes_quest", EX)):
+            with self.subTest(quest=quest), self.assertRaises(DataError):
+                self.act(self.seed(missing=(f"quest.{quest}.complete",)), target + "start")
         snap=self.seed().snapshot()
         snap["completed_action_ids"].remove("quest.swan_song.complete")
         with self.assertRaises(DataError):

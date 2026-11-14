@@ -21,15 +21,16 @@ class TheatreHeartTests(unittest.TestCase):
         cls.tables = CatalogValidator(load_catalog(ROOT / "data/manifest.json", contracts), contracts).tables
         cls.profile = read_json(ROOT / "data/profiles/main-baseline.json")
 
-    def seed(self, *, taste=True, promise=True, skills=True, flail=True):
+    def seed(self, *, taste=True, promise=True, skills=True, flail="item.ivandis_flail"):
         initial = {**self.profile["initial_state"]}
         initial["xp_tenths"] = {k: 10000000 if skills else 0 for k in initial["xp_tenths"]}
         initial["completed_action_ids"] = ["quest.twilights_promise.complete"] if promise else []
-        initial["flags"] = {**initial["flags"], "flag.external.a_taste_of_hope_complete": taste}
+        if taste:
+            initial["completed_action_ids"].append("quest.a_taste_of_hope.complete")
         inventory = {**initial["inventory"], "item.coins": 50000,
                      "item.saw":1, "item.ghostspeak_amulet":1, "item.iron_axe":1}
         if flail:
-            inventory["item.theatre_ivandis_flail"] = 1
+            inventory[flail] = 1
         initial["inventory"] = inventory
         initial["counters"] = {**initial["counters"], "token.quest_points":50}
         initial["location_id"] = "location.theatre.speak_with_mysterious_stranger_to_start"
@@ -59,14 +60,17 @@ class TheatreHeartTests(unittest.TestCase):
         self.assertEqual(snapshot["inventory"].get("item.theatre_hespori_bark",0),0)
         self.assertTrue(all(NIGHT+".entry_mode_"+boss in snapshot["completed_action_ids"]
                             for boss in ("maiden","bloat","nylocas","sotetseg","xarpus","verzik")))
-        self.assertEqual(snapshot["inventory"].get("item.theatre_ivandis_flail"),1)
+        self.assertEqual(snapshot["inventory"].get("item.ivandis_flail"),1)
         with self.assertRaises(DataError):
             self.apply(state,self.tables["actions"][NIGHT+".complete"])
 
-    def test_night_unmerged_prerequisite_and_tools_are_mandatory(self):
-        for state in (self.seed(taste=False),self.seed(flail=False)):
+    def test_night_requires_taste_of_hope_and_accepts_either_flail(self):
+        start = self.tables["actions"][NIGHT + ".speak_with_mysterious_stranger_to_start"]
+        for state in (self.seed(taste=False), self.seed(flail=None)):
             with self.assertRaises(DataError):
-                self.apply(state,self.tables["actions"][NIGHT+".speak_with_mysterious_stranger_to_start"])
+                self.apply(state, start)
+        state = self.apply(self.seed(flail="item.blisterwood_flail"), start)
+        self.assertIn(start["id"], state.completed)
 
     def test_night_cannot_claim_lamps_before_clearing_entry_mode(self):
         state=self.seed()

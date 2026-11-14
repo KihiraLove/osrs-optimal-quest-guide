@@ -1,0 +1,2295 @@
+[
+  {
+    "id": "quest.monkey_madness_i.start",
+    "name": "Accept Narnode's 10th squad rescue mission",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.king_narnode",
+    "end_location_id": "location.grand_tree.king_narnode",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_grand_tree.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tree_gnome_village.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "supply.monkey_madness_i.ge_supplies",
+    "name": "Buy gold, wool, antipoison and food",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 28000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.gold_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ball_of_wool",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.antipoison_4",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 20
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 80,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "GE supply budget and combat reserve; live prices and consumption vary."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.investigate_shipyard",
+    "name": "Inspect the decommissioned Karamja shipyard",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.shipyard",
+    "end_location_id": "location.mm.shipyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.question_caranock",
+    "name": "Question Caranock about the missing gnomes",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.shipyard",
+    "end_location_id": "location.mm.shipyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.investigate_shipyard"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.report_narnode",
+    "name": "Report the shipyard evidence to King Narnode",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.king_narnode",
+    "end_location_id": "location.grand_tree.king_narnode",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.question_caranock"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.meet_daero",
+    "name": "Ask Daero to reach the missing 10th squad",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.daero",
+    "end_location_id": "location.mm.daero",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.report_narnode"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.repair_glider",
+    "name": "Restore the glider mechanism with its sliding puzzle",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.hangar",
+    "end_location_id": "location.mm.hangar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.meet_daero"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 110,
+      "expected_seconds": 220,
+      "max_seconds": 550
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Sliding puzzle completed and the glider can fly.",
+      "if_unmet": "Retry the sliding puzzle or request offered NPC assistance if available."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.meet_waydar",
+    "name": "Speak to Waydar at the outpost",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.waydar",
+    "end_location_id": "location.mm.waydar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.repair_glider"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.crash_island",
+    "name": "Take Waydar's glider to Lumdo on Crash Island",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.crash",
+    "end_location_id": "location.mm.crash",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.meet_waydar"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.enter_ape_atoll",
+    "name": "Sail with Lumdo to Ape Atoll",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.ape_gate",
+    "end_location_id": "location.mm.ape_gate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.crash_island"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.escape_prison",
+    "name": "Escape the monkey guards and prison",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.prison",
+    "end_location_id": "location.mm.prison",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.enter_ape_atoll"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 75,
+      "expected_seconds": 150,
+      "max_seconds": 375
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Picklock the cell and leave during guard patrol gap.",
+      "if_unmet": "Retry when safe; replenish supplies before combat and do not claim success prematurely."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.meet_garkor",
+    "name": "Find Garkor and learn his infiltration plan",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.garkor",
+    "end_location_id": "location.mm.garkor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.escape_prison"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.take_dentures",
+    "name": "Search the house for monkey dentures",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.dentures",
+    "end_location_id": "location.mm.dentures",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.meet_garkor"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm_monkey_dentures",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.take_mould",
+    "name": "Recover the m'amulet mould from the tunnel",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.mould",
+    "end_location_id": "location.mm.mould",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.take_dentures"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm_mamulet_mould",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.enchant_gold",
+    "name": "Have Zooknock enchant gold using dentures and mould",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.zooknock",
+    "end_location_id": "location.mm.zooknock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.take_mould"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gold_bar",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_monkey_dentures",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_mamulet_mould",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.gold_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.mm_monkey_dentures",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm_enchanted_gold_bar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 43,
+      "expected_seconds": 86,
+      "max_seconds": 215
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.forge_mamulet",
+    "name": "Use the temple flame and ball of wool to make m'speak amulet",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.temple_flame",
+    "end_location_id": "location.mm.temple_flame",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.enchant_gold"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_enchanted_gold_bar",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_mamulet_mould",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ball_of_wool",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm_enchanted_gold_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ball_of_wool",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm_mamulet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.pick_bananas",
+    "name": "Pick five bananas for the monkey child",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.monkey_child",
+    "end_location_id": "location.mm.monkey_child",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.forge_mamulet"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm_banana",
+        "quantity": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.get_talisman",
+    "name": "Trade five bananas to the monkey child for a talisman",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.monkey_child",
+    "end_location_id": "location.mm.monkey_child",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.pick_bananas"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_banana",
+          "quantity": 5
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm_banana",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm_monkey_talisman",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.collect_karamja_bones",
+    "name": "Get ordinary monkey bones at Musa Point",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.musa_point.rag_monkey",
+    "end_location_id": "location.musa_point.rag_monkey",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.get_talisman"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm_karamjan_monkey_bones",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Collect bones from a regular Karamjan monkey, not an Ape Atoll guard.",
+      "if_unmet": "Retry when safe; replenish supplies before combat and do not claim success prematurely."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.create_greegree",
+    "name": "Bring talisman and bones to Zooknock for a monkey greegree",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.zooknock",
+    "end_location_id": "location.mm.zooknock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.collect_karamja_bones"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_monkey_talisman",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_karamjan_monkey_bones",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm_monkey_talisman",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.mm_karamjan_monkey_bones",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm_karamjan_greegree",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.report_disguise",
+    "name": "Speak to Garkor disguised as a Karamjan monkey",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.garkor",
+    "end_location_id": "location.mm.garkor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.create_greegree"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_karamjan_greegree",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_mamulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.audience_awowogei",
+    "name": "Request alliance with King Awowogei",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.awowogei",
+    "end_location_id": "location.mm.awowogei",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.report_disguise"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_karamjan_greegree",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_mamulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.take_zoo_monkey",
+    "name": "Collect a monkey from Ardougne Zoo",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.zoo",
+    "end_location_id": "location.mm.zoo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.audience_awowogei"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm_zoo_monkey",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.return_zoo_monkey",
+    "name": "Bring the zoo monkey to Awowogei",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.awowogei",
+    "end_location_id": "location.mm.awowogei",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.take_zoo_monkey"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_zoo_monkey",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_karamjan_greegree",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_mamulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm_zoo_monkey",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.get_sigil",
+    "name": "Collect the 10th squad sigil from Garkor",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.garkor",
+    "end_location_id": "location.mm.garkor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.return_zoo_monkey"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm_tenth_squad_sigil",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.fight_jungle_demon",
+    "name": "Teleport using the sigil and defeat the Jungle Demon",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.demon_arena",
+    "end_location_id": "location.mm.demon_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.get_sigil"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_tenth_squad_sigil",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lobster",
+          "quantity": 10
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 10
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 155,
+      "expected_seconds": 310,
+      "max_seconds": 775
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the level-195 Jungle Demon with the gnome squad.",
+      "if_unmet": "Use protection prayer, restore combat supplies and obtain a replacement sigil if lost; food consumption is estimated."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_i.complete",
+    "name": "Report success to Narnode and collect quest rewards",
+    "activity_id": "quest.monkey_madness_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.king_narnode",
+    "end_location_id": "location.grand_tree.king_narnode",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.fight_jungle_demon"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 10000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.diamond",
+        "quantity": 3
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.monkey_madness_i.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.ape_atoll",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.dragon_scimitar",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper route stage. Timing, combat and resource use are provisional."
+    }
+  },
+  {
+    "id": "claim.monkey_madness_i.daero_attack_defence",
+    "name": "Ask Daero to train attack and defence",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.mm.daero",
+    "end_location_id": "location.mm.daero",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.monkey_madness_i.daero_training_claimed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 350000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 350000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 200000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 200000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.monkey_madness_i.daero_training_claimed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Post-quest exclusive Daero training choices: 35k each in chosen pair, 20k each in other pair; never automatic at quest completion."
+    }
+  },
+  {
+    "id": "claim.monkey_madness_i.daero_strength_hitpoints",
+    "name": "Ask Daero to train strength and hitpoints",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.mm.daero",
+    "end_location_id": "location.mm.daero",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.monkey_madness_i.daero_training_claimed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 350000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 350000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 200000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 200000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.monkey_madness_i.daero_training_claimed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 20,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Post-quest exclusive Daero training choices: 35k each in chosen pair, 20k each in other pair; never automatic at quest completion."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.start",
+    "name": "Inspect frozen Awowogei at the Culinaromancer banquet",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.frozen",
+    "end_location_id": "location.awowogei.frozen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.another_cooks_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_i.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.ask_awowogei",
+    "name": "Talk to the real Awowogei about his favourite meal",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.awowogei",
+    "end_location_id": "location.mm.awowogei",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_mamulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_karamjan_greegree",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.ask_wise_monkeys",
+    "name": "Ask the three wise monkeys about Awowogei's favourite meal",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.temple_monkeys",
+    "end_location_id": "location.awowogei.temple_monkeys",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.ask_awowogei"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_mamulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_karamjan_greegree",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.collect_banana_nuts",
+    "name": "Acquire an ordinary banana and monkey nuts to sample",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.temple_monkeys",
+    "end_location_id": "location.awowogei.temple_monkeys",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.ask_wise_monkeys"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_banana",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rfd_monkey_nuts",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordinary banana from garden and nuts from Solihib's stall; local purchases/costs to confirm."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.show_banana_nuts",
+    "name": "Show basic banana and nuts to the three monkeys",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.temple_monkeys",
+    "end_location_id": "location.awowogei.temple_monkeys",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.collect_banana_nuts"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_banana",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_monkey_nuts",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd_banana",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd_monkey_nuts",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 140
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Three monkeys reject ordinary ingredients and request sliced red banana and Tchiki nut paste."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.buy_talismans",
+    "name": "Purchase three monkey talismans from Tutab",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.tutab",
+    "end_location_id": "location.awowogei.tutab",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.show_banana_nuts"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 3000
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 3000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_monkey_talisman",
+        "quantity": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.defeat_monkey_guard",
+    "name": "Defeat a monkey guard to obtain gorilla bones",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.monkey_guard",
+    "end_location_id": "location.awowogei.monkey_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.buy_talismans"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_gorilla_bones",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 75,
+      "expected_seconds": 150,
+      "max_seconds": 375
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    },
+    "planned_outcome": {
+      "success_condition": "One gorilla/guard bone set is collected.",
+      "if_unmet": "Replenish or re-acquire lost ingredients and retry before advancing."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.defeat_ninja",
+    "name": "Defeat a ninja monkey and collect its bones",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.ninja",
+    "end_location_id": "location.awowogei.ninja",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.defeat_monkey_guard"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_ninja_bones",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 64,
+      "expected_seconds": 128,
+      "max_seconds": 320
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    },
+    "planned_outcome": {
+      "success_condition": "One ninja monkey bone set is collected.",
+      "if_unmet": "Replenish or re-acquire lost ingredients and retry before advancing."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.defeat_zombie",
+    "name": "Defeat a zombie monkey below the temple for bones",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.zombie",
+    "end_location_id": "location.awowogei.zombie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.defeat_ninja"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_zombie_bones",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 78,
+      "expected_seconds": 156,
+      "max_seconds": 390
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    },
+    "planned_outcome": {
+      "success_condition": "One zombie monkey bone set is collected.",
+      "if_unmet": "Replenish or re-acquire lost ingredients and retry before advancing."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.make_three_greegrees",
+    "name": "Have Zooknock make gorilla, ninja and zombie greegrees",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm.zooknock",
+    "end_location_id": "location.mm.zooknock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.defeat_zombie"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_monkey_talisman",
+          "quantity": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_gorilla_bones",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_ninja_bones",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_zombie_bones",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd_monkey_talisman",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.rfd_gorilla_bones",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd_ninja_bones",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd_zombie_bones",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_gorilla_greegree",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rfd_ninja_greegree",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rfd_zombie_greegree",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 64,
+      "expected_seconds": 128,
+      "max_seconds": 320
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.collect_red_bananas",
+    "name": "Cross the rope swing and slice a red banana",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.red_banana",
+    "end_location_id": "location.awowogei.red_banana",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.make_three_greegrees"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 48,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_red_banana_slices",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 66,
+      "expected_seconds": 132,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully cross and slice a red banana; extra attempts possible if lost.",
+      "if_unmet": "Replenish or re-acquire lost ingredients and retry before advancing."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.collect_tchiki_nuts",
+    "name": "Enter agility course and pick Tchiki nuts",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.nut_hole",
+    "end_location_id": "location.awowogei.nut_hole",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.collect_red_bananas"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_ninja_greegree",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_tchiki_nuts",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.grind_tchiki_paste",
+    "name": "Grind the Tchiki nuts with pestle and mortar",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.nut_hole",
+    "end_location_id": "location.awowogei.nut_hole",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.collect_tchiki_nuts"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_tchiki_nuts",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd_tchiki_nuts",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_tchiki_paste",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.enter_big_snake_cave",
+    "name": "Lower rope and climb into Crash Island snake hole",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.snake_cave",
+    "end_location_id": "location.awowogei.snake_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.grind_tchiki_paste"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.defeat_big_snake",
+    "name": "Kill level-84 Big Snake for its corpse",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.snake_cave",
+    "end_location_id": "location.awowogei.snake_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.enter_big_snake_cave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_snake_corpse",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 100,
+      "expected_seconds": 200,
+      "max_seconds": 500
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    },
+    "planned_outcome": {
+      "success_condition": "Obtain a Big Snake corpse; collect extras if Cooking burn risk is high.",
+      "if_unmet": "Replenish or re-acquire lost ingredients and retry before advancing."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.stuff_snake",
+    "name": "Stuff snake corpse with red banana slices and Tchiki paste",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.snake_cave",
+    "end_location_id": "location.awowogei.snake_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.defeat_big_snake"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_snake_corpse",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_red_banana_slices",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_tchiki_paste",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd_snake_corpse",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd_red_banana_slices",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd_tchiki_paste",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_raw_stuffed_snake",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.cook_stuffed_snake",
+    "name": "Cook the stuffed snake while disguised as a zombie monkey",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.coals",
+    "end_location_id": "location.awowogei.coals",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.stuff_snake"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 70,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_raw_stuffed_snake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_zombie_greegree",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd_raw_stuffed_snake",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_cooked_stuffed_snake",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD Awowogei Quest Helper route stage; modeled navigation and supplies are estimates."
+    },
+    "planned_outcome": {
+      "success_condition": "The stuffed snake is cooked, not burnt.",
+      "if_unmet": "A cooked result is probabilistic. Re-acquire another snake, red banana and nut paste, and return to the cooking rock; current route is a single successful planned attempt."
+    }
+  },
+  {
+    "id": "rfd.freeing_king_awowogei.complete",
+    "name": "Use the cooked snake on frozen Awowogei to free him",
+    "activity_id": "rfd.freeing_king_awowogei",
+    "kind": "quest_stage",
+    "start_location_id": "location.awowogei.frozen",
+    "end_location_id": "location.awowogei.frozen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.cook_stuffed_snake"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_cooked_stuffed_snake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_mamulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd_cooked_stuffed_snake",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.freeing_king_awowogei.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.ape_atoll_teleport",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.rfd.awowogei_chest",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Subquest awards one quest point, 10,000 Cooking and Agility XP, Ape Atoll Teleport spell and additional Culinaromancer chest access."
+    }
+  },
+  {
+    "id": "supply.rfd_awowogei.ge_supplies",
+    "name": "Buy rope, knife, pestle and mortar and emergency food",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 12000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 12
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 75,
+      "max_seconds": 170
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Approximate GE supply budget; multiple ropes cover snake hole and red banana tree. Combat resources uncertain."
+    }
+  }
+]

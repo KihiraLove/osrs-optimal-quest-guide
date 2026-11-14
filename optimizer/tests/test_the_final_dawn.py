@@ -26,7 +26,8 @@ class FinalDawnTests(unittest.TestCase):
         initial={**self.profile["initial_state"]}
         initial["xp_tenths"]={k:10000000 if skills else 0 for k in initial["xp_tenths"]}
         initial["completed_action_ids"]=["quest.the_heart_of_darkness.complete"] if heart else []
-        initial["flags"]={**initial["flags"],"flag.external.perilous_moons_complete":moons}
+        if moons:
+            initial["completed_action_ids"].append("quest.perilous_moons.complete")
         initial["inventory"]={**initial["inventory"],"item.coins":5000,
                               "item.beer":1}
         if bone:initial["inventory"]["item.bones"]=1
@@ -65,7 +66,7 @@ class FinalDawnTests(unittest.TestCase):
         self.assertIn(Q+".complete",snap["completed_action_ids"])
         with self.assertRaises(DataError): self.apply(state,Q+".complete")
 
-    def test_all_start_requirements_and_external_dependency(self):
+    def test_all_start_requirements_and_quest_dependencies(self):
         first=Q+".start_quest"
         for state in (self.seed(heart=False),self.seed(moons=False),self.seed(skills=False)):
             with self.assertRaises(DataError):self.apply(state,first)

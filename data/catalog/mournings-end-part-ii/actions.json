@@ -1,0 +1,5606 @@
+[
+  {
+    "id": "quest.mournings_end_part_ii.talk_to_arianwyn",
+    "name": "Ask Arianwyn to investigate the Temple of Light",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2354_3170_0",
+    "end_location_id": "location.mep2.tile_2354_3170_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_i.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "supply.mep2.buy_temple_supplies",
+    "name": "Buy a death talisman, chisel and rope before the temple",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.talk_to_arianwyn"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 70000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.death_talisman",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.chisel",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 90,
+      "expected_seconds": 180,
+      "max_seconds": 540
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.enter_mourner_hq",
+    "name": "Enter Mourner HQ wearing the complete disguise",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2551_3320_0",
+    "end_location_id": "location.mep2.tile_2551_3320_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.talk_to_arianwyn"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_gas_mask",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_clean_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_repaired_trousers",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_cloak",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.enter_mourner_basement",
+    "name": "Descend into the Mourner basement",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2542_3327_0",
+    "end_location_id": "location.mep2.tile_2542_3327_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.enter_mourner_hq"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mourner_hq_basement",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.talk_to_essyllt",
+    "name": "Receive the new tunnel key from head mourner Essyllt",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2043_4631_0",
+    "end_location_id": "location.mep2.tile_2043_4631_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.enter_mourner_basement"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep2_new_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.enter_cave",
+    "name": "Open the eastern Mourner tunnel",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2034_4636_0",
+    "end_location_id": "location.mep2.tile_2034_4636_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.talk_to_essyllt"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep2_new_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.search_corpse",
+    "name": "Search the dead elf for Edern's journal",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1925_4642_0",
+    "end_location_id": "location.mep2.tile_1925_4642_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.enter_cave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep2_ederns_journal",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_stairs_temple",
+    "name": "Navigate to the upper black crystal chamber",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1903_4639_0",
+    "end_location_id": "location.mep2.tile_1903_4639_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.search_corpse"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the indicated floor while evading shadows and surviving handholds.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_south_ladder",
+    "name": "Navigate to the upper black crystal chamber",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1894_4620_1",
+    "end_location_id": "location.mep2.tile_1894_4620_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_stairs_temple"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the indicated floor while evading shadows and surviving handholds.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_from_middle_to_north",
+    "name": "Navigate to the upper black crystal chamber",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1891_4642_1",
+    "end_location_id": "location.mep2.tile_1891_4642_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_south_ladder"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the indicated floor while evading shadows and surviving handholds.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_to_middle_from_south",
+    "name": "Navigate to the upper black crystal chamber",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1891_4636_2",
+    "end_location_id": "location.mep2.tile_1891_4636_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_from_middle_to_north"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the indicated floor while evading shadows and surviving handholds.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.use_chisel",
+    "name": "Chisel a shard from the dark crystal",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4639_2",
+    "end_location_id": "location.mep2.tile_1909_4639_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_to_middle_from_south"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep2_blackened_crystal",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep2_black_crystal_sampled",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_from_middle_to_south",
+    "name": "Descend through the southern temple route",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1891_4636_1",
+    "end_location_id": "location.mep2.tile_1891_4636_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.use_chisel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_to_end",
+    "name": "Descend through the southern temple route",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1888_4639_1",
+    "end_location_id": "location.mep2.tile_1888_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_from_middle_to_south"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.use_rope",
+    "name": "Secure a rope to the rocks for the lower shortcut",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1876_4620_1",
+    "end_location_id": "location.mep2.tile_1876_4620_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_to_end"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.bring_crystal_to_arianwyn",
+    "name": "Report the black crystal shard to Arianwyn",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2354_3170_0",
+    "end_location_id": "location.mep2.tile_2354_3170_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.use_rope"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep2_blackened_crystal",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.talk_to_eluned_after_giving_crystal",
+    "name": "Give the blackened shard to Eluned for repair",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2354_3169_0",
+    "end_location_id": "location.mep2.tile_2354_3169_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.bring_crystal_to_arianwyn"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep2_blackened_crystal",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep2_newly_made_crystal",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.talk_to_arianwyn_after_giving_crystal",
+    "name": "Ask Arianwyn to explain the Death Altar charging task",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2354_3170_0",
+    "end_location_id": "location.mep2.tile_2354_3170_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.talk_to_eluned_after_giving_crystal"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep2_newly_made_crystal",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_back_into_mourner_hq",
+    "name": "Re-enter Mourner HQ with the disguise",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2551_3320_0",
+    "end_location_id": "location.mep2.tile_2551_3320_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.talk_to_arianwyn_after_giving_crystal"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_gas_mask",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_clean_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_repaired_trousers",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep1_mourner_cloak",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_back_into_mourner_basement",
+    "name": "Descend to the reopened tunnel",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2542_3327_0",
+    "end_location_id": "location.mep2.tile_2542_3327_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_back_into_mourner_hq"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep2_new_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_back_into_mourner_cave",
+    "name": "Use the Mourner tunnel to reach the temple",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2034_4636_0",
+    "end_location_id": "location.mep2.tile_2034_4636_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_back_into_mourner_basement"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.enter_temple_of_light",
+    "name": "Enter the Temple of Light with the repaired crystal",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1907_4640_0",
+    "end_location_id": "location.mep2.tile_1907_4640_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_back_into_mourner_cave"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep2_newly_made_crystal",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep2_temple_access",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_stairs_temple_c1",
+    "name": "Climb to the main mirror dispenser",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1903_4639_0",
+    "end_location_id": "location.mep2.tile_1903_4639_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.enter_temple_of_light"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.pull_dispenser1",
+    "name": "Reset dispenser for Temple of Light puzzle 1",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1913_4639_1",
+    "end_location_id": "location.mep2.tile_1913_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_stairs_temple_c1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep2_yellow_crystal",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Collect and organise the available hand mirrors and crystals before setting this light route.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle1_pillar1",
+    "name": "Puzzle 1: Align the light at pillar 1",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4639_1",
+    "end_location_id": "location.mep2.tile_1909_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.pull_dispenser1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle1_pillar2",
+    "name": "Puzzle 1: Align the light at pillar 2",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4650_1",
+    "end_location_id": "location.mep2.tile_1909_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle1_pillar1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle1_pillar3",
+    "name": "Puzzle 1: Align the light at pillar 3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4650_1",
+    "end_location_id": "location.mep2.tile_1898_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle1_pillar2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle1_pillar4",
+    "name": "Puzzle 1: Align the light at pillar 4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4628_1",
+    "end_location_id": "location.mep2.tile_1898_4628_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle1_pillar3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle1_pillar5",
+    "name": "Puzzle 1: Align the light at pillar 5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4613_1",
+    "end_location_id": "location.mep2.tile_1898_4613_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle1_pillar4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.climb_wall_support",
+    "name": "Puzzle 1: Climb wall support",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1902_4612_1",
+    "end_location_id": "location.mep2.tile_1902_4612_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle1_pillar5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.search_blue_chest",
+    "name": "Open the blue chamber chest in puzzle 1",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1917_4613_1",
+    "end_location_id": "location.mep2.tile_1917_4613_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.climb_wall_support"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep2_cyan_crystal",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep2_puzzle_1",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "The blue light barrier is unlocked and the chest contents are collected.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.pull_dispenser2",
+    "name": "Reset dispenser for Temple of Light puzzle 2",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1913_4639_1",
+    "end_location_id": "location.mep2.tile_1913_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.search_blue_chest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Collect and organise the available hand mirrors and crystals before setting this light route.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle2_pillar1",
+    "name": "Puzzle 2: Align the light at pillar 1",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4639_1",
+    "end_location_id": "location.mep2.tile_1909_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.pull_dispenser2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle2_pillar2",
+    "name": "Puzzle 2: Align the light at pillar 2",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4650_1",
+    "end_location_id": "location.mep2.tile_1909_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle2_pillar1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle2_pillar3",
+    "name": "Puzzle 2: Align the light at pillar 3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4650_1",
+    "end_location_id": "location.mep2.tile_1898_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle2_pillar2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle2_pillar4",
+    "name": "Puzzle 2: Align the light at pillar 4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1887_4650_1",
+    "end_location_id": "location.mep2.tile_1887_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle2_pillar3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle2_pillar5",
+    "name": "Puzzle 2: Align the light at pillar 5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1887_4665_1",
+    "end_location_id": "location.mep2.tile_1887_4665_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle2_pillar4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle2_pillar6",
+    "name": "Puzzle 2: Align the light at pillar 6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4665_1",
+    "end_location_id": "location.mep2.tile_1898_4665_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle2_pillar5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.search_magenta_chest",
+    "name": "Open the magenta chamber chest in puzzle 2",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1917_4665_1",
+    "end_location_id": "location.mep2.tile_1917_4665_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle2_pillar6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep2_puzzle_2",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "The magenta light barrier is unlocked and the chest contents are collected.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.pull_dispenser3",
+    "name": "Reset dispenser for Temple of Light puzzle 3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1913_4639_1",
+    "end_location_id": "location.mep2.tile_1913_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.search_magenta_chest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Collect and organise the available hand mirrors and crystals before setting this light route.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle3_pillar1",
+    "name": "Puzzle 3: Align the light at pillar 1",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4639_1",
+    "end_location_id": "location.mep2.tile_1909_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.pull_dispenser3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle3_pillar2",
+    "name": "Puzzle 3: Align the light at pillar 2",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4650_1",
+    "end_location_id": "location.mep2.tile_1909_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle3_pillar1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle3_pillar3",
+    "name": "Puzzle 3: Align the light at pillar 3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4650_1",
+    "end_location_id": "location.mep2.tile_1898_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle3_pillar2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle3_pillar4",
+    "name": "Puzzle 3: Align the light at pillar 4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1887_4650_1",
+    "end_location_id": "location.mep2.tile_1887_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle3_pillar3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle3_pillar5",
+    "name": "Puzzle 3: Align the light at pillar 5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1887_4665_1",
+    "end_location_id": "location.mep2.tile_1887_4665_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle3_pillar4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle3_pillar6",
+    "name": "Puzzle 3: Align the light at pillar 6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4665_1",
+    "end_location_id": "location.mep2.tile_1898_4665_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle3_pillar5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle3_pillar6_remove_yellow",
+    "name": "Puzzle 3: Remove the crystal/mirror",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4665_1",
+    "end_location_id": "location.mep2.tile_1898_4665_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle3_pillar6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_ladder_north_for_puzzle3",
+    "name": "Puzzle 3: Go up ladder north for puzzle3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4668_1",
+    "end_location_id": "location.mep2.tile_1898_4668_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle3_pillar6_remove_yellow"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle3_pillar7",
+    "name": "Puzzle 3: Align the light at pillar 7",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4665_2",
+    "end_location_id": "location.mep2.tile_1898_4665_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_ladder_north_for_puzzle3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_from_f2_north_room_puzzle3",
+    "name": "Puzzle 3: Go down from f2 north room puzzle3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4668_2",
+    "end_location_id": "location.mep2.tile_1898_4668_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle3_pillar7"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_to_floor2_puzzle3",
+    "name": "Puzzle 3: Go up to floor2 puzzle3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1894_4620_1",
+    "end_location_id": "location.mep2.tile_1894_4620_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_from_f2_north_room_puzzle3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle3_pillar8",
+    "name": "Puzzle 3: Align the light at pillar 8",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1860_4665_2",
+    "end_location_id": "location.mep2.tile_1860_4665_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_to_floor2_puzzle3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_from_f2_puzzle3",
+    "name": "Puzzle 3: Go down from f2 puzzle3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1894_4620_2",
+    "end_location_id": "location.mep2.tile_1894_4620_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle3_pillar8"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_from_f1_puzzle3",
+    "name": "Puzzle 3: Go down from f1 puzzle3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1903_4639_1",
+    "end_location_id": "location.mep2.tile_1903_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_from_f2_puzzle3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.enter_north_west_room_puzzle3",
+    "name": "Puzzle 3: Enter north west room puzzle3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1863_4665_0",
+    "end_location_id": "location.mep2.tile_1863_4665_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_from_f1_puzzle3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle3_pillar9",
+    "name": "Puzzle 3: Align the light at pillar 9",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1860_4665_0",
+    "end_location_id": "location.mep2.tile_1860_4665_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.enter_north_west_room_puzzle3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.search_yellow_chest",
+    "name": "Open the yellow chamber chest in puzzle 3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1880_4659_0",
+    "end_location_id": "location.mep2.tile_1880_4659_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle3_pillar9"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep2_fractured_prism",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep2_puzzle_3",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "The yellow light barrier is unlocked and the chest contents are collected.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.yellow_room_rotate_to_leave",
+    "name": "Puzzle 3: Yellow room rotate to leave",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1860_4665_0",
+    "end_location_id": "location.mep2.tile_1860_4665_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.search_yellow_chest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_to_first_floor_puzzle4",
+    "name": "Puzzle 4: Go up to first floor puzzle4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1903_4639_0",
+    "end_location_id": "location.mep2.tile_1903_4639_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.yellow_room_rotate_to_leave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.pull_dispenser4",
+    "name": "Reset dispenser for Temple of Light puzzle 4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1913_4639_1",
+    "end_location_id": "location.mep2.tile_1913_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_to_first_floor_puzzle4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Collect and organise the available hand mirrors and crystals before setting this light route.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle4_pillar1",
+    "name": "Puzzle 4: Align the light at pillar 1",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4639_1",
+    "end_location_id": "location.mep2.tile_1909_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.pull_dispenser4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle4_pillar2",
+    "name": "Puzzle 4: Align the light at pillar 2",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4650_1",
+    "end_location_id": "location.mep2.tile_1909_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle4_pillar1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle4_pillar3_remove_cyan",
+    "name": "Puzzle 4: Remove the crystal/mirror",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4650_1",
+    "end_location_id": "location.mep2.tile_1898_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle4_pillar2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle4_pillar3",
+    "name": "Puzzle 4: Align the light at pillar 3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4650_1",
+    "end_location_id": "location.mep2.tile_1898_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle4_pillar3_remove_cyan"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep2_cyan_crystal",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle4_pillar4",
+    "name": "Puzzle 4: Align the light at pillar 4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1887_4650_1",
+    "end_location_id": "location.mep2.tile_1887_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle4_pillar3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle4_pillar5",
+    "name": "Puzzle 4: Align the light at pillar 5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1887_4665_1",
+    "end_location_id": "location.mep2.tile_1887_4665_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle4_pillar4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle4_pillar6",
+    "name": "Puzzle 4: Align the light at pillar 6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4665_1",
+    "end_location_id": "location.mep2.tile_1898_4665_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle4_pillar5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_ladder_north_for_puzzle4",
+    "name": "Puzzle 4: Go up ladder north for puzzle4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4668_1",
+    "end_location_id": "location.mep2.tile_1898_4668_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle4_pillar6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle4_pillar7",
+    "name": "Puzzle 4: Align the light at pillar 7",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4665_2",
+    "end_location_id": "location.mep2.tile_1898_4665_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_ladder_north_for_puzzle4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_from_f2_north_room_puzzle4",
+    "name": "Puzzle 4: Go down from f2 north room puzzle4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4668_2",
+    "end_location_id": "location.mep2.tile_1898_4668_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle4_pillar7"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_to_floor2_puzzle4",
+    "name": "Puzzle 4: Go up to floor2 puzzle4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1894_4620_1",
+    "end_location_id": "location.mep2.tile_1894_4620_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_from_f2_north_room_puzzle4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle4_pillar8",
+    "name": "Puzzle 4: Align the light at pillar 8",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1860_4665_2",
+    "end_location_id": "location.mep2.tile_1860_4665_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_to_floor2_puzzle4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle4_pillar9",
+    "name": "Puzzle 4: Align the light at pillar 9",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1860_4613_2",
+    "end_location_id": "location.mep2.tile_1860_4613_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle4_pillar8"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.remove_mirror_puzzle4",
+    "name": "Puzzle 4: Remove mirror puzzle4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1860_4639_2",
+    "end_location_id": "location.mep2.tile_1860_4639_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle4_pillar9"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_from_f2_puzzle4",
+    "name": "Puzzle 4: Go down from f2 puzzle4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1894_4620_2",
+    "end_location_id": "location.mep2.tile_1894_4620_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.remove_mirror_puzzle4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_rope",
+    "name": "Puzzle 4: Go down rope",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1876_4620_1",
+    "end_location_id": "location.mep2.tile_1876_4620_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_from_f2_puzzle4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.search_cyan_chest",
+    "name": "Open the cyan chamber chest in puzzle 4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1858_4613_0",
+    "end_location_id": "location.mep2.tile_1858_4613_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_rope"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep2_blue_crystal",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep2_puzzle_4",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "The cyan light barrier is unlocked and the chest contents are collected.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_to_ground_floor_puzzle4",
+    "name": "Puzzle 4: Go to ground floor puzzle4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1903_4639_1",
+    "end_location_id": "location.mep2.tile_1903_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.search_cyan_chest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.enter_cyan_door",
+    "name": "Puzzle 4: Enter cyan door",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1863_4613_0",
+    "end_location_id": "location.mep2.tile_1863_4613_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_to_ground_floor_puzzle4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.climb_up_rope",
+    "name": "Puzzle 4: Climb up rope",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1877_4620_0",
+    "end_location_id": "location.mep2.tile_1877_4620_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.enter_cyan_door"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.pull_dispenser5",
+    "name": "Reset dispenser for Temple of Light puzzle 5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1913_4639_1",
+    "end_location_id": "location.mep2.tile_1913_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.climb_up_rope"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Collect and organise the available hand mirrors and crystals before setting this light route.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar1",
+    "name": "Puzzle 5: Align the light at pillar 1",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4639_1",
+    "end_location_id": "location.mep2.tile_1909_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.pull_dispenser5"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep2_blue_crystal",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar2",
+    "name": "Puzzle 5: Align the light at pillar 2",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4650_1",
+    "end_location_id": "location.mep2.tile_1909_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar3",
+    "name": "Puzzle 5: Align the light at pillar 3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4650_1",
+    "end_location_id": "location.mep2.tile_1898_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar4",
+    "name": "Puzzle 5: Align the light at pillar 4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4628_1",
+    "end_location_id": "location.mep2.tile_1898_4628_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar5",
+    "name": "Puzzle 5: Align the light at pillar 5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4613_1",
+    "end_location_id": "location.mep2.tile_1898_4613_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.climb_wall_support_puzzle5",
+    "name": "Puzzle 5: Climb wall support puzzle5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1902_4612_1",
+    "end_location_id": "location.mep2.tile_1902_4612_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar6",
+    "name": "Puzzle 5: Align the light at pillar 6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1915_4613_1",
+    "end_location_id": "location.mep2.tile_1915_4613_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.climb_wall_support_puzzle5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar5_remove_mirror",
+    "name": "Puzzle 5: Remove the crystal/mirror",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4613_1",
+    "end_location_id": "location.mep2.tile_1898_4613_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar3_rotate_up",
+    "name": "Puzzle 5: Rotate the inserted mirror",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4650_1",
+    "end_location_id": "location.mep2.tile_1898_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar5_remove_mirror"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_to_floor2_puzzle5",
+    "name": "Puzzle 5: Go up to floor2 puzzle5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1894_4620_1",
+    "end_location_id": "location.mep2.tile_1894_4620_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar3_rotate_up"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_to_middle_from_south_puzzle5",
+    "name": "Puzzle 5: Go down to middle from south puzzle5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1891_4636_2",
+    "end_location_id": "location.mep2.tile_1891_4636_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_to_floor2_puzzle5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_from_middle_to_north_puzzle5",
+    "name": "Puzzle 5: Go up from middle to north puzzle5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1891_4642_1",
+    "end_location_id": "location.mep2.tile_1891_4642_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_to_middle_from_south_puzzle5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar7",
+    "name": "Puzzle 5: Align the light at pillar 7",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4650_2",
+    "end_location_id": "location.mep2.tile_1898_4650_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_from_middle_to_north_puzzle5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_to_middle_from_north_puzzle5",
+    "name": "Puzzle 5: Go down to middle from north puzzle5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1891_4642_2",
+    "end_location_id": "location.mep2.tile_1891_4642_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar7"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_from_middle_to_south_puzzle5",
+    "name": "Puzzle 5: Go up from middle to south puzzle5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1891_4636_1",
+    "end_location_id": "location.mep2.tile_1891_4636_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_to_middle_from_north_puzzle5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar8",
+    "name": "Puzzle 5: Align the light at pillar 8",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4628_2",
+    "end_location_id": "location.mep2.tile_1898_4628_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_from_middle_to_south_puzzle5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar9",
+    "name": "Puzzle 5: Align the light at pillar 9",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1887_4628_2",
+    "end_location_id": "location.mep2.tile_1887_4628_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar8"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar10",
+    "name": "Puzzle 5: Align the light at pillar 10",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4613_2",
+    "end_location_id": "location.mep2.tile_1898_4613_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar9"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar11",
+    "name": "Puzzle 5: Align the light at pillar 11",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1915_4613_2",
+    "end_location_id": "location.mep2.tile_1915_4613_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar10"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_from_f2_puzzle5",
+    "name": "Puzzle 5: Go down from f2 puzzle5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1894_4620_2",
+    "end_location_id": "location.mep2.tile_1894_4620_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar11"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_from_f1_puzzle5",
+    "name": "Puzzle 5: Go down from f1 puzzle5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1903_4639_1",
+    "end_location_id": "location.mep2.tile_1903_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_from_f2_puzzle5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar12",
+    "name": "Puzzle 5: Align the light at pillar 12",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1887_4628_0",
+    "end_location_id": "location.mep2.tile_1887_4628_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_from_f1_puzzle5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar13",
+    "name": "Puzzle 5: Align the light at pillar 13",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1887_4613_0",
+    "end_location_id": "location.mep2.tile_1887_4613_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar12"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle5_pillar14",
+    "name": "Puzzle 5: Align the light at pillar 14",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1915_4613_0",
+    "end_location_id": "location.mep2.tile_1915_4613_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar13"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.search_magenta_yellow_chest",
+    "name": "Open the magenta-yellow chamber chest in puzzle 5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1910_4622_0",
+    "end_location_id": "location.mep2.tile_1910_4622_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle5_pillar14"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep2_puzzle_5",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "The magenta-yellow light barrier is unlocked and the chest contents are collected.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.pull_dispenser6",
+    "name": "Reset dispenser for Temple of Light puzzle 6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1913_4639_1",
+    "end_location_id": "location.mep2.tile_1913_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.search_magenta_yellow_chest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Collect and organise the available hand mirrors and crystals before setting this light route.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar1",
+    "name": "Puzzle 6: Align the light at pillar 1",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4639_1",
+    "end_location_id": "location.mep2.tile_1909_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.pull_dispenser6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar2",
+    "name": "Puzzle 6: Align the light at pillar 2",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4650_1",
+    "end_location_id": "location.mep2.tile_1909_4650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_from_f1_puzzle6",
+    "name": "Puzzle 6: Go down from f1 puzzle6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1903_4639_1",
+    "end_location_id": "location.mep2.tile_1903_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar3",
+    "name": "Puzzle 6: Align the light at pillar 3",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4650_0",
+    "end_location_id": "location.mep2.tile_1909_4650_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_from_f1_puzzle6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar4",
+    "name": "Puzzle 6: Align the light at pillar 4",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4650_0",
+    "end_location_id": "location.mep2.tile_1898_4650_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar5",
+    "name": "Puzzle 6: Align the light at pillar 5",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4665_0",
+    "end_location_id": "location.mep2.tile_1898_4665_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar6",
+    "name": "Puzzle 6: Align the light at pillar 6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4628_0",
+    "end_location_id": "location.mep2.tile_1898_4628_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar7",
+    "name": "Puzzle 6: Align the light at pillar 7",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1887_4628_0",
+    "end_location_id": "location.mep2.tile_1887_4628_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar8",
+    "name": "Puzzle 6: Align the light at pillar 8",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4628_0",
+    "end_location_id": "location.mep2.tile_1909_4628_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar7"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_to_f1_puzzle6",
+    "name": "Puzzle 6: Go up to f1 puzzle6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1903_4639_0",
+    "end_location_id": "location.mep2.tile_1903_4639_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar8"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar9",
+    "name": "Puzzle 6: Align the light at pillar 9",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4665_1",
+    "end_location_id": "location.mep2.tile_1898_4665_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_to_f1_puzzle6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_north_ladder_to_f2_puzzle6",
+    "name": "Puzzle 6: Go up north ladder to f2 puzzle6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4668_1",
+    "end_location_id": "location.mep2.tile_1898_4668_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar9"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar10",
+    "name": "Puzzle 6: Align the light at pillar 10",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4665_2",
+    "end_location_id": "location.mep2.tile_1898_4665_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_north_ladder_to_f2_puzzle6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_north_ladder_to_f1_puzzle6",
+    "name": "Puzzle 6: Go down north ladder to f1 puzzle6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4668_2",
+    "end_location_id": "location.mep2.tile_1898_4668_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar10"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_to_floor2_puzzle6",
+    "name": "Puzzle 6: Go up to floor2 puzzle6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1894_4620_1",
+    "end_location_id": "location.mep2.tile_1894_4620_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_north_ladder_to_f1_puzzle6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar11",
+    "name": "Puzzle 6: Align the light at pillar 11",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1887_4628_2",
+    "end_location_id": "location.mep2.tile_1887_4628_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_to_floor2_puzzle6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar12",
+    "name": "Puzzle 6: Align the light at pillar 12",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4628_2",
+    "end_location_id": "location.mep2.tile_1909_4628_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar11"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar13",
+    "name": "Puzzle 6: Align the light at pillar 13",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4628_2",
+    "end_location_id": "location.mep2.tile_1898_4628_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar12"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_to_middle_from_south_puzzle6",
+    "name": "Puzzle 6: Go down to middle from south puzzle6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1891_4636_2",
+    "end_location_id": "location.mep2.tile_1891_4636_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar13"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_from_middle_to_north_puzzle6",
+    "name": "Puzzle 6: Go up from middle to north puzzle6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1891_4642_1",
+    "end_location_id": "location.mep2.tile_1891_4642_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_to_middle_from_south_puzzle6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar14",
+    "name": "Puzzle 6: Align the light at pillar 14",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1898_4650_2",
+    "end_location_id": "location.mep2.tile_1898_4650_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_from_middle_to_north_puzzle6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar15",
+    "name": "Puzzle 6: Align the light at pillar 15",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1887_4650_2",
+    "end_location_id": "location.mep2.tile_1887_4650_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar14"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar16",
+    "name": "Puzzle 6: Align the light at pillar 16",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1860_4665_2",
+    "end_location_id": "location.mep2.tile_1860_4665_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar15"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.puzzle6_pillar17",
+    "name": "Puzzle 6: Align the light at pillar 17",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1860_4639_2",
+    "end_location_id": "location.mep2.tile_1860_4639_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar16"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep2_fractured_prism",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Mirror and crystal orientations agree with the next beam in the Temple of Light solution.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_to_middle_from_north_puzzle6",
+    "name": "Puzzle 6: Go down to middle from north puzzle6",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1891_4636_2",
+    "end_location_id": "location.mep2.tile_1891_4636_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.puzzle6_pillar17"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_down_to_centre",
+    "name": "Puzzle 6: Go down to centre",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1888_4639_1",
+    "end_location_id": "location.mep2.tile_1888_4639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_to_middle_from_north_puzzle6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "Traverse the indicated floor/door/handholds safely and retain required mirrors.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.turn_key_mirror",
+    "name": "Turn the final key mirror toward the black barrier",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1881_4639_0",
+    "end_location_id": "location.mep2.tile_1881_4639_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_down_to_centre"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep2_final_light_route",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "The black light barrier is open after six puzzle solutions.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.enter_death_altar_barrier",
+    "name": "Open the Death Altar barrier with a talisman or tiara",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1865_4639_0",
+    "end_location_id": "location.mep2.tile_1865_4639_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.turn_key_mirror"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.death_talisman",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.death_tiara",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.catalytic_talisman",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.catalytic_tiara",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mep2_final_light_route",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep2_death_altar_access",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.enter_death_altar",
+    "name": "Enter the Death Altar chamber",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1860_4639_0",
+    "end_location_id": "location.mep2.tile_1860_4639_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.enter_death_altar_barrier"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mep2_death_altar_access",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.use_crystal_on_altar",
+    "name": "Charge Eluned's crystal on the Death Altar",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2205_4836_0",
+    "end_location_id": "location.mep2.tile_2205_4836_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.enter_death_altar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep2_newly_made_crystal",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.death_talisman",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.death_tiara",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.catalytic_talisman",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.catalytic_tiara",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep2_newly_made_crystal",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mep2_charged_crystal",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep2_crystal_charged",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.leave_death_altar",
+    "name": "Leave the Death Altar for the Temple of Light",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2208_4829_0",
+    "end_location_id": "location.mep2.tile_2208_4829_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.use_crystal_on_altar"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.turn_pillar_from_temple",
+    "name": "Rotate the key pillar for the return beam",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1881_4639_0",
+    "end_location_id": "location.mep2.tile_1881_4639_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.leave_death_altar"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_from_centre",
+    "name": "Ascend from the central Temple chamber",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1888_4639_0",
+    "end_location_id": "location.mep2.tile_1888_4639_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.turn_pillar_from_temple"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.go_up_to_north_to_charge",
+    "name": "Reach the northern upper crystal chamber",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1891_4642_1",
+    "end_location_id": "location.mep2.tile_1891_4642_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_from_centre"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.use_crystal_on_crystal",
+    "name": "Use the charged crystal on the original black crystal",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_1909_4639_2",
+    "end_location_id": "location.mep2.tile_1909_4639_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.go_up_to_north_to_charge"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep2_charged_crystal",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mep2_crystal_charged",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mep2_charged_crystal",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep2_temple_sealed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    },
+    "planned_outcome": {
+      "success_condition": "The large black crystal is reactivated and the temple sealed.",
+      "if_unmet": "Recheck light alignment, health or inventory; reset this puzzle if needed before proceeding."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.return_to_arianwyn",
+    "name": "Return to Arianwyn in Lletya with the good news",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2354_3170_0",
+    "end_location_id": "location.mep2.tile_2354_3170_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.use_crystal_on_crystal"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mep2_temple_sealed",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  },
+  {
+    "id": "quest.mournings_end_part_ii.complete",
+    "name": "Complete Mourning's End Part II with Arianwyn",
+    "activity_id": "quest.mournings_end_part_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mep2.tile_2354_3170_0",
+    "end_location_id": "location.mep2.tile_2354_3170_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mournings_end_part_ii.return_to_arianwyn"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mep2_ederns_journal",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 600000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mep2_mourning_crystal_trinket",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep2_complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mep2_dark_beasts",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Stage ordered by pinned Quest Helper waypoints; interaction details, success and duration need review."
+    }
+  }
+]

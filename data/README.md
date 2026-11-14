@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.54.0` loads 24 skill tables and
-2,609 draft actions across 165 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.55.0` loads 24 skill tables and
+3,959 draft actions across 190 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -345,10 +345,8 @@ records the Weiss stealth and water cave route, coffin and apothecary supply
 chain for Making Friends with My Arm and the shield, geyser, basilisk defence,
 Isle of Stone and Jormungand sequence for The Fremennik Exiles. Two complete
 seeded routes test fixed rewards, staged supplies, directed exits, combat
-success and duplicate completion prevention. My Arm's Big Adventure, Cold War
-and Heroes' Quest are implemented on a separate, unmerged PR: this branch
-preserves their three mandatory gates as explicitly seeded external flags.
-An integrator must replace those flags with the upstream completion actions.
+success and duplicate completion prevention. The routes check completion of
+My Arm's Big Adventure, Cold War and Heroes' Quest where required.
 
 The [Arrav and Varrock sequel review](raw/build-242/arrav-varrock-sequels-review.json)
 records Defender of Varrock's Elias search, Zemouregal base, Camdozaal forge,

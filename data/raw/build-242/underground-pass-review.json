@@ -1,0 +1,48 @@
+{
+  "activity_id": "quest.underground_pass",
+  "game_revision": "osrs-live-242-2026-11-11",
+  "as_of": "2026-11-14",
+  "status": "collected_draft_requires_independent_review",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.project.early_quest_timing"
+  ],
+  "quest_helper_file": "src/main/java/com/questhelper/helpers/quests/undergroundpass/UndergroundPass.java",
+  "prerequisites": [
+    "Biohazard completed",
+    "25 Ranged, not boostable"
+  ],
+  "stages": [
+    "King Lathas, West Ardougne gate, Koftik and tunnel entrance",
+    "Rockslides, cloth and burning bridge arrow, fall recovery and plank crossing",
+    "Five floor traps, three plank-rock obstacles, four light orbs and furnace",
+    "Prison lock, mud tunnel, ledge, pipe, trapped unicorn, railing and horn",
+    "Jerro, Harry and Carl badges, four offerings to the well, Iban door",
+    "Dwarf conversation, Kardia's cat and Iban doll, three demons and shadow chest",
+    "Dwarf brew and burnt tomb, Kalrag blood, caged dove, disciple and temple effigy",
+    "Return to Koftik and King Lathas"
+  ],
+  "supply_observations": {
+    "initial": "Trade-enabled GE purchase is modeled as two ropes, shortbow, twenty bronze arrows, spade, tinderbox and twenty-five lobsters, consuming a provisional 60,000 coins.",
+    "in_dungeon": "The plank, bucket and spare tinderbox are found along the dungeon route, with named producers. Quest badges, shadow, ashes, blood and dove are obtained in their own stages.",
+    "failure": "Planned-success gates record agility traps, paladins/demons, Kalrag and Iban. Failure should lead to recovery/restocking before the next stage. One fall-recovery action is optional rather than mandatory."
+  },
+  "completion": {
+    "quest_points": 5,
+    "xp_tenths": {"skill.attack": 30000, "skill.agility": 30000},
+    "item_at_iban_well": "item.ibans_staff",
+    "flags": ["unlock.ibans_blast", "unlock.well_of_voyage"]
+  },
+  "unresolved": [
+    "Confirm the exact first orb pickup tile, stage sequence around the falling ledges and where each rockslide returns the player on failed checks.",
+    "Verify the bridge lit-arrow preparation and the availability of a fire source. The model consumes one arrow and cloth on successful firing, without inventing a retained fire arrow.",
+    "Confirm the supply/consumption requirements for every crossing, especially how many ropes are spent when avoiding repeated failures.",
+    "Review orb routes and which orbs must be carried simultaneously before the furnace. Incidental Ranged, Agility and combat XP is not included.",
+    "Check paladin amulet/badge persistence, unicorn horn sacrifice, and demon shadow chest rules on death or teleporting out.",
+    "Verify the correct names, pickup order and effect of all four Iban effigy parts; the final well action currently consumes them together.",
+    "Confirm whether Iban's staff is granted at the well versus the post-quest King Lathas dialogue, and timing of Well of Voyage access.",
+    "Verify cave-waypoint climb/return paths, world-plane differences and repeatability of source pickups; path lengths are broad estimates.",
+    "Live GE values, food use, hitpoint survival and fight feasibility need review."
+  ],
+  "integration_note": "Underground Pass unlocks an explicit prerequisite needed for Sir Amik Varze. Shilo Village and Legends' Quest start are still absent from this branch and must be incorporated before that RFD rescue."
+}

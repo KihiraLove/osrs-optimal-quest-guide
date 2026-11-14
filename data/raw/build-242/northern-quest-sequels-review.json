@@ -39,19 +39,17 @@
   "coordination": {
     "tracker_issue": "https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/20",
     "upstream_pr": "https://github.com/KihiraLove/osrs-optimal-quest-guide/pull/16",
-    "deferred_gates": {
-      "external.northern.my_arms_big_adventure": "quest.my_arms_big_adventure.complete",
-      "external.northern.cold_war": "quest.cold_war.complete",
-      "external.northern.heroes_quest": "quest.heroes_quest.complete"
-    },
-    "integration_required": "The three upstream quests are marked Added on the activity tracker but their producers live on a separate, unmerged PR. Replace these external flags with action_completed requirements after integrating PR #16. Do not interpret seeded replays as proof they can run from a fresh account before integration."
+    "upstream_completion_ids": [
+      "quest.my_arms_big_adventure.complete",
+      "quest.cold_war.complete",
+      "quest.heroes_quest.complete"
+    ]
   },
   "review_gaps": [
     "Recheck the true item counts and material consumption in both quests: kegs, mahogany materials, rope, mirror shield and shield of V construction are approximations of observed phases.",
     "Weiss travel/stealth/water-cave and Isle of Stone instance coordinates are taken from pinned helper candidate tiles; verify layer transitions, two-way escape paths and recovery conditions in game.",
-    "Sailing-to-Weiss and Isle-of-Stone eligibility must be checked against the live NPC dialogue and all unmerged prerequisite producers.",
+    "Check Sailing-to-Weiss and Isle-of-Stone eligibility against the live NPC dialogue.",
     "Combat encounters and guard patrols are planned-success estimates; verify food expenditure, equipment, NPC damage and possible death recovery.",
-    "Game-specific incidental XP, GE prices and long walking durations are not guaranteed and need live review.",
-    "The two quests are collected, not independently reviewed, and upstream gates currently need seeded flags."
+    "Verify incidental XP, Grand Exchange prices and long walking durations in game."
   ]
 }
