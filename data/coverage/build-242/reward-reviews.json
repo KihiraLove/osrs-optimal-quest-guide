@@ -6570,5 +6570,40 @@
       ]
     },
     "note": "Quest end: two quest points, 15k Magic, 10k Prayer, 50k Fishing XP, 25k GP and Piscatoris colony/monkfish access. Fishing/cooking while provisioning are variable and not credited as guaranteed XP."
+  },
+  {
+    "id": "review.quest.kings_ransom.completion_rewards",
+    "activity_id": "quest.kings_ransom",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.kings_ransom.complete"],
+    "expected_effects": {
+      "quest.kings_ransom.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "xp", "skill_id": "skill.defence", "xp_tenths": 330000},
+        {"kind": "xp", "skill_id": "skill.magic", "xp_tenths": 50000},
+        {"kind": "xp_reward", "reward_id": "reward.kings_ransom.antique_lamp", "quantity": 1},
+        {"kind": "flag", "token_id": "unlock.kings_ransom_knight_waves", "value": true}
+      ]
+    },
+    "note": "King Arthur's return grants 1 QP, 33,000 Defence and 5,000 Magic XP, one separate 5,000-XP level-50+ antique lamp and access to Knight Waves."
+  },
+  {
+    "id": "review.activity.knight_waves_training_grounds.completion",
+    "activity_id": "activity.knight_waves_training_grounds",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["activity.knight_waves_training_grounds.complete"],
+    "expected_effects": {
+      "activity.knight_waves_training_grounds.complete": [
+        {"kind": "xp", "skill_id": "skill.attack", "xp_tenths": 200000},
+        {"kind": "xp", "skill_id": "skill.strength", "xp_tenths": 200000},
+        {"kind": "xp", "skill_id": "skill.defence", "xp_tenths": 200000},
+        {"kind": "xp", "skill_id": "skill.hitpoints", "xp_tenths": 200000},
+        {"kind": "flag", "token_id": "unlock.chivalry_prayer", "value": true},
+        {"kind": "flag", "token_id": "unlock.piety_prayer", "value": true}
+      ]
+    },
+    "note": "Independent training reward after eight knight waves. No quest points; Chivalry/Piety unlocks do not bypass their 60/70 Prayer use gates."
   }
 ]

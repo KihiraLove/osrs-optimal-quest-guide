@@ -1,0 +1,1660 @@
+[
+  {
+    "id": "supply.kings_ransom.outfit_and_granite",
+    "name": "Buy King Arthur rescue disguises, granite and Telekinetic Grab runes",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 14000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.kings_black_helm",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.kings_black_body",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.kings_black_legs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.granite_5kg",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_med_helm",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_chainbody",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.air_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 90,
+      "max_seconds": 207
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated Grand Exchange purchase, not a current price quote. The grail and animate scroll are acquired during the quest."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.start",
+    "name": "Ask the Gossip why the Sinclair family has disappeared",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.gossip",
+    "end_location_id": "location.kings_ransom.gossip",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.defence",
+          "minimum_level": 65,
+          "boostable": false
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.black_knights_fortress.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.holy_grail.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.murder_mystery.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.question_guard",
+    "name": "Ask the guard about missing Sinclairs",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.sinclair_guard",
+    "end_location_id": "location.kings_ransom.sinclair_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 30,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.break_window",
+    "name": "Enter the mansion through its smashed east window",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.broken_window",
+    "end_location_id": "location.kings_ransom.broken_window",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.question_guard"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.collect_scrap",
+    "name": "Collect the fireplace scrap paper",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.dining_scrap",
+    "end_location_id": "location.kings_ransom.dining_scrap",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.break_window"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.kings_scrap_paper",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 15,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.collect_form",
+    "name": "Find the upstairs address form",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.mansion_library",
+    "end_location_id": "location.kings_ransom.mansion_library",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.collect_scrap"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.kings_address_form",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 22,
+      "max_seconds": 51
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.search_bookcase",
+    "name": "Recover the black knight helm hidden in the bookcase",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.mansion_library",
+    "end_location_id": "location.kings_ransom.mansion_library",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.collect_form"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.kings_black_knight_helm",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.deliver_evidence",
+    "name": "Give the guard all three pieces of evidence",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.sinclair_guard",
+    "end_location_id": "location.kings_ransom.sinclair_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.search_bookcase"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.kings_scrap_paper",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.kings_address_form",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.kings_black_knight_helm",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.learn_about_anna",
+    "name": "Question the Gossip about Anna's trial",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.gossip",
+    "end_location_id": "location.kings_ransom.gossip",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.deliver_evidence"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 30,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.visit_anna",
+    "name": "Find Anna Sinclair at the courthouse",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.court_anna",
+    "end_location_id": "location.kings_ransom.court_anna",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.learn_about_anna"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 30,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.begin_trial",
+    "name": "Enter Anna's courtroom and hear the charges",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.courtroom",
+    "end_location_id": "location.kings_ransom.courtroom",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.visit_anna"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 42,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.handler_poison",
+    "name": "Ask the dog handler about the poison",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.courtroom",
+    "end_location_id": "location.kings_ransom.courtroom",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.begin_trial"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 28,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.butler_dagger",
+    "name": "Ask the butler about the dagger",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.courtroom",
+    "end_location_id": "location.kings_ransom.courtroom",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.handler_poison"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 28,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.maid_night",
+    "name": "Ask the maid about the night of the murder",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.courtroom",
+    "end_location_id": "location.kings_ransom.courtroom",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.butler_dagger"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 30,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.maid_thread",
+    "name": "Establish the thread evidence and win Anna's acquittal",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.courtroom",
+    "end_location_id": "location.kings_ransom.courtroom",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.maid_night"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 40,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.return_to_anna",
+    "name": "Speak with Anna after her trial",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.court_anna",
+    "end_location_id": "location.kings_ransom.court_anna",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.maid_thread"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.enter_statue",
+    "name": "Investigate the statue to reach Camelot's magical prison",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.camelot_statue",
+    "end_location_id": "location.kings_ransom.prison_merlin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.return_to_anna"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.talk_merlin",
+    "name": "Discuss escape with Merlin in the prison",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.prison_merlin",
+    "end_location_id": "location.kings_ransom.prison_merlin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.enter_statue"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 33,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.reach_vent",
+    "name": "Reach for the vent to locate the guard's hair clip",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.prison_vent",
+    "end_location_id": "location.kings_ransom.prison_vent",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.talk_merlin"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.grab_hair_clip",
+    "name": "Cast Telekinetic Grab on the guard's hair clip",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.prison_vent",
+    "end_location_id": "location.kings_ransom.prison_vent",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.reach_vent"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 45,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.air_rune",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.law_rune",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.kings_hair_clip",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 430
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One Telekinetic Grab cast, consumes 1 air and 1 law rune and awards the base 43 Magic XP; other spell alternatives omitted."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.unlock_prison_door",
+    "name": "Solve the hair-clip tumbler lock and free Merlin",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.prison_door",
+    "end_location_id": "location.kings_ransom.prison_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.grab_hair_clip"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.kings_hair_clip",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.kings_prison_escape",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 75,
+      "max_seconds": 172
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Adjust the four tumblers and open the door; the combination and number of tries vary.",
+      "if_unmet": "Retry or prepare adequately; do not pre-credit variable outcomes, damage, or incidental XP."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.climb_prison_stairs",
+    "name": "Climb out through the lower prison stairs",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.prison_stairs",
+    "end_location_id": "location.kings_ransom.prison_stairs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.unlock_prison_door"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.climb_upper_stairs",
+    "name": "Climb the magical prison's upper stairs",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.prison_stairs_upper",
+    "end_location_id": "location.kings_ransom.prison_stairs_upper",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.climb_prison_stairs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 20,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.take_holy_grail",
+    "name": "Search the high prison table and obtain the Holy Grail",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.grail_table",
+    "end_location_id": "location.kings_ransom.camelot_statue",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.climb_upper_stairs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.holy_grail",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 42,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The quest-phase table search is modeled to obtain a new grail after the earlier Holy Grail quest consumed its grail."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.ask_cromperty",
+    "name": "Get an Animate Rock scroll from Cromperty",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.ardougne.cromperty",
+    "end_location_id": "location.ardougne.cromperty",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.take_holy_grail"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_animate_rock_scroll",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 38,
+      "max_seconds": 87
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cromperty gives another animate-rock scroll if the prior One Small Favour scroll has been spent; earlier retained inventory may vary."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.enter_fortress",
+    "name": "Sneak into the Black Knights' Fortress wearing black armour",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.black_knights_fortress.door",
+    "end_location_id": "location.black_knights_fortress.door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.ask_cromperty"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.kings_black_helm",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.kings_black_body",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.kings_black_legs",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 30,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.push_hidden_wall",
+    "name": "Push the fortress's secret interior wall",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.fortress_hidden_wall",
+    "end_location_id": "location.kings_ransom.fortress_hidden_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.enter_fortress"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 18,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.descend_fortress",
+    "name": "Descend to the imprisoned stone king",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.fortress_basement",
+    "end_location_id": "location.kings_ransom.fortress_basement",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.push_hidden_wall"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 20,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.animate_arthur",
+    "name": "Use the scroll, granite and Grail to restore King Arthur",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.fortress_arthur",
+    "end_location_id": "location.kings_ransom.fortress_arthur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.descend_fortress"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.granite_5kg",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.osf_animate_rock_scroll",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.holy_grail",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.granite_5kg",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.osf_animate_rock_scroll",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.holy_grail",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.disguise_arthur",
+    "name": "Provide bronze med helm and iron chainbody to disguise Arthur",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.kings_ransom.fortress_arthur",
+    "end_location_id": "location.kings_ransom.fortress_arthur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.animate_arthur"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bronze_med_helm",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.iron_chainbody",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 38,
+      "max_seconds": 87
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "quest.kings_ransom.complete",
+    "name": "Report to Arthur at the Camelot round table",
+    "kind": "quest_stage",
+    "activity_id": "quest.kings_ransom",
+    "start_location_id": "location.camelot.king_arthur",
+    "end_location_id": "location.camelot.king_arthur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.disguise_arthur"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 330000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.kings_ransom.antique_lamp",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.kings_ransom_knight_waves",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Completion gives 1 QP, 33,000 Defence XP, 5,000 Magic XP and a separate 5,000-XP lamp for a level-50+ skill; Knight Waves unlocks here."
+    }
+  },
+  {
+    "id": "activity.knight_waves_training_grounds.start",
+    "name": "Ask the Camelot squire to enter the Knight Waves",
+    "kind": "other",
+    "activity_id": "activity.knight_waves_training_grounds",
+    "start_location_id": "location.kings_ransom.training_squire",
+    "end_location_id": "location.kings_ransom.training_squire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.kings_ransom.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 40,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    }
+  },
+  {
+    "id": "activity.knight_waves_training_grounds.defeat_bedivere",
+    "name": "Defeat Sir Bedivere in wave 1",
+    "kind": "other",
+    "activity_id": "activity.knight_waves_training_grounds",
+    "start_location_id": "location.kings_ransom.knight_arena",
+    "end_location_id": "location.kings_ransom.knight_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "activity.knight_waves_training_grounds.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 66,
+      "expected_seconds": 110,
+      "max_seconds": 253
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Win this knight's melee fight while handling the wave's stat-reducing attacks; no fixed combat XP or food use is assumed.",
+      "if_unmet": "Retry or prepare adequately; do not pre-credit variable outcomes, damage, or incidental XP."
+    }
+  },
+  {
+    "id": "activity.knight_waves_training_grounds.defeat_pelleas",
+    "name": "Defeat Sir Pelleas in wave 2",
+    "kind": "other",
+    "activity_id": "activity.knight_waves_training_grounds",
+    "start_location_id": "location.kings_ransom.knight_arena",
+    "end_location_id": "location.kings_ransom.knight_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "activity.knight_waves_training_grounds.defeat_bedivere"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 73,
+      "expected_seconds": 122,
+      "max_seconds": 281
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Win this knight's melee fight while handling the wave's stat-reducing attacks; no fixed combat XP or food use is assumed.",
+      "if_unmet": "Retry or prepare adequately; do not pre-credit variable outcomes, damage, or incidental XP."
+    }
+  },
+  {
+    "id": "activity.knight_waves_training_grounds.defeat_tristram",
+    "name": "Defeat Sir Tristram in wave 3",
+    "kind": "other",
+    "activity_id": "activity.knight_waves_training_grounds",
+    "start_location_id": "location.kings_ransom.knight_arena",
+    "end_location_id": "location.kings_ransom.knight_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "activity.knight_waves_training_grounds.defeat_pelleas"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 80,
+      "expected_seconds": 134,
+      "max_seconds": 308
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Win this knight's melee fight while handling the wave's stat-reducing attacks; no fixed combat XP or food use is assumed.",
+      "if_unmet": "Retry or prepare adequately; do not pre-credit variable outcomes, damage, or incidental XP."
+    }
+  },
+  {
+    "id": "activity.knight_waves_training_grounds.defeat_palomedes",
+    "name": "Defeat Sir Palomedes in wave 4",
+    "kind": "other",
+    "activity_id": "activity.knight_waves_training_grounds",
+    "start_location_id": "location.kings_ransom.knight_arena",
+    "end_location_id": "location.kings_ransom.knight_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "activity.knight_waves_training_grounds.defeat_tristram"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 146,
+      "max_seconds": 336
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Win this knight's melee fight while handling the wave's stat-reducing attacks; no fixed combat XP or food use is assumed.",
+      "if_unmet": "Retry or prepare adequately; do not pre-credit variable outcomes, damage, or incidental XP."
+    }
+  },
+  {
+    "id": "activity.knight_waves_training_grounds.defeat_lucan",
+    "name": "Defeat Sir Lucan in wave 5",
+    "kind": "other",
+    "activity_id": "activity.knight_waves_training_grounds",
+    "start_location_id": "location.kings_ransom.knight_arena",
+    "end_location_id": "location.kings_ransom.knight_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "activity.knight_waves_training_grounds.defeat_palomedes"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 95,
+      "expected_seconds": 158,
+      "max_seconds": 363
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Win this knight's melee fight while handling the wave's stat-reducing attacks; no fixed combat XP or food use is assumed.",
+      "if_unmet": "Retry or prepare adequately; do not pre-credit variable outcomes, damage, or incidental XP."
+    }
+  },
+  {
+    "id": "activity.knight_waves_training_grounds.defeat_gawain",
+    "name": "Defeat Sir Gawain in wave 6",
+    "kind": "other",
+    "activity_id": "activity.knight_waves_training_grounds",
+    "start_location_id": "location.kings_ransom.knight_arena",
+    "end_location_id": "location.kings_ransom.knight_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "activity.knight_waves_training_grounds.defeat_lucan"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 102,
+      "expected_seconds": 170,
+      "max_seconds": 391
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Win this knight's melee fight while handling the wave's stat-reducing attacks; no fixed combat XP or food use is assumed.",
+      "if_unmet": "Retry or prepare adequately; do not pre-credit variable outcomes, damage, or incidental XP."
+    }
+  },
+  {
+    "id": "activity.knight_waves_training_grounds.defeat_kay",
+    "name": "Defeat Sir Kay in wave 7",
+    "kind": "other",
+    "activity_id": "activity.knight_waves_training_grounds",
+    "start_location_id": "location.kings_ransom.knight_arena",
+    "end_location_id": "location.kings_ransom.knight_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "activity.knight_waves_training_grounds.defeat_gawain"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 109,
+      "expected_seconds": 182,
+      "max_seconds": 419
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Win this knight's melee fight while handling the wave's stat-reducing attacks; no fixed combat XP or food use is assumed.",
+      "if_unmet": "Retry or prepare adequately; do not pre-credit variable outcomes, damage, or incidental XP."
+    }
+  },
+  {
+    "id": "activity.knight_waves_training_grounds.defeat_lancelot",
+    "name": "Defeat Sir Lancelot in wave 8",
+    "kind": "other",
+    "activity_id": "activity.knight_waves_training_grounds",
+    "start_location_id": "location.kings_ransom.knight_arena",
+    "end_location_id": "location.kings_ransom.knight_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "activity.knight_waves_training_grounds.defeat_kay"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 116,
+      "expected_seconds": 194,
+      "max_seconds": 446
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper phase route; the interaction duration is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Win this knight's melee fight while handling the wave's stat-reducing attacks; no fixed combat XP or food use is assumed.",
+      "if_unmet": "Retry or prepare adequately; do not pre-credit variable outcomes, damage, or incidental XP."
+    }
+  },
+  {
+    "id": "activity.knight_waves_training_grounds.complete",
+    "name": "Finish all eight knight waves and accept the reward",
+    "kind": "other",
+    "activity_id": "activity.knight_waves_training_grounds",
+    "start_location_id": "location.kings_ransom.training_squire",
+    "end_location_id": "location.kings_ransom.training_squire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "activity.knight_waves_training_grounds.defeat_lancelot"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 200000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 200000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 200000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 200000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.chivalry_prayer",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.piety_prayer",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Knight Waves awards four 20,000 XP combat packages and unlocks Chivalry/Piety. Using those prayers separately requires 60/70 Prayer."
+    }
+  }
+]

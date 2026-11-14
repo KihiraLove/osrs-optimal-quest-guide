@@ -1,0 +1,35 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "collected",
+  "activity_ids": ["quest.kings_ransom", "activity.knight_waves_training_grounds"],
+  "helper_file": "src/main/java/com/questhelper/helpers/quests/kingsransom/KingsRansom.java",
+  "source_ids": ["source.quest_helper.quest_observations", "source.project.early_quest_timing", "source.project.travel_timing"],
+  "observations": {
+    "required_quests": ["quest.black_knights_fortress", "quest.holy_grail", "quest.murder_mystery", "quest.one_small_favour"],
+    "skills": [
+      {"skill_id": "skill.defence", "level": 65, "boostable": false, "timing": "quest start"},
+      {"skill_id": "skill.magic", "level": 45, "boostable": false, "timing": "Telekinetic Grab"}
+    ],
+    "mansion": "Investigate Sinclair Mansion after talking to the Gossip and guard: climb in the broken window, recover scrap paper, address form and a black knight's helm from the bookcase, then give the guard all three clues. Speak to the Gossip before Anna's trial.",
+    "trial": "At Seers' Village courthouse speak to Anna, question the dog handler about the poison, the butler about the dagger and the maid about the night and thread to obtain Anna's acquittal.",
+    "magical_prison": "The Camelot statue leads to Merlin's cell; reach the vent, Telekinetic Grab a guard's hair clip and solve four tumbler heights, then climb to the upstairs table and recover a quest-phase Holy Grail.",
+    "rescue": "Wizard Cromperty in Ardougne supplies an Animate Rock scroll. Full black armour is used for fortress entry, while one block of granite and the grail restore Arthur; bronze med helm and iron chainbody disguise him for escape.",
+    "completion_rewards": "Return to Arthur in Camelot for one quest point, 33,000 Defence XP, 5,000 direct Magic XP and one retained antique lamp worth 5,000 XP in a skill with at least 50 base levels. Knight Waves unlocks but does not award its XP yet.",
+    "training_ground": "After the quest, Camelot's top-floor training squire permits an eight-fight sequence: Bedivere, Pelleas, Tristram, Palomedes, Lucan, Gawain, Kay, Lancelot. The optional completion gives 20,000 XP each in Attack, Strength, Defence and Hitpoints; Chivalry and Piety are unlocked with their separate Prayer usage levels 60 and 70.",
+    "materials": "A conservative prequest GE purchase supplies black full helm/platebody/platelegs, bronze med helm, iron chainbody, 5kg granite (any granite size works) and one each air and law rune. The quest itself produces the legal evidence, hair clip, Grail and Animate Rock scroll."
+  },
+  "pending_reviews": [
+    "The source helper's item ID for granite corresponds to an Enakhra granite size, while the quest accepts any granite block. The draft chooses the shared 5kg item; a size-flexible alternative and quarry mining should be checked.",
+    "The full black-armour disguise is represented as three held pieces at fortress entry, not an equipment-slot constraint. Correct black variants and equipping/de-equipping during rescue need engine review.",
+    "The statue/prison sequence relocations and their precise geometry are provisional. Trial witness order, Anna's verdict dialogue, Sinclair evidence retention and the four-tumbler puzzle success condition require gameplay replay.",
+    "The Holy Grail item is awarded by the quest-phase prison-table scene after its earlier quest use. Verify exact creation/retention of this item and whether the archive yields another item instead.",
+    "The 5,000 direct Magic XP from pinned Quest Helper and the additional 5,000-XP antique lamp in reward registry are currently distinct. Verify the post-Quest-Month reward presentation before independent review to avoid counting one reward twice.",
+    "One successful Telekinetic Grab is assumed with 43 base Magic XP, 1 air and 1 law rune. The game can supply runes during the prison scene, but the trade-enabled budget brings them in advance.",
+    "Cromperty's Animate Rock scroll is the same item as One Small Favour's scroll. A held old scroll may block a duplicate, and some versions permit a different acquisition path. This draft assumes the old scroll was spent.",
+    "Knight Waves fights use planned success without deterministic food, prayer or incidental melee XP; wave levels, weakness and stat drain, leaving/returning to the arena, and equipment-freeze rules need review.",
+    "The Chivalry/Piety reward flags unlock prayers without granting Prayer levels. If the optimizer models using them, the separate 60 and 70 Prayer level gates must be enforced at usage.",
+    "The King's Ransom supply estimate is 14,000 GP, not a timestamped quote. Recovery approaches, large castle/dungeon travel and reward-claim timing need review."
+  ],
+  "focused_replay": "optimizer/tests/test_kings_ransom.py",
+  "independent_review": "pending"
+}

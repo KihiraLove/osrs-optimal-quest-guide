@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.45.0` loads 24 skill tables and
-2,067 draft actions across 151 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.46.0` loads 24 skill tables and
+2,108 draft actions across 152 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -326,3 +326,16 @@ can be paid for before the quest and traveled free afterwards. A full seeded
 replay verifies the prerequisites, supplies, Queen and reward repeat guard;
 combat XP, fishing/cooking success variance, precise geometry and GE prices
 remain for independent review.
+
+The [King's Ransom and Knight Waves review](raw/build-242/kings-ransom-and-knight-waves-review.json)
+records the Sinclair evidence, Anna's three courtroom witnesses, Merlin's
+vent and hair-clip puzzle, the Holy Grail table, and Arthur's fortress rescue
+with its separate black-armour and bronze/iron disguises. The quest awards one
+quest point, 33,000 Defence XP, 5,000 Magic XP, and a retained 5,000-XP lamp
+usable on a level-50+ skill. Knight Waves is independent: eight successive
+Camelot knight fights award 20,000 XP each in Attack, Strength, Defence and
+Hitpoints, then unlock Chivalry/Piety without bypassing their Prayer level
+requirements. The seeded replay checks rewards, missing prerequisites, spell
+resources, graph navigation and repeat protection. Precise item persistence,
+combat damage, dungeon exits, and possible overlap between the direct Magic XP
+and lamp reward require independent gameplay review.
