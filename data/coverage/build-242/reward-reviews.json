@@ -7044,5 +7044,25 @@
       "claim.maii.guthix_imbued_cape"
     ],
     "note": "Only one initial choice; a chosen ordinary god cape is exchanged for its imbued counterpart."
+  },
+  {
+    "id": "review.quest.underground_pass.completion_rewards",
+    "activity_id": "quest.underground_pass",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.underground_pass.complete", "quest.underground_pass.use_doll_on_well"],
+    "expected_effects": {
+      "quest.underground_pass.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 5},
+        {"kind": "xp", "skill_id": "skill.attack", "xp_tenths": 30000},
+        {"kind": "xp", "skill_id": "skill.agility", "xp_tenths": 30000},
+        {"kind": "flag", "token_id": "unlock.well_of_voyage", "value": true}
+      ],
+      "quest.underground_pass.use_doll_on_well": [
+        {"kind": "item", "item_id": "item.ibans_staff", "quantity": 1},
+        {"kind": "flag", "token_id": "unlock.ibans_blast", "value": true}
+      ]
+    },
+    "note": "The Iban encounter provides the staff/spell before Lathas awards 5 QP and 3,000 XP each in Attack and Agility."
   }
 ]
