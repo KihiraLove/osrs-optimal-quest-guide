@@ -6641,5 +6641,70 @@
       ]
     },
     "note": "AKP becomes accessible when first visiting the necropolis; final 2 QP/50k Agility/items/ToA access at quest completion."
+  },
+  {
+    "id": "review.quest.desert_treasure_i.completion_rewards",
+    "activity_id": "quest.desert_treasure_i",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.desert_treasure_i.visibility_ring",
+      "quest.desert_treasure_i.complete",
+      "quest.desert_treasure_i.buy_ancient_staff",
+      "quest.desert_treasure_i.claim_ancient_signet"
+    ],
+    "expected_effects": {
+      "quest.desert_treasure_i.visibility_ring": [
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        }
+      ],
+      "quest.desert_treasure_i.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 3
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.magic",
+          "xp_tenths": 200000
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.desert_treasure_i.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.ancient_magicks",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.ancient_pyramid",
+          "value": true
+        }
+      ],
+      "quest.desert_treasure_i.buy_ancient_staff": [
+        {
+          "kind": "item",
+          "item_id": "item.ancient_staff",
+          "quantity": 1
+        }
+      ],
+      "quest.desert_treasure_i.claim_ancient_signet": [
+        {
+          "kind": "item",
+          "item_id": "item.ancient_signet",
+          "quantity": 1
+        }
+      ]
+    },
+    "note": "Quest awards 3 QP/20k fixed Magic XP/Ancient Magicks. Rasolo's ring is acquired midquest; Eblis's ancient staff and signet are separate, optional claims."
   }
 ]
