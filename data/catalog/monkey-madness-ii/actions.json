@@ -1,0 +1,3826 @@
+[
+  {
+    "id": "quest.monkey_madness_ii.start",
+    "name": "Start Monkey Madness II with King Narnode",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2465_3496_0",
+    "end_location_id": "location.mm2.tile_2465_3496_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enlightened_journey.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_stronghold.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_watchtower_prereq",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.balloon.grand_tree",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 69,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 70,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.hunter",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 55,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 55,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 60,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_started",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "supply.mm2.spy_supplies",
+    "name": "Purchase fruit and supplies for spy-note decoding",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.mm2.tile_2465_3496_0",
+    "end_location_id": "location.mm2.tile_2465_3496_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 500
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lemon",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.grapes",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 72,
+      "expected_seconds": 145,
+      "max_seconds": 435
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Optional supplied-input proxy for fruit, mortar and logs; trade-disabled profiles may bring all items themselves."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.go_up_to_glough_house",
+    "name": "Enter Glough's abandoned house",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2476_3463_0",
+    "end_location_id": "location.mm2.tile_2476_3463_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.go_up_glough_tree",
+    "name": "Climb the tree above Glough's house",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2484_3464_1",
+    "end_location_id": "location.mm2.tile_2484_3464_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.go_up_to_glough_house"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.investigate_tree",
+    "name": "Investigate the tree and find Glough's handkerchief",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2485_3464_2",
+    "end_location_id": "location.mm2.tile_2485_3464_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.go_up_glough_tree"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_handkerchief",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.go_down_glough_tree",
+    "name": "Climb down from Glough's tree",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2485_3464_2",
+    "end_location_id": "location.mm2.tile_2485_3464_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.investigate_tree"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.go_down_from_glough_house",
+    "name": "Leave Glough's house",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2476_3463_1",
+    "end_location_id": "location.mm2.tile_2476_3463_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.go_down_glough_tree"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.go_up_to_anita",
+    "name": "Climb upstairs to Anita's house",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2390_3513_0",
+    "end_location_id": "location.mm2.tile_2390_3513_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.go_down_from_glough_house"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_anita",
+    "name": "Ask Anita about Glough and the handkerchief",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2390_3515_1",
+    "end_location_id": "location.mm2.tile_2390_3515_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.go_up_to_anita"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_handkerchief",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.go_down_from_anita",
+    "name": "Leave Anita's house",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2389_3513_1",
+    "end_location_id": "location.mm2.tile_2389_3513_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_anita"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.go_up_glough_tree_to_third_floor",
+    "name": "Enter Glough's secret top floor",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2484_3465_2",
+    "end_location_id": "location.mm2.tile_2484_3465_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.go_down_from_anita"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.investigate_statue",
+    "name": "Rotate the gnome statue to expose the cupboard",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2487_3463_3",
+    "end_location_id": "location.mm2.tile_2487_3463_3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.go_up_glough_tree_to_third_floor"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.search_cupboard",
+    "name": "Search the cupboard for the Book of Spyology",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2488_3465_3",
+    "end_location_id": "location.mm2.tile_2488_3465_3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.investigate_statue"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_spyology_book",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.search_crate",
+    "name": "Search the crates for a brush",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2485_3467_3",
+    "end_location_id": "location.mm2.tile_2485_3467_3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.search_cupboard"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_brush",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.search_remains",
+    "name": "Search the fireplace remains for Glough's note",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2487_3467_3",
+    "end_location_id": "location.mm2.tile_2487_3467_3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.search_crate"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_mysterious_note",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.crush_lemon",
+    "name": "Crush the lemon with a pestle and mortar",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2487_3467_3",
+    "end_location_id": "location.mm2.tile_2487_3467_3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.search_remains"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lemon",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lemon",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_lemon_juice",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.use_notes_on_candles",
+    "name": "Apply the note to the candles with lemon juice",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2486_3463_3",
+    "end_location_id": "location.mm2.tile_2486_3463_3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.crush_lemon"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_mysterious_note",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_lemon_juice",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm2_lemon_juice",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.coat_spy_brush",
+    "name": "Crush the grapes and coat the brush",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2486_3463_3",
+    "end_location_id": "location.mm2.tile_2486_3463_3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.use_notes_on_candles"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grapes",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_brush",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grapes",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.mm2_brush",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_grape_juice_brush",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.reveal_spy_note",
+    "name": "Reveal the scrawled message with the coated brush",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2486_3463_3",
+    "end_location_id": "location.mm2.tile_2486_3463_3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.coat_spy_brush"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_mysterious_note",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_grape_juice_brush",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm2_grape_juice_brush",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_scrawled_note",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.go_down3rdto2nd",
+    "name": "Climb down from Glough's top floor",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2484_3464_3",
+    "end_location_id": "location.mm2.tile_2484_3464_3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.reveal_spy_note"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_narnode_blank",
+    "name": "Report the spy note to Narnode and obtain a translation book",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2465_3496_0",
+    "end_location_id": "location.mm2.tile_2465_3496_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.go_down3rdto2nd"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_scrawled_note",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_translation_book",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.translate_spy_note",
+    "name": "Use the translation book and request Anita's translation",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2390_3515_1",
+    "end_location_id": "location.mm2.tile_2390_3515_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_narnode_blank"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_translation_book",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_scrawled_note",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_translated_note",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_spy_note",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.report_translated_note",
+    "name": "Tell Narnode about Anita's translation and Assistant Lori",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2465_3496_0",
+    "end_location_id": "location.mm2.tile_2465_3496_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.translate_spy_note"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_translated_note",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_spy_note",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_auguste",
+    "name": "Travel via balloon to Entrana and question Auguste",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2809_3354_0",
+    "end_location_id": "location.mm2.tile_2809_3354_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.report_translated_note"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_spy_note",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.logs",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 110,
+      "expected_seconds": 220,
+      "max_seconds": 660
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_narnode_after_entrana",
+    "name": "Tell Narnode about Le Smith and the military threat",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2465_3496_0",
+    "end_location_id": "location.mm2.tile_2465_3496_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_auguste"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_garkor",
+    "name": "Meet Garkor on Ape Atoll disguised as a monkey",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2807_2762_0",
+    "end_location_id": "location.mm2.tile_2807_2762_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_narnode_after_entrana"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_mamulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd_ninja_greegree",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 110,
+      "expected_seconds": 220,
+      "max_seconds": 660
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_awowogei",
+    "name": "Ask King Awowogei about the proposed attack",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2803_2765_0",
+    "end_location_id": "location.mm2.tile_2803_2765_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_garkor"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_garkor_after_awow",
+    "name": "Report Awowogei's plans to Garkor",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2807_2762_0",
+    "end_location_id": "location.mm2.tile_2807_2762_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_awowogei"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "supply.mm2.monkey_talisman",
+    "name": "Purchase a spare monkey talisman from Tutab if necessary",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.mm2.tile_2807_2762_0",
+    "end_location_id": "location.mm2.tile_2807_2762_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_garkor_after_awow"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 1000
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm_monkey_talisman",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 105,
+      "max_seconds": 315
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_archer",
+    "name": "Question the monkey archer about Kruk",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2713_2758_0",
+    "end_location_id": "location.mm2.tile_2713_2758_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_garkor_after_awow"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.track_kruk_footprints",
+    "name": "Track Kruk's footprints to the concealed trapdoor",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2713_2758_0",
+    "end_location_id": "location.mm2.tile_2713_2758_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_archer"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 62,
+      "expected_seconds": 125,
+      "max_seconds": 375
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.enter_trapdoor",
+    "name": "Enter Kruk's dungeon with a light source",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2714_2788_0",
+    "end_location_id": "location.mm2.tile_2714_2788_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.track_kruk_footprints"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.sapphire_lantern",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.kruk_agility_route",
+    "name": "Traverse the agility maze, bronze key door and dodgy ground",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2714_2788_0",
+    "end_location_id": "location.mm2.tile_2714_2788_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.enter_trapdoor"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 55,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_bronze_key",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_kruk_maze",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 500,
+      "expected_seconds": 1000,
+      "max_seconds": 3000
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Follow the account-specific safe tiles and bronze-key branch, recovering from falls via vines until reaching Kruk.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.kruk_tank_route",
+    "name": "Alternative Kruk dungeon tank route through webs, rocks and combat key",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2714_2788_0",
+    "end_location_id": "location.mm2.tile_2714_2788_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.enter_trapdoor"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rune_pickaxe",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_slash_weapon",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_combat_key",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_kruk_maze",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 650,
+      "expected_seconds": 1300,
+      "max_seconds": 3900
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Slash the correct webs, mine obstructing rocks and retrieve the matching combat key while protecting from monkey attacks.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.unlock_kruk_shortcut",
+    "name": "Unlock the shortcut before Kruk's lair",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2714_2788_0",
+    "end_location_id": "location.mm2.tile_2714_2788_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_kruk_maze",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_kruk_shortcut",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.defeat_kruk",
+    "name": "Defeat Kruk and take his paw",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2714_2788_0",
+    "end_location_id": "location.mm2.tile_2714_2788_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.unlock_kruk_shortcut"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_kruk_shortcut",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_kruk_paw",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_kruk",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 350,
+      "expected_seconds": 700,
+      "max_seconds": 2100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Kruk in his boss room, using ranged kiting or a flinch and reclaim the paw on victory.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.leave_kruk_dungeon",
+    "name": "Leave Kruk's dungeon through the unlocked shortcut",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2513_9207_1",
+    "end_location_id": "location.mm2.tile_2513_9207_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.defeat_kruk"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_kruk",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.go_down_to_zooknock",
+    "name": "Enter the Ape Atoll tunnel to find Zooknock",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2763_2703_0",
+    "end_location_id": "location.mm2.tile_2763_2703_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.leave_kruk_dungeon"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_zooknock",
+    "name": "Ask Zooknock to make the Kruk greegree",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2805_9143_0",
+    "end_location_id": "location.mm2.tile_2805_9143_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.go_down_to_zooknock"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_kruk_paw",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm_monkey_talisman",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm2_kruk_paw",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.mm_monkey_talisman",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_kruk_greegree",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 62,
+      "expected_seconds": 125,
+      "max_seconds": 375
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_awow_as_kruk",
+    "name": "Impersonate Kruk in an audience with Awowogei",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2803_2765_0",
+    "end_location_id": "location.mm2.tile_2803_2765_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_zooknock"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_kruk_greegree",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_garkor_after_kruk",
+    "name": "Ask Garkor to disrupt the troll and ogre alliance",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2807_2762_0",
+    "end_location_id": "location.mm2.tile_2807_2762_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_awow_as_kruk"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.enter_troll_stronghold",
+    "name": "Enter Troll Stronghold to confront Kob",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2839_3690_0",
+    "end_location_id": "location.mm2.tile_2839_3690_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_garkor_after_kruk"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_kob",
+    "name": "Challenge Kob to a duel",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2831_10060_2",
+    "end_location_id": "location.mm2.tile_2831_10060_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.enter_troll_stronghold"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.fight_kob",
+    "name": "Defeat Kob until he agrees to withdraw",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2831_10060_2",
+    "end_location_id": "location.mm2.tile_2831_10060_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_kob"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 250,
+      "expected_seconds": 500,
+      "max_seconds": 1500
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Reduce Kob's health until he yields; long fights reset and protection from melee is not perfect.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_keef",
+    "name": "Travel to Gu'Tanoth to confront Keef",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2542_3031_0",
+    "end_location_id": "location.mm2.tile_2542_3031_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.fight_kob"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.challenge_keef",
+    "name": "Issue Keef's challenge",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2542_3031_0",
+    "end_location_id": "location.mm2.tile_2542_3031_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_keef"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.fight_keef",
+    "name": "Defeat Keef until he yields",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2542_3031_0",
+    "end_location_id": "location.mm2.tile_2542_3031_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.challenge_keef"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_troll_alliance",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 250,
+      "expected_seconds": 500,
+      "max_seconds": 1500
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Reduce Keef's health until he gives up without allowing combat to reset.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_garkor_after_keef",
+    "name": "Report Kob and Keef's retreat to Garkor",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2807_2762_0",
+    "end_location_id": "location.mm2.tile_2807_2762_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.fight_keef"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_troll_alliance",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.find_le_smith",
+    "name": "Locate Assistant Le Smith on one of four Marim rooftops",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2807_2762_0",
+    "end_location_id": "location.mm2.tile_2807_2762_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_garkor_after_keef"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 200,
+      "expected_seconds": 400,
+      "max_seconds": 1200
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Search the four possible rooftop appearances, speak to Le Smith and discover the fleet's location.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_garkor_after_smith",
+    "name": "Report Le Smith's fleet information to Garkor",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2807_2762_0",
+    "end_location_id": "location.mm2.tile_2807_2762_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.find_le_smith"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_monkey_guard",
+    "name": "Speak to the monkey guard and board the airship platform",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2694_2784_0",
+    "end_location_id": "location.mm2.tile_2694_2784_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_garkor_after_smith"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_kruk_greegree",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 20
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 20
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_platform",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 67,
+      "expected_seconds": 135,
+      "max_seconds": 405
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.get_airship_satchels",
+    "name": "Stealth through the guards and collect six empty satchels",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.airship_lower",
+    "end_location_id": "location.mm2.airship_lower",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_monkey_guard"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_empty_satchel",
+        "quantity": 6
+      }
+    ],
+    "duration": {
+      "min_seconds": 220,
+      "expected_seconds": 440,
+      "max_seconds": 1320
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the crate past the patrols without being caught; if expelled, re-board the platform.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.fill_airship_satchels",
+    "name": "Fill all six satchels at the explosives barrel",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.airship_lower",
+    "end_location_id": "location.mm2.airship_lower",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.get_airship_satchels"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_empty_satchel",
+          "quantity": 6
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm2_empty_satchel",
+        "quantity": 6
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_charged_satchel",
+        "quantity": 6
+      }
+    ],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 720
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Fill all six satchels; if caught later, refill any unused satchels at this barrel.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.plant_middle_one",
+    "name": "Plant satchel at First weakened middle-floor board",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.airship_middle",
+    "end_location_id": "location.mm2.airship_middle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.fill_airship_satchels"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_charged_satchel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm2_charged_satchel",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 115,
+      "expected_seconds": 230,
+      "max_seconds": 690
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Avoid the airship guard's line of sight and plant this exact charge; earlier planted charges persist after being caught.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.plant_lower_east",
+    "name": "Plant satchel at East lower-floor support beam",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.airship_lower",
+    "end_location_id": "location.mm2.airship_lower",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.plant_middle_one"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_charged_satchel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm2_charged_satchel",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 115,
+      "expected_seconds": 230,
+      "max_seconds": 690
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Avoid the airship guard's line of sight and plant this exact charge; earlier planted charges persist after being caught.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.plant_middle_two",
+    "name": "Plant satchel at Second weakened board beyond the vine",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.airship_middle",
+    "end_location_id": "location.mm2.airship_middle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.plant_lower_east"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_charged_satchel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm2_charged_satchel",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 115,
+      "expected_seconds": 230,
+      "max_seconds": 690
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Avoid the airship guard's line of sight and plant this exact charge; earlier planted charges persist after being caught.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.plant_top_south",
+    "name": "Plant satchel at Southern upper-floor gas cylinder",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.airship_top",
+    "end_location_id": "location.mm2.airship_top",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.plant_middle_two"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_charged_satchel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm2_charged_satchel",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 115,
+      "expected_seconds": 230,
+      "max_seconds": 690
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Avoid the airship guard's line of sight and plant this exact charge; earlier planted charges persist after being caught.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.plant_top_north",
+    "name": "Plant satchel at Northern upper-floor gas cylinder",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.airship_top",
+    "end_location_id": "location.mm2.airship_top",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.plant_top_south"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_charged_satchel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm2_charged_satchel",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 115,
+      "expected_seconds": 230,
+      "max_seconds": 690
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Avoid the airship guard's line of sight and plant this exact charge; earlier planted charges persist after being caught.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.plant_lower_west",
+    "name": "Plant satchel at West lower-floor support beam",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.airship_lower",
+    "end_location_id": "location.mm2.airship_lower",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.plant_top_north"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_charged_satchel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm2_charged_satchel",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 115,
+      "expected_seconds": 230,
+      "max_seconds": 690
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Avoid the airship guard's line of sight and plant this exact charge; earlier planted charges persist after being caught.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.finish_airship_sabotage",
+    "name": "Leave the sabotage platform with six charges planted",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.airship_lower",
+    "end_location_id": "location.mm2.airship_lower",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.plant_lower_west"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_six_charges",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 57,
+      "expected_seconds": 115,
+      "max_seconds": 345
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_garkor_after_sabotage",
+    "name": "Report the successful six-charge sabotage to Garkor",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2807_2762_0",
+    "end_location_id": "location.mm2.tile_2807_2762_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.finish_airship_sabotage"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_six_charges",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.enter_kruk_dungeon_again",
+    "name": "Re-enter Kruk's dungeon through the established shortcut",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2714_2788_0",
+    "end_location_id": "location.mm2.tile_2714_2788_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_garkor_after_sabotage"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.climb_monkey_bars_as_kruk",
+    "name": "Cross the monkey bars with Kruk's greegree",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2504_9190_1",
+    "end_location_id": "location.mm2.tile_2504_9190_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.enter_kruk_dungeon_again"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_kruk_greegree",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.enter_labratory",
+    "name": "Enter Glough's hidden laboratory",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2510_9213_1",
+    "end_location_id": "location.mm2.tile_2510_9213_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.climb_monkey_bars_as_kruk"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.climb_on_gorilla",
+    "name": "Mount the stunted demonic gorilla",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2213_5464_0",
+    "end_location_id": "location.mm2.tile_2213_5464_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.enter_labratory"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.fight_gorillas",
+    "name": "Drive three tortured gorillas back into their cages",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2207_5474_0",
+    "end_location_id": "location.mm2.tile_2207_5474_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.climb_on_gorilla"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_gorilla_laboratory",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 230,
+      "expected_seconds": 460,
+      "max_seconds": 1380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Ride the stunted gorilla and reduce all three laboratory gorillas until they retreat to cages.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.dismount_gorilla",
+    "name": "Dismount the gorilla in the holding area",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2213_5464_0",
+    "end_location_id": "location.mm2.tile_2213_5464_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.fight_gorillas"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_gorilla_laboratory",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.get_chisel_and_hammer",
+    "name": "Search laboratory crates for a chisel and hammer",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2209_5468_0",
+    "end_location_id": "location.mm2.tile_2209_5468_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.dismount_gorilla"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.chisel",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.tamper_with_device",
+    "name": "Remove the charged onyx from the incubator",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2208_5489_0",
+    "end_location_id": "location.mm2.tile_2208_5489_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.get_chisel_and_hammer"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_charged_onyx",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.deconstruct_onyx",
+    "name": "Invert the charged onyx using hammer and chisel",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2208_5489_0",
+    "end_location_id": "location.mm2.tile_2208_5489_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.tamper_with_device"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_charged_onyx",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm2_charged_onyx",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mm2_deconstructed_onyx",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.use_onyx_on_device",
+    "name": "Return the deconstructed onyx to Glough's device",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2208_5489_0",
+    "end_location_id": "location.mm2.tile_2208_5489_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.deconstruct_onyx"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mm2_deconstructed_onyx",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mm2_deconstructed_onyx",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_onyx_device",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.investigate_incubation_chamber",
+    "name": "Confirm the incubation chamber has lost power",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2216_5480_0",
+    "end_location_id": "location.mm2.tile_2216_5480_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.use_onyx_on_device"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_onyx_device",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_garkor_after_lab",
+    "name": "Report the sabotage to Garkor",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2807_2762_0",
+    "end_location_id": "location.mm2.tile_2807_2762_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.investigate_incubation_chamber"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_awow_after_lab",
+    "name": "Tell Awowogei the alliance and mutagen experiments failed",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2803_2765_0",
+    "end_location_id": "location.mm2.tile_2803_2765_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_garkor_after_lab"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_garkor_after_lab_again",
+    "name": "Warn Garkor that Glough launched the airship anyway",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2807_2762_0",
+    "end_location_id": "location.mm2.tile_2807_2762_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_awow_after_lab"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_narnode_after_lab",
+    "name": "Report the approaching airship to King Narnode",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2465_3496_0",
+    "end_location_id": "location.mm2.tile_2465_3496_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_garkor_after_lab_again"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_nieve",
+    "name": "Recruit Nieve to defend the Gnome Stronghold",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2432_3424_0",
+    "end_location_id": "location.mm2.tile_2432_3424_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_narnode_after_lab"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.defend_four_gorilla_spawns",
+    "name": "Defeat four separate tortured gorilla spawns with Nieve",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2432_3424_0",
+    "end_location_id": "location.mm2.tile_2432_3424_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_nieve"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_stronghold_defended",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 365,
+      "expected_seconds": 730,
+      "max_seconds": 2190
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat one tortured gorilla at each of four distinct Stronghold spawn sites with Nieve following.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.enter_north_of_tree",
+    "name": "Regroup at the north of the Grand Tree",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2435_3520_0",
+    "end_location_id": "location.mm2.tile_2435_3520_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.defend_four_gorilla_spawns"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_stronghold_defended",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.enter_stronghold_cave",
+    "name": "Enter the crash-site cavern",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2027_5613_0",
+    "end_location_id": "location.mm2.tile_2027_5613_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.enter_north_of_tree"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.kill_tortured_and_demonic",
+    "name": "Defeat two tortured and two demonic gorillas with Nieve",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2129_5682_0",
+    "end_location_id": "location.mm2.tile_2129_5682_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.enter_stronghold_cave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_crash_site_gorillas",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 445,
+      "expected_seconds": 890,
+      "max_seconds": 2670
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat both tortured and both demonic gorillas; switch attacking styles as their protection prayers change.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.reenter_crash_site_without_nieve",
+    "name": "Optional re-entry into the crash site without Nieve",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2435_3520_0",
+    "end_location_id": "location.mm2.tile_2435_3520_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.kill_tortured_and_demonic"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 67,
+      "expected_seconds": 135,
+      "max_seconds": 405
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Optional restart/resupply path; not a mandatory quest milestone."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.glough_phase_one",
+    "name": "Defeat Glough's first room phase",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2075_5677_0",
+    "end_location_id": "location.mm2.tile_2075_5677_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.kill_tortured_and_demonic"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_crash_site_gorillas",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_glough_phase_one",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 230,
+      "expected_seconds": 460,
+      "max_seconds": 1380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Damage Glough until he retreats to the second chamber; reset the sequence on death or exit.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.glough_phase_two",
+    "name": "Defeat Glough's second room phase",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2075_5677_0",
+    "end_location_id": "location.mm2.tile_2075_5677_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.glough_phase_one"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_glough_phase_one",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_glough_phase_two",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 230,
+      "expected_seconds": 460,
+      "max_seconds": 1380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat second-phase ranged pressure without exiting the boss instance.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.defeat_glough",
+    "name": "Defeat Glough's final third phase",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2075_5677_0",
+    "end_location_id": "location.mm2.tile_2075_5677_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.glough_phase_two"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_glough_phase_two",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_glough_final",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 345,
+      "expected_seconds": 690,
+      "max_seconds": 2070
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "Survive Glough's third-room pull, push and high-damage attacks until his defeat.",
+      "if_unmet": "Retreat, heal or restock and retry without credit until the required stage succeeds."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.talk_to_zooknock_to_finish",
+    "name": "Speak with Zooknock after the cave collapse",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2027_5610_0",
+    "end_location_id": "location.mm2.tile_2027_5610_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.defeat_glough"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_glough_final",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper sequence; completion condition and timing are provisional."
+    }
+  },
+  {
+    "id": "quest.monkey_madness_ii.complete",
+    "name": "Report Glough's defeat and complete Monkey Madness II",
+    "activity_id": "quest.monkey_madness_ii",
+    "kind": "quest_stage",
+    "start_location_id": "location.mm2.tile_2465_3496_0",
+    "end_location_id": "location.mm2.tile_2465_3496_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.talk_to_zooknock_to_finish"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 4
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.slayer",
+        "xp_tenths": 800000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 600000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 500000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hunter",
+        "xp_tenths": 500000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mm2_royal_seed_pod",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_crash_site",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_maniacal_monkeys",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_ape_bank",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_ape_glider",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_ape_tolerance",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_greegree_reclaim",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_glough_rematch",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 82,
+      "expected_seconds": 165,
+      "max_seconds": 495
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Four quest points, 80k Slayer, 60k Agility, 50k Thieving and Hunter, Royal seed pod and permanent Ape Atoll/Crash Site unlocks; Duke's training is separate."
+    }
+  },
+  {
+    "id": "claim.monkey_madness_ii.duke",
+    "name": "Claim Duke's two optional 50,000-XP combat training selections",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.mm2.duke_hill",
+    "end_location_id": "location.mm2.duke_hill",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.monkey_madness_ii.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.monkey_madness_i.daero_training_claimed",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.mm2_duke_training",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.mm2.duke_combat_training",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_duke_training",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.mm2_heavy_ballista",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 95,
+      "max_seconds": 285
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.quest_helper.monkey_madness_ii",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "After finishing MM2 and claiming Daero's MM1 training, Duke offers two immediate 50,000-XP selections in eligible combat skills."
+    }
+  }
+]

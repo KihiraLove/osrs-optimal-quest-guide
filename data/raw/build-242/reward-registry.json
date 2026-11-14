@@ -311,7 +311,7 @@
     {
       "id": "claim.monkey_madness_ii.duke",
       "activity_id": "quest.monkey_madness_ii",
-      "status": "expected",
+      "status": "collected",
       "delivery": "post_quest_claim",
       "source_ids": [
         "source.jagex.garden_of_death_rewards",
@@ -327,13 +327,20 @@
           "kind": "fixed",
           "xp_tenths": 500000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": [
+          "skill.attack",
+          "skill.strength",
+          "skill.defence",
+          "skill.hitpoints",
+          "skill.ranged",
+          "skill.magic"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": false,
         "reported_eligibility": "combat"
       },
-      "notes": "Reconcile the helper's placeholder item with the NPC training. Verify Duke's tile, Daero's claim prerequisite and whether both choices can target the same skill.",
+      "notes": "Two immediate 50,000-XP combat selections, only after collecting Daero's Monkey Madness I training; cannot be claimed twice. Duke tile and same-skill selection require verification.",
       "requires": {
         "kind": "all",
         "requirements": [
@@ -344,11 +351,19 @@
         ]
       },
       "claim_location": {
-        "name": "Duke on Ape Atoll",
-        "tile": null,
-        "anchor": "Publisher Poll 77 change and Quest Helper reward summary"
+        "name": "Duke on Ape Atoll east hill",
+        "tile": [
+          2714,
+          2758,
+          0
+        ],
+        "anchor": "Approximate from near monkey archer hill, exact tile requires verification"
       },
-      "claim_duration_seconds": null
+      "claim_duration_seconds": {
+        "min_seconds": 47,
+        "expected_seconds": 95,
+        "max_seconds": 285
+      }
     },
     {
       "id": "claim.the_ides_of_milk.gillie_groats",
