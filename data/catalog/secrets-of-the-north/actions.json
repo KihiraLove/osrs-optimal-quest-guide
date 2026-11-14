@@ -1,0 +1,2062 @@
+[
+  {
+    "id": "quest.secrets_of_the_north.buy_lockpick",
+    "name": "Buy a standard lockpick from Martin Thwait",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.martin",
+    "end_location_id": "location.secrets.martin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 50,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 50,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 20
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 20
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lockpick",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.reference.martin_thwait_shop",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Martin Thwait sells regular lockpicks for 20 coins in Rogues Den, requiring unboostable 50 Thieving and Agility. Optional supply action."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.start",
+    "name": "Carnillean guard: open the missing-agent investigation",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.carnillean_house",
+    "end_location_id": "location.ardougne.carnillean_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.secrets.making_friends_external",
+          "value": true
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.devious_minds.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.hazeel_cult.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 69,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 64,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.hunter",
+          "minimum_level": 56,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Making Friends with My Arm is worked on in another PR; seed its external flag until the real completion action is integrated. The three skills cannot be boosted."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.upstairs",
+    "name": "Inspect upstairs evidence and question the guard",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.upper",
+    "end_location_id": "location.secrets.upper",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 95,
+      "max_seconds": 285
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.bribe",
+    "name": "Bribe the Khazard Barman for Evelot's trail",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.barman",
+    "end_location_id": "location.secrets.barman",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.upstairs"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 100
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 100
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.track_barrel",
+    "name": "Inspect the arena barrel",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.barrel",
+    "end_location_id": "location.secrets.barrel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.bribe"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 22,
+      "max_seconds": 66
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.track_boulder",
+    "name": "Inspect the north-west boulder",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.boulder",
+    "end_location_id": "location.secrets.boulder",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.track_barrel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 22,
+      "max_seconds": 66
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.track_bush",
+    "name": "Inspect the western bush",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.bush",
+    "end_location_id": "location.secrets.bush",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.track_boulder"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 22,
+      "max_seconds": 66
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.track_stump",
+    "name": "Inspect the tree stump",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.stump",
+    "end_location_id": "location.secrets.stump",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.track_bush"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 22,
+      "max_seconds": 66
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.track_east_boulder",
+    "name": "Inspect the eastern boulder",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.boulder_east",
+    "end_location_id": "location.secrets.boulder_east",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.track_stump"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 22,
+      "max_seconds": 66
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.track_east_bush",
+    "name": "Inspect the last bush",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.bush_east",
+    "end_location_id": "location.secrets.bush_east",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.track_east_boulder"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.secrets.evelot_tracked",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 22,
+      "max_seconds": 66
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.fight_evelot",
+    "name": "Defeat Evelot and question her",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.evelot",
+    "end_location_id": "location.secrets.evelot",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.track_east_bush"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.secrets.evelot_tracked",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 92,
+      "expected_seconds": 185,
+      "max_seconds": 555
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat level-148 Evelot with supplies and suitable combat gear.",
+      "if_unmet": "Restore supplies and retry the fight; no automatic victory is assumed."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.enter_hazeel",
+    "name": "Enter the Hazeel Cult cave",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.hazeel_cave",
+    "end_location_id": "location.ardougne.hazeel_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.fight_evelot"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.board_raft",
+    "name": "Use the cult raft beneath Ardougne",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.raft",
+    "end_location_id": "location.secrets.raft",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.enter_hazeel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.ask_hazeel",
+    "name": "Talk to Hazeel inside the hideout",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.hazeel_hideout",
+    "end_location_id": "location.ardougne.hazeel_hideout",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.board_raft"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.secrets.hazeel_spoken",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 95,
+      "max_seconds": 285
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.report_guard",
+    "name": "Report Hazeel's lead to the Carnillean guard",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.carnillean_house",
+    "end_location_id": "location.ardougne.carnillean_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.ask_hazeel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 48,
+      "max_seconds": 144
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.ask_claus",
+    "name": "Question Claus beneath Carnillean mansion",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.claus",
+    "end_location_id": "location.secrets.claus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.report_guard"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.search_shelves",
+    "name": "Find the secret button in the cellar shelves",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.shelves",
+    "end_location_id": "location.secrets.shelves",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.ask_claus"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 30,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.open_wall",
+    "name": "Inspect and open the false wall",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.secret_wall",
+    "end_location_id": "location.secrets.secret_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.search_shelves"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 22,
+      "max_seconds": 66
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.pick_chest",
+    "name": "Pick the hidden chest with a regular lockpick",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.hidden_chest",
+    "end_location_id": "location.secrets.hidden_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.open_wall"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lockpick",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.secrets.scroll",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.return_hazeel",
+    "name": "Return the dusty scroll to Hazeel",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.hazeel_hideout",
+    "end_location_id": "location.ardougne.hazeel_hideout",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.pick_chest"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.secrets.scroll",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.secrets.scroll",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.big_fish",
+    "name": "Question Big Fish north of Weiss",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.big_fish",
+    "end_location_id": "location.secrets.big_fish",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.return_hazeel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.snowflake",
+    "name": "Speak to Snowflake about the visitor",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.snowflake",
+    "end_location_id": "location.secrets.snowflake",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.big_fish"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.big_fish_again",
+    "name": "Return to Big Fish for the cave lead",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.big_fish",
+    "end_location_id": "location.secrets.big_fish",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.snowflake"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.open_weiss",
+    "name": "Enter the discovered northern cave",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.weiss_entrance",
+    "end_location_id": "location.secrets.weiss_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.big_fish_again"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.secrets.weiss_opened",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.fight_assassin",
+    "name": "Defeat the Khazard assassin in Weiss dungeon",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.assassin",
+    "end_location_id": "location.secrets.assassin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.open_weiss"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 140,
+      "expected_seconds": 280,
+      "max_seconds": 840
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the level-262 Khazard assassin while handling smoke-bomb mechanics.",
+      "if_unmet": "Resupply and retry the assassin; no combat XP is assumed."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.hazeel_weiss",
+    "name": "Question Hazeel in Weiss dungeon",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.hazeel_weiss",
+    "end_location_id": "location.secrets.hazeel_weiss",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.fight_assassin"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.take_handle",
+    "name": "Search the barrel for a lever handle",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.lever_barrel",
+    "end_location_id": "location.secrets.lever_barrel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.hazeel_weiss"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.secrets.handle",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.take_map",
+    "name": "Search the crate for an ancient map",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.crate",
+    "end_location_id": "location.secrets.crate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.take_handle"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.secrets.map",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.take_numbers",
+    "name": "Read the numbers note on the table",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.table",
+    "end_location_id": "location.secrets.table",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.take_map"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.secrets.numbers",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.take_letter",
+    "name": "Read Tullia's letter for the gate clue",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.letter",
+    "end_location_id": "location.secrets.letter",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.take_numbers"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.secrets.letter",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.gate_blood",
+    "name": "Open the central gate with BLOOD",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.central_gate",
+    "end_location_id": "location.secrets.central_gate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.take_letter"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.secrets.letter",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.secrets.blood_gate",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.chest_7402",
+    "name": "Open the northern chest using 7402",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.north_chest",
+    "end_location_id": "location.secrets.north_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.gate_blood"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.secrets.numbers",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.secrets.blood_gate",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 42,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.take_tinderbox",
+    "name": "Take the tinderbox from the crate",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.crate",
+    "end_location_id": "location.secrets.crate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.chest_7402"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 20,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.brazier_nw",
+    "name": "Light the north-west brazier first",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.brazier_nw",
+    "end_location_id": "location.secrets.brazier_nw",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.take_tinderbox"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.brazier_se",
+    "name": "Light the south-east brazier second",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.brazier_se",
+    "end_location_id": "location.secrets.brazier_se",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.brazier_nw"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.brazier_ne",
+    "name": "Light the north-east brazier third",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.brazier_ne",
+    "end_location_id": "location.secrets.brazier_ne",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.brazier_se"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.brazier_sw",
+    "name": "Light the south-west brazier fourth",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.brazier_sw",
+    "end_location_id": "location.secrets.brazier_sw",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.brazier_ne"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.secrets.braziers",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.west_chest",
+    "name": "Open the western jewel chest",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.west_chest",
+    "end_location_id": "location.secrets.west_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.brazier_sw"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.secrets.braziers",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.secrets.west_shard",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 38,
+      "max_seconds": 114
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.direction_gate",
+    "name": "Open the north gate with LEFT UP LEFT DOWN",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.north_gate",
+    "end_location_id": "location.secrets.north_gate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.west_chest"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.secrets.map",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.secrets.north_gate",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.fit_lever",
+    "name": "Attach the handle to the lever",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.lever",
+    "end_location_id": "location.secrets.lever",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.direction_gate"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.secrets.handle",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.secrets.north_gate",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.secrets.handle",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.pull_lever",
+    "name": "Pull the lever to expose the northern area",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.lever",
+    "end_location_id": "location.secrets.lever",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.fit_lever"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.secrets.lever",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 26,
+      "max_seconds": 78
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.pillar_shard",
+    "name": "Inspect the pillar and take its jewel shard",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.pillar",
+    "end_location_id": "location.secrets.pillar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.pull_lever"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.secrets.lever",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.secrets.pillar_shard",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 42,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.combine_jewel",
+    "name": "Combine both ancient jewel shards",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.pillar",
+    "end_location_id": "location.secrets.pillar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.pillar_shard"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.secrets.west_shard",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.secrets.pillar_shard",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.secrets.west_shard",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.secrets.pillar_shard",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.secrets.jewel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 27,
+      "max_seconds": 81
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.open_icy_chest",
+    "name": "Use the jewel to obtain the icy chest key",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.north_chest",
+    "end_location_id": "location.secrets.north_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.combine_jewel"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.secrets.jewel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.secrets.jewel",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.secrets.icy_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 38,
+      "max_seconds": 114
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.open_south_gate",
+    "name": "Unlock the southern gate with the icy key",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.south_gate",
+    "end_location_id": "location.secrets.south_gate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.open_icy_chest"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.secrets.icy_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.secrets.icy_key",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.secrets.crevice",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 39,
+      "max_seconds": 117
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.enter_crevice",
+    "name": "Enter the southern crevice",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.crevice",
+    "end_location_id": "location.secrets.crevice",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.open_south_gate"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.secrets.crevice",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 156
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.fight_muspah",
+    "name": "Defeat the quest Strange Creature Phantom Muspah",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.muspah",
+    "end_location_id": "location.secrets.muspah",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.enter_crevice"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.secrets.muspah",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 220,
+      "expected_seconds": 440,
+      "max_seconds": 1320
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat level-368 quest Phantom Muspah by handling shield, melee, ranged, magic and prayer-drain phases.",
+      "if_unmet": "Retreat, restock and retry the boss; a victory is never guaranteed."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.leave_lair",
+    "name": "Exit the lair and return to the crevice",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.crevice",
+    "end_location_id": "location.secrets.crevice",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.fight_muspah"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.revelation",
+    "name": "Hear the final revelation; Hazeel teleports you away",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.secrets.revelation",
+    "end_location_id": "location.ardougne.carnillean_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.leave_lair"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.secrets.muspah",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 85,
+      "expected_seconds": 170,
+      "max_seconds": 510
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  },
+  {
+    "id": "quest.secrets_of_the_north.complete",
+    "name": "Report to the Carnillean guard and finish the quest",
+    "activity_id": "quest.secrets_of_the_north",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.carnillean_house",
+    "end_location_id": "location.ardougne.carnillean_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.secrets_of_the_north.revelation"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.secrets_of_the_north.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.secrets.repeat",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.secrets.essence",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 600000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 500000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hunter",
+        "xp_tenths": 400000
+      }
+    ],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.secrets_of_the_north_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered pinned Quest Helper stage; estimated timing and interior path."
+    }
+  }
+]
