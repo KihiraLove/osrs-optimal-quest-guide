@@ -1,0 +1,47 @@
+{
+  "batch_id": "quest-month-fixed-xp-reconciliation",
+  "revision": "osrs-live-242-2026-11-11",
+  "status": "collected_draft_not_independently_reviewed",
+  "source_ids": [
+    "source.jagex.quest_month_2026_11_03",
+    "source.jagex.cache_242_2026_11_11"
+  ],
+  "publisher_observation": "Pinned Jagex 3 November 2026 Quest Month table explicitly assigns these fixed XP amounts when completing each quest. The main completion actions are the only reward producers for new completions; legacy retroactive claim handling remains a separate source review.",
+  "activity_ids": [
+    "quest.clock_tower",
+    "quest.lost_city",
+    "quest.merlins_crystal",
+    "quest.pirates_treasure",
+    "quest.rune_mysteries",
+    "quest.sheep_herder"
+  ],
+  "reward_review_ids": [
+    "review.quest.clock_tower.quest_month_xp",
+    "review.quest.lost_city.quest_month_xp",
+    "review.quest.merlins_crystal.quest_month_xp",
+    "review.quest.pirates_treasure.quest_month_xp",
+    "review.quest.rune_mysteries.quest_month_xp",
+    "review.quest.sheep_herder.quest_month_xp"
+  ],
+  "fixed_xp_tenths": {
+    "quest.clock_tower": {"skill.firemaking": 10000},
+    "quest.lost_city": {"skill.woodcutting": 15000, "skill.crafting": 15000},
+    "quest.merlins_crystal": {"skill.firemaking": 10000},
+    "quest.pirates_treasure": {"skill.cooking": 8000},
+    "quest.rune_mysteries": {"skill.runecraft": 5000},
+    "quest.sheep_herder": {"skill.hunter": 10000}
+  },
+  "observations": {
+    "changed_catalog_reward": "Merlin's Crystal previously paid 1,000 xp_tenths (100 Firemaking XP), but the pinned publisher table specifies 10,000 xp_tenths (1,000 Firemaking XP). Corrected the completion action by +9,000 xp_tenths.",
+    "already_correct_rewards": "Clock Tower, Lost City, Pirate's Treasure, Rune Mysteries and Sheep Herder already paid exactly the pinned rewards on their quest completion actions; the outstanding review ledger entries needed producer links and collected status, not duplicated XP effects.",
+    "reward_timing": "All six Quest Month changes have delivery=completion. Do not add a second post-quest claim or a standalone reward action.",
+    "tracker": "Six previously expected reward review IDs are collected as draft data, not marked independently reviewed. All other Quest Month reward review entries remain unchanged."
+  },
+  "replay": "Seeded direct stage prerequisites and required quest inventory for each completion action. Asserted exact skill XP once, preserved existing quest points and rewards, rejected repeated completions, and verified item-consuming prerequisites separately.",
+  "review_gaps": [
+    "The pinned publisher source applies these awards to accounts completing the quests after the update. Retroactive eligibility for accounts that completed them earlier requires separate claim modelling and live verification.",
+    "Verify whether future Jagex updates adjust these amounts. This batch is pinned to build 242 from 11 November 2026.",
+    "Earlier quest stages, access and combat are not re-reviewed here; focused replay begins immediately before each completion action.",
+    "No independent gameplay validation was performed. The 'collected' ledger status indicates catalog reconciliation only."
+  ]
+}
