@@ -714,12 +714,12 @@
     {
       "id": "review.quest.client_of_kourend.xp_package",
       "activity_id": "quest.client_of_kourend",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.client_of_kourend.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -729,14 +729,14 @@
           "kind": "fixed",
           "xp_tenths": 5000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 2,
         "reported_eligibility": "any_skill"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "Two separate retainable 500-XP antique lamp instances are awarded with the Client of Kourend completion. Catalogued as an all-skills choice with no higher minimum level; verify any additional reclaim rules separately."
     },
     {
       "id": "review.quest.contact.xp_package",
@@ -822,12 +822,12 @@
     {
       "id": "review.quest.dream_mentor.xp_package",
       "activity_id": "quest.dream_mentor",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.dream_mentor.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -837,14 +837,20 @@
           "kind": "fixed",
           "xp_tenths": 150000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": [
+          "skill.strength",
+          "skill.defence",
+          "skill.hitpoints",
+          "skill.ranged",
+          "skill.magic"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 1,
         "reported_eligibility": "combat_except_attack_and_prayer"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "One 15,000-XP dreamy lamp from Dream Mentor completion; five combat skills exclude Attack and Prayer. Same producer and physical lamp as the already-collected review.quest.dream_mentor.dreamy_lamp entry: do not add a second award. Item retention and exact reclaim option remain review gaps."
     },
     {
       "id": "review.quest.ernest_the_chicken.quest_month_lamp",
@@ -1235,12 +1241,12 @@
     {
       "id": "review.quest.the_great_brain_robbery.xp_package",
       "activity_id": "quest.the_great_brain_robbery",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.the_great_brain_robbery.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -1250,14 +1256,14 @@
           "kind": "fixed",
           "xp_tenths": 50000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 30,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 1,
         "reported_eligibility": "reported_above_level_30"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "One retainable blessed lamp grants 5,000 XP to a chosen skill at the current catalog minimum base level 30 on The Great Brain Robbery completion. Independently verify the inclusive level boundary described in some sources as 'above level 30'."
     },
     {
       "id": "review.quest.the_tourist_trap.xp_package",

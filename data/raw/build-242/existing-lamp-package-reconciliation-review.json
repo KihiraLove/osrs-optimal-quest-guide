@@ -1,0 +1,64 @@
+{
+  "batch_id": "existing-lamp-package-reconciliation",
+  "revision": "osrs-live-242-2026-11-11",
+  "status": "collected_draft_not_independently_reviewed",
+  "activity_ids": [
+    "quest.client_of_kourend",
+    "quest.dream_mentor",
+    "quest.the_great_brain_robbery"
+  ],
+  "registry_ids": [
+    "review.quest.client_of_kourend.xp_package",
+    "review.quest.dream_mentor.xp_package",
+    "review.quest.the_great_brain_robbery.xp_package"
+  ],
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.project.early_quest_timing"
+  ],
+  "packages": {
+    "review.quest.client_of_kourend.xp_package": {
+      "producer_action_id": "quest.client_of_kourend.complete",
+      "reward_id": "reward.client_of_kourend.antique_lamp",
+      "quantity": 2,
+      "xp_tenths_each": 5000,
+      "eligible_skills": "all",
+      "minimum_level": 1,
+      "retainable": true
+    },
+    "review.quest.dream_mentor.xp_package": {
+      "producer_action_id": "quest.dream_mentor.complete",
+      "reward_id": "reward.dream_mentor.dreamy_lamp",
+      "quantity": 1,
+      "xp_tenths_each": 150000,
+      "eligible_skills": [
+        "skill.strength", "skill.defence", "skill.hitpoints", "skill.ranged", "skill.magic"
+      ],
+      "minimum_level": 1,
+      "retainable": true
+    },
+    "review.quest.the_great_brain_robbery.xp_package": {
+      "producer_action_id": "quest.the_great_brain_robbery.complete",
+      "reward_id": "reward.the_great_brain_robbery.blessed_lamp",
+      "quantity": 1,
+      "xp_tenths_each": 50000,
+      "eligible_skills": "all",
+      "minimum_level": 30,
+      "retainable": true
+    }
+  },
+  "observations": {
+    "existing_producers": "All three packages already have a once-only quest completion action and an xp_reward effect in the pinned catalog. No new lamp producers or duplicate XP effects are introduced in this reconciliation.",
+    "client_of_kourend": "Client of Kourend awards two independent 500-XP antique lamps in any skill. The existing catalog has a single completion producer with quantity 2 and two separately spendable instances.",
+    "dream_mentor": "Dream Mentor completion grants a single 15,000-XP dreamy lamp. The eligible skills are Strength, Defence, Hitpoints, Ranged and Magic; Attack and Prayer are excluded. The registry already contained a second collected review.quest.dream_mentor.dreamy_lamp row representing this same physical item; the general xp_package registry row now points to the SAME producer, not an additional award.",
+    "great_brain_robbery": "The Great Brain Robbery completion grants a retainable blessed lamp worth 5,000 XP in a chosen skill at draft minimum base level 30. Independent live verification of the 'above level 30' wording remains outstanding.",
+    "ledger": "Three registry entries move expected to collected with their existing completion action links and modeled package fields. They are not marked reviewed.",
+    "tracker_cleanup": "Eight other entries in issue #20 were already collected on main, including One Small Favour and the Defender of Varrock Minas claim; their stale Pending labels were corrected to Added without modifying those catalog records."
+  },
+  "review_gaps": [
+    "Check any ability to reclaim Client of Kourend lamps from Veos and Dream Mentor's lamp from the Oneiromancer after loss; no extra re-issuance actions are encoded.",
+    "Verify exactly whether The Great Brain Robbery lamp requires a base level >=30 or strictly >30. The existing catalog models minimum level 30 and this batch preserves that draft assumption.",
+    "Verify the physical retention/banking restrictions and exact Dream Mentor helper item identity; no independent gameplay review was performed.",
+    "These existing quest completion effects are already tracked by their own completion reward reviews; registry reconciliation does not award a second copy."
+  ]
+}
