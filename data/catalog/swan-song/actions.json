@@ -1,0 +1,1191 @@
+[
+  {
+    "id": "supply.swan_song.buy_bundle",
+    "name": "Buy Swan Song's rune, bone and repair bundle",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 25000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.swan_mist_rune",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swan_lava_rune",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swan_blood_rune",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bones",
+        "quantity": 7
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pot",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swan_pot_lid",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_bar",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 57,
+      "expected_seconds": 95,
+      "max_seconds": 218
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Self-funded tradeable bundle estimate (25,000 coins); exact prices and possible existing tools vary."
+    }
+  },
+  {
+    "id": "quest.swan_song.start",
+    "name": "Ask Herman Caranos about the threatened fishing colony",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.herman_outside",
+    "end_location_id": "location.swan_song.herman_outside",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 100
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Requires 100 quest points, One Small Favour and Garden of Tranquillity. Skills are gated at their use steps."
+    }
+  },
+  {
+    "id": "quest.swan_song.recruit_wise_old_man",
+    "name": "Ask the Wise Old Man in Draynor to defend Piscatoris",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.draynor.wise_old_man",
+    "end_location_id": "location.draynor.wise_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 45,
+      "max_seconds": 103
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.give_wise_old_man_runes",
+    "name": "Hand over mist, lava and blood runes",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.draynor.wise_old_man",
+    "end_location_id": "location.draynor.wise_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.recruit_wise_old_man"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.swan_mist_rune",
+        "quantity": 10
+      },
+      {
+        "item_id": "item.swan_lava_rune",
+        "quantity": 10
+      },
+      {
+        "item_id": "item.swan_blood_rune",
+        "quantity": 5
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Wise Old Man requires 10 mist, 10 lava and 5 blood runes before leaving Draynor."
+    }
+  },
+  {
+    "id": "quest.swan_song.meet_wise_old_man_at_colony",
+    "name": "Return to Herman and the Wise Old Man",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.herman_outside",
+    "end_location_id": "location.swan_song.herman_outside",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.give_wise_old_man_runes"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 40,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.repel_troll_wave",
+    "name": "Defeat sea trolls at the colony gate",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.troll_line",
+    "end_location_id": "location.swan_song.troll_line",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.meet_wise_old_man_at_colony"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 117,
+      "expected_seconds": 195,
+      "max_seconds": 448
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the required sea troll defenders with the Wise Old Man assisting; do not assume a deterministic damage or kill-XP amount.",
+      "if_unmet": "Continue the encounter or gathering task until successful; combat and variable incidental XP are not pre-credited."
+    }
+  },
+  {
+    "id": "quest.swan_song.open_colony_gate",
+    "name": "Enter the defended colony gate",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.colony_gate",
+    "end_location_id": "location.swan_song.colony_gate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.repel_troll_wave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.swan_song_gate_defended",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.meet_herman_inside",
+    "name": "Hear Herman's plan for supplies and repaired walls",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.herman_office",
+    "end_location_id": "location.swan_song.herman_office",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.open_colony_gate"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.ask_franklin",
+    "name": "Ask Franklin to repair the broken colony wall",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.franklin",
+    "end_location_id": "location.swan_song.franklin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.meet_herman_inside"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 30,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Franklin supplies a hammer on request; the firebox takes logs and a tinderbox."
+    }
+  },
+  {
+    "id": "quest.swan_song.light_press",
+    "name": "Light the furnace firebox for the metal press",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.metal_press",
+    "end_location_id": "location.swan_song.metal_press",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.ask_franklin"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 42,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 20,
+      "max_seconds": 46
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.press_iron_sheets",
+    "name": "Press five iron bars into repair sheets",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.metal_press",
+    "end_location_id": "location.swan_song.metal_press",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.light_press"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 45,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.iron_bar",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.swan_iron_sheet",
+        "quantity": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 32,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.repair_west_wall",
+    "name": "Repair all five broken wall sections",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.west_wall",
+    "end_location_id": "location.swan_song.west_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.press_iron_sheets"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.swan_iron_sheet",
+        "quantity": 5
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 57,
+      "expected_seconds": 95,
+      "max_seconds": 218
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.report_to_franklin",
+    "name": "Report that the colony perimeter is repaired",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.franklin",
+    "end_location_id": "location.swan_song.franklin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.repair_west_wall"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.ask_arnold",
+    "name": "Ask Arnold about the colony's lack of food",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.arnold",
+    "end_location_id": "location.swan_song.arnold",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.meet_herman_inside"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.small_fishing_net",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Arnold provides a small fishing net; banking services do not yet work during the quest."
+    }
+  },
+  {
+    "id": "quest.swan_song.fish_fresh_monkfish",
+    "name": "Catch five untradeable fresh monkfish",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.monkfish_spot",
+    "end_location_id": "location.swan_song.monkfish_spot",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.ask_arnold"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fishing",
+          "minimum_level": 62,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.small_fishing_net",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.swan_raw_fresh_monkfish",
+        "quantity": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 93,
+      "expected_seconds": 155,
+      "max_seconds": 356
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Catch at least five fresh monkfish while handling sea troll interruptions; additional fish may be necessary if any cooking attempt burns.",
+      "if_unmet": "Continue the encounter or gathering task until successful; combat and variable incidental XP are not pre-credited."
+    }
+  },
+  {
+    "id": "quest.swan_song.cook_fresh_monkfish",
+    "name": "Cook five fresh monkfish on the colony range",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.colony_range",
+    "end_location_id": "location.swan_song.colony_range",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.fish_fresh_monkfish"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 62,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.swan_raw_fresh_monkfish",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.swan_cooked_fresh_monkfish",
+        "quantity": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Keep fishing and cooking until five successful cooked fresh monkfish are available; burns are variable.",
+      "if_unmet": "Continue the encounter or gathering task until successful; combat and variable incidental XP are not pre-credited."
+    }
+  },
+  {
+    "id": "quest.swan_song.feed_colony",
+    "name": "Give five cooked fresh monkfish to Arnold",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.arnold",
+    "end_location_id": "location.swan_song.arnold",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.cook_fresh_monkfish"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.swan_cooked_fresh_monkfish",
+        "quantity": 5
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.report_colony_tasks",
+    "name": "Confirm both Franklin's and Arnold's tasks with Herman",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.herman_office",
+    "end_location_id": "location.swan_song.herman_office",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.report_to_franklin"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.feed_colony"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 40,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.raise_an_army",
+    "name": "Consult the Wise Old Man about the skeletal army",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.herman_office",
+    "end_location_id": "location.swan_song.herman_office",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.report_colony_tasks"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.meet_frumscone",
+    "name": "Consult Wizard Frumscone in Yanille Wizards' Guild basement",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.wizards_basement",
+    "end_location_id": "location.swan_song.wizards_basement",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.raise_an_army"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 66,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 42,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Yanille Wizards' Guild entrance is gated at 66 Magic; Frumscone redirects the player to Malignius."
+    }
+  },
+  {
+    "id": "quest.swan_song.ask_malignius",
+    "name": "Ask Malignius Mortifer about bone seeds",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.malignius",
+    "end_location_id": "location.swan_song.malignius",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.meet_frumscone"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.swan_brown_apron",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 40,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Malignius requests seven bones and a sealed container, and can provide an apron for entry to the Crafting Guild."
+    }
+  },
+  {
+    "id": "quest.swan_song.ask_almost_master_crafter",
+    "name": "Learn about airtight containers in the Crafting Guild",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.almost_master_crafter",
+    "end_location_id": "location.swan_song.almost_master_crafter",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.ask_malignius"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 40,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.swan_brown_apron",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 38,
+      "max_seconds": 87
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.make_airtight_pot",
+    "name": "Seal the empty pot with its pot lid",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.almost_master_crafter",
+    "end_location_id": "location.swan_song.almost_master_crafter",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.ask_almost_master_crafter"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pot",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.swan_pot_lid",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.swan_airtight_pot",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 15,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.get_bone_seeds",
+    "name": "Give Malignius seven bones and an airtight pot",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.malignius",
+    "end_location_id": "location.swan_song.herman_outside",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.make_airtight_pot"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bones",
+          "quantity": 7
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bones",
+        "quantity": 7
+      },
+      {
+        "item_id": "item.swan_airtight_pot",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.swan_bone_seeds",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 36,
+      "expected_seconds": 60,
+      "max_seconds": 138
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Malignius gives bone seeds and magically sends the player toward the colony; quest-only relocation is in this action."
+    }
+  },
+  {
+    "id": "quest.swan_song.plant_bone_seeds",
+    "name": "Present bone seeds for the Wise Old Man's skeleton army",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.herman_office",
+    "end_location_id": "location.swan_song.herman_office",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.get_bone_seeds"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.swan_bone_seeds",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    }
+  },
+  {
+    "id": "quest.swan_song.defeat_queen",
+    "name": "Defeat the level-170 Sea Troll Queen",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.queen",
+    "end_location_id": "location.swan_song.queen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.plant_bone_seeds"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 126,
+      "expected_seconds": 210,
+      "max_seconds": 483
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 Swan Song stage; pacing and incidental XP estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Win the Sea Troll Queen fight despite magic/melee hits and Prayer drain; consumable costs and combat XP are variable.",
+      "if_unmet": "Continue the encounter or gathering task until successful; combat and variable incidental XP are not pre-credited."
+    }
+  },
+  {
+    "id": "quest.swan_song.complete",
+    "name": "Report to Herman after the Sea Troll Queen's defeat",
+    "kind": "quest_stage",
+    "activity_id": "quest.swan_song",
+    "start_location_id": "location.swan_song.herman_office",
+    "end_location_id": "location.swan_song.herman_office",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.defeat_queen"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 150000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 500000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 25000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.piscatoris_colony",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.piscatoris_monkfish",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned rewards: 2 QP, 15,000 Magic, 10,000 Prayer, 50,000 Fishing XP, 25,000 coins and Piscatoris access/monkfish."
+    }
+  }
+]

@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.44.0` loads 24 skill tables and
-2,040 draft actions across 150 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.45.0` loads 24 skill tables and
+2,067 draft actions across 151 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -314,3 +314,15 @@ Four finite item teleports can be spent across origins; Lazim's optional
 replay checks these charges, puzzle items, spell costs and reward repeat gates;
 the exact dungeon walk costs, stone size randomness, incidental XP and Camulet
 recharge loop remain in independent review.
+
+The [Swan Song review](raw/build-242/swan-song-review.json) captures the
+100-quest-point and One Small Favour/Garden of Tranquillity gates, Wise Old
+Man's rune request, first sea troll wave, metal-press repairs and five fresh
+monkfish for Arnold. It models Frumscone's Wizards' Guild access, Malignius's
+seven-bone-and-airtight-pot exchange, the skeletal army and the Sea Troll
+Queen. Completion gives two quest points, 15,000 Magic XP, 10,000 Prayer XP,
+50,000 Fishing XP, 25,000 coins and Piscatoris fishing access. Kathy's boat
+can be paid for before the quest and traveled free afterwards. A full seeded
+replay verifies the prerequisites, supplies, Queen and reward repeat guard;
+combat XP, fishing/cooking success variance, precise geometry and GE prices
+remain for independent review.

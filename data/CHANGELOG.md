@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.45.0 | Added Swan Song from Herman's first appeal to the Wise Old Man, colony sea troll defence, iron-sheet wall repairs, fresh monkfish provisioning, Wizard Frumscone and Malignius's bone seeds, and the Sea Troll Queen. Added two quest points, three fixed XP rewards, Piscatoris access and postquest free boat travel. |
 | 0.44.0 | Added Enakhra's Lament, its two sandstone-and-granite construction phases, four sigils and elemental puzzles, the Akthanakos finale, four fixed 7,000-XP skill rewards, and four-charge/unlimited Camulet teleports. |
 | 0.43.0 | Merged Shilo Village, Tai Bwo Wannai Trio and One Small Favour with the Temple of Ikov, Mage Arena I and museum specimen batch. Added Watchtower's relic, Skavid and Ogre Enclave stages, four quest points, Magic XP and separate teleport-scroll unlock. |
 | 0.42.0 | Added Shilo Village, Tai Bwo Wannai Trio and One Small Favour, including dungeon/cart routes, independent Trio claims, intermediate unlocks and One Small Favour's two held 10,000-XP lamps. |
@@ -50,5 +51,5 @@ entries use the 3 November build 242 snapshot.
 | 0.2.0 | Added the first quest actions and the pinned Quest Helper observations. |
 | 0.1.0 | Recorded the independent quest, skill, diary and optional content inventory for build 242. |
 
-The coverage audit records the release blockers for 0.44.0. The normalizer and
+The coverage audit records the release blockers for 0.45.0. The normalizer and
 audit use the existing dataset version.

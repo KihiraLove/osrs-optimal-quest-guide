@@ -1,0 +1,45 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "collected",
+  "activity_ids": ["quest.swan_song"],
+  "helper_file": "src/main/java/com/questhelper/helpers/quests/swansong/SwanSong.java",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.project.early_quest_timing",
+    "source.project.travel_timing",
+    "source.jagex.grand_exchange_catalogue"
+  ],
+  "observations": {
+    "prerequisites": {
+      "quest_points": 100,
+      "quests": ["quest.one_small_favour", "quest.garden_of_tranquillity"],
+      "skills": [
+        {"skill_id": "skill.magic", "level": 66, "boostable": true},
+        {"skill_id": "skill.cooking", "level": 62, "boostable": true},
+        {"skill_id": "skill.fishing", "level": 62, "boostable": true},
+        {"skill_id": "skill.smithing", "level": 45, "boostable": true},
+        {"skill_id": "skill.crafting", "level": 40, "boostable": true},
+        {"skill_id": "skill.firemaking", "level": 42, "boostable": false}
+      ]
+    },
+    "opening_and_rune_cost": "Herman directs the player to Draynor's Wise Old Man, who takes 10 lava runes, 10 mist runes and 5 blood runes; the player returns to Piscatoris and defeats the first sea troll wave before entering.",
+    "colony_chores": "Franklin provides a hammer; a log and tinderbox heat the press and five iron bars become five iron sheets for the western wall. Arnold gives a small fishing net; five fresh monkfish are caught and cooked, then handed to him. The two errands must both be completed before returning to Herman and the Wise Old Man.",
+    "army_and_queen": "At Yanille Wizards' Guild basement, Wizard Frumscone redirects the player to Malignius Mortifer. Seven ordinary bones, a pot, its lid and Crafting Guild dialogue allow bone seeds to be brought back to the Wise Old Man. The final fight is the level-170 Sea Troll Queen; report to Herman for the reward.",
+    "supplies": "The estimated buy bundle includes all ten mist and lava runes, five blood runes, seven bones, five iron bars, a pot/lid, a log and tinderbox. Hammer, brown apron and fishing net are obtained through quest dialogue. Kathy Corkat's ferry costs 50 coins per ride before the quest and is free afterwards.",
+    "completion_rewards": "Two quest points, 15,000 Magic XP, 10,000 Prayer XP, 50,000 Fishing XP, 25,000 coins, Piscatoris Fishing Colony access, postquest bank/fishing facilities and monkfish fishing unlock.",
+    "downstream": "Swan Song completion is a prerequisite for Making Friends with My Arm, a different batch currently awaiting its own upstream My Arm's Big Adventure and Cold War catalog integrations."
+  },
+  "pending_reviews": [
+    "The initial gate troll count, sea troll levels and the exact split between the first battle and later fishing interruptions should be independently checked. Combat costs and incidental XP are estimated rather than deterministic.",
+    "Fresh monkfish success is conditional on catches and possible cooking burns. The finite route forecasts five successful cooks; retries, incidental skill XP and more-than-five fishing outcomes need gameplay reconciliation.",
+    "The helper records approximate Piscatoris/Frumscone/Crafting Guild waypoints. Kathy's boarding tile, colony walls, range, fishing spots, teleport relocation, cross-country routes and instance geometry need in-game path checks.",
+    "Verify Frumscone's Wizards' Guild entrance gate when Magic is temporarily boosted, the Crafting Guild brown-apron requirement, and whether Malignius supplies a brown apron automatically or only on request.",
+    "The current route treats seven bones and the airtight container as consumed by Malignius and treats bone seeds as one quest-stage object. Exact quest dialogue, item retention and timing of the return teleport remain to verify.",
+    "The helper declares 42 Firemaking not boostable, although some community guides treat all skill requirements as boostable; the pinned helper value is used pending independent review.",
+    "Kathy's paid boat options are conservatively available even after completion, while separate zero-fare alternatives are unlocked. Ring of Charos, Piscatoris teleport scroll, fairy-ring options and postquest monkfish repeatable catches are not separately implemented.",
+    "The 25,000-coin Grand Exchange bundle is a budgeting estimate, not a price quote. Some untradeable and quest-obtained objects have provisional tradeability; normal bank availability during the quest is restricted.",
+    "Quest completion rewards are pinned to the source, but postquest bank operation and other unlocked facilities require independent state verification."
+  ],
+  "focused_replay": "optimizer/tests/test_swan_song.py",
+  "independent_review": "pending"
+}
