@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.39.0` loads 24 skill tables and
-1,762 draft actions across 141 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.40.0` loads 24 skill tables and
+1,807 draft actions across 143 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -264,3 +264,8 @@ Aldarin ferry and Costume needle claim.
 The [Varrock, Lighthouse and Kourend review](raw/build-242/varrock-lighthouse-and-kourend-review.json)
 records three quests and three miniquests, plus separate gauntlet and god book
 claims, the Abyss Law rift and the Forthos lamp.
+
+The [Glouphrie, Barrows and Museum review](raw/build-242/glouphrie-barrows-and-museum-review.json)
+records two journal routes, the crystal saw diary task, the Museum Camp
+facilities and Peter's fossil claim, four Minas reports and the three Varrock
+Museum clerk rewards.

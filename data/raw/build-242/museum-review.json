@@ -8,7 +8,11 @@
     "source.jagex.cache_242_map",
     "source.capture.natural_history_quiz",
     "source.quest_helper.quest_observations",
-    "source.jagex.below_ice_mountain"
+    "source.jagex.below_ice_mountain",
+    "source.field.fossil_camp_building",
+    "source.field.fossil_camp_launch_materials",
+    "source.field.museum_clerk_awards",
+    "source.field.museum_clerk_threshold_dialogue"
   ],
   "quiz": {
     "activity_id": "museum.natural_history_quiz",
@@ -159,42 +163,53 @@
   "clerk_claims": [
     {
       "id": "claim.museum.kudos_50",
-      "status": "pending",
-      "minimum_kudos": null,
-      "xp_tenths": null,
+      "status": "collected",
+      "minimum_kudos": 51,
+      "xp_tenths": {
+        "skill.mining": 10000
+      },
       "repeat_limit": 1,
       "location_candidate": [
         3253,
         3455,
         0
       ],
-      "note": "The number in the tracker name is an identifier. Verify the inclusive minimum, awarded skills and dialogue on the pinned build before admitting the claim."
+      "note": "Inclusive threshold. Preserve the client tracker ID and grant each tier's XP once. The clerk can award consecutive tiers together."
     },
     {
       "id": "claim.museum.kudos_100",
-      "status": "pending",
-      "minimum_kudos": null,
-      "xp_tenths": null,
+      "status": "collected",
+      "minimum_kudos": 101,
+      "xp_tenths": {
+        "skill.crafting": 25000,
+        "skill.mining": 25000
+      },
       "repeat_limit": 1,
       "location_candidate": [
         3253,
         3455,
         0
       ],
-      "note": "The number in the tracker name is an identifier. Verify the inclusive minimum, awarded skills and dialogue on the pinned build before admitting the claim."
+      "note": "Inclusive threshold. Preserve the client tracker ID and grant each tier's XP once. The clerk can award consecutive tiers together."
     },
     {
       "id": "claim.museum.kudos_150",
-      "status": "pending",
-      "minimum_kudos": null,
-      "xp_tenths": null,
+      "status": "collected",
+      "minimum_kudos": 151,
+      "xp_tenths": {
+        "skill.crafting": 40000,
+        "skill.hunter": 40000,
+        "skill.prayer": 40000,
+        "skill.slayer": 40000,
+        "skill.smithing": 40000
+      },
       "repeat_limit": 1,
       "location_candidate": [
         3253,
         3455,
         0
       ],
-      "note": "The number in the tracker name is an identifier. Verify the inclusive minimum, awarded skills and dialogue on the pinned build before admitting the claim."
+      "note": "Inclusive threshold. Preserve the client tracker ID and grant each tier's XP once. The clerk can award consecutive tiers together."
     }
   ],
   "history_reports": [
@@ -242,16 +257,22 @@
     },
     {
       "id": "museum.history.glider",
-      "status": "pending",
+      "status": "collected",
       "reporter": "Historian Minas",
       "candidate_quest_ids": [
         "quest.the_grand_tree"
       ],
-      "required_quest_ids": null,
+      "required_quest_ids": [
+        "quest.the_grand_tree"
+      ],
       "repeat_limit": 1,
-      "kudos": null,
+      "kudos": 5,
       "reward_claim_id": null,
-      "note": "Tracker identity suggests the candidate subject. Verify the eligible quest, report dialogue, items and associated lamp before awarding credit."
+      "note": "Report the completed quest to Historian Minas. Award five kudos once.",
+      "catalog_action_id": "museum.history.glider",
+      "source_ids": [
+        "source.field.varrock_museum_history"
+      ]
     },
     {
       "id": "museum.history.lathas",
@@ -268,16 +289,22 @@
     },
     {
       "id": "museum.history.observatory",
-      "status": "pending",
+      "status": "collected",
       "reporter": "Historian Minas",
       "candidate_quest_ids": [
         "quest.observatory_quest"
       ],
-      "required_quest_ids": null,
+      "required_quest_ids": [
+        "quest.observatory_quest"
+      ],
       "repeat_limit": 1,
-      "kudos": null,
+      "kudos": 5,
       "reward_claim_id": null,
-      "note": "Tracker identity suggests the candidate subject. Verify the eligible quest, report dialogue, items and associated lamp before awarding credit."
+      "note": "Report the completed quest to Historian Minas. Award five kudos once.",
+      "catalog_action_id": "museum.history.observatory",
+      "source_ids": [
+        "source.field.varrock_museum_history"
+      ]
     },
     {
       "id": "museum.history.robert",
@@ -294,16 +321,22 @@
     },
     {
       "id": "museum.history.runes",
-      "status": "pending",
+      "status": "collected",
       "reporter": "Historian Minas",
       "candidate_quest_ids": [
         "quest.rune_mysteries"
       ],
-      "required_quest_ids": null,
+      "required_quest_ids": [
+        "quest.rune_mysteries"
+      ],
       "repeat_limit": 1,
-      "kudos": null,
+      "kudos": 5,
       "reward_claim_id": null,
-      "note": "Tracker identity suggests the candidate subject. Verify the eligible quest, report dialogue, items and associated lamp before awarding credit."
+      "note": "Report the completed quest to Historian Minas. Award five kudos once.",
+      "catalog_action_id": "museum.history.runes",
+      "source_ids": [
+        "source.field.varrock_museum_history"
+      ]
     },
     {
       "id": "museum.history.salveknights",
@@ -320,16 +353,22 @@
     },
     {
       "id": "museum.history.silverlight",
-      "status": "pending",
+      "status": "collected",
       "reporter": "Historian Minas",
       "candidate_quest_ids": [
         "quest.demon_slayer"
       ],
-      "required_quest_ids": null,
+      "required_quest_ids": [
+        "quest.demon_slayer"
+      ],
       "repeat_limit": 1,
-      "kudos": null,
+      "kudos": 5,
       "reward_claim_id": null,
-      "note": "Tracker identity suggests the candidate subject. Verify the eligible quest, report dialogue, items and associated lamp before awarding credit."
+      "note": "Report the completed quest to Historian Minas. Award five kudos once.",
+      "catalog_action_id": "museum.history.silverlight",
+      "source_ids": [
+        "source.field.varrock_museum_history"
+      ]
     },
     {
       "id": "museum.history.soa",
@@ -364,7 +403,9 @@
       "candidate_quest_ids": [
         "quest.what_lies_below"
       ],
-      "required_quest_ids": ["quest.what_lies_below"],
+      "required_quest_ids": [
+        "quest.what_lies_below"
+      ],
       "repeat_limit": 1,
       "kudos": 5,
       "reward_claim_id": "claim.what_lies_below.minas",
@@ -466,14 +507,14 @@
   },
   "camp": {
     "id": "museum.camp",
-    "status": "pending",
+    "status": "collected",
     "requires_flag_id": "unlock.fossil_island",
     "arrival_location_id": "location.fossil_island.camp_pier",
     "hub_location_id": "location.fossil_island.museum_camp",
     "facilities": [
       {
         "id": "museum.camp.bank",
-        "status": "pending",
+        "status": "collected",
         "object_symbol": "FOSSIL_BANK_CHEST",
         "tile": [
           3742,
@@ -485,15 +526,15 @@
         "repeat_limit": 1,
         "materials": [
           {
-            "name": "Oak plank",
+            "item_id": "item.oak_plank",
             "quantity": 2
           },
           {
-            "name": "Iron bar",
+            "item_id": "item.iron_bar",
             "quantity": 1
           },
           {
-            "name": "Nails",
+            "item_id": "item.bronze_nails",
             "quantity": 5
           }
         ],
@@ -502,8 +543,8 @@
         ],
         "construction_level": 21,
         "boostable": null,
-        "xp_tenths": null,
-        "note": "Bone Voyage helper lists the materials, hammer and level. Confirm the build's Construction XP, tool alternatives and boost rule.",
+        "xp_tenths": 2500,
+        "note": "The draft route checks base level. Verify boosts and materials in the pinned build.",
         "location_id": "location.fossil_island.camp.bank",
         "access_edge_ids": [
           "travel.fossil_island.camp.bank.out",
@@ -512,7 +553,7 @@
       },
       {
         "id": "museum.camp.bench",
-        "status": "pending",
+        "status": "collected",
         "object_symbol": "FOSSIL_CLEANING_BENCH",
         "tile": [
           3752,
@@ -522,12 +563,23 @@
         "requires_flag_id": "unlock.fossil_island",
         "sets_flag_id": "flag.museum.camp.bench",
         "repeat_limit": 1,
-        "materials": null,
-        "tools": null,
-        "construction_level": null,
+        "materials": [
+          {
+            "item_id": "item.plank",
+            "quantity": 5
+          },
+          {
+            "item_id": "item.bronze_nails",
+            "quantity": 5
+          }
+        ],
+        "tools": [
+          "Hammer"
+        ],
+        "construction_level": 5,
         "boostable": null,
-        "xp_tenths": null,
-        "note": "The cache places this facility at the camp. Verify the construction inputs, skill check and award in-game.",
+        "xp_tenths": 1000,
+        "note": "The draft route checks base level. Verify boosts and materials in the pinned build.",
         "location_id": "location.fossil_island.camp.bench",
         "access_edge_ids": [
           "travel.fossil_island.camp.bench.out",
@@ -536,7 +588,7 @@
       },
       {
         "id": "museum.camp.well",
-        "status": "pending",
+        "status": "collected",
         "object_symbol": "FOSSIL_WELL",
         "tile": [
           3745,
@@ -546,12 +598,31 @@
         "requires_flag_id": "unlock.fossil_island",
         "sets_flag_id": "flag.museum.camp.well",
         "repeat_limit": 1,
-        "materials": null,
-        "tools": null,
-        "construction_level": null,
+        "materials": [
+          {
+            "item_id": "item.oak_plank",
+            "quantity": 2
+          },
+          {
+            "item_id": "item.bronze_nails",
+            "quantity": 5
+          },
+          {
+            "item_id": "item.bucket",
+            "quantity": 1
+          },
+          {
+            "item_id": "item.rope",
+            "quantity": 1
+          }
+        ],
+        "tools": [
+          "Hammer"
+        ],
+        "construction_level": 22,
         "boostable": null,
-        "xp_tenths": null,
-        "note": "The cache places this facility at the camp. Verify the construction inputs, skill check and award in-game.",
+        "xp_tenths": 5000,
+        "note": "The draft route checks base level. Verify boosts and materials in the pinned build.",
         "location_id": "location.fossil_island.camp.well",
         "access_edge_ids": [
           "travel.fossil_island.camp.well.out",
@@ -560,7 +631,7 @@
       },
       {
         "id": "museum.camp.range",
-        "status": "pending",
+        "status": "collected",
         "object_symbol": "FOSSIL_RANGE",
         "tile": [
           3734,
@@ -570,12 +641,28 @@
         "requires_flag_id": "unlock.fossil_island",
         "sets_flag_id": "flag.museum.camp.range",
         "repeat_limit": 1,
-        "materials": null,
-        "tools": null,
-        "construction_level": null,
+        "materials": [
+          {
+            "item_id": "item.logs",
+            "quantity": 2
+          },
+          {
+            "item_id": "item.iron_bar",
+            "quantity": 1
+          },
+          {
+            "item_id": "item.soft_clay",
+            "quantity": 3
+          }
+        ],
+        "tools": [
+          "Hammer",
+          "Tinderbox"
+        ],
+        "construction_level": 24,
         "boostable": null,
-        "xp_tenths": null,
-        "note": "The cache places this facility at the camp. Verify the construction inputs, skill check and award in-game.",
+        "xp_tenths": 8000,
+        "note": "The draft route checks base level. Verify boosts and materials in the pinned build.",
         "location_id": "location.fossil_island.camp.range",
         "access_edge_ids": [
           "travel.fossil_island.camp.range.out",
@@ -584,7 +671,7 @@
       },
       {
         "id": "museum.camp.spinning_wheel",
-        "status": "pending",
+        "status": "collected",
         "object_symbol": "FOSSIL_SPINNING_WHEEL",
         "tile": [
           3732,
@@ -594,12 +681,23 @@
         "requires_flag_id": "unlock.fossil_island",
         "sets_flag_id": "flag.museum.camp.spinning_wheel",
         "repeat_limit": 1,
-        "materials": null,
-        "tools": null,
-        "construction_level": null,
+        "materials": [
+          {
+            "item_id": "item.oak_plank",
+            "quantity": 4
+          },
+          {
+            "item_id": "item.bronze_nails",
+            "quantity": 5
+          }
+        ],
+        "tools": [
+          "Hammer"
+        ],
+        "construction_level": 28,
         "boostable": null,
-        "xp_tenths": null,
-        "note": "The cache places this facility at the camp. Verify the construction inputs, skill check and award in-game.",
+        "xp_tenths": 10000,
+        "note": "The draft route checks base level. Verify boosts and materials in the pinned build.",
         "location_id": "location.fossil_island.camp.spinning_wheel",
         "access_edge_ids": [
           "travel.fossil_island.camp.spinning_wheel.out",
@@ -608,7 +706,7 @@
       },
       {
         "id": "museum.camp.loom",
-        "status": "pending",
+        "status": "collected",
         "object_symbol": "FOSSIL_LOOM",
         "tile": [
           3730,
@@ -618,12 +716,27 @@
         "requires_flag_id": "unlock.fossil_island",
         "sets_flag_id": "flag.museum.camp.loom",
         "repeat_limit": 1,
-        "materials": null,
-        "tools": null,
-        "construction_level": null,
+        "materials": [
+          {
+            "item_id": "item.oak_plank",
+            "quantity": 2
+          },
+          {
+            "item_id": "item.bronze_nails",
+            "quantity": 5
+          },
+          {
+            "item_id": "item.rope",
+            "quantity": 1
+          }
+        ],
+        "tools": [
+          "Hammer"
+        ],
+        "construction_level": 29,
         "boostable": null,
-        "xp_tenths": null,
-        "note": "The cache places this facility at the camp. Verify the construction inputs, skill check and award in-game.",
+        "xp_tenths": 10000,
+        "note": "The draft route checks base level. Verify boosts and materials in the pinned build.",
         "location_id": "location.fossil_island.camp.loom",
         "access_edge_ids": [
           "travel.fossil_island.camp.loom.out",
@@ -633,7 +746,7 @@
     ],
     "claim": {
       "id": "museum.camp.camp_reward",
-      "status": "pending",
+      "status": "collected",
       "candidate_requires_flags": [
         "flag.museum.camp.bank",
         "flag.museum.camp.bench",
@@ -643,8 +756,9 @@
         "flag.museum.camp.loom"
       ],
       "repeat_limit": 1,
-      "fossil_quantity": null,
-      "note": "Track Peter's facility completion reward separately from the additional fossils on the exploration task list. Verify which tasks and item counts apply to each."
+      "fossil_quantity": 5,
+      "note": "Ask Peter separately after all six facility actions. Other notice board rewards remain outside this claim.",
+      "location_id": "location.fossil_island.camp.peter"
     }
   },
   "transport": [

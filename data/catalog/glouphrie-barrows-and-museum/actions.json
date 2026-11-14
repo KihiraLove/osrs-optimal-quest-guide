@@ -1,0 +1,2810 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_glouphrie_repair_supplies",
+    "name": "Buy glouphrie repair supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mud_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_sap",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.oak_logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.maple_logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.saw",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Purchase an estimated supply bundle at the Grand Exchange.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.start",
+    "name": "Ask Brimstail about the strange creature",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimstail_cave.brimstail",
+    "end_location_id": "location.brimstail_cave.brimstail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_grand_tree.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 5,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 34,
+      "max_seconds": 73
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Brimstail after The Grand Tree.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.inspect_bowl",
+    "name": "Inspect the singing bowl",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimstail_cave.singing_bowl",
+    "end_location_id": "location.brimstail_cave.singing_bowl",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Inspect the singing bowl in the west room.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.inspect_machine",
+    "name": "Inspect Oaknock's machine",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimstail_cave.oaknock_machine",
+    "end_location_id": "location.brimstail_cave.oaknock_machine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.inspect_bowl"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Try the machine in the north of the cave.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.ask_about_machine",
+    "name": "Ask Brimstail about the machine",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimstail_cave.brimstail",
+    "end_location_id": "location.brimstail_cave.brimstail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.inspect_machine"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Tell Brimstail you inspected the devices.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.visit_hazelmere",
+    "name": "Ask Hazelmere about the gnomes' history",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.hazelmere_upstairs",
+    "end_location_id": "location.yanille.hazelmere_upstairs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.ask_about_machine"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 65,
+      "max_seconds": 140
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Finish Hazelmere's dialogue and cutscene.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.report_to_brimstail",
+    "name": "Tell Brimstail what Hazelmere said",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimstail_cave.brimstail",
+    "end_location_id": "location.brimstail_cave.brimstail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.visit_hazelmere"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 24,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Return to Brimstail and discuss the machine.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.grind_mud_rune",
+    "name": "Grind a mud rune",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimstail_cave.brimstail",
+    "end_location_id": "location.brimstail_cave.brimstail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.report_to_brimstail"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mud_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ground_mud_rune",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 7,
+      "max_seconds": 15
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use a pestle and mortar on a mud rune.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.make_magic_glue",
+    "name": "Mix the ground rune into the bucket of sap",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimstail_cave.brimstail",
+    "end_location_id": "location.brimstail_cave.brimstail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.grind_mud_rune"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 46,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ground_mud_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bucket_of_sap",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.glouphrie_magic_glue",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 10,
+      "max_seconds": 22
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Mix the ingredients to make glue.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.repair_machine",
+    "name": "Repair Oaknock's machine",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimstail_cave.oaknock_machine",
+    "end_location_id": "location.brimstail_cave.oaknock_machine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.make_magic_glue"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.saw",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.glouphrie_magic_glue",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.oak_logs",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.maple_logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use the glue, oak and maple logs with a saw and hammer.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.receive_discs",
+    "name": "Tell Brimstail the machine is repaired",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimstail_cave.brimstail",
+    "end_location_id": "location.brimstail_cave.brimstail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.repair_machine"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Get crystal discs from Brimstail.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.solve_machine",
+    "name": "Solve Oaknock's crystal disc lock",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimstail_cave.oaknock_machine",
+    "end_location_id": "location.brimstail_cave.oaknock_machine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.receive_discs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 105,
+      "max_seconds": 226
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use the exchanger or request more discs from Brimstail if necessary. Match the randomized values using the number of discs shown.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Solve the required disc combinations and unlock the machine.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.operate_machine",
+    "name": "Operate Oaknock's machine",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimstail_cave.oaknock_machine",
+    "end_location_id": "location.brimstail_cave.oaknock_machine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.solve_machine"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Activate the machine and reveal the disguised creatures.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.report_illusion",
+    "name": "Ask Brimstail about the revealed creatures",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimstail_cave.brimstail",
+    "end_location_id": "location.brimstail_cave.brimstail",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.operate_machine"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 27,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to Brimstail before hunting the six creatures.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.defeat_cave_creature",
+    "name": "Defeat the creature at Brimstail's cave",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimstail_cave.evil_creature",
+    "end_location_id": "location.brimstail_cave.evil_creature",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.report_illusion"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Defeat the revealed creature at this waypoint. Combat XP varies with attack style.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the creature at this location.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.defeat_gate_creature",
+    "name": "Defeat the creature at the Stronghold gate",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.gnome_stronghold.evil_creature_gate",
+    "end_location_id": "location.gnome_stronghold.evil_creature_gate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.report_illusion"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Defeat the revealed creature at this waypoint. Combat XP varies with attack style.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the creature at this location.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.defeat_spirit_tree_creature",
+    "name": "Defeat the creature at the Spirit Tree",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.gnome_stronghold.evil_creature_spirit_tree",
+    "end_location_id": "location.gnome_stronghold.evil_creature_spirit_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.report_illusion"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Defeat the revealed creature at this waypoint. Combat XP varies with attack style.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the creature at this location.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.defeat_northwest_creature",
+    "name": "Defeat the creature at the north-west Stronghold",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.gnome_stronghold.evil_creature_northwest",
+    "end_location_id": "location.gnome_stronghold.evil_creature_northwest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.report_illusion"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Defeat the revealed creature at this waypoint. Combat XP varies with attack style.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the creature at this location.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.defeat_top_floor_creature",
+    "name": "Defeat the creature at the top floor of the Grand Tree",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.evil_creature_upper",
+    "end_location_id": "location.grand_tree.evil_creature_upper",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.report_illusion"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Defeat the revealed creature at this waypoint. Combat XP varies with attack style.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the creature at this location.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.defeat_narnode_creature",
+    "name": "Defeat the creature at King Narnode",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.king_narnode",
+    "end_location_id": "location.grand_tree.king_narnode",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.report_illusion"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Defeat the revealed creature at this waypoint. Combat XP varies with attack style.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the creature at this location.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.the_eyes_of_glouphrie.complete",
+    "name": "Report to King Narnode",
+    "activity_id": "quest.the_eyes_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.grand_tree.king_narnode",
+    "end_location_id": "location.grand_tree.king_narnode",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.defeat_cave_creature"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.defeat_gate_creature"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.defeat_spirit_tree_creature"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.defeat_northwest_creature"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.defeat_top_floor_creature"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.defeat_narnode_creature"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 120000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.runecraft",
+        "xp_tenths": 60000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 2500
+      },
+      {
+        "kind": "item",
+        "item_id": "item.crystal_saw_seed",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_eyes_of_glouphrie.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.the_eyes_of_glouphrie",
+        "source.project.early_quest_timing",
+        "source.field.glouphrie_walkthrough"
+      ],
+      "note": "Talk to King Narnode after all six creatures are defeated.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "diary.western_provinces.medium.task.varp_1182_23",
+    "name": "Turn the small crystal seed into a crystal saw",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.brimstail_cave.singing_bowl",
+    "end_location_id": "location.brimstail_cave.singing_bowl",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.western_provinces.medium.task.varp_1182_23",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.crystal_saw_seed",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crystal_saw",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.western_provinces.medium.task.varp_1182_23",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.western_provinces_crystal_saw",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use the seed on the singing bowl in Brimstail's cave to make a crystal saw and register the diary task.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_barrows_teleport_tablets",
+    "name": "Buy barrows teleport tablets",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 9000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.barrows_teleport_tablet",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Purchase an estimated supply bundle at the Grand Exchange.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.his_faithful_servants.start",
+    "name": "Ask the Strange Old Man about the icon",
+    "activity_id": "miniquest.his_faithful_servants",
+    "kind": "quest_stage",
+    "start_location_id": "location.barrows.strange_old_man",
+    "end_location_id": "location.barrows.strange_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 34,
+      "max_seconds": 73
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.his_faithful_servants",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Accept the request for the strange icon.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.his_faithful_servants.clear_five_mounds",
+    "name": "Defeat the five brothers in their tombs",
+    "activity_id": "miniquest.his_faithful_servants",
+    "kind": "quest_stage",
+    "start_location_id": "location.barrows.strange_old_man",
+    "end_location_id": "location.barrows.strange_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.his_faithful_servants.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 207,
+      "expected_seconds": 460,
+      "max_seconds": 989
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.his_faithful_servants",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Dig at each mound and search its sarcophagus. Leave the empty tomb for the tunnels. The five brothers and walking between mounds are part of this stage.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the five brothers whose sarcophagi spawn them. Identify the tunnel entrance.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "miniquest.his_faithful_servants.enter_tunnels",
+    "name": "Find the Barrows chest through the tunnel",
+    "activity_id": "miniquest.his_faithful_servants",
+    "kind": "quest_stage",
+    "start_location_id": "location.barrows.strange_old_man",
+    "end_location_id": "location.barrows.crypt_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.his_faithful_servants.clear_five_mounds"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 43,
+      "expected_seconds": 95,
+      "max_seconds": 204
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.his_faithful_servants",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Return to the mound whose sarcophagus opens the tunnel. Solve the door puzzle to reach the centre chamber.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the chest without searching it.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "miniquest.his_faithful_servants.defeat_last_brother",
+    "name": "Defeat the remaining Barrows brother",
+    "activity_id": "miniquest.his_faithful_servants",
+    "kind": "quest_stage",
+    "start_location_id": "location.barrows.crypt_chest",
+    "end_location_id": "location.barrows.crypt_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.his_faithful_servants.enter_tunnels"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 115,
+      "max_seconds": 247
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.his_faithful_servants",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Defeat the brother that appears in the tunnels or when opening the chest. This stage models the fight at the chest.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm all six brothers have been defeated in the same run.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "miniquest.his_faithful_servants.take_icon",
+    "name": "Search the Barrows chest for the icon",
+    "activity_id": "miniquest.his_faithful_servants",
+    "kind": "quest_stage",
+    "start_location_id": "location.barrows.crypt_chest",
+    "end_location_id": "location.barrows.crypt_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.his_faithful_servants.defeat_last_brother"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.barrows_strange_icon",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 11,
+      "max_seconds": 24
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.his_faithful_servants",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Search the chest after all six kills and take the strange icon.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.his_faithful_servants.complete",
+    "name": "Give the Strange Old Man the icon",
+    "activity_id": "miniquest.his_faithful_servants",
+    "kind": "quest_stage",
+    "start_location_id": "location.barrows.strange_old_man",
+    "end_location_id": "location.barrows.strange_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.his_faithful_servants.take_icon"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.barrows_strange_icon",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 200000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.barrows_crypt_map",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.miniquest.his_faithful_servants.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 45,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.his_faithful_servants",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Hand over the icon, then continue the dialogue for the 20,000 Prayer XP and crypt map.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "claim.his_faithful_servants.study_crypt_map",
+    "name": "Study the crypt map",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.barrows.strange_old_man",
+    "end_location_id": "location.barrows.strange_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.his_faithful_servants.complete"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.barrows_crypt_map",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.barrows_crypt_minimap",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.his_faithful_servants",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Study the map to permanently reveal the Barrows tunnel minimap.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "claim.museum.kudos_50",
+    "name": "Claim the museum reward for 51 kudos",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.varrock_museum.information_clerk",
+    "end_location_id": "location.varrock_museum.information_clerk",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "counter",
+          "token_id": "token.museum.kudos",
+          "minimum": 51
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 10000
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 10,
+      "max_seconds": 22
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.museum_clerk_awards",
+        "source.project.early_quest_timing",
+        "source.field.museum_clerk_threshold_dialogue"
+      ],
+      "note": "Speak to the information clerk. Each threshold is a one-time award. Consecutive awards can be given in the same dialogue.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "claim.museum.kudos_100",
+    "name": "Claim the museum reward for 101 kudos",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.varrock_museum.information_clerk",
+    "end_location_id": "location.varrock_museum.information_clerk",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "counter",
+          "token_id": "token.museum.kudos",
+          "minimum": 101
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "claim.museum.kudos_50"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 25000
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 11
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.museum_clerk_awards",
+        "source.project.early_quest_timing",
+        "source.field.museum_clerk_threshold_dialogue"
+      ],
+      "note": "Speak to the information clerk. Each threshold is a one-time award. Consecutive awards can be given in the same dialogue.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "claim.museum.kudos_150",
+    "name": "Claim the museum reward for 151 kudos",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.varrock_museum.information_clerk",
+    "end_location_id": "location.varrock_museum.information_clerk",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "counter",
+          "token_id": "token.museum.kudos",
+          "minimum": 151
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "claim.museum.kudos_100"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 40000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hunter",
+        "xp_tenths": 40000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 40000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.slayer",
+        "xp_tenths": 40000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 40000
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 11
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.museum_clerk_awards",
+        "source.project.early_quest_timing",
+        "source.field.museum_clerk_threshold_dialogue"
+      ],
+      "note": "Speak to the information clerk. Each threshold is a one-time award. Consecutive awards can be given in the same dialogue.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_museum_camp_building_supplies",
+    "name": "Buy museum camp building supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 7500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.oak_plank",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_nails",
+        "quantity": 25
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_bar",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.soft_clay",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Purchase an estimated supply bundle at the Grand Exchange.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "museum.camp.bench",
+    "name": "Build the Museum Camp fossil cleaning bench",
+    "activity_id": "museum.camp",
+    "kind": "other",
+    "start_location_id": "location.fossil_island.camp.bench",
+    "end_location_id": "location.fossil_island.camp.bench",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.fossil_island",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 5,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plank",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.bronze_nails",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 1000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.museum.camp.bench",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.fossil_camp_building",
+        "source.project.early_quest_timing",
+        "source.jagex.fossil_island",
+        "source.field.fossil_camp_launch_materials",
+        "source.jagex.cache_242_map"
+      ],
+      "note": "Build this facility independently after reaching Fossil Island. The draft uses the base Construction level.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "museum.camp.bank",
+    "name": "Build the Museum Camp bank chest",
+    "activity_id": "museum.camp",
+    "kind": "other",
+    "start_location_id": "location.fossil_island.camp.bank",
+    "end_location_id": "location.fossil_island.camp.bank",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.fossil_island",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 21,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_plank",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bronze_nails",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 2500
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.museum.camp.bank",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.fossil_camp_building",
+        "source.project.early_quest_timing",
+        "source.jagex.fossil_island",
+        "source.field.fossil_camp_launch_materials",
+        "source.jagex.cache_242_map"
+      ],
+      "note": "Build this facility independently after reaching Fossil Island. The draft uses the base Construction level.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "museum.camp.well",
+    "name": "Build the Museum Camp well",
+    "activity_id": "museum.camp",
+    "kind": "other",
+    "start_location_id": "location.fossil_island.camp.well",
+    "end_location_id": "location.fossil_island.camp.well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.fossil_island",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 22,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_plank",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.bronze_nails",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.bucket",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 5000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.museum.camp.well",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.fossil_camp_building",
+        "source.project.early_quest_timing",
+        "source.jagex.fossil_island",
+        "source.field.fossil_camp_launch_materials",
+        "source.jagex.cache_242_map"
+      ],
+      "note": "Build this facility independently after reaching Fossil Island. The draft uses the base Construction level.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "museum.camp.range",
+    "name": "Build the Museum Camp cooking pot",
+    "activity_id": "museum.camp",
+    "kind": "other",
+    "start_location_id": "location.fossil_island.camp.range",
+    "end_location_id": "location.fossil_island.camp.range",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.fossil_island",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 24,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.logs",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.soft_clay",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 8000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.museum.camp.range",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.fossil_camp_building",
+        "source.project.early_quest_timing",
+        "source.jagex.fossil_island",
+        "source.field.fossil_camp_launch_materials",
+        "source.jagex.cache_242_map"
+      ],
+      "note": "Build this facility independently after reaching Fossil Island. The draft uses the base Construction level.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "museum.camp.spinning_wheel",
+    "name": "Build the Museum Camp spinning wheel",
+    "activity_id": "museum.camp",
+    "kind": "other",
+    "start_location_id": "location.fossil_island.camp.spinning_wheel",
+    "end_location_id": "location.fossil_island.camp.spinning_wheel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.fossil_island",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 28,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_plank",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.bronze_nails",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.museum.camp.spinning_wheel",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.fossil_camp_building",
+        "source.project.early_quest_timing",
+        "source.jagex.fossil_island",
+        "source.field.fossil_camp_launch_materials",
+        "source.jagex.cache_242_map"
+      ],
+      "note": "Build this facility independently after reaching Fossil Island. The draft uses the base Construction level.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "museum.camp.loom",
+    "name": "Build the Museum Camp loom",
+    "activity_id": "museum.camp",
+    "kind": "other",
+    "start_location_id": "location.fossil_island.camp.loom",
+    "end_location_id": "location.fossil_island.camp.loom",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.fossil_island",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 29,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_plank",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.bronze_nails",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.museum.camp.loom",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.fossil_camp_building",
+        "source.project.early_quest_timing",
+        "source.jagex.fossil_island",
+        "source.field.fossil_camp_launch_materials",
+        "source.jagex.cache_242_map"
+      ],
+      "note": "Build this facility independently after reaching Fossil Island. The draft uses the base Construction level.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "museum.camp.camp_reward",
+    "name": "Claim Peter's Museum Camp building reward",
+    "activity_id": "museum.camp",
+    "kind": "reward_claim",
+    "start_location_id": "location.fossil_island.camp.peter",
+    "end_location_id": "location.fossil_island.camp.peter",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "museum.camp.bench"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "museum.camp.bank"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "museum.camp.well"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "museum.camp.range"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "museum.camp.spinning_wheel"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "museum.camp.loom"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.unidentified_small_fossil",
+        "quantity": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 26,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.fossil_camp_building",
+        "source.project.early_quest_timing"
+      ],
+      "note": "After building all six facilities, ask Peter about the work and collect five unidentified small fossils.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "museum.history.glider",
+    "name": "Explain the Grand Tree's gliders",
+    "activity_id": null,
+    "kind": "museum",
+    "start_location_id": "location.varrock_museum.historian_minas",
+    "end_location_id": "location.varrock_museum.historian_minas",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.the_grand_tree.complete"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.museum.kudos",
+        "delta": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_museum_history",
+        "source.runelite.varbits",
+        "source.project.travel_timing"
+      ],
+      "note": "Make this report to Historian Minas upstairs to earn five kudos.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "museum.history.observatory",
+    "name": "Tell Minas about the observatory",
+    "activity_id": null,
+    "kind": "museum",
+    "start_location_id": "location.varrock_museum.historian_minas",
+    "end_location_id": "location.varrock_museum.historian_minas",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.observatory_quest.complete"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.museum.kudos",
+        "delta": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_museum_history",
+        "source.runelite.varbits",
+        "source.project.travel_timing"
+      ],
+      "note": "Make this report to Historian Minas upstairs to earn five kudos.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "museum.history.runes",
+    "name": "Report the discovery of rune essence",
+    "activity_id": null,
+    "kind": "museum",
+    "start_location_id": "location.varrock_museum.historian_minas",
+    "end_location_id": "location.varrock_museum.historian_minas",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.rune_mysteries.complete"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.museum.kudos",
+        "delta": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_museum_history",
+        "source.runelite.varbits",
+        "source.project.travel_timing"
+      ],
+      "note": "Make this report to Historian Minas upstairs to earn five kudos.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "museum.history.silverlight",
+    "name": "Tell Minas about Silverlight",
+    "activity_id": null,
+    "kind": "museum",
+    "start_location_id": "location.varrock_museum.historian_minas",
+    "end_location_id": "location.varrock_museum.historian_minas",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.demon_slayer.complete"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.museum.kudos",
+        "delta": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_museum_history",
+        "source.runelite.varbits",
+        "source.project.travel_timing"
+      ],
+      "note": "Make this report to Historian Minas upstairs to earn five kudos.",
+      "status": "estimated"
+    }
+  }
+]
