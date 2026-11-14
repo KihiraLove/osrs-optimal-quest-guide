@@ -7223,5 +7223,37 @@
       ]
     },
     "note": "Red Rock access is a midquest milestone. The Sailor's amulet marker is optional and must be interacted with separately. Completion gives 2 QP, 15,000 Sailing XP, 5,000 Smithing XP, Sacred Grove access and the Bosun's workbench schematic once."
+  },
+  {
+    "id": "review.quest.fallen_from_grace.completion_rewards",
+    "activity_id": "quest.fallen_from_grace",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations", "source.reference.fallen_from_grace_quick_guide"],
+    "catalog_ids": [
+      "quest.fallen_from_grace.unlock_mortimer",
+      "quest.fallen_from_grace.defeat_mad_angel",
+      "quest.fallen_from_grace.complete"
+    ],
+    "expected_effects": {
+      "quest.fallen_from_grace.unlock_mortimer": [
+        {"kind": "flag", "token_id": "unlock.grace.mortimer", "value": true}
+      ],
+      "quest.fallen_from_grace.defeat_mad_angel": [
+        {"kind": "flag", "token_id": "flag.grace.angel_defeated", "value": true},
+        {"kind": "item", "item_id": "item.grace.sunstone_crystal", "quantity": 1}
+      ],
+      "quest.fallen_from_grace.complete": [
+        {"kind": "flag", "token_id": "flag.quest.fallen_from_grace.complete", "value": true},
+        {"kind": "flag", "token_id": "unlock.grace.mad_angel_repeat", "value": true},
+        {"kind": "flag", "token_id": "unlock.grace.golem_crafting", "value": true},
+        {"kind": "flag", "token_id": "unlock.grace.wyrmscraig_teleports", "value": true},
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 2},
+        {"kind": "xp", "skill_id": "skill.crafting", "xp_tenths": 100000},
+        {"kind": "xp", "skill_id": "skill.sailing", "xp_tenths": 125000},
+        {"kind": "xp", "skill_id": "skill.mining", "xp_tenths": 50000},
+        {"kind": "xp", "skill_id": "skill.runecraft", "xp_tenths": 50000}
+      ]
+    },
+    "note": "Mortimer becomes available at the three-troll cavern milestone. Sunstone crystal comes from the Mad Angel, and the 2 QP, 32,500 fixed XP and remaining destination/minigame/repeat boss unlocks are granted only at completion."
   }
 ]
