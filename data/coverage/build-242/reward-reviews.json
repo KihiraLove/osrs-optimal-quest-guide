@@ -6994,6 +6994,30 @@
     "note": "Maisa awards one retained 50k combat lamp after the first full raid; further raid rewards and future ancient-key crafting are distinct."
   },
   {"id": "review.rfd.freeing_sir_amik_varze.completion_rewards", "activity_id": "rfd.freeing_sir_amik_varze", "status": "collected", "source_ids": ["source.quest_helper.quest_observations"], "catalog_ids": ["rfd.freeing_sir_amik_varze.complete"], "expected_effects": {"rfd.freeing_sir_amik_varze.complete": [{"kind": "counter", "token_id": "token.quest_points", "delta": 1}, {"kind": "xp", "skill_id": "skill.cooking", "xp_tenths": 40000}, {"kind": "xp", "skill_id": "skill.hitpoints", "xp_tenths": 40000}, {"kind": "flag", "token_id": "unlock.rfd_evil_chicken_lair", "value": true}]}, "note": "Completion reward is applied exactly once; no duplicate parent RFD award."},
-  {"id": "review.rfd.defeating_the_culinaromancer.completion_rewards", "activity_id": "rfd.defeating_the_culinaromancer", "status": "collected", "source_ids": ["source.quest_helper.quest_observations"], "catalog_ids": ["rfd.defeating_the_culinaromancer.complete"], "expected_effects": {"rfd.defeating_the_culinaromancer.complete": [{"kind": "counter", "token_id": "token.quest_points", "delta": 1}, {"kind": "flag", "token_id": "flag.rfd.finale_complete", "value": true}, {"kind": "flag", "token_id": "unlock.rfd_barrows_gloves", "value": true}, {"kind": "xp_reward", "reward_id": "reward.rfd.culinaromancer_lamp", "quantity": 1}]}, "note": "Completion reward is applied exactly once; no duplicate parent RFD award."}
+  {"id": "review.rfd.defeating_the_culinaromancer.completion_rewards", "activity_id": "rfd.defeating_the_culinaromancer", "status": "collected", "source_ids": ["source.quest_helper.quest_observations"], "catalog_ids": ["rfd.defeating_the_culinaromancer.complete"], "expected_effects": {"rfd.defeating_the_culinaromancer.complete": [{"kind": "counter", "token_id": "token.quest_points", "delta": 1}, {"kind": "flag", "token_id": "flag.rfd.finale_complete", "value": true}, {"kind": "flag", "token_id": "unlock.rfd_barrows_gloves", "value": true}, {"kind": "xp_reward", "reward_id": "reward.rfd.culinaromancer_lamp", "quantity": 1}]}, "note": "Completion reward is applied exactly once; no duplicate parent RFD award."},
+  {
+    "id": "review.quest.pandemonium.completion_rewards",
+    "activity_id": "quest.pandemonium",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations", "source.reference.pandemonium_quick_guide"],
+    "catalog_ids": ["quest.pandemonium.deliver_cargo", "quest.pandemonium.complete"],
+    "expected_effects": {
+      "quest.pandemonium.deliver_cargo": [
+        {"kind": "xp", "skill_id": "skill.sailing", "xp_tenths": 1000}
+      ],
+      "quest.pandemonium.complete": [
+        {"kind": "item", "item_id": "item.pandemonium.wood_sawmill_coupon", "quantity": 25},
+        {"kind": "item", "item_id": "item.pandemonium.repair_kit", "quantity": 2},
+        {"kind": "item", "item_id": "item.pandemonium.spyglass", "quantity": 1},
+        {"kind": "flag", "token_id": "unlock.pandemonium.sailing", "value": true},
+        {"kind": "flag", "token_id": "unlock.pandemonium.island_access", "value": true},
+        {"kind": "flag", "token_id": "unlock.pandemonium.port_tasks", "value": true},
+        {"kind": "flag", "token_id": "flag.quest.pandemonium.complete", "value": true},
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "xp", "skill_id": "skill.sailing", "xp_tenths": 3000}
+      ]
+    },
+    "note": "One fixed 100 XP Sailing award at first cargo delivery plus 300 XP at quest completion; 400 XP total. Free raft, Captain's log and basic cargo hold are separate preceding milestone unlocks."
+  }
 
 ]

@@ -30,6 +30,8 @@ class SailingShortQuestTests(unittest.TestCase):
         state = read_json(ROOT / "data/profiles/main-baseline.json")["initial_state"]
         state["location_id"] = "location.prying.steve" if quest == "prying" else "location.prying.pandemonium_dock"
         state["inventory"] = {}
+        state["flags"]["flag.quest.pandemonium.complete"] = True
+        state["flags"]["unlock.pandemonium.raft"] = True
         for skill, required in (("sailing", sailing if sailing is not None else (12 if quest == "prying" else 40)),
                                 ("smithing", other if other is not None else 30)) if quest == "prying" else (
                                     ("sailing", sailing if sailing is not None else 40),
@@ -138,6 +140,15 @@ class SailingShortQuestTests(unittest.TestCase):
         state = self.seeded("crab")
         with self.assertRaises(DataError):
             self.at_action(state, "quest.crab_quest.ceremony")
+
+    def test_pandemonium_prerequisite_cannot_be_skipped(self):
+        for quest, first in (("prying", "quest.prying_times.start"),
+                             ("crab", "quest.crab_quest.start")):
+            raw = self.seeded(quest).snapshot()
+            raw["flags"].pop("flag.quest.pandemonium.complete")
+            state = RouteState(self.tables, self.profile["policies"], raw)
+            with self.assertRaises(DataError):
+                self.at_action(state, first)
 
 
 if __name__ == "__main__":
