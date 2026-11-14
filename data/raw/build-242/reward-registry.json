@@ -365,12 +365,13 @@
     {
       "id": "review.miniquest.curse_of_the_empty_lord.xp_package",
       "activity_id": "miniquest.curse_of_the_empty_lord",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "post_quest_claim",
       "source_ids": [
-        "source.quest_helper.quest_observations"
+        "source.quest_helper.quest_observations",
+        "source.field.varrock_museum_history"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "museum.history.empty_lord",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -380,14 +381,30 @@
           "kind": "fixed",
           "xp_tenths": 100000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 50,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 1,
         "reported_eligibility": "reported_over_level_50"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "Minas awards this 10k XP lamp with 10 Kudos after the ghostly robe tale; eligibility over level 50 modeled as 50 pending review.",
+      "requires": {
+        "kind": "action_completed",
+        "action_id": "miniquest.curse_of_the_empty_lord.complete"
+      },
+      "claim_location": {
+        "name": "Historian Minas at Varrock Museum",
+        "tile": [
+          3256,
+          3448,
+          1
+        ],
+        "anchor": "CurseOfTheEmptyLord.museumReward"
+      },
+      "other_effects": {
+        "kudos": 10
+      }
     },
     {
       "id": "review.miniquest.in_search_of_knowledge.xp_package",
