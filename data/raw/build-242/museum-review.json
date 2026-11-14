@@ -12,7 +12,10 @@
     "source.field.fossil_camp_building",
     "source.field.fossil_camp_launch_materials",
     "source.field.museum_clerk_awards",
-    "source.field.museum_clerk_threshold_dialogue"
+    "source.field.museum_clerk_threshold_dialogue",
+    "source.field.varrock_specimen_cleaning",
+    "source.field.fossil_island_pendant_attunement",
+    "source.shortest_path.digsite_pendant"
   ],
   "quiz": {
     "activity_id": "museum.natural_history_quiz",
@@ -385,16 +388,19 @@
     },
     {
       "id": "museum.history.staff_of_armadyl",
-      "status": "pending",
+      "status": "collected",
       "reporter": "Historian Minas",
       "candidate_quest_ids": [
         "quest.temple_of_ikov"
       ],
-      "required_quest_ids": null,
+      "required_quest_ids": [
+        "quest.temple_of_ikov"
+      ],
       "repeat_limit": 1,
-      "kudos": null,
+      "kudos": 5,
       "reward_claim_id": null,
-      "note": "Tracker identity suggests the candidate subject. Verify the eligible quest, report dialogue, items and associated lamp before awarding credit."
+      "note": "Report the Staff of Armadyl upstairs after either ending.",
+      "catalog_action_id": "museum.history.staff_of_armadyl"
     },
     {
       "id": "museum.history.surok",
@@ -418,50 +424,55 @@
       "status": "collected",
       "category": "exhibit",
       "requires_flag_id": "flag.quest.the_dig_site.complete",
-      "kudos": 5,
+      "kudos": 10,
       "acquisition": "museum specimen cleaning",
       "repeat_limit": 1,
-      "note": "Confirm the possible find, exhibit, equipment and one-time hand-in before admitting an award."
+      "note": "Clean the old coin and hand it in at display 45. The cleaning duration is estimated.",
+      "case": 45
     },
     {
       "id": "museum.find.coin_senn",
-      "status": "pending",
+      "status": "collected",
       "category": "exhibit",
       "requires_flag_id": "flag.quest.the_dig_site.complete",
-      "kudos": null,
+      "kudos": 10,
       "acquisition": "museum specimen cleaning",
       "repeat_limit": 1,
-      "note": "Confirm the possible find, exhibit, equipment and one-time hand-in before admitting an award."
+      "note": "Clean the ancient coin and hand it in at display 44. The cleaning duration is estimated.",
+      "case": 44
     },
     {
       "id": "museum.find.pottery",
-      "status": "pending",
+      "status": "collected",
       "category": "exhibit",
       "requires_flag_id": "flag.quest.the_dig_site.complete",
-      "kudos": null,
+      "kudos": 10,
       "acquisition": "museum specimen cleaning",
       "repeat_limit": 1,
-      "note": "Confirm the possible find, exhibit, equipment and one-time hand-in before admitting an award."
+      "note": "Clean the pottery and hand it in at display 22. The cleaning duration is estimated.",
+      "case": 22
     },
     {
       "id": "museum.find.symbol_anc",
-      "status": "pending",
+      "status": "collected",
       "category": "exhibit",
       "requires_flag_id": "flag.quest.the_dig_site.complete",
-      "kudos": null,
+      "kudos": 10,
       "acquisition": "museum specimen cleaning",
       "repeat_limit": 1,
-      "note": "Confirm the possible find, exhibit, equipment and one-time hand-in before admitting an award."
+      "note": "Clean the ancient symbol and hand it in at display 37. The cleaning duration is estimated.",
+      "case": 37
     },
     {
       "id": "museum.find.symbol_old",
-      "status": "pending",
+      "status": "collected",
       "category": "exhibit",
       "requires_flag_id": "flag.quest.the_dig_site.complete",
-      "kudos": null,
+      "kudos": 10,
       "acquisition": "museum specimen cleaning",
       "repeat_limit": 1,
-      "note": "Confirm the possible find, exhibit, equipment and one-time hand-in before admitting an award."
+      "note": "Clean the old symbol and hand it in at display 36. The cleaning duration is estimated.",
+      "case": 36
     },
     {
       "id": "museum.find.tablet",
@@ -485,13 +496,13 @@
     },
     {
       "id": "museum.find.digsite_pendant",
-      "status": "pending",
+      "status": "collected",
       "category": "travel_unlock",
       "requires_flag_id": "flag.quest.the_dig_site.complete",
-      "kudos": null,
+      "kudos": 0,
       "acquisition": "museum specimen cleaning",
       "repeat_limit": 1,
-      "note": "Verify the discovery, teaching dialogue and later House on the Hill attunement as separate unlocks."
+      "note": "The clean necklace is separate from exhibit finds. Show it to the archaeologist to learn to enchant a ruby necklace."
     }
   ],
   "relics": {
@@ -776,14 +787,15 @@
     },
     {
       "id": "transport.fossil_island.digsite_pendant",
-      "status": "pending",
+      "status": "collected",
       "requires_flag_id": "unlock.fossil_island",
       "possible_destination": [
-        3755,
+        3763,
         3869,
-        0
+        1
       ],
-      "note": "Quest Helper shows the House on the Hill route. Verify learning to enchant a pendant, attuning the island destination, actual arrival and charge consumption."
+      "note": "Attune a charged pendant at the House on the Hill. Each teleport uses one charge.",
+      "catalog_action_id": "transport.fossil_island.digsite_pendant"
     },
     {
       "id": "transport.fossil_island.mushtrees",

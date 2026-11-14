@@ -5,8 +5,9 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
-| 0.42.0 | Added One Small Favour's outward and return chains, Feldip glider markers, conditional cave and dwarf encounters, Guthix rest and pot lid unlocks, two separately held 10,000-XP lamps, and a seeded end-to-end route replay. |
-| 0.41.0 | Added Shilo Village and Tai Bwo Wannai Trio, the Ah Za Rhoon and tomb return paths, Shilo cart access, three independent post-quest Trio XP claims, and seeded end-to-end route replays. |
+| 0.43.0 | Merged Shilo Village, Tai Bwo Wannai Trio and One Small Favour with the Temple of Ikov, Mage Arena I and museum specimen batch. Added Watchtower's relic, Skavid and Ogre Enclave stages, four quest points, Magic XP and separate teleport-scroll unlock. |
+| 0.42.0 | Added Shilo Village, Tai Bwo Wannai Trio and One Small Favour, including dungeon/cart routes, independent Trio claims, intermediate unlocks and One Small Favour's two held 10,000-XP lamps. |
+| 0.41.0 | Added Temple of Ikov, Mage Arena I, five specimen exhibits, an additional Minas report, and Digsite pendant discovery, attunement and diary credit. Connected the Bone Voyage gate and potion supplies. |
 | 0.40.0 | Added The Eyes of Glouphrie, His Faithful Servants, the crystal saw diary task, the Museum Camp construction and fossil claim, four Minas reports, and Varrock Museum clerk XP claims. |
 | 0.39.0 | Added Family Crest, Horror from the Deep, Devious Minds, Family Pest, Bear Your Soul and In Search of Knowledge, with the Lighthouse fairy ring, Law rift, gauntlet claims and god book choices. |
 | 0.38.0 | Added seven quests and the Vale Totems miniquest, the Cowbell amulet and Gillie lamp claim, Aldarin ferry and charters, and the Costume needle claim. |
@@ -48,5 +49,5 @@ entries use the 3 November build 242 snapshot.
 | 0.2.0 | Added the first quest actions and the pinned Quest Helper observations. |
 | 0.1.0 | Recorded the independent quest, skill, diary and optional content inventory for build 242. |
 
-The coverage audit records the release blockers for 0.42.0. The normalizer and
+The coverage audit records the release blockers for 0.43.0. The normalizer and
 audit use the existing dataset version.

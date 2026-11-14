@@ -1,0 +1,1986 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_watchtower_bundle",
+    "name": "Buy Watchtower travel and potion inputs",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 18000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_dragon_bones",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.gold_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.death_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_guam_potion_unf",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bat_bones",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_pickaxe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_light_source",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 90,
+      "max_seconds": 207
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.starter_economy"
+      ],
+      "status": "estimated",
+      "note": "Estimated 18,000 GP bundle for two ropes, rune, dragon bones, gold, potion, pestle, bones, pickaxe and light; price is not pinned."
+    }
+  },
+  {
+    "id": "supply.watchtower.pick_jangerberries",
+    "name": "Pick jangerberries on Grew's island",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.watchtower.grew",
+    "end_location_id": "location.watchtower.grew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.grew_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_jangerberries",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Gather jangerberries at Grew's island rather than assuming a free potion ingredient."
+    }
+  },
+  {
+    "id": "quest.watchtower.start",
+    "name": "Climb Watchtower and ask the wizard about the disturbance",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.wizard",
+    "end_location_id": "location.watchtower.wizard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 15,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 18,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wizard sends the player to inspect bushes outside. Trellis traversal independently checks Agility."
+    }
+  },
+  {
+    "id": "quest.watchtower.search_bush",
+    "name": "Search suspicious bushes outside Watchtower",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.bush",
+    "end_location_id": "location.watchtower.bush",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search suspicious bushes outside Watchtower"
+    }
+  },
+  {
+    "id": "quest.watchtower.wizard_relic_request",
+    "name": "Return to wizard with the missing-relief clues",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.wizard",
+    "end_location_id": "location.watchtower.wizard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.search_bush"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to wizard with the missing-relief clues"
+    }
+  },
+  {
+    "id": "quest.watchtower.og_request",
+    "name": "Ask Og about the stolen gold and take Toban's key",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.og",
+    "end_location_id": "location.watchtower.og",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.wizard_relic_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_toban_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Og about the stolen gold and take Toban's key"
+    }
+  },
+  {
+    "id": "quest.watchtower.grew_request",
+    "name": "Ask Grew to avenge Gorad's insult",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.grew",
+    "end_location_id": "location.watchtower.grew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.og_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Grew to avenge Gorad's insult"
+    }
+  },
+  {
+    "id": "quest.watchtower.toban_bones",
+    "name": "Give dragon bones to Toban for his relic",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.toban",
+    "end_location_id": "location.watchtower.toban",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.grew_request"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_dragon_bones",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_relic_toban",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give dragon bones to Toban for his relic"
+    }
+  },
+  {
+    "id": "quest.watchtower.gorad_fight",
+    "name": "Defeat Gorad and retrieve his tooth",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.gorad",
+    "end_location_id": "location.watchtower.gorad",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.toban_bones"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_ogre_tooth",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 78,
+      "expected_seconds": 130,
+      "max_seconds": 299
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat Gorad and retrieve his tooth"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Gorad and verify the tooth drop; food and combat XP depend on the player.",
+      "if_unmet": "Stop and reconcile combat XP, supplies, actual progress and any failed resource drops before retrying."
+    }
+  },
+  {
+    "id": "quest.watchtower.toban_chest",
+    "name": "Open Toban's chest with Og's key",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.toban",
+    "end_location_id": "location.watchtower.toban",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.gorad_fight"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_toban_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_stolen_gold",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open Toban's chest with Og's key"
+    }
+  },
+  {
+    "id": "quest.watchtower.grew_relic",
+    "name": "Trade Gorad's tooth for Grew's relic and yellow crystal",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.grew",
+    "end_location_id": "location.watchtower.grew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.toban_chest"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_ogre_tooth",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_relic_grew",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_yellow_crystal",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Trade Gorad's tooth for Grew's relic and yellow crystal"
+    }
+  },
+  {
+    "id": "quest.watchtower.og_relic",
+    "name": "Return Og's gold and receive his relic piece",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.og",
+    "end_location_id": "location.watchtower.og",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.grew_relic"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_stolen_gold",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_relic_og",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return Og's gold and receive his relic piece"
+    }
+  },
+  {
+    "id": "quest.watchtower.wizard_relic",
+    "name": "Have the wizard assemble the three Ogre relic parts",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.wizard",
+    "end_location_id": "location.watchtower.wizard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.og_relic"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_relic_og",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.watchtower_relic_grew",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.watchtower_relic_toban",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_ogre_relic",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Have the wizard assemble the three Ogre relic parts"
+    }
+  },
+  {
+    "id": "quest.watchtower.open_city_gate",
+    "name": "Show Ogre relic to Gu'Tanoth gatekeeper",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.city_gate",
+    "end_location_id": "location.watchtower.city_gate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.wizard_relic"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_ogre_relic",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.watchtower_city",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Show Ogre relic to Gu'Tanoth gatekeeper"
+    }
+  },
+  {
+    "id": "quest.watchtower.steal_rock_cake",
+    "name": "Steal a rock cake from the Gu'Tanoth market",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.market",
+    "end_location_id": "location.watchtower.market",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.open_city_gate"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 15,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_rock_cake",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Steal a rock cake from the Gu'Tanoth market"
+    }
+  },
+  {
+    "id": "quest.watchtower.rock_cake",
+    "name": "Give the rock cake to a battlement guard",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.battlement",
+    "end_location_id": "location.watchtower.battlement",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.steal_rock_cake"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_rock_cake",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the rock cake to a battlement guard"
+    }
+  },
+  {
+    "id": "quest.watchtower.cross_bridge",
+    "name": "Cross the broken bridge and pay 20 coins",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.bridge",
+    "end_location_id": "location.watchtower.bridge",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.rock_cake"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 25,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 20
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cross the broken bridge and pay 20 coins"
+    }
+  },
+  {
+    "id": "quest.watchtower.get_skavid_map",
+    "name": "Give the City guard a death rune for a Skavid map",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.city_guard",
+    "end_location_id": "location.watchtower.city_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.cross_bridge"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.death_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_skavid_map",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give the City guard a death rune for a Skavid map"
+    }
+  },
+  {
+    "id": "quest.watchtower.learn_from_scared_skavid",
+    "name": "Learn the Skavid greeting from the scared Skavid",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.scared_skavid",
+    "end_location_id": "location.watchtower.scared_skavid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.get_skavid_map"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_skavid_map",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_light_source",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn the Skavid greeting from the scared Skavid"
+    }
+  },
+  {
+    "id": "quest.watchtower.skavid_language_1",
+    "name": "Practice the Skavid language in cave 1",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.regular_skavid_1",
+    "end_location_id": "location.watchtower.regular_skavid_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.learn_from_scared_skavid"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_skavid_map",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_light_source",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One of four independent cave conversations; exact dialogue answer must be checked against the client."
+    }
+  },
+  {
+    "id": "quest.watchtower.skavid_language_2",
+    "name": "Practice the Skavid language in cave 2",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.regular_skavid_2",
+    "end_location_id": "location.watchtower.regular_skavid_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.learn_from_scared_skavid"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_skavid_map",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_light_source",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One of four independent cave conversations; exact dialogue answer must be checked against the client."
+    }
+  },
+  {
+    "id": "quest.watchtower.skavid_language_3",
+    "name": "Practice the Skavid language in cave 3",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.regular_skavid_3",
+    "end_location_id": "location.watchtower.regular_skavid_3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.learn_from_scared_skavid"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_skavid_map",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_light_source",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One of four independent cave conversations; exact dialogue answer must be checked against the client."
+    }
+  },
+  {
+    "id": "quest.watchtower.skavid_language_4",
+    "name": "Practice the Skavid language in cave 4",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.regular_skavid_4",
+    "end_location_id": "location.watchtower.regular_skavid_4",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.learn_from_scared_skavid"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_skavid_map",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_light_source",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One of four independent cave conversations; exact dialogue answer must be checked against the client."
+    }
+  },
+  {
+    "id": "quest.watchtower.pay_eastern_gate",
+    "name": "Pay the eastern Ogre city guard a gold bar",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.mad_skavid_entrance",
+    "end_location_id": "location.watchtower.mad_skavid_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.skavid_language_1"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.skavid_language_2"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.skavid_language_3"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.skavid_language_4"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.gold_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pay the eastern Ogre city guard a gold bar"
+    }
+  },
+  {
+    "id": "quest.watchtower.mad_skavid",
+    "name": "Answer the Mad Skavid and collect the second crystal",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.mad_skavid",
+    "end_location_id": "location.watchtower.mad_skavid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.pay_eastern_gate"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_skavid_map",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_light_source",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_second_crystal",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Choose the response corresponding to the randomly spoken Skavid phrase; this step forecasts successful dialogue."
+    }
+  },
+  {
+    "id": "quest.watchtower.collect_nightshade",
+    "name": "Collect two cave nightshades for two Enclave visits",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.mad_skavid",
+    "end_location_id": "location.watchtower.mad_skavid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.mad_skavid"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_cave_nightshade",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Two cave nightshades may require a respawn or world-hop. The draft models successful collection, not the wait."
+    }
+  },
+  {
+    "id": "quest.watchtower.distract_guard_first",
+    "name": "Give nightshade to the Enclave guards for scouting",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.enclave_guard",
+    "end_location_id": "location.watchtower.enclave_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.collect_nightshade"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_cave_nightshade",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give nightshade to the Enclave guards for scouting"
+    }
+  },
+  {
+    "id": "quest.watchtower.enclave_scout",
+    "name": "Scout the ogre shamans and leave the blue dragon Enclave",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.enclave",
+    "end_location_id": "location.watchtower.enclave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.distract_guard_first"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "First visit does not kill shamans; player observes their invulnerability and returns to wizard."
+    }
+  },
+  {
+    "id": "quest.watchtower.brew_potion",
+    "name": "Mix guam potion, jangerberries and ground bat bones",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.wizard",
+    "end_location_id": "location.watchtower.wizard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.enclave_scout"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 14,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_guam_potion_unf",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.watchtower_jangerberries",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bat_bones",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_ogre_potion",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 45,
+      "max_seconds": 103
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Order of mixing matters: guam (unf), jangerberries, then powdered bat bones; incidental Herblore XP is pending."
+    }
+  },
+  {
+    "id": "quest.watchtower.enchant_potion",
+    "name": "Have the wizard enchant the Ogre potion",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.wizard",
+    "end_location_id": "location.watchtower.wizard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.brew_potion"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_ogre_potion",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_magic_ogre_potion",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Have the wizard enchant the Ogre potion"
+    }
+  },
+  {
+    "id": "quest.watchtower.distract_guard_second",
+    "name": "Use the second nightshade to return to the Enclave",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.enclave_guard",
+    "end_location_id": "location.watchtower.enclave_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.enchant_potion"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_cave_nightshade",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the second nightshade to return to the Enclave"
+    }
+  },
+  {
+    "id": "quest.watchtower.shaman_1",
+    "name": "Defeat Ogre shaman 1 with the enchanted potion",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.enclave",
+    "end_location_id": "location.watchtower.enclave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.distract_guard_second"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_magic_ogre_potion",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat Ogre shaman 1 with the enchanted potion"
+    },
+    "planned_outcome": {
+      "success_condition": "Safely use the charged magic Ogre potion on the shaman and confirm it is destroyed.",
+      "if_unmet": "Stop and reconcile combat XP, supplies, actual progress and any failed resource drops before retrying."
+    }
+  },
+  {
+    "id": "quest.watchtower.shaman_2",
+    "name": "Defeat Ogre shaman 2 with the enchanted potion",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.enclave",
+    "end_location_id": "location.watchtower.enclave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.shaman_1"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_magic_ogre_potion",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat Ogre shaman 2 with the enchanted potion"
+    },
+    "planned_outcome": {
+      "success_condition": "Safely use the charged magic Ogre potion on the shaman and confirm it is destroyed.",
+      "if_unmet": "Stop and reconcile combat XP, supplies, actual progress and any failed resource drops before retrying."
+    }
+  },
+  {
+    "id": "quest.watchtower.shaman_3",
+    "name": "Defeat Ogre shaman 3 with the enchanted potion",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.enclave",
+    "end_location_id": "location.watchtower.enclave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.shaman_2"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_magic_ogre_potion",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat Ogre shaman 3 with the enchanted potion"
+    },
+    "planned_outcome": {
+      "success_condition": "Safely use the charged magic Ogre potion on the shaman and confirm it is destroyed.",
+      "if_unmet": "Stop and reconcile combat XP, supplies, actual progress and any failed resource drops before retrying."
+    }
+  },
+  {
+    "id": "quest.watchtower.shaman_4",
+    "name": "Defeat Ogre shaman 4 with the enchanted potion",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.enclave",
+    "end_location_id": "location.watchtower.enclave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.shaman_3"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_magic_ogre_potion",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat Ogre shaman 4 with the enchanted potion"
+    },
+    "planned_outcome": {
+      "success_condition": "Safely use the charged magic Ogre potion on the shaman and confirm it is destroyed.",
+      "if_unmet": "Stop and reconcile combat XP, supplies, actual progress and any failed resource drops before retrying."
+    }
+  },
+  {
+    "id": "quest.watchtower.shaman_5",
+    "name": "Defeat Ogre shaman 5 with the enchanted potion",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.enclave",
+    "end_location_id": "location.watchtower.enclave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.shaman_4"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_magic_ogre_potion",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat Ogre shaman 5 with the enchanted potion"
+    },
+    "planned_outcome": {
+      "success_condition": "Safely use the charged magic Ogre potion on the shaman and confirm it is destroyed.",
+      "if_unmet": "Stop and reconcile combat XP, supplies, actual progress and any failed resource drops before retrying."
+    }
+  },
+  {
+    "id": "quest.watchtower.shaman_6",
+    "name": "Defeat Ogre shaman 6 with the enchanted potion",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.enclave",
+    "end_location_id": "location.watchtower.enclave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.shaman_5"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_magic_ogre_potion",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_third_crystal",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat Ogre shaman 6 with the enchanted potion"
+    },
+    "planned_outcome": {
+      "success_condition": "Safely use the charged magic Ogre potion on the shaman and confirm it is destroyed.",
+      "if_unmet": "Stop and reconcile combat XP, supplies, actual progress and any failed resource drops before retrying."
+    }
+  },
+  {
+    "id": "quest.watchtower.mine_dalgroth",
+    "name": "Mine the Rock of Dalgroth for the final crystal",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.rock_of_dalgroth",
+    "end_location_id": "location.watchtower.rock_of_dalgroth",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.shaman_6"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 40,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_fourth_crystal",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The mineable rock yields the fourth crystal after the shamans; mining XP remains unverified."
+    }
+  },
+  {
+    "id": "quest.watchtower.wizard_crystals",
+    "name": "Return all four power crystals to Watchtower wizard",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.wizard",
+    "end_location_id": "location.watchtower.wizard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.mine_dalgroth"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_yellow_crystal",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_second_crystal",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_third_crystal",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watchtower_fourth_crystal",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 25,
+      "max_seconds": 57
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return all four power crystals to Watchtower wizard"
+    }
+  },
+  {
+    "id": "quest.watchtower.place_crystal_1",
+    "name": "Place Watchtower crystal 1 on its pillar",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.crystal_pillars",
+    "end_location_id": "location.watchtower.crystal_pillars",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.wizard_crystals"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_yellow_crystal",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 14,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pillar orientation/colour must be observed in game; forecast a correctly placed crystal."
+    }
+  },
+  {
+    "id": "quest.watchtower.place_crystal_2",
+    "name": "Place Watchtower crystal 2 on its pillar",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.crystal_pillars",
+    "end_location_id": "location.watchtower.crystal_pillars",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.place_crystal_1"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_second_crystal",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 14,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pillar orientation/colour must be observed in game; forecast a correctly placed crystal."
+    }
+  },
+  {
+    "id": "quest.watchtower.place_crystal_3",
+    "name": "Place Watchtower crystal 3 on its pillar",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.crystal_pillars",
+    "end_location_id": "location.watchtower.crystal_pillars",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.place_crystal_2"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_third_crystal",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 14,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pillar orientation/colour must be observed in game; forecast a correctly placed crystal."
+    }
+  },
+  {
+    "id": "quest.watchtower.place_crystal_4",
+    "name": "Place Watchtower crystal 4 on its pillar",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.crystal_pillars",
+    "end_location_id": "location.watchtower.crystal_pillars",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.place_crystal_3"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_fourth_crystal",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 14,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pillar orientation/colour must be observed in game; forecast a correctly placed crystal."
+    }
+  },
+  {
+    "id": "quest.watchtower.complete",
+    "name": "Pull the Watchtower lever to restore the city defences",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.crystal_pillars",
+    "end_location_id": "location.watchtower.crystal_pillars",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.place_crystal_4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 4
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 152500
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 5000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.watchtower_teleport_scroll",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.watchtower_enclave",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Completion pays four quest points, 15,250 Magic XP, 5,000 coins and the teleport scroll. Scroll reading is separate."
+    }
+  },
+  {
+    "id": "quest.watchtower.read_scroll",
+    "name": "Read the Watchtower teleport scroll",
+    "kind": "quest_stage",
+    "activity_id": "quest.watchtower",
+    "start_location_id": "location.watchtower.wizard",
+    "end_location_id": "location.watchtower.wizard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.watchtower.complete"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.watchtower_teleport_scroll",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.watchtower_teleport",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 12,
+      "max_seconds": 28
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The unlocked Watchtower Teleport is only castable after reading the separate scroll."
+    }
+  }
+]

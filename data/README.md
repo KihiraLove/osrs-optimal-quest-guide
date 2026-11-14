@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.42.0` loads 24 skill tables and
-1,907 draft actions across 146 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.43.0` loads 24 skill tables and
+1,997 draft actions across 149 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -286,4 +286,19 @@ two quest points, a steel key ring and two independently held lamps worth 10,000
 XP apiece in a skill at base level 30 or higher. The seeded replay verifies the
 route and both lamp uses; the precise puzzle item risks, combat resources and
 quest-journal dependency on spending the lamps still need gameplay or semantics
+review.
+
+The [Ikov, Mage Arena and specimen review](raw/build-242/ikov-arena-and-specimens-review.json)
+records two journal routes, five Museum specimen exhibits, and the Digsite
+pendant and its Varrock Medium diary task. It also connects the Woodcutting
+Guild gate and potion supplies needed to finish Bone Voyage.
+
+The [Watchtower review](raw/build-242/watchtower-review.json) describes the
+Ogre relic exchanges, two rope crossings, Gu'Tanoth gates, separate Skavid
+caves, two nightshade entries, six shamans and four power crystals. The final
+lever grants four quest points, 15,250 Magic XP, 5,000 coins and a spell scroll.
+Reading the scroll separately enables the Watchtower Teleport, which costs two
+Earth and two Law runes per level-58 cast. A seeded end-to-end graph replay
+checks travel, inputs, quest rewards and post-quest teleport use. Several cave
+waypoints, puzzle answers, combat supplies and incidental XP await independent
 review.
