@@ -1,0 +1,297 @@
+[
+  {
+    "id": "claim.harlan_weapons.magic",
+    "name": "Claim the first staff and 40 air and mind runes from Captain Harlan",
+    "activity_id": "claim.mudfoots_big_adventure.harlan_weapons",
+    "kind": "reward_claim",
+    "start_location_id": "location.lumbridge.captain_harlan",
+    "end_location_id": "location.lumbridge.captain_harlan",
+    "requirements": {"kind": "all", "requirements": [
+      {"kind": "flag", "token_id": "flag.quest.mudfoots_big_adventure.complete", "value": true},
+      {"kind": "cooldown_ready", "token_id": "cooldown.harlan_weapons.shared"}
+    ]},
+    "consumes": [],
+    "effects": [
+      {"kind": "item", "item_id": "item.staff", "quantity": 1},
+      {"kind": "item", "item_id": "item.air_rune", "quantity": 40},
+      {"kind": "item", "item_id": "item.mind_rune", "quantity": 40},
+      {"kind": "start_cooldown", "token_id": "cooldown.harlan_weapons.shared", "duration_seconds": 1800}
+    ],
+    "duration": {"min_seconds": 5, "expected_seconds": 10, "max_seconds": 22},
+    "repeat_limit": 1,
+    "evidence": {"source_ids": ["source.jagex.quest_month_2026_11_03", "source.jagex.quest_month_2026_11_11", "source.jagex.cache_242_2026_11_11", "source.project.early_quest_timing"], "status": "estimated", "note": "Talk to Harlan after Mudfoot's quest; player observation confirms the magic choice contents. All styles use one 30-minute timer. Exact melee and ranged supplies need direct verification."}
+  },
+  {
+    "id": "claim.harlan_weapons.magic_repeat",
+    "name": "Reclaim magic equipment from Captain Harlan after cooldown",
+    "activity_id": "claim.mudfoots_big_adventure.harlan_weapons",
+    "kind": "reward_claim",
+    "start_location_id": "location.lumbridge.captain_harlan",
+    "end_location_id": "location.lumbridge.captain_harlan",
+    "requirements": {"kind": "all", "requirements": [
+      {"kind": "action_completed", "action_id": "claim.harlan_weapons.magic"},
+      {"kind": "cooldown_ready", "token_id": "cooldown.harlan_weapons.shared"}
+    ]},
+    "consumes": [],
+    "effects": [
+      {"kind": "item", "item_id": "item.staff", "quantity": 1},
+      {"kind": "item", "item_id": "item.air_rune", "quantity": 40},
+      {"kind": "item", "item_id": "item.mind_rune", "quantity": 40},
+      {"kind": "start_cooldown", "token_id": "cooldown.harlan_weapons.shared", "duration_seconds": 1800}
+    ],
+    "duration": {"min_seconds": 5, "expected_seconds": 10, "max_seconds": 22},
+    "repeat_limit": 100,
+    "evidence": {"source_ids": ["source.jagex.quest_month_2026_11_03", "source.jagex.quest_month_2026_11_11", "source.project.early_quest_timing"], "status": "estimated", "note": "Further magic choice claims share the same 1800-second cooldown. Separate from one-time first claim to permit activity completion tracking."}
+  },
+  {
+    "id": "activity.beas_hunter_field.catch_wasps",
+    "name": "Net a calm wasp for a sting",
+    "activity_id": "activity.beas_hunter_field",
+    "kind": "other",
+    "start_location_id": "location.digsite.beas_hives",
+    "end_location_id": "location.digsite.beas_hives",
+    "requirements": {"kind": "all", "requirements": [
+      {"kind": "flag", "token_id": "unlock.beas_hunter_field", "value": true},
+      {"kind": "skill", "skill_id": "skill.hunter", "minimum_level": 1, "boostable": false},
+      {"kind": "item", "item_id": "item.bee_hunters_hat", "quantity": 1},
+      {"kind": "item", "item_id": "item.butterfly_net", "quantity": 1},
+      {"kind": "item", "item_id": "item.insect_repellent", "quantity": 1}
+    ]},
+    "consumes": [],
+    "effects": [{"kind": "item", "item_id": "item.wasp_sting", "quantity": 1}],
+    "duration": {"min_seconds": 1, "expected_seconds": 6, "max_seconds": 25},
+    "repeat_limit": 100,
+    "evidence": {"source_ids": ["source.capture.the_birds_and_the_wasps", "source.jagex.cache_242_2026_11_11", "source.jagex.quest_month_2026_11_11", "source.project.early_quest_timing"], "status": "estimated", "note": "One successful catch, 1.5 Hunter XP average. Repellent calms an enraged swarm and the hat prevents stings; failures and combat damage are variable."},
+    "planned_outcome": {"success_condition": "Catch one wasp while the swarm is calm and collect its sting.", "if_unmet": "Spray repellent, reposition and retry with the hat and net equipped."}
+  },
+  {
+    "id": "activity.beas_hunter_field.catch_killer_wasps",
+    "name": "Net a killer wasp for a sting",
+    "activity_id": "activity.beas_hunter_field",
+    "kind": "other",
+    "start_location_id": "location.digsite.beas_hives",
+    "end_location_id": "location.digsite.beas_hives",
+    "requirements": {"kind": "all", "requirements": [
+      {"kind": "flag", "token_id": "unlock.beas_hunter_field", "value": true},
+      {"kind": "skill", "skill_id": "skill.hunter", "minimum_level": 12, "boostable": false},
+      {"kind": "item", "item_id": "item.bee_hunters_hat", "quantity": 1},
+      {"kind": "item", "item_id": "item.butterfly_net", "quantity": 1},
+      {"kind": "item", "item_id": "item.insect_repellent", "quantity": 1}
+    ]},
+    "consumes": [],
+    "effects": [{"kind": "item", "item_id": "item.killer_wasp_sting", "quantity": 1}],
+    "duration": {"min_seconds": 1, "expected_seconds": 7, "max_seconds": 30},
+    "repeat_limit": 100,
+    "evidence": {"source_ids": ["source.capture.the_birds_and_the_wasps", "source.jagex.cache_242_2026_11_11", "source.jagex.quest_month_2026_11_11", "source.project.early_quest_timing"], "status": "estimated", "note": "Hunter 12; 2.5 Hunter XP is the approximate mean of variable catch XP."},
+    "planned_outcome": {"success_condition": "Catch one killer wasp while calm and collect its sting.", "if_unmet": "Calm the swarm again with repellent and retry."}
+  },
+  {
+    "id": "activity.beas_hunter_field.trap_honey_buzzard",
+    "name": "Trap a honey buzzard for a brown feather",
+    "activity_id": "activity.beas_hunter_field",
+    "kind": "other",
+    "start_location_id": "location.digsite.beas_hives",
+    "end_location_id": "location.digsite.beas_hives",
+    "requirements": {"kind": "all", "requirements": [
+      {"kind": "flag", "token_id": "unlock.beas_hunter_field", "value": true},
+      {"kind": "skill", "skill_id": "skill.hunter", "minimum_level": 1, "boostable": false},
+      {"kind": "item", "item_id": "item.bird_snare", "quantity": 1}
+    ]},
+    "consumes": [],
+    "effects": [{"kind": "item", "item_id": "item.brown_feather", "quantity": 1}],
+    "duration": {"min_seconds": 8, "expected_seconds": 28, "max_seconds": 80},
+    "repeat_limit": 100,
+    "evidence": {"source_ids": ["source.capture.the_birds_and_the_wasps", "source.jagex.cache_242_2026_11_11", "source.jagex.quest_month_2026_11_11", "source.project.early_quest_timing"], "status": "estimated", "note": "Level-1 snare catch, 34 Hunter XP. Assumes one recovered field feather on success; trap attempts can fail."},
+    "planned_outcome": {"success_condition": "Trap a honey buzzard, retrieve the feather and reset the snare.", "if_unmet": "Reset failed snares until a bird is caught."}
+  },
+  {
+    "id": "activity.beas_hunter_field.trap_black_honey_buzzard",
+    "name": "Trap a black honey buzzard for a black feather",
+    "activity_id": "activity.beas_hunter_field",
+    "kind": "other",
+    "start_location_id": "location.digsite.beas_hives",
+    "end_location_id": "location.digsite.beas_hives",
+    "requirements": {"kind": "all", "requirements": [
+      {"kind": "flag", "token_id": "unlock.beas_hunter_field", "value": true},
+      {"kind": "skill", "skill_id": "skill.hunter", "minimum_level": 17, "boostable": false},
+      {"kind": "item", "item_id": "item.bird_snare", "quantity": 1}
+    ]},
+    "consumes": [],
+    "effects": [{"kind": "item", "item_id": "item.black_feather", "quantity": 1}],
+    "duration": {"min_seconds": 8, "expected_seconds": 32, "max_seconds": 90},
+    "repeat_limit": 100,
+    "evidence": {"source_ids": ["source.capture.the_birds_and_the_wasps", "source.jagex.cache_242_2026_11_11", "source.jagex.quest_month_2026_11_11", "source.project.early_quest_timing"], "status": "estimated", "note": "Hunter 17; 87.4 XP per successful catch. Time and yields require field confirmation."},
+    "planned_outcome": {"success_condition": "Trap a black honey buzzard and collect its black feather.", "if_unmet": "Reset and retry a failed bird snare."}
+  },
+  {
+    "id": "activity.beas_hunter_field.fletch_wasp_dart",
+    "name": "Fletch the first wasp dart from a sting and feather",
+    "activity_id": "activity.beas_hunter_field",
+    "kind": "other",
+    "start_location_id": "location.digsite.beas_hives",
+    "end_location_id": "location.digsite.beas_hives",
+    "requirements": {"kind": "all", "requirements": [
+      {"kind": "flag", "token_id": "unlock.beas_hunter_field", "value": true},
+      {"kind": "skill", "skill_id": "skill.fletching", "minimum_level": 1, "boostable": false}
+    ]},
+    "consumes": [
+      {"item_id": "item.wasp_sting", "quantity": 1},
+      {"item_id": "item.brown_feather", "quantity": 1}
+    ],
+    "effects": [
+      {"kind": "item", "item_id": "item.wasp_dart", "quantity": 1},
+      {"kind": "xp", "skill_id": "skill.fletching", "xp_tenths": 50}
+    ],
+    "duration": {"min_seconds": 1, "expected_seconds": 3, "max_seconds": 8},
+    "repeat_limit": 1,
+    "evidence": {"source_ids": ["source.capture.the_birds_and_the_wasps", "source.jagex.cache_242_2026_11_11", "source.jagex.quest_month_2026_11_11", "source.project.early_quest_timing"], "status": "estimated", "note": "One sting and field feather produce a trade-only dart; 5 Fletching XP. Some guides call the feather generic; verify which variants the live recipe accepts."}
+  },
+  {
+    "id": "activity.beas_hunter_field.fletch_wasp_dart_repeat",
+    "name": "Fletch further wasp darts",
+    "activity_id": "activity.beas_hunter_field",
+    "kind": "other",
+    "start_location_id": "location.digsite.beas_hives",
+    "end_location_id": "location.digsite.beas_hives",
+    "requirements": {"kind": "all", "requirements": [
+      {"kind": "action_completed", "action_id": "activity.beas_hunter_field.fletch_wasp_dart"},
+      {"kind": "skill", "skill_id": "skill.fletching", "minimum_level": 1, "boostable": false}
+    ]},
+    "consumes": [
+      {"item_id": "item.wasp_sting", "quantity": 1},
+      {"item_id": "item.brown_feather", "quantity": 1}
+    ],
+    "effects": [{"kind": "item", "item_id": "item.wasp_dart", "quantity": 1}],
+    "duration": {"min_seconds": 1, "expected_seconds": 3, "max_seconds": 8},
+    "repeat_limit": 100,
+    "evidence": {"source_ids": ["source.capture.the_birds_and_the_wasps", "source.jagex.cache_242_2026_11_11", "source.project.early_quest_timing"], "status": "estimated", "note": "Repeated post-quest Fletching of a single wasp dart, subject to the material supply."}
+  },
+  {
+    "id": "activity.beas_hunter_field.fletch_killer_wasp_dart",
+    "name": "Fletch a killer wasp dart from a sting and feather",
+    "activity_id": "activity.beas_hunter_field",
+    "kind": "other",
+    "start_location_id": "location.digsite.beas_hives",
+    "end_location_id": "location.digsite.beas_hives",
+    "requirements": {"kind": "all", "requirements": [
+      {"kind": "flag", "token_id": "unlock.beas_hunter_field", "value": true},
+      {"kind": "skill", "skill_id": "skill.fletching", "minimum_level": 15, "boostable": false}
+    ]},
+    "consumes": [
+      {"item_id": "item.killer_wasp_sting", "quantity": 1},
+      {"item_id": "item.black_feather", "quantity": 1}
+    ],
+    "effects": [{"kind": "item", "item_id": "item.killer_wasp_dart", "quantity": 1}],
+    "duration": {"min_seconds": 1, "expected_seconds": 3, "max_seconds": 8},
+    "repeat_limit": 100,
+    "evidence": {"source_ids": ["source.capture.the_birds_and_the_wasps", "source.jagex.cache_242_2026_11_11", "source.jagex.quest_month_2026_11_11", "source.project.early_quest_timing"], "status": "estimated", "note": "Level 15 Fletching and 25 XP per dart from post-release tables; feather compatibility requires in-game confirmation."}
+  },
+  {
+    "id": "unlock.north_aldarin_pendant_of_ates.pickpocket_key",
+    "name": "Pickpocket Constantinius for the fancy chest key",
+    "activity_id": "unlock.north_aldarin_pendant_of_ates",
+    "kind": "other",
+    "start_location_id": "location.aldarin.villa_lucens_party",
+    "end_location_id": "location.aldarin.villa_lucens_party",
+    "requirements": {"kind": "all", "requirements": [
+      {"kind": "action_completed", "action_id": "quest.death_on_the_isle.complete"},
+      {"kind": "skill", "skill_id": "skill.thieving", "minimum_level": 34, "boostable": false}
+    ]},
+    "consumes": [],
+    "effects": [{"kind": "item", "item_id": "item.aldarin_chest_key", "quantity": 1}],
+    "duration": {"min_seconds": 8, "expected_seconds": 17, "max_seconds": 45},
+    "repeat_limit": 1,
+    "evidence": {"source_ids": ["source.capture.death_on_the_isle", "source.project.early_quest_timing"], "status": "estimated", "note": "Return to the host after the quest and steal the chest key; repeated attempts may be needed."},
+    "planned_outcome": {"success_condition": "Pickpocket the key from Constantinius.", "if_unmet": "Retry after a failed pickpocket; healing and extra time may be necessary."}
+  },
+  {
+    "id": "unlock.north_aldarin_pendant_of_ates.open_chest",
+    "name": "Unlock the fancy chest in the Villa Lucens wine cellar",
+    "activity_id": "unlock.north_aldarin_pendant_of_ates",
+    "kind": "other",
+    "start_location_id": "location.aldarin.villa_wine_cellar",
+    "end_location_id": "location.aldarin.villa_wine_cellar",
+    "requirements": {"kind": "action_completed", "action_id": "unlock.north_aldarin_pendant_of_ates.pickpocket_key"},
+    "consumes": [{"item_id": "item.aldarin_chest_key", "quantity": 1}],
+    "effects": [],
+    "duration": {"min_seconds": 8, "expected_seconds": 17, "max_seconds": 40},
+    "repeat_limit": 1,
+    "evidence": {"source_ids": ["source.capture.death_on_the_isle", "source.project.early_quest_timing"], "status": "estimated", "note": "Find the fancy chest in the southern cellar room. The note about the fountain is revealed here."}
+  },
+  {
+    "id": "unlock.north_aldarin_pendant_of_ates.find_icon",
+    "name": "Recover the icon from Villa Lucens' southwest fountain",
+    "activity_id": "unlock.north_aldarin_pendant_of_ates",
+    "kind": "other",
+    "start_location_id": "location.aldarin.villa_southwest_fountain",
+    "end_location_id": "location.aldarin.villa_southwest_fountain",
+    "requirements": {"kind": "action_completed", "action_id": "unlock.north_aldarin_pendant_of_ates.open_chest"},
+    "consumes": [],
+    "effects": [{"kind": "item", "item_id": "item.aldarin_ates_icon", "quantity": 1}],
+    "duration": {"min_seconds": 6, "expected_seconds": 12, "max_seconds": 30},
+    "repeat_limit": 1,
+    "evidence": {"source_ids": ["source.capture.death_on_the_isle", "source.project.early_quest_timing"], "status": "estimated", "note": "Search the southwestern fountain only after opening the chest."}
+  },
+  {
+    "id": "unlock.north_aldarin_pendant_of_ates.activate",
+    "name": "Use the Aldarin icon on the northern Statue of Ates",
+    "activity_id": "unlock.north_aldarin_pendant_of_ates",
+    "kind": "transport_unlock",
+    "start_location_id": "location.aldarin.statue_of_ates",
+    "end_location_id": "location.aldarin.statue_of_ates",
+    "requirements": {"kind": "action_completed", "action_id": "unlock.north_aldarin_pendant_of_ates.find_icon"},
+    "consumes": [{"item_id": "item.aldarin_ates_icon", "quantity": 1}],
+    "effects": [{"kind": "flag", "token_id": "unlock.pendant_of_ates.north_aldarin", "value": true}],
+    "duration": {"min_seconds": 6, "expected_seconds": 12, "max_seconds": 25},
+    "repeat_limit": 1,
+    "evidence": {"source_ids": ["source.capture.death_on_the_isle", "source.shortest_path.varlamore_item_teleports", "source.project.early_quest_timing"], "status": "estimated", "note": "Attunes the fourth pendant destination. The one water rune drops to the ground and is not automatically granted to inventory."}
+  },
+  {
+    "id": "supply.north_aldarin_ates.pickup_water_rune",
+    "name": "Pick up the water rune dropped by the statue",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.aldarin.statue_of_ates",
+    "end_location_id": "location.aldarin.statue_of_ates",
+    "requirements": {"kind": "action_completed", "action_id": "unlock.north_aldarin_pendant_of_ates.activate"},
+    "consumes": [],
+    "effects": [{"kind": "item", "item_id": "item.water_rune", "quantity": 1}],
+    "duration": {"min_seconds": 1, "expected_seconds": 3, "max_seconds": 10},
+    "repeat_limit": 1,
+    "evidence": {"source_ids": ["source.capture.death_on_the_isle"], "status": "estimated", "note": "One rune appears on the ground when the statue is activated. Collect separately, once, before leaving."}
+  },
+  {
+    "id": "supply.pendant_of_ates.charge_inert",
+    "name": "Charge an inert Pendant of Ates with a frozen tear",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {"kind": "all", "requirements": []},
+    "consumes": [
+      {"item_id": "item.pendant_of_ates_inert", "quantity": 1},
+      {"item_id": "item.frozen_tear", "quantity": 1}
+    ],
+    "effects": [
+      {"kind": "item", "item_id": "item.pendant_of_ates", "quantity": 1},
+      {"kind": "counter", "token_id": "token.pendant_of_ates.charges", "delta": 1}
+    ],
+    "duration": {"min_seconds": 2, "expected_seconds": 5, "max_seconds": 12},
+    "repeat_limit": 1,
+    "evidence": {"source_ids": ["source.shortest_path.varlamore_item_teleports"], "status": "estimated", "note": "Charged pendant is a rare-drop upstream item. The charging UI is usable elsewhere; this reachable waypoint is one representative charging place."}
+  },
+  {
+    "id": "supply.pendant_of_ates.add_frozen_tear",
+    "name": "Add a frozen tear to the charged Pendant of Ates",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {"kind": "item", "item_id": "item.pendant_of_ates", "quantity": 1},
+    "consumes": [{"item_id": "item.frozen_tear", "quantity": 1}],
+    "effects": [{"kind": "counter", "token_id": "token.pendant_of_ates.charges", "delta": 1}],
+    "duration": {"min_seconds": 1, "expected_seconds": 3, "max_seconds": 8},
+    "repeat_limit": 1000,
+    "evidence": {"source_ids": ["source.shortest_path.varlamore_item_teleports"], "status": "estimated", "note": "One tear per additional charge; token limit 1000 prevents overcharging. May be charged at other locations not enumerated here."}
+  }
+]
