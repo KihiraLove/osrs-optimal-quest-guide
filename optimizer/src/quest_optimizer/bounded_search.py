@@ -215,9 +215,10 @@ def _distances(destination, incoming):
     return distances
 
 
-def _unique_action_producers(tables):
+def _unique_action_producers(initial):
     # A travel effect is an alternative source, even though the guide only
     # follows mandatory dependencies through actions.
+    tables = initial.tables
     producers = defaultdict(set)
     for table in ("actions", "travel_edges"):
         for record_id, record in tables[table].items():
@@ -226,10 +227,20 @@ def _unique_action_producers(tables):
                     producers["item", effect["item_id"]].add(record_id)
                 elif effect["kind"] == "flag" and effect["value"]:
                     producers["flag", effect["token_id"]].add(record_id)
-    return {
-        key: record_id for key, ids in producers.items() if len(ids) == 1
-        for record_id in ids if record_id in tables["actions"]
-    }
+    selected = {}
+    for key, ids in producers.items():
+        action_ids = ids & tables["actions"].keys()
+        if len(ids) == 1 and action_ids:
+            selected[key] = next(iter(action_ids))
+            continue
+        # Later optional quest loot can contain the same item as a currently
+        # available supply action. Do not let the locked future source erase
+        # the immediately usable dependency hint in unrelated early routes.
+        available = [id for id in action_ids if initial._progress_gates_met(
+            tables["actions"][id]["requirements"])]
+        if len(available) == 1:
+            selected[key] = available[0]
+    return selected
 
 
 def _required_actions(initial, goals, producers):
@@ -260,7 +271,7 @@ def _required_actions(initial, goals, producers):
 class _Guide:
     def __init__(self, initial, goals, excluded, priorities, skill_targets):
         actions = initial.tables["actions"]
-        producers = _unique_action_producers(initial.tables)
+        producers = _unique_action_producers(initial)
         self.needed = _required_actions(initial, goals, producers)
         self.prioritized = set(_required_actions(initial, priorities, producers))
         self.skill_targets = skill_targets

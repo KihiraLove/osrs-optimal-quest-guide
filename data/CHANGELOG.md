@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.47.0 | Added Rag and Bone Man II's 27 monster-specific bone drops, individual vinegar-and-log boiler treatments, special monster gates, one quest point, Prayer XP and two keepsakes. Added the Enchanted Key miniquest with its fixed first dig, ten unordered later sites, three mjolnirs and finite treasure loot. |
 | 0.46.0 | Added King's Ransom through Sinclair Mansion, Anna's trial, Merlin's prison, fortress disguises and Arthur's return, including its separate antique lamp. Added the eight Knight Waves Training Grounds, 20,000 XP in four combat skills and Chivalry/Piety unlocks independent of the quest. |
 | 0.45.0 | Added Swan Song from Herman's first appeal to the Wise Old Man, colony sea troll defence, iron-sheet wall repairs, fresh monkfish provisioning, Wizard Frumscone and Malignius's bone seeds, and the Sea Troll Queen. Added two quest points, three fixed XP rewards, Piscatoris access and postquest free boat travel. |
 | 0.44.0 | Added Enakhra's Lament, its two sandstone-and-granite construction phases, four sigils and elemental puzzles, the Akthanakos finale, four fixed 7,000-XP skill rewards, and four-charge/unlimited Camulet teleports. |
@@ -52,5 +53,5 @@ entries use the 3 November build 242 snapshot.
 | 0.2.0 | Added the first quest actions and the pinned Quest Helper observations. |
 | 0.1.0 | Recorded the independent quest, skill, diary and optional content inventory for build 242. |
 
-The coverage audit records the release blockers for 0.46.0. The normalizer and
+The coverage audit records the release blockers for 0.47.0. The normalizer and
 audit use the existing dataset version.
