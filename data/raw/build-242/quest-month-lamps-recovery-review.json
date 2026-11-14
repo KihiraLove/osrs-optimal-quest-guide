@@ -1,0 +1,67 @@
+{
+  "batch_id": "quest-month-lamps-recovery",
+  "revision": "osrs-live-242-2026-11-11",
+  "status": "collected_draft_not_independently_reviewed",
+  "source_ids": [
+    "source.jagex.quest_month_2026_11_03",
+    "source.quest_helper.quest_observations",
+    "source.runelite.varbits"
+  ],
+  "activity_ids": [
+    "quest.black_knights_fortress",
+    "quest.demon_slayer",
+    "quest.ernest_the_chicken",
+    "quest.romeo_juliet"
+  ],
+  "reward_review_ids": [
+    "review.quest.black_knights_fortress.quest_month_xp",
+    "review.quest.black_knights_fortress.quest_month_lamp",
+    "review.quest.demon_slayer.quest_month_xp",
+    "claim.demon_slayer.aris",
+    "review.quest.ernest_the_chicken.quest_month_xp",
+    "review.quest.romeo_juliet.quest_month_xp"
+  ],
+  "lamp_packages": {
+    "quest.black_knights_fortress": {
+      "producer_action_id": "quest.black_knights_fortress.complete",
+      "reward_id": "reward.black_knights_fortress.combat_lamp",
+      "quantity": 2,
+      "xp_tenths_each": 10000,
+      "reported_eligibility": "combat"
+    },
+    "quest.demon_slayer": {
+      "producer_action_id": "claim.demon_slayer.aris",
+      "reward_id": "reward.demon_slayer.quest_month_combat_lamp",
+      "quantity": 2,
+      "xp_tenths_each": 10000,
+      "reported_eligibility": "combat",
+      "claim_location": "location.varrock.aris"
+    },
+    "quest.ernest_the_chicken": {
+      "producer_action_id": "quest.ernest_the_chicken.complete",
+      "reward_id": "reward.ernest_the_chicken.quest_month_lamp",
+      "quantity": 1,
+      "xp_tenths_each": 5000
+    },
+    "quest.romeo_juliet": {
+      "producer_action_id": "quest.romeo_juliet.complete",
+      "reward_id": "reward.romeo_juliet.quest_month_lamp",
+      "quantity": 1,
+      "xp_tenths_each": 5000
+    }
+  },
+  "observations": {
+    "publisher": "Pinned Jagex 3 November 2026 Quest Month update adds two 1,000-XP combat lamps to Black Knights' Fortress completion, two 1,000-XP combat lamps from Aris after Demon Slayer, and one 500-XP lamp each for Ernest the Chicken and Romeo & Juliet on completion.",
+    "existing_catalog": "Black Knights' Fortress, Ernest the Chicken and Romeo & Juliet already create the correct lamp quantity at their quest completion steps. Only the reward review ledger and Black Knights' tracked registry package needed collected status and producer references; no duplicate payout actions were created.",
+    "new_claim": "A distinct once-only claim.demon_slayer.aris at the existing pinned Aris tile (3204,3424,0) grants two combat lamp instances. Demon Slayer's completion action does not grant lamps, preventing double awards.",
+    "draft_skill_rules": "Aris combat lamps are modeled like the already collected Black Knights' combat lamps: seven conventional combat skills including Prayer, no known higher base-level gate (provisional minimum 1), retainable, one pick per lamp. Jagex states only combat lamp count/XP; verify those mechanics independently.",
+    "legacy": "Publisher notes older completions can claim some retroactive XP via Perdu or Lumbridge Guide. Those accounts' eligibility, any different Aris handling and repeat protection need a separate review; not silently double-paid in this fresh-completion batch."
+  },
+  "review_gaps": [
+    "Confirm Aris's exact option, whether the lamps are held or used in dialogue, and if a previously completed Demon Slayer account uses a different retroactive reward path.",
+    "Confirm the exact eligible combat skills and minimum base level for both the Aris and Black Knights' two-lamp packages; minimum level 1 and Prayer availability are provisional modeling assumptions.",
+    "Confirm whether the 500-XP Ernest and Romeo lamps are retainable and allow all skills. The existing catalog assumes retainable all-skills lamps with minimum level 1.",
+    "The catalog's normal reward-use solver can choose a combat skill for each held lamp. Do not infer guaranteed fight supplies or additional incidental XP from this narrow reward reconciliation.",
+    "No independent in-game check was performed. The batch is collected draft data, not a review."
+  ]
+}
