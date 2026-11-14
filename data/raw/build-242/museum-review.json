@@ -11,6 +11,7 @@
     "source.jagex.below_ice_mountain",
     "source.field.fossil_camp_building",
     "source.field.fossil_camp_launch_materials",
+    "source.field.varrock_museum_history",
     "source.field.museum_clerk_awards",
     "source.field.museum_clerk_threshold_dialogue",
     "source.field.varrock_specimen_cleaning",
@@ -228,7 +229,7 @@
       "repeat_limit": 1,
       "kudos": null,
       "reward_claim_id": null,
-      "note": "Tracker identity suggests the candidate subject. Verify the eligible quest, report dialogue, items and associated lamp before awarding credit."
+      "note": "Display 47 is a standing map of Ardougne, but the confirmed Minas quest-report list does not link it to Plague City or Biohazard. No standalone reward or conditional transition was verified. Keep pending rather than award unsupported kudos."
     },
     {
       "id": "museum.history.dov",
@@ -247,16 +248,18 @@
     },
     {
       "id": "museum.history.excalibur",
-      "status": "pending",
+      "status": "collected",
       "reporter": "Historian Minas",
       "candidate_quest_ids": [
         "quest.merlins_crystal"
       ],
-      "required_quest_ids": null,
+      "required_quest_ids": ["quest.merlins_crystal"],
       "repeat_limit": 1,
-      "kudos": null,
-      "reward_claim_id": null,
-      "note": "Tracker identity suggests the candidate subject. Verify the eligible quest, report dialogue, items and associated lamp before awarding credit."
+      "kudos": 5,
+      "reward_claim_id": "museum.history.excalibur",
+      "catalog_action_id": "museum.history.excalibur",
+      "source_ids": ["source.runelite.varbits", "source.field.varrock_museum_history"],
+      "note": "Tell Minas about Merlin's Crystal and Excalibur: display 9, five kudos and one held 1,000-XP lamp. Estimated lamp retention and exact level-20 boundary remain to be confirmed."
     },
     {
       "id": "museum.history.glider",
@@ -279,16 +282,18 @@
     },
     {
       "id": "museum.history.lathas",
-      "status": "pending",
+      "status": "collected",
       "reporter": "Historian Minas",
       "candidate_quest_ids": [
-        "quest.biohazard"
+        "quest.making_history"
       ],
-      "required_quest_ids": null,
+      "required_quest_ids": ["quest.making_history"],
       "repeat_limit": 1,
-      "kudos": null,
-      "reward_claim_id": null,
-      "note": "Tracker identity suggests the candidate subject. Verify the eligible quest, report dialogue, items and associated lamp before awarding credit."
+      "kudos": 5,
+      "reward_claim_id": "museum.history.lathas",
+      "catalog_action_id": "museum.history.lathas",
+      "source_ids": ["source.runelite.varbits", "source.field.varrock_museum_history"],
+      "note": "King Lathas portrait at display 46 updates after Making History. Report grants five kudos and a 1,000-XP lamp; no Biohazard requirement."
     },
     {
       "id": "museum.history.observatory",
@@ -343,16 +348,19 @@
     },
     {
       "id": "museum.history.salveknights",
-      "status": "pending",
+      "status": "collected",
       "reporter": "Historian Minas",
       "candidate_quest_ids": [
-        "quest.priest_in_peril"
+        "quest.priest_in_peril",
+        "quest.in_aid_of_the_myreque"
       ],
-      "required_quest_ids": null,
+      "required_quest_ids": ["quest.priest_in_peril", "quest.in_aid_of_the_myreque"],
       "repeat_limit": 1,
-      "kudos": null,
+      "kudos": 10,
       "reward_claim_id": null,
-      "note": "Tracker identity suggests the candidate subject. Verify the eligible quest, report dialogue, items and associated lamp before awarding credit."
+      "catalog_action_ids": ["museum.history.salveknights", "museum.history.salveknights.in_aid"],
+      "source_ids": ["source.runelite.varbits", "source.field.varrock_museum_history"],
+      "note": "Two reports at display 23, five kudos after Priest in Peril and five more after In Aid of the Myreque. The second cannot occur before the first. No lamp."
     },
     {
       "id": "museum.history.silverlight",
@@ -375,16 +383,18 @@
     },
     {
       "id": "museum.history.soa",
-      "status": "pending",
+      "status": "collected",
       "reporter": "Historian Minas",
       "candidate_quest_ids": [
         "quest.shield_of_arrav"
       ],
-      "required_quest_ids": null,
+      "required_quest_ids": ["quest.shield_of_arrav"],
       "repeat_limit": 1,
-      "kudos": null,
-      "reward_claim_id": null,
-      "note": "Tracker identity suggests the candidate subject. Verify the eligible quest, report dialogue, items and associated lamp before awarding credit."
+      "kudos": 5,
+      "reward_claim_id": "museum.history.soa",
+      "catalog_action_id": "museum.history.soa",
+      "source_ids": ["source.runelite.varbits", "source.field.varrock_museum_history"],
+      "note": "Report Shield of Arrav at display 24 for five kudos and a 1,000-XP lamp. Distinct from the later Defender of Varrock report and the quest-month reward."
     },
     {
       "id": "museum.history.staff_of_armadyl",
