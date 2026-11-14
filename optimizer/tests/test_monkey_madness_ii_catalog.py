@@ -15,7 +15,8 @@ REWARD = "reward.mm2.duke_combat_training"
 SKILL_GATES = {"slayer": 69, "crafting": 70, "hunter": 60, "agility": 55,
                "thieving": 55, "firemaking": 60}
 PREDECESSORS = ["quest.enlightened_journey.complete", "quest.the_eyes_of_glouphrie.complete",
-                "rfd.freeing_king_awowogei.complete", "quest.troll_stronghold.complete"]
+                "rfd.freeing_king_awowogei.complete", "quest.troll_stronghold.complete",
+                "quest.watchtower.complete"]
 
 
 class MonkeyMadnessIICatalogTests(unittest.TestCase):
@@ -27,12 +28,11 @@ class MonkeyMadnessIICatalogTests(unittest.TestCase):
         cls.profile = read_json(ROOT / "data/profiles/main-baseline.json")
         cls.actions = read_json(ROOT / "data/catalog/monkey-madness-ii/actions.json")
 
-    def seed(self, *, predecessors=None, watchtower=True, balloon=True, daero=False,
+    def seed(self, *, predecessors=None, balloon=True, daero=False,
              trade=True, ingredients=True, talisman=True):
         initial = deepcopy(self.profile["initial_state"])
         initial["completed_action_ids"] = PREDECESSORS.copy() if predecessors is None else predecessors
-        initial["flags"].update({"unlock.mm2_watchtower_prereq": watchtower,
-                                 "unlock.balloon.grand_tree": balloon,
+        initial["flags"].update({"unlock.balloon.grand_tree": balloon,
                                  "flag.monkey_madness_i.daero_training_claimed": daero})
         initial["counters"]["token.quest_points"] = 100
         initial["inventory"]["item.coins"] = 500_000
@@ -98,9 +98,8 @@ class MonkeyMadnessIICatalogTests(unittest.TestCase):
         for missing in PREDECESSORS:
             with self.subTest(quest=missing), self.assertRaises(DataError):
                 self.do(self.seed(predecessors=[p for p in PREDECESSORS if p != missing]), QUEST + ".start")
-        for opts in ({"watchtower": False}, {"balloon": False}):
-            with self.subTest(opts=opts), self.assertRaises(DataError):
-                self.do(self.seed(**opts), QUEST + ".start")
+        with self.assertRaises(DataError):
+            self.do(self.seed(balloon=False), QUEST + ".start")
 
     def test_six_nonboostable_skills(self):
         req = self.tables["actions"][QUEST + ".start"]["requirements"]["requirements"]

@@ -1,0 +1,50 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "collected",
+  "activity_ids": ["quest.rag_and_bone_man_ii", "miniquest.the_enchanted_key"],
+  "helper_files": [
+    "src/main/java/com/questhelper/helpers/quests/ragandboneman/RagAndBoneManII.java",
+    "src/main/java/com/questhelper/helpers/miniquests/enchantedkey/EnchantedKey.java"
+  ],
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.project.early_quest_timing",
+    "source.project.travel_timing"
+  ],
+  "observations": {
+    "rag_and_bone_man_ii": {
+      "start": "After Rag and Bone Man I the Odd Old Man gives a list of 27 monster-specific bones. Slayer and quest unlocks apply only to the relevant monster encounters, not to initial acceptance.",
+      "collection": "Twenty-seven distinct encounters each obtain one nonstandard quest drop. Rat bone and bat wing reuse their earlier source item identities. Other bones are not ordinary, generic bones. The model gives one completed encounter the successful drop and marks the probabilistic/conditional kill as a planned outcome.",
+      "special_access": "Mogres require Skippy and the Mogres, fishing explosive and 32 Slayer. Basilisks use 40 boostable Slayer, 20 base Defence and a mirror shield. The level-42 desert lizard consumes an ice cooler. Experiments follow Fenkenstrain's memorial access, cave goblins follow The Lost Tribe, dagannoths use the Lighthouse after Horror from the Deep, baby blue dragons use the Taverley deep gate (dusty key or Agility shortcut), fire giants use the Brimhaven Dungeon axe-and-fare approach, and zogres require prior Zogre Flesh Eaters progress.",
+      "preparation": "Fortunato sells 27 jugs of vinegar for 27 coins; one usable pot, one log and a tinderbox go into each successive boiler treatment. Pots are returned by the process, while logs, vinegar and each quest bone are spent. Each treatment increments one of 27 distinct successful-bone completions; the quest can finish only after all 27.",
+      "rewards": "Final handover awards one quest point, 5,000 direct Prayer XP and the bonesack and ram skull helm keepsakes. Their optional selection and reclaim dialogue need verification.",
+      "routing": "Surface monster locations use helper candidates and existing connected nearby waypoints. Dungeon entrance/exit paths are separate, notably the Taverley dragon gate, Brimhaven Dungeon and Fremennik Slayer Cave. Each new edge has a reverse path except when a consumed entry fare applies only on entry."
+    },
+    "enchanted_key": {
+      "prerequisite": "Making History completion, the retained enchanted key from Erin and a spade. The key can reportedly be reclaimed for 500 coins if it was lost; this exceptional path is not yet cataloged.",
+      "random_order": "The first treasure is south of Rellekka. After that, the same ten remaining sites appear in a player-dependent sequence. The model makes those ten digging actions unordered once the fixed first find is complete, then requires all eleven for miniquest completion.",
+      "sites": [
+        "South of Rellekka", "South of Ardougne", "South of Gnome Stronghold/West Ardougne",
+        "Tree Gnome Stronghold", "Body altar", "South of Falador", "Mudskipper Point",
+        "Lumbridge Swamp", "Al Kharid", "Southeast Varrock mine", "Grand Exchange"
+      ],
+      "rewards": "Eleven finite treasure stashes award fixed ores, arrows, arrowtips, essence and runes. The Falador, Al Kharid and Varrock mine sites contain the Saradomin, Zamorak and Guthix mjolnirs respectively. There is no direct quest point or skill XP reward.",
+      "routing": "Eleven treasure coordinates are provisional geographic anchors with walking connections to an existing map node. A live temperature/spade search is required at each site; a deterministic tile is not asserted."
+    }
+  },
+  "pending_reviews": [
+    "The full 27-bone source list should be compared to build-242 game item IDs and the post-2025 baby dragon alternative. Bat wing and rat bone may have distinct later-quest IDs; the draft intentionally reuses the Rag and Bone Man I items until confirmed.",
+    "Monster unique bone drop rates, repeated kills, combat expenses, poison, restore potions, light sources, range ammunition, rune costs, desert heat and variable incidental XP are not deterministic. Each acquisition is a conditional successful outcome, and optimizer replan is needed on failure.",
+    "The draft collects 27 logs and pots in one Grand Exchange supply entry. Inventory slots and banked/partial deliveries are not enforced by the route engine; in game, split collection, hauling and boiler visits into trips. The GE budget of 8,000 coins is an estimate, not a live price.",
+    "For the cave goblin, the Lumbridge Swamp Cave rope-bottom anchor is used; a light source and rope/dungeon hazards may be needed. Brimhaven Dungeon entry assumes a bronze axe and 875-coin toll. Verify double directions, shortcut gates and other monsters' accessible alternative sites.",
+    "The current model treats a single pot as reusable after the vinegar boil. Verify whether the returned pot or jug behaves differently and whether individual polished bones can be handed to the Old Man before all 27 are collected.",
+    "The Odd Old Man's cosmetic selection may require two separate claims, rather than awarding bonesack and ram skull helm together. Source helper lists both; verify reward prompt and reclaim semantics.",
+    "The Enchanted Key helper declares the Making History prerequisite but does not provide treasure waypoints; all eleven site tiles are approximate. Verify cache build positions with live in-game temperatures and digging, including the Lumbridge Swamp zombie-head distraction.",
+    "The miniquest's next target is random, so arbitrary-order site actions are a simplifying abstraction: an action at a later site is not always immediately completable. An optimizer state representing the active key target or a replan after each dig may be needed for strict execution fidelity.",
+    "The new local detour edges are catalog-scoped to the relevant activity start/completion. These are optimizer routing abstractions to prevent unrelated early quests from exploring unnecessary dead ends, not claims that ordinary terrain is physically locked before the activity.",
+    "Treasure loot quantities and three mjolnir awards need independent build-242 verification. Recovering a missing key from the East Ardougne silver merchant and the One Small Favour steel key ring interaction are unmodeled.",
+    "Source, region and proximity are not proof of real navigability: all newly generated walking and dungeon edges require in-game pathfinding review and may need area barriers/obstacle checks."
+  ],
+  "focused_replay": "optimizer/tests/test_bones_and_enchanted_key.py",
+  "independent_review": "pending"
+}

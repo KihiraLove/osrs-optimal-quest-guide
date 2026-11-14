@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.42.0` loads 24 skill tables and
-3,201 draft actions across 170 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.55.0` loads 24 skill tables and
+3,959 draft actions across 190 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -270,7 +270,101 @@ records two journal routes, the crystal saw diary task, the Museum Camp
 facilities and Peter's fossil claim, four Minas reports and the three Varrock
 Museum clerk rewards.
 
+The [Karamja village and Trio review](raw/build-242/karamja-village-and-trio-review.json)
+records the Shilo Village dungeon and tomb route, its 200-coin fixed-fare cart
+option, Tai Bwo Wannai Trio's independent son objectives, and the separate
+Fishing, Cooking and combat XP claims. The two seeded route replays exercise
+the travel graph, ingredient consumption, rewards and repeat limits. Several
+tradeable supplies still need catalog purchase actions and the draft NPC tiles
+and combat estimates await independent gameplay review.
+
+The [One Small Favour review](raw/build-242/one-small-favour-review.json)
+records Yanni's outward favour chain and all return handoffs, including the
+Feldip glider repair, Petra's cave, the Seers' weather vane, pottery and chicken
+cages. Guthix rest preparation and pot lids unlock mid-quest. Completion awards
+two quest points, a steel key ring and two independently held lamps worth 10,000
+XP apiece in a skill at base level 30 or higher. The seeded replay verifies the
+route and both lamp uses; the precise puzzle item risks, combat resources and
+quest-journal dependency on spending the lamps still need gameplay or semantics
+review.
+
 The [Ikov, Mage Arena and specimen review](raw/build-242/ikov-arena-and-specimens-review.json)
 records two journal routes, five Museum specimen exhibits, and the Digsite
 pendant and its Varrock Medium diary task. It also connects the Woodcutting
 Guild gate and potion supplies needed to finish Bone Voyage.
+
+The [Watchtower review](raw/build-242/watchtower-review.json) describes the
+Ogre relic exchanges, two rope crossings, Gu'Tanoth gates, separate Skavid
+caves, two nightshade entries, six shamans and four power crystals. The final
+lever grants four quest points, 15,250 Magic XP, 5,000 coins and a spell scroll.
+Reading the scroll separately enables the Watchtower Teleport, which costs two
+Earth and two Law runes per level-58 cast. A seeded end-to-end graph replay
+checks travel, inputs, quest rewards and post-quest teleport use. Several cave
+waypoints, puzzle answers, combat supplies and incidental XP await independent
+review.
+
+The [Enakhra's Lament review](raw/build-242/enakhras-lament-review.json)
+records the exact 32kg and 20kg sandstone assemblies, two 5kg granite heads,
+the underground four-sigil doors, four elemental puzzle rooms and the final
+boneguard/stone-wall sequence. It distinguishes optional quarry mining from a
+trade-enabled stone bundle. The completion grants two quest points, 7,000 XP
+each in Crafting, Mining, Firemaking and Magic, and a four-charge Camulet.
+Four finite item teleports can be spent across origins; Lazim's optional
+1,000,000-coin upgrade supplies separate unlimited routes. The full seeded
+replay checks these charges, puzzle items, spell costs and reward repeat gates;
+the exact dungeon walk costs, stone size randomness, incidental XP and Camulet
+recharge loop remain in independent review.
+
+The [Swan Song review](raw/build-242/swan-song-review.json) captures the
+100-quest-point and One Small Favour/Garden of Tranquillity gates, Wise Old
+Man's rune request, first sea troll wave, metal-press repairs and five fresh
+monkfish for Arnold. It models Frumscone's Wizards' Guild access, Malignius's
+seven-bone-and-airtight-pot exchange, the skeletal army and the Sea Troll
+Queen. Completion gives two quest points, 15,000 Magic XP, 10,000 Prayer XP,
+50,000 Fishing XP, 25,000 coins and Piscatoris fishing access. Kathy's boat
+can be paid for before the quest and traveled free afterwards. A full seeded
+replay verifies the prerequisites, supplies, Queen and reward repeat guard;
+combat XP, fishing/cooking success variance, precise geometry and GE prices
+remain for independent review.
+
+The [King's Ransom and Knight Waves review](raw/build-242/kings-ransom-and-knight-waves-review.json)
+records the Sinclair evidence, Anna's three courtroom witnesses, Merlin's
+vent and hair-clip puzzle, the Holy Grail table, and Arthur's fortress rescue
+with its separate black-armour and bronze/iron disguises. The quest awards one
+quest point, 33,000 Defence XP, 5,000 Magic XP, and a retained 5,000-XP lamp
+usable on a level-50+ skill. Knight Waves is independent: eight successive
+Camelot knight fights award 20,000 XP each in Attack, Strength, Defence and
+Hitpoints, then unlock Chivalry/Piety without bypassing their Prayer level
+requirements. The seeded replay checks rewards, missing prerequisites, spell
+resources, graph navigation and repeat protection. Precise item persistence,
+combat damage, dungeon exits, and possible overlap between the direct Magic XP
+and lamp reward require independent gameplay review.
+
+The [northern quest sequels review](raw/build-242/northern-quest-sequels-review.json)
+records the Weiss stealth and water cave route, coffin and apothecary supply
+chain for Making Friends with My Arm and the shield, geyser, basilisk defence,
+Isle of Stone and Jormungand sequence for The Fremennik Exiles. Two complete
+seeded routes test fixed rewards, staged supplies, directed exits, combat
+success and duplicate completion prevention. The routes check completion of
+My Arm's Big Adventure, Cold War and Heroes' Quest where required.
+
+The [Arrav and Varrock sequel review](raw/build-242/arrav-varrock-sequels-review.json)
+records Defender of Varrock's Elias search, Zemouregal base, Camdozaal forge,
+palace census and candidate investigation, and The Curse of Arrav's tomb,
+Trollweiss fort and back-room heist. The former awards two quest points and
+15,000 XP each in Smithing and Hunter; the latter awards two points and
+40,000 XP each in Mining, Thieving and Agility. Historian Minas's optional
+report is a separate one-time action that awards five kudos and a held 5,000-XP
+lamp. All three are replayed by focused tests; puzzle timing, combat budgets,
+exact instance tiles, item retention and lamp restrictions remain for review.
+
+The [Scrambled! and Shadows of Custodia review](raw/build-242/scrambled-and-custodia-review.json)
+records two separate Varlamore quest routes: Alan's egg-breaking mystery,
+three Tal Teklan errands, egg fights and reassembly puzzle; and Auburnvale's
+missing-person investigation, fishing-rod evidence, wall reinforcement and
+strange-creature rescue. Their completion actions grant one and two quest
+points respectively with the fixed Construction/Cooking/Smithing and
+Slayer/Hunter/Fishing/Construction XP rewards. The Stalker Den becomes a
+permanent unlock after the second quest. Focused replay tests exercise item
+handovers, combat success, puzzle gates, walk/cave access and repeat limits;
+stock costs, bent nails, combat loadouts and route timing require review.

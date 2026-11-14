@@ -328,5 +328,56 @@
       "status": "estimated",
       "note": "Debit an estimated Grand Exchange price for the listed ordinary tradeable supplies."
     }
+  },
+  {
+    "id": "supply.grand_exchange.goblin_diplomacy_materials",
+    "name": "Buy Goblin Diplomacy mail and dyes",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2200
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_mail",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.orange_dye",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.blue_dye",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy three plain goblin mails and the two dyes for the generals. Cost is a rounded Grand Exchange estimate."
+    }
   }
 ]

@@ -1,0 +1,43 @@
+{
+  "batch_id": "theatre-and-heart-of-darkness",
+  "revision": "osrs-live-242-2026-11-11",
+  "status": "collected_draft_not_independently_reviewed",
+  "activity_ids": ["quest.a_night_at_the_theatre", "quest.the_heart_of_darkness"],
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.project.early_quest_timing",
+    "source.project.travel_timing"
+  ],
+  "helper_files": [
+    "src/main/java/com/questhelper/helpers/quests/anightatthetheatre/ANightAtTheTheatre.java",
+    "src/main/java/com/questhelper/helpers/quests/theheartofdarkness/TheHeartOfDarkness.java"
+  ],
+  "observations": {
+    "quest.a_night_at_the_theatre": {
+      "start": "Mysterious Stranger, Ver Sinhaza, candidate tile 3673,3223,0.",
+      "prerequisite": "Completion of A Taste of Hope gives access to the investigation.",
+      "route": "Crypt investigation, araxyte/spider cave, Sisterhood Sanctuary and Daer Krand, delivery of spider eggs, Nature Grotto mutated Hespori encounter and bark harvest, then an Entry Mode Theatre of Blood clear and final Mysterious Stranger dialogue. Six individual Theatre encounters are conditionally successful: Maiden, Bloat, Nylocas, Sotetseg, Xarpus and Verzik.",
+      "required_equipment": "Either of the existing Ivandis and blisterwood flails, a saw, a ghostspeak amulet and an axe. The starter bronze axe is sufficient. Raid supplies, food, party composition and retry costs remain estimates.",
+      "completion": "2 quest points, four held 20,000 XP lamps: each player choice restricted to Attack, Strength, Defence, Ranged, Magic or Hitpoints with at least 50 base levels. Item choice must be actively redeemed later."
+    },
+    "quest.the_heart_of_darkness": {
+      "start": "Itzla at Teomat (1454,3173,0), after Twilight's Promise.",
+      "requirements": "55 Mining, 48 Thieving, 48 Slayer, 46 Agility, each nonboostable in the pinned helper.",
+      "route": "Sunset Coast bartender and prince interviews, repair Salvager Overlook landing, recruit the Ascended, four linked palace trials (pickpocket and poem, combat, clue-based accusations, prince duel), recover Emissary robes, attend temple service, enter frozen ruins, mine passages with a locally found pickaxe, navigate levers/ledges, collect and place four elemental urns, read the four markings, solve statue sequence, defeat Amoxliatl, report to Servius.",
+      "materials": "Quest-bound first-trial key, poem notes and robes. Frozen-ruin pickaxe is obtainable in the quest area; four urns are collected and consumed at the four matching statues. Source states contain no authoritative cost for the shops or landing-site repair; the current draft does not invent spending.",
+      "completion": "2 quest points, 8,000 XP in Mining, Thieving, Slayer and Agility, with no arbitrary combat XP inserted."
+    }
+  },
+  "review_gaps": [
+    "The exact pinned helper file paths must be verified against the source index; waypoints are candidate coordinates and several plane/instance jumps may be placeholders rather than navigable walks.",
+    "The sisterhood sequence can move between floors with different local-coordinate systems. Verify each stair/exit transition, spiders and egg item sourcing before independent review.",
+    "The six Theatre of Blood Entry Mode boss rooms are not present as individual helper waypoints; all six named encounters therefore use one abstract instanced waypoint anchored to the observed Ver Sinhaza entrance (NOT the actual individual room tiles). Confirm access, equipment requirements, room navigation, retry flow, and the final report timing in-game.",
+    "Confirm flail reclaim paths and the minimum supplies for a solo Entry Mode clear in game.",
+    "Verify four 20,000-XP combat lamp skill restrictions, base-level 50 gate, reclaim and retention policies against actual reward interfaces and official notes.",
+    "Heart trial names and stage order derive from the pinned helper waypoint sequence. Check the correct first-trial poem passcode, who is guilty in the third trial, item retention, throne-room floors and all re-entry paths.",
+    "Confirm what materials are required for Salvager Overlook repairs and whether the free pickaxe is bronze; current modeling lacks fixed spending not supported by source observations.",
+    "Confirm the four urn/statue pairings and exact lever/mirror/platform sequence; success-dependent puzzle stages are explicitly modeled as planned outcomes.",
+    "The Amoxliatl boss instance at 1365,4510 and frozen-ruin local tiles should not be treated as bidirectional normal walking routes until live play confirms the transition mechanics.",
+    "All timing, combat supplies and location connections need independent replay. This is collected draft data and should not be marked reviewed."
+  ]
+}

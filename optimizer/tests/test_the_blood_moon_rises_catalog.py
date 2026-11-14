@@ -11,7 +11,6 @@ from quest_optimizer.transitions import RouteState
 
 ROOT = Path(__file__).resolve().parents[2]
 QUEST = "quest.the_blood_moon_rises"
-PREREQUISITE_FLAG = "unlock.bmr_prereq_a_night_at_the_theatre"
 SKILL_GATES = {
     "slayer": 74, "woodcutting": 74, "smithing": 72, "cooking": 72,
     "fletching": 70, "mining": 66, "hunter": 65, "crafting": 64,
@@ -31,7 +30,8 @@ class TheBloodMoonRisesCatalogTests(unittest.TestCase):
     def seed(self, *, sins=True, theatre=True, flail=True, trade=True):
         initial = deepcopy(self.profile["initial_state"])
         initial["completed_action_ids"] = ["quest.sins_of_the_father.complete"] if sins else []
-        initial["flags"][PREREQUISITE_FLAG] = theatre
+        if theatre:
+            initial["completed_action_ids"].append("quest.a_night_at_the_theatre.complete")
         initial["counters"]["token.quest_points"] = 100
         initial["inventory"]["item.coins"] = 500_000
         if flail:
@@ -85,7 +85,7 @@ class TheBloodMoonRisesCatalogTests(unittest.TestCase):
         with self.assertRaises(DataError):
             self.do(final, QUEST + ".complete")
 
-    def test_two_prerequisites_with_explicit_cross_branch_flag(self):
+    def test_both_prerequisite_quest_completions_are_required(self):
         for sins, theatre in ((False, True), (True, False), (False, False)):
             with self.subTest(sins=sins, theatre=theatre), self.assertRaises(DataError):
                 self.do(self.seed(sins=sins, theatre=theatre), QUEST + ".start")

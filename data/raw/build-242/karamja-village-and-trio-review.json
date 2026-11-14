@@ -1,0 +1,45 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "collected",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.project.travel_timing",
+    "source.project.early_quest_timing"
+  ],
+  "activity_ids": ["quest.shilo_village", "quest.tai_bwo_wannai_trio"],
+  "observations": {
+    "shilo_village": {
+      "source_file": "data/raw/build-242/quest-helper/observations-05.json",
+      "helper_path": "src/main/java/com/questhelper/helpers/quests/shilovillage/ShiloVillage.java",
+      "level_gates": {
+        "crafting": {"minimum": 20, "boostable": false, "stage": "quest.shilo_village.take_plaque"},
+        "agility": {"minimum": 32, "boostable": false, "stages": ["quest.shilo_village.descend_fissure", "quest.shilo_village.open_cairn"]
+      },
+      "note": "The catalog conservatively requires unboosted levels despite potential game boosts. Mosol's warning precedes the true Trufitus quest start. The torch/candle and rope are consumed to open Ah Za Rhoon; three ordinary bones open Rashiliyia's inner door. The cairn produces the beads and key materials. Nazastarool's three forms are one planned combat outcome. The final burial awards 2 quest points, 3,875 Crafting XP and Shilo/cart access.",
+      "access": "Travel can return from each cave via the public passages and from the surface to Trufitus. The fixed cart right-click fare is modeled at 200 coins in both directions; dialogue and elite-diary discounts are future branches."
+    },
+    "tai_bwo_wannai_trio": {
+      "source_file": "data/raw/build-242/quest-helper/observations-05.json",
+      "helper_path": "src/main/java/com/questhelper/helpers/quests/taibwowannaitrio/TaiBwoWannaiTrio.java",
+      "level_gates": {
+        "fishing": {"minimum": 5, "boostable": false, "stage": "quest.tai_bwo_wannai_trio.catch_karambwanji"},
+        "cooking": {"minimum": 30, "boostable": false, "stages": ["quest.tai_bwo_wannai_trio.cook_poison_karambwan", "quest.tai_bwo_wannai_trio.marinate_bones"]},
+        "firemaking": {"minimum": 30, "boostable": false, "stage": "quest.tai_bwo_wannai_trio.burn_jogre_bones"},
+        "agility": {"minimum": 15, "boostable": false, "stage": "quest.tai_bwo_wannai_trio.arm_tamayu"}
+      },
+      "note": "The three brothers' objectives are independent branches. The route reserves 22 karambwanji: 20 for Lubufu, one to bait a vessel and one for marinated bones. Tinsay needs banana-flavoured rum, a seaweed-and-monkey-skin sandwich and cooked pasty jogre bones. Tamayu needs a poisoned spear and agility potion, and teaches no XP until his later claim. Timfraku pays 2,000 coins and 2 quest points. Tiadeche, Tinsay and Tamayu grant their XP separately in three one-time village dialogues.",
+      "item_source_gap": "The replacement vessel dialogue is modeled as one unique action. Need to verify exact Lubufu handover and item replacement mechanics in game."
+    }
+  },
+  "estimates_and_supply_gaps": [
+    "The spear and agility potion have a new 1,500 GP bundled purchase estimate at the Grand Exchange. Existing catalog actions can source many other supplies (spade, candle and tinderbox, rope, bronze wire, chisel, net, knife, pestle and mortar and logs), but availability and extra bundle costs along the complete Lumbridge route must still be audited. Seeded focused replays do not prove upstream item funding.",
+    "The two Shilo combat routes and the Tai monkey/jogre fights use planned-success outcomes. Incidental XP, food, ammunition, poison, prayer drains and actual drop loops require reconciliation after play; none is invented as guaranteed XP.",
+    "The exact paths across streams, ravines and interior dungeon transitions need pathing checks. The cart fare is deliberately a conservative fixed 200 GP alternative; dialogue reductions and Karamja elite rewards are not cataloged.",
+    "The mini-quest's NPC home tiles are draft estimates, not pinned waypoint observations. Exact home coordinates and follower/dialogue order require a fresh build 242 capture.",
+    "The item tradeability and stackability of some quest-only variants, regular-vs-burnt bone behavior, and whether Shilo reward artifacts remain after NPC dialogue require a live check.",
+    "Quest Helper reports unboostable skill levels. Some boosts may work in game; the draft uses safe base-level gates until verified.",
+    "No post-quest Shilo artifact sale has been modeled, nor optional karambwan stalls/diary task awards. Those are separate future actions."
+  ],
+  "focused_replay": "optimizer/tests/test_karamja_batch.py",
+  "independent_review": "pending"
+}
