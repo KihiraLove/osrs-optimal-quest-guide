@@ -1,0 +1,1635 @@
+[
+  {
+    "id": "quest.prying_times.start",
+    "name": "Speak to Squawking Steve Beanie",
+    "activity_id": "quest.prying_times",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.steve",
+    "end_location_id": "location.prying.steve",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.sailing",
+          "minimum_level": 12,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.prying.captains_log",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "12 Sailing and 30 Smithing are nonboostable start levels; the captain's log and usable vessel are upstream Sailing progression."
+    }
+  },
+  {
+    "id": "quest.prying_times.get_port_task",
+    "name": "Ask Steve to assign the cargo delivery",
+    "activity_id": "quest.prying_times",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.steve",
+    "end_location_id": "location.prying.steve",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prying_times.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.prying.port_task",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.prying_times.collect_cargo",
+    "name": "Collect the cargo crate from the Port Sarim ledger",
+    "activity_id": "quest.prying_times",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.port_sarim_ledger",
+    "end_location_id": "location.prying.port_sarim_ledger",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prying_times.get_port_task"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.prying.captains_log",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.prying.looty_crate",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.prying_times.load_cargo",
+    "name": "Load the crate into the ship's cargo hold",
+    "activity_id": "quest.prying_times",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.charter_dock",
+    "end_location_id": "location.port_sarim.charter_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prying_times.collect_cargo"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.prying.looty_crate",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Physical cargo-hold item remains an abstract carried cargo token until delivery; verify ship storage capacity and docking."
+    }
+  },
+  {
+    "id": "quest.prying_times.deliver_cargo",
+    "name": "Sail to The Pandemonium and place the crate on the ledger",
+    "activity_id": "quest.prying_times",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.pandemonium_dock",
+    "end_location_id": "location.prying.pandemonium_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prying_times.load_cargo"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.prying.looty_crate",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.prying.looty_crate",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Boat must sail from Port Sarim with cargo; withdraw and deposit at the Pandemonium ledger."
+    }
+  },
+  {
+    "id": "quest.prying_times.ask_steve_for_key",
+    "name": "Tell Steve about the cargo and ask how to open it",
+    "activity_id": "quest.prying_times",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.steve",
+    "end_location_id": "location.prying.steve",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prying_times.deliver_cargo"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.prying_times.thurgo_crowbar",
+    "name": "Give Thurgo a steel bar, redberry pie and hammer",
+    "activity_id": "quest.prying_times",
+    "kind": "quest_stage",
+    "start_location_id": "location.mudskipper_point.thurgo",
+    "end_location_id": "location.mudskipper_point.thurgo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prying_times.ask_steve_for_key"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_bar",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.redberry_pie",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.steel_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.redberry_pie",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.prying.crowbar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 95,
+      "max_seconds": 285
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Thurgo uses the metal and pie to provide a reusable crowbar; hammer is retained."
+    }
+  },
+  {
+    "id": "quest.prying_times.report_crowbar",
+    "name": "Show the crowbar to Steve, who requests a test",
+    "activity_id": "quest.prying_times",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.steve",
+    "end_location_id": "location.prying.steve",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prying_times.thurgo_crowbar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.prying.crowbar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.prying_times.test_sealed_crate",
+    "name": "Pry open the offshore sealed crate",
+    "activity_id": "quest.prying_times",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.sealed_crate",
+    "end_location_id": "location.prying.sealed_crate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prying_times.report_crowbar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.prying.crowbar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.prying.fish_bladder_stout",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Player must be aboard a sailing vessel near the offshore crate; exact sea approach remains estimated."
+    }
+  },
+  {
+    "id": "quest.prying_times.drink_stout",
+    "name": "Drink the fish bladder stout",
+    "activity_id": "quest.prying_times",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.sealed_crate",
+    "end_location_id": "location.prying.sealed_crate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prying_times.test_sealed_crate"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.prying.fish_bladder_stout",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.prying.fish_bladder_stout",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    },
+    "planned_outcome": {
+      "success_condition": "Drink the stout; a drink troll appears, but no combat is needed if the player leaves the encounter.",
+      "if_unmet": "Retry the skill interaction or restock; confirm quest journal progress before proceeding."
+    }
+  },
+  {
+    "id": "quest.prying_times.leave_troll",
+    "name": "Return to safe buoys to despawn the drink troll",
+    "activity_id": "quest.prying_times",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.pandemonium_dock",
+    "end_location_id": "location.prying.pandemonium_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prying_times.drink_stout"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "This selects the zero-combat alternative; optional troll kill and its incidental XP are not included."
+    }
+  },
+  {
+    "id": "quest.prying_times.open_steves_crate",
+    "name": "Return to Steve and open his crate of looty",
+    "activity_id": "quest.prying_times",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.pub_crate",
+    "end_location_id": "location.prying.pub_crate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prying_times.leave_troll"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.prying.crowbar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.prying_times.complete",
+    "name": "Finish Prying Times with Steve",
+    "activity_id": "quest.prying_times",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.steve",
+    "end_location_id": "location.prying.steve",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prying_times.open_steves_crate"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.prying.oak_sawmill_coupon",
+        "quantity": 25
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.prying_times.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.prying.forgotten_drinks",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.prying.crowbars",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 10000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.sailing",
+        "xp_tenths": 8000
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 48,
+      "max_seconds": 144
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Completion: 1 QP, 1,000 Smithing and 800 Sailing XP, 25 oak-plank sawmill coupons and future crowbar/drinks access."
+    }
+  },
+  {
+    "id": "quest.crab_quest.start",
+    "name": "Drink from the mysterious bottle on Dognose Island",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.bottle",
+    "end_location_id": "location.crab.bottle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.sailing",
+          "minimum_level": 40,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fishing",
+          "minimum_level": 30,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "40 Sailing and 30 Fishing required, with boat access to Dognose Island; no mandatory combat."
+    }
+  },
+  {
+    "id": "quest.crab_quest.meet_crab",
+    "name": "Speak to the disappointed crab about the ceremony",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.protagonist",
+    "end_location_id": "location.crab.protagonist",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.crab_quest.shell_1",
+    "name": "Collect ceremonial shell 1",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.shell_1",
+    "end_location_id": "location.crab.shell_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.meet_crab"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crab.loose_shell",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.crab_quest.shell_2",
+    "name": "Collect ceremonial shell 2",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.shell_2",
+    "end_location_id": "location.crab.shell_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.shell_1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crab.loose_shell",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.crab_quest.shell_3",
+    "name": "Collect ceremonial shell 3",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.shell_3",
+    "end_location_id": "location.crab.shell_3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.shell_2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crab.loose_shell",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.crab_quest.shell_4",
+    "name": "Collect ceremonial shell 4",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.shell_4",
+    "end_location_id": "location.crab.shell_4",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.shell_3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crab.loose_shell",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.crab_quest.shell_5",
+    "name": "Collect ceremonial shell 5",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.shell_5",
+    "end_location_id": "location.crab.shell_5",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.shell_4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crab.loose_shell",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.crab_quest.shell_6",
+    "name": "Collect ceremonial shell 6",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.shell_6",
+    "end_location_id": "location.crab.shell_6",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.shell_5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crab.loose_shell",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.crab_quest.shell_7",
+    "name": "Collect ceremonial shell 7",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.shell_7",
+    "end_location_id": "location.crab.shell_7",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.shell_6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crab.loose_shell",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.crab_quest.last_two_shells",
+    "name": "Collect the final two shells on Dognose Island",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.protagonist",
+    "end_location_id": "location.crab.protagonist",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.shell_7"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crab.loose_shell",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 34,
+      "expected_seconds": 68,
+      "max_seconds": 204
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Quest requires nine shells; helper fixes seven individual pick-up tiles, but the remaining two exact tiles need live verification."
+    }
+  },
+  {
+    "id": "quest.crab_quest.give_shells",
+    "name": "Hand nine shells to the crab and discuss string music",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.protagonist",
+    "end_location_id": "location.crab.protagonist",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.last_two_shells"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.crab.loose_shell",
+          "quantity": 9
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.crab.loose_shell",
+        "quantity": 9
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 105,
+      "max_seconds": 315
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.crab_quest.collect_net",
+    "name": "Pick up the discarded big fishing net",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.net",
+    "end_location_id": "location.crab.net",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.give_shells"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crab.big_fishing_net",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 30,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.crab_quest.fish_flotsam",
+    "name": "Fish the flotsam for three instrument components",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.flotsam",
+    "end_location_id": "location.crab.flotsam",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.collect_net"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fishing",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.crab.big_fishing_net",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crab.sea_soaked_bowstring",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.crab.battered_barrel",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.crab.weathered_rosewood_plank",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 34,
+      "expected_seconds": 68,
+      "max_seconds": 204
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    },
+    "planned_outcome": {
+      "success_condition": "Catch all three one-off flotsam items using a big net; verify inventory has at least three free spaces.",
+      "if_unmet": "Retry the skill interaction or restock; confirm quest journal progress before proceeding."
+    }
+  },
+  {
+    "id": "quest.crab_quest.make_instrument",
+    "name": "Combine the plank, barrel and bowstring into an instrument",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.protagonist",
+    "end_location_id": "location.crab.protagonist",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.fish_flotsam"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.crab.sea_soaked_bowstring",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.crab.battered_barrel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.crab.weathered_rosewood_plank",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.crab.sea_soaked_bowstring",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.crab.battered_barrel",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.crab.weathered_rosewood_plank",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crab.instrument",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.crab_quest.give_instrument",
+    "name": "Give the instrument to the crab and teach him to play",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.protagonist",
+    "end_location_id": "location.crab.protagonist",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.make_instrument"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.crab.instrument",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.crab.instrument",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper step and route estimate; not yet independently reviewed."
+    }
+  },
+  {
+    "id": "quest.crab_quest.recruit_1",
+    "name": "Recruit ceremonial crab 1 from a tree or bush",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.recruit_1",
+    "end_location_id": "location.crab.recruit_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.give_instrument"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Inspect tree/bush and speak to the emerged crab. Some are shy: use Sit emote and wait before trying again. The sixth pinned crab uses the longer wait."
+    },
+    "planned_outcome": {
+      "success_condition": "The crab emerges and agrees to take part; wait and retry the emote for shy crabs.",
+      "if_unmet": "Retry the skill interaction or restock; confirm quest journal progress before proceeding."
+    }
+  },
+  {
+    "id": "quest.crab_quest.recruit_2",
+    "name": "Recruit ceremonial crab 2 from a tree or bush",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.recruit_2",
+    "end_location_id": "location.crab.recruit_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.recruit_1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Inspect tree/bush and speak to the emerged crab. Some are shy: use Sit emote and wait before trying again. The sixth pinned crab uses the longer wait."
+    },
+    "planned_outcome": {
+      "success_condition": "The crab emerges and agrees to take part; wait and retry the emote for shy crabs.",
+      "if_unmet": "Retry the skill interaction or restock; confirm quest journal progress before proceeding."
+    }
+  },
+  {
+    "id": "quest.crab_quest.recruit_3",
+    "name": "Recruit ceremonial crab 3 from a tree or bush",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.recruit_3",
+    "end_location_id": "location.crab.recruit_3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.recruit_2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Inspect tree/bush and speak to the emerged crab. Some are shy: use Sit emote and wait before trying again. The sixth pinned crab uses the longer wait."
+    },
+    "planned_outcome": {
+      "success_condition": "The crab emerges and agrees to take part; wait and retry the emote for shy crabs.",
+      "if_unmet": "Retry the skill interaction or restock; confirm quest journal progress before proceeding."
+    }
+  },
+  {
+    "id": "quest.crab_quest.recruit_4",
+    "name": "Recruit ceremonial crab 4 from a tree or bush",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.recruit_4",
+    "end_location_id": "location.crab.recruit_4",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.recruit_3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Inspect tree/bush and speak to the emerged crab. Some are shy: use Sit emote and wait before trying again. The sixth pinned crab uses the longer wait."
+    },
+    "planned_outcome": {
+      "success_condition": "The crab emerges and agrees to take part; wait and retry the emote for shy crabs.",
+      "if_unmet": "Retry the skill interaction or restock; confirm quest journal progress before proceeding."
+    }
+  },
+  {
+    "id": "quest.crab_quest.recruit_5",
+    "name": "Recruit ceremonial crab 5 from a tree or bush",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.recruit_5",
+    "end_location_id": "location.crab.recruit_5",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.recruit_4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Inspect tree/bush and speak to the emerged crab. Some are shy: use Sit emote and wait before trying again. The sixth pinned crab uses the longer wait."
+    },
+    "planned_outcome": {
+      "success_condition": "The crab emerges and agrees to take part; wait and retry the emote for shy crabs.",
+      "if_unmet": "Retry the skill interaction or restock; confirm quest journal progress before proceeding."
+    }
+  },
+  {
+    "id": "quest.crab_quest.recruit_6",
+    "name": "Recruit ceremonial crab 6 from a tree or bush",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.recruit_6",
+    "end_location_id": "location.crab.recruit_6",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.recruit_5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 105,
+      "max_seconds": 315
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Inspect tree/bush and speak to the emerged crab. Some are shy: use Sit emote and wait before trying again. The sixth pinned crab uses the longer wait."
+    },
+    "planned_outcome": {
+      "success_condition": "The crab emerges and agrees to take part; wait and retry the emote for shy crabs.",
+      "if_unmet": "Retry the skill interaction or restock; confirm quest journal progress before proceeding."
+    }
+  },
+  {
+    "id": "quest.crab_quest.return_with_recruits",
+    "name": "Return to the leader with six recruited crabs",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.protagonist",
+    "end_location_id": "location.crab.protagonist",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.recruit_6"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.crab.six_leaders_recruited",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 95,
+      "max_seconds": 285
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Six recruited leaders are sufficient to continue; seeking all 12 is optional and is not a quest blocker."
+    }
+  },
+  {
+    "id": "quest.crab_quest.sand_nest",
+    "name": "Learn the crab nest-digging dance",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.protagonist",
+    "end_location_id": "location.crab.protagonist",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.return_with_recruits"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 120,
+      "max_seconds": 360
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Dialogue and animation; the penguin interruption is part of the scripted sequence."
+    }
+  },
+  {
+    "id": "quest.crab_quest.ceremony",
+    "name": "Help conduct the mating ceremony",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.protagonist",
+    "end_location_id": "location.crab.protagonist",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.sand_nest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 75,
+      "expected_seconds": 150,
+      "max_seconds": 450
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Carry instruments and escort the crabs; the ceremony dialogue has a base-four joke and long cutscene."
+    }
+  },
+  {
+    "id": "quest.crab_quest.complete",
+    "name": "Wake from the dream and recover the shell collection",
+    "activity_id": "quest.crab_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.crab.bottle",
+    "end_location_id": "location.crab.bottle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.crab_quest.ceremony"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.crab.shell_collection",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.crab_quest.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.crab.shell_music",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.sailing",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 30000
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.dog_and_crab_2026_09_08"
+      ],
+      "status": "estimated",
+      "note": "Finish: 1 QP, 10,000 Sailing XP, 3,000 Fishing XP and a shell collection with seven playable notes. Reclaim from bottle if lost."
+    }
+  }
+]
