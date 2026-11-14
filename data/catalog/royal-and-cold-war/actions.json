@@ -1,0 +1,1955 @@
+[
+  {
+    "id": "quest.royal_trouble.start",
+    "name": "Investigate the dispute with Advisor Ghrim",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.ghrim",
+    "end_location_id": "location.miscellania.ghrim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Throne of Miscellania unlocks the follow-up quest. Agility and Slayer 40 are later skill gates, not required to start."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.speak_astrid",
+    "name": "Speak to your royal partner astrid",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.astrid",
+    "end_location_id": "location.miscellania.astrid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.astrid",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.royal_trouble.partner_consulted",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.royal_trouble.partner_consulted",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 154
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Throne of Miscellania partner selection carries over; only the chosen royal is eligible."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.speak_brand",
+    "name": "Speak to your royal partner brand",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.brand",
+    "end_location_id": "location.miscellania.brand",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.brand",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.royal_trouble.partner_consulted",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.royal_trouble.partner_consulted",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 154
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Throne of Miscellania partner selection carries over; only the chosen royal is eligible."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.ask_vargas",
+    "name": "Investigate the stolen supplies with King Vargas",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.vargas",
+    "end_location_id": "location.miscellania.vargas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.royal_trouble.partner_consulted",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Royal family conversation follows whichever partner was courted."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.ask_gunnhild",
+    "name": "Question Gardener Gunnhild about the kingdom",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.royal.gunnhild",
+    "end_location_id": "location.royal.gunnhild",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.ask_vargas"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction outside Miscellania castle."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.ask_sigrid",
+    "name": "Question Queen Sigrid about the thefts",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.etceteria.sigrid",
+    "end_location_id": "location.etceteria.sigrid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.ask_gunnhild"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 154
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Etceteria royal diplomacy."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.ask_matilda",
+    "name": "Interview Matilda at Etceteria castle",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.royal.matilda",
+    "end_location_id": "location.royal.matilda",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.ask_sigrid"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 46,
+      "max_seconds": 102
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Matilda before returning to Sigrid."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.report_to_sigrid",
+    "name": "Report Matilda's information to Sigrid",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.etceteria.sigrid",
+    "end_location_id": "location.etceteria.sigrid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.ask_matilda"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 143
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Unlocks the dungeon evidence sequence."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.dungeon_order",
+    "name": "Obtain permission from Vargas to investigate the caves",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.vargas",
+    "end_location_id": "location.miscellania.vargas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.report_to_sigrid"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 122
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to Vargas for the first order."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.ask_ghrim_again",
+    "name": "Ask Ghrim about the missing sailor",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.ghrim",
+    "end_location_id": "location.miscellania.ghrim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.dungeon_order"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 42,
+      "max_seconds": 93
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ghrim directs the player to the docks."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.find_sailor",
+    "name": "Find the missing sailor's lead at Miscellania docks",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.sailor",
+    "end_location_id": "location.miscellania.sailor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.ask_ghrim_again"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 122
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sailor directs the regent back to Vargas."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.get_scroll",
+    "name": "Claim the regent's dungeon authorisation",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.vargas",
+    "end_location_id": "location.miscellania.vargas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.find_sailor"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.royal_regent_scroll",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.royal_trouble.dungeon_authorised",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 58,
+      "max_seconds": 128
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Vargas grants a scroll proving royal authority to enter the dungeon."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_royal_trouble_reserve",
+    "name": "Buy coal and combat food for Royal Trouble",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 9000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coal",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 12
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 48,
+      "max_seconds": 106
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "Approximate GE budget for five coal and twelve lobsters; actual food spending varies, and coal can alternatively be mined in the quest dungeon."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.enter_cave",
+    "name": "Enter the Miscellania cave and question Donal",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.royal.donal",
+    "end_location_id": "location.royal.donal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.get_scroll"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.royal_regent_scroll",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 221
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the courtyard ladder, show the regent scroll and talk to Donal."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.prop_crevice",
+    "name": "Prop open the mining crevice",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.royal.crevice",
+    "end_location_id": "location.royal.crevice",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.enter_cave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Obtain the support prop from the cave area and enter the narrow mine passage."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.repair_lift",
+    "name": "Fuel the engine and build the pulley lift",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.royal.lift",
+    "end_location_id": "location.royal.lift",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.prop_crevice"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coal",
+          "quantity": 5
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coal",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 135,
+      "expected_seconds": 270,
+      "max_seconds": 594
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect nearby beams, three pulleys and ropes from crates. Coal fuels engine; remaining rope and plank are carried through the obstacle route."
+    },
+    "planned_outcome": {
+      "success_condition": "Engine is fuelled and the scaffold lift works with the correct beam-pulley configuration.",
+      "if_unmet": "Recollect loose parts from crates and complete the remaining pulleys and beams before using the lift."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.navigate_cave",
+    "name": "Cross slippery rocks and recover evidence",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.royal.diary_fires",
+    "end_location_id": "location.royal.diary_fires",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.repair_lift"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 40,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.plank",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.plank",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.royal_diary",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 150,
+      "expected_seconds": 300,
+      "max_seconds": 660
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use rope and plank; recover diary and scattered pages from campfires. Quest Helper marks 40 Agility boostable, not a quest-start gate."
+    },
+    "planned_outcome": {
+      "success_condition": "All diary pages are collected and the player reaches the sea-snake passage.",
+      "if_unmet": "Return to the most recent fire and cross obstacles again with food or agility boost available."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.defeat_sea_snake",
+    "name": "Defeat the Giant Sea Snake (level 149)",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.royal.giant_sea_snake",
+    "end_location_id": "location.royal.giant_sea_snake",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.navigate_cave"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 40,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.royal_diary",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lobster",
+          "quantity": 8
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 8
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.royal_heavy_box",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 165,
+      "expected_seconds": 330,
+      "max_seconds": 727
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Instanced boss encounter; 8-lobster allowance is a budget, and poison, combat XP and damage are not deterministically modeled."
+    },
+    "planned_outcome": {
+      "success_condition": "Giant Sea Snake is defeated, and the heavy Etceterian supplies box is picked up.",
+      "if_unmet": "Prepare more food, protection and antipoison, then return through the caves to repeat the boss attempt."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.report_to_queen",
+    "name": "Deliver the evidence to Sigrid and collect her payment",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.etceteria.sigrid",
+    "end_location_id": "location.etceteria.sigrid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.defeat_sea_snake"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.royal_heavy_box",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.royal_heavy_box",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.royal_peace_letter",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 20000
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 188
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Queen Sigrid pays 20,000 coins and supplies a letter after the Giant Sea Snake proof; money is not paid again at Vargas."
+    }
+  },
+  {
+    "id": "quest.royal_trouble.complete",
+    "name": "Conclude peace with King Vargas",
+    "activity_id": "quest.royal_trouble",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.vargas",
+    "end_location_id": "location.miscellania.vargas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.royal_trouble.report_to_queen"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.royal_peace_letter",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.royal_peace_letter",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.slayer",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.royal_trouble.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.manage_miscellania_enhanced",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.bosun_zarah",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.etceteria_docking",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 80,
+      "max_seconds": 176
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The three fixed 5,000 XP awards and quest point occur on completion; Sigrid already granted the 20,000 coins. Bosun Zarah is only hireable at 80 Sailing."
+    }
+  },
+  {
+    "id": "quest.cold_war.start",
+    "name": "Listen to Larry's penguin concerns at Ardougne Zoo",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.larry_zoo",
+    "end_location_id": "location.cold_war.larry_zoo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.hunter",
+          "minimum_level": 10,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 34,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 15,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.cold_war.started",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 122
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Five pinned base-level skill requirements gate the quest. Some secondary guides differ on Crafting boosts; use unboosted pinned helper requirement."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_cold_war_materials",
+    "name": "Buy the clockwork and penguin infiltration materials",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 16000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.oak_plank",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_nails",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.silk",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.raw_cod",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swamp_tar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.feather",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mahogany_plank",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.leather",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 188
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "Estimated trade-enabled bundle for the construction hide, clockwork suit, raw cod meeting and bongos. The fee is a planning budget rather than a current price quote."
+    }
+  },
+  {
+    "id": "quest.cold_war.build_hide",
+    "name": "Construct and conceal the snowy penguin observation hide",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.bird_hide",
+    "end_location_id": "location.cold_war.bird_hide",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.oak_plank",
+          "quantity": 10
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_nails",
+          "quantity": 10
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_plank",
+        "quantity": 10
+      },
+      {
+        "item_id": "item.steel_nails",
+        "quantity": 10
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 95,
+      "expected_seconds": 190,
+      "max_seconds": 419
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Larry brings you to the Iceberg. Use ten unnoted oak planks and ten nails, then cover the hide with snow."
+    }
+  },
+  {
+    "id": "quest.cold_war.observe_emotes",
+    "name": "Watch penguins and memorise their greeting emotes",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.larry_iceberg",
+    "end_location_id": "location.cold_war.larry_iceberg",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.build_hide"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 105,
+      "max_seconds": 232
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The three greeting emotes are learned in the observation cutscene and reused at later penguin contacts."
+    }
+  },
+  {
+    "id": "quest.cold_war.access_clockmaker_table",
+    "name": "Find a crafting table 3 or better",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.clockmaker_table",
+    "end_location_id": "location.cold_war.clockmaker_table",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.observe_emotes"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.cold_war.suit_access",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 80,
+      "max_seconds": 176
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Clockmaker table 3 access is required: use own POH table or an assisting player's house. This conditional access is not inferred from Construction 34 alone."
+    },
+    "planned_outcome": {
+      "success_condition": "Player can operate a functioning crafting table 3 or higher in a player-owned house.",
+      "if_unmet": "Build the table with separate materials, or visit a friend who provides the required clockmaker bench."
+    }
+  },
+  {
+    "id": "quest.cold_war.make_clockwork_suit",
+    "name": "Craft the clockwork penguin disguise at the crafting table",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.clockmaker_table",
+    "end_location_id": "location.cold_war.clockmaker_table",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.access_clockmaker_table"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.cold_war.suit_access",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_bar",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.plank",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.silk",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.steel_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.plank",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.silk",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cold_war_clockwork_suit",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 95,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Make clockwork from steel bar, then the penguin toy with normal plank and silk. Timings and incidental crafting XP require review."
+    }
+  },
+  {
+    "id": "quest.cold_war.show_larry_suit",
+    "name": "Demonstrate the penguin disguise to Larry on the Iceberg",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.larry_iceberg",
+    "end_location_id": "location.cold_war.larry_iceberg",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.make_clockwork_suit"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_clockwork_suit",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 41,
+      "expected_seconds": 82,
+      "max_seconds": 181
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Larry transports the player for further undercover contact."
+    }
+  },
+  {
+    "id": "quest.cold_war.zoo_mission",
+    "name": "Infiltrate the zoo's penguin enclosure",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.zoo_penguins",
+    "end_location_id": "location.cold_war.zoo_penguins",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.show_larry_suit"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_clockwork_suit",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cold_war_zoo_report",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 75,
+      "expected_seconds": 150,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the bird-hide greeting emotes and return to Larry with the zoo mission report."
+    }
+  },
+  {
+    "id": "quest.cold_war.lumbridge_sheep",
+    "name": "Talk to the disguised penguins near Fred's farm",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.sheep_penguins",
+    "end_location_id": "location.cold_war.sheep_penguins",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.zoo_mission"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_zoo_report",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_clockwork_suit",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cold_war_lumbridge_report",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 90,
+      "expected_seconds": 180,
+      "max_seconds": 397
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Larry's Lumbridge undercover task requires the penguin suit and greeting emotes."
+    }
+  },
+  {
+    "id": "quest.cold_war.offer_cod",
+    "name": "Convince the zoo penguins using raw cod",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.zoo_penguins",
+    "end_location_id": "location.cold_war.zoo_penguins",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.lumbridge_sheep"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.raw_cod",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_cod",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 44,
+      "expected_seconds": 88,
+      "max_seconds": 194
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Chosen raw-cod alternative to wearing Ring of Charos(a), which is not consumed. If cod is not accepted, check mission-report dialogue."
+    }
+  },
+  {
+    "id": "quest.cold_war.steal_cowbell",
+    "name": "Take a cowbell from a Lumbridge dairy cow",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.cowbell",
+    "end_location_id": "location.cold_war.cowbell",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.offer_cod"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 15,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_clockwork_suit",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cold_war_cowbell",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 48,
+      "max_seconds": 106
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Steal cowbell for use as a penguin musical instrument. No uncertain incidental XP is modeled."
+    }
+  },
+  {
+    "id": "quest.cold_war.fred_followup",
+    "name": "Reassure Fred and report to the undercover sheep",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.sheep_penguins",
+    "end_location_id": "location.cold_war.sheep_penguins",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.steal_cowbell"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_lumbridge_report",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_clockwork_suit",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 62,
+      "expected_seconds": 125,
+      "max_seconds": 275
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Resolve Fred dialogue and revisit Larry to return to the Iceberg."
+    }
+  },
+  {
+    "id": "quest.cold_war.obtain_id",
+    "name": "Use the greeting and mission reports to gain a KGP ID",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.agent",
+    "end_location_id": "location.cold_war.agent",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.fred_followup"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_clockwork_suit",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.swamp_tar",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.feather",
+          "quantity": 5
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cold_war_id_card",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 75,
+      "expected_seconds": 150,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Meet the KGP Agent and Noodle on the Iceberg. Swamp tar and regular feathers are held for the mission; precise consumption needs independent review."
+    }
+  },
+  {
+    "id": "quest.cold_war.enter_outpost",
+    "name": "Pass the avalanche checkpoint into the penguin base",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.avalanche",
+    "end_location_id": "location.cold_war.avalanche",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.obtain_id"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_id_card",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 199
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the identity card and interact with outpost guards."
+    }
+  },
+  {
+    "id": "quest.cold_war.agility_course",
+    "name": "Cross the Iceberg penguin agility course",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.agility",
+    "end_location_id": "location.cold_war.agility",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.enter_outpost"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_clockwork_suit",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 125,
+      "expected_seconds": 250,
+      "max_seconds": 550
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Swim through moving ice, jump stones and traverse icicles. Exact damage and training XP depend on failures; record conditional success."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the agility instructor, finish the course, and speak with Larry about the penguin army.",
+      "if_unmet": "Retry the failed obstacle, use food, or return to Larry after leaving the penguin suit."
+    }
+  },
+  {
+    "id": "quest.cold_war.ask_musicians",
+    "name": "Learn why Ping and Pong cannot play",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.ping_pong",
+    "end_location_id": "location.cold_war.ping_pong",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.agility_course"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_id_card",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 105,
+      "max_seconds": 232
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The penguin musicians need a replacement instrument for the control-room diversion."
+    }
+  },
+  {
+    "id": "quest.cold_war.craft_bongos",
+    "name": "Make penguin bongos using mahogany plank and leather",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.larry_iceberg",
+    "end_location_id": "location.cold_war.larry_iceberg",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.ask_musicians"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mahogany_plank",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_cowbell",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.mahogany_plank",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.leather",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cold_war_bongos",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 143
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Craft bongos outside the disguise; cowbell is retained to accompany the performance."
+    }
+  },
+  {
+    "id": "quest.cold_war.enter_war_room",
+    "name": "Distract the outpost and enter its war room",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.war_room",
+    "end_location_id": "location.cold_war.war_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.craft_bongos"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_bongos",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_cowbell",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_id_card",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 85,
+      "expected_seconds": 170,
+      "max_seconds": 375
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to Ping and Pong, operate the panel and uncover the secret Iceberg war room."
+    }
+  },
+  {
+    "id": "quest.cold_war.defeat_icelord",
+    "name": "Defeat an Icelord to escape the war room",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.icelords",
+    "end_location_id": "location.cold_war.icelords",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.enter_war_room"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 400
+      }
+    ],
+    "duration": {
+      "min_seconds": 105,
+      "expected_seconds": 210,
+      "max_seconds": 463
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "At least one Icelord must die and awards 40 fixed Attack XP; additional kills up to three and incidental combat XP remain variable."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the guarding Icelord(s) and pass the western escape door.",
+      "if_unmet": "Re-enter with a suitable combat loadout and food; update count of icelords actually defeated."
+    }
+  },
+  {
+    "id": "quest.cold_war.complete",
+    "name": "Escape and report the penguin plot to Larry",
+    "activity_id": "quest.cold_war",
+    "kind": "quest_stage",
+    "start_location_id": "location.cold_war.larry_iceberg",
+    "end_location_id": "location.cold_war.larry_iceberg",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.cold_war.defeat_icelord"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cold_war_clockwork_suit",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 15000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.cold_war.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.penguin_suit",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.penguin_agility_course",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 199
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Leave through the chasm and report to Larry. Completion gives 1 QP and fixed 2,000 Crafting, 5,000 Agility, 1,500 Construction XP. The earlier 40 Attack XP is from an Icelord."
+    }
+  }
+]
