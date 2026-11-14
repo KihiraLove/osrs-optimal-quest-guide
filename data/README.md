@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.40.0` loads 24 skill tables and
-1,807 draft actions across 143 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.41.0` loads 24 skill tables and
+1,856 draft actions across 145 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -269,3 +269,11 @@ The [Glouphrie, Barrows and Museum review](raw/build-242/glouphrie-barrows-and-m
 records two journal routes, the crystal saw diary task, the Museum Camp
 facilities and Peter's fossil claim, four Minas reports and the three Varrock
 Museum clerk rewards.
+
+The [Karamja village and Trio review](raw/build-242/karamja-village-and-trio-review.json)
+records the Shilo Village dungeon and tomb route, its 200-coin fixed-fare cart
+option, Tai Bwo Wannai Trio's independent son objectives, and the separate
+Fishing, Cooking and combat XP claims. The two seeded route replays exercise
+the travel graph, ingredient consumption, rewards and repeat limits. Several
+tradeable supplies still need catalog purchase actions and the draft NPC tiles
+and combat estimates await independent gameplay review.

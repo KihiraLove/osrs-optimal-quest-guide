@@ -6218,5 +6218,53 @@
       ]
     },
     "note": "Peter's one-time claim after all six builds."
+  },
+  {
+    "id": "review.quest.shilo_village.completion_rewards",
+    "activity_id": "quest.shilo_village",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.shilo_village.complete"],
+    "expected_effects": {
+      "quest.shilo_village.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 2},
+        {"kind": "xp", "skill_id": "skill.crafting", "xp_tenths": 38750},
+        {"kind": "flag", "token_id": "unlock.shilo_village", "value": true}
+      ]
+    },
+    "note": "The Cairn Isle corpse hand-in completes the quest and unlocks the cart; the cart fare remains separate."
+  },
+  {
+    "id": "review.quest.tai_bwo_wannai_trio.completion_rewards",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": [
+      "quest.tai_bwo_wannai_trio.complete",
+      "quest.tai_bwo_wannai_trio.claim_fishing",
+      "quest.tai_bwo_wannai_trio.claim_cooking",
+      "quest.tai_bwo_wannai_trio.claim_combat"
+    ],
+    "expected_effects": {
+      "quest.tai_bwo_wannai_trio.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 2},
+        {"kind": "item", "item_id": "item.coins", "quantity": 2000},
+        {"kind": "flag", "token_id": "unlock.tai_bwo_wannai_trio", "value": true}
+      ],
+      "quest.tai_bwo_wannai_trio.claim_fishing": [
+        {"kind": "xp", "skill_id": "skill.fishing", "xp_tenths": 50000},
+        {"kind": "flag", "token_id": "unlock.karambwan_fishing", "value": true}
+      ],
+      "quest.tai_bwo_wannai_trio.claim_cooking": [
+        {"kind": "xp", "skill_id": "skill.cooking", "xp_tenths": 50000},
+        {"kind": "flag", "token_id": "unlock.karambwan_cooking", "value": true}
+      ],
+      "quest.tai_bwo_wannai_trio.claim_combat": [
+        {"kind": "xp", "skill_id": "skill.attack", "xp_tenths": 25000},
+        {"kind": "xp", "skill_id": "skill.strength", "xp_tenths": 25000},
+        {"kind": "item", "item_id": "item.karambwan_poisoned_rune_spear", "quantity": 1}
+      ]
+    },
+    "note": "Timfraku pays coin and quest points immediately; his three sons grant separate one-time post-quest rewards. Independent dialogue verification is pending."
   }
 ]
