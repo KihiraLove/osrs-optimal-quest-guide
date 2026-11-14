@@ -33,8 +33,8 @@ class KingsRansomTests(unittest.TestCase):
             "quest.black_knights_fortress.complete", "quest.holy_grail.complete",
             "quest.murder_mystery.complete", "quest.one_small_favour.complete"]
         initial["inventory"] = {**initial["inventory"], **{
-            "item.coins": 15000, "item.kings_black_helm": 1,
-            "item.kings_black_body": 1, "item.kings_black_legs": 1,
+            "item.coins": 15000, "item.black_full_helm": 1,
+            "item.black_platebody": 1, "item.black_platelegs": 1,
             "item.granite_5kg": 1, "item.bronze_med_helm": 1,
             "item.iron_chainbody": 1, "item.air_rune": 1, "item.law_rune": 1,
         }}

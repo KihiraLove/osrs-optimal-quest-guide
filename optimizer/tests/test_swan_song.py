@@ -35,7 +35,7 @@ class SwanSongTests(unittest.TestCase):
         data["inventory"] = {**data["inventory"], **{
             "item.coins": 600,
             "item.swan_mist_rune": 10, "item.swan_lava_rune": 10,
-            "item.swan_blood_rune": 5, "item.bones": 7,
+            "item.blood_rune": 5, "item.bones": 7,
             "item.pot": 1, "item.swan_pot_lid": 1,
             "item.iron_bar": 5, "item.logs": 1, "item.tinderbox": 1,
         }}

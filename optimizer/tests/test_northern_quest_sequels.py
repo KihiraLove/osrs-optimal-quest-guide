@@ -60,7 +60,7 @@ class NorthernQuestSequelsTests(unittest.TestCase):
         self.assertEqual(snap["counters"]["token.quest_points"], 102)
         for skill, gain in (("construction",100000),("firemaking",400000),("mining",500000),("agility",500000)):
             self.assertEqual(snap["xp_tenths"]["skill."+skill],10000000+gain)
-        self.assertEqual(snap["inventory"].get("item.northern_mahogany_plank",0),0)
+        self.assertEqual(snap["inventory"].get("item.mahogany_plank",0),0)
         self.assertEqual(snap["inventory"].get("item.northern_goat_dung",0),0)
         self.assertEqual(snap["inventory"].get("item.northern_ice_bucket",0),0)
         self.assertTrue(snap["flags"]["unlock.northern.weiss_passage"])
