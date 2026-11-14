@@ -1,0 +1,2515 @@
+[
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.select_ancients",
+    "name": "Switch to Ancient Magicks for the vault and rune puzzle",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.vault",
+    "end_location_id": "location.dt2.vault",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.desert_treasure_i.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.secrets_of_the_north.complete",
+          "value": true
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_the_eye.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_garden_of_death.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.his_faithful_servants.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 75,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 75,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 70,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 62,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.runecraft",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 60,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.dt2.ancient_spellbook_selected",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Spellbook selection is explicit; the active-spellbook engine contract is not yet implemented. Confirm Ancient Magicks is active in game."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.enter_vault",
+    "name": "Investigate the Ancient Vault with Asgarnia Smith",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.vault",
+    "end_location_id": "location.dt2.vault",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.select_ancients"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.dt2.ancient_spellbook_selected",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.inspect_statues",
+    "name": "Read the vault plaque and examine all four statues",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.chamber",
+    "end_location_id": "location.dt2.chamber",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.enter_vault"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.consult_balando",
+    "name": "Ask Terry Balando about the four forgotten names",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.balando",
+    "end_location_id": "location.dt2.balando",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.inspect_statues"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.meet_banikan",
+    "name": "Meet Dr Banikan at his eastern Digsite excavation",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.banikan",
+    "end_location_id": "location.dt2.banikan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.consult_balando"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.operate_winch",
+    "name": "Lower the Digsite winch and enter the buried installation",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.winch",
+    "end_location_id": "location.dt2.winch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.meet_banikan"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.defeat_guardian",
+    "name": "Defeat the Ancient Guardian while avoiding falling debris",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.golem",
+    "end_location_id": "location.dt2.golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.operate_winch"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 210,
+      "expected_seconds": 420,
+      "max_seconds": 1260
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that defeat the ancient guardian while avoiding falling debris succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.inspect_golem",
+    "name": "Ask Banikan and inspect the golem, altar and four spell statues",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.golem",
+    "end_location_id": "location.dt2.golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.defeat_guardian"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.recover_golem_cells",
+    "name": "Collect eight runic cells from the installation crates",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.golem",
+    "end_location_id": "location.dt2.golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.inspect_golem"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dt2.golem_cell",
+        "quantity": 8
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.cast_blood_burst",
+    "name": "Cast Blood Burst on its Ancient spell statue",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.golem",
+    "end_location_id": "location.dt2.golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_golem_cells"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.dt2.ancient_spellbook_selected",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.blood_rune",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.death_rune",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chaos_rune",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.blood_rune",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.death_rune",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.chaos_rune",
+        "quantity": 4
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 30,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exact rune reserve is conservative and spell casting XP is not modeled; verify runes, spellbook and totem coordinates."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.cast_shadow_burst",
+    "name": "Cast Shadow Burst on its Ancient spell statue",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.golem",
+    "end_location_id": "location.dt2.golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_golem_cells"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.dt2.ancient_spellbook_selected",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.soul_rune",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.death_rune",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chaos_rune",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.soul_rune",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.death_rune",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.chaos_rune",
+        "quantity": 4
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 30,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exact rune reserve is conservative and spell casting XP is not modeled; verify runes, spellbook and totem coordinates."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.cast_smoke_burst",
+    "name": "Cast Smoke Burst on its Ancient spell statue",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.golem",
+    "end_location_id": "location.dt2.golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_golem_cells"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.dt2.ancient_spellbook_selected",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fire_rune",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.air_rune",
+          "quantity": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.death_rune",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chaos_rune",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.death_rune",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.chaos_rune",
+        "quantity": 4
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 30,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exact rune reserve is conservative and spell casting XP is not modeled; verify runes, spellbook and totem coordinates."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.cast_ice_burst",
+    "name": "Cast Ice Burst on its Ancient spell statue",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.golem",
+    "end_location_id": "location.dt2.golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_golem_cells"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.dt2.ancient_spellbook_selected",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.water_rune",
+          "quantity": 4
+        },
+        {
+          "kind": "item",
+          "item_id": "item.death_rune",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chaos_rune",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.water_rune",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.death_rune",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.chaos_rune",
+        "quantity": 4
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 30,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exact rune reserve is conservative and spell casting XP is not modeled; verify runes, spellbook and totem coordinates."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.charge_golem",
+    "name": "Charge the eight golem cells and solve the row-column puzzle",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.golem",
+    "end_location_id": "location.dt2.golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.cast_blood_burst"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.cast_shadow_burst"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.cast_smoke_burst"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.cast_ice_burst"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dt2.golem_cell",
+          "quantity": 8
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dt2.golem_cell",
+        "quantity": 8
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 300,
+      "expected_seconds": 600,
+      "max_seconds": 1800
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Eight-cell puzzle is deterministic once the totems are active; rows and columns cannot repeat."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.search_golem",
+    "name": "Use the golem archive to identify the four medallions",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.golem",
+    "end_location_id": "location.dt2.golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.charge_golem"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.dt2.four_medallions_known",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.ask_elissa",
+    "name": "Question Elissa about the Lovakengj expedition",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.elissa",
+    "end_location_id": "location.dt2.elissa",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.search_golem"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.reach_stranglewood",
+    "name": "Trace the Burning Man clues into Stranglewood",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.stranglewood",
+    "end_location_id": "location.dt2.stranglewood",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.ask_elissa"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 240,
+      "expected_seconds": 480,
+      "max_seconds": 1440
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.defend_kasonde",
+    "name": "Protect Kasonde from the Strangled with barricades and explosives",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.stranglewood",
+    "end_location_id": "location.dt2.stranglewood",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.reach_stranglewood"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 180,
+      "expected_seconds": 360,
+      "max_seconds": 1080
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that protect kasonde from the strangled with barricades and explosives succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.brew_serum",
+    "name": "Prepare the Strangler serum for the Kasonde investigation",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.stranglewood",
+    "end_location_id": "location.dt2.stranglewood",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.defend_kasonde"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 720
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.defeat_vardorvis",
+    "name": "Defeat Vardorvis in the Stranglewood arena",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.stranglewood_boss",
+    "end_location_id": "location.dt2.stranglewood_boss",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.brew_serum"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 375,
+      "expected_seconds": 750,
+      "max_seconds": 2250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that defeat vardorvis in the stranglewood arena succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.defeat_kasonde",
+    "name": "Defeat the hostile Kasonde after the Stranglewood confrontation",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.stranglewood_boss",
+    "end_location_id": "location.dt2.stranglewood_boss",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.defeat_vardorvis"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 240,
+      "expected_seconds": 480,
+      "max_seconds": 1440
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that defeat the hostile kasonde after the stranglewood confrontation succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.collect_vardorvis_medallion",
+    "name": "Retrieve the Vardorvis medallion",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.stranglewood_boss",
+    "end_location_id": "location.dt2.stranglewood_boss",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.defeat_kasonde"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dt2.medallion_vardorvis",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.deposit_vardorvis_medallion",
+    "name": "Place the Vardorvis medallion in the Ancient Vault",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.chamber",
+    "end_location_id": "location.dt2.chamber",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.collect_vardorvis_medallion"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dt2.medallion_vardorvis",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dt2.medallion_vardorvis",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "counter.dt2.vault_medallions",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Deposit only one owned medallion; the Mysterious Figure can ambush the second/third return. Refill supplies if ambushed; precise trigger and retry state await review."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that place the vardorvis medallion in the ancient vault succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.enter_scar",
+    "name": "Enter The Scar through the Temple of the Eye",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.scar",
+    "end_location_id": "location.dt2.scar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.search_golem"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 720
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.scar_path_one",
+    "name": "Complete the first Scar abyssal passage puzzle",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.scar",
+    "end_location_id": "location.dt2.scar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.enter_scar"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 240,
+      "expected_seconds": 480,
+      "max_seconds": 1440
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that complete the first scar abyssal passage puzzle succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.scar_path_two",
+    "name": "Complete the second Scar abyssal passage puzzle",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.scar",
+    "end_location_id": "location.dt2.scar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.scar_path_one"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 240,
+      "expected_seconds": 480,
+      "max_seconds": 1440
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that complete the second scar abyssal passage puzzle succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.scar_path_three",
+    "name": "Complete the third Scar abyssal passage puzzle",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.scar",
+    "end_location_id": "location.dt2.scar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.scar_path_two"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 240,
+      "expected_seconds": 480,
+      "max_seconds": 1440
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that complete the third scar abyssal passage puzzle succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.scar_burn_ships",
+    "name": "Burn the stranded Scar ships with a tinderbox",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.scar",
+    "end_location_id": "location.dt2.scar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.scar_path_three"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 180,
+      "expected_seconds": 360,
+      "max_seconds": 1080
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.defeat_leviathan",
+    "name": "Defeat The Leviathan after the Scar passages",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.leviathan",
+    "end_location_id": "location.dt2.leviathan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.scar_burn_ships"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 375,
+      "expected_seconds": 750,
+      "max_seconds": 2250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that defeat the leviathan after the scar passages succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.collect_leviathan_medallion",
+    "name": "Retrieve the Leviathan medallion",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.leviathan",
+    "end_location_id": "location.dt2.leviathan",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.defeat_leviathan"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dt2.medallion_leviathan",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.deposit_leviathan_medallion",
+    "name": "Place the Leviathan medallion in the Ancient Vault",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.chamber",
+    "end_location_id": "location.dt2.chamber",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.collect_leviathan_medallion"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dt2.medallion_leviathan",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dt2.medallion_leviathan",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "counter.dt2.vault_medallions",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Deposit only one owned medallion; the Mysterious Figure can ambush the second/third return. Refill supplies if ambushed; precise trigger and retry state await review."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that place the leviathan medallion in the ancient vault succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.reach_ghorrock",
+    "name": "Enter Ghorrock Prison from Weiss and evade its guards",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.ghorrock",
+    "end_location_id": "location.dt2.ghorrock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.search_golem"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 300,
+      "expected_seconds": 600,
+      "max_seconds": 1800
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.defeat_jhallan",
+    "name": "Defeat Jhallan and explore the prison laboratory",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.ghorrock",
+    "end_location_id": "location.dt2.ghorrock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.reach_ghorrock"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 240,
+      "expected_seconds": 480,
+      "max_seconds": 1440
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that defeat jhallan and explore the prison laboratory succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.collect_duke_ingredients",
+    "name": "Collect arder and musca mushrooms from the dungeon",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.ghorrock",
+    "end_location_id": "location.dt2.ghorrock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.defeat_jhallan"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dt2.arder_mushroom",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.dt2.musca_mushroom",
+        "quantity": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 240,
+      "expected_seconds": 480,
+      "max_seconds": 1440
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.mix_duke_poison",
+    "name": "Process the mushroom ingredients into soporific poison",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.ghorrock",
+    "end_location_id": "location.dt2.ghorrock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.collect_duke_ingredients"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dt2.arder_mushroom",
+          "quantity": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dt2.musca_mushroom",
+          "quantity": 3
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dt2.arder_mushroom",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.dt2.musca_mushroom",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dt2.soporific_poison",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 90,
+      "expected_seconds": 180,
+      "max_seconds": 540
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.apply_duke_poison",
+    "name": "Use the soporific poison to weaken Duke Sucellus",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.duke",
+    "end_location_id": "location.dt2.duke",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.mix_duke_poison"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dt2.soporific_poison",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dt2.soporific_poison",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 720
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.defeat_duke",
+    "name": "Defeat Duke Sucellus in Ghorrock",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.duke",
+    "end_location_id": "location.dt2.duke",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.apply_duke_poison"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 375,
+      "expected_seconds": 750,
+      "max_seconds": 2250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that defeat duke sucellus in ghorrock succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.collect_duke_medallion",
+    "name": "Retrieve the Duke medallion",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.duke",
+    "end_location_id": "location.dt2.duke",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.defeat_duke"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dt2.medallion_duke",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.deposit_duke_medallion",
+    "name": "Place the Duke medallion in the Ancient Vault",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.chamber",
+    "end_location_id": "location.dt2.chamber",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.collect_duke_medallion"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dt2.medallion_duke",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dt2.medallion_duke",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "counter.dt2.vault_medallions",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Deposit only one owned medallion; the Mysterious Figure can ambush the second/third return. Refill supplies if ambushed; precise trigger and retry state await review."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that place the duke medallion in the ancient vault succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.descend_lassar",
+    "name": "Investigate Ice Mountain and descend into Lassar Undercity",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.lassar",
+    "end_location_id": "location.dt2.lassar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.search_golem"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 270,
+      "expected_seconds": 540,
+      "max_seconds": 1620
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.recover_shadow_tools",
+    "name": "Find the means of seeing the shadow realm and light paths",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.lassar",
+    "end_location_id": "location.dt2.lassar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.descend_lassar"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 150,
+      "expected_seconds": 300,
+      "max_seconds": 900
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.solve_lassar_puzzles",
+    "name": "Restore the light mechanisms and navigate Lassar",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.lassar",
+    "end_location_id": "location.dt2.lassar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_shadow_tools"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 360,
+      "expected_seconds": 720,
+      "max_seconds": 2160
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that restore the light mechanisms and navigate lassar succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.recover_torch",
+    "name": "Recover the perfected torch for the Whisperer encounter",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.lassar",
+    "end_location_id": "location.dt2.lassar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.solve_lassar_puzzles"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dt2.perfected_torch",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 90,
+      "expected_seconds": 180,
+      "max_seconds": 540
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.enter_whisperer_arena",
+    "name": "Follow the shadow path to the Whisperer chamber",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.whisperer",
+    "end_location_id": "location.dt2.whisperer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_torch"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dt2.perfected_torch",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 720
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.defeat_whisperer",
+    "name": "Defeat The Whisperer while managing sanity and shadow phases",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.whisperer",
+    "end_location_id": "location.dt2.whisperer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.enter_whisperer_arena"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 375,
+      "expected_seconds": 750,
+      "max_seconds": 2250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that defeat the whisperer while managing sanity and shadow phases succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.collect_whisperer_medallion",
+    "name": "Retrieve the Whisperer medallion",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.whisperer",
+    "end_location_id": "location.dt2.whisperer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.defeat_whisperer"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dt2.medallion_whisperer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.deposit_whisperer_medallion",
+    "name": "Place the Whisperer medallion in the Ancient Vault",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.chamber",
+    "end_location_id": "location.dt2.chamber",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.collect_whisperer_medallion"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dt2.medallion_whisperer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dt2.medallion_whisperer",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "counter.dt2.vault_medallions",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Deposit only one owned medallion; the Mysterious Figure can ambush the second/third return. Refill supplies if ambushed; precise trigger and retry state await review."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that place the whisperer medallion in the ancient vault succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.return_with_four_medallions",
+    "name": "Return to the four Ancient Vault statues after all medallions",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.chamber",
+    "end_location_id": "location.dt2.chamber",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.deposit_vardorvis_medallion"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.deposit_leviathan_medallion"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.deposit_duke_medallion"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.deposit_whisperer_medallion"
+        },
+        {
+          "kind": "counter",
+          "token_id": "counter.dt2.vault_medallions",
+          "minimum": 4
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 75,
+      "expected_seconds": 150,
+      "max_seconds": 450
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.escape_cell",
+    "name": "Search the cell for a hair clip and pick the prison lock",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.cell",
+    "end_location_id": "location.dt2.cell",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.return_with_four_medallions"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 110,
+      "expected_seconds": 220,
+      "max_seconds": 660
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.recover_belongings",
+    "name": "Retrieve your equipment and medallion belongings",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.cell_chest",
+    "end_location_id": "location.dt2.cell_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.escape_cell"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.defeat_mysterious_figure",
+    "name": "Defeat the Mysterious Figure and return to the vault",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.chamber",
+    "end_location_id": "location.dt2.chamber",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_belongings"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 270,
+      "expected_seconds": 540,
+      "max_seconds": 1620
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that defeat the mysterious figure and return to the vault succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.descend_vault",
+    "name": "Descend the vault stairs to the final confrontation",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.stairs",
+    "end_location_id": "location.dt2.stairs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.defeat_mysterious_figure"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.final_assassin",
+    "name": "Defeat the assassin",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.gauntlet",
+    "end_location_id": "location.dt2.gauntlet",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.descend_vault"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 230,
+      "expected_seconds": 460,
+      "max_seconds": 1380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that defeat the assassin succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.final_ketla",
+    "name": "Defeat Ketla",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.gauntlet",
+    "end_location_id": "location.dt2.gauntlet",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.final_assassin"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 230,
+      "expected_seconds": 460,
+      "max_seconds": 1380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that defeat ketla succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.final_kasonde_final",
+    "name": "Defeat Kasonde in the final confrontation",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.gauntlet",
+    "end_location_id": "location.dt2.gauntlet",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.final_ketla"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 230,
+      "expected_seconds": 460,
+      "max_seconds": 1380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that defeat kasonde in the final confrontation succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.final_persten",
+    "name": "Defeat Persten",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.gauntlet",
+    "end_location_id": "location.dt2.gauntlet",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.final_kasonde_final"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 230,
+      "expected_seconds": 460,
+      "max_seconds": 1380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm that defeat persten succeeded and the quest journal advances.",
+      "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.complete",
+    "name": "Speak to Azzanadra and conclude Desert Treasure II",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.azzanadra",
+    "end_location_id": "location.dt2.azzanadra",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.final_persten"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.dt2.ring_of_shadows",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.desert_treasure_ii_the_fallen_empire.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.dt2.scar_essence_mine",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.dt2.ancient_rings",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.dt2.forgotten_four_repeatable",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 85,
+      "expected_seconds": 170,
+      "max_seconds": 510
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Five quest points and the ring of shadows are awarded at completion; combat lamps use a distinct one-time Ancient Vault claim. No invented fixed combat XP."
+    }
+  },
+  {
+    "id": "claim.desert_treasure_ii.ancient_vault",
+    "name": "Claim three ancient lamps from the Mysterious Bandit in the Ancient Vault",
+    "kind": "reward_claim",
+    "activity_id": null,
+    "start_location_id": "location.dt2.chamber",
+    "end_location_id": "location.dt2.chamber",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.dt2.ancient_lamp",
+        "quantity": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One-time postquest collection or reclaim of three 100,000-XP ancient lamps. Live claim tile, reclaiming spent lamps and eligibility require review."
+    }
+  }
+]
