@@ -1,0 +1,45 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "draft_collected",
+  "activity_ids": ["quest.legends_quest"],
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.quest_helper.legends_quest",
+    "source.jagex.garden_of_death_rewards"
+  ],
+  "helper_files": ["src/main/java/com/questhelper/helpers/quests/legendsquest/LegendsQuest.java"],
+  "source_observations": {
+    "entry": [
+      "107 quest points and Family Crest, Heroes' Quest, Shilo Village, Underground Pass and Waterfall Quest are the start gates.",
+      "The 50 Agility, 50 Crafting, 45 Herblore, 56 Magic, 52 Mining, 42 Prayer, 50 Smithing, 50 Strength, 50 Thieving and 50 Woodcutting checks are boostable and apply at their respective stages, rather than all at quest start.",
+      "Radimus notes and full Kharazi Jungle survey precede Gujuo and the shaman caves. Starting the quest also permits Sir Amik Varze's later RFD rescue."
+    ],
+    "jungle_and_caves": [
+      "Three map sectors require papyrus and charcoal, and access through the jungle needs axe/machete.",
+      "The cave puzzle passes a bookcase, lock and boulder gates, five runes and seven gems before the binding-book stage.",
+      "The blessed golden bowl and hollow reeds collect sacred pool water to pass the fire wall, after which Nezikchened is fought to free Ungadulu and obtain Yommi seeds.",
+      "Brew bravery potion from ardrigal and snakeweed before using rope/winch to reach the lower Viyeldi caves. Three undead warriors drop crystal pieces used in the furnace and heart barrier puzzle.",
+      "This draft models the shorter Viyeldi-dagger branch, then restores the source, waters Yommi seeds, carves and restores the totem, and returns to Radimus in the guild."
+    ],
+    "rewards": [
+      "Four quest points at final Radimus completion, not at the jungle totem stage.",
+      "Four separate 30,000 XP lamps, restricted to Attack, Defence, Strength, Hitpoints, Prayer, Magic, Woodcutting, Crafting, Smithing, Herblore, Agility and Thieving. The same skill can be chosen repeatedly.",
+      "The 2022 Garden of Death reward update increased the four choices to 30,000 XP each; lamps can be held and reclaimed from Radimus."
+    ]
+  },
+  "cross_branch_dependencies": [
+    "flag.rfd.heroes_quest_complete must be replaced or connected to quest.heroes_quest.complete when PR #16 is integrated.",
+    "flag.rfd.shilo_village_complete and flag.rfd.underground_pass_complete must gain producers from PR #17.",
+    "quest.legends_quest.start now produces flag.rfd.legends_started for rfd.freeing_sir_amik_varze.inspect."
+  ],
+  "review_gaps": [
+    "Travel from Brimhaven into the western jungle and between sections is measured approximately. The game requires active jungle-cutting tools and the exact trail may have obstacles; walk edges currently do not debit durability.",
+    "This route selects the short dagger path. The long Holy Force alternative is not yet represented and may have different combat and door-casting costs.",
+    "The exact bowl-crafting location, blessing dialogue, cave gem sequence, rune/law charges and Charge Orb casting requirements must be confirmed against live revision 242. Incidental XP from mining, smithing, crafting and spells is intentionally omitted.",
+    "Some tradeable equipment, runes, gems, gold, papyrus, axes and unpowered orb lack catalog supply actions: focused replay must seed them pending shared inventory/economy producers.",
+    "Ardrigal and snakeweed sources, food/prayer/antipoison and combat gear requirements and three Nezikchened encounters require a live timing and supply review.",
+    "Prayer drain, failed boulder/lock checks and death re-entry are recorded as planned outcomes, not stochastic probabilities. The short path repeats undead warriors in the final fight.",
+    "The four lamps are modeled on completion as reclaimable held packages. Reclaim/redeem route for lost lamps is delegated to existing quest-lamp reward semantics; verify with a live client."
+  ],
+  "notes": "Isolated single-master-quest batch with modeled mainline action dependencies. No adjacent tracker rows or integration-wide generated files were claimed."
+}

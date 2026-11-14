@@ -1253,9 +1253,16 @@
   {
     "id": "review.quest.legends_quest.xp_choices",
     "activity_id": "quest.legends_quest",
-    "status": "expected",
-    "source_ids": ["source.quest_helper.legends_quest"],
-    "note": "Review choice count, eligible skills and point of award."
+    "status": "collected",
+    "source_ids": ["source.quest_helper.legends_quest", "source.jagex.garden_of_death_rewards"],
+    "catalog_ids": ["quest.legends_quest.complete", "reward.legends_quest.lamp"],
+    "expected_effects": {"quest.legends_quest.complete": [
+      {"kind": "flag", "token_id": "flag.quest.legends_quest.complete", "value": true},
+      {"kind": "flag", "token_id": "unlock.legends_guild", "value": true},
+      {"kind": "counter", "token_id": "token.quest_points", "delta": 4},
+      {"kind": "xp_reward", "reward_id": "reward.legends_quest.lamp", "quantity": 4}
+    ]},
+    "note": "Four separate held 30,000 XP lamps on guild completion. Repeat skill choice permitted; reclaimable if lost."
   },
   {
     "id": "review.quest.lost_city.quest_month_xp",
