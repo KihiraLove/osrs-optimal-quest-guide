@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.48.0 | Cataloged Lunar Diplomacy from the Lady Zay's jinx and five markings through Suqah materials, four elemental staff infusions, all nine lunar gear pieces, six dream trials, Me and the fixed Magic/Runecraft rewards. Cataloged Dream Mentor's three food groups, Cyrisus equipment recovery, dream potion and four bosses, with 15,000 Hitpoints XP, 10,000 Magic XP, the restricted retained dreamy lamp, seven new Lunar spells and seal-free bank access. Added the 85-combat-level formula and 82 directed local travel edges. |
 | 0.47.0 | Added Rag and Bone Man II's 27 monster-specific bone drops, individual vinegar-and-log boiler treatments, special monster gates, one quest point, Prayer XP and two keepsakes. Added the Enchanted Key miniquest with its fixed first dig, ten unordered later sites, three mjolnirs and finite treasure loot. |
 | 0.46.0 | Added King's Ransom through Sinclair Mansion, Anna's trial, Merlin's prison, fortress disguises and Arthur's return, including its separate antique lamp. Added the eight Knight Waves Training Grounds, 20,000 XP in four combat skills and Chivalry/Piety unlocks independent of the quest. |
 | 0.45.0 | Added Swan Song from Herman's first appeal to the Wise Old Man, colony sea troll defence, iron-sheet wall repairs, fresh monkfish provisioning, Wizard Frumscone and Malignius's bone seeds, and the Sea Troll Queen. Added two quest points, three fixed XP rewards, Piscatoris access and postquest free boat travel. |
@@ -53,5 +54,5 @@ entries use the 3 November build 242 snapshot.
 | 0.2.0 | Added the first quest actions and the pinned Quest Helper observations. |
 | 0.1.0 | Recorded the independent quest, skill, diary and optional content inventory for build 242. |
 
-The coverage audit records the release blockers for 0.47.0. The normalizer and
+The coverage audit records the release blockers for 0.48.0. The normalizer and
 audit use the existing dataset version.

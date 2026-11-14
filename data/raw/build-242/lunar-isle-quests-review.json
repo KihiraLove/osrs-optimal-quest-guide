@@ -1,0 +1,54 @@
+{
+  "dataset_version": "0.48.0",
+  "game_revision": "osrs-live-242-2026-11-11",
+  "batch": "lunar-isle-quests",
+  "activity_ids": ["quest.lunar_diplomacy", "quest.dream_mentor"],
+  "status": "collected",
+  "source_ids": ["source.quest_helper.quest_observations", "source.quest_helper.index", "source.project.early_quest_timing", "source.project.travel_timing"],
+  "pinned_helpers": [
+    "src/main/java/com/questhelper/helpers/quests/lunardiplomacy/LunarDiplomacy.java",
+    "src/main/java/com/questhelper/helpers/quests/dreammentor/DreamMentor.java"
+  ],
+  "observations": [
+    {
+      "activity_id": "quest.lunar_diplomacy",
+      "requirements": {
+        "previous_quests": ["quest.the_fremennik_trials", "quest.lost_city", "quest.rune_mysteries", "quest.shilo_village"],
+        "unboostable_skills": {"herblore":5,"crafting":61,"defence":40,"firemaking":49,"magic":65,"mining":60,"woodcutting":55}
+      },
+      "route": "Lokar, Brundt seal, Lady Zay's ordered crew investigation, lens and five symbol removals; Oneiromancer, Baba Yaga waking-sleep potion, elemental altar staff infusion; ore/helm, Pauline's amulet, Meteora's cape, four Suqah hides sewn by Rimae, Selene's ring; the brazier and six independently finishable dream trials before fighting Me.",
+      "rewards": "Two quest points, 5,000 Magic XP, 5,000 Runecraft XP, 50 astral runes, Lunar spellbook, Astral altar; seal of passage and nine gear pieces acquired during quest.",
+      "notes": "The lunar staff is untradeable and uses the Lost City dramen staff; a player must retain a usable lantern with oil. Equipment is checked without deletion. Six dream puzzles are order-flexible; the final fight requires all six."
+    },
+    {
+      "activity_id": "quest.dream_mentor",
+      "requirements": {
+        "previous_quests": ["quest.lunar_diplomacy", "quest.eadgars_ruse"],
+        "combat_level": 85,
+        "food": "Three distinct kinds, 6+7+7 pieces; current catalog selects cabbage, potato and onion as one concrete option."
+      },
+      "route": "Cyrisus cave feeding and equipment, Birds-Eye Jack, Oneiromancer's dream vial, goutweed and crushed astral rune, the ceremonial brazier, and four sequential nightmare bosses: The Inadequacy, The Everlasting, The Untouchable and The Illusive.",
+      "rewards": "Two quest points, 15,000 Hitpoints XP, 10,000 Magic XP, seven additional Lunar spells, a retained dreamy lamp granting 15,000 XP in Strength/Defence/Hitpoints/Ranged/Magic, and bank access from Birds-Eye Jack without the seal.",
+      "notes": "Existing Eadgar's Ruse spare-goutweed action is the legitimate untradeable supplier; the 50 astral runes from Lunar Diplomacy supply the potion. Dream Mentor combat has ordinary death penalties unlike Lunar Diplomacy's dream."
+    }
+  ],
+  "open_questions": [
+    "Verify exact island arrival and return routes; existing Lady Zay decks and their heights may be translated or instanced in RuneLite coordinates. Local travel edges are approximations and not an exact shortest-path map.",
+    "Verify Rimae's hide-tanning fee, the precise thread quantity per four lunar items, and whether the robe crafting stage requires an alternative tool. The current model estimates 400 coins.",
+    "Verify the Dramen staff infusion interactions and each altar entrance path against the four existing altar waypoints. The model uses the single staff through each transformation.",
+    "Check that the Oneiromancer issues the kindling and returns the waking sleep potion at the modeled handovers; interruption recovery is omitted.",
+    "Verify full-lunar equipment access constraints, combat spell/rune budget for Me, the six mini-game puzzle failure rates, woodcutting logs and combat incidental XP (not pre-credited).",
+    "Check inventory occupancy during a full nine-item outfit inspection (11 or more free inventory spaces), as the current route engine does not have a temporary free-slots requirement.",
+    "Determine whether the Nightmare armour and weapon choices from Birds-Eye Jack are retained, purchased or supplied; current two untradeable bundles are a planning abstraction.",
+    "Validate food type flexibility and exact 6+7+7 requirements, the mandatory support interactions and Cyrisus cave-to-mine shortcut; the current path uses a cave connection abstraction.",
+    "Verify combat level formula against the current live game; integer multiples of 80 represent the standard quarter-base and 0.325 melee/0.4875 Magic/Ranged style terms without fractional truncation.",
+    "Confirm dreamy lamp retention, minimum level, recovery on destruction and eligible combat skills. The pinned helper contains an anomalous lamp symbol; the catalog keeps the choice separate from fixed quest XP.",
+    "Verify the real status of seal-of-passage access to NPCs/bank before and after Dream Mentor, the Astral altar unlock condition, and whether there are alternate routes or optional return visits.",
+    "The tradeable preparation bundles use approximate GE costs. Quest item recovery, optional Suqah drop variance, death supplies and true travel durations require live verification."
+  ],
+  "integration": {
+    "catalog_dir": "data/catalog/lunar-isle-quests/",
+    "new_combat_formula": "formula.osrs_combat_level",
+    "scope": "Both quests are represented as discrete route actions and reward steps; the exact route remains draft until independent game observations."
+  }
+}

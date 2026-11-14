@@ -6642,5 +6642,47 @@
       "miniquest.the_enchanted_key.dig_grand_exchange"
     ],
     "note": "Eleven individual buried stashes; the first is south of Rellekka and the other ten can occur in any order. There is no quest point or XP. Every stash grants its own ores, arrows/runes and three mjolnirs across the set."
+  },
+  {
+    "id": "review.quest.lunar_diplomacy.completion_rewards",
+    "activity_id": "quest.lunar_diplomacy",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.lunar_diplomacy.brundt_seal", "quest.lunar_diplomacy.sail_to_island", "quest.lunar_diplomacy.complete"],
+    "expected_effects": {
+      "quest.lunar_diplomacy.brundt_seal": [
+        {"kind":"item","item_id":"item.lunar_seal_of_passage","quantity":1}
+      ],
+      "quest.lunar_diplomacy.sail_to_island": [
+        {"kind":"flag","token_id":"unlock.lunar_isle_passage","value":true}
+      ],
+      "quest.lunar_diplomacy.complete": [
+        {"kind":"counter","token_id":"token.quest_points","delta":2},
+        {"kind":"xp","skill_id":"skill.magic","xp_tenths":50000},
+        {"kind":"xp","skill_id":"skill.runecraft","xp_tenths":50000},
+        {"kind":"item","item_id":"item.astral_rune","quantity":50},
+        {"kind":"flag","token_id":"unlock.lunar_spellbook","value":true},
+        {"kind":"flag","token_id":"unlock.astral_altar","value":true}
+      ]
+    },
+    "note": "Seal and Lunar Isle passage are obtained during the quest. Fixed completion rewards: 2 QP, 5,000 Magic and Runecraft XP, 50 astral runes, spellbook and altar access."
+  },
+  {
+    "id": "review.quest.dream_mentor.completion_rewards",
+    "activity_id": "quest.dream_mentor",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.dream_mentor.complete"],
+    "expected_effects": {
+      "quest.dream_mentor.complete": [
+        {"kind":"counter","token_id":"token.quest_points","delta":2},
+        {"kind":"xp","skill_id":"skill.hitpoints","xp_tenths":150000},
+        {"kind":"xp","skill_id":"skill.magic","xp_tenths":100000},
+        {"kind":"xp_reward","reward_id":"reward.dream_mentor.dreamy_lamp","quantity":1},
+        {"kind":"flag","token_id":"unlock.dream_mentor_spells","value":true},
+        {"kind":"flag","token_id":"unlock.lunar_bank_no_seal","value":true}
+      ]
+    },
+    "note": "Dream Mentor unlocks seven Lunar spells and seal-free Jack bank access; the retained 15,000-XP dreamy lamp is restricted to Strength, Defence, Hitpoints, Ranged and Magic."
   }
 ]
