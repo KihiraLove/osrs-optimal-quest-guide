@@ -1,0 +1,30 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "draft_collected",
+  "activity_ids": ["quest.current_affairs"],
+  "source_ids": ["source.quest_helper.quest_observations", "source.reference.current_affairs_quick_guide"],
+  "helper_files": ["src/main/java/com/questhelper/helpers/quests/currentaffairs/CurrentAffairs.java"],
+  "source_observations": [
+    "Arhein at Catherby docks starts Current Affairs. The pinned helper requires Pandemonium completion, unboostable 22 Sailing, and 10 Fishing. The quick guide also requires 50 coins and charcoal, which can be obtained in the council office.",
+    "Councillor Catherine issues Form CR-4P, and the nearby cabinet supplies charcoal. The player fills the form by selecting a consistent answer sequence (all first answers is sufficient) and submits it to Catherine, then asks Arhein about replacing the fish mayor.",
+    "Harry at Catherby's fish shop sells one mayoral fishbowl and tiny net together for 50 coins. The net is used on his aquarium to catch the new Mayor of Catherby. Arhein fits a mayoral chain, and Catherine must be given the exact same form answers before issuing Form 7R4-5H.",
+    "Use Form 7R4-5H on the fish mayor to sign it, then submit the signed form to Catherine. Arhein provides a current duck before the sea trial. The duck is released in a ripple west of the Obelisk of Water, followed through the current to near Holgart and retrieved before reporting to Arhein.",
+    "Completion awards 1 quest point, 1,400 Sailing XP, 1,000 Fishing XP, 25 oak-plank sawmill coupons, permanent current duck and Mayor of Catherby possessions, and the unlock for charting sea currents."
+  ],
+  "cross_batch_integration": [
+    "Pandemonium completion, raft ownership and Captain's log are actual existing flag/item producers on the same branch; none need artificial source flags when playing the complete route.",
+    "The 25 oak-plank coupons reuse item.prying.oak_sawmill_coupon instead of adding a duplicate. The original charter dock and Arhein crate are reused as Catherby graph anchors.",
+    "The current duck is given before sailing, temporarily removed during deployment and returned at retrieval; the final completion grants its unlock but not another duck item."
+  ],
+  "review_gaps": [
+    "The actual current ripple, duck-follow endpoint, and sailing dock may differ from the modeled 2809/3347 ripple and 2802/3322 Holgart shore tile. Only the latter was provided as a pinned helper waypoint. Vessel position, currents and route times need client verification.",
+    "Charcoal is assumed to be consumed when filling Form CR-4P; live item retention, and whether the temporary mayoral net remains after catching the fish, require verification.",
+    "The entire Catherby form flow uses first answers both times, one valid choice path. Other matching answer combinations are valid but not represented as separate action choices.",
+    "No incidental Fishing XP from the mayor's aquarium or additional Sailing XP from heading/trimming the own boat is modeled. The pinned helper lists no mandatory incidental XP amount.",
+    "The boat dock and return to Catherby use abstract bidirectional ship routes. Real dock availability, ship transfer, and sailing to and from the Water Obelisk should be checked against the in-game chart.",
+    "The model treats the current duck as temporarily removed on release and re-created on shore pickup. Lost duck and fish-mayor reclaims, repeat charting tasks and reward reuse should be implemented as separate optional activities after source review.",
+    "10 Fishing is represented as unboostable because the helper does not state that it can be boosted; the boost rule is not independently verified.",
+    "50 coins need a reachable account source outside this quest; focused tests seed them but no gold is conjured by the quest."
+  ],
+  "notes": "22-stage novice Sailing quest with one on-water demonstration, council form sequence, one net purchase, and exact one-time completion rewards. Collected, not independently reviewed."
+}

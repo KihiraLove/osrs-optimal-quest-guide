@@ -7018,6 +7018,30 @@
       ]
     },
     "note": "One fixed 100 XP Sailing award at first cargo delivery plus 300 XP at quest completion; 400 XP total. Free raft, Captain's log and basic cargo hold are separate preceding milestone unlocks."
+  },
+  {
+    "id": "review.quest.current_affairs.completion_rewards",
+    "activity_id": "quest.current_affairs",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations", "source.reference.current_affairs_quick_guide"],
+    "catalog_ids": ["quest.current_affairs.catch_mayor", "quest.current_affairs.get_current_duck", "quest.current_affairs.complete"],
+    "expected_effects": {
+      "quest.current_affairs.catch_mayor": [
+        {"kind": "item", "item_id": "item.current.mayor_catherby", "quantity": 1}
+      ],
+      "quest.current_affairs.get_current_duck": [
+        {"kind": "item", "item_id": "item.current.current_duck", "quantity": 1}
+      ],
+      "quest.current_affairs.complete": [
+        {"kind": "item", "item_id": "item.prying.oak_sawmill_coupon", "quantity": 25},
+        {"kind": "flag", "token_id": "unlock.current.sea_charting", "value": true},
+        {"kind": "flag", "token_id": "flag.quest.current_affairs.complete", "value": true},
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "xp", "skill_id": "skill.sailing", "xp_tenths": 14000},
+        {"kind": "xp", "skill_id": "skill.fishing", "xp_tenths": 10000}
+      ]
+    },
+    "note": "The fish mayor and reusable current duck are gained earlier and retained after the sea trial; completion awards 1 QP, 1,400 Sailing XP, 1,000 Fishing XP, 25 oak-plank coupons and the charting unlock once."
   }
 
 ]

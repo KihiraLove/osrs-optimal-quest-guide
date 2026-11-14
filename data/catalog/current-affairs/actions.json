@@ -1,0 +1,1000 @@
+[
+  {
+    "id": "quest.current_affairs.start",
+    "name": "Ask Arhein on Catherby docks about his duck",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.arhein",
+    "end_location_id": "location.current.arhein",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.pandemonium.complete",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.sailing",
+          "minimum_level": 22,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fishing",
+          "minimum_level": 10,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "22 Sailing (unboostable), 10 Fishing and Pandemonium completion gate the start. No mandatory fight."
+    }
+  },
+  {
+    "id": "quest.current_affairs.talk_catherine",
+    "name": "Ask Councillor Catherine for her by-law form",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.councillor_catherine",
+    "end_location_id": "location.current.councillor_catherine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.current.form_cr4p",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 78,
+      "max_seconds": 234
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage and quick-guide route; timing estimated."
+    }
+  },
+  {
+    "id": "quest.current_affairs.search_cabinet",
+    "name": "Take free charcoal from the council office cabinet",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.council_cabinet",
+    "end_location_id": "location.current.council_cabinet",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.talk_catherine"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.charcoal",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The charcoal is obtainable inside the council office, so no GE seed is required."
+    }
+  },
+  {
+    "id": "quest.current_affairs.fill_cr4p",
+    "name": "Fill Form CR-4P using charcoal and the first answer each time",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.councillor_catherine",
+    "end_location_id": "location.current.councillor_catherine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.search_cabinet"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.current.form_cr4p",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.charcoal",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.charcoal",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Choose the first answer for every question, remembering the exact sequence for the later audit. Charcoal use is assumed consumptive pending live verification."
+    }
+  },
+  {
+    "id": "quest.current_affairs.file_cr4p",
+    "name": "Hand Form CR-4P back to Catherine",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.councillor_catherine",
+    "end_location_id": "location.current.councillor_catherine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.fill_cr4p"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.current.form_cr4p",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.current.form_cr4p",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.current.cr4p",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage and quick-guide route; timing estimated."
+    }
+  },
+  {
+    "id": "quest.current_affairs.mayor_problem",
+    "name": "Ask Arhein how to replace Catherby's missing mayor",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.arhein",
+    "end_location_id": "location.current.arhein",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.file_cr4p"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage and quick-guide route; timing estimated."
+    }
+  },
+  {
+    "id": "quest.current_affairs.visit_harry",
+    "name": "Talk to Harry about the fish mayor and his tools",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.harry_shop",
+    "end_location_id": "location.current.harry_shop",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.mayor_problem"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 62,
+      "max_seconds": 186
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage and quick-guide route; timing estimated."
+    }
+  },
+  {
+    "id": "quest.current_affairs.buy_mayoral_gear",
+    "name": "Buy a mayoral fishbowl and tiny net for 50 coins",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.harry_shop",
+    "end_location_id": "location.current.harry_shop",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.visit_harry"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 50
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 50
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.current.mayoral_fishbowl",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.current.tiny_net",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "50 carried coins cover both the fishbowl and tiny net, purchased together from Harry."
+    }
+  },
+  {
+    "id": "quest.current_affairs.catch_mayor",
+    "name": "Use the tiny net on Harry's aquarium to catch a new mayor",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.mayor_aquarium",
+    "end_location_id": "location.current.mayor_aquarium",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.buy_mayoral_gear"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.current.mayoral_fishbowl",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.current.tiny_net",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.current.mayoral_fishbowl",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.current.mayor_catherby",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The fish is transferred to the bought fishbowl; the tiny net remains a tool. Catch XP is not modeled."
+    }
+  },
+  {
+    "id": "quest.current_affairs.chain_mayor",
+    "name": "Show Arhein the fish so he can fit a mayoral chain",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.arhein",
+    "end_location_id": "location.current.arhein",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.catch_mayor"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.current.mayor_catherby",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.current.mayor",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 67,
+      "max_seconds": 201
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage and quick-guide route; timing estimated."
+    }
+  },
+  {
+    "id": "quest.current_affairs.catherine_audit",
+    "name": "Repeat the original form answers for Catherine",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.councillor_catherine",
+    "end_location_id": "location.current.councillor_catherine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.chain_mayor"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.current.mayor_catherby",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Repeat the first answer to each question to match the earlier Form CR-4P responses."
+    },
+    "planned_outcome": {
+      "success_condition": "Councillor Catherine accepts the matching recorded answers.",
+      "if_unmet": "Retry the interaction or check the form answers and duck position before advancing."
+    }
+  },
+  {
+    "id": "quest.current_affairs.get_second_form",
+    "name": "Receive Form 7R4-5H from Catherine",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.councillor_catherine",
+    "end_location_id": "location.current.councillor_catherine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.catherine_audit"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.current.form_7r45h",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 32,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage and quick-guide route; timing estimated."
+    }
+  },
+  {
+    "id": "quest.current_affairs.mayor_signs",
+    "name": "Use Form 7R4-5H on the Mayor of Catherby",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.councillor_catherine",
+    "end_location_id": "location.current.councillor_catherine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.get_second_form"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.current.form_7r45h",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.current.mayor_catherby",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.current.form_7r45h",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.current.signed_form_7r45h",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 39,
+      "max_seconds": 117
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage and quick-guide route; timing estimated."
+    }
+  },
+  {
+    "id": "quest.current_affairs.file_signed_form",
+    "name": "Give the signed form back to Catherine",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.councillor_catherine",
+    "end_location_id": "location.current.councillor_catherine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.mayor_signs"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.current.signed_form_7r45h",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.current.signed_form_7r45h",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.current.bylaw",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 156
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage and quick-guide route; timing estimated."
+    }
+  },
+  {
+    "id": "quest.current_affairs.report_new_bylaw",
+    "name": "Tell Arhein the council has changed the by-law",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.arhein",
+    "end_location_id": "location.current.arhein",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.file_signed_form"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 57,
+      "max_seconds": 171
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage and quick-guide route; timing estimated."
+    }
+  },
+  {
+    "id": "quest.current_affairs.get_current_duck",
+    "name": "Receive the reusable current duck from Arhein",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.arhein",
+    "end_location_id": "location.current.arhein",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.report_new_bylaw"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.current.current_duck",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 34,
+      "max_seconds": 102
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Duck is awarded before its mandatory on-water demonstration; do not award a second copy at quest completion."
+    }
+  },
+  {
+    "id": "quest.current_affairs.board_catherby",
+    "name": "Board the owned boat at Catherby Sailing docks",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.catherby_sailing_dock",
+    "end_location_id": "location.current.catherby_sailing_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.get_current_duck"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pandemonium.raft",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pandemonium.captains_log",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 156
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage and quick-guide route; timing estimated."
+    }
+  },
+  {
+    "id": "quest.current_affairs.sail_to_ripple",
+    "name": "Helm east to the water current by the Obelisk of Water",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.western_water_obelisk_ripple",
+    "end_location_id": "location.current.western_water_obelisk_ripple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.board_catherby"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.current.current_duck",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 120,
+      "max_seconds": 360
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "On-water charting ripple near the Water Obelisk, exact ocean coordinate/heading requires live Sailing inspection."
+    }
+  },
+  {
+    "id": "quest.current_affairs.release_duck",
+    "name": "Release the current duck at the ripple",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.western_water_obelisk_ripple",
+    "end_location_id": "location.current.western_water_obelisk_ripple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.sail_to_ripple"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.current.current_duck",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.current.current_duck",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.current.release",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The current duck is temporarily off the boat and must be recovered when it reaches the shore."
+    }
+  },
+  {
+    "id": "quest.current_affairs.follow_duck",
+    "name": "Follow the current duck as it tracks the sea current",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.holgart_shore_current",
+    "end_location_id": "location.current.holgart_shore_current",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.release_duck"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 72,
+      "expected_seconds": 145,
+      "max_seconds": 435
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow by boat toward Holgart; water path and speed are provisional."
+    }
+  },
+  {
+    "id": "quest.current_affairs.collect_duck",
+    "name": "Retrieve the current duck near Holgart",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.holgart_shore_current",
+    "end_location_id": "location.current.holgart_shore_current",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.follow_duck"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.current.current_duck",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.current.retrieve",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 47,
+      "max_seconds": 141
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper stage and quick-guide route; timing estimated."
+    }
+  },
+  {
+    "id": "quest.current_affairs.complete",
+    "name": "Return to Arhein and report the charted current",
+    "activity_id": "quest.current_affairs",
+    "kind": "quest_stage",
+    "start_location_id": "location.current.arhein",
+    "end_location_id": "location.current.arhein",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.current_affairs.collect_duck"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.current.current_duck",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.current.mayor_catherby",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.prying.oak_sawmill_coupon",
+        "quantity": 25
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.current.sea_charting",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.current_affairs.complete",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.sailing",
+        "xp_tenths": 14000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 10000
+      }
+    ],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 74,
+      "max_seconds": 222
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.current_affairs_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reward: 1 QP, 1,400 Sailing XP, 1,000 Fishing XP and 25 oak-plank sawmill coupons; retain the current duck and the mayoral fish, and unlock sea-current charting."
+    }
+  }
+]
