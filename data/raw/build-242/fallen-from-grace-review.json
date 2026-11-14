@@ -1,0 +1,74 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "activity_id": "quest.fallen_from_grace",
+  "status": "draft_collected",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.reference.fallen_from_grace_quick_guide"
+  ],
+  "helper_file": "src/main/java/com/questhelper/helpers/quests/fallenfromgrace/FallenFromGrace.java",
+  "start": "Speak to Cormac in Auchrie after Ffion allows entry to Wyrmscraig",
+  "prerequisites": {
+    "quest_ids": ["quest.pandemonium"],
+    "base_unboostable": {
+      "skill.sailing": 62,
+      "skill.crafting": 60,
+      "skill.runecraft": 47,
+      "skill.mining": 53
+    },
+    "transport": "Player-owned raft or skiff; sloop cannot enter the narrow cavern; disembark solo",
+    "equipment": "Combat preparation for three level-69 trolls and the level-270 Mad Angel; iron pickaxe/chisel available locally"
+  },
+  "stage_flow": [
+    "Ffion at dock and Cormac in Auchrie",
+    "Muriel, tent tools, sunstone monolith and chiseled sunstone core",
+    "Keenan's hat on southern coast; Cormac report",
+    "Solo player-owned raft/skiff into Wyrmscraig Cavern",
+    "Three mountain trolls, rockfall removal and Mortimer Slayer Master access",
+    "Broken golem core replacement, cipher chest (right-left-down-down), ancient core turned into key",
+    "Optional mine-and-climb cave/cathedral shortcut at 54 Agility",
+    "Climb to cathedral, defeat the Mad Angel, examine Keenan and read note",
+    "Solve changing cathedral exit lock and report to Cormac"
+  ],
+  "partial_unlocks": {
+    "unlock.grace.cavern": "After reporting the southern hat to Cormac",
+    "unlock.grace.mortimer": "After dealing with all three trolls and talking to Mortimer",
+    "unlock.grace.golem_door": "After sunstone core replaces the failed golem core",
+    "unlock.grace.shortcut": "Optional 54 Agility and pickaxe access"
+  },
+  "completion_rewards": {
+    "quest_points": 2,
+    "xp_tenths": {
+      "skill.crafting": 100000,
+      "skill.sailing": 125000,
+      "skill.mining": 50000,
+      "skill.runecraft": 50000
+    },
+    "unlocks": [
+      "unlock.grace.mad_angel_repeat",
+      "unlock.grace.golem_crafting",
+      "unlock.grace.wyrmscraig_teleports"
+    ]
+  },
+  "combat": {
+    "mountain_trolls": "Three level-69 trolls in multicombat; explicit planned-success check, no fixed combat XP budget",
+    "mad_angel": "Level-270 boss weak to crush; avoid sword windup, bouncing projectiles and charged lightning; attack speed increases at 255 HP. Planned-success, not guaranteed."
+  },
+  "optional_deferred": [
+    "Postquest 48 Construction bank chest requiring 2 lead bars, 8 mahogany planks, 32 mithril nails, hammer, saw and the boss's sunstone crystal; separate supply/cost and Construction XP model needed.",
+    "Actual consumable necklace of passage, Slayer ring and Ardeaglais teleport item routes; completion flag is produced, but teleport edges not fabricated.",
+    "Sunstone Golem Crafting's repeatable, potentially unbounded XP and Mad Angel repeat farming excluded from finite quest reward."
+  ],
+  "remaining_review_gaps": [
+    "Wyrmscraig pier, island boat canal, narrow cavern dock, cathedral exit lock and optional shortcut tiles are estimates; interior timings require live calibration.",
+    "The inventory model has no generic pickaxe predicate, so the draft path uses the available Wyrmscraig iron pickaxe. Other pickaxe tiers can be substituted only after a future general item-family feature.",
+    "The raft unlock is an existing abstract stand-in for raft/skiff ownership. There is no distinct boat-type or passenger-occupancy predicate, though the requirements and narrow-passage restriction are recorded.",
+    "Cavern/boat return behavior after boss deaths may be unreliable, including reported missing boat and misplaced deathpile; recover at Wyrmscraig dock or Red Rock/Corsair Cove as appropriate.",
+    "Actual Mad Angel combat supplies, prayer switching costs, deaths and incidental XP cannot be deterministically debited from this noncombat optimizer.",
+    "Confirm whether the ancient sunstone key is truly consumed at staircase, whether the dull core can be dropped, and the sunstone crystal's post-quest retained/reclaim handling.",
+    "The cipher chest has a static first code, whereas cathedral exit lock tumbler values change. No solver logic is embedded for the variable lock.",
+    "Boostability of the optional Agility shortcut and exact spawn positions for hammer and chisel require independent game check.",
+    "The quest helper does not pin the Wyrmscraig port tile or outer cathedral gate, so approximate candidates were used for graph connection."
+  ],
+  "integrator_reserved": ["dataset_version", "tracker_regeneration", "saved_examples"]
+}

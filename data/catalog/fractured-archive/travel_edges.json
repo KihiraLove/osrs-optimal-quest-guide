@@ -1,0 +1,44 @@
+[
+  {
+    "id":"travel.archive.light_creature_to_chasm","name":"Ride a light creature to the archive approach in the Chasm of Tears","mode":"other",
+    "from_location_id":"location.tears_of_guthix.light_creature","to_location_id":"location.archive.chasm_entrance",
+    "requirements":{"kind":"all","requirements":[{"kind":"item","item_id":"item.sapphire_lantern","quantity":1},{"kind":"flag","token_id":"flag.archive.while_guthix_sleeps_complete_external","value":true}]},
+    "consumes":[],"effects":[],"duration":{"min_seconds":25,"expected_seconds":70,"max_seconds":180},
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.travel_timing"],"status":"estimated","note":"Light creature descent from Tears of Guthix, followed by southwest approach to the Archive entrance. Exact descent tile and travel time unverified."}
+  },
+  {
+    "id":"travel.archive.chasm_to_light_creature","name":"Return via the Chasm of Tears light creature","mode":"other",
+    "from_location_id":"location.archive.chasm_entrance","to_location_id":"location.tears_of_guthix.light_creature",
+    "requirements":{"kind":"item","item_id":"item.sapphire_lantern","quantity":1},
+    "consumes":[],"effects":[],"duration":{"min_seconds":25,"expected_seconds":70,"max_seconds":180},
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.travel_timing"],"status":"estimated","note":"Assumed reversible ascent by light creature. Check the actual return exit and path in game."}
+  },
+  {
+    "id":"travel.archive.chasm_to_lobby","name":"Re-enter the unlocked Archive lobby","mode":"other",
+    "from_location_id":"location.archive.chasm_entrance","to_location_id":"location.archive.lobby",
+    "requirements":{"kind":"flag","token_id":"unlock.archive.raid_access","value":true},
+    "consumes":[],"effects":[],"duration":{"min_seconds":8,"expected_seconds":18,"max_seconds":45},
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.travel_timing"],"status":"estimated","note":"Normal post-introduction entrance. First entry instead uses the miniquest start action to unlock the lobby."}
+  },
+  {
+    "id":"travel.archive.lobby_to_chasm","name":"Exit the Archive lobby to the Chasm of Tears","mode":"other",
+    "from_location_id":"location.archive.lobby","to_location_id":"location.archive.chasm_entrance",
+    "requirements":{"kind":"all","requirements":[]},
+    "consumes":[],"effects":[],"duration":{"min_seconds":8,"expected_seconds":18,"max_seconds":45},
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.travel_timing"],"status":"estimated","note":"Return to entrance from the lobby; this does not transport players out of an active raid instance."}
+  },
+  {
+    "id":"travel.archive.blade_to_rewards","name":"Use The Blade after Ocellus to reach the raid rewards","mode":"other",
+    "from_location_id":"location.archive.ocellus","to_location_id":"location.archive.reward_room",
+    "requirements":{"kind":"flag","token_id":"flag.archive.ocellus_cleared","value":true},
+    "consumes":[],"effects":[],"duration":{"min_seconds":6,"expected_seconds":14,"max_seconds":35},
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.travel_timing"],"status":"estimated","note":"Post-Ocellus teleport to personal chests. Chest items are RNG and the miniquest is already completed; no fixed reward effects."}
+  },
+  {
+    "id":"travel.archive.rewards_to_lobby","name":"Exit raid reward room to the Archive lobby","mode":"other",
+    "from_location_id":"location.archive.reward_room","to_location_id":"location.archive.lobby",
+    "requirements":{"kind":"flag","token_id":"flag.archive.ocellus_cleared","value":true},
+    "consumes":[],"effects":[],"duration":{"min_seconds":7,"expected_seconds":18,"max_seconds":45},
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.travel_timing"],"status":"estimated","note":"Return route from reward room to lobby; unopened rewards remain retrievable through lobby wheelbarrow. Exit mechanic/timing requires a live check."}
+  }
+]

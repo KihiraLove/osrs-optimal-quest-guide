@@ -1,0 +1,33 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "draft_collected",
+  "activity_ids": ["quest.pandemonium"],
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.reference.pandemonium_quick_guide"
+  ],
+  "helper_files": ["src/main/java/com/questhelper/helpers/quests/pandemonium/Pandemonium.java"],
+  "source_observations": [
+    "There are no quest, skill or outside-item prerequisites. The Sailing introduction starts with Will or Anne on Port Sarim's south dock; neither combat nor free-form sailing is required before the tutorial.",
+    "The player boards their ship, learns steering and sail-trimming in the Bay of Sarim, stops at a pirate wreck, deploys its salvaging hook and keeps an old cup while Will and Anne take the medallion. The betrayal deposits the player on The Pandemonium in a scripted one-way transition.",
+    "Squawking Steve Beanie and Ribs explain the stolen map. Junior Jim accepts the old cup and grants the player a raft. The shipyard crates provide a hammer and saw; both are retained while building the raft's first cargo hold.",
+    "Returning from the shipyard gives the Captain's log and the first port cargo task. The raft sails to Port Sarim, retrieves a crate of ship parts from the port ledger, stores it in the cargo hold, sails back to The Pandemonium and delivers the cargo to the ledger. No equipped weapons may be held while collecting the cargo.",
+    "Depositing the shipment awards an additional 100 Sailing XP. The final Steve/Old Grog conversation awards 1 quest point and 300 Sailing XP plus 25 wood-plank sawmill coupons, 2 repair kits and a spyglass, for 400 Sailing XP overall.",
+    "The quest unlocks Sailing, permanent raft ownership, Captain's log, Pandemonium access and port tasks. It is a prerequisite for Prying Times, Current Affairs and Troubled Tortugans."
+  ],
+  "cross_batch_integration": [
+    "Reuses item.prying.captains_log as the unique log item and the shared Port Sarim/Pandemonium ledgers and docks, instead of introducing duplicates.",
+    "Adds Pandemonium completion gating to Prying Times and Crab Quest starts. Adds basic raft-ownership gates to their existing Sailing ship edges, while the novice Pandemonium route itself can travel at level 1.",
+    "The original Prying Times and Crab Quest replay fixtures must seed completed Pandemonium and raft ownership when testing them in isolation; the new Pandemonium replay is the actual producer."
+  ],
+  "review_gaps": [
+    "Will and Anne's aboard-ship waypoint and the pirate-wreck instance transition are represented by one-way ship edges, not actual instanced helm control or the sail-trim minigame; travel seconds and incidental Sailing XP need gameplay measurement.",
+    "The scripted washup beach, shipyard tool-crate location, first shipyard cargo-hold hotspot and Pandemonium ledger tile are approximate and should be verified against live client coordinates.",
+    "Cargo hold inventory is abstracted as one nonstackable item held across the voyage. Equipped-weapon restrictions, crate handling and ship inventory transfer are noted but the current state schema cannot express them independently.",
+    "The 100 Sailing XP from the introductory delivery is a deterministic intermediate quest award; any other XP from actual steering, trim or future port tasks remains unmodeled.",
+    "Hammer and saw are produced from the free shipyard crates, but the draft models one retrieval only. Lost-item, destroyed raft, re-entry to the shipyard, Captain's log reclaims and repeatable cargo tasks require separate optional activities.",
+    "The repaired boat's capacity, open-water route, early port docking, shipyard return after completion and free shipwright services remain provisional. The general Sailing travel network should be integrated after route review.",
+    "Prying Times quest-start gates now include Pandemonium completion. Crab Quest requires at least 40 Sailing and boat access; the explicit Pandemonium completion gate is consistent with the Sailing unlock but should be independently confirmed."
+  ],
+  "notes": "One 27-stage foundational Sailing quest. Quest reward registry includes split 100 and 300 XP, and the baseline replay requires no outside items or Sailing levels. Collected, not independently reviewed."
+}

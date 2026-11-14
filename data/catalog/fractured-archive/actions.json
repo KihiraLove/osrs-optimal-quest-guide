@@ -1,0 +1,106 @@
+[
+  {
+    "id":"miniquest.the_fractured_archive.start","name":"Discover the Archive entrance and enter the raid lobby","activity_id":"miniquest.the_fractured_archive","kind":"quest_stage",
+    "start_location_id":"location.archive.chasm_entrance","end_location_id":"location.archive.lobby",
+    "requirements":{"kind":"all","requirements":[{"kind":"flag","token_id":"flag.archive.while_guthix_sleeps_complete_external","value":true},{"kind":"item","item_id":"item.sapphire_lantern","quantity":1}]},
+    "consumes":[],"effects":[{"kind":"flag","token_id":"unlock.archive.raid_access","value":true}],
+    "duration":{"min_seconds":45,"expected_seconds":100,"max_seconds":240},"repeat_limit":1,
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.early_quest_timing"],"status":"estimated","note":"First attempted entry starts the miniquest and opens the lobby; a messenger note directs players to the Chasm of Tears. While Guthix Sleeps is required. No raid boss or first-clear reward is awarded at this step."}
+  },
+  {
+    "id":"miniquest.the_fractured_archive.begin_first_raid","name":"Prepare a raid party and descend into the Archive","activity_id":"miniquest.the_fractured_archive","kind":"quest_stage",
+    "start_location_id":"location.archive.lobby","end_location_id":"location.archive.boss_hub",
+    "requirements":{"kind":"all","requirements":[{"kind":"action_completed","action_id":"miniquest.the_fractured_archive.start"},{"kind":"flag","token_id":"unlock.archive.raid_access","value":true}]},
+    "consumes":[],"effects":[{"kind":"flag","token_id":"flag.archive.first_run_started","value":true}],
+    "duration":{"min_seconds":65,"expected_seconds":160,"max_seconds":420},"repeat_limit":1,
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.early_quest_timing"],"status":"estimated","note":"Group size 1–8 (solo scales to two); inspect General Montoya's strategy board, enter with consumables and combat loadout. Party forming and preparation time estimated."}
+  },
+  {
+    "id":"miniquest.the_fractured_archive.guardian","name":"Defeat the Archive Guardian","activity_id":"miniquest.the_fractured_archive","kind":"quest_stage",
+    "start_location_id":"location.archive.boss_hub","end_location_id":"location.archive.boss_hub",
+    "requirements":{"kind":"all","requirements":[{"kind":"flag","token_id":"flag.archive.first_run_started","value":true}]},
+    "consumes":[],"effects":[{"kind":"flag","token_id":"flag.archive.guardian_cleared","value":true}],
+    "duration":{"min_seconds":280,"expected_seconds":550,"max_seconds":1300},"repeat_limit":1,
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.early_quest_timing"],"status":"estimated","note":"Mandatory first encounter; action includes boss-room doorway and return to choice hall. Team wipe is not modeled as a successful clear."},
+    "planned_outcome":{"success_condition":"The Archive Guardian is defeated by the party.","if_unmet":"A wipe ends the raid and may cause gravestone/death costs. Resupply and attempt a new raid; no kill or quest progression is credited."}
+  },
+  {
+    "id":"miniquest.the_fractured_archive.ezekiel","name":"Choose Ezekiel as the second boss and defeat him","activity_id":"miniquest.the_fractured_archive","kind":"quest_stage",
+    "start_location_id":"location.archive.boss_hub","end_location_id":"location.archive.boss_hub",
+    "requirements":{"kind":"all","requirements":[{"kind":"flag","token_id":"flag.archive.guardian_cleared","value":true},{"kind":"flag","token_id":"flag.archive.second_cleared","value":false}]},
+    "consumes":[],"effects":[{"kind":"flag","token_id":"flag.archive.second_cleared","value":true}],
+    "duration":{"min_seconds":300,"expected_seconds":650,"max_seconds":1450},"repeat_limit":1,
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.early_quest_timing"],"status":"estimated","note":"Choose one of two second-encounter doors. This and Bork share an exclusive completion flag; the other boss is not required in the same raid."},
+    "planned_outcome":{"success_condition":"Ezekiel is defeated.","if_unmet":"Resupply after a wipe and retry the raid; no branch completion is credited."}
+  },
+  {
+    "id":"miniquest.the_fractured_archive.bork","name":"Choose Bork and the Smorks as the second boss and defeat them","activity_id":"miniquest.the_fractured_archive","kind":"quest_stage",
+    "start_location_id":"location.archive.boss_hub","end_location_id":"location.archive.boss_hub",
+    "requirements":{"kind":"all","requirements":[{"kind":"flag","token_id":"flag.archive.guardian_cleared","value":true},{"kind":"flag","token_id":"flag.archive.second_cleared","value":false}]},
+    "consumes":[],"effects":[{"kind":"flag","token_id":"flag.archive.second_cleared","value":true}],
+    "duration":{"min_seconds":300,"expected_seconds":650,"max_seconds":1450},"repeat_limit":1,
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.early_quest_timing"],"status":"estimated","note":"Exclusive alternative to Ezekiel at the second encounter; includes return to choice hall."},
+    "planned_outcome":{"success_condition":"Bork and the Smorks are defeated.","if_unmet":"Resupply after a wipe and retry the raid; no branch completion is credited."}
+  },
+  {
+    "id":"miniquest.the_fractured_archive.moia","name":"Choose Moia as the third boss and defeat her","activity_id":"miniquest.the_fractured_archive","kind":"quest_stage",
+    "start_location_id":"location.archive.boss_hub","end_location_id":"location.archive.boss_hub",
+    "requirements":{"kind":"all","requirements":[{"kind":"flag","token_id":"flag.archive.second_cleared","value":true},{"kind":"flag","token_id":"flag.archive.third_cleared","value":false}]},
+    "consumes":[],"effects":[{"kind":"flag","token_id":"flag.archive.third_cleared","value":true}],
+    "duration":{"min_seconds":320,"expected_seconds":700,"max_seconds":1500},"repeat_limit":1,
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.early_quest_timing"],"status":"estimated","note":"One of two third-encounter doors. Dreadnoth is the alternative, not another mandatory fight."},
+    "planned_outcome":{"success_condition":"Moia is defeated.","if_unmet":"A wipe ends the attempt; no branch completion is credited."}
+  },
+  {
+    "id":"miniquest.the_fractured_archive.dreadnoth","name":"Choose Dreadnoth the Jellied as the third boss and defeat it","activity_id":"miniquest.the_fractured_archive","kind":"quest_stage",
+    "start_location_id":"location.archive.boss_hub","end_location_id":"location.archive.boss_hub",
+    "requirements":{"kind":"all","requirements":[{"kind":"flag","token_id":"flag.archive.second_cleared","value":true},{"kind":"flag","token_id":"flag.archive.third_cleared","value":false}]},
+    "consumes":[],"effects":[{"kind":"flag","token_id":"flag.archive.third_cleared","value":true}],
+    "duration":{"min_seconds":320,"expected_seconds":700,"max_seconds":1500},"repeat_limit":1,
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.early_quest_timing"],"status":"estimated","note":"Exclusive alternative to Moia; the third boss is one of the two, not both."},
+    "planned_outcome":{"success_condition":"Dreadnoth the Jellied is defeated.","if_unmet":"A wipe ends the attempt; no branch completion is credited."}
+  },
+  {
+    "id":"miniquest.the_fractured_archive.quartermaster","name":"Visit the quartermaster after the third boss","activity_id":"miniquest.the_fractured_archive","kind":"quest_stage",
+    "start_location_id":"location.archive.boss_hub","end_location_id":"location.archive.boss_hub",
+    "requirements":{"kind":"all","requirements":[{"kind":"flag","token_id":"flag.archive.third_cleared","value":true}]},
+    "consumes":[],"effects":[{"kind":"flag","token_id":"flag.archive.quartermaster_visited","value":true}],
+    "duration":{"min_seconds":35,"expected_seconds":85,"max_seconds":220},"repeat_limit":1,
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.early_quest_timing"],"status":"estimated","note":"Quartermaster appears after boss three and before the fourth. Visit/resupply opportunity only; no guaranteed item or charge generated."}
+  },
+  {
+    "id":"miniquest.the_fractured_archive.xarth","name":"Choose Xarth as the fourth boss and defeat it","activity_id":"miniquest.the_fractured_archive","kind":"quest_stage",
+    "start_location_id":"location.archive.boss_hub","end_location_id":"location.archive.boss_hub",
+    "requirements":{"kind":"all","requirements":[{"kind":"flag","token_id":"flag.archive.quartermaster_visited","value":true},{"kind":"flag","token_id":"flag.archive.fourth_cleared","value":false}]},
+    "consumes":[],"effects":[{"kind":"flag","token_id":"flag.archive.fourth_cleared","value":true}],
+    "duration":{"min_seconds":350,"expected_seconds":750,"max_seconds":1700},"repeat_limit":1,
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.early_quest_timing"],"status":"estimated","note":"Exclusive fourth-boss alternative to the Dagon'hai trio; doorway and return included."},
+    "planned_outcome":{"success_condition":"Xarth is defeated.","if_unmet":"A wipe ends the attempt; no fourth-boss credit is given."}
+  },
+  {
+    "id":"miniquest.the_fractured_archive.dagonhai","name":"Choose the Dagon'hai Elder and monks as the fourth boss and defeat them","activity_id":"miniquest.the_fractured_archive","kind":"quest_stage",
+    "start_location_id":"location.archive.boss_hub","end_location_id":"location.archive.boss_hub",
+    "requirements":{"kind":"all","requirements":[{"kind":"flag","token_id":"flag.archive.quartermaster_visited","value":true},{"kind":"flag","token_id":"flag.archive.fourth_cleared","value":false}]},
+    "consumes":[],"effects":[{"kind":"flag","token_id":"flag.archive.fourth_cleared","value":true}],
+    "duration":{"min_seconds":350,"expected_seconds":750,"max_seconds":1700},"repeat_limit":1,
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.early_quest_timing"],"status":"estimated","note":"Exclusive alternative to Xarth; includes the Dagon'hai Elder and the accompanying Dagon'hai Monks."},
+    "planned_outcome":{"success_condition":"The Dagon'hai Elder and monks are defeated.","if_unmet":"A wipe ends the attempt; no fourth-boss credit is given."}
+  },
+  {
+    "id":"miniquest.the_fractured_archive.ocellus","name":"Defeat Ocellus to clear the fifth and final encounter","activity_id":"miniquest.the_fractured_archive","kind":"quest_stage",
+    "start_location_id":"location.archive.boss_hub","end_location_id":"location.archive.ocellus",
+    "requirements":{"kind":"all","requirements":[{"kind":"flag","token_id":"flag.archive.fourth_cleared","value":true}]},
+    "consumes":[],"effects":[{"kind":"flag","token_id":"flag.archive.ocellus_cleared","value":true}],
+    "duration":{"min_seconds":500,"expected_seconds":1050,"max_seconds":2600},"repeat_limit":1,
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.early_quest_timing"],"status":"estimated","note":"Mandatory fifth fight ends in the Ocellus arena. Success grants access to The Blade teleport and the personal reward chamber; randomized loot is not granted here."},
+    "planned_outcome":{"success_condition":"Ocellus is defeated, finishing all five encounters of the raid.","if_unmet":"A team wipe ends the raid; no miniquest completion is credited, and deaths are unsafe for Hardcore Ironmen."}
+  },
+  {
+    "id":"miniquest.the_fractured_archive.complete","name":"Register the first successful Fractured Archive clear","activity_id":"miniquest.the_fractured_archive","kind":"quest_stage",
+    "start_location_id":"location.archive.ocellus","end_location_id":"location.archive.ocellus",
+    "requirements":{"kind":"all","requirements":[{"kind":"action_completed","action_id":"miniquest.the_fractured_archive.ocellus"},{"kind":"flag","token_id":"flag.archive.ocellus_cleared","value":true}]},
+    "consumes":[],"effects":[{"kind":"flag","token_id":"flag.miniquest.the_fractured_archive.complete","value":true}],
+    "duration":{"min_seconds":5,"expected_seconds":10,"max_seconds":30},"repeat_limit":1,
+    "evidence":{"source_ids":["source.jagex.fractured_archive","source.project.early_quest_timing"],"status":"estimated","note":"The miniquest first clear requires exactly five successful boss encounters. The raid chest has variable loot; no deterministic Folio, equipment, XP or quest points are awarded by completion."}
+  }
+]

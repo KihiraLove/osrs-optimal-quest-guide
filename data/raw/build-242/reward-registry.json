@@ -500,12 +500,13 @@
     {
       "id": "review.miniquest.curse_of_the_empty_lord.xp_package",
       "activity_id": "miniquest.curse_of_the_empty_lord",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "post_quest_claim",
       "source_ids": [
-        "source.quest_helper.quest_observations"
+        "source.quest_helper.quest_observations",
+        "source.field.varrock_museum_history"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "museum.history.empty_lord",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -515,14 +516,30 @@
           "kind": "fixed",
           "xp_tenths": 100000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 50,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 1,
         "reported_eligibility": "reported_over_level_50"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "Minas awards this 10k XP lamp with 10 Kudos after the ghostly robe tale; eligibility over level 50 modeled as 50 pending review.",
+      "requires": {
+        "kind": "action_completed",
+        "action_id": "miniquest.curse_of_the_empty_lord.complete"
+      },
+      "claim_location": {
+        "name": "Historian Minas at Varrock Museum",
+        "tile": [
+          3256,
+          3448,
+          1
+        ],
+        "anchor": "CurseOfTheEmptyLord.museumReward"
+      },
+      "other_effects": {
+        "kudos": 10
+      }
     },
     {
       "id": "review.miniquest.in_search_of_knowledge.xp_package",
@@ -634,12 +651,12 @@
     {
       "id": "review.quest.a_tail_of_two_cats.xp_package",
       "activity_id": "quest.a_tail_of_two_cats",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.a_tail_of_two_cats.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -649,14 +666,14 @@
           "kind": "fixed",
           "xp_tenths": 25000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 30,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 2,
         "reported_eligibility": "reported_over_level_30"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "Two separately held antique lamps, each with one 2,500 XP pick at modeled minimum level 30 (level boundary and bankability pending review)."
     },
     {
       "id": "review.quest.a_taste_of_hope.xp_package",
@@ -741,29 +758,36 @@
     {
       "id": "review.quest.contact.xp_package",
       "activity_id": "quest.contact",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.contact.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
-        "quantity": 2,
-        "selection_count": 1,
+        "quantity": 1,
+        "selection_count": 2,
         "amount": {
           "kind": "fixed",
           "xp_tenths": 70000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": [
+          "skill.attack",
+          "skill.strength",
+          "skill.defence",
+          "skill.hitpoints",
+          "skill.ranged",
+          "skill.magic"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 2,
         "reported_eligibility": "combat"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "One bankable two-pick combat lamp; minimum and repeat skill rules require independent verification."
     },
     {
       "id": "review.quest.darkness_of_hallowvale.xp_package",
@@ -929,18 +953,18 @@
     {
       "id": "review.quest.legends_quest.radimus_xp",
       "activity_id": "quest.legends_quest",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.jagex.garden_of_death_rewards",
         "source.quest_helper.legends_quest"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.legends_quest.complete",
       "repeat_limit": 1,
       "package": {
-        "kind": "choice",
-        "quantity": 1,
-        "selection_count": 4,
+        "kind": "quest_lamp",
+        "quantity": 4,
+        "selection_count": 1,
         "amount": {
           "kind": "fixed",
           "xp_tenths": 300000
@@ -959,11 +983,11 @@
           "skill.agility",
           "skill.thieving"
         ],
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true
       },
-      "notes": "Verify repeat-skill choices and the award timing for a fresh completion. The publisher separately identifies Radimus for retroactive claims.",
+      "notes": "Four held 30,000 XP lamps from completing the quest. Repeating the same selected skill is allowed; Radimus can replace lost lamps. Existing accounts can claim retroactive XP from Radimus.",
       "claim_location": {
         "name": "Radimus Erkle, Legends' Guild",
         "tile": [
@@ -1295,12 +1319,12 @@
     {
       "id": "review.rfd.defeating_the_culinaromancer.xp_package",
       "activity_id": "rfd.defeating_the_culinaromancer",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "rfd.defeating_the_culinaromancer.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -1310,14 +1334,14 @@
           "kind": "fixed",
           "xp_tenths": 200000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 51,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 1,
         "reported_eligibility": "reported_over_level_50"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "The finale produces one retainable 20,000 XP lamp for a skill strictly above level 50; quest point and Barrows gloves are separate effects."
     },
     {
       "id": "reward.x_marks_the_spot.ancient_lamp",
@@ -1578,6 +1602,38 @@
         "retainable": true
       },
       "notes": "One retainable Dream Mentor dreamy lamp; five eligible combat skills exclude Attack and Prayer. The helper lists an anomalous lamp item symbol; eligibility and reclaimability need in-game review."
+    },
+    {
+      "id": "review.miniquest.into_the_tombs.xp_package",
+      "activity_id": "miniquest.into_the_tombs",
+      "status": "collected",
+      "delivery": "completion",
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "producer_action_id": "miniquest.into_the_tombs.complete",
+      "repeat_limit": 1,
+      "package": {
+        "kind": "quest_lamp",
+        "quantity": 1,
+        "selection_count": 1,
+        "amount": {
+          "kind": "fixed",
+          "xp_tenths": 500000
+        },
+        "eligible_skills": [
+          "skill.attack",
+          "skill.strength",
+          "skill.defence",
+          "skill.hitpoints",
+          "skill.ranged",
+          "skill.magic"
+        ],
+        "minimum_level": 60,
+        "distinct_skills": false,
+        "retainable": true
+      },
+      "notes": "Awarded on Maisa's final post-raid dialogue; does not repeat for later Tombs of Amascut completions. Reclaim/bank status requires field check."
     }
   ],
   "exclusions": [

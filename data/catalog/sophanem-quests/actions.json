@@ -1,0 +1,1473 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_sophanem_ritual_supplies",
+    "name": "Buy Sophanem ritual and desert supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2400
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.willow_logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_sap",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bag_of_salt",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.waterskin_4",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.unlit_candle",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 33,
+      "max_seconds": 66
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated GE bundle, with conservative GP cost. Keep the untradeable linen as an in-quest purchase."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.light_sophanem_candle",
+    "name": "Light a candle before Contact!",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "supply.grand_exchange.purchase_sophanem_ritual_supplies"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.unlit_candle",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lit_candle",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 4,
+      "max_seconds": 8
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The lit candle is retained as the dungeon light source, with tinderbox available to relight it."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.start",
+    "name": "Ask the Wanderer about the cat and the desert",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.wanderer",
+    "end_location_id": "location.sophanem.wanderer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.gertrudes_cat.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pet_kitten",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.waterskin_4",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 49,
+      "max_seconds": 98
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talk with a pet cat and a full waterskin. Gertrude's Cat supplies the untradeable kitten."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.enter_trance",
+    "name": "Follow the Wanderer into the first memory",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.rock",
+    "end_location_id": "location.sophanem.pyramid_west_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 70
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Wanderer's spell places the player inside the pyramid memory; this location transition is quest-only."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.first_memory",
+    "name": "Survive the memory and escape the western chamber",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.pyramid_west_room",
+    "end_location_id": "location.sophanem.pyramid_west_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.enter_trance"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 220
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Survive the memory and escape the western chamber; estimated interaction and travel timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Complete the memory-room encounter and reach the exit.",
+      "if_unmet": "Retry the trap and hostile encounter, restock food if needed; no reward is granted on failure."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.consult_sphinx",
+    "name": "Ask the Sphinx what happened to the cat",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.sphinx",
+    "end_location_id": "location.sophanem.sphinx",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.first_memory"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pet_kitten",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 61,
+      "max_seconds": 122
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the Sphinx what happened to the cat; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.meet_high_priest",
+    "name": "Speak with the High Priest of Sophanem",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.high_priest",
+    "end_location_id": "location.sophanem.high_priest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.consult_sphinx"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.sophanem_access",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 47,
+      "max_seconds": 94
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak with the High Priest of Sophanem; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.enter_pyramid",
+    "name": "Enter the pyramid to recover the sacred jars",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.pyramid_entrance",
+    "end_location_id": "location.sophanem.pyramid_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.meet_high_priest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 20,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the pyramid to recover the sacred jars; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.cross_pit",
+    "name": "Cross the pyramid trap pit",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.pyramid_pit",
+    "end_location_id": "location.sophanem.pyramid_pit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.enter_pyramid"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cross the pyramid trap pit; estimated interaction and travel timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Cross the trap without being forced back by the pit.",
+      "if_unmet": "Return to the entrance, recover health and retry the obstacle."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.retrieve_jars",
+    "name": "Recover the four canopic jars",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.pyramid_jars",
+    "end_location_id": "location.sophanem.pyramid_jars",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.cross_pit"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.icthlarin_crondis_jar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.icthlarin_scarabas_jar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.icthlarin_apmeken_jar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.icthlarin_het_jar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 46,
+      "expected_seconds": 92,
+      "max_seconds": 184
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Four quest-bound jars must be recovered; specific shelf interactions and trap timing need an in-game pass."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.replace_jars",
+    "name": "Return all four canopic jars to their shrines",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.pyramid_jars",
+    "end_location_id": "location.sophanem.pyramid_jars",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.retrieve_jars"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.icthlarin_crondis_jar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.icthlarin_scarabas_jar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.icthlarin_apmeken_jar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.icthlarin_het_jar",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 99,
+      "max_seconds": 198
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return each of the four jars to the correct deity; no jars persist after the puzzle."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.request_burial",
+    "name": "Ask the High Priest to arrange the burial",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.high_priest",
+    "end_location_id": "location.sophanem.high_priest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.replace_jars"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 54,
+      "max_seconds": 108
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the High Priest to arrange the burial; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.consult_embalmer",
+    "name": "Ask the Embalmer to prepare the burial",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.embalmer",
+    "end_location_id": "location.sophanem.embalmer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.request_burial"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Embalmer requests linen, salt and sap; ask him before seeking Raetul's linen."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.give_carpenter_logs",
+    "name": "Commission the Carpenter's holy symbol",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.carpenter",
+    "end_location_id": "location.sophanem.carpenter",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.consult_embalmer"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.willow_logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.icthlarin_carpenter_symbol",
+        "duration_seconds": 45
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Carpenter takes willow logs and needs a brief preparation wait; collect linen and complete the embalming while he works."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.buy_linen",
+    "name": "Buy linen from Raetul",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.raetul",
+    "end_location_id": "location.sophanem.raetul",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.give_carpenter_logs"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 30
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.icthlarin_linen",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 18,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The linen shop opens for the ritual after asking the Embalmer; spend 30 coins."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.deliver_embalmer",
+    "name": "Give the Embalmer linen, salt and sap",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.embalmer",
+    "end_location_id": "location.sophanem.embalmer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.buy_linen"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bag_of_salt",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bucket_of_sap",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.icthlarin_linen",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 43,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Embalmer needs exactly one linen, one salt source and one bucket of sap."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.collect_symbol",
+    "name": "Collect the holy symbol from the Carpenter",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.carpenter",
+    "end_location_id": "location.sophanem.carpenter",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.deliver_embalmer"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.icthlarin_carpenter_symbol"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.icthlarin_holy_symbol",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 20,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the holy symbol from the Carpenter; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.prepare_ritual",
+    "name": "Return to the High Priest for the funeral ritual",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.high_priest",
+    "end_location_id": "location.sophanem.high_priest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.collect_symbol"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 38,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to the High Priest for the funeral ritual; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.enter_ritual",
+    "name": "Enter the eastern ritual chamber",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.pyramid_east_room",
+    "end_location_id": "location.sophanem.pyramid_east_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.prepare_ritual"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pet_kitten",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 62,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the eastern ritual chamber; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.place_symbol",
+    "name": "Use the sacred symbol on the sarcophagus",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.pyramid_sarcophagus",
+    "end_location_id": "location.sophanem.pyramid_sarcophagus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.enter_ritual"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.icthlarin_holy_symbol",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 43,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the sacred symbol on the sarcophagus; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.confront_possessed_priest",
+    "name": "Return and defeat the possessed priest",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.pyramid_east_room",
+    "end_location_id": "location.sophanem.pyramid_east_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.place_symbol"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 65,
+      "expected_seconds": 131,
+      "max_seconds": 262
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return and defeat the possessed priest; estimated interaction and travel timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the hostile priest and survive the encounter.",
+      "if_unmet": "Escape to recover, replenish combat supplies and retry the encounter."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.meet_icthlarin",
+    "name": "Speak to Icthlarin after the tomb ritual",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.pyramid_east_room",
+    "end_location_id": "location.sophanem.pyramid_east_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.confront_possessed_priest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 53,
+      "max_seconds": 106
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Icthlarin after the tomb ritual; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.icthlarins_little_helper.complete",
+    "name": "Report the ritual outcome to the High Priest",
+    "activity_id": "quest.icthlarins_little_helper",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.high_priest",
+    "end_location_id": "location.sophanem.high_priest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.meet_icthlarin"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 45000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 40000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 40000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.icthlarin_catspeak_amulet",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.icthlarins_little_helper.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 37,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Report the ritual outcome to the High Priest; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.contact.start",
+    "name": "Ask the High Priest to investigate the Menaphite threat",
+    "activity_id": "quest.contact",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.high_priest",
+    "end_location_id": "location.sophanem.high_priest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.prince_ali_rescue.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.icthlarins_little_helper.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 63,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask the High Priest to investigate the Menaphite threat; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.contact.consult_jex",
+    "name": "Speak to Jex about the underground passage",
+    "activity_id": "quest.contact",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.jex",
+    "end_location_id": "location.sophanem.jex",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.contact.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 42,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Jex about the underground passage; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.contact.enter_bank",
+    "name": "Enter the bank trapdoor",
+    "activity_id": "quest.contact",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.bank_trapdoor",
+    "end_location_id": "location.sophanem.bank_trapdoor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.contact.consult_jex"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Enter the bank trapdoor; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.contact.search_dungeon",
+    "name": "Explore the pitch-dark bank dungeon",
+    "activity_id": "quest.contact",
+    "kind": "quest_stage",
+    "start_location_id": "location.contact.dungeon",
+    "end_location_id": "location.contact.dungeon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.contact.enter_bank"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 46,
+      "expected_seconds": 92,
+      "max_seconds": 184
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Explore the pitch-dark bank dungeon; estimated interaction and travel timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the lower tunnel with a lit light source.",
+      "if_unmet": "Return to the surface and relight a candle; do not proceed through the dark without light."
+    }
+  },
+  {
+    "id": "quest.contact.descend_chasm",
+    "name": "Climb down into the underground chasm",
+    "activity_id": "quest.contact",
+    "kind": "quest_stage",
+    "start_location_id": "location.contact.chasm",
+    "end_location_id": "location.contact.chasm",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.contact.search_dungeon"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb down into the underground chasm; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.contact.find_kaleef",
+    "name": "Search Kaleef's body for the evidence",
+    "activity_id": "quest.contact",
+    "kind": "quest_stage",
+    "start_location_id": "location.contact.kaleef",
+    "end_location_id": "location.contact.kaleef",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.contact.descend_chasm"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 38,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search Kaleef's body for the evidence; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.contact.question_maisa",
+    "name": "Discuss the discovery with Maisa",
+    "activity_id": "quest.contact",
+    "kind": "quest_stage",
+    "start_location_id": "location.contact.maisa",
+    "end_location_id": "location.contact.maisa",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.contact.find_kaleef"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 43,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Discuss the discovery with Maisa; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.contact.report_to_osman",
+    "name": "Report the discovery to Osman in Al Kharid",
+    "activity_id": "quest.contact",
+    "kind": "quest_stage",
+    "start_location_id": "location.al_kharid.osman",
+    "end_location_id": "location.al_kharid.osman",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.contact.question_maisa"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 57,
+      "max_seconds": 114
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Report the discovery to Osman in Al Kharid; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.contact.meet_osman_outside",
+    "name": "Meet Osman outside Sophanem",
+    "activity_id": "quest.contact",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.osman_outside",
+    "end_location_id": "location.sophanem.osman_outside",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.contact.report_to_osman"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 41,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Meet Osman outside Sophanem; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.contact.return_to_dungeon",
+    "name": "Re-enter the bank dungeon with combat supplies",
+    "activity_id": "quest.contact",
+    "kind": "quest_stage",
+    "start_location_id": "location.contact.dungeon",
+    "end_location_id": "location.contact.dungeon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.contact.meet_osman_outside"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 36,
+      "expected_seconds": 72,
+      "max_seconds": 144
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Re-enter the bank dungeon with combat supplies; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.contact.defeat_giant_scarab",
+    "name": "Defeat the Giant Scarab in the chasm",
+    "activity_id": "quest.contact",
+    "kind": "quest_stage",
+    "start_location_id": "location.contact.scarab",
+    "end_location_id": "location.contact.scarab",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.contact.return_to_dungeon"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 98,
+      "expected_seconds": 196,
+      "max_seconds": 392
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Defeat the Giant Scarab in the chasm; estimated interaction and travel timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Giant Scarab and survive the spawned scarabite enemies.",
+      "if_unmet": "Retreat, replenish food, antipoison and prayer resources, then re-enter for another attempt."
+    }
+  },
+  {
+    "id": "quest.contact.osman_in_chasm",
+    "name": "Speak with Osman at the defeated Scarab",
+    "activity_id": "quest.contact",
+    "kind": "quest_stage",
+    "start_location_id": "location.contact.scarab",
+    "end_location_id": "location.contact.scarab",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.contact.defeat_giant_scarab"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 51,
+      "max_seconds": 102
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak with Osman at the defeated Scarab; estimated interaction and travel timing."
+    }
+  },
+  {
+    "id": "quest.contact.complete",
+    "name": "Return to the High Priest for Contact! rewards",
+    "activity_id": "quest.contact",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.high_priest",
+    "end_location_id": "location.sophanem.high_priest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.contact.osman_in_chasm"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 70000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.keris",
+        "quantity": 1
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.contact.combat_lamp",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.contact.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.sophanem_bank",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 48,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to the High Priest for Contact! rewards; estimated interaction and travel timing."
+    }
+  }
+]

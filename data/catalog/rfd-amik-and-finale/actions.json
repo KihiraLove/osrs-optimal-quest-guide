@@ -1,0 +1,1253 @@
+[
+  {
+    "id": "rfd.freeing_sir_amik_varze.inspect",
+    "name": "Inspect frozen Sir Amik Varze",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.frozen_sir_amik",
+    "end_location_id": "location.rfd.frozen_sir_amik",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.another_cooks_quest.complete"
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 107
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.rfd.legends_started",
+          "value": true
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.family_crest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.waterfall_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lost_city.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Legends' Quest start action grants the jungle-access flag. Check the other quest prerequisites before opening the rescue."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.ask_cook",
+    "name": "Ask the Cook how to make crème brûlée supreme",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.inspect"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage; time estimated."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.buy_cream",
+    "name": "Buy a pot of cream",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.inspect"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 50
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 50
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.pot_of_cream",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Optional Grand Exchange supply action; GP budget is an unverified estimate."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.buy_cornflour",
+    "name": "Buy a pot of cornflour",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.inspect"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 1000
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.pot_of_cornflour",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Optional Grand Exchange supply action; GP budget is an unverified estimate."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.buy_machete",
+    "name": "Buy a jungle machete",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.inspect"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coins",
+          "quantity": 300
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 300
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.machete",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Optional Grand Exchange supply action; GP budget is an unverified estimate."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.mix_milk",
+    "name": "Mix milk with cream",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.ask_cook"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd.pot_of_cream",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.milky_mixture",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage; time estimated."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.add_cornflour",
+    "name": "Add the cornflour to the milky mixture",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.mix_milk"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd.milky_mixture",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd.pot_of_cornflour",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.cornflour_mixture",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage; time estimated."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.pick_vanilla",
+    "name": "Cut a vanilla pod in Kharazi Jungle",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.kharazi_vanilla",
+    "end_location_id": "location.rfd.kharazi_vanilla",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.ask_cook"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.rfd.legends_started",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd.machete",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.vanilla_pod",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 32,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Kharazi access needs at least started Legends' Quest, jungle equipment and quest navigation; path estimates to review."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.add_vanilla",
+    "name": "Add Kharazi vanilla to cornflour mixture",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.kharazi_vanilla",
+    "end_location_id": "location.rfd.kharazi_vanilla",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.add_cornflour"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd.vanilla_pod",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd.cornflour_mixture",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.brulee_vanilla",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage; time estimated."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.ask_wise_old_man",
+    "name": "Ask the Wise Old Man about the Evil Chicken",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.wise_old_man",
+    "end_location_id": "location.draynor.wise_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.ask_cook"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Complete the entire Evil Chicken dialogue; Swan Song may temporarily hide the option."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.kill_evil_chicken",
+    "name": "Defeat the Evil Chicken and collect its egg",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.evil_chicken",
+    "end_location_id": "location.rfd.evil_chicken",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.ask_wise_old_man"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.evil_chicken_egg",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 130,
+      "max_seconds": 340
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Combat outcome and exact supply/food budget need a live run; death returns protected items to grave outside."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Evil Chicken in the instance and pick up its egg before leaving.",
+      "if_unmet": "Restock, retry the encounter, and verify the relevant quest progress before proceeding."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.kill_black_dragon",
+    "name": "Defeat a black dragon and take its dragon token",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.black_dragon",
+    "end_location_id": "location.rfd.black_dragon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.kill_evil_chicken"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.dragon_token",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 75,
+      "expected_seconds": 210,
+      "max_seconds": 510
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Anti-dragon shield/antifire and combat loadout are required in practice; precise setup, damage and supplies are an open review."
+    },
+    "planned_outcome": {
+      "success_condition": "Kill the quest black dragon in the lair and pick up its dragon token.",
+      "if_unmet": "Restock, retry the encounter, and verify the relevant quest progress before proceeding."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.add_egg",
+    "name": "Mix the Evil Chicken's egg into the brûlée",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.evil_chicken",
+    "end_location_id": "location.rfd.evil_chicken",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.kill_evil_chicken"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.add_vanilla"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd.brulee_vanilla",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd.evil_chicken_egg",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.brulee_egg",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage; time estimated."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.cut_dramen_branch",
+    "name": "Return to the dramen tree and cut a spare branch",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.entrana_dungeon.dramen_tree",
+    "end_location_id": "location.entrana_dungeon.dramen_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.ask_cook"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lost_city.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 36,
+          "boostable": true
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.iron_axe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dramen_branch",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Second branch source: the original Lost City branch is consumed by staff-making; post-quest re-entry and tree access should be checked."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.make_cinnamon",
+    "name": "Grind a dramen branch into cinnamon",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.entrana_dungeon.dramen_tree",
+    "end_location_id": "location.entrana_dungeon.dramen_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.cut_dramen_branch"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dramen_branch",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.cinnamon",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage; time estimated."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.add_cinnamon",
+    "name": "Season the egg brûlée with cinnamon",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.evil_chicken",
+    "end_location_id": "location.rfd.evil_chicken",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.add_egg"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.make_cinnamon"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd.brulee_egg",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd.cinnamon",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.brulee_raw",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 17,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage; time estimated."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.flambe",
+    "name": "Rub the dragon token with ice gloves to flambé the brûlée",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.zanaris.fairy_ring",
+    "end_location_id": "location.zanaris.fairy_ring",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.kill_black_dragon"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.add_cinnamon"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ice_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd.brulee_raw",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd.dragon_token",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.brulee_supreme",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 30,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The dragon appears on rubbing the token; ice gloves must protect the held brûlée."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.complete",
+    "name": "Give crème brûlée supreme to Sir Amik",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.frozen_sir_amik",
+    "end_location_id": "location.rfd.frozen_sir_amik",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.flambe"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd.brulee_supreme",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 40000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 40000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.rfd_evil_chicken_lair",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 24,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One subquest point, 4,000 Cooking and Hitpoints XP, and permanent lair access; no duplicated parent awards."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.enter",
+    "name": "Enter the Culinaromancer's portal",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.rfd.culinaromancer_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.another_cooks_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_mountain_dwarf.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_goblin_generals.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_pirate_pete.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_lumbridge_guide.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_evil_dave.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_skrach_uglogwee.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_i.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.horror_from_the_deep.complete"
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 175
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 25,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "First portal entry requires eight rescue completions, Desert Treasure I, Horror from the Deep and 175 QP."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.defeat_agrith_na_na",
+    "name": "Defeat Agrith-Na-Na",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.culinaromancer_arena",
+    "end_location_id": "location.rfd.culinaromancer_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.defeating_the_culinaromancer.enter"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 125,
+      "max_seconds": 380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sequential, instanced boss fight. Prayer is disabled; combat stats, gear, runes, food, and damage estimates require live verification. May leave portal between kills."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Agrith-Na-Na without prayer; use melee or Ranged and food.",
+      "if_unmet": "Restock, retry the encounter, and verify the relevant quest progress before proceeding."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.defeat_flambeed",
+    "name": "Defeat Flambeed",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.culinaromancer_arena",
+    "end_location_id": "location.rfd.culinaromancer_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.defeating_the_culinaromancer.defeat_agrith_na_na"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ice_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 125,
+      "max_seconds": 380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sequential, instanced boss fight. Prayer is disabled; combat stats, gear, runes, food, and damage estimates require live verification. May leave portal between kills."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Flambeed without prayer; water spells and ice gloves are modeled as the safe approach.",
+      "if_unmet": "Restock, retry the encounter, and verify the relevant quest progress before proceeding."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.defeat_karamel",
+    "name": "Defeat Karamel",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.culinaromancer_arena",
+    "end_location_id": "location.rfd.culinaromancer_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.defeating_the_culinaromancer.defeat_flambeed"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 125,
+      "max_seconds": 380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sequential, instanced boss fight. Prayer is disabled; combat stats, gear, runes, food, and damage estimates require live verification. May leave portal between kills."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Karamel without prayer, handling frequent stat drain with restores or suitable gear.",
+      "if_unmet": "Restock, retry the encounter, and verify the relevant quest progress before proceeding."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.defeat_dessourt",
+    "name": "Defeat Dessourt",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.culinaromancer_arena",
+    "end_location_id": "location.rfd.culinaromancer_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.defeating_the_culinaromancer.defeat_karamel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 125,
+      "max_seconds": 380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sequential, instanced boss fight. Prayer is disabled; combat stats, gear, runes, food, and damage estimates require live verification. May leave portal between kills."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Dessourt without prayer, using ranged or air magic and food.",
+      "if_unmet": "Restock, retry the encounter, and verify the relevant quest progress before proceeding."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.defeat_gelatinnoth_mother",
+    "name": "Defeat Gelatinnoth Mother",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.culinaromancer_arena",
+    "end_location_id": "location.rfd.culinaromancer_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.defeating_the_culinaromancer.defeat_dessourt"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 125,
+      "max_seconds": 380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sequential, instanced boss fight. Prayer is disabled; combat stats, gear, runes, food, and damage estimates require live verification. May leave portal between kills."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Gelatinnoth Mother without prayer by switching elemental spells, Ranged and melee at its defensive phases.",
+      "if_unmet": "Restock, retry the encounter, and verify the relevant quest progress before proceeding."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.defeat_culinaromancer",
+    "name": "Defeat The Culinaromancer",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.culinaromancer_arena",
+    "end_location_id": "location.rfd.culinaromancer_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.defeating_the_culinaromancer.defeat_gelatinnoth_mother"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 125,
+      "max_seconds": 380
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sequential, instanced boss fight. Prayer is disabled; combat stats, gear, runes, food, and damage estimates require live verification. May leave portal between kills."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Culinaromancer without prayer and survive his close-range and magic attacks.",
+      "if_unmet": "Restock, retry the encounter, and verify the relevant quest progress before proceeding."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.complete",
+    "name": "Return from the arena and collect Recipe for Disaster rewards",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.culinaromancer_arena",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.defeating_the_culinaromancer.defeat_culinaromancer"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.finale_complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.rfd_barrows_gloves",
+        "value": true
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.rfd.culinaromancer_lamp",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 24,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Grants the final quest point, held 20k lamp and full Barrows gloves chest access once, then returns to Lumbridge."
+    }
+  }
+]

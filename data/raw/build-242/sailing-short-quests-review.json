@@ -1,0 +1,45 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "draft_collected",
+  "activity_ids": ["quest.prying_times", "quest.crab_quest"],
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.jagex.dog_and_crab_2026_09_08"
+  ],
+  "helper_files": [
+    "src/main/java/com/questhelper/helpers/quests/pryingtimes/PryingTimes.java",
+    "src/main/java/com/questhelper/helpers/quests/crabquest/CrabQuest.java"
+  ],
+  "source_observations": {
+    "prying_times": [
+      "Quest start at Squawking Steve Beanie in The Pandemonium; 12 Sailing and 30 Smithing are not boostable.",
+      "The route transfers a crate of looty into the ship cargo hold at Port Sarim and back to the ledger at The Pandemonium before the special key discussion.",
+      "Thurgo near Mudskipper Point exchanges one steel bar, redberry pie and a retained hammer for a reusable crowbar. Steve then requests an offshore crate test.",
+      "The fish bladder stout spawns a drink troll; returning to safe buoys is a valid combat-free option to end the encounter.",
+      "On completion: 1 quest point, 1,000 Smithing XP, 800 Sailing XP, 25 sawmill coupons for oak planks, access to crowbars and forgotten-drink charts."
+    ],
+    "crab_quest": [
+      "Quest begins by drinking from a mysterious bottle on Dognose Island; 40 Sailing and 30 Fishing are required.",
+      "Nine scattered shells are offered to the crab before the player nets three pieces of flotsam and builds a string instrument.",
+      "At least six crab leaders are needed to proceed; more can be recruited but should not block optimal quest completion. Shy crabs can require the Sit emote and a wait.",
+      "A sand-nest demonstration and the mating ceremony lead to completion and awakening at the bottle.",
+      "On completion: 1 quest point, 10,000 Sailing XP, 3,000 Fishing XP and a shell collection with seven playable notes, recoverable from the original bottle."
+    ]
+  },
+  "cross_branch_dependencies": [
+    "Sailing boat construction, ship ownership, captain's log and the Port Task system depend on quest.pandemonium and Sailing progression, both uncollected on this branch.",
+    "The Port Sarim–Pandemonium and Pandemonium–Dognose ship travel estimates should be reconciled with a shared Sailing route graph when Pandemonium and sea travel are integrated."
+  ],
+  "review_gaps": [
+    "Only seven individual Crab Quest shell tiles were identified from pinned helper waypoints. Two shell pickup locations remain approximate, though exactly nine shells are required.",
+    "The current Crab Quest replay recruits six of the many possible crabs. Optional seven-through-twelve recruit variations and longer shy-crab pauses are not yet represented.",
+    "The Sailing completion rewards are fixed XP, but incidental Fishing XP from flotsam and incidental sailing XP from boat steering/trim are not modeled.",
+    "Ship hold physical mechanics are abstracted by an inventory cargo token. Verify boarding, docking, port task-slot availability and whether the captain's log is retained after quest start.",
+    "Prying Times' cargo ledger Port Sarim coordinate and sea-crate access, plus two Crab Quest shell tiles, need live waypoint verification. Sailing timing and cost estimates remain provisional.",
+    "The Prying Times troll encounter follows the non-combat buoy escape route; the alternative troll fight, its supplies and XP are not estimated.",
+    "Repeated crowbar acquisition and lost shell-collection reclaims are documented as unlocked, but no independently repeatable inventory-producing claims are modeled.",
+    "The Prying Times quest requirements may imply access gained from Pandemonium; pinned helper lists no quest completion requirement, so only its 12 Sailing/30 Smithing gates are enforced until a live requirements check.",
+    "Upstream tradeable steel bar, redberry pie and hammer supplies, along with initial captain's log and boat, must be present in focused replay until Sailing integration provides producers."
+  ],
+  "notes": "Two isolated Sailing quests in one worker batch; full route replay is seeded with a ship and required prior supplies, with no claim over the unfinished Pandemonium quest."
+}
