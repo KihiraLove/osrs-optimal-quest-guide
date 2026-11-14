@@ -1,0 +1,44 @@
+{
+  "batch_id": "quest-month-fixed-xp-followup",
+  "revision": "osrs-live-242-2026-11-11",
+  "status": "collected_draft_not_independently_reviewed",
+  "activity_ids": [
+    "quest.tale_of_the_righteous",
+    "quest.the_corsair_curse",
+    "quest.throne_of_miscellania",
+    "quest.troll_stronghold"
+  ],
+  "reward_review_ids": [
+    "review.quest.tale_of_the_righteous.quest_month_xp",
+    "review.quest.the_corsair_curse.quest_month_xp",
+    "review.quest.throne_of_miscellania.quest_month_xp",
+    "review.quest.troll_stronghold.quest_month_xp"
+  ],
+  "source_ids": [
+    "source.jagex.quest_month_2026_11_03",
+    "source.jagex.cache_242_2026_11_11"
+  ],
+  "publisher_observation": "The pinned Jagex Quest Month announcement of 3 November 2026 places each of these fixed XP rewards at fresh quest completion. Legacy retroactive claims are separate and not modeled by this batch.",
+  "fixed_xp_tenths": {
+    "quest.tale_of_the_righteous": {"skill.mining": 15000},
+    "quest.the_corsair_curse": {"skill.firemaking": 12000},
+    "quest.throne_of_miscellania": {
+      "skill.woodcutting": 10000,
+      "skill.mining": 10000,
+      "skill.fishing": 10000,
+      "skill.farming": 10000
+    },
+    "quest.troll_stronghold": {"skill.agility": 20000}
+  },
+  "observations": {
+    "newly_added_effects": "The existing Throne of Miscellania completion action awarded its quest point and management unlock but no skill XP; added 1,000 XP each in Woodcutting, Mining, Fishing and Farming and updated its exact-effects completion review. These are completion rewards, not a follow-up King Vargas claim.",
+    "already_correct_effects": "Tale of the Righteous, The Corsair Curse and Troll Stronghold already paid the pinned Quest Month XP. Their reward-review source rows were expected, not linked to the existing completion producers; updated only the three ledger records.",
+    "tracker_reconciliation": "Four Quest Month reward review IDs move from expected to collected draft; unrelated Quest Month lamp/claim and legacy rows remain expected.",
+    "verification": "Focused RouteState replay with immediate completion prerequisites and completion flags; exact skill XP and one-time repeat protection checked."
+  },
+  "review_gaps": [
+    "Verify retroactive XP claim access for accounts that completed affected quests before 3 November 2026; the publisher table addresses new completions.",
+    "Independent in-game verification, route timing and the original quest-stage mechanics remain outside this narrow reward batch.",
+    "No unrelated XP/lamp rewards, dataset versions, generated trackers or saved solution fixtures were edited in this isolated worker branch."
+  ]
+}
