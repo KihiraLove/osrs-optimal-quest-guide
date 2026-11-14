@@ -1,0 +1,1752 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_bcs_essentials",
+    "name": "Buy coal, iron bar and cooked meat for Ullek and the pox cure",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1450
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.coal",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cooked_meat",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 38,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated main-account GE bundle with 1 coal, 1 iron bar and a non-fish meat."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.start",
+    "name": "Speak to Jamila in Sophanem",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.jamila",
+    "end_location_id": "location.bcs.jamila",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.contact.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 62,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 55,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 55,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 49,
+      "max_seconds": 106
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Jamila in Sophanem; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.receive_message",
+    "name": "Receive Jamila's secret message",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.jamila",
+    "end_location_id": "location.bcs.jamila",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bcs_message",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 20,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Receive Jamila's secret message; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.read_message",
+    "name": "Read Jamila's message about the necropolis",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.jamila",
+    "end_location_id": "location.bcs.jamila",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.receive_message"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bcs_message",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 23,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read Jamila's message about the necropolis; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.meet_maisa",
+    "name": "Meet Maisa at the necropolis campsite",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.maisa_camp",
+    "end_location_id": "location.bcs.maisa_camp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.read_message"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.necropolis_akp",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 77,
+      "max_seconds": 162
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "First entry to the necropolis also exposes the AKP fairy ring to qualified travellers."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.inspect_pyramid",
+    "name": "Inspect the Jaltevas Pyramid's blocked entry",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.jaltevas_pyramid",
+    "end_location_id": "location.bcs.jaltevas_pyramid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.meet_maisa"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect the Jaltevas Pyramid's blocked entry; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.question_guard",
+    "name": "Question a Menaphite citizen or guard",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.menaphite_guard",
+    "end_location_id": "location.bcs.menaphite_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.inspect_pyramid"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 54,
+      "max_seconds": 116
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Question a Menaphite citizen or guard; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.defeat_guard",
+    "name": "Defeat the Head Menaphite Guard",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.menaphite_guard",
+    "end_location_id": "location.bcs.menaphite_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.question_guard"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 100,
+      "expected_seconds": 200,
+      "max_seconds": 408
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mandatory guard encounter; damage, prayer consumption and incidental combat XP remain estimates."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the level-174 guard without relying on Protect from Melee.",
+      "if_unmet": "Re-gear and retry; Protect from Melee triggers a percentage-hitpoint counterattack."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.debrief_maisa",
+    "name": "Speak with Maisa after the Menaphite guard",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.maisa_north",
+    "end_location_id": "location.bcs.maisa_north",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.defeat_guard"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 158
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak with Maisa after the Menaphite guard; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.maisa_ullek_briefing",
+    "name": "Discuss the Ruins of Ullek at Maisa's camp",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.maisa_camp",
+    "end_location_id": "location.bcs.maisa_camp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.debrief_maisa"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 51,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Discuss the Ruins of Ullek at Maisa's camp; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "supply.bcs.camp_tinderbox",
+    "name": "Search Maisa's camp for a tinderbox",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.bcs.maisa_camp",
+    "end_location_id": "location.bcs.maisa_camp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.maisa_ullek_briefing"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 18,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest-provided fallback tool; no need to purchase it if already carried."
+    }
+  },
+  {
+    "id": "supply.bcs.camp_spade",
+    "name": "Take a spade from Maisa's campsite",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.bcs.maisa_camp",
+    "end_location_id": "location.bcs.maisa_camp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.maisa_ullek_briefing"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 18,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest-provided fallback tool; remain a separate action because a player may already carry a spade."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.enter_ullek",
+    "name": "Climb the stairs into the Ruins of Ullek",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.ullek_steps",
+    "end_location_id": "location.bcs.ullek_steps",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.maisa_ullek_briefing"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 37,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Climb the stairs into the Ruins of Ullek; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.ignite_furnace",
+    "name": "Fuel and light the Ullek furnace",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.ullek_furnace",
+    "end_location_id": "location.bcs.ullek_furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.enter_ullek"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coal",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 38,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fuel and light the Ullek furnace; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.search_well",
+    "name": "Find the stone tablet in the Ullek well",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.ullek_well",
+    "end_location_id": "location.bcs.ullek_well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.ignite_furnace"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bcs_stone_tablet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 29,
+      "max_seconds": 66
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Find the stone tablet in the Ullek well; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.read_tablet",
+    "name": "Decode the inscription on the stone tablet",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.ullek_well",
+    "end_location_id": "location.bcs.ullek_well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.search_well"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bcs_stone_tablet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 26,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Decode the inscription on the stone tablet; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.dig_chest",
+    "name": "Dig beside the southernmost ritual pillar",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.ritual_dig",
+    "end_location_id": "location.bcs.ritual_dig",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.read_tablet"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bcs_chest",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 41,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Dig beside the southernmost ritual pillar; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.open_chest",
+    "name": "Open the buried chest with passcode 1118513",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.ritual_dig",
+    "end_location_id": "location.bcs.ritual_dig",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.dig_chest"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bcs_chest",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bcs_scarab_mould",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 31,
+      "max_seconds": 70
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open the buried chest with passcode 1118513; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.forge_emblem",
+    "name": "Cast an iron scarab emblem at the lit furnace",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.ullek_furnace",
+    "end_location_id": "location.bcs.ullek_furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.open_chest"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bcs_scarab_mould",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bcs_scarab_emblem",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 43,
+      "max_seconds": 94
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cast an iron scarab emblem at the lit furnace; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.insert_emblem",
+    "name": "Insert the iron scarab emblem at the northern pillar",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.scarab_pillar",
+    "end_location_id": "location.bcs.scarab_pillar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.forge_emblem"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bcs_scarab_emblem",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 27,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Insert the iron scarab emblem at the northern pillar; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.rotate_scarab",
+    "name": "Rotate the scarab emblem to face downwards",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.scarab_pillar",
+    "end_location_id": "location.bcs.scarab_pillar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.insert_emblem"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.scabaras_dungeon",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 39,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Rotate the scarab emblem to face downwards; interaction time is estimated from pinned helper waypoints."
+    },
+    "planned_outcome": {
+      "success_condition": "Rotate the scarab until its body faces down and pincers up, revealing the stairs.",
+      "if_unmet": "Reopen the scarab dial and rotate again until the entrance opens."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.fight_mages",
+    "name": "Descend and defeat both Scarab Mages",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.mages",
+    "end_location_id": "location.bcs.mages",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.rotate_scarab"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 76,
+      "expected_seconds": 152,
+      "max_seconds": 312
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Descend and defeat both Scarab Mages; interaction time is estimated from pinned helper waypoints."
+    },
+    "planned_outcome": {
+      "success_condition": "Kill both level-119 Scarab Mages; optionally clear the poisonous swarm.",
+      "if_unmet": "Retry from the dungeon entrance with antidote and magic protection."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.pull_first_lever",
+    "name": "Run through the traps and pull the southern lever",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.first_lever",
+    "end_location_id": "location.bcs.first_lever",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.fight_mages"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 27,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Run through the traps and pull the southern lever; interaction time is estimated from pinned helper waypoints."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the southern lever without being trapped or stunned.",
+      "if_unmet": "Restart the trap route after a stun; both levers must be pulled within a minute."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.pull_second_lever",
+    "name": "Pull the northern lever before the first resets",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.second_lever",
+    "end_location_id": "location.bcs.second_lever",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.pull_first_lever"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 29,
+      "max_seconds": 66
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Timed two-lever puzzle; the engine cannot enforce a maximum interval, so the 60-second deadline is a planned outcome."
+    },
+    "planned_outcome": {
+      "success_condition": "Pull the second lever within roughly 60 seconds of the first.",
+      "if_unmet": "The first lever reset; return to it and repeat the fast run through projectile traps."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.inspect_riddle",
+    "name": "Read the randomised Scabaras tomb riddle",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.riddle_urns",
+    "end_location_id": "location.bcs.riddle_urns",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.pull_second_lever"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 78
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Read the randomised Scabaras tomb riddle; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.collect_urn_emblems",
+    "name": "Take all four emblems from the tomb plaque",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.riddle_urns",
+    "end_location_id": "location.bcs.riddle_urns",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.inspect_riddle"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bcs_urn_baboon",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bcs_urn_crocodile",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bcs_urn_scarab",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bcs_urn_human",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take all four emblems from the tomb plaque; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.solve_urn_riddle",
+    "name": "Assign four emblems to the urns using this account's riddle",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.riddle_urns",
+    "end_location_id": "location.bcs.riddle_urns",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.collect_urn_emblems"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bcs_urn_baboon",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bcs_urn_crocodile",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bcs_urn_scarab",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bcs_urn_human",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 98,
+      "max_seconds": 204
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Assign four emblems to the urns using this account's riddle; interaction time is estimated from pinned helper waypoints."
+    },
+    "planned_outcome": {
+      "success_condition": "Read the two plaques and place each emblem in the four urns in the account-specific order.",
+      "if_unmet": "Re-read the plaques and retry the urn placements; no fixed universal combination exists."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.pull_riddle_lever",
+    "name": "Open the tomb passage by pulling the riddle lever",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.riddle_door",
+    "end_location_id": "location.bcs.riddle_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.solve_urn_riddle"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Open the tomb passage by pulling the riddle lever; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.speak_mehhar",
+    "name": "Speak to Mehhar about Osmumten and the incantation",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.mehhar",
+    "end_location_id": "location.bcs.mehhar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.pull_riddle_lever"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 105,
+      "max_seconds": 218
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Mehhar about Osmumten and the incantation; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.take_rusty_key",
+    "name": "Take the rusty key from Mehhar's urn",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.rusty_key",
+    "end_location_id": "location.bcs.rusty_key",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.speak_mehhar"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bcs_rusty_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Take the rusty key from Mehhar's urn; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.unlock_champion_door",
+    "name": "Unlock the Champion of Scabaras door with the rusty key",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.champion_door",
+    "end_location_id": "location.bcs.champion_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.take_rusty_key"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bcs_rusty_key",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.bcs_champion_door",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 32,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Unlock the Champion of Scabaras door with the rusty key; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.defeat_champion",
+    "name": "Defeat the Champion of Scabaras",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.champion_arena",
+    "end_location_id": "location.bcs.champion_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.unlock_champion_door"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 212,
+      "expected_seconds": 425,
+      "max_seconds": 858
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mandatory high-risk combat. Planned win only; run energy, food, poison and incidental XP are not exact."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the level-379 Champion while avoiding shadow bursts, rifts and poison swarms.",
+      "if_unmet": "Re-supply and retry; the champion door remains unlocked on subsequent attempts."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.free_scabaras_priest",
+    "name": "Free the High Priest of Scabaras from Amascut's influence",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.scabaras_priest",
+    "end_location_id": "location.bcs.scabaras_priest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.defeat_champion"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 208
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Free the High Priest of Scabaras from Amascut's influence; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.meet_zahur",
+    "name": "Meet Maisa and Zahur at the Nardah chemist shop",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.zahur",
+    "end_location_id": "location.bcs.zahur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.free_scabaras_priest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 41,
+      "expected_seconds": 83,
+      "max_seconds": 174
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Meet Maisa and Zahur at the Nardah chemist shop; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "supply.bcs.purchase_nardah_meat",
+    "name": "Buy cooked meat at the Nardah General Store",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.bcs.nardah_shop",
+    "end_location_id": "location.bcs.nardah_shop",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.meet_zahur"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 16
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cooked_meat",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Alternative local source for a suitable crocodile offering, if no cooked meat was brought."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.feed_crocodile",
+    "name": "Throw cooked meat to the crocodile at the stepping stones",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.elid_stones",
+    "end_location_id": "location.bcs.elid_stones",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.meet_zahur"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.cooked_meat",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 36,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Throw cooked meat to the crocodile at the stepping stones; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.pick_lily",
+    "name": "Cross the stones and pick the Lily of the Elid",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.lily_island",
+    "end_location_id": "location.bcs.lily_island",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.feed_crocodile"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bcs_lily_of_elid",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 31,
+      "max_seconds": 70
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cross the stones and pick the Lily of the Elid; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.give_lily_zahur",
+    "name": "Hand the Lily of the Elid to Zahur",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.zahur",
+    "end_location_id": "location.bcs.zahur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.pick_lily"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bcs_lily_of_elid",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 98
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand the Lily of the Elid to Zahur; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.chemistry_puzzle",
+    "name": "Set the three heat controls for the pox cure",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.zahur",
+    "end_location_id": "location.bcs.zahur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.give_lily_zahur"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 178
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Set the three heat controls for the pox cure; interaction time is estimated from pinned helper waypoints."
+    },
+    "planned_outcome": {
+      "success_condition": "Set the heat bars to the marked target using the middle and right-hand controls.",
+      "if_unmet": "Read the temperature display and adjust again without assuming one static sequence."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.take_cure_crate",
+    "name": "Collect the finished cure crate from Zahur",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.zahur",
+    "end_location_id": "location.bcs.zahur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.chemistry_puzzle"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bcs_cure_crate",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 32,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the finished cure crate from Zahur; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.deliver_cure",
+    "name": "Deliver the cure crate to the High Priest in Sophanem",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.high_priest",
+    "end_location_id": "location.sophanem.high_priest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.take_cure_crate"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bcs_cure_crate",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 188
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Deliver the cure crate to the High Priest in Sophanem; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.confront_osman",
+    "name": "Return to Maisa and confront Osman at the necropolis",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.maisa_north",
+    "end_location_id": "location.bcs.maisa_north",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.deliver_cure"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 53,
+      "expected_seconds": 106,
+      "max_seconds": 220
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to Maisa and confront Osman at the necropolis; interaction time is estimated from pinned helper waypoints."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.defeat_akh",
+    "name": "Defeat the Menaphite Akh and shadow summon",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.bcs.maisa_north",
+    "end_location_id": "location.bcs.maisa_north",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.confront_osman"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 192,
+      "expected_seconds": 385,
+      "max_seconds": 778
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mandatory final boss; melee and shadow mechanics modeled as one planned-success transition."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the level-351 Menaphite Akh while dodging the lightning attack and identifying her shadow.",
+      "if_unmet": "Retreat, re-gear and talk to Osman by Maisa's campsite to restart the fight."
+    }
+  },
+  {
+    "id": "quest.beneath_cursed_sands.complete",
+    "name": "Return to the Sophanem High Priest for Beneath Cursed Sands rewards",
+    "activity_id": "quest.beneath_cursed_sands",
+    "kind": "quest_stage",
+    "start_location_id": "location.sophanem.high_priest",
+    "end_location_id": "location.sophanem.high_priest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.defeat_akh"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 500000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.keris_partisan",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.circlet_of_water",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.tombs_of_amascut",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.beneath_cursed_sands.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 72,
+      "expected_seconds": 145,
+      "max_seconds": 298
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper/build-242 rewards: 2 QP, 50,000 Agility XP, Keris partisan, water circlet and ToA access; old release XP was lower."
+    }
+  }
+]
