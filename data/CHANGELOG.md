@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.42.0 | Added 25 journal activities, including Dragon Slayer I, the elf and Myreque questlines, Monkey Madness I and II, King Awowogei, Mage Arena II, and The Frozen Door. Monkey Madness II and The Blood Moon Rises still require the catalog routes for Watchtower and A Night at the Theatre, respectively. |
 | 0.41.0 | Added Temple of Ikov, Mage Arena I, five specimen exhibits, an additional Minas report, and Digsite pendant discovery, attunement and diary credit. Connected the Bone Voyage gate and potion supplies. |
 | 0.40.0 | Added The Eyes of Glouphrie, His Faithful Servants, the crystal saw diary task, the Museum Camp construction and fossil claim, four Minas reports, and Varrock Museum clerk XP claims. |
 | 0.39.0 | Added Family Crest, Horror from the Deep, Devious Minds, Family Pest, Bear Your Soul and In Search of Knowledge, with the Lighthouse fairy ring, Law rift, gauntlet claims and god book choices. |

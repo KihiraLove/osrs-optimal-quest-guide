@@ -1,65 +1,23 @@
 [
   {
-    "id": "travel.combat_miniquests.maii.guard.out",
-    "name": "Travel between location.mage_arena.kolodion and location.mage_arena.chamber_guardian",
-    "mode": "walk",
-    "from_location_id": "location.mage_arena.kolodion",
-    "to_location_id": "location.mage_arena.chamber_guardian",
-    "requirements": {
-      "kind": "all",
-      "requirements": []
-    },
-    "consumes": [],
-    "effects": [],
-    "duration": {
-      "min_seconds": 9,
-      "expected_seconds": 18,
-      "max_seconds": 54
-    },
-    "evidence": {
-      "source_ids": [
-        "source.quest_helper.quest_observations",
-        "source.project.travel_timing"
-      ],
-      "status": "estimated",
-      "note": "Approximate walk/door transition; verify route and risk."
-    }
-  },
-  {
-    "id": "travel.combat_miniquests.maii.guard.back",
-    "name": "Travel between location.mage_arena.chamber_guardian and location.mage_arena.kolodion",
-    "mode": "walk",
-    "from_location_id": "location.mage_arena.chamber_guardian",
-    "to_location_id": "location.mage_arena.kolodion",
-    "requirements": {
-      "kind": "all",
-      "requirements": []
-    },
-    "consumes": [],
-    "effects": [],
-    "duration": {
-      "min_seconds": 9,
-      "expected_seconds": 18,
-      "max_seconds": 54
-    },
-    "evidence": {
-      "source_ids": [
-        "source.quest_helper.quest_observations",
-        "source.project.travel_timing"
-      ],
-      "status": "estimated",
-      "note": "Approximate walk/door transition; verify route and risk."
-    }
-  },
-  {
     "id": "travel.combat_miniquests.maii.training.out",
-    "name": "Travel between location.mage_arena.kolodion and location.wilderness.kolodion_duel",
-    "mode": "other",
-    "from_location_id": "location.mage_arena.kolodion",
+    "name": "Walk from the Mage Arena bank lever to the battle mages",
+    "mode": "walk",
+    "from_location_id": "location.wilderness.mage_arena_bank_lever",
     "to_location_id": "location.wilderness.kolodion_duel",
     "requirements": {
       "kind": "all",
-      "requirements": []
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "allow_wilderness_travel",
+          "value": true
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.mage_arena_i.complete"
+        }
+      ]
     },
     "consumes": [],
     "effects": [],
@@ -74,18 +32,24 @@
         "source.project.travel_timing"
       ],
       "status": "estimated",
-      "note": "Mage Arena combat pool and bank/duel access."
+      "note": "Enter the arena's inner ring from the Wilderness side after defeating Kolodion."
     }
   },
   {
     "id": "travel.combat_miniquests.maii.training.back",
-    "name": "Travel between location.wilderness.kolodion_duel and location.mage_arena.kolodion",
-    "mode": "other",
+    "name": "Walk from the battle mages to the Mage Arena bank lever",
+    "mode": "walk",
     "from_location_id": "location.wilderness.kolodion_duel",
-    "to_location_id": "location.mage_arena.kolodion",
+    "to_location_id": "location.wilderness.mage_arena_bank_lever",
     "requirements": {
       "kind": "all",
-      "requirements": []
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "allow_wilderness_travel",
+          "value": true
+        }
+      ]
     },
     "consumes": [],
     "effects": [],
@@ -100,7 +64,7 @@
         "source.project.travel_timing"
       ],
       "status": "estimated",
-      "note": "Mage Arena combat pool and bank/duel access."
+      "note": "Return to the Wilderness lever outside the Mage Arena bank."
     }
   },
   {
@@ -111,7 +75,13 @@
     "to_location_id": "location.maii.zachariah_search",
     "requirements": {
       "kind": "all",
-      "requirements": []
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "allow_wilderness_travel",
+          "value": true
+        }
+      ]
     },
     "consumes": [],
     "effects": [],
@@ -137,7 +107,13 @@
     "to_location_id": "location.wilderness.mage_arena_bank_lever",
     "requirements": {
       "kind": "all",
-      "requirements": []
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "allow_wilderness_travel",
+          "value": true
+        }
+      ]
     },
     "consumes": [],
     "effects": [],
@@ -163,7 +139,13 @@
     "to_location_id": "location.maii.porazdir_search",
     "requirements": {
       "kind": "all",
-      "requirements": []
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "allow_wilderness_travel",
+          "value": true
+        }
+      ]
     },
     "consumes": [],
     "effects": [],
@@ -189,7 +171,13 @@
     "to_location_id": "location.wilderness.mage_arena_bank_lever",
     "requirements": {
       "kind": "all",
-      "requirements": []
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "allow_wilderness_travel",
+          "value": true
+        }
+      ]
     },
     "consumes": [],
     "effects": [],
@@ -215,7 +203,13 @@
     "to_location_id": "location.maii.derwen_search",
     "requirements": {
       "kind": "all",
-      "requirements": []
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "allow_wilderness_travel",
+          "value": true
+        }
+      ]
     },
     "consumes": [],
     "effects": [],
@@ -241,7 +235,13 @@
     "to_location_id": "location.wilderness.mage_arena_bank_lever",
     "requirements": {
       "kind": "all",
-      "requirements": []
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "allow_wilderness_travel",
+          "value": true
+        }
+      ]
     },
     "consumes": [],
     "effects": [],

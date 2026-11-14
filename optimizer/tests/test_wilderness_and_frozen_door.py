@@ -68,6 +68,10 @@ class WildernessAndFrozenDoorTests(unittest.TestCase):
                             for god in ("saradomin", "zamorak", "guthix")))
         self.assertEqual(snap["xp_tenths"]["skill.magic"], 50105000)
         state = self.do(state, MAGE + ".start")
+        snap = state.snapshot()
+        self.assertEqual(snap["inventory"].pop("item.maii_enchanted_symbol"), 1)
+        with self.assertRaises(DataError):
+            self.do(RouteState(self.tables, state.policies, snap), MAGE + ".track_zachariah")
         for boss in ("zachariah", "porazdir", "derwen"):
             state = self.do(state, f"{MAGE}.track_{boss}")
             state = self.do(state, f"{MAGE}.defeat_{boss}")
@@ -95,6 +99,25 @@ class WildernessAndFrozenDoorTests(unittest.TestCase):
         state = self.seed(["miniquest.mage_arena_i.complete"])
         with self.assertRaises(DataError):
             self.do(state, MAGE + ".start")
+
+    def test_mage_arena_access_uses_the_pool_and_wilderness_lever(self):
+        pool = "location.mage_arena.sparkling_pool"
+        chamber = "travel.other.mage_arena_i.enter_statue_chamber"
+        with self.assertRaises(DataError):
+            self.travel(self.at(self.seed(), pool), chamber)
+        earlier = ["miniquest.mage_arena_i.complete"]
+        state = self.travel(self.at(self.seed(earlier), pool), chamber)
+        self.assertEqual(state.location, "location.mage_arena.god_statues")
+
+        lever = "location.wilderness.mage_arena_bank_lever"
+        edge = "travel.combat_miniquests.maii.training.out"
+        with self.assertRaises(DataError):
+            self.travel(self.at(self.seed(), lever), edge)
+        state = self.at(self.seed(earlier), lever)
+        policies = {**state.policies, "allow_wilderness_travel": False}
+        with self.assertRaises(DataError):
+            self.travel(RouteState(self.tables, policies, state.snapshot()), edge)
+        self.assertEqual(self.travel(state, edge).location, "location.wilderness.kolodion_duel")
 
     def test_frozen_door_four_generals_consumed_key_and_unlock(self):
         state = self.seed(["quest.troll_stronghold.complete"])
