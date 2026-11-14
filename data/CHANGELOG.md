@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.41.0 | Added Temple of Ikov, Mage Arena I, five specimen exhibits, an additional Minas report, and Digsite pendant discovery, attunement and diary credit. Connected the Bone Voyage gate and potion supplies. |
 | 0.40.0 | Added The Eyes of Glouphrie, His Faithful Servants, the crystal saw diary task, the Museum Camp construction and fossil claim, four Minas reports, and Varrock Museum clerk XP claims. |
 | 0.39.0 | Added Family Crest, Horror from the Deep, Devious Minds, Family Pest, Bear Your Soul and In Search of Knowledge, with the Lighthouse fairy ring, Law rift, gauntlet claims and god book choices. |
 | 0.38.0 | Added seven quests and the Vale Totems miniquest, the Cowbell amulet and Gillie lamp claim, Aldarin ferry and charters, and the Costume needle claim. |
@@ -46,5 +47,5 @@ entries use the 3 November build 242 snapshot.
 | 0.2.0 | Added the first quest actions and the pinned Quest Helper observations. |
 | 0.1.0 | Recorded the independent quest, skill, diary and optional content inventory for build 242. |
 
-The coverage audit records the release blockers for 0.40.0. The normalizer and
+The coverage audit records the release blockers for 0.41.0. The normalizer and
 audit use the existing dataset version.

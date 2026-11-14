@@ -1,0 +1,2513 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_ikov_supplies",
+    "name": "Buy Temple of Ikov supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 18000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.yew_shortbow",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.limpwurt_root",
+        "quantity": 20
+      },
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.unlit_candle",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Purchase an estimated supply bundle at the Grand Exchange.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.temple_of_ikov.light_candle",
+    "name": "Light the candle before descending into the Temple of Ikov",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.temple_of_ikov.surface_ladder",
+    "end_location_id": "location.temple_of_ikov.surface_ladder",
+    "requirements": {
+      "kind": "item",
+      "item_id": "item.tinderbox",
+      "quantity": 1
+    },
+    "consumes": [
+      {
+        "item_id": "item.unlit_candle",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lit_candle",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 1,
+      "expected_seconds": 2,
+      "max_seconds": 5
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.temple_of_ikov_walkthrough",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use a tinderbox on the unlit candle to prepare a light source for the cellar.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.temple_of_ikov.collect_boots",
+    "name": "Cut the web and take Boots of lightness",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.temple_of_ikov.dark_cellar",
+    "end_location_id": "location.temple_of_ikov.dark_cellar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.boots_of_lightness",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Cut the web with a knife and pick up the boots with a light source. The pickup can occur before starting the quest.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.start",
+    "name": "Ask Lucien about the Staff of Armadyl",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.flying_horse_inn",
+    "end_location_id": "location.ardougne.flying_horse_inn",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pendant_of_lucien",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 32,
+      "max_seconds": 69
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Lucien at the Flying Horse Inn.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.retrieve_bridge_lever",
+    "name": "Cross the bridge and retrieve the lever",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.temple_of_ikov.main_hall",
+    "end_location_id": "location.temple_of_ikov.bridge_lever",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.boots_of_lightness",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pendant_of_lucien",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ikov_lever",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Equip Boots of lightness and keep carried weight below zero. Leave heavier equipment at a bank if necessary.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Cross the bridge with negative weight and take the lever.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.repair_lever",
+    "name": "Fit and pull the lever",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.temple_of_ikov.lever_bracket",
+    "end_location_id": "location.temple_of_ikov.lever_bracket",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.retrieve_bridge_lever"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ikov_lever",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Install the lever in the bracket and pull it.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.collect_ice_arrows",
+    "name": "Search the chests for ice arrows",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.temple_of_ikov.ice_room_gate",
+    "end_location_id": "location.temple_of_ikov.ice_room_gate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.repair_lever"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ice_arrow",
+        "quantity": 30
+      }
+    ],
+    "duration": {
+      "min_seconds": 79,
+      "expected_seconds": 175,
+      "max_seconds": 376
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use the south gate and search changing chests until the reserve is ready. Return to the gate.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Collect at least 30 ice arrows before leaving the room.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.search_trap_lever",
+    "name": "Search the northern lever for traps",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.temple_of_ikov.trapped_lever",
+    "end_location_id": "location.temple_of_ikov.trapped_lever",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.collect_ice_arrows"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 42,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 14,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Search the lever to disable the trap before pulling it.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.pull_trap_lever",
+    "name": "Pull the searched lever",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.temple_of_ikov.trapped_lever",
+    "end_location_id": "location.temple_of_ikov.trapped_lever",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.search_trap_lever"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 17
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Pull the lever to open the northern passage.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.defeat_lesarkus",
+    "name": "Defeat Lesarkus with ice arrows",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.temple_of_ikov.lesarkus",
+    "end_location_id": "location.temple_of_ikov.lesarkus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.pull_trap_lever"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.ranged",
+          "minimum_level": 40,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.yew_shortbow",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ice_arrow",
+        "quantity": 30
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 46,
+      "expected_seconds": 102,
+      "max_seconds": 219
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use a yew shortbow and ice arrows. The route reserves the whole bundle and excludes variable combat XP.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Fire Warrior with ice arrows. Refill the reserve if the fight takes longer.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.give_roots_to_winelda",
+    "name": "Give Winelda 20 limpwurt roots",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.temple_of_ikov.winelda",
+    "end_location_id": "location.temple_of_ikov.shiny_key",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.defeat_lesarkus"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.limpwurt_root",
+        "quantity": 20
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Hand over 20 unnoted roots and cross to the far side of the lava.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.collect_shiny_key",
+    "name": "Pick up the shiny key",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.temple_of_ikov.shiny_key",
+    "end_location_id": "location.temple_of_ikov.shiny_key",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.give_roots_to_winelda"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ikov_shiny_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Take the shiny key for the McGrubor's Wood shortcut.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.join_guardians",
+    "name": "Side with the Guardians of Armadyl",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.temple_of_ikov.guardians",
+    "end_location_id": "location.temple_of_ikov.guardians",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.collect_shiny_key"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.temple_of_ikov.allegiance_chosen",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.armadyl_pendant",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.temple_of_ikov.allegiance_chosen",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.temple_of_ikov.sided_with_guardians",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 34,
+      "max_seconds": 73
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Remove Lucien's pendant, offer to help and take the Armadyl pendant.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.steal_staff",
+    "name": "Steal the Staff of Armadyl for Lucien",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.temple_of_ikov.guardians",
+    "end_location_id": "location.temple_of_ikov.guardians",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.collect_shiny_key"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.temple_of_ikov.allegiance_chosen",
+          "value": false
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.staff_of_armadyl",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.temple_of_ikov.allegiance_chosen",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 65,
+      "max_seconds": 140
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Take the staff from its chamber and defeat the Guardian that opposes you.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Leave the chamber with the Staff of Armadyl.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.defeat_lucien",
+    "name": "Defeat Lucien with the Armadyl pendant",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.lucien_house",
+    "end_location_id": "location.varrock.lucien_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.join_guardians"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.armadyl_pendant",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_shortsword",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.bronze_dagger",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.silverlight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.darklight",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.excalibur",
+              "quantity": 1
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "skill",
+                  "skill_id": "skill.attack",
+                  "minimum_level": 5,
+                  "boostable": false
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.iron_scimitar",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "item",
+                  "item_id": "item.shortbow",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.bronze_arrow",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "kind": "all",
+              "requirements": [
+                {
+                  "kind": "flag",
+                  "token_id": "flag.spellbook.standard",
+                  "value": true
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.air_rune",
+                  "quantity": 1
+                },
+                {
+                  "kind": "item",
+                  "item_id": "item.mind_rune",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 45,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Wear the Armadyl pendant and defeat Lucien at his Varrock house.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Lucien.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.deliver_staff",
+    "name": "Deliver the Staff of Armadyl to Lucien",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.lucien_house",
+    "end_location_id": "location.varrock.lucien_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.steal_staff"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.staff_of_armadyl",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Give Lucien the staff at his Varrock house.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "quest.temple_of_ikov.complete",
+    "name": "Record the chosen Temple of Ikov ending",
+    "activity_id": "quest.temple_of_ikov",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.lucien_house",
+    "end_location_id": "location.varrock.lucien_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "quest.temple_of_ikov.defeat_lucien"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.temple_of_ikov.deliver_staff"
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.ranged",
+        "xp_tenths": 105000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fletching",
+        "xp_tenths": 80000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.temple_of_ikov.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 1,
+      "expected_seconds": 1,
+      "max_seconds": 2
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.temple_of_ikov",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Record the quest reward after the chosen final interaction.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "museum.history.staff_of_armadyl",
+    "name": "Report the Staff of Armadyl to Historian Minas",
+    "activity_id": null,
+    "kind": "museum",
+    "start_location_id": "location.varrock_museum.historian_minas",
+    "end_location_id": "location.varrock_museum.historian_minas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.museum.kudos",
+        "delta": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_museum_history",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Report the events of Temple of Ikov to earn five kudos.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_kolodion_combat_supplies",
+    "name": "Buy Kolodion combat supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 26000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.staff_of_air",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.death_rune",
+        "quantity": 120
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fire_rune",
+        "quantity": 600
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Purchase an estimated supply bundle at the Grand Exchange.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.mage_arena_i.start",
+    "name": "Accept Kolodion's duel",
+    "activity_id": "miniquest.mage_arena_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.mage_arena.kolodion",
+    "end_location_id": "location.wilderness.kolodion_duel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "allow_wilderness_travel",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.staff_of_air",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.death_rune",
+          "quantity": 120
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fire_rune",
+          "quantity": 600
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 29,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mage_arena_i",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Speak to Kolodion at base level 60 Magic and accept his challenge. He transports you to the duel.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "miniquest.mage_arena_i.complete",
+    "name": "Defeat all five forms of Kolodion",
+    "activity_id": "miniquest.mage_arena_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.wilderness.kolodion_duel",
+    "end_location_id": "location.wilderness.mage_arena_bank_lever",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.mage_arena_i.start"
+        },
+        {
+          "kind": "policy",
+          "name": "allow_wilderness_travel",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 59,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.staff_of_air",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.death_rune",
+        "quantity": 120
+      },
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 600
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.mage_arena_i_chamber",
+        "value": true
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 1725
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.miniquest.mage_arena_i.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 266,
+      "expected_seconds": 590,
+      "max_seconds": 1268
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mage_arena_i",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use Fire Blast with a staff of air and a suitable supply of healing or prayer restoration. The plan debits a 120-cast reserve. After the fifth form, use the nearby lever to return to the Mage Arena bank.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat human, ogre, spider, ghost and demon Kolodion. If the reserve runs out, restock before continuing.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "claim.mage_arena_i.saradomin_cape",
+    "name": "Claim the Saradomin cape",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.mage_arena.god_statues",
+    "end_location_id": "location.mage_arena.god_statues",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.mage_arena_i.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.mage_arena_i.first_cape_claimed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mage_arena_saradomin_cape",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.mage_arena_i.first_cape_claimed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.mage_arena_i_walkthrough",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Pray at the corresponding statue and pick up the cape.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "claim.mage_arena_i.saradomin_staff",
+    "name": "Claim the free Saradomin staff",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.mage_arena.chamber_guardian",
+    "end_location_id": "location.mage_arena.chamber_guardian",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.mage_arena_i.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mage_arena_saradomin_cape",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.mage_arena_i.free_staff_claimed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mage_arena_saradomin_staff",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.mage_arena_i.free_staff_claimed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mage_arena_i",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to the Chamber Guardian with the chosen cape.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "claim.mage_arena_i.guthix_cape",
+    "name": "Claim the Guthix cape",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.mage_arena.god_statues",
+    "end_location_id": "location.mage_arena.god_statues",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.mage_arena_i.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.mage_arena_i.first_cape_claimed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mage_arena_guthix_cape",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.mage_arena_i.first_cape_claimed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.mage_arena_i_walkthrough",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Pray at the corresponding statue and pick up the cape.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "claim.mage_arena_i.guthix_staff",
+    "name": "Claim the free Guthix staff",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.mage_arena.chamber_guardian",
+    "end_location_id": "location.mage_arena.chamber_guardian",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.mage_arena_i.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mage_arena_guthix_cape",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.mage_arena_i.free_staff_claimed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mage_arena_guthix_staff",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.mage_arena_i.free_staff_claimed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mage_arena_i",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to the Chamber Guardian with the chosen cape.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "claim.mage_arena_i.zamorak_cape",
+    "name": "Claim the Zamorak cape",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.mage_arena.god_statues",
+    "end_location_id": "location.mage_arena.god_statues",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.mage_arena_i.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.mage_arena_i.first_cape_claimed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mage_arena_zamorak_cape",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.mage_arena_i.first_cape_claimed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.mage_arena_i_walkthrough",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Pray at the corresponding statue and pick up the cape.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "claim.mage_arena_i.zamorak_staff",
+    "name": "Claim the free Zamorak staff",
+    "activity_id": null,
+    "kind": "reward_claim",
+    "start_location_id": "location.mage_arena.chamber_guardian",
+    "end_location_id": "location.mage_arena.chamber_guardian",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.mage_arena_i.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mage_arena_zamorak_cape",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.mage_arena_i.free_staff_claimed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mage_arena_zamorak_staff",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.mage_arena_i.free_staff_claimed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.mage_arena_i",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Talk to the Chamber Guardian with the chosen cape.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.museum.take_specimen_tools",
+    "name": "Take the museum's specimen tools and protective gear",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock_museum.specimen_table",
+    "end_location_id": "location.varrock_museum.specimen_table",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rock_pick",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.specimen_brush",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.trowel",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.leather_boots",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.leather_gloves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 21,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Take the available tools and wear the boots and gloves to clean finds.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.museum.clean_pottery",
+    "name": "Clean specimens until you find the pottery",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock_museum.specimen_table",
+    "end_location_id": "location.varrock_museum.specimen_table",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rock_pick",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.specimen_brush",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.trowel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.museum_pottery",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 56,
+      "expected_seconds": 125,
+      "max_seconds": 269
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Take uncleaned finds and use the specimen table while wearing the protective gear. This is an estimated share of the time for cleaning all five exhibit finds.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Find one pottery before moving to its case.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "museum.find.pottery",
+    "name": "Put the pottery in display case 22",
+    "activity_id": null,
+    "kind": "museum",
+    "start_location_id": "location.varrock_museum.specimen_displays",
+    "end_location_id": "location.varrock_museum.specimen_displays",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.museum_pottery",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.museum.kudos",
+        "delta": 10
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing",
+        "source.runelite.varbits",
+        "source.field.varrock_museum_history"
+      ],
+      "note": "Identify the find with an archaeologist if needed. Deposit it into display case 22 for ten kudos.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.museum.clean_symbol_old",
+    "name": "Clean specimens until you find the old symbol",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock_museum.specimen_table",
+    "end_location_id": "location.varrock_museum.specimen_table",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rock_pick",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.specimen_brush",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.trowel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.museum_symbol_old",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 56,
+      "expected_seconds": 125,
+      "max_seconds": 269
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Take uncleaned finds and use the specimen table while wearing the protective gear. This is an estimated share of the time for cleaning all five exhibit finds.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Find one old symbol before moving to its case.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "museum.find.symbol_old",
+    "name": "Put the old symbol in display case 36",
+    "activity_id": null,
+    "kind": "museum",
+    "start_location_id": "location.varrock_museum.specimen_displays",
+    "end_location_id": "location.varrock_museum.specimen_displays",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.museum_symbol_old",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.museum.kudos",
+        "delta": 10
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing",
+        "source.runelite.varbits",
+        "source.field.varrock_museum_history"
+      ],
+      "note": "Identify the find with an archaeologist if needed. Deposit it into display case 36 for ten kudos.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.museum.clean_symbol_anc",
+    "name": "Clean specimens until you find the ancient symbol",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock_museum.specimen_table",
+    "end_location_id": "location.varrock_museum.specimen_table",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rock_pick",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.specimen_brush",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.trowel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.museum_symbol_anc",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 56,
+      "expected_seconds": 125,
+      "max_seconds": 269
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Take uncleaned finds and use the specimen table while wearing the protective gear. This is an estimated share of the time for cleaning all five exhibit finds.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Find one ancient symbol before moving to its case.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "museum.find.symbol_anc",
+    "name": "Put the ancient symbol in display case 37",
+    "activity_id": null,
+    "kind": "museum",
+    "start_location_id": "location.varrock_museum.specimen_displays",
+    "end_location_id": "location.varrock_museum.specimen_displays",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.museum_symbol_anc",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.museum.kudos",
+        "delta": 10
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing",
+        "source.runelite.varbits",
+        "source.field.varrock_museum_history"
+      ],
+      "note": "Identify the find with an archaeologist if needed. Deposit it into display case 37 for ten kudos.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.museum.clean_coin_senn",
+    "name": "Clean specimens until you find the ancient coin",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock_museum.specimen_table",
+    "end_location_id": "location.varrock_museum.specimen_table",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rock_pick",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.specimen_brush",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.trowel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.museum_coin_senn",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 56,
+      "expected_seconds": 125,
+      "max_seconds": 269
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Take uncleaned finds and use the specimen table while wearing the protective gear. This is an estimated share of the time for cleaning all five exhibit finds.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Find one ancient coin before moving to its case.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "museum.find.coin_senn",
+    "name": "Put the ancient coin in display case 44",
+    "activity_id": null,
+    "kind": "museum",
+    "start_location_id": "location.varrock_museum.specimen_displays",
+    "end_location_id": "location.varrock_museum.specimen_displays",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.museum_coin_senn",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.museum.kudos",
+        "delta": 10
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing",
+        "source.runelite.varbits",
+        "source.field.varrock_museum_history"
+      ],
+      "note": "Identify the find with an archaeologist if needed. Deposit it into display case 44 for ten kudos.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.museum.clean_coin_sara",
+    "name": "Clean specimens until you find the old coin",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock_museum.specimen_table",
+    "end_location_id": "location.varrock_museum.specimen_table",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rock_pick",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.specimen_brush",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.trowel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.museum_coin_sara",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 56,
+      "expected_seconds": 125,
+      "max_seconds": 269
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Take uncleaned finds and use the specimen table while wearing the protective gear. This is an estimated share of the time for cleaning all five exhibit finds.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Find one old coin before moving to its case.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "museum.find.coin_sara",
+    "name": "Put the old coin in display case 45",
+    "activity_id": null,
+    "kind": "museum",
+    "start_location_id": "location.varrock_museum.specimen_displays",
+    "end_location_id": "location.varrock_museum.specimen_displays",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.museum_coin_sara",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.museum.kudos",
+        "delta": 10
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing",
+        "source.runelite.varbits",
+        "source.field.varrock_museum_history"
+      ],
+      "note": "Identify the find with an archaeologist if needed. Deposit it into display case 45 for ten kudos.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.museum.clean_necklace",
+    "name": "Find a clean necklace while cleaning specimens",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock_museum.specimen_table",
+    "end_location_id": "location.varrock_museum.specimen_table",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rock_pick",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.specimen_brush",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.trowel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.museum_clean_necklace",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 148,
+      "expected_seconds": 330,
+      "max_seconds": 710
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Clean finds until the untradeable clean necklace appears. The timing is an estimate for the variable drop.",
+      "status": "estimated"
+    },
+    "planned_outcome": {
+      "success_condition": "Obtain a clean necklace.",
+      "if_unmet": "Allow additional time and prepare for another attempt."
+    }
+  },
+  {
+    "id": "museum.find.digsite_pendant",
+    "name": "Show the clean necklace to a museum archaeologist",
+    "activity_id": null,
+    "kind": "museum",
+    "start_location_id": "location.varrock_museum.specimen_table",
+    "end_location_id": "location.varrock_museum.specimen_table",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_dig_site.complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.museum_clean_necklace",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.digsite_pendant_enchantment",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Hand in the clean necklace to learn the ruby necklace enchantment.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_digsite_pendant_enchant_supplies",
+    "name": "Buy supplies to enchant a Digsite pendant",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1600
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ruby_necklace",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cosmic_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fire_rune",
+        "quantity": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Purchase an estimated supply bundle at the Grand Exchange.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.digsite_pendant.enchant_ruby_necklace",
+    "name": "Cast level-3 enchant on a ruby necklace",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock_museum.specimen_table",
+    "end_location_id": "location.varrock_museum.specimen_table",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.digsite_pendant_enchantment",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 49,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ruby_necklace",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.cosmic_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.digsite_pendant_5",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 590
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 6,
+      "max_seconds": 13
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_specimen_cleaning",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Cast the standard spell after learning it from the archaeologist. A new pendant has five charges.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "transport.fossil_island.digsite_pendant",
+    "name": "Attune the Digsite pendant at the strange machine",
+    "activity_id": null,
+    "kind": "transport_unlock",
+    "start_location_id": "location.fossil_island.strange_machine",
+    "end_location_id": "location.fossil_island.strange_machine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.fossil_island",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.digsite_pendant_enchantment",
+          "value": true
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.digsite_pendant_1",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.digsite_pendant_2",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.digsite_pendant_3",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.digsite_pendant_4",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.digsite_pendant_5",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.digsite_pendant_fossil_island",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 17,
+      "max_seconds": 37
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.fossil_island_pendant_attunement",
+        "source.project.early_quest_timing"
+      ],
+      "note": "Use the charged pendant on the strange machine after Bone Voyage. Attunement unlocks the island destination.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "diary.varrock.medium.task.varp_1176_22",
+    "name": "Record the Digsite pendant diary task",
+    "activity_id": null,
+    "kind": "diary_task",
+    "start_location_id": "location.digsite.pendant_arrival",
+    "end_location_id": "location.digsite.pendant_arrival",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.varrock.medium.task.varp_1176_22",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 0,
+      "expected_seconds": 0,
+      "max_seconds": 0
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.project.early_quest_timing"
+      ],
+      "note": "The diary task registers on arrival when the pendant is used to teleport to the Digsite.",
+      "status": "estimated"
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_bone_voyage_potion_supplies",
+    "name": "Buy Bone Voyage potion supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2100
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.vodka",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.marrentill_potion_unf",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 22,
+      "max_seconds": 47
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing",
+        "source.quest_helper.bone_voyage"
+      ],
+      "note": "Purchase an estimated supply bundle at the Grand Exchange.",
+      "status": "estimated"
+    }
+  }
+]
