@@ -1,0 +1,41 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "collected",
+  "activity_ids": ["quest.enakhras_lament"],
+  "helper_file": "src/main/java/com/questhelper/helpers/quests/enakhraslament/EnakhrasLament.java",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.project.early_quest_timing",
+    "source.project.travel_timing",
+    "source.runelite.magic_calculator",
+    "source.jagex.grand_exchange_catalogue"
+  ],
+  "observations": {
+    "route": "Build Lazim's camel statue by delivering exactly 32kg and then 20kg sandstone, shaping both parts, chiselling a 5kg granite camel head and opening the buried temple. Below, remove four limbs from the broken statue, recover its head, collect M/Z/K/R sigils and fit them to the central doors. At the middle-floor head puzzle, mould soft clay, chisel another 5kg granite head and fit it; feed Pentyn, cast an air spell into the furnace, melt the ice with fire, use six distinct fuels in six braziers, and pass the four-orb barrier. Finish the upper boneguard with Crumble Undead, use Protect from Melee during the lower conversation, build a wall from three pieces of rubble sandstone and speak to Akthanakos.",
+    "main_skill_requirements": [
+      {"skill_id": "skill.crafting", "level": 50, "boostable": false},
+      {"skill_id": "skill.firemaking", "level": 45, "boostable": true},
+      {"skill_id": "skill.prayer", "level": 43, "boostable": false},
+      {"skill_id": "skill.magic", "level": 39, "boostable": false}
+    ],
+    "optional_mining_skill_requirements": [
+      {"skill_id": "skill.mining", "level": 35, "boostable": true, "source": "sandstone"},
+      {"skill_id": "skill.mining", "level": 45, "boostable": true, "source": "5kg granite"}
+    ],
+    "stone_sizes": "A precise 32kg statue base is modeled as 3x10kg sandstone plus 1x2kg; the 20kg body uses 2x10kg. Two more 5kg granite pieces are required, one for the outer head and one for the inner head puzzle.",
+    "puzzle_and_casts": "The finite forecast uses one successful Wind Bolt, Fire Bolt and Crumble Undead cast with their minimum base XP of 13.5, 22.5 and 24.5. These consume 7 air, 4 fire, 2 earth and 3 chaos runes in total. It does not assume combat damage XP.",
+    "completion_rewards": "The final Akthanakos exchange awards two quest points, 7,000 XP each in Crafting, Mining, Firemaking and Magic, and a Camulet with four teleport charges. Normal teleports debit one charge each. A separate one-million-coin optional upgrade removes that cost; a camel mask is a separate postquest craft."
+  },
+  "pending_reviews": [
+    "The 52kg stone path is a deterministic size-specific purchase or a forecast of successful quarry mining. Quarry drop size variation, banking trips and 28-slot inventory packing need independent gameplay verification.",
+    "The GE bundle is an estimated 25,000-coin transaction, not a timestamped quote. Alternative mining supply steps require the actual quarry outputs and incidental Mining XP to be reconciled.",
+    "The current helper stage selection supplies approximate dungeon coordinates, but the exact four statue-limb door interactions, sigil order and central-letter puzzle need path and UI verification.",
+    "The elemental puzzle spells may allow staves or alternative bolt, blast, wave or surge spells. This route chooses minimum Wind/Fire Bolt and one successful Crumble Undead. Its exact XP and rune use must be reconciled for staff or splash alternatives.",
+    "Incidental XP from shaping stone, lighting braziers, mining or repairing the wall and damage/Prayer-point loss while confronting the boneguard are not modeled as fixed grants.",
+    "The camel-mask repeatability and camulet recharges with camel dung are not represented by unlimited one-time supply loops. The 1,000,000-coin upgrade is explicitly optional and the normal four charges are finite.",
+    "The current stage gate includes the Quest Helper's 45 Firemaking requirement, though the braziers may be solved by guesswork at lower levels. Verify whether it is truly mandatory before marking gameplay reviewed.",
+    "Desert heat, waterskins, gear and external teleport methods are omitted from the core route, as in several earlier desert batches; path timings and inventory pressure remain estimates."
+  ],
+  "focused_replay": "optimizer/tests/test_enakhras_lament.py",
+  "independent_review": "pending"
+}

@@ -6516,5 +6516,40 @@
       ]
     },
     "note": "Reading the awarded scroll, not merely finishing the quest, unlocks the level-58 Watchtower Teleport spell."
+  },
+  {
+    "id": "review.quest.enakhras_lament.completion_rewards",
+    "activity_id": "quest.enakhras_lament",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.enakhras_lament.complete"],
+    "expected_effects": {
+      "quest.enakhras_lament.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 2},
+        {"kind": "xp", "skill_id": "skill.crafting", "xp_tenths": 70000},
+        {"kind": "xp", "skill_id": "skill.mining", "xp_tenths": 70000},
+        {"kind": "xp", "skill_id": "skill.firemaking", "xp_tenths": 70000},
+        {"kind": "xp", "skill_id": "skill.magic", "xp_tenths": 70000},
+        {"kind": "item", "item_id": "item.camulet", "quantity": 1},
+        {"kind": "counter", "token_id": "charge.enakhra_camulet", "delta": 4}
+      ]
+    },
+    "note": "Two quest points, 7,000 XP in four skills and a four-charge Camulet, independent of the optional mask and charging upgrade."
+  },
+  {
+    "id": "review.quest.enakhras_lament.optional_rewards",
+    "activity_id": "quest.enakhras_lament",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.enakhras_lament.make_camel_mask", "quest.enakhras_lament.upgrade_camulet"],
+    "expected_effects": {
+      "quest.enakhras_lament.make_camel_mask": [
+        {"kind": "item", "item_id": "item.camel_mask", "quantity": 1}
+      ],
+      "quest.enakhras_lament.upgrade_camulet": [
+        {"kind": "flag", "token_id": "unlock.enakhra_camulet_unlimited", "value": true}
+      ]
+    },
+    "note": "Separate optional camel mask creation and 1,000,000-coin perpetual Camulet upgrade. Recharging normal charges with camel dung remains outside the finite draft."
   }
 ]

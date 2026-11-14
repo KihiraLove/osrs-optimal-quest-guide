@@ -1,0 +1,2029 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_enakhra_bundle",
+    "name": "Buy Enakhra sandstone, granite, logs and puzzle materials",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 25000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.sandstone_10kg",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.sandstone_2kg",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.granite_5kg",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.soft_clay",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bread",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.chisel",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lit_candle",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coal",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.oak_logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.willow_logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.maple_logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.air_rune",
+        "quantity": 7
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fire_rune",
+        "quantity": 4
+      },
+      {
+        "kind": "item",
+        "item_id": "item.earth_rune",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.chaos_rune",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rune_pickaxe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 66,
+      "expected_seconds": 110,
+      "max_seconds": 253
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.starter_economy"
+      ],
+      "status": "estimated",
+      "note": "25,000 GP bundled estimate, not a quote. Allows the quest without optional quarry Mining gates; 5x10kg+1x2kg sandstone supplies 32kg and 20kg."
+    }
+  },
+  {
+    "id": "supply.enakhra.mine_sandstone",
+    "name": "Mine enough sandstone for the 32kg base and 20kg body",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.enakhra.quarry",
+    "end_location_id": "location.enakhra.quarry",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 35,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rune_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.sandstone_10kg",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.sandstone_2kg",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 126,
+      "expected_seconds": 210,
+      "max_seconds": 483
+    },
+    "repeat_limit": 1,
+    "planned_outcome": {
+      "success_condition": "Mine and keep the required 10kg and 2kg sandstone sizes, discarding or banking other sizes.",
+      "if_unmet": "Continue mining or obtain the missing weights by trading; the ore-size distribution is variable."
+    },
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Conservative successful mining forecast for exact sandstone weights; random rock sizes and mining XP are excluded."
+    }
+  },
+  {
+    "id": "supply.enakhra.mine_granite",
+    "name": "Mine two 5kg granite blocks for the two camel heads",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.enakhra.quarry",
+    "end_location_id": "location.enakhra.quarry",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 45,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rune_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.granite_5kg",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 63,
+      "expected_seconds": 105,
+      "max_seconds": 241
+    },
+    "repeat_limit": 1,
+    "planned_outcome": {
+      "success_condition": "Obtain two 5kg granite rocks by mining, without a mistaken lighter rock.",
+      "if_unmet": "Keep mining or buy the correct granite weights; measure incidental XP."
+    },
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Optional in-place granite mining or purchase from the GE; rock sizes and incidental mining XP require review."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.start",
+    "name": "Talk to Lazim at the desert camel statue site",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.lazim",
+    "end_location_id": "location.enakhra.lazim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 50,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 45,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.prayer",
+          "minimum_level": 43,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 39,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper lists 50 Crafting, 45 Firemaking, 43 Prayer and 39 Magic for the quest; tradeable stone avoids additional Mining requirements."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.give_base_sandstone",
+    "name": "Deliver exactly 32kg sandstone for the base",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.lazim",
+    "end_location_id": "location.enakhra.lazim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sandstone_10kg",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.sandstone_2kg",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_sandstone_base",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Deliver exactly 32kg sandstone for the base"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.chisel_base",
+    "name": "Chisel the 32kg sandstone into a statue base",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.statue",
+    "end_location_id": "location.enakhra.statue",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.give_base_sandstone"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.enakhra_sandstone_base",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_statue_base",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Chisel the 32kg sandstone into a statue base"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.place_base",
+    "name": "Put the camel statue base in position",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.statue",
+    "end_location_id": "location.enakhra.statue",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.chisel_base"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.enakhra_statue_base",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Put the camel statue base in position"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.give_body_sandstone",
+    "name": "Give Lazim another exact 20kg of sandstone",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.lazim",
+    "end_location_id": "location.enakhra.lazim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.place_base"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sandstone_10kg",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_sandstone_body",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Lazim another exact 20kg of sandstone"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.chisel_body",
+    "name": "Chisel the 20kg block into the statue's torso",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.statue",
+    "end_location_id": "location.enakhra.statue",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.give_body_sandstone"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.enakhra_sandstone_body",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_statue_body",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Chisel the 20kg block into the statue's torso"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.place_body",
+    "name": "Fit the sandstone body above the base",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.statue",
+    "end_location_id": "location.enakhra.statue",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.chisel_body"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.enakhra_statue_body",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fit the sandstone body above the base"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.ask_head",
+    "name": "Ask Lazim about the camel statue's head",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.lazim",
+    "end_location_id": "location.enakhra.lazim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.place_body"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Lazim about the camel statue's head"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.chisel_first_head",
+    "name": "Shape the first 5kg granite head",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.statue",
+    "end_location_id": "location.enakhra.statue",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.ask_head"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.granite_5kg",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_granite_head",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Shape the first 5kg granite head"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.place_first_head",
+    "name": "Install the camel head and uncover the temple",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.statue",
+    "end_location_id": "location.enakhra.statue",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.chisel_first_head"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.enakhra_granite_head",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Install the camel head and uncover the temple"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.enter_temple",
+    "name": "Speak to Lazim and fall through the opened statue",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.temple_entrance",
+    "end_location_id": "location.enakhra.temple_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.place_first_head"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.enakhra_temple",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "First entry drops into the underground temple; the exit to the surface stays available afterward."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.meet_lazim_below",
+    "name": "Speak to Lazim below the temple statue",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.bottom_lazim",
+    "end_location_id": "location.enakhra.bottom_lazim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.enter_temple"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to Lazim below the temple statue"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.chisel_four_limbs",
+    "name": "Remove the fallen statue's four limbs",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.fallen_statue",
+    "end_location_id": "location.enakhra.fallen_statue",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.meet_lazim_below"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_statue_limbs",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 42,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Remove the fallen statue's four limbs"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.recover_stone_head",
+    "name": "Ask Lazim for the recovered stone head",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.bottom_lazim",
+    "end_location_id": "location.enakhra.bottom_lazim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.chisel_four_limbs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_stone_head",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Lazim for the recovered stone head"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.sigil_m",
+    "name": "Collect the M sigil from its temple pedestal",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.sigil_m",
+    "end_location_id": "location.enakhra.sigil_m",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.recover_stone_head"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enakhra_statue_limbs",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_sigil_m",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the M sigil from its temple pedestal"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.sigil_z",
+    "name": "Collect the Z sigil from its temple pedestal",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.sigil_z",
+    "end_location_id": "location.enakhra.sigil_z",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.sigil_m"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enakhra_statue_limbs",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_sigil_z",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the Z sigil from its temple pedestal"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.sigil_k",
+    "name": "Collect the K sigil from its temple pedestal",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.sigil_k",
+    "end_location_id": "location.enakhra.sigil_k",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.sigil_z"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enakhra_statue_limbs",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_sigil_k",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the K sigil from its temple pedestal"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.sigil_r",
+    "name": "Collect the R sigil from its temple pedestal",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.sigil_r",
+    "end_location_id": "location.enakhra.sigil_r",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.sigil_k"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enakhra_statue_limbs",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_sigil_r",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the R sigil from its temple pedestal"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.place_four_sigils",
+    "name": "Set M, Z, K and R sigils into the central doors",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.central_doors",
+    "end_location_id": "location.enakhra.central_doors",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.sigil_r"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.enakhra_statue_limbs",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.enakhra_sigil_m",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.enakhra_sigil_z",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.enakhra_sigil_k",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.enakhra_sigil_r",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Set M, Z, K and R sigils into the central doors"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.mould_head",
+    "name": "Make a positive camel-head mould on the middle-floor pedestal",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.middle_pedestal",
+    "end_location_id": "location.enakhra.middle_pedestal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.place_four_sigils"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.soft_clay",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_mould",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Make a positive camel-head mould on the middle-floor pedestal"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.chisel_second_head",
+    "name": "Carve the replacement camel head from the second granite",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.middle_pedestal",
+    "end_location_id": "location.enakhra.middle_pedestal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.mould_head"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.granite_5kg",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_new_head",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Carve the replacement camel head from the second granite"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.fit_head",
+    "name": "Fit the new stone head to the pedestal",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.middle_pedestal",
+    "end_location_id": "location.enakhra.middle_pedestal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.chisel_second_head"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.enakhra_new_head",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.enakhra_mould",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fit the new stone head to the pedestal"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.feed_pentyn",
+    "name": "Feed Pentyn to complete the Blood chamber",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.pentyn",
+    "end_location_id": "location.enakhra.pentyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.fit_head"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bread",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Feed Pentyn to complete the Blood chamber"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.clear_furnace",
+    "name": "Cast Wind Bolt at the Smoke chamber furnace",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.smoke_furnace",
+    "end_location_id": "location.enakhra.smoke_furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.feed_pentyn"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.chaos_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 135
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "A minimum air Bolt spell clears the furnace; actual equipped elemental staves would alter rune usage."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.thaw_fountain",
+    "name": "Cast Fire Bolt on the Ice chamber's fountain",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.ice_fountain",
+    "end_location_id": "location.enakhra.ice_fountain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.clear_furnace"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.chaos_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 225
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Minimum Fire Bolt clears the ice, with 22.5 base Magic XP."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.light_brazier_logs",
+    "name": "Place logs in its Shadow chamber brazier",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.shadow_braziers",
+    "end_location_id": "location.enakhra.shadow_braziers",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.thaw_fountain"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The six braziers use distinct materials. Firemaking XP and darkness damage are unverified."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.light_brazier_oak",
+    "name": "Place oak in its Shadow chamber brazier",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.shadow_braziers",
+    "end_location_id": "location.enakhra.shadow_braziers",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.light_brazier_logs"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The six braziers use distinct materials. Firemaking XP and darkness damage are unverified."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.light_brazier_willow",
+    "name": "Place willow in its Shadow chamber brazier",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.shadow_braziers",
+    "end_location_id": "location.enakhra.shadow_braziers",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.light_brazier_oak"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.willow_logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The six braziers use distinct materials. Firemaking XP and darkness damage are unverified."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.light_brazier_maple",
+    "name": "Place maple in its Shadow chamber brazier",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.shadow_braziers",
+    "end_location_id": "location.enakhra.shadow_braziers",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.light_brazier_willow"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.maple_logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The six braziers use distinct materials. Firemaking XP and darkness damage are unverified."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.light_brazier_candle",
+    "name": "Place candle in its Shadow chamber brazier",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.shadow_braziers",
+    "end_location_id": "location.enakhra.shadow_braziers",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.light_brazier_maple"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lit_candle",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The six braziers use distinct materials. Firemaking XP and darkness damage are unverified."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.light_brazier_coal",
+    "name": "Place coal in its Shadow chamber brazier",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.shadow_braziers",
+    "end_location_id": "location.enakhra.shadow_braziers",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.light_brazier_candle"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coal",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 17,
+      "max_seconds": 39
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The six braziers use distinct materials. Firemaking XP and darkness damage are unverified."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.finish_four_puzzles",
+    "name": "Confirm Blood, Smoke, Ice and Shadow orbs are illuminated",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.middle_pedestal",
+    "end_location_id": "location.enakhra.middle_pedestal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.light_brazier_coal"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 45,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Confirm Blood, Smoke, Ice and Shadow orbs are illuminated"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.pass_barrier",
+    "name": "Pass the middle-floor magic barrier",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.barrier",
+    "end_location_id": "location.enakhra.barrier",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.finish_four_puzzles"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pass the middle-floor magic barrier"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.crumble_boneguard",
+    "name": "Successfully cast Crumble Undead at the upper boneguard",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.top_boneguard",
+    "end_location_id": "location.enakhra.top_boneguard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.pass_barrier"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 39,
+          "boostable": false
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.spellbook.standard",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.earth_rune",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.chaos_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 245
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 45,
+      "max_seconds": 103
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Credits one base Crumble Undead cast of 24.5 Magic XP; splash and damage XP need reconciliation."
+    },
+    "planned_outcome": {
+      "success_condition": "Crumble Undead hits the boneguard and frees the spirit in one cast; reserve more runes if the spell splashes.",
+      "if_unmet": "Stop and reconcile actual item counts, puzzle state and incidental XP before proceeding."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.protect_and_talk",
+    "name": "Use Protect from Melee to converse with the lower boneguard",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.akthankos",
+    "end_location_id": "location.enakhra.akthankos",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.crumble_boneguard"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.prayer",
+          "minimum_level": 43,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prayer is active briefly while talking; actual prayer-point drain and status are not yet represented."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.collect_wall_rubble",
+    "name": "Collect three sandstone pieces from the rubble pile",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.southern_wall",
+    "end_location_id": "location.enakhra.southern_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.protect_and_talk"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.enakhra_rubble_sandstone",
+        "quantity": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect three sandstone pieces from the rubble pile"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.repair_wall",
+    "name": "Chisel three sandstone pieces into Akthanakos' protective wall",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.southern_wall",
+    "end_location_id": "location.enakhra.southern_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.collect_wall_rubble"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.enakhra_rubble_sandstone",
+        "quantity": 3
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Chisel three sandstone pieces into Akthanakos' protective wall"
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.complete",
+    "name": "Speak to Akthanakos after repairing the protective wall",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.akthankos",
+    "end_location_id": "location.enakhra.akthankos",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.repair_wall"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 70000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 70000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 70000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 70000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.camulet",
+        "quantity": 1
+      },
+      {
+        "kind": "counter",
+        "token_id": "charge.enakhra_camulet",
+        "delta": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Completion grants 2 quest points, 7,000 XP in each of four skills, and a Camulet with four charges."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.make_camel_mask",
+    "name": "Use extra soft clay on the camel pedestal for a mask",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.middle_pedestal",
+    "end_location_id": "location.enakhra.middle_pedestal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.complete"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.soft_clay",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.camel_mask",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 24,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Optional one-time camel mask craft; repeatable post-quest production remains outside the finite catalog."
+    }
+  },
+  {
+    "id": "quest.enakhras_lament.upgrade_camulet",
+    "name": "Pay Lazim one million coins for unlimited Camulet teleports",
+    "activity_id": "quest.enakhras_lament",
+    "kind": "quest_stage",
+    "start_location_id": "location.enakhra.bottom_lazim",
+    "end_location_id": "location.enakhra.bottom_lazim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.enakhras_lament.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.camulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1000000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.enakhra_camulet_unlimited",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 45,
+      "max_seconds": 103
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Optional permanent Camulet charging upgrade; never automatically charged to a self-funded player."
+    }
+  }
+]

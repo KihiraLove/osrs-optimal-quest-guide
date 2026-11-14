@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.43.0` loads 24 skill tables and
-1,997 draft actions across 149 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.44.0` loads 24 skill tables and
+2,040 draft actions across 150 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -302,3 +302,15 @@ Earth and two Law runes per level-58 cast. A seeded end-to-end graph replay
 checks travel, inputs, quest rewards and post-quest teleport use. Several cave
 waypoints, puzzle answers, combat supplies and incidental XP await independent
 review.
+
+The [Enakhra's Lament review](raw/build-242/enakhras-lament-review.json)
+records the exact 32kg and 20kg sandstone assemblies, two 5kg granite heads,
+the underground four-sigil doors, four elemental puzzle rooms and the final
+boneguard/stone-wall sequence. It distinguishes optional quarry mining from a
+trade-enabled stone bundle. The completion grants two quest points, 7,000 XP
+each in Crafting, Mining, Firemaking and Magic, and a four-charge Camulet.
+Four finite item teleports can be spent across origins; Lazim's optional
+1,000,000-coin upgrade supplies separate unlimited routes. The full seeded
+replay checks these charges, puzzle items, spell costs and reward repeat gates;
+the exact dungeon walk costs, stone size randomness, incidental XP and Camulet
+recharge loop remain in independent review.
