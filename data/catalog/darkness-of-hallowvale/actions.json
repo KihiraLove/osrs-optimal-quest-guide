@@ -1,0 +1,2477 @@
+[
+  {
+    "id": "quest.darkness_of_hallowvale.climb_over_broken_wall",
+    "name": "Climb into Burgh de Rott to contact Veliaf",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3491_3230_0",
+    "end_location_id": "location.doh.tile_3491_3230_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.enter_burgh_pub_basement",
+    "name": "Enter the pub basement hideout",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3490_3232_0",
+    "end_location_id": "location.doh.tile_3490_3232_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.climb_over_broken_wall"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.start",
+    "name": "Receive Veliaf's mission to contact the Meiyerditch Myreque",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3494_9628_0",
+    "end_location_id": "location.doh.tile_3494_9628_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.enter_burgh_pub_basement"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.in_aid_of_the_myreque.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 5,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 20,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 22,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 26,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 32,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 33,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.strength",
+          "minimum_level": 40,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 105,
+      "max_seconds": 315
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "supply.doh.boat_repair_and_knife",
+    "name": "Buy two planks, eight steel nails and retained tools",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.doh.tile_3494_9628_0",
+    "end_location_id": "location.doh.tile_3494_9628_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 6500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_nails",
+        "quantity": 8
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 90,
+      "expected_seconds": 180,
+      "max_seconds": 540
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Trade-enabled starter bundle with an estimated 6,500-coin budget; bring existing materials or self-supply on restricted accounts."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.leave_pub_basement",
+    "name": "leave Pub Basement",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3490_9632_0",
+    "end_location_id": "location.doh.tile_3490_9632_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.use_plank_on_boat",
+    "name": "Repair the Meiyerditch river boat",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3524_3178_0",
+    "end_location_id": "location.doh.tile_3524_3178_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.leave_pub_basement"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.plank",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_nails",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plank",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.steel_nails",
+        "quantity": 4
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.use_plank_on_chute",
+    "name": "Repair the boat chute with a second plank and four nails",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3523_3175_0",
+    "end_location_id": "location.doh.tile_3523_3175_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.use_plank_on_boat"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.plank",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_nails",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plank",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.steel_nails",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.doh_boat_repaired",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.push_boat",
+    "name": "push Boat",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3524_3178_0",
+    "end_location_id": "location.doh.tile_3524_3178_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.use_plank_on_chute"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.board_boat",
+    "name": "Board the repaired boat to Meiyerditch",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3523_3170_0",
+    "end_location_id": "location.doh.tile_3523_3170_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.push_boat"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.doh_boat_repaired",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.kick_board",
+    "name": "kick Board",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3589_3173_1",
+    "end_location_id": "location.doh.tile_3589_3173_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.board_boat"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.climb_down_board",
+    "name": "climb Down Board",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3589_3173_1",
+    "end_location_id": "location.doh.tile_3589_3173_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.kick_board"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.climb_over_rubble",
+    "name": "climb Over Rubble",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3589_3180_0",
+    "end_location_id": "location.doh.tile_3589_3180_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.climb_down_board"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.talk_to_citizen",
+    "name": "talk To Citizen",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3601_3189_0",
+    "end_location_id": "location.doh.tile_3601_3189_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.climb_over_rubble"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.talk_to_ral",
+    "name": "talk To Ral",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3604_3208_0",
+    "end_location_id": "location.doh.tile_3604_3208_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.talk_to_citizen"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.travel_to_pots",
+    "name": "travel To Pots",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3608_3222_0",
+    "end_location_id": "location.doh.tile_3608_3222_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.talk_to_ral"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.travel_to_ladder_part",
+    "name": "travel To Ladder Part",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3625_3240_2",
+    "end_location_id": "location.doh.tile_3625_3240_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.travel_to_pots"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.travel_to_fix_ladder",
+    "name": "travel To Fix Ladder",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3629_3240_1",
+    "end_location_id": "location.doh.tile_3629_3240_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.travel_to_ladder_part"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.doh_raised_ladder",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.travel_to_myreque_base",
+    "name": "travel To Myreque Base",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3640_3253_0",
+    "end_location_id": "location.doh.tile_3640_3253_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.travel_to_fix_ladder"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doh_raised_ladder",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.press_decorated_wall",
+    "name": "press Decorated Wall",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3638_3251_0",
+    "end_location_id": "location.doh.tile_3638_3251_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.travel_to_myreque_base"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.enter_rug",
+    "name": "enter Rug",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3639_3249_0",
+    "end_location_id": "location.doh.tile_3639_3249_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.press_decorated_wall"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.talk_to_vertida",
+    "name": "talk To Vertida",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3627_9644_0",
+    "end_location_id": "location.doh.tile_3627_9644_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.enter_rug"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.doh_myreque_meiyerditch",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.go_down_to_drezel",
+    "name": "go Down To Drezel",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3422_3485_0",
+    "end_location_id": "location.doh.tile_3422_3485_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.talk_to_vertida"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.talk_to_drezel",
+    "name": "talk To Drezel",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3439_9896_0",
+    "end_location_id": "location.doh.tile_3439_9896_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.go_down_to_drezel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.leave_drezel_to_bushes",
+    "name": "leave Drezel To Bushes",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3405_9907_0",
+    "end_location_id": "location.doh.tile_3405_9907_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.talk_to_drezel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.search_bushes",
+    "name": "search Bushes",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3390_3480_0",
+    "end_location_id": "location.doh.tile_3390_3480_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.leave_drezel_to_bushes"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.return_from_bushes_to_drezel",
+    "name": "return From Bushes To Drezel",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3405_3507_0",
+    "end_location_id": "location.doh.tile_3405_3507_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.search_bushes"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.talk_to_roald",
+    "name": "talk To Roald",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3222_3473_0",
+    "end_location_id": "location.doh.tile_3222_3473_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.return_from_bushes_to_drezel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.go_to_mines",
+    "name": "go To Mines",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3615_3263_0",
+    "end_location_id": "location.doh.tile_3615_3263_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.talk_to_roald"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.mine_daeyalt_then_leave",
+    "name": "mine Daeyalt Then Leave",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_2389_4624_2",
+    "end_location_id": "location.doh.tile_2389_4624_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.go_to_mines"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.doh_mine_report",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 720
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    },
+    "planned_outcome": {
+      "success_condition": "Observe the Daeyalt mine, gather evidence and reach the exit without being trapped by Vyrewatch.",
+      "if_unmet": "Restock, check the relevant dialogue and recover the route before crediting success."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.return_to_meiy_base",
+    "name": "return To Meiy Base",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3638_3251_0",
+    "end_location_id": "location.doh.tile_3638_3251_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.mine_daeyalt_then_leave"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doh_mine_report",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.doh_mine_report",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.doh_mine_investigation",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.go_down_from_random_room",
+    "name": "go Down From Random Room",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3595_3204_1",
+    "end_location_id": "location.doh.tile_3595_3204_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.return_to_meiy_base"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.climb_back_over_rubble",
+    "name": "climb Back Over Rubble",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3591_3180_0",
+    "end_location_id": "location.doh.tile_3591_3180_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.go_down_from_random_room"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.climb_up_floor",
+    "name": "climb Up Floor",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3589_3173_0",
+    "end_location_id": "location.doh.tile_3589_3173_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.climb_back_over_rubble"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.climb_down_wall_ladder",
+    "name": "climb Down Wall Ladder",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3588_3210_1",
+    "end_location_id": "location.doh.tile_3588_3210_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.climb_up_floor"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.search_rocky_surface",
+    "name": "search Rocky Surface",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3592_3211_0",
+    "end_location_id": "location.doh.tile_3592_3211_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.climb_down_wall_ladder"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.go_through_barricade",
+    "name": "go Through Barricade",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3589_3215_0",
+    "end_location_id": "location.doh.tile_3589_3215_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.search_rocky_surface"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.climb_up_wall_ladder",
+    "name": "climb Up Wall Ladder",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3593_3230_0",
+    "end_location_id": "location.doh.tile_3593_3230_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.go_through_barricade"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.climb_ladder_second_wall",
+    "name": "climb Ladder Second Wall",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3588_3251_1",
+    "end_location_id": "location.doh.tile_3588_3251_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.climb_up_wall_ladder"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.climb_down_from_third_wall",
+    "name": "climb Down From Third Wall",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3588_3259_2",
+    "end_location_id": "location.doh.tile_3588_3259_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.climb_ladder_second_wall"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.climb_up_drakan_walls",
+    "name": "climb Up Drakan Walls",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3595_3310_1",
+    "end_location_id": "location.doh.tile_3595_3310_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.climb_down_from_third_wall"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.talk_to_safalaan",
+    "name": "Meet Safalaan near Castle Drakan",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3585_3331_0",
+    "end_location_id": "location.doh.tile_3585_3331_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.climb_up_drakan_walls"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.papyrus",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.charcoal",
+        "quantity": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.draw_north_wall",
+    "name": "Sketch the northern castle wall",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3556_3379_0",
+    "end_location_id": "location.doh.tile_3556_3379_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.talk_to_safalaan"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.papyrus",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.charcoal",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.papyrus",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.charcoal",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.doh_north_sketch",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.draw_west_wall",
+    "name": "Sketch the western castle wall",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3522_3357_0",
+    "end_location_id": "location.doh.tile_3522_3357_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.draw_north_wall"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.papyrus",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.charcoal",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.papyrus",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.charcoal",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.doh_west_sketch",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.draw_south_wall",
+    "name": "Begin the southern wall sketch",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3572_3331_0",
+    "end_location_id": "location.doh.tile_3572_3331_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.draw_west_wall"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.papyrus",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.charcoal",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.tank_vanstrom",
+    "name": "Survive Vanstrom Klause's five attacks",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3572_3331_0",
+    "end_location_id": "location.doh.tile_3572_3331_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.draw_south_wall"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.doh_vanstrom_survived",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 95,
+      "expected_seconds": 190,
+      "max_seconds": 570
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    },
+    "planned_outcome": {
+      "success_condition": "Remain alive through at least five attacks from Vanstrom Klause, then allow the scripted retreat; he is not killed.",
+      "if_unmet": "Restock, check the relevant dialogue and recover the route before crediting success."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.finish_south_sketch",
+    "name": "Finish the southern castle sketch after Vanstrom leaves",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3572_3331_0",
+    "end_location_id": "location.doh.tile_3572_3331_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.tank_vanstrom"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.doh_vanstrom_survived",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.papyrus",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.charcoal",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.papyrus",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.charcoal",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.doh_south_sketch",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.talk_to_sarius",
+    "name": "Hear Sarius Guile's warning",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3572_3331_0",
+    "end_location_id": "location.doh.tile_3572_3331_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.finish_south_sketch"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.talk_to_safalaan_in_base",
+    "name": "Give Safalaan the three drawings",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3627_9644_0",
+    "end_location_id": "location.doh.tile_3627_9644_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.talk_to_sarius"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doh_north_sketch",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doh_west_sketch",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doh_south_sketch",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.doh_north_sketch",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.doh_west_sketch",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.doh_south_sketch",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.doh_drakan_sketches",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.use_knife_on_fireplace",
+    "name": "Cut open the fireplace hiding the laboratory message",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3627_3253_0",
+    "end_location_id": "location.doh.tile_3627_3253_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.talk_to_safalaan_in_base"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.doh_secret_message",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.use_knife_on_portrait",
+    "name": "Cut the portrait to uncover its mechanism",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3627_3248_0",
+    "end_location_id": "location.doh.tile_3627_3248_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.use_knife_on_fireplace"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.inspect_portrait",
+    "name": "Examine the portrait and obtain the ornate key",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3627_3248_0",
+    "end_location_id": "location.doh.tile_3627_3248_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.use_knife_on_portrait"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.doh_ornate_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.leave_meiyer_base",
+    "name": "leave Meiyer Base",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3626_9617_0",
+    "end_location_id": "location.doh.tile_3626_9617_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.inspect_portrait"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.use_knife_on_tapestry",
+    "name": "Cut the tapestry to enter the concealed passage",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3638_3304_0",
+    "end_location_id": "location.doh.tile_3638_3304_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.leave_meiyer_base"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.use_key_on_statue",
+    "name": "Unlock the statue with the ornate key",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3641_3304_0",
+    "end_location_id": "location.doh.tile_3641_3304_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.use_knife_on_tapestry"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doh_secret_message",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doh_ornate_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.go_down_to_lab",
+    "name": "Descend into the hidden haemalchemy laboratory",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3643_3305_0",
+    "end_location_id": "location.doh.tile_3643_3305_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.use_key_on_statue"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.doh_lab_entered",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.get_runes",
+    "name": "Open the broken rune case for Telekinetic Grab runes",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3629_9695_0",
+    "end_location_id": "location.doh.tile_3629_9695_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.go_down_to_lab"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.law_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.air_rune",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.telegrab_book",
+    "name": "Telekinetically grab Haemalchemy volume one",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3624_9690_0",
+    "end_location_id": "location.doh.tile_3624_9690_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.get_runes"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.doh_lab_entered",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.law_rune",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.air_rune",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 33,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.law_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.air_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.doh_haemalchemy_book",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 430
+      }
+    ],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    },
+    "planned_outcome": {
+      "success_condition": "Cast Telekinetic Grab on Haemalchemy volume one from the standard spellbook; retrieve it successfully.",
+      "if_unmet": "Restock, check the relevant dialogue and recover the route before crediting success."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.leave_lab",
+    "name": "Exit the laboratory with Haemalchemy volume one",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3637_9697_0",
+    "end_location_id": "location.doh.tile_3637_9697_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.telegrab_book"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doh_haemalchemy_book",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.deliver_haemalchemy_to_safalaan",
+    "name": "Return Haemalchemy volume one to Safalaan",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3627_9644_0",
+    "end_location_id": "location.doh.tile_3627_9644_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.leave_lab"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doh_haemalchemy_book",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.doh_haemalchemy_book",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.doh_sealed_letter",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.doh_safalaan_report",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.doh_shortcut_doors",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 67,
+      "expected_seconds": 135,
+      "max_seconds": 405
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper interaction order, with provisional duration and result."
+    }
+  },
+  {
+    "id": "quest.darkness_of_hallowvale.complete",
+    "name": "Return to Veliaf with Safalaan's sealed letter and finish the quest",
+    "activity_id": "quest.darkness_of_hallowvale",
+    "kind": "quest_stage",
+    "start_location_id": "location.doh.tile_3494_9628_0",
+    "end_location_id": "location.doh.tile_3494_9628_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.darkness_of_hallowvale.deliver_haemalchemy_to_safalaan"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.doh_sealed_letter",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.doh_safalaan_report",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.doh_sealed_letter",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 70000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 60000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.doh.tome_of_experience",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.doh_complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Veliaf grants two quest points, fixed Agility/Thieving/Construction XP and a three-chapter 2,000-XP Tome of Experience for level-30+ skills."
+    }
+  }
+]
