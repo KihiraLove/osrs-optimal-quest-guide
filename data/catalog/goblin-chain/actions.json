@@ -1,0 +1,2233 @@
+[
+  {
+    "id": "quest.land_of_the_goblins.start",
+    "name": "Speak to Grubfoot about Yu'biusk",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.grubfoot",
+    "end_location_id": "location.goblin.grubfoot",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.another_slice_of_ham.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fishing_contest.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 38,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fishing",
+          "minimum_level": 40,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 45,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 48,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 130
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Requires light in Dorgesh-Kaan mine; a lit candle is a modeled alternative to other suitable light sources."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.zanik",
+    "name": "Discuss Grubfoot's dream with Zanik in Oldak's laboratory",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.zanik_lab",
+    "end_location_id": "location.goblin.zanik_lab",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 41,
+      "expected_seconds": 83,
+      "max_seconds": 186
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.guards",
+    "name": "Find Zanik at Goblin Cave and speak to the guards",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.cave_guards",
+    "end_location_id": "location.goblin.cave_guards",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.zanik"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 46,
+      "expected_seconds": 92,
+      "max_seconds": 204
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.makeover_mage",
+    "name": "Ask Makeover Mage about goblin transformation",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.makeover_mage",
+    "end_location_id": "location.goblin.makeover_mage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.guards"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 34,
+      "expected_seconds": 68,
+      "max_seconds": 156
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.pick_berries",
+    "name": "Pick pharmakos berries",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.pharmakos_bush",
+    "end_location_id": "location.goblin.pharmakos_bush",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.makeover_mage"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pharmakos_berries",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 18,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.prepare_goblin_potion",
+    "name": "Make a 3-dose goblin potion",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.pharmakos_bush",
+    "end_location_id": "location.goblin.pharmakos_bush",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.pick_berries"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.toadflax_potion_unf",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pharmakos_berries",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.toadflax_potion_unf",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_potion_3",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 550
+      }
+    ],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 26,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Goblin potion (3) made from Pharmakos berries and toadflax potion (unf), granting 55 incidental Herblore XP."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.pick_mushroom",
+    "name": "Pick a black mushroom beside Goblin Cave",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.goblin_cave_inner",
+    "end_location_id": "location.ghostly.goblin_cave_inner",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.prepare_goblin_potion"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.black_mushroom",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 68
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.prepare_black_dye",
+    "name": "Grind black mushroom with an empty vial",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.goblin_cave_inner",
+    "end_location_id": "location.ghostly.goblin_cave_inner",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.pick_mushroom"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.black_mushroom",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.empty_vial",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.black_dye",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.enter_temple",
+    "name": "Drink goblin potion and pass the guards",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.cave_guards",
+    "end_location_id": "location.goblin.temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.prepare_black_dye"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.goblin_potion_3",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_potion_2",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.goblin_temple",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One potion dose consumed; no familiar or non-goblin equipment can be equipped at the guarded entrance."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.find_mail",
+    "name": "Search a temple crate and dye goblin mail black",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.temple",
+    "end_location_id": "location.goblin.temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.enter_temple"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.black_dye",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_mail_black",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Free goblin mail is available from a temple crate; the black dye colours it for the Huzamogaarb tribe."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.find_sphere",
+    "name": "Search the cell crate for a Dorgesh-kaan sphere",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.zanik_cell",
+    "end_location_id": "location.goblin.zanik_cell",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.find_mail"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dorgesh_kaan_sphere",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 34,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.free_zanik",
+    "name": "Give Zanik the Dorgesh-kaan sphere to escape",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.zanik_cell",
+    "end_location_id": "location.goblin.zanik_cell",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.find_sphere"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dorgesh_kaan_sphere",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 54,
+      "max_seconds": 128
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The crate's Dorgesh-kaan sphere teleports Zanik away from her cell; it is used up by the escape."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.bighead_test",
+    "name": "Answer High Priest Bighead's commandments",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.bighead",
+    "end_location_id": "location.goblin.bighead",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.free_zanik"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 77,
+      "expected_seconds": 155,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.black_key",
+    "name": "Pickpocket the Huzamogaarb priest",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.zanik_cell",
+    "end_location_id": "location.goblin.zanik_cell",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.bighead_test"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.goblin_mail_black",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_key_black",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Acquire the black tribe key after its pickpocket succeeds.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.ask_aggie",
+    "name": "Ask Aggie how to bleach black goblin mail",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.aggie",
+    "end_location_id": "location.draynor.aggie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.black_key"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 41,
+      "max_seconds": 102
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.fish_whitefish",
+    "name": "Catch a Hemenster whitefish using a raw slimy eel",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.hemenster.carp_spot",
+    "end_location_id": "location.hemenster.carp_spot",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.ask_aggie"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fishing_rod",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_slimy_eel",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hemenster_whitefish",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 220
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Catch the quest-specific Hemenster whitefish after qualifying at the Fishing Contest gate.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.white_mail",
+    "name": "Pay Aggie to bleach the black goblin mail white",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.aggie",
+    "end_location_id": "location.draynor.aggie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.fish_whitefish"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.hemenster_whitefish",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.coins",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.goblin_mail_black",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_mail_white",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 49,
+      "max_seconds": 118
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.return_temple",
+    "name": "Drink the second goblin dose and return to the temple",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.cave_guards",
+    "end_location_id": "location.goblin.temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.white_mail"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.goblin_potion_2",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_potion_1",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.white_key",
+    "name": "Pickpocket white tribe priest's key",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.temple",
+    "end_location_id": "location.goblin.temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.return_temple"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.goblin_mail_white",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_key_white",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 63,
+      "max_seconds": 146
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Successful pickpocket of the white tribe priest in its colour-locked chamber.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.dye_yellow",
+    "name": "Dye goblin mail yellow",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.temple",
+    "end_location_id": "location.goblin.temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.white_key"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.goblin_mail_white",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.yellow_dye",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_mail_yellow",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.yellow_key",
+    "name": "Pickpocket yellow tribe priest's key",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.temple",
+    "end_location_id": "location.goblin.temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.dye_yellow"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.goblin_mail_yellow",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_key_yellow",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 63,
+      "max_seconds": 146
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Successful pickpocket of the yellow tribe priest in its colour-locked chamber.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.dye_purple",
+    "name": "Dye goblin mail purple",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.temple",
+    "end_location_id": "location.goblin.temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.yellow_key"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.goblin_mail_yellow",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.purple_dye",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_mail_purple",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.purple_key",
+    "name": "Pickpocket purple tribe priest's key",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.temple",
+    "end_location_id": "location.goblin.temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.dye_purple"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.goblin_mail_purple",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_key_purple",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 63,
+      "max_seconds": 146
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Successful pickpocket of the purple tribe priest in its colour-locked chamber.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.dye_orange",
+    "name": "Dye goblin mail orange",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.temple",
+    "end_location_id": "location.goblin.temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.purple_key"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.goblin_mail_purple",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.orange_dye",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_mail_orange",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.orange_key",
+    "name": "Pickpocket orange tribe priest's key",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.temple",
+    "end_location_id": "location.goblin.temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.dye_orange"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.goblin_mail_orange",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_key_orange",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 63,
+      "max_seconds": 146
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Successful pickpocket of the orange tribe priest in its colour-locked chamber.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.dye_blue",
+    "name": "Dye goblin mail blue",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.temple",
+    "end_location_id": "location.goblin.temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.orange_key"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.goblin_mail_orange",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.blue_dye",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_mail_blue",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.blue_key",
+    "name": "Pickpocket blue tribe priest's key",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.temple",
+    "end_location_id": "location.goblin.temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.dye_blue"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.goblin_mail_blue",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goblin_key_blue",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 63,
+      "max_seconds": 146
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Successful pickpocket of the blue tribe priest in its colour-locked chamber.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.unlock_crypt",
+    "name": "Unlock the northern crypt with all six tribal keys",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.bighead",
+    "end_location_id": "location.goblin.bighead",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.blue_key"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.goblin_key_black",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.goblin_key_white",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.goblin_key_yellow",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.goblin_key_purple",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.goblin_key_orange",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.goblin_key_blue",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 41,
+      "max_seconds": 102
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.defeat_snothead",
+    "name": "Defeat and question High Priest Snothead",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.snothead_grave",
+    "end_location_id": "location.goblin.snothead_grave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.unlock_crypt"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 57,
+      "expected_seconds": 115,
+      "max_seconds": 250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The original high priests must be fought sequentially; Strongbones can summon skoblins and deal substantial damage."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the historical Snothead and learn the next priest's name or the route to Yu'biusk.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.defeat_snailfeet",
+    "name": "Defeat and question High Priest Snailfeet",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.snailfeet_grave",
+    "end_location_id": "location.goblin.snailfeet_grave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.defeat_snothead"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 57,
+      "expected_seconds": 115,
+      "max_seconds": 250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The original high priests must be fought sequentially; Strongbones can summon skoblins and deal substantial damage."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the historical Snailfeet and learn the next priest's name or the route to Yu'biusk.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.defeat_mosschin",
+    "name": "Defeat and question High Priest Mosschin",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.mosschin_grave",
+    "end_location_id": "location.goblin.mosschin_grave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.defeat_snailfeet"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 57,
+      "expected_seconds": 115,
+      "max_seconds": 250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The original high priests must be fought sequentially; Strongbones can summon skoblins and deal substantial damage."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the historical Mosschin and learn the next priest's name or the route to Yu'biusk.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.defeat_redeyes",
+    "name": "Defeat and question High Priest Redeyes",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.redeyes_grave",
+    "end_location_id": "location.goblin.redeyes_grave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.defeat_mosschin"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 57,
+      "expected_seconds": 115,
+      "max_seconds": 250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The original high priests must be fought sequentially; Strongbones can summon skoblins and deal substantial damage."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the historical Redeyes and learn the next priest's name or the route to Yu'biusk.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.defeat_strongbones",
+    "name": "Defeat and question High Priest Strongbones",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.strongbones_grave",
+    "end_location_id": "location.goblin.strongbones_grave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.defeat_redeyes"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 102,
+      "expected_seconds": 205,
+      "max_seconds": 430
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The original high priests must be fought sequentially; Strongbones can summon skoblins and deal substantial damage."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the historical Strongbones and learn the next priest's name or the route to Yu'biusk.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.report_zanik",
+    "name": "Report the high priests' story to Zanik",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.zanik_lab",
+    "end_location_id": "location.goblin.zanik_lab",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.defeat_strongbones"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 64,
+      "max_seconds": 148
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.machine_941",
+    "name": "Set Oldak's southern-dungeon machine to 9-4-1",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.oldak_machine",
+    "end_location_id": "location.goblin.oldak_machine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.report_zanik"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 190
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reach the dungeon by Dorgesh-Kaan agility-course ladder or fairy ring AJQ, then enter code 9-4-1."
+    }
+  },
+  {
+    "id": "quest.land_of_the_goblins.complete",
+    "name": "Open the strange box in Yu'biusk",
+    "activity_id": "quest.land_of_the_goblins",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.yubiusk",
+    "end_location_id": "location.goblin.yubiusk",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.machine_941"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 80000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 80000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 80000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 80000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.land_of_the_goblins.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.yubiusk_blq",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.goblin_potion_recipe",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.plain_of_mud_sphere_shop",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 190
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage; local movement and interaction duration estimated."
+    }
+  },
+  {
+    "id": "miniquest.hopespears_will.enter_temple",
+    "name": "Drink the remaining goblin potion dose and enter the Temple",
+    "activity_id": "miniquest.hopespears_will",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.cave_guards",
+    "end_location_id": "location.goblin.temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.land_of_the_goblins.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_i.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fairytale_ii_cure_a_queen.complete"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_restless_ghost.start"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_restless_ghost.complete"
+            }
+          ]
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.prayer",
+          "minimum_level": 50,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.goblin_potion_1",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.goblin_potion_1",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.empty_vial",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 130
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Requires one goblin-potion dose to re-enter, 50 nonboostable Prayer, and both ghost-seeing items; potion use leaves an empty vial. No equipment or pets at entrance."
+    }
+  },
+  {
+    "id": "miniquest.hopespears_will.start",
+    "name": "Speak to Hopespear's ghost in the temple crypt",
+    "activity_id": "miniquest.hopespears_will",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.hopespear",
+    "end_location_id": "location.goblin.hopespear",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.enter_temple"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 74,
+      "max_seconds": 168
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Equip ghostspeak/visibility items only *inside* the crypt; wearing them before entering the temple cancels the goblin transformation."
+    }
+  },
+  {
+    "id": "miniquest.hopespears_will.defeat_snothead",
+    "name": "Defeat Snothead again without combat equipment or spells",
+    "activity_id": "miniquest.hopespears_will",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.snothead_grave",
+    "end_location_id": "location.goblin.snothead_grave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hopespear_bone_snothead",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 67,
+      "expected_seconds": 135,
+      "max_seconds": 290
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The five rematches can occur in any order. No armour, weapon, magic attacks, special attack gear or stat-boosting jewellery are permitted; visibility/ghostspeak items are exempt."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Snothead while unarmed and unarmoured, then pick up the special bone before the next fight.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "miniquest.hopespears_will.defeat_snailfeet",
+    "name": "Defeat Snailfeet again without combat equipment or spells",
+    "activity_id": "miniquest.hopespears_will",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.snailfeet_grave",
+    "end_location_id": "location.goblin.snailfeet_grave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hopespear_bone_snailfeet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 67,
+      "expected_seconds": 135,
+      "max_seconds": 290
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The five rematches can occur in any order. No armour, weapon, magic attacks, special attack gear or stat-boosting jewellery are permitted; visibility/ghostspeak items are exempt."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Snailfeet while unarmed and unarmoured, then pick up the special bone before the next fight.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "miniquest.hopespears_will.defeat_mosschin",
+    "name": "Defeat Mosschin again without combat equipment or spells",
+    "activity_id": "miniquest.hopespears_will",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.mosschin_grave",
+    "end_location_id": "location.goblin.mosschin_grave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hopespear_bone_mosschin",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 67,
+      "expected_seconds": 135,
+      "max_seconds": 290
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The five rematches can occur in any order. No armour, weapon, magic attacks, special attack gear or stat-boosting jewellery are permitted; visibility/ghostspeak items are exempt."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Mosschin while unarmed and unarmoured, then pick up the special bone before the next fight.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "miniquest.hopespears_will.defeat_redeyes",
+    "name": "Defeat Redeyes again without combat equipment or spells",
+    "activity_id": "miniquest.hopespears_will",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.redeyes_grave",
+    "end_location_id": "location.goblin.redeyes_grave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hopespear_bone_redeyes",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 67,
+      "expected_seconds": 135,
+      "max_seconds": 290
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The five rematches can occur in any order. No armour, weapon, magic attacks, special attack gear or stat-boosting jewellery are permitted; visibility/ghostspeak items are exempt."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Redeyes while unarmed and unarmoured, then pick up the special bone before the next fight.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "miniquest.hopespears_will.defeat_strongbones",
+    "name": "Defeat Strongbones again without combat equipment or spells",
+    "activity_id": "miniquest.hopespears_will",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.strongbones_grave",
+    "end_location_id": "location.goblin.strongbones_grave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hopespear_bone_strongbones",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 500
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The five rematches can occur in any order. No armour, weapon, magic attacks, special attack gear or stat-boosting jewellery are permitted; visibility/ghostspeak items are exempt."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Strongbones while unarmed and unarmoured, then pick up the special bone before the next fight.",
+      "if_unmet": "Restore supplies, recover from failed checks or combat, then retry."
+    }
+  },
+  {
+    "id": "miniquest.hopespears_will.bury_snothead",
+    "name": "Bury Snothead's bone on Yu'biusk",
+    "activity_id": "miniquest.hopespears_will",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.yubiusk",
+    "end_location_id": "location.goblin.yubiusk",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.defeat_snothead"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.hopespear_bone_snothead",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 12500
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bury on Yu'biusk via fairy ring BLQ. Fixed Prayer XP, not affected by bone multipliers."
+    }
+  },
+  {
+    "id": "miniquest.hopespears_will.bury_snailfeet",
+    "name": "Bury Snailfeet's bone on Yu'biusk",
+    "activity_id": "miniquest.hopespears_will",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.yubiusk",
+    "end_location_id": "location.goblin.yubiusk",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.defeat_snailfeet"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.hopespear_bone_snailfeet",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 25000
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bury on Yu'biusk via fairy ring BLQ. Fixed Prayer XP, not affected by bone multipliers."
+    }
+  },
+  {
+    "id": "miniquest.hopespears_will.bury_mosschin",
+    "name": "Bury Mosschin's bone on Yu'biusk",
+    "activity_id": "miniquest.hopespears_will",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.yubiusk",
+    "end_location_id": "location.goblin.yubiusk",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.defeat_mosschin"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.hopespear_bone_mosschin",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 50000
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bury on Yu'biusk via fairy ring BLQ. Fixed Prayer XP, not affected by bone multipliers."
+    }
+  },
+  {
+    "id": "miniquest.hopespears_will.bury_redeyes",
+    "name": "Bury Redeyes's bone on Yu'biusk",
+    "activity_id": "miniquest.hopespears_will",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.yubiusk",
+    "end_location_id": "location.goblin.yubiusk",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.defeat_redeyes"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.hopespear_bone_redeyes",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 100000
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bury on Yu'biusk via fairy ring BLQ. Fixed Prayer XP, not affected by bone multipliers."
+    }
+  },
+  {
+    "id": "miniquest.hopespears_will.bury_strongbones",
+    "name": "Bury Strongbones's bone on Yu'biusk",
+    "activity_id": "miniquest.hopespears_will",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.yubiusk",
+    "end_location_id": "location.goblin.yubiusk",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.defeat_strongbones"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.hopespear_bone_strongbones",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 200000
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bury on Yu'biusk via fairy ring BLQ. Fixed Prayer XP, not affected by bone multipliers."
+    }
+  },
+  {
+    "id": "miniquest.hopespears_will.complete",
+    "name": "Finish Hopespear's Will after all five burials",
+    "activity_id": "miniquest.hopespears_will",
+    "kind": "quest_stage",
+    "start_location_id": "location.goblin.yubiusk",
+    "end_location_id": "location.goblin.yubiusk",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.bury_snothead"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.bury_snailfeet"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.bury_mosschin"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.bury_redeyes"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.hopespears_will.bury_strongbones"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.miniquest.hopespears_will.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Completion occurs automatically on burying the fifth bone; this no-XP marker avoids double-counting the five rewards."
+    }
+  }
+]
