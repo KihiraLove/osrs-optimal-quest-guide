@@ -6725,5 +6725,50 @@
       ]
     },
     "note": "Fixed helper rewards: 2 QP, 50,000 Slayer XP, 50,000 Crafting XP, 30,000 Runecraft XP, V's shield. Prior access is staged rather than credited only on completion."
+  },
+  {
+    "id": "review.quest.defender_of_varrock.completion_rewards",
+    "activity_id": "quest.defender_of_varrock",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.defender_of_varrock.complete"],
+    "expected_effects": {
+      "quest.defender_of_varrock.complete": [
+        {"kind":"counter","token_id":"token.quest_points","delta":2},
+        {"kind":"xp","skill_id":"skill.smithing","xp_tenths":150000},
+        {"kind":"xp","skill_id":"skill.hunter","xp_tenths":150000}
+      ]
+    },
+    "note": "Two quest points and 15,000 XP each in Smithing and Hunter, paid at Captain Rovin's completion dialogue. Historian Minas's lamp and five kudos are a separate visit."
+  },
+  {
+    "id": "review.quest.the_curse_of_arrav.completion_rewards",
+    "activity_id": "quest.the_curse_of_arrav",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.the_curse_of_arrav.complete"],
+    "expected_effects": {
+      "quest.the_curse_of_arrav.complete": [
+        {"kind":"counter","token_id":"token.quest_points","delta":2},
+        {"kind":"xp","skill_id":"skill.mining","xp_tenths":400000},
+        {"kind":"xp","skill_id":"skill.thieving","xp_tenths":400000},
+        {"kind":"xp","skill_id":"skill.agility","xp_tenths":400000}
+      ]
+    },
+    "note": "Two quest points and 40,000 XP in each of Mining, Thieving and Agility at Elias's final dialogue."
+  },
+  {
+    "id": "review.claim.defender_of_varrock.minas",
+    "activity_id": "quest.defender_of_varrock",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations", "source.runelite.varbits"],
+    "catalog_ids": ["claim.defender_of_varrock.minas"],
+    "expected_effects": {
+      "claim.defender_of_varrock.minas": [
+        {"kind":"counter","token_id":"token.museum.kudos","delta":5},
+        {"kind":"xp_reward","reward_id":"reward.defender_of_varrock.minas_lamp","quantity":1}
+      ]
+    },
+    "note": "Post-quest museum history report gives five kudos and exactly one held 5,000-XP lamp. No duplicate producer in the museum catalog. Lamp restrictions are provisional."
   }
 ]

@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.49.0` loads 24 skill tables and
-2,290 draft actions across 158 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.50.0` loads 24 skill tables and
+2,338 draft actions across 160 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -349,3 +349,13 @@ success and duplicate completion prevention. My Arm's Big Adventure, Cold War
 and Heroes' Quest are implemented on a separate, unmerged PR: this branch
 preserves their three mandatory gates as explicitly seeded external flags.
 An integrator must replace those flags with the upstream completion actions.
+
+The [Arrav and Varrock sequel review](raw/build-242/arrav-varrock-sequels-review.json)
+records Defender of Varrock's Elias search, Zemouregal base, Camdozaal forge,
+palace census and candidate investigation, and The Curse of Arrav's tomb,
+Trollweiss fort and back-room heist. The former awards two quest points and
+15,000 XP each in Smithing and Hunter; the latter awards two points and
+40,000 XP each in Mining, Thieving and Agility. Historian Minas's optional
+report is a separate one-time action that awards five kudos and a held 5,000-XP
+lamp. All three are replayed by focused tests; puzzle timing, combat budgets,
+exact instance tiles, item retention and lamp restrictions remain for review.
