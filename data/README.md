@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.50.0` loads 24 skill tables and
-2,338 draft actions across 160 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.51.0` loads 24 skill tables and
+2,387 draft actions across 162 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -359,3 +359,14 @@ Trollweiss fort and back-room heist. The former awards two quest points and
 report is a separate one-time action that awards five kudos and a held 5,000-XP
 lamp. All three are replayed by focused tests; puzzle timing, combat budgets,
 exact instance tiles, item retention and lamp restrictions remain for review.
+
+The [Scrambled! and Shadows of Custodia review](raw/build-242/scrambled-and-custodia-review.json)
+records two separate Varlamore quest routes: Alan's egg-breaking mystery,
+three Tal Teklan errands, egg fights and reassembly puzzle; and Auburnvale's
+missing-person investigation, fishing-rod evidence, wall reinforcement and
+strange-creature rescue. Their completion actions grant one and two quest
+points respectively with the fixed Construction/Cooking/Smithing and
+Slayer/Hunter/Fishing/Construction XP rewards. The Stalker Den becomes a
+permanent unlock after the second quest. Focused replay tests exercise item
+handovers, combat success, puzzle gates, walk/cave access and repeat limits;
+stock costs, bent nails, combat loadouts and route timing require review.

@@ -6770,5 +6770,39 @@
       ]
     },
     "note": "Post-quest museum history report gives five kudos and exactly one held 5,000-XP lamp. No duplicate producer in the museum catalog. Lamp restrictions are provisional."
+  },
+  {
+    "id": "review.quest.scrambled.completion_rewards",
+    "activity_id": "quest.scrambled",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.scrambled.complete"],
+    "expected_effects": {
+      "quest.scrambled.complete": [
+        {"kind":"counter","token_id":"token.quest_points","delta":1},
+        {"kind":"xp","skill_id":"skill.construction","xp_tenths":50000},
+        {"kind":"xp","skill_id":"skill.cooking","xp_tenths":50000},
+        {"kind":"xp","skill_id":"skill.smithing","xp_tenths":50000}
+      ]
+    },
+    "note": "One quest point and 5,000 XP in each of Construction, Cooking and Smithing on the final reassembled-egg cutscene. An optional post-quest pet-house egg and Alan's bones are not completion rewards."
+  },
+  {
+    "id": "review.quest.shadows_of_custodia.completion_rewards",
+    "activity_id": "quest.shadows_of_custodia",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.shadows_of_custodia.complete"],
+    "expected_effects": {
+      "quest.shadows_of_custodia.complete": [
+        {"kind":"counter","token_id":"token.quest_points","delta":2},
+        {"kind":"xp","skill_id":"skill.slayer","xp_tenths":100000},
+        {"kind":"xp","skill_id":"skill.hunter","xp_tenths":40000},
+        {"kind":"xp","skill_id":"skill.fishing","xp_tenths":30000},
+        {"kind":"xp","skill_id":"skill.construction","xp_tenths":30000},
+        {"kind":"flag","token_id":"unlock.custodia.stalker_den","value":true}
+      ]
+    },
+    "note": "Two quest points; 10,000 Slayer, 4,000 Hunter, 3,000 Fishing and 3,000 Construction XP. Permanent Stalker Den access is granted after Captain Ariadna's final report, separately from rescuing the boys during the quest."
   }
 ]
