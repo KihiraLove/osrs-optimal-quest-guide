@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.41.0` loads 24 skill tables and
-1,856 draft actions across 145 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.42.0` loads 24 skill tables and
+1,907 draft actions across 146 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -277,3 +277,13 @@ Fishing, Cooking and combat XP claims. The two seeded route replays exercise
 the travel graph, ingredient consumption, rewards and repeat limits. Several
 tradeable supplies still need catalog purchase actions and the draft NPC tiles
 and combat estimates await independent gameplay review.
+
+The [One Small Favour review](raw/build-242/one-small-favour-review.json)
+records Yanni's outward favour chain and all return handoffs, including the
+Feldip glider repair, Petra's cave, the Seers' weather vane, pottery and chicken
+cages. Guthix rest preparation and pot lids unlock mid-quest. Completion awards
+two quest points, a steel key ring and two independently held lamps worth 10,000
+XP apiece in a skill at base level 30 or higher. The seeded replay verifies the
+route and both lamp uses; the precise puzzle item risks, combat resources and
+quest-journal dependency on spending the lamps still need gameplay or semantics
+review.

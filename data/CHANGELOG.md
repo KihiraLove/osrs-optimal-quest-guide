@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.42.0 | Added One Small Favour's outward and return chains, Feldip glider markers, conditional cave and dwarf encounters, Guthix rest and pot lid unlocks, two separately held 10,000-XP lamps, and a seeded end-to-end route replay. |
 | 0.41.0 | Added Shilo Village and Tai Bwo Wannai Trio, the Ah Za Rhoon and tomb return paths, Shilo cart access, three independent post-quest Trio XP claims, and seeded end-to-end route replays. |
 | 0.40.0 | Added The Eyes of Glouphrie, His Faithful Servants, the crystal saw diary task, the Museum Camp construction and fossil claim, four Minas reports, and Varrock Museum clerk XP claims. |
 | 0.39.0 | Added Family Crest, Horror from the Deep, Devious Minds, Family Pest, Bear Your Soul and In Search of Knowledge, with the Lighthouse fairy ring, Law rift, gauntlet claims and god book choices. |
@@ -47,5 +48,5 @@ entries use the 3 November build 242 snapshot.
 | 0.2.0 | Added the first quest actions and the pinned Quest Helper observations. |
 | 0.1.0 | Recorded the independent quest, skill, diary and optional content inventory for build 242. |
 
-The coverage audit records the release blockers for 0.41.0. The normalizer and
+The coverage audit records the release blockers for 0.42.0. The normalizer and
 audit use the existing dataset version.

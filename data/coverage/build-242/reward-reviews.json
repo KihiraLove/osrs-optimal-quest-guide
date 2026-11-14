@@ -1290,9 +1290,17 @@
   {
     "id": "review.quest.one_small_favour.lamps",
     "activity_id": "quest.one_small_favour",
-    "status": "expected",
+    "status": "collected",
     "source_ids": ["source.quest_helper.one_small_favour"],
-    "note": "Review both lamps as separately spendable instances."
+    "catalog_ids": ["quest.one_small_favour.complete", "reward.one_small_favour.lamp"],
+    "expected_effects": {
+      "quest.one_small_favour.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 2},
+        {"kind": "item", "item_id": "item.osf_key_ring", "quantity": 1},
+        {"kind": "xp_reward", "reward_id": "reward.one_small_favour.lamp", "quantity": 2}
+      ]
+    },
+    "note": "Two independent held lamps, one eligible skill of level 30+ and 10,000 XP per lamp. Game quest-log green status until redemption remains a review gap."
   },
   {
     "id": "review.quest.pirates_treasure.quest_month_xp",
@@ -6266,5 +6274,20 @@
       ]
     },
     "note": "Timfraku pays coin and quest points immediately; his three sons grant separate one-time post-quest rewards. Independent dialogue verification is pending."
+  },
+  {
+    "id": "review.quest.one_small_favour.completion_rewards",
+    "activity_id": "quest.one_small_favour",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.one_small_favour", "source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.one_small_favour.complete"],
+    "expected_effects": {
+      "quest.one_small_favour.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 2},
+        {"kind": "item", "item_id": "item.osf_key_ring", "quantity": 1},
+        {"kind": "xp_reward", "reward_id": "reward.one_small_favour.lamp", "quantity": 2}
+      ]
+    },
+    "note": "Yanni's hand-in grants two quest points, the steel key ring and two independent lamps. Quest log may not turn green until they are spent."
   }
 ]

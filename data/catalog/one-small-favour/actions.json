@@ -1,0 +1,2181 @@
+[
+  {
+    "id": "supply.one_small_favour.collect_pigeon_cages",
+    "name": "Collect five pigeon cages behind Jerico's house",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.ardougne.jerico",
+    "end_location_id": "location.ardougne.jerico",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.horvik_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_pigeon_cage",
+        "quantity": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 36,
+      "max_seconds": 79
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pigeon cages behind Jerico are taken for Horvik's chicken-cage conversion."
+    }
+  },
+  {
+    "id": "supply.one_small_favour.heat_water",
+    "name": "Prepare a hot cup of water for Guthix rest",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.osf.sanfew",
+    "end_location_id": "location.osf.sanfew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.sanfew_request"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_empty_cup",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bowl_of_water",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_cup_of_hot_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 70
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft fire-and-hot-water preparation; verify available water source or kettle in game."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_one_small_favour_bundle",
+    "name": "Buy One Small Favour bars, herbs, cup and repair gems",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 10000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.steel_bar",
+        "quantity": 4
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.osf_guam_leaf",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.osf_marrentill",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.osf_harralander",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.osf_empty_cup",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.opal",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.sapphire",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.osf_jade",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.osf_red_topaz",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.chisel",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 90,
+      "max_seconds": 198
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.starter_economy"
+      ],
+      "status": "estimated",
+      "note": "Conservative 10,000 GP bundled estimate; individual GE prices and gem replacement rolls require a pinned transaction review."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.start",
+    "name": "Ask Yanni for his small favour",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.yanni",
+    "end_location_id": "location.osf.yanni",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rune_mysteries.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.druidic_ritual.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Start in Shilo Village after the three named prerequisite quests."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.forester_request",
+    "name": "Ask the forester for red mahogany",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.forester",
+    "end_location_id": "location.osf.forester",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_blunt_axe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Forester asks for his blunt axe to be sharpened."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.brian_request",
+    "name": "Ask Brian to sharpen the forester's axe",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.brian",
+    "end_location_id": "location.osf.brian",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.forester_request"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_blunt_axe",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Brian holds the axe while his missing friend's case is resolved."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.aggie_request",
+    "name": "Ask Aggie to testify for Brian's friend",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.aggie",
+    "end_location_id": "location.draynor.aggie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.brian_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Aggie to testify for Brian's friend"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.johanhus_request",
+    "name": "Ask Johanhus to release Jimmy",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.johanhus",
+    "end_location_id": "location.osf.johanhus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.aggie_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Learn that Johanhus wants a long-term chicken supply."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.fred_request",
+    "name": "Ask Fred the Farmer for chickens",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.freds_farm",
+    "end_location_id": "location.lumbridge.freds_farm",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.johanhus_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Fred the Farmer for chickens"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.seth_request",
+    "name": "Ask Seth Groats to supply chickens",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.seth_groats",
+    "end_location_id": "location.lumbridge.seth_groats",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.fred_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Seth Groats to supply chickens"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.horvik_request",
+    "name": "Ask Horvik to make chicken cages",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.horvik",
+    "end_location_id": "location.osf.horvik",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.seth_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Horvik needs an herbal tincture, three steel bars and five pigeon cages; his requirements are paid upon return."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.apothecary_request",
+    "name": "Ask the Varrock apothecary for a tincture",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.apothecary",
+    "end_location_id": "location.varrock.apothecary",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.horvik_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_breathing_salts",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Apothecary provides the salts but needs an airtight pot before making the medicine."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.tassie_request",
+    "name": "Ask Tassie Slipcast for an airtight pot",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.tassie",
+    "end_location_id": "location.osf.tassie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.apothecary_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Tassie Slipcast for an airtight pot"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.hammerspike_request",
+    "name": "Ask Hammerspike to forgive Tassie's debt",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.hammerspike",
+    "end_location_id": "location.osf.hammerspike",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.tassie_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Hammerspike to forgive Tassie's debt"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.sanfew_request",
+    "name": "Ask Sanfew to take Hammerspike as an apprentice",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.sanfew",
+    "end_location_id": "location.osf.sanfew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.hammerspike_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Sanfew to take Hammerspike as an apprentice"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.brew_guthix_rest",
+    "name": "Brew Guthix rest for Captain Bleemadge",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.sanfew",
+    "end_location_id": "location.osf.sanfew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.sanfew_request"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 18,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_guam_leaf",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.osf_marrentill",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.osf_harralander",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.osf_cup_of_hot_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_guthix_rest",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.osf_guthix_rest",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use two guam leaves, one marrentill and one harralander in hot water; the drink is quest tea."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.bleemadge_request",
+    "name": "Serve Bleemadge the tea and ask about a Feldip flight",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.gnome_glider.sindarpos",
+    "end_location_id": "location.gnome_glider.sindarpos",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.brew_guthix_rest"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_guthix_rest",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bleemadge wants a light T.R.A.S.H. rope from Arhein."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.arhein_request",
+    "name": "Ask Arhein for T.R.A.S.H. rope",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.arhein",
+    "end_location_id": "location.osf.arhein",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.bleemadge_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Arhein needs Phantuwti's weather report before issuing the rope."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.phantuwti_request",
+    "name": "Ask Phantuwti for a weather report",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.phantuwti",
+    "end_location_id": "location.osf.phantuwti",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.arhein_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Phantuwti cannot forecast until Petra is rescued and his weather vane repaired."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.investigate_petra",
+    "name": "Investigate Petra's disappearance by the cave wall",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.petra_cave_entrance",
+    "end_location_id": "location.osf.petra_cave_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.phantuwti_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Inspect the cave passage south-west of Seers' Village and prepare for the animated rock encounter."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.cromperty_request",
+    "name": "Ask Cromperty for an animate-rock scroll",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.cromperty",
+    "end_location_id": "location.ardougne.cromperty",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.investigate_petra"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "He requires iron oxide from Tindel to prepare the scroll."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.tindel_request",
+    "name": "Ask Tindel for iron oxide",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.tindel",
+    "end_location_id": "location.osf.tindel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.cromperty_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tindel wants a comfortable mattress from Rantz."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.rantz_request",
+    "name": "Ask Rantz for a comfortable mattress",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz",
+    "end_location_id": "location.feldip_hills.rantz",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.tindel_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Repair the glider runway's marker lights in Feldip Hills first."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.gnormadium_request",
+    "name": "Ask Gnormadium how to repair runway lights",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.gnormadium",
+    "end_location_id": "location.osf.gnormadium",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.rantz_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Gnormadium how to repair runway lights"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.repair_glider_lights",
+    "name": "Replace eight coloured glider lights",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.gnormadium",
+    "end_location_id": "location.osf.gnormadium",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.gnormadium_request"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.opal",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.osf_jade",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.sapphire",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.osf_red_topaz",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.osf_feldip_glider",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 82,
+      "expected_seconds": 150,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The gem budget is a conservative eight-stone successful puzzle forecast, not a guarantee that no stones crush."
+    },
+    "planned_outcome": {
+      "success_condition": "Repair all eight runway light positions with the correctly cut gems; do not proceed if a gem is crushed or the colour layout is incomplete.",
+      "if_unmet": "Stop, replenish any lost items and reconcile actual game progression and XP before retrying."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.rantz_mattress",
+    "name": "Return to Rantz and obtain the stodgy mattress",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.feldip_hills.rantz",
+    "end_location_id": "location.feldip_hills.rantz",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.repair_glider_lights"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_stodgy_mattress",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return to Rantz and obtain the stodgy mattress"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.tindel_oxide",
+    "name": "Trade the mattress to Tindel for iron oxide",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.tindel",
+    "end_location_id": "location.osf.tindel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.rantz_mattress"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_stodgy_mattress",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_iron_oxide",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Trade the mattress to Tindel for iron oxide"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.cromperty_scroll",
+    "name": "Trade iron oxide to Cromperty for an animate-rock scroll",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.cromperty",
+    "end_location_id": "location.ardougne.cromperty",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.tindel_oxide"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_iron_oxide",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_animate_rock_scroll",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Trade iron oxide to Cromperty for an animate-rock scroll"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.defeat_slagilith",
+    "name": "Animate Slagilith and defeat the hostile rock",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.petra_cave_interior",
+    "end_location_id": "location.osf.petra_cave_interior",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.cromperty_scroll"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 36,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_animate_rock_scroll",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 82,
+      "expected_seconds": 150,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Conditional combat; incidental XP and actual food usage are omitted until verified."
+    },
+    "planned_outcome": {
+      "success_condition": "Use the animation scroll to free Petra, defeat Slagilith and survive with enough supplies to leave the cave.",
+      "if_unmet": "Stop, replenish any lost items and reconcile actual game progression and XP before retrying."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.free_petra",
+    "name": "Speak to the rescued Petra",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.petra_cave_interior",
+    "end_location_id": "location.osf.petra_cave_interior",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.defeat_slagilith"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to the rescued Petra"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.phantuwti_vane",
+    "name": "Tell Phantuwti Petra is safe and inspect the weather vane",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.phantuwti",
+    "end_location_id": "location.osf.phantuwti",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.free_petra"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tell Phantuwti Petra is safe and inspect the weather vane"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.dismantle_vane",
+    "name": "Strike the damaged weather vane with a hammer",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.weather_vane_roof",
+    "end_location_id": "location.osf.weather_vane_roof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.phantuwti_vane"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_weather_vane_parts",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Strike the damaged weather vane with a hammer"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.smith_vane",
+    "name": "Smith three weather vane components at an anvil",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.seers_anvil",
+    "end_location_id": "location.osf.seers_anvil",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.dismantle_vane"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 30,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_weather_vane_parts",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bronze_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.steel_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_repaired_weather_vane",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 85,
+      "max_seconds": 187
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Smith three weather vane components at an anvil"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.repair_vane",
+    "name": "Replace the weather vane components",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.weather_vane_roof",
+    "end_location_id": "location.osf.weather_vane_roof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.smith_vane"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_repaired_weather_vane",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Replace the weather vane components"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.collect_weather_report",
+    "name": "Collect the finished forecast from Phantuwti",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.phantuwti",
+    "end_location_id": "location.osf.phantuwti",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.repair_vane"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_weather_report",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the finished forecast from Phantuwti"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.arhein_rope",
+    "name": "Trade the forecast to Arhein for lightweight rope",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.arhein",
+    "end_location_id": "location.osf.arhein",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.collect_weather_report"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_weather_report",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_trash_rope",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Trade the forecast to Arhein for lightweight rope"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.bleemadge_agreement",
+    "name": "Deliver the rope and arrange Bleemadge's Feldip flight",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.gnome_glider.sindarpos",
+    "end_location_id": "location.gnome_glider.sindarpos",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.arhein_rope"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_trash_rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "This first flight agreement completes Sanfew's transport favour."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.sanfew_consent",
+    "name": "Tell Sanfew the flight has been arranged",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.sanfew",
+    "end_location_id": "location.osf.sanfew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.bleemadge_agreement"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tell Sanfew the flight has been arranged"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.hammerspike_gang",
+    "name": "Defeat Hammerspike's three dwarf gang members",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.hammerspike",
+    "end_location_id": "location.osf.hammerspike",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.sanfew_consent"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 74,
+      "expected_seconds": 135,
+      "max_seconds": 297
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The gang fights require account-specific combat supplies and incidental combat XP review."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the three gang members; stop if combat or supplies do not match the planned result.",
+      "if_unmet": "Stop, replenish any lost items and reconcile actual game progression and XP before retrying."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.hammerspike_approval",
+    "name": "Arrange Hammerspike's apprenticeship with Sanfew",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.hammerspike",
+    "end_location_id": "location.osf.hammerspike",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.hammerspike_gang"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The debt against Tassie is forgiven after the apprenticeship deal."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.tassie_teaches",
+    "name": "Ask Tassie to teach airtight pottery",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.tassie",
+    "end_location_id": "location.osf.tassie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.hammerspike_approval"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_soft_clay",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tassie supplies the quest clay for one airtight-pot lid."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.make_pot_lid",
+    "name": "Spin and fire a pot lid",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.tassie",
+    "end_location_id": "location.osf.tassie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.tassie_teaches"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 25,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_soft_clay",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_pot_lid",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.osf_pot_lids",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 52,
+      "max_seconds": 114
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The nearby pottery wheel and kiln are modeled within this waypoint; Crafting XP may be incidental."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.seal_pot",
+    "name": "Seal an ordinary pot with the fired lid",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.tassie",
+    "end_location_id": "location.osf.tassie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.make_pot_lid"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pot",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.osf_pot_lid",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_airtight_pot",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Seal an ordinary pot with the fired lid"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.apothecary_tincture",
+    "name": "Return airtight pot and salts for herbal tincture",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.apothecary",
+    "end_location_id": "location.varrock.apothecary",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.seal_pot"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_airtight_pot",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.osf_breathing_salts",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_herbal_tincture",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Return airtight pot and salts for herbal tincture"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.horvik_cages",
+    "name": "Heal Horvik and deliver five pigeon cages and three steel bars",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.horvik",
+    "end_location_id": "location.osf.horvik",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.apothecary_tincture"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "supply.one_small_favour.collect_pigeon_cages"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_herbal_tincture",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.osf_pigeon_cage",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.steel_bar",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_chicken_cage",
+        "quantity": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 50,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Horvik repays Seth's debt by modifying the cages for chickens."
+    }
+  },
+  {
+    "id": "quest.one_small_favour.seth_chickens",
+    "name": "Give Seth the cages and confirm the poultry supply",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge.seth_groats",
+    "end_location_id": "location.lumbridge.seth_groats",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.horvik_cages"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_chicken_cage",
+        "quantity": 5
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Give Seth the cages and confirm the poultry supply"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.johanhus_releases",
+    "name": "Report the chicken deal to Johanhus",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.johanhus",
+    "end_location_id": "location.osf.johanhus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.seth_chickens"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Report the chicken deal to Johanhus"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.aggie_testimony",
+    "name": "Tell Aggie that Jimmy is free",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.aggie",
+    "end_location_id": "location.draynor.aggie",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.johanhus_releases"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tell Aggie that Jimmy is free"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.brian_sharpened",
+    "name": "Collect the forester's sharpened axe from Brian",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.brian",
+    "end_location_id": "location.osf.brian",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.aggie_testimony"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_sharpened_axe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect the forester's sharpened axe from Brian"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.forester_logs",
+    "name": "Exchange the sharpened axe for red mahogany logs",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.forester",
+    "end_location_id": "location.osf.forester",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.brian_sharpened"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_sharpened_axe",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.osf_red_mahogany_logs",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 25,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exchange the sharpened axe for red mahogany logs"
+    }
+  },
+  {
+    "id": "quest.one_small_favour.complete",
+    "name": "Deliver red mahogany logs to Yanni and receive the quest rewards",
+    "activity_id": "quest.one_small_favour",
+    "kind": "quest_stage",
+    "start_location_id": "location.osf.yanni",
+    "end_location_id": "location.osf.yanni",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.one_small_favour.forester_logs"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.osf_red_mahogany_logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.osf_key_ring",
+        "quantity": 1
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.one_small_favour.lamp",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 45,
+      "max_seconds": 99
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.one_small_favour",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Yanni awards two independent 10,000-XP lamps and the key ring. The quest journal may stay incomplete until the held lamps are spent; dependent-quest lamp gate is pending semantics support."
+    }
+  }
+]

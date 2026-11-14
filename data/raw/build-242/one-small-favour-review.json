@@ -1,0 +1,36 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "collected",
+  "source_ids": [
+    "source.quest_helper.one_small_favour",
+    "source.quest_helper.quest_observations",
+    "source.project.travel_timing",
+    "source.project.early_quest_timing",
+    "source.jagex.grand_exchange_catalogue"
+  ],
+  "activity_ids": ["quest.one_small_favour"],
+  "observations": {
+    "route": "Starts at Yanni in Shilo Village and unfolds through the forester, Brian, Aggie, Johanhus, Fred, Seth, Horvik, the Apothecary, Tassie, Hammerspike, Sanfew, Bleemadge, Arhein, Phantuwti, Cromperty, Tindel, Rantz and Gnormadium. The return trip resolves the lamps, lights, mattress, iron oxide, Petra, weather vane, ropes, apprenticeship, dwarf fight, airtight pottery, tincture, chicken cages, Jimmy and finally the red mahogany. The catalog uses 48 ordered quest stages, three distinct finite supply actions and bidirectional mainland/underground passages.",
+    "skill_requirements": {
+      "agility": {"minimum": 36, "boostable": true, "stage": "quest.one_small_favour.defeat_slagilith"},
+      "crafting": {"minimum": 25, "boostable": true, "stage": "quest.one_small_favour.make_pot_lid"},
+      "herblore": {"minimum": 18, "boostable": true, "stage": "quest.one_small_favour.brew_guthix_rest"},
+      "smithing": {"minimum": 30, "boostable": true, "stage": "quest.one_small_favour.smith_vane"}
+    },
+    "supplies": "Four steel bars split as three at Horvik and one at the weather-vane anvil. One bronze bar, one iron bar, two guam leaves, marrentill, harralander, a hot water cup, five pigeon cages, a pot and the four families of marker gems are tracked. The GE bundle is an estimated 10,000 coins and is optional if the player already has the inputs.",
+    "rewards": "Yanni's single completion action produces two quest points, the steel key ring and two separately spendable held lamps with one 10,000 XP choice each, eligible at base skill level 30 or higher. Guthix rest, pot lids and the Feldip glider destination unlock on the relevant intermediate stages."
+  },
+  "pending_reviews": [
+    "The RuneLite/Quest Helper helper phase selector verifies progression order, but exact duplicate dialogue clicks and local tile positions have not been independently checked against the live client. The long-route walk estimates should be measured in game.",
+    "The Feldip runway requires a colour puzzle and risk of crushed gems. This draft reserves a conservative eight gems and uses a conditional success step, but must capture the actual minimum gems, required colours and crafting XP for 2026 build 242.",
+    "The two conditional combat stages (Slagilith and dwarf gang) omit incidental XP, prayer, ammunition and consumable combat costs. Reconcile the real outcome rather than treating the deterministic forecast as guaranteed.",
+    "The Sanfew hot-water preparation and later airtight-pot use need exact item dialogue and inventory retention verification. See the separate supply actions for a provisional route.",
+    "The user's account may need to use both 10,000-XP lamps to mark the quest fully green and unlock King's Ransom and Swan Song. The current action gate cannot express redemption of two held rewards as a prerequisite; downstream quest authors should not assume the final hand-in alone is sufficient.",
+    "The quest may supply the five pigeon cages only if retrieved after meeting Horvik. The current route deliberately places them in a standalone one-time supply action at Jerico's house.",
+    "The 10,000-coin GE purchase bundle and spare gem/crush recovery policy are estimates, not fixed game prices. The player may need to bank and repack before the lengthy route.",
+    "The weather vane rooftop route and the Petra cave entrance use approximated pathing and exit locations. Verify in-game passages and whether each remains available outside the quest stage.",
+    "The steel key ring's key-storage interactions, duplicate pot lids for Swan Song and full Guthix rest repeatable production remain separate optional additions."
+  ],
+  "focused_replay": "optimizer/tests/test_one_small_favour.py",
+  "independent_review": "pending"
+}
