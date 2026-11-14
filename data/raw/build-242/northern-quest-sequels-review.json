@@ -1,0 +1,57 @@
+{
+  "batch_id": "northern-quest-sequels",
+  "revision": "osrs-live-242-2026-11-11",
+  "activity_ids": [
+    "quest.making_friends_with_my_arm",
+    "quest.the_fremennik_exiles"
+  ],
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.project.early_quest_timing",
+    "source.project.travel_timing"
+  ],
+  "pinned_helper_files": [
+    "src/main/java/com/questhelper/helpers/quests/makingfriendswithmyarm/MakingFriendsWithMyArm.java",
+    "src/main/java/com/questhelper/helpers/quests/thefremennikexiles/TheFremennikExiles.java"
+  ],
+  "observations": {
+    "quest.making_friends_with_my_arm": {
+      "start": "Burntmeat in Troll Stronghold; My Arm rooftop then Larry in north-west Rellekka.",
+      "prerequisites": [
+        "My Arm's Big Adventure, Swan Song, Cold War, Romeo & Juliet",
+        "66 Firemaking (not boostable), 72 Mining, 35 Construction, 68 Agility (latter three boostable)"
+      ],
+      "route": "Larry's boat to Weiss, rope/rock climb, troll stealth, cave swim and Mother's dialogue; Wise Old Man, mahogany coffin and cadava potion; prison combat, Snowflake's fire and goat dung.",
+      "consumables": "One bolt of cloth, five mahogany planks, cadava berries; rope consumed installing the ledge. Food budget is an estimate.",
+      "reward": "2 QP, 10,000 Construction, 40,000 Firemaking, 50,000 Mining and 50,000 Agility XP."
+    },
+    "quest.the_fremennik_exiles": {
+      "start": "Brundt at Rellekka longhall; Freygerd, the rockslide and Brundt's exile camp.",
+      "prerequisites": [
+        "The Fremennik Isles, Lunar Diplomacy, Mountain Daughter, Heroes' Quest",
+        "65 Crafting, 60 Slayer, 60 Smithing, 60 Fishing, 60 Mining, 55 Runecraft (not boostable)"
+      ],
+      "route": "Recover investigation evidence, craft V's shield with lunar glass, Fossegrimen's altar and geyser relic; defend Rellekka, sail to Isle of Stone, solve a puzzle, defeat Typhor and Jormungand.",
+      "consumables": "One molten glass and astral rune; estimated two kegs of beer; fixed combat food budget. Mirror shield, ice gloves, fishing rod, pet rock, rune throwing axe and seal of passage are held.",
+      "reward": "2 QP, 50,000 Slayer, 50,000 Crafting and 30,000 Runecraft XP, plus V's shield."
+    }
+  },
+  "coordination": {
+    "tracker_issue": "https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/20",
+    "upstream_pr": "https://github.com/KihiraLove/osrs-optimal-quest-guide/pull/16",
+    "deferred_gates": {
+      "external.northern.my_arms_big_adventure": "quest.my_arms_big_adventure.complete",
+      "external.northern.cold_war": "quest.cold_war.complete",
+      "external.northern.heroes_quest": "quest.heroes_quest.complete"
+    },
+    "integration_required": "The three upstream quests are marked Added on the activity tracker but their producers live on a separate, unmerged PR. Replace these external flags with action_completed requirements after integrating PR #16. Do not interpret seeded replays as proof they can run from a fresh account before integration."
+  },
+  "review_gaps": [
+    "Recheck the true item counts and material consumption in both quests: kegs, mahogany materials, rope, mirror shield and shield of V construction are approximations of observed phases.",
+    "Weiss travel/stealth/water-cave and Isle of Stone instance coordinates are taken from pinned helper candidate tiles; verify layer transitions, two-way escape paths and recovery conditions in game.",
+    "Sailing-to-Weiss and Isle-of-Stone eligibility must be checked against the live NPC dialogue and all unmerged prerequisite producers.",
+    "Combat encounters and guard patrols are planned-success estimates; verify food expenditure, equipment, NPC damage and possible death recovery.",
+    "Game-specific incidental XP, GE prices and long walking durations are not guaranteed and need live review.",
+    "The two quests are collected, not independently reviewed, and upstream gates currently need seeded flags."
+  ]
+}

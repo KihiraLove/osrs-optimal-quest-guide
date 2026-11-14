@@ -6684,5 +6684,46 @@
       ]
     },
     "note": "Dream Mentor unlocks seven Lunar spells and seal-free Jack bank access; the retained 15,000-XP dreamy lamp is restricted to Strength, Defence, Hitpoints, Ranged and Magic."
+  },
+  {
+    "id": "review.quest.making_friends_with_my_arm.completion_rewards",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.making_friends_with_my_arm.complete"],
+    "expected_effects": {
+      "quest.making_friends_with_my_arm.complete": [
+        {"kind":"counter","token_id":"token.quest_points","delta":2},
+        {"kind":"xp","skill_id":"skill.construction","xp_tenths":100000},
+        {"kind":"xp","skill_id":"skill.firemaking","xp_tenths":400000},
+        {"kind":"xp","skill_id":"skill.mining","xp_tenths":500000},
+        {"kind":"xp","skill_id":"skill.agility","xp_tenths":500000},
+        {"kind":"flag","token_id":"unlock.northern.weiss_passage","value":true}
+      ]
+    },
+    "note": "Pinned helper's 2 QP and fixed Construction, Firemaking, Mining and Agility XP. Weiss access flag is provisionally set at completion; access during the quest comes via Larry's boat."
+  },
+  {
+    "id": "review.quest.the_fremennik_exiles.completion_rewards",
+    "activity_id": "quest.the_fremennik_exiles",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.the_fremennik_exiles.sail_isle", "quest.the_fremennik_exiles.jormungand", "quest.the_fremennik_exiles.complete"],
+    "expected_effects": {
+      "quest.the_fremennik_exiles.sail_isle": [
+        {"kind":"flag","token_id":"unlock.northern.isle_of_stone","value":true}
+      ],
+      "quest.the_fremennik_exiles.jormungand": [
+        {"kind":"flag","token_id":"unlock.northern.jormungand","value":true}
+      ],
+      "quest.the_fremennik_exiles.complete": [
+        {"kind":"counter","token_id":"token.quest_points","delta":2},
+        {"kind":"xp","skill_id":"skill.slayer","xp_tenths":500000},
+        {"kind":"xp","skill_id":"skill.crafting","xp_tenths":500000},
+        {"kind":"xp","skill_id":"skill.runecraft","xp_tenths":300000},
+        {"kind":"item","item_id":"item.exiles_v_shield_reward","quantity":1}
+      ]
+    },
+    "note": "Fixed helper rewards: 2 QP, 50,000 Slayer XP, 50,000 Crafting XP, 30,000 Runecraft XP, V's shield. Prior access is staged rather than credited only on completion."
   }
 ]

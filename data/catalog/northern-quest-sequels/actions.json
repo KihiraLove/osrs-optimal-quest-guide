@@ -1,0 +1,1936 @@
+[
+  {
+    "id": "quest.making_friends_with_my_arm.start",
+    "name": "Ask Burntmeat for help with My Arm's new plans",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.troll_stronghold.burntmeat",
+    "end_location_id": "location.troll_stronghold.burntmeat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.swan_song.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.romeo_juliet.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "external.northern.my_arms_big_adventure",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "external.northern.cold_war",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 66,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 72,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 35,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 68,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.rooftop",
+    "name": "Climb to My Arm and discuss the Weiss expedition",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.arm_roof",
+    "end_location_id": "location.northern.arm_roof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "supply.northern.arm_materials",
+    "name": "Buy coffin materials, cadava berries and provisions",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.rooftop"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 62500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.saw",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bolt_of_cloth",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.northern_mahogany_plank",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cadava_berries",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.northern_rations",
+        "quantity": 12
+      }
+    ],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tradeable one-time supply estimate at the Grand Exchange; actual price and stock require checking."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.larry",
+    "name": "Meet Larry at the north Rellekka boat",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.larry",
+    "end_location_id": "location.northern.larry",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.rooftop"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "supply.northern.arm_materials"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.weiss_landfall",
+    "name": "Arrive at Weiss and find rope and pickaxe on the boat",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.weiss_jetty",
+    "end_location_id": "location.northern.weiss_jetty",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.larry"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_pickaxe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.rope_ledge",
+    "name": "Mine and climb the rocks, attach rope and traverse ledges",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.weiss_rope",
+    "end_location_id": "location.northern.weiss_rope",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.weiss_landfall"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.northern_rope_ladder",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 81,
+      "expected_seconds": 135,
+      "max_seconds": 405
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully traverse the Weiss ledge sequence",
+      "if_unmet": "Retry the challenge safely; do not award success or incidental XP prematurely."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.boulder",
+    "name": "Find and speak to Boulder near the Weiss camp",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.weiss_boulder",
+    "end_location_id": "location.northern.weiss_boulder",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.rope_ledge"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.sneak",
+    "name": "Sneak through the troll camp without being spotted",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.weiss_boulder",
+    "end_location_id": "location.northern.weiss_boulder",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.boulder"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 78,
+      "expected_seconds": 130,
+      "max_seconds": 390
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Pass the camp patrols and reach the tunnel",
+      "if_unmet": "Return to the last safe approach and retry the stealth section."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.water_caves",
+    "name": "Navigate the flooded Weiss cave, mining the final obstruction",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.weiss_cave",
+    "end_location_id": "location.northern.weiss_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.sneak"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 84,
+      "expected_seconds": 140,
+      "max_seconds": 420
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Exit the water cave at the far side",
+      "if_unmet": "Retry the challenge safely; do not award success or incidental XP prematurely."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.mother",
+    "name": "Meet Mother in Weiss and return to My Arm",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.weiss_mother",
+    "end_location_id": "location.northern.weiss_mother",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.water_caves"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.wise_old_man",
+    "name": "Ask the Wise Old Man to accompany the trolls",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.draynor.wise_old_man",
+    "end_location_id": "location.draynor.wise_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.mother"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.build_coffin",
+    "name": "Construct a mahogany coffin for the Wise Old Man",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.draynor.wise_old_man",
+    "end_location_id": "location.draynor.wise_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.wise_old_man"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.saw",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bolt_of_cloth",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.northern_mahogany_plank",
+          "quantity": 5
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bolt_of_cloth",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.northern_mahogany_plank",
+        "quantity": 5
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.northern_coffin",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.apothecary",
+    "name": "Have the Varrock apothecary prepare cadava potion",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.varrock.apothecary",
+    "end_location_id": "location.varrock.apothecary",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.build_coffin"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cadava_berries",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.cadava_berries",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.northern_cadava_potion",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.escort",
+    "name": "Give the Wise Old Man the preparations and escort him to Larry",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.draynor.wise_old_man",
+    "end_location_id": "location.draynor.wise_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.apothecary"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.northern_coffin",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.northern_cadava_potion",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.northern_coffin",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.northern_cadava_potion",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.return_weiss",
+    "name": "Bring the Wise Old Man to My Arm in Weiss",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.weiss_mother",
+    "end_location_id": "location.northern.weiss_mother",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.escort"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 66,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.prison",
+    "name": "Enter the prison, discover the mushroom plot and battle troll guards",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.weiss_prison",
+    "end_location_id": "location.northern.weiss_prison",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.return_weiss"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.northern_rations",
+          "quantity": 6
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.northern_rations",
+        "quantity": 6
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 111,
+      "expected_seconds": 185,
+      "max_seconds": 555
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Survive prison confrontation and escape through the cave",
+      "if_unmet": "Retry the challenge safely; do not award success or incidental XP prematurely."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.fetch_water",
+    "name": "Pick up a bucket and fill it with water",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.weiss_snowflake",
+    "end_location_id": "location.northern.weiss_snowflake",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.prison"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.northern_ice_bucket",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.snowflake",
+    "name": "Speak with Snowflake and extinguish the camp fire with water",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.weiss_snowflake",
+    "end_location_id": "location.northern.weiss_snowflake",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.fetch_water"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.northern_ice_bucket",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.northern_ice_bucket",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 48,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.goat_dung",
+    "name": "Gather goat dung for Snowflake",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.weiss_dung",
+    "end_location_id": "location.northern.weiss_dung",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.snowflake"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.northern_goat_dung",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.notes",
+    "name": "Give Snowflake the dung and read her notes",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.weiss_snowflake",
+    "end_location_id": "location.northern.weiss_snowflake",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.goat_dung"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.northern_goat_dung",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.northern_goat_dung",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.northern_notes",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.making_friends_with_my_arm.complete",
+    "name": "Report to Snowflake to finish Making Friends with My Arm",
+    "kind": "quest_stage",
+    "activity_id": "quest.making_friends_with_my_arm",
+    "start_location_id": "location.northern.weiss_snowflake",
+    "end_location_id": "location.northern.weiss_snowflake",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_friends_with_my_arm.notes"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.northern_notes",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 400000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 500000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 500000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.northern.weiss_passage",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.start",
+    "name": "Ask Brundt about the strange Fremennik killings",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.rellekka.brundt",
+    "end_location_id": "location.rellekka.brundt",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_isles.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.mountain_daughter.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "external.northern.heroes_quest",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 65,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fishing",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.runecraft",
+          "minimum_level": 55,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "supply.northern.exiles_supplies",
+    "name": "Buy tools, shield, glass and combat provisions",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 82500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.exiles_glassblowing_pipe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.exiles_mirror_shield",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.exiles_rune_throwing_axe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.exiles_fremennik_shield",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.molten_glass",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.astral_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fishing_rod",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_pickaxe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.exiles_kegs",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.northern_rations",
+        "quantity": 15
+      }
+    ],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tradeable one-time supply estimate at the Grand Exchange; actual price and stock require checking."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.freygerd",
+    "name": "Question Freygerd and search the sandpit",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.northern.freygerd",
+    "end_location_id": "location.northern.freygerd",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.start"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "supply.northern.exiles_supplies"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.exiles_freygerd_letter",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.rockslide",
+    "name": "Find evidence at the rockslide and search the nearby boxes",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.northern.exiles_rockslide",
+    "end_location_id": "location.northern.exiles_rockslide",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.freygerd"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_freygerd_letter",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 57,
+      "expected_seconds": 95,
+      "max_seconds": 285
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.brundt_exile",
+    "name": "Find the exiled Brundt and discuss the shield of V",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.northern.brundt_exile",
+    "end_location_id": "location.northern.brundt_exile",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.rockslide"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.sigil",
+    "name": "Recover V's sigil during the investigation",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.northern.brundt_exile",
+    "end_location_id": "location.northern.brundt_exile",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.brundt_exile"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.exiles_sigil",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.lunar_glass",
+    "name": "Use the lunar furnace to shape the protective glass",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.northern.exiles_lunar_glass",
+    "end_location_id": "location.northern.exiles_lunar_glass",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.sigil"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.molten_glass",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.astral_rune",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_glassblowing_pipe",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_seal_of_passage",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.molten_glass",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.astral_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.exiles_lunar_glass",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 66,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.fossegrimen",
+    "name": "Ask Fossegrimen to bless the restored shield",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.fremennik.fossegrimen_altar",
+    "end_location_id": "location.fremennik.fossegrimen_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.lunar_glass"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_fremennik_shield",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.geyser",
+    "name": "Investigate the geyser with ice gloves and retrieve the relic",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.northern.exiles_geyser",
+    "end_location_id": "location.northern.exiles_geyser",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.fossegrimen"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ice_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.exiles_ancient_relic",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 66,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.make_shield",
+    "name": "Combine the relic, sigil and lunar glass to reconstruct V's shield",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.northern.brundt_exile",
+    "end_location_id": "location.northern.brundt_exile",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.geyser"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_mirror_shield",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_lunar_glass",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_sigil",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_ancient_relic",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.exiles_lunar_glass",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.exiles_sigil",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.exiles_ancient_relic",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.exiles_v_shield",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.beer",
+    "name": "Bring Brundt the kegs of beer to rally the exile warriors",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.northern.brundt_exile",
+    "end_location_id": "location.northern.brundt_exile",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.make_shield"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_v_shield",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_kegs",
+          "quantity": 2
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.exiles_kegs",
+        "quantity": 2
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.defend",
+    "name": "Defend Rellekka from the invading basilisks",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.northern.exiles_defence",
+    "end_location_id": "location.northern.exiles_defence",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.beer"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_mirror_shield",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.northern_rations",
+          "quantity": 6
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.northern_rations",
+        "quantity": 6
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 99,
+      "expected_seconds": 165,
+      "max_seconds": 495
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the basilisk attackers and survive the village assault",
+      "if_unmet": "Retry the challenge safely; do not award success or incidental XP prematurely."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.sail_isle",
+    "name": "Sail from Rellekka to the Isle of Stone",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.northern.exiles_isle",
+    "end_location_id": "location.northern.exiles_isle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.defend"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_rune_throwing_axe",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fremennik_pet_rock",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fishing_rod",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.northern.isle_of_stone",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.puzzle",
+    "name": "Solve the Isle of Stone entry puzzle",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.northern.exiles_puzzle",
+    "end_location_id": "location.northern.exiles_puzzle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.sail_isle"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 87,
+      "expected_seconds": 145,
+      "max_seconds": 435
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Open the sealed passage to the basilisk lair",
+      "if_unmet": "Retry the challenge safely; do not award success or incidental XP prematurely."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.typhor",
+    "name": "Defeat Typhor in the cave",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.northern.exiles_arena",
+    "end_location_id": "location.northern.exiles_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.puzzle"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_mirror_shield",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.northern_rations",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.northern_rations",
+        "quantity": 4
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 96,
+      "expected_seconds": 160,
+      "max_seconds": 480
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Typhor while protected from basilisk attacks",
+      "if_unmet": "Retry the challenge safely; do not award success or incidental XP prematurely."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.jormungand",
+    "name": "Defeat the Jormungand",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.northern.exiles_arena",
+    "end_location_id": "location.northern.exiles_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.typhor"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_v_shield",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.northern_rations",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.northern_rations",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.northern.jormungand",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 144,
+      "expected_seconds": 240,
+      "max_seconds": 720
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Jormungand and survive the final encounter",
+      "if_unmet": "Retry the challenge safely; do not award success or incidental XP prematurely."
+    }
+  },
+  {
+    "id": "quest.the_fremennik_exiles.complete",
+    "name": "Report to Brundt and finish The Fremennik Exiles",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_fremennik_exiles",
+    "start_location_id": "location.rellekka.brundt",
+    "end_location_id": "location.rellekka.brundt",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_exiles.jormungand"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.northern.jormungand",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_v_shield",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.exiles_v_shield",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.slayer",
+        "xp_tenths": 500000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 500000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.runecraft",
+        "xp_tenths": 300000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.exiles_v_shield_reward",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper sequence; dialogs, travel microsteps and incidental XP are approximate."
+    }
+  }
+]

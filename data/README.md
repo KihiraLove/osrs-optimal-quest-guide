@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.48.0` loads 24 skill tables and
-2,252 draft actions across 156 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.49.0` loads 24 skill tables and
+2,290 draft actions across 158 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -339,3 +339,13 @@ requirements. The seeded replay checks rewards, missing prerequisites, spell
 resources, graph navigation and repeat protection. Precise item persistence,
 combat damage, dungeon exits, and possible overlap between the direct Magic XP
 and lamp reward require independent gameplay review.
+
+The [northern quest sequels review](raw/build-242/northern-quest-sequels-review.json)
+records the Weiss stealth and water cave route, coffin and apothecary supply
+chain for Making Friends with My Arm and the shield, geyser, basilisk defence,
+Isle of Stone and Jormungand sequence for The Fremennik Exiles. Two complete
+seeded routes test fixed rewards, staged supplies, directed exits, combat
+success and duplicate completion prevention. My Arm's Big Adventure, Cold War
+and Heroes' Quest are implemented on a separate, unmerged PR: this branch
+preserves their three mandatory gates as explicitly seeded external flags.
+An integrator must replace those flags with the upstream completion actions.
