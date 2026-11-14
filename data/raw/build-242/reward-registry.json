@@ -465,12 +465,12 @@
     {
       "id": "review.quest.a_night_at_the_theatre.xp_package",
       "activity_id": "quest.a_night_at_the_theatre",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.a_night_at_the_theatre.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -480,14 +480,21 @@
           "kind": "fixed",
           "xp_tenths": 200000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": [
+          "skill.attack",
+          "skill.strength",
+          "skill.defence",
+          "skill.ranged",
+          "skill.magic",
+          "skill.hitpoints"
+        ],
+        "minimum_level": 50,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 4,
         "reported_eligibility": "combat_except_prayer"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "Four independent retainable 20,000-XP antique lamps at the Mysterious Stranger completion dialogue, each choosing Attack, Strength, Defence, Ranged, Magic or Hitpoints at base level 50+. Verify current in-game reclaim and deferred redemption after cross-PR integration."
     },
     {
       "id": "review.quest.a_tail_of_two_cats.xp_package",

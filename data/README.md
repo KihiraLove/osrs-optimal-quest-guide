@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.51.0` loads 24 skill tables and
-2,387 draft actions across 162 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.52.0` loads 24 skill tables and
+2,492 draft actions across 164 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
