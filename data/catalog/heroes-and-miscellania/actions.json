@@ -1,0 +1,2204 @@
+[
+  {
+    "id": "quest.heroes_quest.start",
+    "name": "Request membership in the Heroes' Guild",
+    "activity_id": "quest.heroes_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.heroes_guild.achietties",
+    "end_location_id": "location.heroes_guild.achietties",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 55
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_i.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lost_city.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.merlins_crystal.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 38,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest and 55-point gates. Skill requirements apply to the relevant later stages."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_heroes_materials",
+    "name": "Buy fishing ingredients and a conditional combat reserve",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 6000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.fishing_rod",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fishing_bait",
+        "quantity": 8
+      },
+      {
+        "kind": "item",
+        "item_id": "item.harralander_unfinished_potion",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 10
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 60,
+      "max_seconds": 132
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "Approximate member-account GE budget. Food reserve covers a successful Ice Queen fight and Phoenix-branch Grip encounter."
+    }
+  },
+  {
+    "id": "quest.heroes_quest.get_blamish_slime",
+    "name": "Ask Gerrant for blamish snail slime",
+    "activity_id": "quest.heroes_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.gerrant",
+    "end_location_id": "location.port_sarim.gerrant",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.heroes_quest.start"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.blamish_snail_slime",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 15,
+      "max_seconds": 34
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Gerrant supplies an untradeable sample for the oily fishing rod after Heroes' Quest begins."
+    }
+  },
+  {
+    "id": "quest.heroes_quest.prepare_oily_rod",
+    "name": "Mix blamish oil and coat the fishing rod",
+    "activity_id": "quest.heroes_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.gerrant",
+    "end_location_id": "location.port_sarim.gerrant",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.start"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.get_blamish_slime"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 25,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fishing_rod",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.harralander_unfinished_potion",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.blamish_snail_slime",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fishing_rod",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.harralander_unfinished_potion",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.blamish_snail_slime",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.oily_fishing_rod",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 800
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 35,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Gerrant supplies untradeable slime; mix it with an unfinished harralander potion for 80 Herblore XP, then coat the rod."
+    }
+  },
+  {
+    "id": "quest.heroes_quest.catch_lava_eel",
+    "name": "Catch a raw lava eel in Taverley Dungeon",
+    "activity_id": "quest.heroes_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley_dungeon.lava_eel_pool",
+    "end_location_id": "location.taverley_dungeon.lava_eel_pool",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.prepare_oily_rod"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fishing",
+          "minimum_level": 53,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.oily_fishing_rod",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fishing_bait",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fishing_bait",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_lava_eel",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 600
+      }
+    ],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 100,
+      "max_seconds": 221
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Requires oily rod, bait and level 53 Fishing (boostable). A successful raw lava eel catch pays 60 Fishing XP."
+    },
+    "planned_outcome": {
+      "success_condition": "Catch one raw lava eel with the oily fishing rod and the modelled bait allocation.",
+      "if_unmet": "Use additional bait from the reserve and adjust fishing time, XP and item counts before proceeding."
+    }
+  },
+  {
+    "id": "quest.heroes_quest.cook_lava_eel",
+    "name": "Cook the caught lava eel on a fire",
+    "activity_id": "quest.heroes_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.taverley_dungeon.lava_eel_pool",
+    "end_location_id": "location.taverley_dungeon.lava_eel_pool",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.catch_lava_eel"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 53,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.raw_lava_eel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.logs",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_lava_eel",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cooked_lava_eel",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 300
+      }
+    ],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 50,
+      "max_seconds": 111
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Light a fire with a log and tinderbox; a successful eel cook grants 30 Cooking XP. Burning risk is a conditional outcome."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully cook a lava eel without burning it.",
+      "if_unmet": "Catch another eel and restock logs and bait; update incidental XP and the route after a failure."
+    }
+  },
+  {
+    "id": "quest.heroes_quest.defeat_ice_queen",
+    "name": "Defeat the Ice Queen and take her gloves",
+    "activity_id": "quest.heroes_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.white_wolf_mountain.ice_queen",
+    "end_location_id": "location.white_wolf_mountain.ice_queen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.start"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 50,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lobster",
+          "quantity": 6
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 6
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ice_gloves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 166,
+      "expected_seconds": 350,
+      "max_seconds": 771
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Dig through the White Wolf Mountain rocks and defeat the level-111 Ice Queen. This step may be skipped when ice gloves were obtained during the Mountain Dwarf route."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Ice Queen and pick up ice gloves using at most six lobsters.",
+      "if_unmet": "Restock and retry; player combat XP and food usage are conditional."
+    }
+  },
+  {
+    "id": "quest.heroes_quest.get_fire_feather",
+    "name": "Defeat the Entrana firebird while wearing ice gloves",
+    "activity_id": "quest.heroes_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.entrana.firebird",
+    "end_location_id": "location.entrana.firebird",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ice_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.heroes_fire_feather",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 65,
+      "max_seconds": 143
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the Entrana ferry's restricted-equipment gate; do this before acquiring the Black Arm disguise if possible. The ice gloves protect from the fiery feather."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the firebird and claim one fire feather with ice gloves equipped.",
+      "if_unmet": "Return with a compatible loadout and gloves, then retry; combat XP depends on method."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_heroes_black_disguise",
+    "name": "Buy black armour for the Black Arm route",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.get_fire_feather"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.shield_of_arrav.black_arm",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2600
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.black_full_helm",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.black_platebody",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.black_platelegs",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 44,
+      "max_seconds": 97
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "Buy after the Entrana firebird to avoid blocking the ferry with armour. Three pieces required for the mansion disguise."
+    }
+  },
+  {
+    "id": "quest.heroes_quest.black_arm_contact",
+    "name": "Receive the Black Arm assignment from Katrine",
+    "activity_id": "quest.heroes_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.katrine",
+    "end_location_id": "location.varrock.katrine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.shield_of_arrav.black_arm",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 43,
+      "max_seconds": 95
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The existing Shield of Arrav gang flag chooses the correct gang route."
+    }
+  },
+  {
+    "id": "quest.heroes_quest.black_arm_heist",
+    "name": "Enter Grip's mansion and retrieve the thieves' armband",
+    "activity_id": "quest.heroes_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimhaven.trobert",
+    "end_location_id": "location.brimhaven.grip_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.black_arm_contact"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.defence",
+          "minimum_level": 25,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.black_full_helm",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.black_platebody",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.black_platelegs",
+          "quantity": 1
+        },
+        {
+          "kind": "policy",
+          "name": "allow_player_assistance",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.heroes_master_thieves_armband",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 138,
+      "expected_seconds": 290,
+      "max_seconds": 638
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wear all three armour pieces, gain Grip's key and reach his chest while a cooperating Phoenix Gang player handles Grip. Assistance timing is conditional; source helper candidate points identify mansion steps."
+    },
+    "planned_outcome": {
+      "success_condition": "An available Phoenix Gang partner assists the infiltration and Grip's key and armband are obtained.",
+      "if_unmet": "Find an eligible opposite-gang helper, arrange the encounter and replan the time before proceeding."
+    }
+  },
+  {
+    "id": "quest.heroes_quest.phoenix_contact",
+    "name": "Ask Straven about the Master Thieves' armband",
+    "activity_id": "quest.heroes_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock_phoenix.straven",
+    "end_location_id": "location.varrock_phoenix.straven",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.shield_of_arrav.phoenix",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 38,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Existing Phoenix Gang flag selects the alternate Heroes' Quest route."
+    }
+  },
+  {
+    "id": "quest.heroes_quest.phoenix_heist",
+    "name": "Help the Black Arm partner and recover the armband",
+    "activity_id": "quest.heroes_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.brimhaven.alfonse",
+    "end_location_id": "location.brimhaven.grip_mansion",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.phoenix_contact"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lobster",
+          "quantity": 4
+        },
+        {
+          "kind": "policy",
+          "name": "allow_player_assistance",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.heroes_master_thieves_armband",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 119,
+      "expected_seconds": 250,
+      "max_seconds": 550
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Coordinate with a Black Arm player at Brimhaven mansion, take the secret approach and defeat Grip when exposed. Conditional food and combat XP."
+    },
+    "planned_outcome": {
+      "success_condition": "An opposite-gang helper grants access and Grip is defeated; retrieve the armband without exceeding four lobsters.",
+      "if_unmet": "Coordinate with another eligible Black Arm helper; restock and retry on observed fight progress."
+    }
+  },
+  {
+    "id": "quest.heroes_quest.complete",
+    "name": "Hand the eel, armband and fire feather to Achietties",
+    "activity_id": "quest.heroes_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.heroes_guild.achietties",
+    "end_location_id": "location.heroes_guild.achietties",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "quest.heroes_quest.black_arm_heist"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.heroes_quest.phoenix_heist"
+            }
+          ]
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cooked_lava_eel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.heroes_fire_feather",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.heroes_master_thieves_armband",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.cooked_lava_eel",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.heroes_fire_feather",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.heroes_master_thieves_armband",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 30750
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 30750
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 30750
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.ranged",
+        "xp_tenths": 20750
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 30750
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 27250
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 28250
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 15750
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 15750
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 22750
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 25750
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 13250
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.heroes_quest.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.heroes_guild",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.fountain_of_rune_six_charges",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 62,
+      "max_seconds": 137
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Completion pays 1 quest point and twelve fixed XP awards. Mining XP 2,575 differs from the pinned Quest Helper's 2,275; independent gameplay confirmation pending."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.start",
+    "name": "Hear King Vargas's request",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.vargas",
+    "end_location_id": "location.miscellania.vargas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 48,
+      "max_seconds": 106
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prerequisite quests gate the conversation. Woodcutting, Farming, Mining and Smithing thresholds in helper are alternative favour tasks, not universal quest start gates."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_miscellania_supplies",
+    "name": "Buy royal courting and diplomatic supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 1400
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.gold_ring",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rake",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 45,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "Approximate trade-enabled budget for iron bar, log, rake and plain gold ring."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_miscellania_favour_axe",
+    "name": "Buy a bronze axe for maple favour",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 150
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bronze_axe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budgeted Grand Exchange acquisition for an optional kingdom-favour route; prices and availability should be checked live."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_miscellania_favour_pickaxe",
+    "name": "Buy a bronze pickaxe for coal favour",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 150
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bronze_pickaxe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budgeted Grand Exchange acquisition for an optional kingdom-favour route; prices and availability should be checked live."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_miscellania_favour_lobster_pot",
+    "name": "Buy a lobster pot for fishing favour",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 200
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lobster_pot",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Budgeted Grand Exchange acquisition for an optional kingdom-favour route; prices and availability should be checked live."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_miscellania_bow",
+    "name": "Buy a shortbow for courting Astrid",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.courtship",
+          "value": false
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 150
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shortbow",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "Alternative to the cake for Prince Brand; an existing shortbow also works."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_miscellania_cake",
+    "name": "Buy chocolate cake for courting Brand",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.courtship",
+          "value": false
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 350
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.chocolate_cake",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 18,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "Alternate Prince Brand route; bought chocolate cake is consumed as a gift."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.buy_flowers",
+    "name": "Buy flowers from the flower girl",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.flower_girl",
+    "end_location_id": "location.miscellania.flower_girl",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.throne_of_miscellania.start"
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 15
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.miscellania_flowers",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 33
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Island flower shop sells a bouquet for courting; no special Farming route is necessary."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.court_astrid",
+    "name": "Court Princess Astrid with flowers, a bow and a ring",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.astrid",
+    "end_location_id": "location.miscellania.astrid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.courtship",
+          "value": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.miscellania_flowers",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.shortbow",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gold_ring",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.miscellania_flowers",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.shortbow",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.gold_ring",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.throne_of_miscellania.courtship",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.throne_of_miscellania.astrid",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 80,
+      "max_seconds": 176
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Astrid marriage route gifts flowers and a bow, then proposes with a common ring."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.court_brand",
+    "name": "Court Prince Brand with flowers, cake and a ring",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.brand",
+    "end_location_id": "location.miscellania.brand",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.courtship",
+          "value": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.miscellania_flowers",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chocolate_cake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gold_ring",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.miscellania_flowers",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.chocolate_cake",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.gold_ring",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.throne_of_miscellania.courtship",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.throne_of_miscellania.brand",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 80,
+      "max_seconds": 176
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Brand marriage route gifts flowers and a chocolate cake, then proposes with a common ring."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.visit_sigrid",
+    "name": "Ask Queen Sigrid about joining Miscellania",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.etceteria.sigrid",
+    "end_location_id": "location.etceteria.sigrid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.courtship",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 46,
+      "max_seconds": 102
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "First Etceteria diplomatic visit."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.report_to_vargas",
+    "name": "Deliver the Queen's request to Vargas",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.vargas",
+    "end_location_id": "location.miscellania.vargas",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.throne_of_miscellania.visit_sigrid"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 38,
+      "max_seconds": 84
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Vargas requests diplomatic follow-up and an acceptable anthem."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.get_anthem",
+    "name": "Ask Prince Brand for the anthem",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.brand",
+    "end_location_id": "location.miscellania.brand",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.throne_of_miscellania.report_to_vargas"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.miscellania_anthem",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 25,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The draft song needs advisor revision."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.rewrite_anthem",
+    "name": "Ask Advisor Ghrim to revise the anthem",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.ghrim",
+    "end_location_id": "location.miscellania.ghrim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.get_anthem"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.miscellania_anthem",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.miscellania_anthem",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 37,
+      "max_seconds": 82
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Present Brand's anthem for a diplomatically acceptable version."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.agree_with_sigrid",
+    "name": "Return to Sigrid with revised terms",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.etceteria.sigrid",
+    "end_location_id": "location.etceteria.sigrid",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.throne_of_miscellania.rewrite_anthem"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 52,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Second Etceteria diplomatic visit, pending a written treaty."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.get_nib",
+    "name": "Commission a giant nib from Derrik",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.derrik",
+    "end_location_id": "location.miscellania.derrik",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.agree_with_sigrid"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.iron_bar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.iron_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.miscellania_giant_nib",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 36,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Derrik the smith shapes the nib from an iron bar."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.make_pen",
+    "name": "Put a log and giant nib together as a pen",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.castle_stairs",
+    "end_location_id": "location.miscellania.castle_stairs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.get_nib"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.miscellania_giant_nib",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.logs",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.miscellania_giant_nib",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.miscellania_giant_pen",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pen construction is an item combination, not a general-purpose training action."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.write_treaty",
+    "name": "Give the giant pen to Vargas for the treaty",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.vargas",
+    "end_location_id": "location.miscellania.vargas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.make_pen"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.miscellania_giant_pen",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.miscellania_giant_pen",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.miscellania_treaty",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 46,
+      "max_seconds": 102
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Vargas can now sign the terms for Queen Sigrid."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.deliver_treaty",
+    "name": "Bring the completed treaty to Sigrid",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.etceteria.sigrid",
+    "end_location_id": "location.etceteria.sigrid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.write_treaty"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.miscellania_treaty",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.miscellania_treaty",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.throne_of_miscellania.etceteria_support",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 54,
+      "max_seconds": 119
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Queen Sigrid accepts the diplomatic treaty."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.raise_approval",
+    "name": "Rake Miscellania weeds until approval is at least 75 percent",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.favour_field",
+    "end_location_id": "location.miscellania.favour_field",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.reputation_75",
+          "value": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 10,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.throne_of_miscellania.reputation_75",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 128,
+      "expected_seconds": 270,
+      "max_seconds": 594
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Selected repeatable favour method: clearing flax-field weeds. The exact 75% threshold, action timing and incidental XP need live verification; this is not a universal starting skill gate."
+    },
+    "planned_outcome": {
+      "success_condition": "Check the kingdom approval indicator and continue raking until it reaches at least 75 percent.",
+      "if_unmet": "Continue the favour activity and correct timing or required levels before the final Vargas visit."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.raise_approval_flowers",
+    "name": "Buy and offer flowers to gain at least 75 percent approval",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.flower_girl",
+    "end_location_id": "location.miscellania.flower_girl",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.reputation_75",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.throne_of_miscellania.reputation_75",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 115,
+      "expected_seconds": 230,
+      "max_seconds": 507
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Optional fast, click-intensive favour route. A conservative 2500-coin budget is modeled; actual coin use, percentage chance and time need live review."
+    },
+    "planned_outcome": {
+      "success_condition": "Check kingdom approval and continue this method until approval is at least 75 percent.",
+      "if_unmet": "Continue the favour method, or switch to another eligible favour method and revise the duration estimate."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.raise_approval_maple_trees",
+    "name": "Chop maple trees to gain at least 75 percent approval",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.maple_trees",
+    "end_location_id": "location.miscellania.maple_trees",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.reputation_75",
+          "value": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 45,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_axe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.throne_of_miscellania.reputation_75",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 225,
+      "expected_seconds": 450,
+      "max_seconds": 991
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Woodcutting level 45 is needed only for the maple-tree method, not for the quest as a whole; actual timing depends on log rates."
+    },
+    "planned_outcome": {
+      "success_condition": "Check kingdom approval and continue this method until approval is at least 75 percent.",
+      "if_unmet": "Continue the favour method, or switch to another eligible favour method and revise the duration estimate."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.raise_approval_coal",
+    "name": "Mine coal to gain at least 75 percent approval",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.coal_rocks",
+    "end_location_id": "location.miscellania.coal_rocks",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.reputation_75",
+          "value": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 35,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.throne_of_miscellania.reputation_75",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 210,
+      "expected_seconds": 420,
+      "max_seconds": 925
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mining level 35 for coal is cited by the current OSRS quest guide; original release notes and kingdom task tables differ at 30. Verify game build and timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Check kingdom approval and continue this method until approval is at least 75 percent.",
+      "if_unmet": "Continue the favour method, or switch to another eligible favour method and revise the duration estimate."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.raise_approval_fish",
+    "name": "Fish from Miscellania docks to gain at least 75 percent approval",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.sailor",
+    "end_location_id": "location.miscellania.sailor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.reputation_75",
+          "value": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fishing",
+          "minimum_level": 35,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lobster_pot",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.throne_of_miscellania.reputation_75",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 300,
+      "expected_seconds": 600,
+      "max_seconds": 1320
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fishing level 35 is one alternative approval route. Use a lobster pot by the docks, checking every fish catch and the approval indicator."
+    },
+    "planned_outcome": {
+      "success_condition": "Check kingdom approval and continue this method until approval is at least 75 percent.",
+      "if_unmet": "Continue the favour method, or switch to another eligible favour method and revise the duration estimate."
+    }
+  },
+  {
+    "id": "quest.throne_of_miscellania.complete",
+    "name": "Accept the regency from King Vargas",
+    "activity_id": "quest.throne_of_miscellania",
+    "kind": "quest_stage",
+    "start_location_id": "location.miscellania.vargas",
+    "end_location_id": "location.miscellania.vargas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.throne_of_miscellania.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.courtship",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.etceteria_support",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.throne_of_miscellania.reputation_75",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.throne_of_miscellania.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.manage_miscellania",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 48,
+      "max_seconds": 106
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Kingdom management opens after courtship, the treaty and sufficient favour. No immediate fixed XP reward."
+    }
+  }
+]

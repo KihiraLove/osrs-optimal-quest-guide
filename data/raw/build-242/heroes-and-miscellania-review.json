@@ -1,0 +1,48 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "observed_on": "2026-11-14",
+  "quest_helper_revision": "b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e",
+  "status": "collected",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.jagex.cache_242_2026_11_11",
+    "source.jagex.grand_exchange_catalogue",
+    "source.project.early_quest_timing"
+  ],
+  "activity_ids": [
+    "quest.heroes_quest",
+    "quest.throne_of_miscellania"
+  ],
+  "requirements": {
+    "heroes_quest": [
+      "55 quest points, completed Shield of Arrav, Merlin's Crystal, Lost City, Dragon Slayer I.",
+      "Herblore 25 for oily rod; Fishing 53 and Cooking 53 for the lava eel; Mining 50 and combat ability for Ice Queen if ice gloves unavailable; Defence 25 only on Black Arm route.",
+      "The gang affiliation is reused from Shield of Arrav and a cooperating opposite-gang player is an explicit conditional success requirement."
+    ],
+    "throne_of_miscellania": [
+      "Complete Heroes' Quest and The Fremennik Trials.",
+      "No unconditional Mining/Smithing/Woodcutting/Farming gates: the helper's listed levels overlap alternative approval methods.",
+      "Five alternate ways to reach minimum 75 percent approval are modeled: rake flax weeds (Farming 10), buy and give flowers (coin budget), chop maple trees (Woodcutting 45), mine coal (Mining 35 in current quest guide), or fish by the docks (Fishing 35). Either Astrid (bow) or Brand (cake) can be courted."
+    ]
+  },
+  "observations": {
+    "heroes_quest": "The route gathers a cooked lava eel using an oily fishing rod, an Entrana fire feather protected by ice gloves, and a Master Thieves' armband through the character's Shield of Arrav gang. Gerrant gives the untradeable blamish snail slime. The fixed craft/catch/cook XP is 80 Herblore, 60 Fishing and 30 Cooking for successful steps. The final Achietties hand-in grants one quest point, a twelve-skill XP package, Heroes' Guild access and Fountain of Rune six-charge access. If another quest already produced ice gloves, the Ice Queen encounter can be skipped.",
+    "heroes_partner": "Black Arm route uses black armour and a Phoenix partner to reach Grip's mansion chest. Phoenix route reaches the mansion with a Black Arm helper and a conditional Grip fight. Neither helper's availability nor stochastic food usage is guaranteed.",
+    "heroes_xp_discrepancy": "Pinned Quest Helper reports Mining 2275 XP (22750 tenths). More recent game-reference descriptions report 2575 XP (25750 tenths); the draft models 2575 tentatively. Confirm directly in-game on build 242 before changing evidence to verified.",
+    "throne_of_miscellania": "Vargas's courtship, the Sigrid diplomatic exchanges, Brand's anthem, Ghrim's rewrite, Derrik's giant pen nib and the signed treaty are modeled as separate steps. Five mutually exclusive approval choices (weeds, flowers, maple, coal and dock fishing) enable the planner to select according to level, tool availability and time before returning to Vargas for one quest point and kingdom management. Estimated flower approval costs 2500 coins; no favour-method incidental XP is awarded. The official OSRS quest page lists Mining 35 for coal while original Jagex release copy mentions 30; the model conservatively uses 35 until game verification.",
+    "travel": "New paths join existing Taverley Dungeon, Entrana, Brimhaven, Rellekka→Miscellania ferry and castle entrances. The repository's existing Entrana restricted-equipment gate applies; avoid carrying Black Arm armour onto the island. Bi-directional external and dungeon exits are included.",
+    "rewards": "No immediately awarded skill XP is modeled for Throne; spending from Managing Miscellania's future coffers is outside this quest batch."
+  },
+  "pending_reviews": [
+    "Confirm Heroes' Quest Mining reward of 2575 vs 2275 XP directly on the pinned game build and reconcile the source conflict.",
+    "Independently verify the modeled 80 Herblore, 60 Fishing and 30 Cooking XP against build 242; reconcile unmodeled incidental combat XP and actual food or bait use for Ice Queen and Grip.",
+    "Check exact requirements and alternative ways to obtain fire feather and ice gloves, including Entrana's permitted item inventory.",
+    "Verify partner-assisted Black Arm and Phoenix routes, their item spending and the coordinates and duration of each transition.",
+    "Check source semantics for the cooked lava eel and other quest items, and whether the Master Thieves' armband is handed over at completion.",
+    "Verify the Miscellania courtship ring/bow/cake consumption, initial approval value and the exact number of rake actions needed for 75 percent approval.",
+    "Verify all five favour methods against build 242, including flower price/probability, Mining 30 versus 35, local maple/coal waypoints, incidental XP, and whether grouped approval tasks can be completed within modeled duration without repeat actions.",
+    "Check the account-gender eligibility of Princess Astrid and Prince Brand; a Makeover Mage visit may be required to switch the permitted courtship branch.",
+    "Check the complete Sigrid/Vargas/Brand/Ghrim/Derrik dialogue ordering, exact giant-pen and treaty item transformations and any missing bonus reward claims.",
+    "Reconcile geographic travel times for Ice Queen cavern, lava eel fishing, castle interiors and Etceteria bridge against a timed playthrough."
+  ]
+}

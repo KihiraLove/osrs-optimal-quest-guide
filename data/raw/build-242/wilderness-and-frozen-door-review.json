@@ -1,0 +1,60 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "as_of": "2026-11-14",
+  "status": "draft_collected_requires_independent_review",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.jagex.nex",
+    "source.field.mage_arena_i_walkthrough"
+  ],
+  "activity_ids": [
+    "miniquest.mage_arena_ii",
+    "miniquest.the_frozen_door"
+  ],
+  "mage_arena_ii": {
+    "helper_file": "src/main/java/com/questhelper/helpers/miniquests/themagearenaii/TheMageArenaII.java",
+    "prerequisites": ["miniquest.mage_arena_i.complete", "75 base Magic", "100 successful casts of each god spell inside Mage Arena before use outside"],
+    "route": [
+      "Obtain an initial Mage Arena I staff and purchase the other two from the Chamber guardian",
+      "Fund the required casts; the three trainee actions consume 600 blood runes, 900 air runes and 700 fire runes",
+      "Talk to Kolodion at (2539,4716,0), receive the enchanted symbol, search variable Wilderness regions",
+      "Justiciar Zachariah takes Saradomin Strike and yields Justiciar's hand",
+      "Porazdir takes Flames of Zamorak and yields demon's heart",
+      "Derwen takes Claws of Guthix and yields ent's roots",
+      "Return each artifact to Kolodion, then choose one imbued cape; consume the ordinary cape on claim"
+    ],
+    "reward": "One initial Saradomin, Guthix or Zamorak imbued cape choice, with no automatic XP or quest point.",
+    "xp_estimate": "Each training step records 100 × 35 base Magic XP as 35,000 XP tenths. Damage and the boss fights' incidental Magic/Hitpoints XP are deliberately not included.",
+    "open_questions": [
+      "The representative Wilderness hunt sector waypoints are NOT deterministic spawns. Symbol readings and world hopping can change the route; verify each real location and its access restrictions.",
+      "Confirm casting unlock counter persistence, precise rune costs, other staff purchase rules, and all three spellbook prerequisites.",
+      "Confirm quest-specific boss hit counts, hitpoint recovery and magic-level drains; five lobsters per kill and the GE budget are only reserve estimates.",
+      "Verify cape transformation and repeat artifact collection for subsequent imbued capes. This batch only models the initial one-time choice.",
+      "Verify escape paths, PvP Wilderness restrictions, loss/reclaim of enchanted symbol and availability of protecting item loadout."
+    ]
+  },
+  "frozen_door": {
+    "publisher_reference": "Nex: the Ancient Prison and frozen key in the God Wars Dungeon",
+    "helper_observations": "The frozen door is absent from the pinned Quest Helper snapshot, so all dungeon tiles are explicitly estimated.",
+    "route": [
+      "Complete Troll Stronghold, travel to God Wars Dungeon and obtain dungeon supplies",
+      "In Armadyl's Eyrie satisfy 70 Ranged and grapple/crossbow; collect 40 follower essence, defeat Kree'arra and receive the Armadyl key piece",
+      "In Bandos' Stronghold satisfy 70 Strength and a hammer; collect 40 essence, defeat General Graardor and receive the Bandos key piece",
+      "In Saradomin Encampment satisfy 70 Agility; collect 40 essence, defeat Commander Zilyana and receive the Saradomin key piece",
+      "In Zamorak Fortress satisfy 70 Hitpoints; collect 40 essence, defeat K'ril Tsutsaroth and receive the Zamorak key piece",
+      "Join four pieces into a frozen key, use the key on the door (consumed), and speak to Ashuelot; Ancient Prison access persists"
+    ],
+    "completion_rewards": {"quest_points": 0, "fixed_xp_tenths": {}, "flags": ["unlock.frozen_door.ancient_prison"]},
+    "open_questions": [
+      "Verify every God Wars camp doorway and Ancient Prison tile; no current pinned helper path exposes these coordinates.",
+      "Confirm precise God Wars Dungeon prerequisites, essence reset on exit, combat-achievement reductions and ecumenical key alternative.",
+      "Each boss piece is a planned successful drop that requires enough damage/credit; group contribution, deaths and repeat kills need live tests.",
+      "Four 40-kill follower stages are modeled rather than a stochastic combat solver; incidental XP and food use need in-game replay.",
+      "Review the 115,000 GP budget and the accessible boss-room return travel, especially whether GWD altar teleports are usable at each gate."
+    ]
+  },
+  "deferred_recipe_for_disaster": {
+    "status": "not_claimed",
+    "reason": "Sir Amik Varze depends on the presently uncatalogued Underground Pass, Legends' Quest start and Shilo Village integration. The final Culinaromancer stage also depends on Desert Treasure I. Leave both expected instead of creating unreachable invented predecessor flags."
+  }
+}

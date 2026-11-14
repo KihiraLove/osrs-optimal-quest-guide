@@ -1,0 +1,80 @@
+{
+  "activity_ids": [
+    "quest.monkey_madness_ii"
+  ],
+  "as_of": "2026-11-14",
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "collected_draft_requires_independent_review",
+  "helper_file": "src/main/java/com/questhelper/helpers/quests/monkeymadnessii/MonkeyMadnessII.java",
+  "helper_waypoint_count": 61,
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.quest_helper.monkey_madness_ii",
+    "source.project.early_quest_timing"
+  ],
+  "prerequisites": {
+    "quests": [
+      "quest.enlightened_journey",
+      "quest.the_eyes_of_glouphrie",
+      "rfd.freeing_king_awowogei",
+      "quest.troll_stronghold",
+      "quest.watchtower"
+    ],
+    "external_flags": [
+      "unlock.mm2_watchtower_prereq",
+      "unlock.balloon.grand_tree"
+    ],
+    "unboostable_skills": {
+      "skill.slayer": 69,
+      "skill.crafting": 70,
+      "skill.hunter": 60,
+      "skill.agility": 55,
+      "skill.thieving": 55,
+      "skill.firemaking": 60
+    }
+  },
+  "chapters": [
+    "Narnode, Glough's house, lemon/grape spy-note decoding, Anita, Entrana balloon and Auguste",
+    "Ape Atoll Awowogei, Kruk tracks, randomized agility/tank dungeon routes, shortcut, Kruk and Zooknock's greegree",
+    "Kob and Keef fights, Le Smith rooftop clue, six individually planted airship charges",
+    "Kruk's monkey bars, captive gorilla laboratory, charged onyx reversal and incubator sabotage",
+    "Nieve, four Stronghold spawns, two tortured and two demonic gorillas, Glough's three phases, finale"
+  ],
+  "completion_rewards": {
+    "quest_points": 4,
+    "xp_tenths": {
+      "skill.slayer": 800000,
+      "skill.agility": 600000,
+      "skill.thieving": 500000,
+      "skill.hunter": 500000
+    },
+    "item": "item.mm2_royal_seed_pod"
+  },
+  "post_quest_claim": {
+    "action_id": "claim.monkey_madness_ii.duke",
+    "xp_reward_id": "reward.mm2.duke_combat_training",
+    "quantity": 1,
+    "selection_count": 2,
+    "xp_tenths_per_pick": 500000,
+    "must_have_claimed_daero_training": true
+  },
+  "replay_assumptions": [
+    "Watchtower is catalogued in PR #17. Replace the temporary external completion gate with quest.watchtower.complete when that route is integrated. The existing Grand Tree balloon flag comes from a catalogued unlock action.",
+    "Gnome Stronghold balloon-route unlock is an existing shared flag; this route requires it in addition to Enlightened Journey.",
+    "The previous Monkey Madness I amulet and RFD ninja greegree are owned from upstream. Optional purchases cover fruit/mortar/logs and Tutab's monkey talisman; trade-disabled profiles can seed owned supplies.",
+    "The randomized Kruk agility and tank branches are modeled separately; the primary replay uses agility, with alternate tank path available for players equipped for obstacles.",
+    "Airship explosives are six consumed charged satchels, one per distinct placement. Being caught may require a barrel refill, but previously placed charges persist.",
+    "The onyx device requires both hammer and chisel. Nieve's four Stronghold gorillas are distinct from the four in the crash cavern and from three laboratory gorillas.",
+    "Glough is modeled as three planned outcomes. Death and exit reset the encounter sequence, which is not yet fully modeled for retry paths.",
+    "Duke's reward is claimed at an NPC only after Daero training. The two combat choices are immediate; modeled as a single two-pick reward with nonretainable state."
+  ],
+  "unresolved": [
+    "Confirm exact monkey-greegree, amulet and translation-book persistence across quests; optional item resupply might not be necessary on a seeded account.",
+    "Verify specific Kruk maze keys, random correct route, tree/rope recovery and optional tank web/pickaxe supply and navigation.",
+    "Verify Le Smith rooftop spawn, stealth sightlines, six platform satchel positions and refill/restocking behavior after a failed stealth run.",
+    "Confirm number of gorilla spawns, prayer switching, Nieve follower state and Glough's phase failure/reset rules and consumable budgets.",
+    "Verify Duke's exact hill tile and whether the same skill may be chosen for both 50,000-XP training uses; model currently allows it pending observation.",
+    "Review if Duke's training is available without the MM1 Daero training as of the pinned revision (guide says Daero required), and whether Heavy Ballista also needs other item requirements.",
+    "Instance/ferry/glider travel edge directions, distances, fruit prices and item bank quantities are provisional and should be replaced by client capture."
+  ]
+}

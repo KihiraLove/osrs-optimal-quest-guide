@@ -1,0 +1,1054 @@
+[
+  {
+    "id": "supply.tai_bwo_wannai.cleanup_favour_for_my_arm",
+    "name": "Earn at least 60 percent Tai Bwo Wannai Cleanup favour",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.my_arm.cleanup_field",
+    "end_location_id": "location.my_arm.cleanup_field",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.jungle_potion.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.tai_bwo_wannai_cleanup",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 10,
+          "boostable": false
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.tai_bwo_wannai.cleanup_favour_60",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.tai_bwo_wannai.cleanup_favour_60",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 399,
+      "expected_seconds": 850,
+      "max_seconds": 1913
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Gather village favour from clearing jungle, repairing fences or fighting jungle creatures; character starts the quest with 60%+ and Murcaily later spends 60%. Model does not award uncertain incidental XP."
+    },
+    "planned_outcome": {
+      "success_condition": "Village cleanup favour meter reads at least 60 percent.",
+      "if_unmet": "Continue Tai Bwo Wannai Cleanup activities; do not claim trading sticks if they would reduce required favour."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.start",
+    "name": "Accept Burntmeat's offer in Troll Stronghold kitchen",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.burntmeat",
+    "end_location_id": "location.troll_stronghold.burntmeat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_feud.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.jungle_potion.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.tai_bwo_wannai.cleanup_favour_60",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 10,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 29,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 65,
+      "max_seconds": 147
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "All three upstream quests and 60% cleanup favour required. Farming 29 is boostable according to pinned helper; Woodcutting 10 is unboosted."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_my_arm_materials",
+    "name": "Buy farming materials and a combat food reserve",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 18000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.climbing_boots",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.supercompost",
+        "quantity": 7
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rake",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.seed_dibber",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.plant_cure",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 4
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 24
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 75,
+      "max_seconds": 169
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "Budgeted tradeable supplies; real GE prices vary. Ugthanki dung is untradeable, so it must be obtained separately from camels."
+    }
+  },
+  {
+    "id": "supply.pollnivneach.acquire_red_hot_sauce",
+    "name": "Get red hot sauce from Ali the Kebab Seller",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.pollnivneach.camel_seller",
+    "end_location_id": "location.pollnivneach.camel_seller",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.red_hot_sauce",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 50,
+      "max_seconds": 113
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Free or low-cost local sauce from Pollnivneach needed to induce dung from camel trough; exact NPC interaction and item tradeability pending independent review."
+    }
+  },
+  {
+    "id": "supply.pollnivneach.collect_ugthanki_dung",
+    "name": "Collect three buckets of untradeable Ugthanki dung",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.my_arm.camel_trough",
+    "end_location_id": "location.my_arm.camel_trough",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "supply.pollnivneach.acquire_red_hot_sauce"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.red_hot_sauce",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket",
+          "quantity": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ugthanki_dung",
+        "quantity": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 58,
+      "expected_seconds": 125,
+      "max_seconds": 282
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Apply red hot sauce to camel feeding area and collect dung in three empty buckets. Dung buckets are modeled as untradeable full items."
+    },
+    "planned_outcome": {
+      "success_condition": "Three buckets of Ugthanki dung are in inventory.",
+      "if_unmet": "Repeat with the trough and camel, checking bucket count and sauce interaction."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.ask_my_arm",
+    "name": "Ask My Arm to help learn about farming",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.kitchen",
+    "end_location_id": "location.my_arm.kitchen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 52,
+      "max_seconds": 117
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Meet Burntmeat's assistant in the Stronghold kitchen."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.retrieve_lump",
+    "name": "Use a bucket on the Death Plateau pot for goutweed residue",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.death_plateau_pot",
+    "end_location_id": "location.my_arm.death_plateau_pot",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.ask_my_arm"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.climbing_boots",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.goutweedy_lump",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 90,
+      "max_seconds": 203
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The pot above the stronghold contains a goutweedy lump; the bucket is held, not spent."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.deliver_lump",
+    "name": "Show My Arm the goutweedy lump",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.kitchen",
+    "end_location_id": "location.my_arm.kitchen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.retrieve_lump"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.goutweedy_lump",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.goutweedy_lump",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 41,
+      "expected_seconds": 88,
+      "max_seconds": 198
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "My Arm takes the residue and travels to his roof patch."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.get_manual",
+    "name": "Visit My Arm's rooftop plot and receive a farming manual",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.roof",
+    "end_location_id": "location.my_arm.roof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.deliver_lump"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.my_arm_farming_manual",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 100,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The rooftop patch is accessed via Stronghold ladders."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.read_manual",
+    "name": "Study the high-altitude soil instructions",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.roof",
+    "end_location_id": "location.my_arm.roof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.get_manual"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.my_arm_farming_manual",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Manual specifies three Ugthanki dung buckets plus seven supercompost."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.fertilise_patch",
+    "name": "Prepare the rooftop soil with dung and supercompost",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.roof",
+    "end_location_id": "location.my_arm.roof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.read_manual"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ugthanki_dung",
+          "quantity": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.supercompost",
+          "quantity": 7
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ugthanki_dung",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.supercompost",
+        "quantity": 7
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 65,
+      "expected_seconds": 140,
+      "max_seconds": 315
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Treat soil with three Ugthanki dung and seven regular buckets of supercompost; used empty buckets are abstracted to avoid overcounted inventory."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.plan_karamja_trip",
+    "name": "Discuss Karamja goutweed with My Arm",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.roof",
+    "end_location_id": "location.my_arm.roof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.fertilise_patch"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 65,
+      "max_seconds": 147
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "My Arm decides to visit the Tai Bwo Wannai village."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.sail_with_barnaby",
+    "name": "Travel with Captain Barnaby to Brimhaven",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.barnaby_dock",
+    "end_location_id": "location.brimhaven.barnaby_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.plan_karamja_trip"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 51,
+      "expected_seconds": 110,
+      "max_seconds": 248
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cutscene or boat travel to Karamja. The regular ferry edges remain independently available."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.meet_on_karamja",
+    "name": "Meet My Arm south-east of Tai Bwo Wannai",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.tai_bwo_meeting",
+    "end_location_id": "location.my_arm.tai_bwo_meeting",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.sail_with_barnaby"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 90,
+      "max_seconds": 203
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Follow My Arm's journey to Murcaily's grove."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.obtain_tubers",
+    "name": "Spend Tai Bwo favour and obtain hardy gout tubers from Murcaily",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.murcaily",
+    "end_location_id": "location.my_arm.murcaily",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.meet_on_karamja"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.tai_bwo_wannai.cleanup_favour_60",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.tai_bwo_wannai.cleanup_favour_60",
+        "value": false
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hardy_gout_tubers",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 77,
+      "expected_seconds": 165,
+      "max_seconds": 372
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Murcaily deducts 60% favour, gives hardy gout tubers after dialogue and cutscene. Favor must not be usable again without re-earning it."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.return_from_karamja",
+    "name": "Return by boat to Ardougne and prepare for the Roc fight",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.tai_bwo_meeting",
+    "end_location_id": "location.ardougne.barnaby_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.obtain_tubers"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 115,
+      "max_seconds": 259
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "My Arm escorts the player to Ardougne; banking and resupplying before the boss are recommended."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.teach_planting",
+    "name": "Teach My Arm to rake, plant tubers and care for the crop",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.roof",
+    "end_location_id": "location.my_arm.roof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.return_from_karamja"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hardy_gout_tubers",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.plant_cure",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.hardy_gout_tubers",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 82,
+      "expected_seconds": 175,
+      "max_seconds": 394
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Supply rake, optional compost, tubers and seed dibber. Keep plant cure ready if disease occurs; equipment return and exact disease state require verification."
+    },
+    "planned_outcome": {
+      "success_condition": "My Arm has planted the goutweed and the crop survives the disease sequence.",
+      "if_unmet": "Repair broken rake if required, cure the plant or use extra compost, and repeat the planting dialogue."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.defeat_baby_roc",
+    "name": "Defeat the Baby Roc (level 75)",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.roof",
+    "end_location_id": "location.my_arm.roof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.teach_planting"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lobster",
+          "quantity": 8
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 8
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 70,
+      "expected_seconds": 150,
+      "max_seconds": 338
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Baby Roc is the first mandatory boss. Eight lobsters are a conditional food budget, not fixed use."
+    },
+    "planned_outcome": {
+      "success_condition": "Baby Roc defeated and the next fight is available.",
+      "if_unmet": "Bring sufficient ranged/magic defence and food before restarting the encounter."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.defeat_giant_roc",
+    "name": "Defeat the Giant Roc (level 172)",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.roof",
+    "end_location_id": "location.my_arm.roof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.defeat_baby_roc"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lobster",
+          "quantity": 12
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 12
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 155,
+      "expected_seconds": 330,
+      "max_seconds": 743
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Second, stronger boss uses an illustrative twelve-lobster reserve; stun/damage and player combat XP vary."
+    },
+    "planned_outcome": {
+      "success_condition": "Giant Roc is defeated and My Arm can harvest his goutweed.",
+      "if_unmet": "Retry with improved combat supplies and position to avoid attacks; record actual food usage."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.harvest_goutweed",
+    "name": "Give a spade to My Arm and harvest the crop",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.roof",
+    "end_location_id": "location.my_arm.roof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.defeat_giant_roc"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 3150
+      }
+    ],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 115,
+      "max_seconds": 259
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Harvest animation awards 45 Farming XP seven times, totaling 315 XP, distinct from the 5,000 XP quest-end reward. Exact game-build XP pending verification."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.collect_burnt_meat",
+    "name": "Hear Burntmeat's full-inventory reward",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.troll_stronghold.burntmeat",
+    "end_location_id": "location.troll_stronghold.burntmeat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.harvest_goutweed"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.burnt_meat",
+        "quantity": 29
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 65,
+      "max_seconds": 147
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Burntmeat gives 29 burnt meat; check inventory capacity and whether excess drops to ground."
+    }
+  },
+  {
+    "id": "quest.my_arms_big_adventure.complete",
+    "name": "Claim My Arm's final reward at the roof herb patch",
+    "activity_id": "quest.my_arms_big_adventure",
+    "kind": "quest_stage",
+    "start_location_id": "location.my_arm.roof",
+    "end_location_id": "location.my_arm.roof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.my_arms_big_adventure.collect_burnt_meat"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.my_arms_big_adventure.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.troll_stronghold_disease_free_herb_patch",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.troll_stronghold_rocks_shortcut",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.nmz_giant_roc",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 80,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest completion grants 1 quest point, 10,000 Herblore XP and 5,000 Farming XP, plus disease-free herb patch and shortcuts. Earlier 315 Farming XP is not paid twice."
+    }
+  }
+]
