@@ -7310,5 +7310,55 @@
       ]
     },
     "note": "Arianwyn awards 2 quest points, 60,000 Agility XP and a crystal trinket. A death talisman is an alternate Thorgel quest supply/reward, not duplicated on completion."
+  },
+  {
+    "id": "review.quest.a_kingdom_divided.completion_rewards",
+    "activity_id": "quest.a_kingdom_divided",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.jagex.a_kingdom_divided_poll"
+    ],
+    "catalog_ids": [
+      "quest.a_kingdom_divided.complete",
+      "quest.a_kingdom_divided.claim_rewards"
+    ],
+    "expected_effects": {
+      "quest.a_kingdom_divided.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.akd_complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.akd_arceuus_spells",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.akd_kourend_respawn",
+          "value": true
+        }
+      ],
+      "quest.a_kingdom_divided.claim_rewards": [
+        {
+          "kind": "item",
+          "item_id": "item.akd_book_of_the_dead",
+          "quantity": 1
+        },
+        {
+          "kind": "xp_reward",
+          "reward_id": "reward.akd.antique_lamp",
+          "quantity": 2
+        }
+      ]
+    },
+    "note": "Fullore completes the quest for 2 QP; on a separate claim she upgrades the memoirs into the Book of the Dead and gives two 10,000-XP lamps for level-40+ skills. Historical accounts may only receive one."
   }
 ]
