@@ -1,0 +1,824 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_dragon_slayer_i_supplies",
+    "name": "Buy Dragon Slayer I supplies and a combat food reserve",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "policy",
+      "name": "trade_enabled",
+      "value": true
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 12000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.unfired_bowl",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.wizards_mind_bomb",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster_pot",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.silk",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_nails",
+        "quantity": 90
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 24
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 55,
+      "max_seconds": 125
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "A deliberately approximate trade-enabled budget, not a price quote. Bring suitable combat equipment separately. Food is a planning reserve and must be reconciled after fights."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.start",
+    "name": "Ask the Champions' Guildmaster for a quest",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.champions_guild_door",
+    "end_location_id": "location.varrock.champions_guild_door",
+    "requirements": {
+      "kind": "counter",
+      "token_id": "token.quest_points",
+      "minimum": 32
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.dragon_slayer_i.started",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 30,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "32 quest points gate the guild. Beginning the quest permits dragon Slayer assignments."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.oziach_assignment",
+    "name": "Ask Oziach about the rune platebody and Elvarg",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.oziach",
+    "end_location_id": "location.edgeville.oziach",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.dragon_slayer_i.start"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 38,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Oziach sets the Crandor challenge."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.guildmaster_instructions",
+    "name": "Ask the Guildmaster about map pieces, the ship and shield",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.varrock.champions_guild_door",
+    "end_location_id": "location.varrock.champions_guild_door",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.dragon_slayer_i.oziach_assignment"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dragon_slayer_maze_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 62,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask about all three map pieces, the Lady Lumbridge, and dragonfire protection. Receive the maze key."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.get_shield",
+    "name": "Ask Duke Horacio for the anti-dragon shield",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.duke",
+    "end_location_id": "location.lumbridge_castle.duke",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.dragon_slayer_i.guildmaster_instructions"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.anti_dragon_shield",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Alternative shield supply paths are outside this batch."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.consult_oracle",
+    "name": "Learn the Dwarven Mine door riddle from the Oracle",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.ice_mountain.oracle",
+    "end_location_id": "location.ice_mountain.oracle",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.dragon_slayer_i.guildmaster_instructions"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 28,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Four different items open the mine door."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.get_thalzar_map",
+    "name": "Offer four items at the magic door and search Thalzar's chest",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.dwarven_mine.dragon_slayer_magic_door",
+    "end_location_id": "location.dwarven_mine.thalzar_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_i.consult_oracle"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.silk",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lobster_pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.unfired_bowl",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.wizards_mind_bomb",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.silk",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.lobster_pot",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.unfired_bowl",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.wizards_mind_bomb",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dragon_slayer_map_thalzar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 48,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the four offerings on the door and search the chest. Item consumption is a review assumption."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.get_lozar_map",
+    "name": "Buy Lozar's map piece from Wormbrain",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.wormbrain",
+    "end_location_id": "location.port_sarim.wormbrain",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.dragon_slayer_i.guildmaster_instructions"
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 10000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dragon_slayer_map_lozar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Paid branch; 33 Magic and Telekinetic Grab is a possible alternative not yet modeled."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.clear_melzars_maze",
+    "name": "Clear Melzar's Maze and retrieve Melzar's map piece",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.melzars_maze.entrance",
+    "end_location_id": "location.melzars_maze.chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_i.guildmaster_instructions"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dragon_slayer_maze_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lobster",
+          "quantity": 8
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 8
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dragon_slayer_map_melzar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 180,
+      "expected_seconds": 430,
+      "max_seconds": 1020
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "In order: specific rat, ghost, skeleton, zombie, Melzar and Lesser Demon; use each matching key and door. Food debit is a successful-fight reserve; combat XP varies with player and style."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the six maze keyholders, traverse the correct doors and obtain Melzar's map piece without exceeding the food reserve.",
+      "if_unmet": "Bank or restock and repeat the relevant encounter; replan using observed food and enemy progress."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.assemble_map",
+    "name": "Combine the three Crandor map pieces",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.wormbrain",
+    "end_location_id": "location.port_sarim.wormbrain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "item",
+          "item_id": "item.dragon_slayer_map_thalzar",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dragon_slayer_map_lozar",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dragon_slayer_map_melzar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dragon_slayer_map_thalzar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.dragon_slayer_map_lozar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.dragon_slayer_map_melzar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dragon_slayer_crandor_map",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Map pieces may be combined elsewhere; Port Sarim is this route's selected waypoint."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.buy_ship",
+    "name": "Buy the Lady Lumbridge from Klarense",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.klarense",
+    "end_location_id": "location.port_sarim.klarense",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.dragon_slayer_i.guildmaster_instructions"
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.dragon_slayer_i.ship_owned",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 23,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The 2,000-coin ship purchase is distinct from repairing it."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.repair_ship",
+    "name": "Patch three holes in the Lady Lumbridge",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.lady_lumbridge.hold",
+    "end_location_id": "location.lady_lumbridge.hold",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_i.buy_ship"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.plank",
+          "quantity": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.steel_nails",
+          "quantity": 90
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.plank",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.steel_nails",
+        "quantity": 90
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.dragon_slayer_i.ship_repaired",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 43,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hammer is held; exactly three planks and ninety steel nails are spent."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.hire_ned",
+    "name": "Show Ned the Crandor map and recruit him as captain",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.ned",
+    "end_location_id": "location.draynor.ned",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_i.repair_ship"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dragon_slayer_crandor_map",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.dragon_slayer_i.ned_briefed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 26,
+      "max_seconds": 65
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ned joins the purchased, repaired ship after seeing the combined map."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.sail_crandor",
+    "name": "Sail with Captain Ned and survive the Crandor shipwreck",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.klarense",
+    "end_location_id": "location.crandor.volcano_hole",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_i.hire_ned"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.dragon_slayer_i.ship_repaired",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dragon_slayer_crandor_map",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.dragon_slayer_i.crandor_reached",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 85,
+      "expected_seconds": 160,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One-time outward voyage; the ship is not a repeatable ferry after crashing. Arrival ends near the volcano hole."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.open_shortcut",
+    "name": "Open the Karamja–Crandor volcano wall",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.karamja_volcano.crandor_wall",
+    "end_location_id": "location.karamja_volcano.crandor_wall",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.dragon_slayer_i.sail_crandor"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.dragon_slayer_i.shortcut_open",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 14,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Optional but useful permanent return route. Karamja diary task registration remains with diary work."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.defeat_elvarg",
+    "name": "Defeat Elvarg and obtain her head",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.crandor.elvarg_lair",
+    "end_location_id": "location.crandor.elvarg_lair",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_i.sail_crandor"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.anti_dragon_shield",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lobster",
+          "quantity": 16
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 16
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.elvargs_head",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 95,
+      "expected_seconds": 300,
+      "max_seconds": 900
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Shield prevents extreme dragonfire. Reserve a successful 16-lobster fight; no fixed incidental combat XP is inferred. Record real food and XP after combat."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat level-83 Elvarg with dragonfire protection and obtain her head within the planned food reserve.",
+      "if_unmet": "Retreat through the opened wall or replenish supplies; reconcile actual combat XP, food and observed quest progress before retrying."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_i.complete",
+    "name": "Present Elvarg's head to Oziach",
+    "activity_id": "quest.dragon_slayer_i",
+    "kind": "quest_stage",
+    "start_location_id": "location.edgeville.oziach",
+    "end_location_id": "location.edgeville.oziach",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_i.defeat_elvarg"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.elvargs_head",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.elvargs_head",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 186500
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.defence",
+        "xp_tenths": 186500
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.dragon_slayer_i.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 21,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Completion awards 2 quest points and 18,650 XP each in Strength and Defence, with no additional claimed lamps."
+    }
+  }
+]

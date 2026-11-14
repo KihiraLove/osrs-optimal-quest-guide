@@ -1,5 +1,49 @@
 [
   {
+    "id": "review.quest.dragon_slayer_i.completion_rewards",
+    "activity_id": "quest.dragon_slayer_i",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.dragon_slayer_i.start",
+      "quest.dragon_slayer_i.complete"
+    ],
+    "expected_effects": {
+      "quest.dragon_slayer_i.start": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.dragon_slayer_i.started",
+          "value": true
+        }
+      ],
+      "quest.dragon_slayer_i.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.strength",
+          "xp_tenths": 186500
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.defence",
+          "xp_tenths": 186500
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.dragon_slayer_i.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "The earlier quest start allows dragons as Slayer tasks. No separate post-quest XP claim."
+  },
+  {
     "id": "review.quest.fight_arena.completion_rewards",
     "activity_id": "quest.fight_arena",
     "status": "collected",
