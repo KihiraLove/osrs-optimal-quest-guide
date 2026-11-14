@@ -6507,5 +6507,85 @@
       ]
     },
     "note": "Quest reward review from the pinned helper, with lamp restrictions and field timing still pending."
+  },
+  {
+    "id": "review.quest.a_tail_of_two_cats.completion_rewards",
+    "activity_id": "quest.a_tail_of_two_cats",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.a_tail_of_two_cats.complete"
+    ],
+    "expected_effects": {
+      "quest.a_tail_of_two_cats.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tail_mouse_toy",
+          "quantity": 1
+        },
+        {
+          "kind": "xp_reward",
+          "reward_id": "reward.a_tail_of_two_cats.antique_lamps",
+          "quantity": 2
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.a_tail_of_two_cats.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "The present contains two separately redeemable 2,500-XP antique lamps and a mouse toy; chosen medical hat is earlier."
+  },
+  {
+    "id": "review.quest.ratcatchers.completion_rewards",
+    "activity_id": "quest.ratcatchers",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.ratcatchers.get_rat_pole",
+      "quest.ratcatchers.complete"
+    ],
+    "expected_effects": {
+      "quest.ratcatchers.get_rat_pole": [
+        {
+          "kind": "item",
+          "item_id": "item.rat_pole",
+          "quantity": 1
+        }
+      ],
+      "quest.ratcatchers.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.thieving",
+          "xp_tenths": 45000
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.rat_pits",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.ratcatchers.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Rat pole awarded mid-quest; quest points, fixed Thieving XP and Rat Pits unlock at completion."
   }
 ]
