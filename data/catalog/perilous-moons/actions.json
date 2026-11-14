@@ -1,0 +1,2136 @@
+[
+  {
+    "id": "quest.perilous_moons.start",
+    "name": "Speak to Attala at Ralos' Rise to start Perilous Moons",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1435_3124_0",
+    "end_location_id": "location.pm.tile_1435_3124_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.twilights_promise.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 48,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.hunter",
+          "minimum_level": 20,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fishing",
+          "minimum_level": 20,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.runecraft",
+          "minimum_level": 20,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 10,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.kill_sulphur_nagua",
+    "name": "Kill the Sulphur Nagua for Attala",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1453_3129_0",
+    "end_location_id": "location.pm.tile_1453_3129_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_nagua_defeated",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 90,
+      "expected_seconds": 180,
+      "max_seconds": 540
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Sulphur Nagua and make the quest report to Attala.",
+      "if_unmet": "Return to the preparation camp, replenish health/prayer, and retry without crediting the stage."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.return_to_attala",
+    "name": "return To Attala",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1435_3124_0",
+    "end_location_id": "location.pm.tile_1435_3124_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.kill_sulphur_nagua"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pm_nagua_defeated",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_cam_torum",
+    "name": "Enter Cam Torum",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1436_3129_0",
+    "end_location_id": "location.pm.tile_1436_3129_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.return_to_attala"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.talk_to_jessamine",
+    "name": "Meet Jessamine in the dwarven settlement",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1441_9596_1",
+    "end_location_id": "location.pm.tile_1441_9596_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_cam_torum"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_neypotzli",
+    "name": "Enter the Neypotzli prison complex",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1439_9600_1",
+    "end_location_id": "location.pm.tile_1439_9600_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.talk_to_jessamine"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_ney_potzli",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.talk_to_attala_in_ney",
+    "name": "talk To Attala In Ney",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1433_9632_1",
+    "end_location_id": "location.pm.tile_1433_9632_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_neypotzli"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.talk_to_zuma_in_ney",
+    "name": "talk To Zuma In Ney",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1447_9632_1",
+    "end_location_id": "location.pm.tile_1447_9632_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.talk_to_attala_in_ney"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.talk_to_jessamine_in_ney",
+    "name": "talk To Jessamine In Ney",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1440_9639_1",
+    "end_location_id": "location.pm.tile_1440_9639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.talk_to_zuma_in_ney"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.take_building_supplies",
+    "name": "Collect construction supplies for three camps",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1436_9637_1",
+    "end_location_id": "location.pm.tile_1436_9637_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.talk_to_jessamine_in_ney"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pm_building_supplies",
+        "quantity": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Helper supplies are obtained at this point; three logical camp portions model the three construction interactions."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_prison",
+    "name": "enter Prison",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1421_9613_1",
+    "end_location_id": "location.pm.tile_1421_9613_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.take_building_supplies"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.build_prison_camp",
+    "name": "Build the prison-cavern camp",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1349_9580_0",
+    "end_location_id": "location.pm.tile_1349_9580_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_prison"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pm_building_supplies",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pm_building_supplies",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_prison_camp",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.leave_prison",
+    "name": "leave Prison",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1388_9576_0",
+    "end_location_id": "location.pm.tile_1388_9576_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.build_prison_camp"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_earthbound",
+    "name": "enter Earthbound",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1421_9650_1",
+    "end_location_id": "location.pm.tile_1421_9650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.leave_prison"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.build_earth_camp",
+    "name": "Build the Earthbound cavern camp",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1374_9710_0",
+    "end_location_id": "location.pm.tile_1374_9710_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_earthbound"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pm_building_supplies",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pm_building_supplies",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_earth_camp",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.leave_earth",
+    "name": "leave Earth",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1404_9716_0",
+    "end_location_id": "location.pm.tile_1404_9716_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.build_earth_camp"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_streambound",
+    "name": "enter Streambound",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1458_9650_1",
+    "end_location_id": "location.pm.tile_1458_9650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.leave_earth"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.build_stream_camp",
+    "name": "Build the Streambound cavern camp",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1510_9693_0",
+    "end_location_id": "location.pm.tile_1510_9693_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_streambound"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pm_building_supplies",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pm_building_supplies",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_stream_camp",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.leave_stream",
+    "name": "leave Stream",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1480_9667_0",
+    "end_location_id": "location.pm.tile_1480_9667_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.build_stream_camp"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.talk_to_jessamine_for_talismans",
+    "name": "Take Jessamine's two runic locating talismans",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1440_9639_1",
+    "end_location_id": "location.pm.tile_1440_9639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.leave_stream"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pm_prison_camp",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pm_earth_camp",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pm_stream_camp",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pm_talisman_east_west",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pm_talisman_north_south",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_talismans_found",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.leave_neypotzli",
+    "name": "leave Neypotzli",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1440_9613_1",
+    "end_location_id": "location.pm.tile_1440_9613_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.talk_to_jessamine_for_talismans"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.talk_to_nahta",
+    "name": "talk To Nahta",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1424_9568_1",
+    "end_location_id": "location.pm.tile_1424_9568_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.leave_neypotzli"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.talk_to_blacksmith",
+    "name": "talk To Blacksmith",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1448_9584_1",
+    "end_location_id": "location.pm.tile_1448_9584_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.talk_to_nahta"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_neypotzli_after_blacksmith",
+    "name": "enter Neypotzli After Blacksmith",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1439_9600_1",
+    "end_location_id": "location.pm.tile_1439_9600_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.talk_to_blacksmith"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.talk_to_attala_after_blacksmith",
+    "name": "talk To Attala After Blacksmith",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1439_9638_1",
+    "end_location_id": "location.pm.tile_1439_9638_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_neypotzli_after_blacksmith"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pm_talismans_found",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.talk_to_jessamine_after_eyatlalli",
+    "name": "talk To Jessamine After Eyatlalli",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1440_9639_1",
+    "end_location_id": "location.pm.tile_1440_9639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.talk_to_attala_after_blacksmith"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_streambound_again",
+    "name": "enter Streambound Again",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1458_9650_1",
+    "end_location_id": "location.pm.tile_1458_9650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.talk_to_jessamine_after_eyatlalli"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.collect_grub",
+    "name": "Collect moonlight grubs from the stream",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1517_9690_0",
+    "end_location_id": "location.pm.tile_1517_9690_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_streambound_again"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pm_moonlight_grub",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.get_herblore_supplies",
+    "name": "Gather Herblore supplies at the cavern camp",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1511_9695_0",
+    "end_location_id": "location.pm.tile_1511_9695_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.collect_grub"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.vial_of_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Camp supply access supplies potion tools; check whether a separate item needs to be brewed for Eyatlalli."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.get_fishing_supplies",
+    "name": "Collect a fishing net and knife from the cavern camp",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1511_9695_0",
+    "end_location_id": "location.pm.tile_1511_9695_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.get_herblore_supplies"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pm_big_fishing_net",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.knife",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.fish_bream",
+    "name": "Catch bream in the Streambound cavern",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1521_9689_0",
+    "end_location_id": "location.pm.tile_1521_9689_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.get_fishing_supplies"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pm_big_fishing_net",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pm_raw_bream",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 95,
+      "max_seconds": 285
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully catch one bream; recover from failed fishing rolls.",
+      "if_unmet": "Return to the preparation camp, replenish health/prayer, and retry without crediting the stage."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.cut_bream_scales",
+    "name": "Cut bream scales for Eyatlalli",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1521_9689_0",
+    "end_location_id": "location.pm.tile_1521_9689_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.fish_bream"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pm_raw_bream",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pm_raw_bream",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pm_bream_scales",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.get_hunter_supplies",
+    "name": "Collect hunter supplies from the cavern camp",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1511_9695_0",
+    "end_location_id": "location.pm.tile_1511_9695_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.cut_bream_scales"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_small_entrance",
+    "name": "Enter the moss lizard hunting passage",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1522_9720_0",
+    "end_location_id": "location.pm.tile_1522_9720_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.get_hunter_supplies"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.set_trap",
+    "name": "Set the moss lizard trap",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1377_9682_0",
+    "end_location_id": "location.pm.tile_1377_9682_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_small_entrance"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.rustle_bush",
+    "name": "Rustle the bush to capture a moss lizard",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1380_9684_0",
+    "end_location_id": "location.pm.tile_1380_9684_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.set_trap"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pm_moss_lizard",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 95,
+      "max_seconds": 285
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    },
+    "planned_outcome": {
+      "success_condition": "A moss lizard is captured using the trap and bush interaction.",
+      "if_unmet": "Return to the preparation camp, replenish health/prayer, and retry without crediting the stage."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.leave_earthbound_with_lizard",
+    "name": "leave Earthbound With Lizard",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1389_9674_0",
+    "end_location_id": "location.pm.tile_1389_9674_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.rustle_bush"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.talk_to_eyatlalli_with_items",
+    "name": "Give Eyatlalli the three ritual components",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1445_9639_1",
+    "end_location_id": "location.pm.tile_1445_9639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.leave_earthbound_with_lizard"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pm_moonlight_grub",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pm_bream_scales",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pm_moss_lizard",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pm_talisman_east_west",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pm_talisman_north_south",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pm_moonlight_grub",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.pm_bream_scales",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.pm_moss_lizard",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_ritual_solved",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 62,
+      "expected_seconds": 125,
+      "max_seconds": 375
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    },
+    "planned_outcome": {
+      "success_condition": "Eyatlalli accepts the offerings at the correct runic-energy location found via both talismans.",
+      "if_unmet": "Return to the preparation camp, replenish health/prayer, and retry without crediting the stage."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.talk_to_eyatlalli_after_items",
+    "name": "Speak to Eyatlalli after the ritual",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1445_9639_1",
+    "end_location_id": "location.pm.tile_1445_9639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.talk_to_eyatlalli_with_items"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pm_ritual_solved",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_cam_torum_for_fights",
+    "name": "enter Cam Torum For Fights",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1436_3129_0",
+    "end_location_id": "location.pm.tile_1436_3129_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.talk_to_eyatlalli_after_items"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_neypotzli_for_fights",
+    "name": "enter Neypotzli For Fights",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1439_9600_1",
+    "end_location_id": "location.pm.tile_1439_9600_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_cam_torum_for_fights"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_earthbound_for_fight",
+    "name": "enter Earthbound For Fight",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1421_9650_1",
+    "end_location_id": "location.pm.tile_1421_9650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_neypotzli_for_fights"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_blue_moon_fight",
+    "name": "enter Blue Moon Fight",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1404_9704_0",
+    "end_location_id": "location.pm.tile_1404_9704_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_earthbound_for_fight"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.fight_blue_moon",
+    "name": "Defeat the Blue Moon",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1441_9678_0",
+    "end_location_id": "location.pm.tile_1441_9678_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_blue_moon_fight"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_blue_moon",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 155,
+      "expected_seconds": 310,
+      "max_seconds": 930
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    },
+    "planned_outcome": {
+      "success_condition": "Beat Blue Moon using suitable defensive melee equipment, handling ice mechanics and replenishing between attempts.",
+      "if_unmet": "Return to the preparation camp, replenish health/prayer, and retry without crediting the stage."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_prison_for_fight",
+    "name": "enter Prison For Fight",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1421_9613_1",
+    "end_location_id": "location.pm.tile_1421_9613_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.fight_blue_moon"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_blood_moon_fight",
+    "name": "enter Blood Moon Fight",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1388_9589_0",
+    "end_location_id": "location.pm.tile_1388_9589_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_prison_for_fight"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.fight_blood_moon",
+    "name": "Defeat the Blood Moon",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1391_9632_0",
+    "end_location_id": "location.pm.tile_1391_9632_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_blood_moon_fight"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_blood_moon",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 165,
+      "expected_seconds": 330,
+      "max_seconds": 990
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    },
+    "planned_outcome": {
+      "success_condition": "Beat Blood Moon, denying her healing and responding to the jaguar/blood pool attacks.",
+      "if_unmet": "Return to the preparation camp, replenish health/prayer, and retry without crediting the stage."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_streambound_for_fight",
+    "name": "enter Streambound For Fight",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1458_9650_1",
+    "end_location_id": "location.pm.tile_1458_9650_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.fight_blood_moon"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.enter_eclipse_moon_fight",
+    "name": "enter Eclipse Moon Fight",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1509_9673_0",
+    "end_location_id": "location.pm.tile_1509_9673_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_streambound_for_fight"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.fight_eclipse_moon",
+    "name": "Defeat the Eclipse Moon",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1487_9632_0",
+    "end_location_id": "location.pm.tile_1487_9632_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.enter_eclipse_moon_fight"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_eclipse_moon",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 167,
+      "expected_seconds": 335,
+      "max_seconds": 1005
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    },
+    "planned_outcome": {
+      "success_condition": "Beat Eclipse Moon, following the parry and moon-shield special attacks with adequate melee gear.",
+      "if_unmet": "Return to the preparation camp, replenish health/prayer, and retry without crediting the stage."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.talk_to_jessamine_end",
+    "name": "Report all three Moon victories to Jessamine",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1440_9639_1",
+    "end_location_id": "location.pm.tile_1440_9639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.fight_eclipse_moon"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pm_blue_moon",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pm_blood_moon",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pm_eclipse_moon",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.talk_to_zuma_end",
+    "name": "Receive Zuma's final explanation",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1441_9638_1",
+    "end_location_id": "location.pm.tile_1441_9638_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.talk_to_jessamine_end"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage order, with estimated duration and outcomes pending gameplay verification."
+    }
+  },
+  {
+    "id": "quest.perilous_moons.complete",
+    "name": "Complete Perilous Moons with Eyatlalli",
+    "activity_id": "quest.perilous_moons",
+    "kind": "quest_stage",
+    "start_location_id": "location.pm.tile_1445_9639_1",
+    "end_location_id": "location.pm.tile_1445_9639_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.perilous_moons.talk_to_zuma_end"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pm_blue_moon",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pm_blood_moon",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pm_eclipse_moon",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.slayer",
+        "xp_tenths": 400000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.runecraft",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hunter",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_moons_repeatable",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_lunar_chest_credit",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.pm_lesser_nagua_task",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 105,
+      "max_seconds": 315
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper declares two quest points, 40,000 Slayer XP and 5,000 XP each in Runecraft, Hunter and Fishing. Completion opens repeatable Moons encounters."
+    }
+  }
+]

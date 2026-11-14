@@ -3,9 +3,117 @@
   "game_revision": "osrs-live-242-2026-11-11",
   "entries": [
     {
+      "id": "review.quest.the_path_of_glouphrie.slayer_lamp",
+      "activity_id": "quest.the_path_of_glouphrie",
+      "status": "collected",
+      "delivery": "completion",
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "producer_action_id": "quest.the_path_of_glouphrie.complete",
+      "repeat_limit": 1,
+      "package": {
+        "kind": "quest_lamp",
+        "quantity": 1,
+        "selection_count": 1,
+        "amount": {
+          "kind": "fixed",
+          "xp_tenths": 200000
+        },
+        "eligible_skills": [
+          "skill.slayer"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true
+      },
+      "notes": "Skill-locked lamp among four completion rewards. Verify minimum level, retainability, and whether dispensed in inventory or redeemed immediately."
+    },
+    {
+      "id": "review.quest.the_path_of_glouphrie.thieving_lamp",
+      "activity_id": "quest.the_path_of_glouphrie",
+      "status": "collected",
+      "delivery": "completion",
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "producer_action_id": "quest.the_path_of_glouphrie.complete",
+      "repeat_limit": 1,
+      "package": {
+        "kind": "quest_lamp",
+        "quantity": 1,
+        "selection_count": 1,
+        "amount": {
+          "kind": "fixed",
+          "xp_tenths": 50000
+        },
+        "eligible_skills": [
+          "skill.thieving"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true
+      },
+      "notes": "Skill-locked lamp among four completion rewards. Verify minimum level, retainability, and whether dispensed in inventory or redeemed immediately."
+    },
+    {
+      "id": "review.quest.the_path_of_glouphrie.strength_lamp",
+      "activity_id": "quest.the_path_of_glouphrie",
+      "status": "collected",
+      "delivery": "completion",
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "producer_action_id": "quest.the_path_of_glouphrie.complete",
+      "repeat_limit": 1,
+      "package": {
+        "kind": "quest_lamp",
+        "quantity": 1,
+        "selection_count": 1,
+        "amount": {
+          "kind": "fixed",
+          "xp_tenths": 300000
+        },
+        "eligible_skills": [
+          "skill.strength"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true
+      },
+      "notes": "Skill-locked lamp among four completion rewards. Verify minimum level, retainability, and whether dispensed in inventory or redeemed immediately."
+    },
+    {
+      "id": "review.quest.the_path_of_glouphrie.magic_lamp",
+      "activity_id": "quest.the_path_of_glouphrie",
+      "status": "collected",
+      "delivery": "completion",
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "producer_action_id": "quest.the_path_of_glouphrie.complete",
+      "repeat_limit": 1,
+      "package": {
+        "kind": "quest_lamp",
+        "quantity": 1,
+        "selection_count": 1,
+        "amount": {
+          "kind": "fixed",
+          "xp_tenths": 50000
+        },
+        "eligible_skills": [
+          "skill.magic"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true
+      },
+      "notes": "Skill-locked lamp among four completion rewards. Verify minimum level, retainability, and whether dispensed in inventory or redeemed immediately."
+    },
+    {
       "id": "claim.defender_of_varrock.minas",
       "activity_id": "quest.defender_of_varrock",
-      "status": "expected",
+      "status": "collected",
       "delivery": "post_quest_claim",
       "source_ids": [
         "source.quest_helper.quest_observations",
@@ -21,12 +129,12 @@
           "kind": "fixed",
           "xp_tenths": 50000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null
+        "eligible_skills": "all",
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true
       },
-      "notes": "The same visit also grants five kudos per the helper. Share its single producer with the museum catalog.",
+      "notes": "The same visit grants five kudos and a 5,000 XP lamp. Skill eligibility, minimum level and retention were unspecified in the pinned registry; these are provisional and flagged for independent review.",
       "requires": {
         "kind": "all",
         "requirements": [
@@ -155,14 +263,14 @@
     {
       "id": "claim.monkey_madness_i.daero",
       "activity_id": "quest.monkey_madness_i",
-      "status": "expected",
+      "status": "collected",
       "delivery": "post_quest_claim",
       "source_ids": [
         "source.jagex.garden_of_death_rewards",
         "source.quest_helper.monkey_madness_i",
         "source.project.early_quest_timing"
       ],
-      "producer_action_id": "claim.monkey_madness_i.daero",
+      "producer_action_id": "claim.monkey_madness_i.daero_attack_defence",
       "repeat_limit": 1,
       "package": {
         "kind": "choice",
@@ -203,7 +311,7 @@
     {
       "id": "claim.monkey_madness_ii.duke",
       "activity_id": "quest.monkey_madness_ii",
-      "status": "expected",
+      "status": "collected",
       "delivery": "post_quest_claim",
       "source_ids": [
         "source.jagex.garden_of_death_rewards",
@@ -219,13 +327,20 @@
           "kind": "fixed",
           "xp_tenths": 500000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": [
+          "skill.attack",
+          "skill.strength",
+          "skill.defence",
+          "skill.hitpoints",
+          "skill.ranged",
+          "skill.magic"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": false,
         "reported_eligibility": "combat"
       },
-      "notes": "Reconcile the helper's placeholder item with the NPC training. Verify Duke's tile, Daero's claim prerequisite and whether both choices can target the same skill.",
+      "notes": "Two immediate 50,000-XP combat selections, only after collecting Daero's Monkey Madness I training; cannot be claimed twice. Duke tile and same-skill selection require verification.",
       "requires": {
         "kind": "all",
         "requirements": [
@@ -236,11 +351,19 @@
         ]
       },
       "claim_location": {
-        "name": "Duke on Ape Atoll",
-        "tile": null,
-        "anchor": "Publisher Poll 77 change and Quest Helper reward summary"
+        "name": "Duke on Ape Atoll east hill",
+        "tile": [
+          2714,
+          2758,
+          0
+        ],
+        "anchor": "Approximate from near monkey archer hill, exact tile requires verification"
       },
-      "claim_duration_seconds": null
+      "claim_duration_seconds": {
+        "min_seconds": 47,
+        "expected_seconds": 95,
+        "max_seconds": 285
+      }
     },
     {
       "id": "claim.the_ides_of_milk.gillie_groats",
@@ -343,7 +466,7 @@
     {
       "id": "review.activity.knight_waves_training_grounds.completion",
       "activity_id": "activity.knight_waves_training_grounds",
-      "status": "expected",
+      "status": "collected",
       "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
@@ -467,16 +590,16 @@
     {
       "id": "review.quest.a_kingdom_divided.xp_package",
       "activity_id": "quest.a_kingdom_divided",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "held_lamp",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.a_kingdom_divided.claim_rewards",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
-        "quantity": 1,
+        "quantity": 2,
         "selection_count": 1,
         "amount": {
           "kind": "fixed",
@@ -484,22 +607,22 @@
         },
         "eligible_skills": "all",
         "minimum_level": 40,
-        "distinct_skills": null,
-        "retainable": null,
-        "reported_pick_or_item_count": 1,
+        "distinct_skills": false,
+        "retainable": true,
+        "reported_pick_or_item_count": 2,
         "reported_eligibility": "all"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "Two held 10,000-XP antique lamps for level-40+ skills (historical Architectural Alliance one-lamp exception); claimed from Fullore."
     },
     {
       "id": "review.quest.a_night_at_the_theatre.xp_package",
       "activity_id": "quest.a_night_at_the_theatre",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.a_night_at_the_theatre.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -509,14 +632,21 @@
           "kind": "fixed",
           "xp_tenths": 200000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": [
+          "skill.attack",
+          "skill.strength",
+          "skill.defence",
+          "skill.ranged",
+          "skill.magic",
+          "skill.hitpoints"
+        ],
+        "minimum_level": 50,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 4,
         "reported_eligibility": "combat_except_prayer"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "Four independent retainable 20,000-XP antique lamps at the Mysterious Stranger completion dialogue, each choosing Attack, Strength, Defence, Ranged, Magic or Hitpoints at base level 50+. Verify current in-game reclaim and deferred redemption after cross-PR integration."
     },
     {
       "id": "review.quest.a_tail_of_two_cats.xp_package",
@@ -548,29 +678,29 @@
     {
       "id": "review.quest.a_taste_of_hope.xp_package",
       "activity_id": "quest.a_taste_of_hope",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "held_tome",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.a_taste_of_hope.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "tome",
-        "quantity": null,
-        "selection_count": null,
+        "quantity": 1,
+        "selection_count": 3,
         "amount": {
           "kind": "fixed",
           "xp_tenths": 25000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 35,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 3,
         "reported_eligibility": "reported_over_level_35"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "One retainable tome, three chapters of 2,500 XP each; 35+ base level and repeat same skill allowed; reclaim from Safalaan."
     },
     {
       "id": "review.quest.black_knights_fortress.quest_month_lamp",
@@ -662,29 +792,29 @@
     {
       "id": "review.quest.darkness_of_hallowvale.xp_package",
       "activity_id": "quest.darkness_of_hallowvale",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "held_tome",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.darkness_of_hallowvale.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "tome",
-        "quantity": null,
-        "selection_count": null,
+        "quantity": 1,
+        "selection_count": 3,
         "amount": {
           "kind": "fixed",
           "xp_tenths": 20000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 30,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 3,
         "reported_eligibility": "reported_over_level_30"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "One Tome of Experience with three independent 2,000-XP chapters for any level-30+ skill; repeated picks of the same skill allowed. Reclaimable from Veliaf if lost."
     },
     {
       "id": "review.quest.dragon_slayer_ii.combat_training",
@@ -796,12 +926,12 @@
     {
       "id": "review.quest.kings_ransom.xp_package",
       "activity_id": "quest.kings_ransom",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.kings_ransom.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -871,12 +1001,12 @@
     {
       "id": "review.quest.one_small_favour.xp_package",
       "activity_id": "quest.one_small_favour",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.one_small_favour.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -886,14 +1016,14 @@
           "kind": "fixed",
           "xp_tenths": 100000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 30,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 2,
         "reported_eligibility": "reported_over_level_30"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "Two independent retainable lamp instances are produced by Yanni's completion dialogue. Each is 10,000 XP and requires a base skill level of at least 30. Verify quest-log green status and the downstream quest gate on using both lamps."
     },
     {
       "id": "review.quest.romeo_juliet.quest_month_lamp",
@@ -986,29 +1116,29 @@
     {
       "id": "review.quest.sins_of_the_father.xp_package",
       "activity_id": "quest.sins_of_the_father",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "held_tome",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.sins_of_the_father.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "tome",
-        "quantity": null,
-        "selection_count": null,
+        "quantity": 1,
+        "selection_count": 6,
         "amount": {
           "kind": "fixed",
           "xp_tenths": 150000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 60,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 6,
         "reported_eligibility": "reported_above_level_60"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "One retainable tome with six 15,000-XP chapters for any level-60+ skill; same skill can be picked repeatedly; reclaim from Ivan."
     },
     {
       "id": "review.quest.tai_bwo_wannai_trio.training",
@@ -1029,44 +1159,44 @@
           "skill.strength": 25000
         }
       },
-      "notes": "The helper reward summary does not locate each award. Check the sons' follow-up dialogue, the raw or cooked karambwan unlock and which XP has already been granted."
+      "notes": "The draft now models three separate post-quest dialogue claims: quest.tai_bwo_wannai_trio.claim_fishing, .claim_cooking and .claim_combat. Keep this aggregate review pending until each claim is independently verified against in-game dialogue; do not produce this fixed-awards package in addition to those three claims."
     },
     {
       "id": "review.quest.the_blood_moon_rises.xp_package",
       "activity_id": "quest.the_blood_moon_rises",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "held_tome",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.the_blood_moon_rises.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "tome",
-        "quantity": null,
-        "selection_count": null,
+        "quantity": 1,
+        "selection_count": 6,
         "amount": {
           "kind": "fixed",
           "xp_tenths": 300000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 70,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 6,
         "reported_eligibility": "reported_above_level_70"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "One reclaimable Tome of Experience with six 30,000-XP chapters for any base-level-70+ skill, including repeated picks; Efaritay recovers lost books."
     },
     {
       "id": "review.quest.the_final_dawn.xp_package",
       "activity_id": "quest.the_final_dawn",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.the_final_dawn.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -1076,14 +1206,22 @@
           "kind": "fixed",
           "xp_tenths": 550000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": [
+          "skill.attack",
+          "skill.strength",
+          "skill.defence",
+          "skill.ranged",
+          "skill.magic",
+          "skill.hitpoints",
+          "skill.prayer"
+        ],
+        "minimum_level": 40,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 1,
         "reported_eligibility": "combat"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "One retainable 55,000-XP antique lamp at quest completion, for any combat skill including Prayer at base level 40+. Confirm the exact reclaim and deferred-use behavior in live gameplay."
     },
     {
       "id": "review.quest.the_fremennik_isles.xp_package",
@@ -1271,6 +1409,199 @@
         "quantity": 4
       },
       "notes": "Four independently usable lamps from a single completion. The game's observed eligibility is combat skills."
+    },
+    {
+      "id": "museum.history.excalibur",
+      "activity_id": "quest.merlins_crystal",
+      "status": "collected",
+      "delivery": "post_quest_claim",
+      "source_ids": [
+        "source.field.varrock_museum_history",
+        "source.runelite.varbits"
+      ],
+      "producer_action_id": "museum.history.excalibur",
+      "repeat_limit": 1,
+      "package": {
+        "kind": "quest_lamp",
+        "quantity": 1,
+        "selection_count": 1,
+        "amount": {
+          "kind": "fixed",
+          "xp_tenths": 10000
+        },
+        "eligible_skills": "all",
+        "minimum_level": 20,
+        "distinct_skills": false,
+        "retainable": true
+      },
+      "notes": "One 1,000 XP museum antique lamp from Merlin's Crystal, plus five kudos. Retention and inclusive level boundary remain independent-review items.",
+      "requires": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "quest.merlins_crystal.complete"
+          }
+        ]
+      },
+      "claim_location": {
+        "name": "Historian Minas, Varrock Museum",
+        "tile": null,
+        "anchor": "VM_EXCALIBUR"
+      },
+      "claim_duration_seconds": {
+        "min_seconds": 6,
+        "expected_seconds": 12,
+        "max_seconds": 26
+      },
+      "other_effects": {
+        "kudos": 5
+      },
+      "trackers": [
+        {
+          "symbol": "VM_EXCALIBUR",
+          "id": 3655
+        }
+      ]
+    },
+    {
+      "id": "museum.history.lathas",
+      "activity_id": "quest.making_history",
+      "status": "collected",
+      "delivery": "post_quest_claim",
+      "source_ids": [
+        "source.field.varrock_museum_history",
+        "source.runelite.varbits"
+      ],
+      "producer_action_id": "museum.history.lathas",
+      "repeat_limit": 1,
+      "package": {
+        "kind": "quest_lamp",
+        "quantity": 1,
+        "selection_count": 1,
+        "amount": {
+          "kind": "fixed",
+          "xp_tenths": 10000
+        },
+        "eligible_skills": "all",
+        "minimum_level": 20,
+        "distinct_skills": false,
+        "retainable": true
+      },
+      "notes": "One 1,000 XP museum antique lamp from Making History, plus five kudos. King Lathas display 46; verify lamp retention and boundary.",
+      "requires": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "quest.making_history.complete"
+          }
+        ]
+      },
+      "claim_location": {
+        "name": "Historian Minas, Varrock Museum",
+        "tile": null,
+        "anchor": "VM_LATHAS"
+      },
+      "claim_duration_seconds": {
+        "min_seconds": 6,
+        "expected_seconds": 12,
+        "max_seconds": 26
+      },
+      "other_effects": {
+        "kudos": 5
+      },
+      "trackers": [
+        {
+          "symbol": "VM_LATHAS",
+          "id": 3654
+        }
+      ]
+    },
+    {
+      "id": "museum.history.soa",
+      "activity_id": "quest.shield_of_arrav",
+      "status": "collected",
+      "delivery": "post_quest_claim",
+      "source_ids": [
+        "source.field.varrock_museum_history",
+        "source.runelite.varbits"
+      ],
+      "producer_action_id": "museum.history.soa",
+      "repeat_limit": 1,
+      "package": {
+        "kind": "quest_lamp",
+        "quantity": 1,
+        "selection_count": 1,
+        "amount": {
+          "kind": "fixed",
+          "xp_tenths": 10000
+        },
+        "eligible_skills": "all",
+        "minimum_level": 20,
+        "distinct_skills": false,
+        "retainable": true
+      },
+      "notes": "One 1,000 XP museum antique lamp from Shield of Arrav and five kudos. Separate from any quest-month completion lamp or Defender of Varrock history.",
+      "requires": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "quest.shield_of_arrav.complete"
+          }
+        ]
+      },
+      "claim_location": {
+        "name": "Historian Minas, Varrock Museum",
+        "tile": null,
+        "anchor": "VM_SOA"
+      },
+      "claim_duration_seconds": {
+        "min_seconds": 6,
+        "expected_seconds": 12,
+        "max_seconds": 26
+      },
+      "other_effects": {
+        "kudos": 5
+      },
+      "trackers": [
+        {
+          "symbol": "VM_SOA",
+          "id": 3656
+        }
+      ]
+    },
+    {
+      "id": "review.quest.dream_mentor.dreamy_lamp",
+      "activity_id": "quest.dream_mentor",
+      "status": "collected",
+      "delivery": "completion",
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "producer_action_id": "quest.dream_mentor.complete",
+      "repeat_limit": 1,
+      "package": {
+        "kind": "quest_lamp",
+        "quantity": 1,
+        "selection_count": 1,
+        "amount": {
+          "kind": "fixed",
+          "xp_tenths": 150000
+        },
+        "eligible_skills": [
+          "skill.strength",
+          "skill.defence",
+          "skill.hitpoints",
+          "skill.ranged",
+          "skill.magic"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true
+      },
+      "notes": "One retainable Dream Mentor dreamy lamp; five eligible combat skills exclude Attack and Prayer. The helper lists an anomalous lamp item symbol; eligibility and reclaimability need in-game review."
     },
     {
       "id": "review.miniquest.into_the_tombs.xp_package",

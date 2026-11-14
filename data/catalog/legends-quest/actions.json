@@ -23,19 +23,16 @@
           "action_id": "quest.waterfall_quest.complete"
         },
         {
-          "kind": "flag",
-          "token_id": "flag.rfd.heroes_quest_complete",
-          "value": true
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.complete"
         },
         {
-          "kind": "flag",
-          "token_id": "flag.rfd.shilo_village_complete",
-          "value": true
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.complete"
         },
         {
-          "kind": "flag",
-          "token_id": "flag.rfd.underground_pass_complete",
-          "value": true
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.complete"
         }
       ]
     },
@@ -65,7 +62,7 @@
         "source.project.early_quest_timing"
       ],
       "status": "estimated",
-      "note": "Quest begins through guild guard and Radimus. Only 107 QP and five quests are needed here; boosts are required at later stages. Cross-branch quest completions use existing RFD bridge flags."
+      "note": "Speak to the guard and Radimus. The 107 quest points and five quest completions gate the start. Skill checks apply at later stages."
     }
   },
   {
@@ -2304,6 +2301,161 @@
       ],
       "status": "estimated",
       "note": "Four quest points and four separate held 30,000 XP lamps, reclaimable from Radimus, once only. Each lamp permits any of the 12 listed skills and can choose the same skill as another lamp."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.legends_tools_and_materials",
+    "name": "Buy Legends' Quest tools and cave supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 38000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.rune_axe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rune_pickaxe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.papyrus",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.charcoal",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rfd.machete",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lockpick",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.legends.soul_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mind_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.earth_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.law_rune",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.opal",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.legends.jade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.legends.red_topaz",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.sapphire",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.emerald",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ruby",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.diamond",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.gold_bar",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.vial_of_water",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.legends.unpowered_orb",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy the listed tradeable materials for a rounded price estimate."
     }
   }
 ]

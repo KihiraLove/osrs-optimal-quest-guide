@@ -1,0 +1,2161 @@
+[
+  {
+    "id": "quest.defender_of_varrock.start",
+    "name": "Investigate Elias's strange plant discoveries",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.elias_varrock",
+    "end_location_id": "location.arrav.elias_varrock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shield_of_arrav.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.temple_of_ikov.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.below_ice_mountain.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.family_crest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.garden_of_tranquillity.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.what_lies_below.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.romeo_juliet.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.demon_slayer.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 55,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.hunter",
+          "minimum_level": 52,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "supply.arrav.defender_provisions",
+    "name": "Buy a pickaxe and food for Camdozaal and the base",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 16500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bronze_pickaxe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.arrav_rations",
+        "quantity": 10
+      }
+    ],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One-time tradable supplies; estimated GE prices, quantity and availability need live review."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.trace_plants",
+    "name": "Examine the unusual plants and north-east rock",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.clue_plant",
+    "end_location_id": "location.arrav.clue_plant",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.trace_bushes",
+    "name": "Inspect three bushes and locate the hidden trapdoor",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.clue_bushes",
+    "end_location_id": "location.arrav.clue_bushes",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.trace_plants"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.arrav.base_entrance",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 69,
+      "expected_seconds": 115,
+      "max_seconds": 345
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.enter_base",
+    "name": "Descend into Zemouregal's concealed base",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_base",
+    "end_location_id": "location.arrav.dov_base",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.trace_bushes"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.arrav.base_entrance",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 51,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.balcony",
+    "name": "Watch the undead activity from the base's first balcony",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_balcony",
+    "end_location_id": "location.arrav.dov_balcony",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.enter_base"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.bottles",
+    "name": "Collect the protective bottles beside Arrav's door",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_bottles",
+    "end_location_id": "location.arrav.dov_bottles",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.balcony"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dov_bottle",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.arrav",
+    "name": "Investigate the captive Arrav through the guarded doorway",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_arrav",
+    "end_location_id": "location.arrav.dov_arrav",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.bottles"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dov_bottle",
+          "quantity": 2
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dov_bottle",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 48,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.second_gate",
+    "name": "Explore the second gate and observe the next balcony",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_second",
+    "end_location_id": "location.arrav.dov_second",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.arrav"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.arrav.base_deep",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 57,
+      "expected_seconds": 95,
+      "max_seconds": 285
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.palace",
+    "name": "Report the base and Arrav's condition to Elias in Varrock Palace",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_palace",
+    "end_location_id": "location.arrav.dov_palace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.second_gate"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.rovin",
+    "name": "Consult Captain Rovin upstairs at the palace",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.varrock.captain_rovin",
+    "end_location_id": "location.varrock.captain_rovin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.palace"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.ramarno",
+    "name": "Ask Ramarno in Camdozaal to forge a weapon",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_ramarno",
+    "end_location_id": "location.arrav.dov_ramarno",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.rovin"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "supply.arrav.defender_provisions"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.barronite",
+    "name": "Mine barronite ore for the forge",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_mine",
+    "end_location_id": "location.arrav.dov_mine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.ramarno"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dov_barronite_ore",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 63,
+      "expected_seconds": 105,
+      "max_seconds": 315
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.chaos_golems",
+    "name": "Defeat chaos golems to recover a usable fragment",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_golems",
+    "end_location_id": "location.arrav.dov_golems",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.barronite"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_rations",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.arrav_rations",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dov_golem_fragment",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 105,
+      "expected_seconds": 175,
+      "max_seconds": 525
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the required chaos golems and recover the forging fragment",
+      "if_unmet": "Retry safely; only record progress after the success condition is met."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.forge",
+    "name": "Forge the special equipment at Ramarno's anvil",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_ramarno",
+    "end_location_id": "location.arrav.dov_ramarno",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.chaos_golems"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dov_barronite_ore",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dov_golem_fragment",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dov_barronite_ore",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.dov_golem_fragment",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dov_arrav_weapon",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 72,
+      "expected_seconds": 120,
+      "max_seconds": 360
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.rovin_again",
+    "name": "Give Captain Rovin the Camdozaal findings",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.varrock.captain_rovin",
+    "end_location_id": "location.varrock.captain_rovin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.forge"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dov_arrav_weapon",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.reldo",
+    "name": "Ask Reldo for records relating to Arrav",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.varrock.reldo",
+    "end_location_id": "location.varrock.reldo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.rovin_again"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.census",
+    "name": "Read the palace census and collect the family list",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_census",
+    "end_location_id": "location.arrav.dov_census",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.reldo"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dov_census_scroll",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.candidates",
+    "name": "Question Roald, Aeonisig and Sir Prysin using the census",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_candidates",
+    "end_location_id": "location.arrav.dov_candidates",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.census"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dov_census_scroll",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 72,
+      "expected_seconds": 120,
+      "max_seconds": 360
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.horvik",
+    "name": "Interview Horvik about the old Varrock family",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_horvik",
+    "end_location_id": "location.arrav.dov_horvik",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.candidates"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.halen",
+    "name": "Interview Haig Halen about the family history",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.arrav.dov_halen",
+    "end_location_id": "location.arrav.dov_halen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.horvik"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.dimintheis",
+    "name": "Consult Dimintheis and establish the real descendant",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.varrock.dimintheis",
+    "end_location_id": "location.varrock.dimintheis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.halen"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dov_candidates_record",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.defender_of_varrock.complete",
+    "name": "Return to Captain Rovin and defend Varrock",
+    "kind": "quest_stage",
+    "activity_id": "quest.defender_of_varrock",
+    "start_location_id": "location.varrock.captain_rovin",
+    "end_location_id": "location.varrock.captain_rovin",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.dimintheis"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dov_candidates_record",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dov_arrav_weapon",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 150000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hunter",
+        "xp_tenths": 150000
+      }
+    ],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "claim.defender_of_varrock.minas",
+    "name": "Tell Historian Minas about Defender of Varrock",
+    "kind": "reward_claim",
+    "activity_id": null,
+    "start_location_id": "location.varrock_museum.historian_minas",
+    "end_location_id": "location.varrock_museum.historian_minas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.museum.kudos",
+        "delta": 5
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.defender_of_varrock.minas_lamp",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned VM_DOV museum observation and reward registry link one Minas report, five kudos and one 5,000-XP lamp."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.start",
+    "name": "Ask Elias to investigate Arrav's desert tomb",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.elias_uzer",
+    "end_location_id": "location.arrav.elias_uzer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troll_romance.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 64,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.ranged",
+          "minimum_level": 62,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 62,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 61,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.strength",
+          "minimum_level": 58,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 37,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "supply.arrav.curse_provisions",
+    "name": "Buy tomb supplies, grapple equipment and provisions",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 97000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dwellberries",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ring_of_life",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_pickaxe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.arrav_mithril_grapple",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.arrav_grapple_crossbow",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.arrav_insulated_boots",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.arrav_rations",
+        "quantity": 16
+      }
+    ],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One-time tradable supplies; estimated GE prices, quantity and availability need live review."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.tomb_entry",
+    "name": "Enter the desert tomb and search for the two lever keys",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.tomb_entrance",
+    "end_location_id": "location.arrav.tomb_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.start"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "supply.arrav.curse_provisions"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.tomb_keys",
+    "name": "Collect the northern and southern tomb keys",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.tomb_keys",
+    "end_location_id": "location.arrav.tomb_keys",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.tomb_entry"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.arrav_tomb_key_south",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.arrav_tomb_key_north",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 66,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.tomb_levers",
+    "name": "Unlock the imposing doors with the paired levers",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.tomb_levers",
+    "end_location_id": "location.arrav.tomb_levers",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.tomb_keys"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_tomb_key_south",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_tomb_key_north",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.arrav_tomb_key_south",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.arrav_tomb_key_north",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.arrav.tomb_puzzle",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 78,
+      "expected_seconds": 130,
+      "max_seconds": 390
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Operate both levers and pass the unlocked tomb doors",
+      "if_unmet": "Retry safely; only record progress after the success condition is met."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.golem",
+    "name": "Fight the tomb's golem guard",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.tomb_golem",
+    "end_location_id": "location.arrav.tomb_golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.tomb_levers"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_rations",
+          "quantity": 5
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.arrav_rations",
+        "quantity": 5
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 102,
+      "expected_seconds": 170,
+      "max_seconds": 510
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the golem guard and open the basement passage",
+      "if_unmet": "Retry safely; only record progress after the success condition is met."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.jar",
+    "name": "Search the ancient tomb shelves to take a canopic jar",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.tomb_shelves",
+    "end_location_id": "location.arrav.tomb_shelves",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.golem"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.arrav_canopic_jar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 48,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.mural",
+    "name": "Solve the mural and tile puzzle",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.tomb_murals",
+    "end_location_id": "location.arrav.tomb_murals",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.jar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_canopic_jar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 93,
+      "expected_seconds": 155,
+      "max_seconds": 465
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Complete the tile puzzle without leaving its chamber",
+      "if_unmet": "Retry safely; only record progress after the success condition is met."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.fill_jar",
+    "name": "Prepare the canopic jar as Elias instructed",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.tomb_murals",
+    "end_location_id": "location.arrav.tomb_murals",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.mural"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dwellberries",
+          "quantity": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_canopic_jar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dwellberries",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.arrav_canopic_jar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.arrav_filled_canopic_jar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.show_jar",
+    "name": "Return the filled jar to Elias",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.elias_uzer",
+    "end_location_id": "location.arrav.elias_uzer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.fill_jar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_filled_canopic_jar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.arrav_filled_canopic_jar",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.trollheim",
+    "name": "Travel to Trollheim to approach Zemouregal's fort",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.trollheim.climbing_rocks",
+    "end_location_id": "location.trollheim.climbing_rocks",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.show_jar"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.caves",
+    "name": "Pass the Trollweiss caves and climb towards the fortress",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.trollweiss_tunnel",
+    "end_location_id": "location.arrav.trollweiss_tunnel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.trollheim"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_insulated_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 111,
+      "expected_seconds": 185,
+      "max_seconds": 555
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Safely cross the Trollweiss cave obstacles",
+      "if_unmet": "Retry safely; only record progress after the success condition is met."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.fort",
+    "name": "Enter Zemouregal's fort and confront Arrav",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.fort_arrav",
+    "end_location_id": "location.arrav.fort_arrav",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.caves"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.arrav.fort_passage",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 57,
+      "expected_seconds": 95,
+      "max_seconds": 285
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.tapestry",
+    "name": "Search the fort tapestry and obtain the base infiltration plans",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.fort_tapestry",
+    "end_location_id": "location.arrav.fort_tapestry",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.fort"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.arrav_heist_plans",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.arrav_base_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.explain_plans",
+    "name": "Take the plans back to Elias and plan the heist",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.elias_uzer",
+    "end_location_id": "location.arrav.elias_uzer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.tapestry"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_heist_plans",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_base_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 48,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.base_entry",
+    "name": "Meet Elias and re-enter Zemouregal's Varrock base",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.base_trapdoor",
+    "end_location_id": "location.arrav.base_trapdoor",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.explain_plans"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_base_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 48,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.locked_doors",
+    "name": "Pass the first locked rooms and reach the base back rooms",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.heist_door",
+    "end_location_id": "location.arrav.heist_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.base_entry"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_base_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.arrav.heist_passage",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 75,
+      "expected_seconds": 125,
+      "max_seconds": 375
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.sewer",
+    "name": "Use the base sewer to bypass the next doors",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.heist_sewer",
+    "end_location_id": "location.arrav.heist_sewer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.locked_doors"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.arrav.heist_passage",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 66,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.storage",
+    "name": "Search the storage chest for the metal-door code",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.heist_storage",
+    "end_location_id": "location.arrav.heist_storage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.sewer"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.arrav_door_code",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.metal_door",
+    "name": "Unlock the coded metal doors",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.heist_metal",
+    "end_location_id": "location.arrav.heist_metal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.storage"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_door_code",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.arrav_door_code",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.grapple",
+    "name": "Cross the chasm using grapple and insulated boots",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.heist_grapple",
+    "end_location_id": "location.arrav.heist_grapple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.metal_door"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_mithril_grapple",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_grapple_crossbow",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_insulated_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_life",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 66,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully grapple across the base's chasm",
+      "if_unmet": "Retry safely; only record progress after the success condition is met."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.heart",
+    "name": "Retrieve Arrav's heart from Zemouregal's back room",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.heist_boss",
+    "end_location_id": "location.arrav.heist_boss",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.grapple"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.arrav_heart",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.fight_arrav",
+    "name": "Confront Arrav and survive the final fight",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.heist_boss",
+    "end_location_id": "location.arrav.heist_boss",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.heart"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_heart",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_rations",
+          "quantity": 7
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.arrav_rations",
+        "quantity": 7
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 132,
+      "expected_seconds": 220,
+      "max_seconds": 660
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the controlled Arrav and complete the final dialogue",
+      "if_unmet": "Retry safely; only record progress after the success condition is met."
+    }
+  },
+  {
+    "id": "quest.the_curse_of_arrav.complete",
+    "name": "Return to Elias to lift The Curse of Arrav",
+    "kind": "quest_stage",
+    "activity_id": "quest.the_curse_of_arrav",
+    "start_location_id": "location.arrav.elias_uzer",
+    "end_location_id": "location.arrav.elias_uzer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_curse_of_arrav.fight_arrav"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.arrav_heart",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.arrav_heart",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 400000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 400000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 400000
+      }
+    ],
+    "duration": {
+      "min_seconds": 36,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progress step; stage merges adjacent dialog and minor walking, with estimated timing."
+    }
+  }
+]

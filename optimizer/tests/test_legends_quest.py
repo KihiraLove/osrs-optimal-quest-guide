@@ -29,9 +29,11 @@ class LegendsQuestTests(unittest.TestCase):
         state["location_id"] = "location.legends.radimus"
         state["completed_action_ids"] = ["quest.family_crest.complete", "quest.waterfall_quest.complete"]
         state["counters"]["token.quest_points"] = quest_points
-        state["flags"] = {"flag.rfd.heroes_quest_complete": bridges,
-                          "flag.rfd.shilo_village_complete": bridges,
-                          "flag.rfd.underground_pass_complete": bridges}
+        if bridges:
+            state["completed_action_ids"].extend([
+                "quest.heroes_quest.complete", "quest.shilo_village.complete",
+                "quest.underground_pass.complete",
+            ])
         if skills:
             for skill, level in (("agility", 50), ("crafting", 50), ("herblore", 45),
                                  ("magic", 56), ("mining", 52), ("prayer", 42),

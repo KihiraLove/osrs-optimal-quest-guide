@@ -1,0 +1,2917 @@
+[
+  {
+    "id": "quest.underground_pass.talk_to_king_lathas",
+    "name": "Accept King Lathas's quest into the Underground Pass",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.king_lathas",
+    "end_location_id": "location.ardougne.king_lathas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.biohazard.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.ranged",
+          "minimum_level": 25,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 120,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned prerequisites: completed Biohazard and 25 Ranged. Lathas on first castle floor."
+    }
+  },
+  {
+    "id": "supply.underground_pass.ge_gear",
+    "name": "Buy rope, bow, arrows, spade, tinderbox and cave food",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.talk_to_king_lathas"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 60000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.shortbow",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_arrow",
+        "quantity": 20
+      },
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 25
+      }
+    ],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 120,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cave essentials; GE price and consumable estimates to verify, extra rope allows error recovery."
+    }
+  },
+  {
+    "id": "quest.underground_pass.go_down_castle_stairs",
+    "name": "Leave King Lathas and descend the castle stairs",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.go_down_castle_stairs",
+    "end_location_id": "location.up.go_down_castle_stairs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.talk_to_king_lathas"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.enter_west_ardougne",
+    "name": "Pass the gate to West Ardougne",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.enter_west_ardougne",
+    "end_location_id": "location.up.enter_west_ardougne",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.go_down_castle_stairs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.talk_to_koftik",
+    "name": "Meet Koftik at the western tunnel entrance",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.talk_to_koftik",
+    "end_location_id": "location.up.talk_to_koftik",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.enter_west_ardougne"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.enter_the_dungeon",
+    "name": "Enter the Underground Pass with Koftik",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.enter_the_dungeon",
+    "end_location_id": "location.up.enter_the_dungeon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.talk_to_koftik"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.climb_over_rockslide1",
+    "name": "Cross the first rockslide",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.climb_over_rockslide1",
+    "end_location_id": "location.up.climb_over_rockslide1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.enter_the_dungeon"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.climb_over_rockslide2",
+    "name": "Cross the second rockslide",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.climb_over_rockslide2",
+    "end_location_id": "location.up.climb_over_rockslide2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.climb_over_rockslide1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.climb_over_rockslide3",
+    "name": "Cross the final rockslide",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.climb_over_rockslide3",
+    "end_location_id": "location.up.climb_over_rockslide3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.climb_over_rockslide2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.search_bag_for_cloth",
+    "name": "Search Koftik's bag for cloth",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.search_bag_for_cloth",
+    "end_location_id": "location.up.search_bag_for_cloth",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.climb_over_rockslide3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_damp_cloth",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.walk_north_east_of_bridge",
+    "name": "Light an arrow and shoot the bridge rope",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.walk_north_east_of_bridge",
+    "end_location_id": "location.up.walk_north_east_of_bridge",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.search_bag_for_cloth"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.shortbow",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_arrow",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_damp_cloth",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bronze_arrow",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.up_damp_cloth",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "The lit arrow cuts the guide rope and secures the bridge, making the crossing possible.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.collect_plank",
+    "name": "Collect the reusable wooden plank",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.collect_plank",
+    "end_location_id": "location.up.collect_plank",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.walk_north_east_of_bridge"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.cross_the_pit",
+    "name": "Cross the chasm and pit obstacles",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.cross_the_pit",
+    "end_location_id": "location.up.cross_the_pit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.collect_plank"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "The pit crossing succeeds; recover from failed agility attempts before continuing.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.climb_over_rockslide4",
+    "name": "Climb the lower rockslide",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.climb_over_rockslide4",
+    "end_location_id": "location.up.climb_over_rockslide4",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.cross_the_pit"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.climb_over_rockslide5",
+    "name": "Pass the lower rockslide exit",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.climb_over_rockslide5",
+    "end_location_id": "location.up.climb_over_rockslide5",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.climb_over_rockslide4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.pass_trap1",
+    "name": "Test and cross the first floor trap",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.pass_trap1",
+    "end_location_id": "location.up.pass_trap1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.climb_over_rockslide5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "The chosen tile safely clears this particular floor trap.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.pass_trap2",
+    "name": "Test and cross the second floor trap",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.pass_trap2",
+    "end_location_id": "location.up.pass_trap2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.pass_trap1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "The chosen tile safely clears this particular floor trap.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.pass_trap3",
+    "name": "Test and cross the third floor trap",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.pass_trap3",
+    "end_location_id": "location.up.pass_trap3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.pass_trap2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "The chosen tile safely clears this particular floor trap.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.pass_trap4",
+    "name": "Test and cross the fourth floor trap",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.pass_trap4",
+    "end_location_id": "location.up.pass_trap4",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.pass_trap3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "The chosen tile safely clears this particular floor trap.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.pass_trap5",
+    "name": "Test and cross the fifth floor trap",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.pass_trap5",
+    "end_location_id": "location.up.pass_trap5",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.pass_trap4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "The chosen tile safely clears this particular floor trap.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.plank_rock1",
+    "name": "Use a plank to cross the first flat rock",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.plank_rock1",
+    "end_location_id": "location.up.plank_rock1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.pass_trap5"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.plank",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Use the plank to cross the trap without losing it.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.plank_rock2",
+    "name": "Use a plank to cross the second flat rock",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.plank_rock2",
+    "end_location_id": "location.up.plank_rock2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.plank_rock1"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.plank",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Use the plank to cross the trap without losing it.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.plank_rock3",
+    "name": "Use a plank to cross the third flat rock",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.plank_rock3",
+    "end_location_id": "location.up.plank_rock3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.plank_rock2"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.plank",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Use the plank to cross the trap without losing it.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.collect_orb_one",
+    "name": "Take the first orb of light near the bridge rocks",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.plank_rock3",
+    "end_location_id": "location.up.plank_rock3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.plank_rock3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_orb_of_light",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Helper skips the first orb pickup coordinate; mark the adjacent tile provisional."
+    }
+  },
+  {
+    "id": "quest.underground_pass.collect_orb2",
+    "name": "Collect the second orb of light",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.collect_orb2",
+    "end_location_id": "location.up.collect_orb2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.collect_orb_one"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_orb_of_light",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.collect_orb3",
+    "name": "Collect the third orb of light",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.collect_orb3",
+    "end_location_id": "location.up.collect_orb3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.collect_orb2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_orb_of_light",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.collect_orb4",
+    "name": "Collect the fourth orb of light",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.collect_orb4",
+    "end_location_id": "location.up.collect_orb4",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.collect_orb3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_orb_of_light",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.orbs_to_furnace",
+    "name": "Destroy the four orbs in the furnace",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.orbs_to_furnace",
+    "end_location_id": "location.up.orbs_to_furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.collect_orb4"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_orb_of_light",
+          "quantity": 4
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.up_orb_of_light",
+        "quantity": 4
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.climb_down_well",
+    "name": "Climb down the unsealed well",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.climb_down_well",
+    "end_location_id": "location.up.climb_down_well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.orbs_to_furnace"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.pick_cell_lock",
+    "name": "Pick the prison cell lock",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.pick_cell_lock",
+    "end_location_id": "location.up.pick_cell_lock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.climb_down_well"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "The lock/ledge obstacle is passed without an unrecovered fall.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.dig_mud",
+    "name": "Dig through the mud blocked passage",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.dig_mud",
+    "end_location_id": "location.up.dig_mud",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.pick_cell_lock"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.cross_ledge",
+    "name": "Cross the narrow rocky ledge",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.cross_ledge",
+    "end_location_id": "location.up.cross_ledge",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.dig_mud"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "The lock/ledge obstacle is passed without an unrecovered fall.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.go_through_pipe",
+    "name": "Crawl through the tunnel pipe",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.go_through_pipe",
+    "end_location_id": "location.up.go_through_pipe",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.cross_ledge"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.search_unicorn_cage",
+    "name": "Search the captured unicorn's cage",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.search_unicorn_cage",
+    "end_location_id": "location.up.search_unicorn_cage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.go_through_pipe"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_railing",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.use_railing_on_boulder",
+    "name": "Dislodge the boulder with the railing",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.use_railing_on_boulder",
+    "end_location_id": "location.up.use_railing_on_boulder",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.search_unicorn_cage"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_railing",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.up_railing",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.search_unicorn_cage_again",
+    "name": "Recover the unicorn's horn",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.search_unicorn_cage_again",
+    "end_location_id": "location.up.search_unicorn_cage_again",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.use_railing_on_boulder"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_unicorn_horn",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.leave_unicorn_area",
+    "name": "Leave the unicorn enclosure",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.leave_unicorn_area",
+    "end_location_id": "location.up.leave_unicorn_area",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.search_unicorn_cage_again"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.walk_to_knights",
+    "name": "Find Iban's three imprisoned paladins",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.walk_to_knights",
+    "end_location_id": "location.up.walk_to_knights",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.leave_unicorn_area"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.kill_jerro",
+    "name": "Defeat Sir Jerro and take his badge",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.kill_jerro",
+    "end_location_id": "location.up.kill_jerro",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.walk_to_knights"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_badge_jerro",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "The paladin is defeated and the corresponding badge is secured.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.kill_carl",
+    "name": "Defeat Sir Carl and take his badge",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.kill_carl",
+    "end_location_id": "location.up.kill_carl",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.kill_jerro"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_badge_carl",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "The paladin is defeated and the corresponding badge is secured.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.kill_harry",
+    "name": "Defeat Sir Harry and take his badge",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.kill_harry",
+    "end_location_id": "location.up.kill_harry",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.kill_carl"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_badge_harry",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "The paladin is defeated and the corresponding badge is secured.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.use_badge_jerro_on_well",
+    "name": "Offer Sir Jerro's badge to the well",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.use_badge_jerro_on_well",
+    "end_location_id": "location.up.use_badge_jerro_on_well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.kill_harry"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_badge_jerro",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.up_badge_jerro",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.use_badge_harry_on_well",
+    "name": "Offer Sir Harry's badge to the well",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.use_badge_harry_on_well",
+    "end_location_id": "location.up.use_badge_harry_on_well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.use_badge_jerro_on_well"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_badge_harry",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.up_badge_harry",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.use_badge_carl_on_well",
+    "name": "Offer Sir Carl's badge to the well",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.use_badge_carl_on_well",
+    "end_location_id": "location.up.use_badge_carl_on_well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.use_badge_harry_on_well"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_badge_carl",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.up_badge_carl",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.use_unicorn_horn_on_well",
+    "name": "Offer the unicorn horn to the well",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.use_unicorn_horn_on_well",
+    "end_location_id": "location.up.use_unicorn_horn_on_well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.use_badge_carl_on_well"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_unicorn_horn",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.up_unicorn_horn",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.open_ibans_door",
+    "name": "Open the passage into Iban's cavern",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.open_ibans_door",
+    "end_location_id": "location.up.open_ibans_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.use_unicorn_horn_on_well"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.descend_cave",
+    "name": "Descend to the dwarf settlement",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.descend_cave",
+    "end_location_id": "location.up.descend_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.open_ibans_door"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.talk_to_niloof",
+    "name": "Speak with Niloof and receive Klank's gauntlets",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.talk_to_niloof",
+    "end_location_id": "location.up.talk_to_niloof",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.descend_cave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_klanks_gauntlets",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.go_back_up_to_ibans_cavern",
+    "name": "Return to the witch's chamber",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.go_back_up_to_ibans_cavern",
+    "end_location_id": "location.up.go_back_up_to_ibans_cavern",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.talk_to_niloof"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.pick_up_witchs_cat",
+    "name": "Find and pick up Kardia's cat",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.pick_up_witchs_cat",
+    "end_location_id": "location.up.pick_up_witchs_cat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.go_back_up_to_ibans_cavern"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_witch_cat",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.use_cat_on_door",
+    "name": "Lure Kardia away by returning her cat",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.use_cat_on_door",
+    "end_location_id": "location.up.use_cat_on_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.pick_up_witchs_cat"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_witch_cat",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.up_witch_cat",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.search_witchs_chest",
+    "name": "Search the witch's chest for Iban's doll",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.search_witchs_chest",
+    "end_location_id": "location.up.search_witchs_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.use_cat_on_door"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_doll_iban",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.kill_holthion",
+    "name": "Defeat Holthion and recover his amulet",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.kill_holthion",
+    "end_location_id": "location.up.kill_holthion",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.search_witchs_chest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_amulet_holthion",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the named demon and collect its quest amulet.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.kill_doomion",
+    "name": "Defeat Doomion and recover his amulet",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.kill_doomion",
+    "end_location_id": "location.up.kill_doomion",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.kill_holthion"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_amulet_doomion",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the named demon and collect its quest amulet.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.kill_othainian",
+    "name": "Defeat Othainian and recover his amulet",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.kill_othainian",
+    "end_location_id": "location.up.kill_othainian",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.kill_doomion"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_amulet_othainian",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the named demon and collect its quest amulet.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.search_doomions_chest",
+    "name": "Open the demon chest for Iban's shadow",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.search_doomions_chest",
+    "end_location_id": "location.up.search_doomions_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.kill_othainian"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_amulet_holthion",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_amulet_doomion",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_amulet_othainian",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.up_amulet_holthion",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.up_amulet_doomion",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.up_amulet_othainian",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_iban_shadow",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.return_to_dwarfs",
+    "name": "Return to the dwarves beneath Iban's cavern",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.return_to_dwarfs",
+    "end_location_id": "location.up.return_to_dwarfs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.search_doomions_chest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.pick_up_bucket",
+    "name": "Collect a bucket from the dwarves",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.pick_up_bucket",
+    "end_location_id": "location.up.pick_up_bucket",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.return_to_dwarfs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.pick_up_tinderbox",
+    "name": "Collect a tinderbox from the dwarves",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.pick_up_tinderbox",
+    "end_location_id": "location.up.pick_up_tinderbox",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.pick_up_bucket"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.use_bucket_on_brew",
+    "name": "Fill the bucket with dwarf brew",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.use_bucket_on_brew",
+    "end_location_id": "location.up.use_bucket_on_brew",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.pick_up_tinderbox"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bucket",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_dwarf_brew",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.use_brew_on_tomb",
+    "name": "Soak Iban's tomb in dwarf brew",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.use_brew_on_tomb",
+    "end_location_id": "location.up.use_brew_on_tomb",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.use_bucket_on_brew"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_dwarf_brew",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.up_dwarf_brew",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.use_tinderbox_on_tomb",
+    "name": "Set the tomb alight and collect Iban's ashes",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.use_tinderbox_on_tomb",
+    "end_location_id": "location.up.use_tinderbox_on_tomb",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.use_brew_on_tomb"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_iban_ashes",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.kill_kalrag",
+    "name": "Defeat Kalrag and absorb Iban's blood",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.kill_kalrag",
+    "end_location_id": "location.up.kill_kalrag",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.use_tinderbox_on_tomb"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_iban_blood",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Kalrag is slain and Iban's blood is secured.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.ascend_to_half_soulless",
+    "name": "Cross the bridges to the half-soulless prison",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.ascend_to_half_soulless",
+    "end_location_id": "location.up.ascend_to_half_soulless",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.kill_kalrag"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.search_cage",
+    "name": "Search the cage for Iban's dove",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.search_cage",
+    "end_location_id": "location.up.search_cage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.ascend_to_half_soulless"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_iban_dove",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.kill_disciple",
+    "name": "Defeat an Iban disciple at the temple approach",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.kill_disciple",
+    "end_location_id": "location.up.kill_disciple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.search_cage"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat or evade the Iban disciple without losing the effigy materials.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.enter_temple",
+    "name": "Enter Iban's temple",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.enter_temple",
+    "end_location_id": "location.up.enter_temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.kill_disciple"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.use_doll_on_well",
+    "name": "Cast Iban's effigy into the temple well",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.use_doll_on_well",
+    "end_location_id": "location.up.use_doll_on_well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.enter_temple"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_doll_iban",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_iban_shadow",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_iban_ashes",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_iban_blood",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.up_iban_dove",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.up_doll_iban",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.up_iban_shadow",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.up_iban_ashes",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.up_iban_blood",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.up_iban_dove",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ibans_staff",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.ibans_blast",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Iban is defeated using the prepared effigy and the player keeps Iban's staff.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  },
+  {
+    "id": "quest.underground_pass.talk_to_koftik_after_temple",
+    "name": "Escape the temple and speak with Koftik",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.talk_to_koftik_after_temple",
+    "end_location_id": "location.up.talk_to_koftik_after_temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.use_doll_on_well"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.go_up_to_lathas_to_finish",
+    "name": "Return to East Ardougne Castle",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.up.go_up_to_lathas_to_finish",
+    "end_location_id": "location.up.go_up_to_lathas_to_finish",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.talk_to_koftik_after_temple"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.complete",
+    "name": "Report Iban's defeat to King Lathas",
+    "activity_id": "quest.underground_pass",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.king_lathas",
+    "end_location_id": "location.ardougne.king_lathas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.go_up_to_lathas_to_finish"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 5
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 30000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 30000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.well_of_voyage",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered helper waypoint; obstacle and movement timing is estimated."
+    }
+  },
+  {
+    "id": "quest.underground_pass.recover_after_fall",
+    "name": "Recover after a failed bridge or pit attempt",
+    "activity_id": null,
+    "kind": "other",
+    "start_location_id": "location.up.leave_fall_area",
+    "end_location_id": "location.up.leave_fall_area",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.enter_the_dungeon"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fall shortcut exists but should not be forced into a no-failure route."
+    },
+    "planned_outcome": {
+      "success_condition": "The player climbs back to the intended bridge approach and regains a stable route.",
+      "if_unmet": "Retreat to the nearest safe platform, restock or heal, and retry without assuming this step succeeded."
+    }
+  }
+]

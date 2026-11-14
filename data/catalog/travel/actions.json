@@ -685,5 +685,43 @@
       "status": "estimated",
       "note": "One successful Entrana departure and navigation puzzle. Setup awards 2,000 Firemaking XP once and activates the destination."
     }
+  },
+  {
+    "id": "supply.enlightened_journey.prepare_balloon_loadout",
+    "name": "Check the balloon loadout with Auguste",
+    "activity_id": "quest.enlightened_journey",
+    "kind": "quest_stage",
+    "start_location_id": "location.balloon.entrana",
+    "end_location_id": "location.balloon.entrana",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "quest.enlightened_journey.build_basket"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.travel.balloon_light_pack",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 20
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.enlightened_journey",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "The existing light-pack flag records a player's loadout check. Keep it valid for later balloon legs."
+    },
+    "planned_outcome": {
+      "success_condition": "The player's carried and worn loadout is accepted for balloon flight.",
+      "if_unmet": "Bank excess items or choose lighter gear, then check the loadout again before boarding."
+    }
   }
 ]

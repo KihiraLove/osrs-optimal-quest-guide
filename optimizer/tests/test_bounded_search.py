@@ -8,12 +8,13 @@ from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
 
-from quest_optimizer.bounded_search import solve_bounded
+from quest_optimizer.bounded_search import _unique_action_producers, solve_bounded
 from quest_optimizer.cli import main
 from quest_optimizer.data import Contracts, DataError, load_catalog, read_json
 from quest_optimizer.replay import verify_solution
 from quest_optimizer.search import solve_small
 from quest_optimizer.semantics import CatalogValidator
+from quest_optimizer.transitions import RouteState
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -136,3 +137,12 @@ class BoundedSearchTests(unittest.TestCase):
         self.assertEqual(baseline["manual_training_xp_tenths_by_skill"], {"skill.firemaking": 20000})
         self.assertGreater(solution["objective"]["modeled_non_training_seconds"],
                            baseline["objective"]["modeled_non_training_seconds"])
+
+    def test_future_key_treasure_does_not_hide_current_lost_city_rune_supply(self):
+        catalog = load_catalog(ROOT / "data/manifest.json", self.contracts)
+        validator = CatalogValidator(catalog, self.contracts)
+        profile = read_json(ROOT / "examples/build-242/lost-city-combat-profile.json")
+        initial = RouteState(validator.tables, profile["policies"], profile["initial_state"])
+        chosen = _unique_action_producers(initial)
+        self.assertEqual(chosen[("item", "item.mind_rune")],
+                         "supply.grand_exchange.purchase_lost_city_runes")

@@ -1,0 +1,107 @@
+[
+  {
+    "id": "museum.history.excalibur",
+    "name": "Report Merlin's Crystal and Excalibur to Historian Minas",
+    "kind": "museum",
+    "activity_id": null,
+    "start_location_id": "location.varrock_museum.historian_minas",
+    "end_location_id": "location.varrock_museum.historian_minas",
+    "requirements": {"kind": "action_completed", "action_id": "quest.merlins_crystal.complete"},
+    "consumes": [],
+    "effects": [
+      {"kind": "counter", "token_id": "token.museum.kudos", "delta": 5},
+      {"kind": "xp_reward", "reward_id": "reward.museum.history.excalibur_lamp", "quantity": 1}
+    ],
+    "duration": {"min_seconds": 6, "expected_seconds": 12, "max_seconds": 26},
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": ["source.field.varrock_museum_history", "source.runelite.varbits", "source.project.travel_timing"],
+      "status": "estimated",
+      "note": "Minas records Merlin's Crystal in display 9, gives five kudos and one 1,000-XP antique lamp. The post-quest report is separate from quest completion."
+    }
+  },
+  {
+    "id": "museum.history.lathas",
+    "name": "Tell Historian Minas about Making History and King Lathas",
+    "kind": "museum",
+    "activity_id": null,
+    "start_location_id": "location.varrock_museum.historian_minas",
+    "end_location_id": "location.varrock_museum.historian_minas",
+    "requirements": {"kind": "action_completed", "action_id": "quest.making_history.complete"},
+    "consumes": [],
+    "effects": [
+      {"kind": "counter", "token_id": "token.museum.kudos", "delta": 5},
+      {"kind": "xp_reward", "reward_id": "reward.museum.history.lathas_lamp", "quantity": 1}
+    ],
+    "duration": {"min_seconds": 6, "expected_seconds": 12, "max_seconds": 26},
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": ["source.field.varrock_museum_history", "source.runelite.varbits", "source.project.travel_timing"],
+      "status": "estimated",
+      "note": "The King Lathas painting (display 46) updates from Making History, not Biohazard. Minas awards five kudos and a separate 1,000-XP antique lamp."
+    }
+  },
+  {
+    "id": "museum.history.salveknights",
+    "name": "Report the Seven Priestly Warriors after Priest in Peril",
+    "kind": "museum",
+    "activity_id": null,
+    "start_location_id": "location.varrock_museum.historian_minas",
+    "end_location_id": "location.varrock_museum.historian_minas",
+    "requirements": {"kind": "action_completed", "action_id": "quest.priest_in_peril.complete"},
+    "consumes": [],
+    "effects": [{"kind": "counter", "token_id": "token.museum.kudos", "delta": 5}],
+    "duration": {"min_seconds": 6, "expected_seconds": 12, "max_seconds": 26},
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": ["source.field.varrock_museum_history", "source.runelite.varbits", "source.project.travel_timing"],
+      "status": "estimated",
+      "note": "First stage of display 23: Priest in Peril gives five kudos. The later In Aid of the Myreque history is a separate report and award."
+    }
+  },
+  {
+    "id": "museum.history.salveknights.in_aid",
+    "name": "Update the Priestly Warriors display after In Aid of the Myreque",
+    "kind": "museum",
+    "activity_id": null,
+    "start_location_id": "location.varrock_museum.historian_minas",
+    "end_location_id": "location.varrock_museum.historian_minas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {"kind": "action_completed", "action_id": "museum.history.salveknights"},
+        {"kind": "action_completed", "action_id": "quest.in_aid_of_the_myreque.complete"}
+      ]
+    },
+    "consumes": [],
+    "effects": [{"kind": "counter", "token_id": "token.museum.kudos", "delta": 5}],
+    "duration": {"min_seconds": 6, "expected_seconds": 12, "max_seconds": 26},
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": ["source.field.varrock_museum_history", "source.runelite.varbits", "source.project.travel_timing"],
+      "status": "estimated",
+      "note": "A second Minas report updates display 23 with the events of In Aid of the Myreque. The additional five kudos are not paid by the earlier Priest in Peril report."
+    }
+  },
+  {
+    "id": "museum.history.soa",
+    "name": "Report the recovered Shield of Arrav to Historian Minas",
+    "kind": "museum",
+    "activity_id": null,
+    "start_location_id": "location.varrock_museum.historian_minas",
+    "end_location_id": "location.varrock_museum.historian_minas",
+    "requirements": {"kind": "action_completed", "action_id": "quest.shield_of_arrav.complete"},
+    "consumes": [],
+    "effects": [
+      {"kind": "counter", "token_id": "token.museum.kudos", "delta": 5},
+      {"kind": "xp_reward", "reward_id": "reward.museum.history.soa_lamp", "quantity": 1}
+    ],
+    "duration": {"min_seconds": 6, "expected_seconds": 12, "max_seconds": 26},
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": ["source.field.varrock_museum_history", "source.runelite.varbits", "source.project.travel_timing"],
+      "status": "estimated",
+      "note": "Shield of Arrav permits a separate museum display-24 report for five kudos and an antique lamp; Defender of Varrock has a later distinct claim, without duplicating this reward."
+    }
+  }
+]

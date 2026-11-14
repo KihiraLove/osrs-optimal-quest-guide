@@ -1,0 +1,3397 @@
+[
+  {
+    "id": "quest.lunar_diplomacy.start",
+    "name": "Ask Lokar Searunner to take you to the Moonclan",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.lokar",
+    "end_location_id": "location.lunar_quests.lokar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_fremennik_trials.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lost_city.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rune_mysteries.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 5,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 61,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.defence",
+          "minimum_level": 40,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 49,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 65,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 55,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 40,
+      "max_seconds": 92
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "supply.lunar_quests.lunar_supplies",
+    "name": "Buy Lunar Diplomacy preparation supplies",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 52000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_bullseye_lantern",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.osf_guam_leaf",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.osf_marrentill",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.needle",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.thread",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_pickaxe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_axe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.air_talisman",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fire_talisman",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.water_talisman",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.earth_talisman",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 57,
+      "expected_seconds": 95,
+      "max_seconds": 218
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated Grand Exchange cost; lunar staff requires untradeable dramen staff from Lost City, not sold here."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.brundt_seal",
+    "name": "Get the seal of passage from Brundt",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.rellekka.brundt",
+    "end_location_id": "location.rellekka.brundt",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_seal_of_passage",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.travel_ship",
+    "name": "Return to Lokar and board the Lady Zay",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.lokar",
+    "end_location_id": "location.lunar_quests.ship_captain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.brundt_seal"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_seal_of_passage",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.captain_bentley",
+    "name": "Ask Captain Bentley why the ship is not moving",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_captain",
+    "end_location_id": "location.lunar_quests.ship_captain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.travel_ship"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.birds_eye_jack",
+    "name": "Ask Birds-Eye Jack about the failed voyage",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_jack",
+    "end_location_id": "location.lunar_quests.ship_jack",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.captain_bentley"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.captain_accusation",
+    "name": "Check Bentley's explanation and the navigator",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_captain",
+    "end_location_id": "location.lunar_quests.ship_captain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.birds_eye_jack"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.jack_again",
+    "name": "Consult Jack again about the jinx",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_jack",
+    "end_location_id": "location.lunar_quests.ship_jack",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.captain_accusation"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.shultz",
+    "name": "Question Eagle-eye Shultz",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_shultz",
+    "end_location_id": "location.lunar_quests.ship_shultz",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.jack_again"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.cabin_boy",
+    "name": "Question the cabin boy about the curse",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_cabin_boy",
+    "end_location_id": "location.lunar_quests.ship_cabin_boy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.shultz"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.burns",
+    "name": "Question Beefy Burns",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_burns",
+    "end_location_id": "location.lunar_quests.ship_burns",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.cabin_boy"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.lee",
+    "name": "Question Lecherous Lee",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_lee",
+    "end_location_id": "location.lunar_quests.ship_lee",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.burns"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.davey",
+    "name": "Question First Mate Davey-boy",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_davey",
+    "end_location_id": "location.lunar_quests.ship_davey",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.lee"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.receive_emerald_lens",
+    "name": "Get the emerald lens from the cabin boy",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_cabin_boy",
+    "end_location_id": "location.lunar_quests.ship_cabin_boy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.davey"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_emerald_lens",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.prepare_lantern",
+    "name": "Fit the lens and light a fully fuelled lantern",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_cabin_boy",
+    "end_location_id": "location.lunar_quests.ship_cabin_boy",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.receive_emerald_lens"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lunar_emerald_lens",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.lunar_bullseye_lantern",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_emerald_lantern",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Lens must be used on a filled, lightable lantern; an empty quest lantern is insufficient."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.clean_cannon",
+    "name": "Rub off the cannon's magical marking",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_cannon",
+    "end_location_id": "location.lunar_quests.ship_cannon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.prepare_lantern"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_emerald_lantern",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.clean_chart",
+    "name": "Rub off the chart's magical marking",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_chart",
+    "end_location_id": "location.lunar_quests.ship_chart",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.clean_cannon"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_emerald_lantern",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.clean_chest",
+    "name": "Rub off the galley chest's marking",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_chest",
+    "end_location_id": "location.lunar_quests.ship_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.clean_chart"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_emerald_lantern",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.clean_pillar",
+    "name": "Rub off the galley pillar's marking",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_pillar",
+    "end_location_id": "location.lunar_quests.ship_pillar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.clean_chest"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_emerald_lantern",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.clean_crate",
+    "name": "Rub off the galley crate's marking",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_crate",
+    "end_location_id": "location.lunar_quests.ship_crate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.clean_pillar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_emerald_lantern",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.sail_to_island",
+    "name": "Set sail after lifting the Lady Zay jinx",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ship_captain",
+    "end_location_id": "location.lunar_quests.isle_landing",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.clean_crate"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_seal_of_passage",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.lunar_isle_passage",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 75,
+      "max_seconds": 172
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.meet_oneiromancer",
+    "name": "Ask the Oneiromancer to begin the Moonclan ritual",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.oneiromancer",
+    "end_location_id": "location.lunar_quests.oneiromancer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.sail_to_island"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_seal_of_passage",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.suqah_tooth",
+    "name": "Defeat Suqah until a tooth is obtained",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.isle_suqah",
+    "end_location_id": "location.lunar_quests.isle_suqah",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.meet_oneiromancer"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_suqah_tooth",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 69,
+      "expected_seconds": 115,
+      "max_seconds": 264
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "A Suqah tooth is actually looted; this is a conditional combat/drop outcome.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.baba_yaga",
+    "name": "Ask Baba Yaga for a special potion vial",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.baba_house",
+    "end_location_id": "location.lunar_quests.baba_house",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.suqah_tooth"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_empty_vial",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.make_waking_sleep",
+    "name": "Fill the vial, mix guam and marrentill, then grind in Suqah tooth",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.isle_fountain",
+    "end_location_id": "location.lunar_quests.isle_fountain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.baba_yaga"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 5,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lunar_empty_vial",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.lunar_suqah_tooth",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.osf_guam_leaf",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.osf_marrentill",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_waking_sleep",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 48,
+      "expected_seconds": 80,
+      "max_seconds": 184
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.offer_waking_sleep",
+    "name": "Show the Waking Sleep to the Oneiromancer",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.oneiromancer",
+    "end_location_id": "location.lunar_quests.oneiromancer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.make_waking_sleep"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_waking_sleep",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.staff_air",
+    "name": "Infuse a dramen staff at the Air altar",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.runecraft.air_altar",
+    "end_location_id": "location.runecraft.air_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.offer_waking_sleep"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.air_talisman",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dramen_staff",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_staff_air",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 42,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.staff_fire",
+    "name": "Infuse the staff at the Fire altar",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.runecraft.fire_altar",
+    "end_location_id": "location.runecraft.fire_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.staff_air"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fire_talisman",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lunar_staff_air",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_staff_fire",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 42,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.staff_water",
+    "name": "Infuse the staff at the Water altar",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.runecraft.water_altar",
+    "end_location_id": "location.runecraft.water_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.staff_fire"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.water_talisman",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lunar_staff_fire",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_staff_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 42,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.staff_earth",
+    "name": "Finish the lunar staff at the Earth altar",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.runecraft.earth_altar",
+    "end_location_id": "location.runecraft.earth_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.staff_water"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.earth_talisman",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lunar_staff_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_staff",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 42,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.present_staff",
+    "name": "Present the completed lunar staff to the Oneiromancer",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.oneiromancer",
+    "end_location_id": "location.lunar_quests.oneiromancer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.staff_earth"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_staff",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_seal_of_passage",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.mine_lunar_ore",
+    "name": "Mine a lunar ore from the stalagmite",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.isle_stalagmite",
+    "end_location_id": "location.lunar_quests.isle_stalagmite",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.present_staff"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_ore",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 90,
+      "max_seconds": 207
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.smelt_lunar_bar",
+    "name": "Smelt lunar ore at the Rellekka furnace",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.al_kharid.furnace",
+    "end_location_id": "location.al_kharid.furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.mine_lunar_ore"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lunar_ore",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_bar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "A reachable ordinary furnace is used for the draft route; nearest Lunar Isle/ Rellekka furnace path requires review."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.smith_lunar_helm",
+    "name": "Smith a lunar helm from the bar at an anvil",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.osf.seers_anvil",
+    "end_location_id": "location.osf.seers_anvil",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.smelt_lunar_bar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lunar_bar",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_helm",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 36,
+      "expected_seconds": 60,
+      "max_seconds": 138
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reuses the established Seers' Village anvil; nearest actual route and retention are pending review."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.pauline_amulet",
+    "name": "Guess Pauline Polaris's true name and receive the amulet",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.pauline",
+    "end_location_id": "location.lunar_quests.pauline",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.smith_lunar_helm"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_amulet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.suqah_tiara",
+    "name": "Loot the special tiara from Suqah",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.isle_suqah",
+    "end_location_id": "location.lunar_quests.isle_suqah",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.pauline_amulet"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_suqah_tiara",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 100,
+      "max_seconds": 230
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "The Suqah actually drops Meteora's tiara; uncertain number of kills is not guaranteed.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.meteora_cape",
+    "name": "Return the tiara to Meteora for the lunar cape",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.meteora",
+    "end_location_id": "location.lunar_quests.meteora",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.suqah_tiara"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lunar_suqah_tiara",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_cape",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.suqah_hides",
+    "name": "Fight enough Suqah to gather four hides",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.isle_suqah",
+    "end_location_id": "location.lunar_quests.isle_suqah",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.meteora_cape"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_suqah_hide",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 99,
+      "expected_seconds": 165,
+      "max_seconds": 379
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Four Suqah hides are actually collected; individual drop and combat counts vary.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.tan_suqah_hides",
+    "name": "Pay Rimae 100 coins per hide to tan four hides",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.rimae",
+    "end_location_id": "location.lunar_quests.rimae",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.suqah_hides"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lunar_suqah_hide",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.coins",
+        "quantity": 400
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_tanned_hide",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Rimae's fee is a 400 coin estimate; confirm live price and quantity."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.sew_lunar_clothes",
+    "name": "Sew the lunar torso, trousers, gloves and boots",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.rimae",
+    "end_location_id": "location.lunar_quests.rimae",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.tan_suqah_hides"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 61,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.needle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lunar_tanned_hide",
+        "quantity": 4
+      },
+      {
+        "item_id": "item.thread",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_torso",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lunar_legs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lunar_gloves",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lunar_boots",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 48,
+      "expected_seconds": 80,
+      "max_seconds": 184
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.talk_to_selene",
+    "name": "Ask Selene about the lunar ring",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.selene",
+    "end_location_id": "location.lunar_quests.selene",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.sew_lunar_clothes"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.dig_lunar_ring",
+    "name": "Dig by the furthest west blue flowers for the lunar ring",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.ring_dig",
+    "end_location_id": "location.lunar_quests.ring_dig",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.talk_to_selene"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_ring",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 45,
+      "max_seconds": 103
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.present_full_gear",
+    "name": "Show all nine pieces of lunar equipment to the Oneiromancer",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.oneiromancer",
+    "end_location_id": "location.lunar_quests.oneiromancer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.dig_lunar_ring"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_staff",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_helm",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_cape",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_torso",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_legs",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_ring",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_waking_sleep",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_kindling",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The equipment is inspected and returned, rather than consumed; the Oneiromancer provides kindling."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.soak_kindling",
+    "name": "Soak the kindling in the Waking Sleep potion",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.oneiromancer",
+    "end_location_id": "location.lunar_quests.oneiromancer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.present_full_gear"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lunar_kindling",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.lunar_waking_sleep",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.lunar_soaked_kindling",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 18,
+      "max_seconds": 41
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.enter_dream",
+    "name": "Light the brazier wearing all lunar gear and enter the dream",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.brazier",
+    "end_location_id": "location.lunar_quests.dream_center",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.soak_kindling"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_staff",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_helm",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_cape",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_torso",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_legs",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_ring",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lunar_soaked_kindling",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.lunar_dream",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.meet_ethereal",
+    "name": "Talk to the Ethereal Being about six trials",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.dream_center",
+    "end_location_id": "location.lunar_quests.dream_center",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.enter_dream"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.dice_trial",
+    "name": "Complete the dice-sum challenge",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.dream_dice",
+    "end_location_id": "location.lunar_quests.dream_dice",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.meet_ethereal"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 66,
+      "expected_seconds": 110,
+      "max_seconds": 253
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Solve all five or six target sums announced by the Ethereal Fluke.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.numbers_trial",
+    "name": "Complete the number-sequence challenge",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.dream_numbers",
+    "end_location_id": "location.lunar_quests.dream_numbers",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.meet_ethereal"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 90,
+      "max_seconds": 207
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Correctly identify each sequence's next numbers until returned to the hub.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.logging_trial",
+    "name": "Win the ethereal woodcutting race",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.dream_logging",
+    "end_location_id": "location.lunar_quests.dream_logging",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.meet_ethereal"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 90,
+      "expected_seconds": 150,
+      "max_seconds": 345
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Chop and deposit twenty logs before the Ethereal Perceptive; retry if outpaced.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.memory_trial",
+    "name": "Cross the dream puff memory path",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.dream_memory",
+    "end_location_id": "location.lunar_quests.dream_memory",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.meet_ethereal"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 78,
+      "expected_seconds": 130,
+      "max_seconds": 299
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Follow the observed safe sequence of stepping stones without falling.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.race_trial",
+    "name": "Win the ethereal hurdle race",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.dream_race",
+    "end_location_id": "location.lunar_quests.dream_race",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.meet_ethereal"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 90,
+      "max_seconds": 207
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Jump through the course with fewer than three failures; retry when needed.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.mimic_trial",
+    "name": "Copy the Ethereal Mimic's emotes",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.dream_mimic",
+    "end_location_id": "location.lunar_quests.dream_mimic",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.meet_ethereal"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 63,
+      "expected_seconds": 105,
+      "max_seconds": 241
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Correctly reproduce five emotes shown by the mimic.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.defeat_me",
+    "name": "Defeat the dream opponent Me",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.dream_me",
+    "end_location_id": "location.lunar_quests.dream_me",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.dice_trial"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.numbers_trial"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.logging_trial"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.memory_trial"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.race_trial"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.mimic_trial"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 108,
+      "expected_seconds": 180,
+      "max_seconds": 414
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat level-79 Me using only legal dream equipment and available runes/food.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.leave_dream",
+    "name": "Read the lectern to return to Lunar Isle",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.dream_center",
+    "end_location_id": "location.lunar_quests.oneiromancer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.defeat_me"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.lunar_diplomacy.complete",
+    "name": "Report all trials to the Oneiromancer",
+    "kind": "quest_stage",
+    "activity_id": "quest.lunar_diplomacy",
+    "start_location_id": "location.lunar_quests.oneiromancer",
+    "end_location_id": "location.lunar_quests.oneiromancer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.leave_dream"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.runecraft",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.astral_rune",
+        "quantity": 50
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.lunar_spellbook",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.astral_altar",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 42,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned reward: 2 QP, 5,000 Magic XP, 5,000 Runecraft XP, 50 astral runes, lunar spells and altar access. Seal and gear were already acquired."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.start",
+    "name": "Find injured Cyrisus beneath Lunar Isle",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.cyrisus_cave",
+    "end_location_id": "location.lunar_quests.cyrisus_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lunar_diplomacy.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.eadgars_ruse.complete"
+        },
+        {
+          "kind": "combat_level",
+          "formula_id": "formula.osrs_combat_level",
+          "minimum_level": 85
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 65,
+      "max_seconds": 149
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "supply.lunar_quests.dream_food",
+    "name": "Buy three distinct foods for Cyrisus",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 4500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cabbage",
+        "quantity": 6
+      },
+      {
+        "kind": "item",
+        "item_id": "item.potato",
+        "quantity": 7
+      },
+      {
+        "kind": "item",
+        "item_id": "item.onion",
+        "quantity": 7
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 57,
+      "expected_seconds": 95,
+      "max_seconds": 218
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest requires 20 pieces of three different foods: six of one, seven of each of two. Their identities are interchangeable; cabbage/potatoes/onions are one legal example."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.feed_first",
+    "name": "Feed six cabbages to Cyrisus",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.cyrisus_cave",
+    "end_location_id": "location.lunar_quests.cyrisus_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.cabbage",
+        "quantity": 6
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.feed_second",
+    "name": "Feed seven potatoes to Cyrisus",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.cyrisus_cave",
+    "end_location_id": "location.lunar_quests.cyrisus_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.feed_first"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.potato",
+        "quantity": 7
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.feed_third",
+    "name": "Feed seven onions to Cyrisus",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.cyrisus_cave",
+    "end_location_id": "location.lunar_quests.cyrisus_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.feed_second"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.onion",
+        "quantity": 7
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.ask_armour",
+    "name": "Ask Cyrisus how to recover his strength",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.cyrisus_cave",
+    "end_location_id": "location.lunar_quests.cyrisus_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.feed_third"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.jack_equipment",
+    "name": "Ask Birds-Eye Jack for equipment for Cyrisus",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.bank_jack",
+    "end_location_id": "location.lunar_quests.bank_jack",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.ask_armour"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dream_cyrisus_armour",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.dream_cyrisus_weapons",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 54,
+      "expected_seconds": 90,
+      "max_seconds": 207
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Jack's optional player-choice armour/weapon equipment is abstracted to two untradeable bundles, not an untracked free supply."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.equip_cyrisus",
+    "name": "Return the equipment to Cyrisus",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.cyrisus_cave",
+    "end_location_id": "location.lunar_quests.cyrisus_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.jack_equipment"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dream_cyrisus_armour",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.dream_cyrisus_weapons",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.restore_cyrisus",
+    "name": "Support Cyrisus as he begins to recover",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.cyrisus_cave",
+    "end_location_id": "location.lunar_quests.cyrisus_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.equip_cyrisus"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.oneiromancer",
+    "name": "Ask the Oneiromancer about shared dreaming",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.oneiromancer",
+    "end_location_id": "location.lunar_quests.oneiromancer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.restore_cyrisus"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_seal_of_passage",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dream_vial",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 36,
+      "expected_seconds": 60,
+      "max_seconds": 138
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.water_vial",
+    "name": "Fill the dream vial with water",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.isle_fountain",
+    "end_location_id": "location.lunar_quests.isle_fountain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.oneiromancer"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dream_vial",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dream_filled_vial",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.add_goutweed",
+    "name": "Add goutweed to the dream vial",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.isle_fountain",
+    "end_location_id": "location.lunar_quests.isle_fountain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.water_vial"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.goutweed",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.dream_filled_vial",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dream_goutweed_vial",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.add_astral",
+    "name": "Grind an astral rune and complete the dream potion",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.isle_fountain",
+    "end_location_id": "location.lunar_quests.isle_fountain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.add_goutweed"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.astral_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.dream_goutweed_vial",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dream_potion",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 38,
+      "max_seconds": 87
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.light_brazier",
+    "name": "Light the dream brazier and drink the potion with Cyrisus",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.brazier",
+    "end_location_id": "location.lunar_quests.mentor_dream",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.add_astral"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dream_potion",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 55,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.defeat_inadequacy",
+    "name": "Defeat The Inadequacy and its doubts",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.mentor_dream",
+    "end_location_id": "location.lunar_quests.mentor_dream",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.light_brazier"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 141,
+      "expected_seconds": 235,
+      "max_seconds": 540
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat The Inadequacy and its doubts; combat level, supplies and monster mechanics vary. In this instance normal death penalties apply.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.defeat_everlasting",
+    "name": "Defeat The Everlasting",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.mentor_dream",
+    "end_location_id": "location.lunar_quests.mentor_dream",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.defeat_inadequacy"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 102,
+      "expected_seconds": 170,
+      "max_seconds": 391
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat The Everlasting; combat level, supplies and monster mechanics vary. In this instance normal death penalties apply.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.defeat_untouchable",
+    "name": "Defeat The Untouchable",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.mentor_dream",
+    "end_location_id": "location.lunar_quests.mentor_dream",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.defeat_everlasting"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 96,
+      "expected_seconds": 160,
+      "max_seconds": 368
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat The Untouchable; combat level, supplies and monster mechanics vary. In this instance normal death penalties apply.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.defeat_illusive",
+    "name": "Defeat The Illusive",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.mentor_dream",
+    "end_location_id": "location.lunar_quests.mentor_dream",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.defeat_untouchable"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 102,
+      "expected_seconds": 170,
+      "max_seconds": 391
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat The Illusive; combat level, supplies and monster mechanics vary. In this instance normal death penalties apply.",
+      "if_unmet": "Continue or retry this challenge until the stated success is achieved; do not pre-credit variable XP or supplies."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.return_from_dream",
+    "name": "Return to Lunar Isle after the nightmare",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.mentor_dream",
+    "end_location_id": "location.lunar_quests.brazier",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.defeat_illusive"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 35,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned build-242 helper stage; dialog, failure recovery and incidental XP are approximate."
+    }
+  },
+  {
+    "id": "quest.dream_mentor.complete",
+    "name": "Return to the Oneiromancer for Dream Mentor rewards",
+    "kind": "quest_stage",
+    "activity_id": "quest.dream_mentor",
+    "start_location_id": "location.lunar_quests.oneiromancer",
+    "end_location_id": "location.lunar_quests.oneiromancer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.return_from_dream"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_seal_of_passage",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 150000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.magic",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.dream_mentor.dreamy_lamp",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.dream_mentor_spells",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.lunar_bank_no_seal",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned reward: 2 QP, 15k Hitpoints, 10k Magic, seven added Lunar spells, 15k dreamy lamp in five eligible combat skills and seal-free bank access."
+    }
+  }
+]

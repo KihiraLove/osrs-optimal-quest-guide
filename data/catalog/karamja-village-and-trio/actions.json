@@ -1,0 +1,2239 @@
+[
+  {
+    "id": "quest.shilo_village.meet_mosol",
+    "name": "Receive the wampum belt from Mosol Rei",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.mosol_rei",
+    "end_location_id": "location.shilo.mosol_rei",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shilo_wampum_belt",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Talking to Mosol changes the journal text but does not yet begin the quest."
+    }
+  },
+  {
+    "id": "quest.shilo_village.start",
+    "name": "Show the wampum belt to Trufitus",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.trufitus",
+    "end_location_id": "location.tai_bwo_wannai.trufitus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.meet_mosol"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.jungle_potion.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.shilo_wampum_belt",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.shilo_wampum_belt",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Choose the Ah Za Rhoon investigation dialogue; this is the actual quest start."
+    }
+  },
+  {
+    "id": "quest.shilo_village.expose_fissure",
+    "name": "Dig the mound and light the fissure",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.ah_za_rhoon_mound",
+    "end_location_id": "location.shilo.ah_za_rhoon_mound",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lit_candle",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lit_candle",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "A lit candle or torch is consumed at the fissure; lanterns cannot substitute."
+    }
+  },
+  {
+    "id": "quest.shilo_village.descend_fissure",
+    "name": "Rope the fissure and climb down",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.ah_za_rhoon_mound",
+    "end_location_id": "location.shilo.ah_za_rhoon_mound",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.expose_fissure"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 32,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "32 base Agility is the conservative non-boosted route. Rope remains attached to the fissure."
+    }
+  },
+  {
+    "id": "quest.shilo_village.take_plaque",
+    "name": "Chisel and read the stone-plaque",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.ah_za_rhoon_inner",
+    "end_location_id": "location.shilo.ah_za_rhoon_inner",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.descend_fissure"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 20,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shilo_stone_plaque",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 36,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Chisel and read the stone-plaque"
+    }
+  },
+  {
+    "id": "quest.shilo_village.read_tattered_scroll",
+    "name": "Search loose rocks and read the tattered scroll",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.ah_za_rhoon_scroll",
+    "end_location_id": "location.shilo.ah_za_rhoon_scroll",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.take_plaque"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shilo_tattered_scroll",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search loose rocks and read the tattered scroll"
+    }
+  },
+  {
+    "id": "quest.shilo_village.read_crumpled_scroll",
+    "name": "Search sacks and read the crumpled scroll",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.ah_za_rhoon_sacks",
+    "end_location_id": "location.shilo.ah_za_rhoon_sacks",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.read_tattered_scroll"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shilo_crumpled_scroll",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search sacks and read the crumpled scroll"
+    }
+  },
+  {
+    "id": "quest.shilo_village.take_zadimus",
+    "name": "Search the gallows for Zadimus's corpse",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.ah_za_rhoon_gallows",
+    "end_location_id": "location.shilo.ah_za_rhoon_gallows",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.read_crumpled_scroll"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shilo_zadimus_corpse",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the gallows for Zadimus's corpse"
+    }
+  },
+  {
+    "id": "quest.shilo_village.report_discovery",
+    "name": "Show the Ah Za Rhoon artifacts to Trufitus",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.trufitus",
+    "end_location_id": "location.tai_bwo_wannai.trufitus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.take_zadimus"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.shilo_stone_plaque",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.shilo_tattered_scroll",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.shilo_crumpled_scroll",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.shilo_zadimus_corpse",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "All four discoveries must be reported. The initial scrolls/plaque may remain in inventory."
+    }
+  },
+  {
+    "id": "quest.shilo_village.bury_zadimus",
+    "name": "Bury Zadimus at the tribal statue",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.zadimus_statue",
+    "end_location_id": "location.shilo.zadimus_statue",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.report_discovery"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.shilo_zadimus_corpse",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shilo_bone_shard",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The spirit leaves a bone shard needed for Rashiliyia's tomb."
+    }
+  },
+  {
+    "id": "quest.shilo_village.report_shard",
+    "name": "Ask Trufitus about Zadimus's bone shard",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.tai_bwo_wannai.trufitus",
+    "end_location_id": "location.tai_bwo_wannai.trufitus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.bury_zadimus"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.shilo_bone_shard",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Trufitus about Zadimus's bone shard"
+    }
+  },
+  {
+    "id": "quest.shilo_village.open_cairn",
+    "name": "Enter the well-stacked rocks on Cairn Isle",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.cairn_rocks",
+    "end_location_id": "location.shilo.cairn_rocks",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.report_shard"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 32,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cross the bridge and use the Cairn Isle crevice only after reading both scrolls."
+    }
+  },
+  {
+    "id": "quest.shilo_village.search_bervirius",
+    "name": "Search Bervirius's dolmen and collect artifacts",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.cairn_dolmen",
+    "end_location_id": "location.shilo.cairn_dolmen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.open_cairn"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shilo_bone_beads",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.shilo_sword_pommel",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.shilo_bervirius_notes",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.shilo_locating_crystal",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reserve at least four free inventory spaces; these artifacts are collected at the cairn."
+    }
+  },
+  {
+    "id": "quest.shilo_village.craft_beads",
+    "name": "Bind bone beads with bronze wire",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.cairn_dolmen",
+    "end_location_id": "location.shilo.cairn_dolmen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.search_bervirius"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bronze_wire",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.shilo_bone_beads",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shilo_beads_of_the_dead",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Necklace must be equipped in-game when crossing the tomb gate."
+    }
+  },
+  {
+    "id": "quest.shilo_village.craft_key",
+    "name": "Carve the bone shard into a key",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.rashiliyia_door",
+    "end_location_id": "location.shilo.rashiliyia_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.craft_beads"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.shilo_bone_shard",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shilo_bone_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Carve the bone shard into a key"
+    }
+  },
+  {
+    "id": "quest.shilo_village.reveal_tomb",
+    "name": "Search the distinctive palm and tomb door",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.rashiliyia_palms",
+    "end_location_id": "location.shilo.rashiliyia_palms",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.craft_key"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search the distinctive palm and tomb door"
+    }
+  },
+  {
+    "id": "quest.shilo_village.open_tomb",
+    "name": "Use the bone key while wearing the beads",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.rashiliyia_door",
+    "end_location_id": "location.shilo.rashiliyia_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.reveal_tomb"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.shilo_bone_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.shilo_beads_of_the_dead",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The equip requirement is represented by held necklace plus explicit instruction, pending equipped-slot modeling."
+    }
+  },
+  {
+    "id": "quest.shilo_village.offer_bones",
+    "name": "Open the inner tomb door with three regular bones",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.rashiliyia_inner",
+    "end_location_id": "location.shilo.rashiliyia_inner",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.open_tomb"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bones",
+        "quantity": 3
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use, not bury, precisely three ordinary bones on the inner door."
+    }
+  },
+  {
+    "id": "quest.shilo_village.defeat_nazastarool",
+    "name": "Defeat all three forms of Nazastarool",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.nazastarool",
+    "end_location_id": "location.shilo.nazastarool",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.offer_bones"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shilo_rashiliyia_corpse",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 104,
+      "expected_seconds": 180,
+      "max_seconds": 378
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Three fights are one success-dependent transition; combat XP, food, prayer and poison recovery are not predicted."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Nazastarool's three sequential forms, survive, and take Rashiliyia's corpse.",
+      "if_unmet": "Stop and reconcile actual combat, inventory and XP; obtain supplies or retry before continuing."
+    }
+  },
+  {
+    "id": "quest.shilo_village.complete",
+    "name": "Place Rashiliyia's corpse on Bervirius's dolmen",
+    "activity_id": "quest.shilo_village",
+    "kind": "quest_stage",
+    "start_location_id": "location.shilo.cairn_dolmen",
+    "end_location_id": "location.shilo.cairn_dolmen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.defeat_nazastarool"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.shilo_rashiliyia_corpse",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 38750
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.shilo_village",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Releases Rashiliyia; awards 2 quest points and 3,875 Crafting XP and opens the village and cart."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.start",
+    "name": "Ask Timfraku to bring his three sons home",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.timfraku",
+    "end_location_id": "location.trio.timfraku",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.jungle_potion.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Levels are checked when the corresponding fishing, cooking or firemaking task is performed."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.catch_karambwanji",
+    "name": "Net 22 raw karambwanji",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.karambwanji",
+    "end_location_id": "location.trio.karambwanji",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.start"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fishing",
+          "minimum_level": 5,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.small_fishing_net",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_karambwanji",
+        "quantity": 22
+      }
+    ],
+    "duration": {
+      "min_seconds": 78,
+      "expected_seconds": 135,
+      "max_seconds": 283
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The net catch is a forecast of successful catches; incidental Fishing XP is left for reconciliation."
+    },
+    "planned_outcome": {
+      "success_condition": "Catch 22 usable raw karambwanji (20 for Lubufu and two for the vessel and marinade).",
+      "if_unmet": "Stop and reconcile actual combat, inventory and XP; obtain supplies or retry before continuing."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.learn_vessels",
+    "name": "Deliver 20 karambwanji and learn vessel-making from Lubufu",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.lubufu",
+    "end_location_id": "location.trio.lubufu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.catch_karambwanji"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_karambwanji",
+        "quantity": 20
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.karambwan_vessel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 65,
+      "max_seconds": 136
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask all dialogue topics, deliver 20 fish and accept the first vessel."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.replace_vessel",
+    "name": "Ask Lubufu for a replacement vessel",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.lubufu",
+    "end_location_id": "location.trio.lubufu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.learn_vessels"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.karambwan_vessel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Vessel replacement after putting the first vessel on the ground; pick up the original. Avoid a duplicate producer after this quest step."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.bait_vessel",
+    "name": "Bait one vessel with karambwanji",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.lubufu",
+    "end_location_id": "location.trio.lubufu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.replace_vessel"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_karambwanji",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.karambwan_vessel",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.baited_karambwan_vessel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Bait one vessel with karambwanji"
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.help_tiadeche",
+    "name": "Teach Tiadeche to fish with the baited vessel",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.tiadeche",
+    "end_location_id": "location.trio.tiadeche",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.bait_vessel"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.baited_karambwan_vessel",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_karambwan",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tiadeche takes the baited vessel and gives a raw karambwan; he later needs Tinsay's manual."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.cook_poison_karambwan",
+    "name": "Cook the raw karambwan into poison karambwan",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.fire",
+    "end_location_id": "location.trio.fire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.help_tiadeche"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_karambwan",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.poison_karambwan",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes lighting fire with carried tinderbox; account for any failed cook or incidental XP on replanning."
+    },
+    "planned_outcome": {
+      "success_condition": "Cook a raw karambwan at the prepared fire into a poison karambwan (not an edible one).",
+      "if_unmet": "Stop and reconcile actual combat, inventory and XP; obtain supplies or retry before continuing."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.poison_spear",
+    "name": "Grind poison karambwan and coat the iron spear",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.fire",
+    "end_location_id": "location.trio.fire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.cook_poison_karambwan"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.poison_karambwan",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.iron_spear",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.karambwan_poisoned_spear",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Spear-poison craft is separate from the eventual Tamayu hand-in."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.arm_tamayu",
+    "name": "Give Tamayu the poisoned spear and agility potion",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.tamayu",
+    "end_location_id": "location.trio.tamayu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.poison_spear"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 15,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.karambwan_poisoned_spear",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.agility_potion_4",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tamayu needs both items to hunt the Shaikahan."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.tamayu_hunt",
+    "name": "Watch Tamayu kill the Shaikahan",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.tamayu",
+    "end_location_id": "location.trio.tamayu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.arm_tamayu"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 54,
+      "max_seconds": 113
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "NPC fight; no player combat XP awarded in the modeled step."
+    },
+    "planned_outcome": {
+      "success_condition": "Tamayu successfully hunts the Shaikahan and agrees to return to the village.",
+      "if_unmet": "Stop and reconcile actual combat, inventory and XP; obtain supplies or retry before continuing."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.get_monkey",
+    "name": "Defeat a monkey for the intact corpse",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.tamayu",
+    "end_location_id": "location.trio.tamayu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.tamayu_hunt"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.monkey_corpse",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 55,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Incidental Ranged or Magic XP and ammunition consumption depend on selected combat method."
+    },
+    "planned_outcome": {
+      "success_condition": "Kill a nearby monkey using a ranged attack or spell and collect the corpse without destroying it.",
+      "if_unmet": "Stop and reconcile actual combat, inventory and XP; obtain supplies or retry before continuing."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.skin_monkey",
+    "name": "Ask Tamayu to skin the monkey",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.tamayu",
+    "end_location_id": "location.trio.tamayu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.get_monkey"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.monkey_corpse",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.monkey_skin",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ask Tamayu to skin the monkey"
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.collect_seaweed",
+    "name": "Collect seaweed from the western beach",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.seaweed_beach",
+    "end_location_id": "location.trio.seaweed_beach",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.seaweed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Collect seaweed from the western beach"
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.collect_banana",
+    "name": "Pick a banana in Tai Bwo Wannai",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.banana_tree",
+    "end_location_id": "location.trio.banana_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.banana",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pick a banana in Tai Bwo Wannai"
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.buy_rum",
+    "name": "Buy Karamjan rum from Zambo",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.rum_store",
+    "end_location_id": "location.trio.rum_store",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 30
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.karamjan_rum",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Keep Karamjan rum on Karamja. This supply cannot be banked or taken off-island."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.make_banana_rum",
+    "name": "Slice a banana into the rum",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.rum_store",
+    "end_location_id": "location.trio.rum_store",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.collect_banana"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.buy_rum"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.banana",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.karamjan_rum",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.banana_rum",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Slice a banana into the rum"
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.kill_jogre",
+    "name": "Defeat a jogre and collect its bones",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.jogres",
+    "end_location_id": "location.trio.jogres",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.jogre_bones",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 43,
+      "expected_seconds": 75,
+      "max_seconds": 157
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Expected fight time excludes incidental combat XP, poisons and consumed food."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat a jogre and collect one unburied jogre bone.",
+      "if_unmet": "Stop and reconcile actual combat, inventory and XP; obtain supplies or retry before continuing."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.burn_jogre_bones",
+    "name": "Burn the jogre bones to blacken them",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.fire",
+    "end_location_id": "location.trio.fire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.kill_jogre"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.jogre_bones",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.burnt_jogre_bones",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 55,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use the tinderbox on bones and wait until they stop burning; 30 base Firemaking required."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.pasty_bones",
+    "name": "Grind karambwanji paste into the burnt bones",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.fire",
+    "end_location_id": "location.trio.fire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.burn_jogre_bones"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.catch_karambwanji"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_karambwanji",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.burnt_jogre_bones",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pasty_jogre_bones",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Grind karambwanji paste into the burnt bones"
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.marinate_bones",
+    "name": "Cook pasty jogre bones at the fire",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.fire",
+    "end_location_id": "location.trio.fire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.pasty_bones"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pasty_jogre_bones",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.marinated_jogre_bones",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 48,
+      "max_seconds": 100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Use a fire or range to marinate; expected incidental Cooking XP remains unquantified."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.make_sandwich",
+    "name": "Wrap seaweed in monkey skin",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.tamayu",
+    "end_location_id": "location.trio.tamayu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.skin_monkey"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.collect_seaweed"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.monkey_skin",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.seaweed",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.seaweed_sandwich",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wrap seaweed in monkey skin"
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.feed_tinsay",
+    "name": "Deliver Tinsay's banana rum, seaweed sandwich and marinated bones",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.tinsay",
+    "end_location_id": "location.trio.tinsay",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.make_banana_rum"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.make_sandwich"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.marinate_bones"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.banana_rum",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.seaweed_sandwich",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.marinated_jogre_bones",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hand over foods in the requested dialogue order; Tinsay then agrees to return."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.get_manual",
+    "name": "Exchange spare vessel for Tinsay's crafting manual",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.tinsay",
+    "end_location_id": "location.trio.tinsay",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.feed_tinsay"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.karambwan_vessel",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.trio_crafting_manual",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exchange spare vessel for Tinsay's crafting manual"
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.teach_tiadeche",
+    "name": "Deliver Tinsay's vessel manual to Tiadeche",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.tiadeche",
+    "end_location_id": "location.trio.tiadeche",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.help_tiadeche"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.get_manual"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.trio_crafting_manual",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Completes Tiadeche's preparation and sends him home."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.complete",
+    "name": "Report all three sons' return to Timfraku",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "quest_stage",
+    "start_location_id": "location.trio.timfraku",
+    "end_location_id": "location.trio.timfraku",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.tamayu_hunt"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.feed_tinsay"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.teach_tiadeche"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 2000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.tai_bwo_wannai_trio",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Timfraku awards 2 quest points and 2,000 coins, but the XP rewards are independent later claims."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.claim_fishing",
+    "name": "Speak to Tiadeche at home for 5,000 Fishing XP",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "reward_claim",
+    "start_location_id": "location.trio.tiadeche_home",
+    "end_location_id": "location.trio.tiadeche_home",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.karambwan_fishing",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tiadeche's post-quest village dialogue is modeled at the village hub; exact home tile requires checking."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.claim_cooking",
+    "name": "Speak to Tinsay at home for 5,000 Cooking XP",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "reward_claim",
+    "start_location_id": "location.trio.tinsay_home",
+    "end_location_id": "location.trio.tinsay_home",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.karambwan_cooking",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tinsay's post-quest dialogue unlocks proper karambwan cooking."
+    }
+  },
+  {
+    "id": "quest.tai_bwo_wannai_trio.claim_combat",
+    "name": "Speak to Tamayu for Attack and Strength XP and spear",
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "kind": "reward_claim",
+    "start_location_id": "location.trio.tamayu_home",
+    "end_location_id": "location.trio.tamayu_home",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.attack",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 25000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.karambwan_poisoned_rune_spear",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 32,
+      "max_seconds": 67
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tamayu's post-quest village dialogue awards 2,500 XP each and the special rune spear."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_trio_spear_and_potion",
+    "name": "Buy an iron spear and agility potion for Tamayu",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {"kind": "policy", "name": "trade_enabled", "value": true},
+        {"kind": "policy", "name": "gp_policy", "value": "self_funded"}
+      ]
+    },
+    "consumes": [{"item_id": "item.coins", "quantity": 1500}],
+    "effects": [
+      {"kind": "item", "item_id": "item.iron_spear", "quantity": 1},
+      {"kind": "item", "item_id": "item.agility_potion_4", "quantity": 1}
+    ],
+    "duration": {"min_seconds": 6, "expected_seconds": 15, "max_seconds": 40},
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": ["source.jagex.grand_exchange_catalogue", "source.project.travel_timing"],
+      "status": "estimated",
+      "note": "Draft 1,500 GP bundled purchase allowance for the two tradeable items. Actual buy offers, stock and timing vary; reconcile against the market before use."
+    }
+  }
+]

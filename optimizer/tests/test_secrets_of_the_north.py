@@ -33,7 +33,7 @@ class SecretsOfTheNorthTests(unittest.TestCase):
             "quest.hazeel_cult.complete",
         ]
         if upstream:
-            raw["flags"]["flag.secrets.making_friends_external"] = True
+            raw["completed_action_ids"].append("quest.making_friends_with_my_arm.complete")
             raw["flags"]["flag.quest.death_plateau.complete"] = True
         for name, level in {"agility":69,"thieving":64,"hunter":56,**(skills or {})}.items():
             raw["xp_tenths"]["skill." + name] = self.tables["skills"]["skill." + name]["xp_thresholds_tenths"][level - 1]

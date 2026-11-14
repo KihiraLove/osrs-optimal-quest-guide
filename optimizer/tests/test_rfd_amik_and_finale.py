@@ -33,11 +33,13 @@ class RfdAmikAndFinaleTests(unittest.TestCase):
                 "freeing_the_mountain_dwarf", "freeing_the_goblin_generals", "freeing_pirate_pete",
                 "freeing_the_lumbridge_guide", "freeing_evil_dave", "freeing_skrach_uglogwee")]
         ]
-        start["flags"] = {"flag.rfd.legends_started": bridge,
-                          "flag.rfd.heroes_quest_complete": bridge,
-                          "flag.rfd.shilo_village_complete": bridge,
-                          "flag.rfd.underground_pass_complete": bridge,
-                          "flag.rfd.king_awowogei_complete": bridge}
+        start["flags"]["flag.rfd.legends_started"] = bridge
+        if bridge:
+            start["completed_action_ids"].extend([
+                "quest.legends_quest.start", "quest.heroes_quest.complete",
+                "quest.shilo_village.complete", "quest.underground_pass.complete",
+                "rfd.freeing_king_awowogei.complete",
+            ])
         start["counters"]["token.quest_points"] = points
         start["inventory"] = {"item.bucket_of_milk": 1, "item.rfd.pot_of_cream": 1,
                               "item.rfd.pot_of_cornflour": 1, "item.rfd.machete": 1,

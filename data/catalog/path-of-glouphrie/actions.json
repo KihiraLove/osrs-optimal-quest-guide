@@ -1,0 +1,841 @@
+[
+  {
+    "id": "quest.the_path_of_glouphrie.start",
+    "name": "Ask King Bolren about Dumpling and Yewnock",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.tree_gnome_village.bolren",
+    "end_location_id": "location.tree_gnome_village.bolren",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_eyes_of_glouphrie.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.waterfall_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tree_gnome_village.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Eyes of Glouphrie, Waterfall Quest, and Tree Gnome Village must be complete. Skill gates apply later."
+    }
+  },
+  {
+    "id": "supply.path_of_glouphrie.ge_grapple",
+    "name": "Buy crossbow, mith grapple and anti-terrorbird supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 18000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mithril_crossbow",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mith_grapple",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.earmuffs",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 12
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 75,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tradeable grapple and emergency food reserve. Actual GE prices and combat requirements need review."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.search_cell_key",
+    "name": "Search eastern dungeon crates for Golrie's cell key",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.dungeon_east",
+    "end_location_id": "location.path.dungeon_east",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.path_golrie_cell_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "If Golrie was freed earlier, cell key can already exist; deterministic producer still models searching the eastern crates."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.ask_golrie",
+    "name": "Ask Golrie about Bolrie's artefacts and the storeroom",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.dungeon_west",
+    "end_location_id": "location.path.dungeon_west",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.search_cell_key"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.path_golrie_cell_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered quest interaction from pinned Quest Helper metadata and OSRS quest route; exact dialogue/timing provisional."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.move_monoliths",
+    "name": "Push stone monoliths and search wooden chests for crystalline disks",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.dungeon_east",
+    "end_location_id": "location.path.dungeon_east",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.ask_golrie"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.strength",
+          "minimum_level": 60,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.path_crystalline_disks",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 80,
+      "expected_seconds": 160,
+      "max_seconds": 368
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered quest interaction from pinned Quest Helper metadata and OSRS quest route; exact dialogue/timing provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "All monolith paths open and crystalline disks are collected.",
+      "if_unmet": "Reset the block route and move the first north, south-west north and north-west east."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.search_silver_chest",
+    "name": "Search the silver chest and recover Yewnock's notes",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.dungeon_east",
+    "end_location_id": "location.path.dungeon_east",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.move_monoliths"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.path_yewnock_notes",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered quest interaction from pinned Quest Helper metadata and OSRS quest route; exact dialogue/timing provisional."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.open_gold_chest",
+    "name": "Push remaining monoliths, take strongroom key and crystal chime seed",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.dungeon_east",
+    "end_location_id": "location.path.dungeon_east",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.search_silver_chest"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 56,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.path_strongroom_key",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.path_chime_seed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 120,
+      "max_seconds": 276
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered quest interaction from pinned Quest Helper metadata and OSRS quest route; exact dialogue/timing provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "The gold chest can be opened and both the key and seed are retrieved.",
+      "if_unmet": "Retry puzzle/encounter after restoring supplies without marking the stage complete."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.sing_chime",
+    "name": "Sing the seed at the bowl into a crystal chime",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.dungeon_east",
+    "end_location_id": "location.path.dungeon_east",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.open_gold_chest"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.path_chime_seed",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.path_chime_seed",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.path_crystal_chime",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered quest interaction from pinned Quest Helper metadata and OSRS quest route; exact dialogue/timing provisional."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.open_strongroom",
+    "name": "Open the strongroom and examine Yewnock's machine",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.strongroom",
+    "end_location_id": "location.path.strongroom",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.sing_chime"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.path_strongroom_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 76,
+      "max_seconds": 175
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered quest interaction from pinned Quest Helper metadata and OSRS quest route; exact dialogue/timing provisional."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.read_diary",
+    "name": "Read all three chapters of King Bolrie's diary and view the scenes",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.strongroom",
+    "end_location_id": "location.path.strongroom",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.open_strongroom"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 125,
+      "expected_seconds": 250,
+      "max_seconds": 575
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Three diary chapters reveal Glouphrie's election deception. Do not skip the required cutscenes."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.ask_gianne",
+    "name": "Ask Gianne Jr. about Longramble in the Grand Tree",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.gianne",
+    "end_location_id": "location.path.gianne",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.read_diary"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 161
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Gianne Jr. provides coordinates to Longramble; the grapple journey proceeds southwest from Castle Wars."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.meet_longramble",
+    "name": "Deliver news to Longramble near the Poison Waste",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.longramble",
+    "end_location_id": "location.path.longramble",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.ask_gianne"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mithril_crossbow",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mith_grapple",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Optional tangled toad legs dialogue is excluded; crossbow and mith grapple permit the river crossing."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.speak_incomitatus",
+    "name": "Listen to the sick spirit tree Incomitatus",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.incomitatus",
+    "end_location_id": "location.path.incomitatus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.meet_longramble"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 161
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered quest interaction from pinned Quest Helper metadata and OSRS quest route; exact dialogue/timing provisional."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.heal_incomitatus",
+    "name": "Channel Hazelmere and cleanse the tree with the crystal chime",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.incomitatus",
+    "end_location_id": "location.path.incomitatus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.speak_incomitatus"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.path_crystal_chime",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.poison_waste_spirit_tree",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 207
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The new spirit tree destination unlocks now, before quest completion."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.enter_sewer",
+    "name": "Enter the Poison Waste sewers to investigate the warped creatures",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.sewer",
+    "end_location_id": "location.path.sewer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.heal_incomitatus"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.poison_waste_dungeon",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 115
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered quest interaction from pinned Quest Helper metadata and OSRS quest route; exact dialogue/timing provisional."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.cross_warped_depths",
+    "name": "Navigate east, west, safe room and north ladders to the pit",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.pit",
+    "end_location_id": "location.path.pit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.enter_sewer"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 45,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 155,
+      "expected_seconds": 310,
+      "max_seconds": 713
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ladder sequence is represented with directed return edges, while hostile corridor traversal is a long estimated stage; earmuffs/Protect from Missiles recommended."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the central pit junction via ladders and safe rooms.",
+      "if_unmet": "Close the caged gates for safety, recover run energy, then continue while avoiding sticky tar."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.defeat_terrorbirds",
+    "name": "Defeat all three Warped Terrorbirds with the crystal chime",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.terrorbirds",
+    "end_location_id": "location.path.terrorbirds",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.cross_warped_depths"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 56,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.path_crystal_chime",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lobster",
+          "quantity": 6
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 6
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 552
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ordered quest interaction from pinned Quest Helper metadata and OSRS quest route; exact dialogue/timing provisional."
+    },
+    "planned_outcome": {
+      "success_condition": "All three warped terrorbirds are defeated.",
+      "if_unmet": "Retreat behind pillars or to the safe passage, replenish prayer/food and retry; crystal chime must remain carried."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.open_heavy_door",
+    "name": "Enter the heavy doorway and escape the poison-gas trap with Hazelmere",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.path.terrorbirds",
+    "end_location_id": "location.yanille.hazelmere_upstairs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.defeat_terrorbirds"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 65,
+      "expected_seconds": 130,
+      "max_seconds": 299
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The scripted cutscene/seed-pod transports player and Hazelmere directly to Hazelmere's hut."
+    }
+  },
+  {
+    "id": "quest.the_path_of_glouphrie.complete",
+    "name": "Hear Hazelmere's vision and accept four skill-specific XP lamps",
+    "activity_id": "quest.the_path_of_glouphrie",
+    "kind": "quest_stage",
+    "start_location_id": "location.yanille.hazelmere_upstairs",
+    "end_location_id": "location.yanille.hazelmere_upstairs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_path_of_glouphrie.open_heavy_door"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_path_of_glouphrie.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.warped_creatures_slayer",
+        "value": true
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.path_of_glouphrie.slayer_lamp",
+        "quantity": 1
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.path_of_glouphrie.thieving_lamp",
+        "quantity": 1
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.path_of_glouphrie.strength_lamp",
+        "quantity": 1
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.path_of_glouphrie.magic_lamp",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 84,
+      "max_seconds": 193
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "2 quest points and four independently retained lamps (Slayer 20k, Thieving 5k, Strength 30k, Magic 5k); spending the lamps is separate from completing the quest."
+    }
+  }
+]

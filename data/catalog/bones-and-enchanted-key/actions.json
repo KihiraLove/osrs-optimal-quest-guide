@@ -1,0 +1,3964 @@
+[
+  {
+    "id": "supply.rag_bone_ii.ge_equipment",
+    "name": "Purchase 27 pots, 27 logs and specialised monster supplies",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 8000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pot",
+        "quantity": 27
+      },
+      {
+        "kind": "item",
+        "item_id": "item.logs",
+        "quantity": 27
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.mirror_shield",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.ice_cooler",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fishing_explosive",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 96,
+      "expected_seconds": 175,
+      "max_seconds": 420
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft 8,000 GP budget; actual GE prices and splitting pots/logs into banked inventories need review."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.start",
+    "name": "Ask the Odd Old Man for his second wish list",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_i.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 31,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only Rag and Bone Man I is mandatory to start; optional monster access gates occur at kills."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.buy_vinegar",
+    "name": "Buy 27 jugs of vinegar from Fortunato",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.draynor.fortunato",
+    "end_location_id": "location.draynor.fortunato",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 27
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_vinegar",
+        "quantity": 27
+      }
+    ],
+    "duration": {
+      "min_seconds": 46,
+      "expected_seconds": 85,
+      "max_seconds": 204
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fortunato sells vinegar for one coin per jug; 27 are needed for the 27 bones."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_wolf",
+    "name": "Defeat wolf source and recover wolf bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.wolf",
+    "end_location_id": "location.bones_key.wolf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.wolf_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Feldip Hills); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest wolf bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_wolf",
+    "name": "Use a vinegar pot, log and boiler to clean wolf bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_wolf"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.wolf_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_bat",
+    "name": "Defeat bat wing source and recover bat wing",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.bat",
+    "end_location_id": "location.bones_key.bat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bat_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Dig Site); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest bat wing from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_bat",
+    "name": "Use a vinegar pot, log and boiler to clean bat wing",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_bat"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bat_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_rat",
+    "name": "Defeat rat source and recover rat bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.varrock.sewer_silverlight_key",
+    "end_location_id": "location.varrock.sewer_silverlight_key",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_rat_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Varrock sewers); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest rat bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_rat",
+    "name": "Use a vinegar pot, log and boiler to clean rat bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_rat"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_rat_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_baby_dragon",
+    "name": "Defeat baby dragon source and recover baby dragon bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.baby_dragon",
+    "end_location_id": "location.bones_key.baby_dragon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.dusty_key",
+              "quantity": 1
+            },
+            {
+              "kind": "skill",
+              "skill_id": "skill.agility",
+              "minimum_level": 70,
+              "boostable": true
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.baby_dragon_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Taverley Dungeon); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest baby dragon bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_baby_dragon",
+    "name": "Use a vinegar pot, log and boiler to clean baby dragon bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_baby_dragon"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.baby_dragon_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_ogre",
+    "name": "Defeat ogre ribs source and recover ogre ribs",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.ogre",
+    "end_location_id": "location.bones_key.ogre",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.ogre_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Feldip Hills); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest ogre ribs from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_ogre",
+    "name": "Use a vinegar pot, log and boiler to clean ogre ribs",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_ogre"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.ogre_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_jogre",
+    "name": "Defeat jogre source and recover jogre bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.jogre",
+    "end_location_id": "location.bones_key.jogre",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.jogre_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Karamja); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest jogre bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_jogre",
+    "name": "Use a vinegar pot, log and boiler to clean jogre bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_jogre"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.jogre_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_zogre",
+    "name": "Defeat zogre source and recover zogre bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.zogre",
+    "end_location_id": "location.bones_key.zogre",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.zogre_flesh_eaters.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.zogre_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Feldip Hills); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest zogre bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_zogre",
+    "name": "Use a vinegar pot, log and boiler to clean zogre bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_zogre"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.zogre_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_mogre",
+    "name": "Defeat mogre source and recover mogre bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.mudskipper_point.ominous_fishing_spot",
+    "end_location_id": "location.mudskipper_point.ominous_fishing_spot",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.skippy_and_the_mogres.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fishing_explosive",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 32,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fishing_explosive",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.mogre_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Mudskipper Point); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest mogre bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_mogre",
+    "name": "Use a vinegar pot, log and boiler to clean mogre bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_mogre"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.mogre_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_dagannoth",
+    "name": "Defeat dagannoth ribs source and recover dagannoth ribs",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.lighthouse.quest_dagannoths",
+    "end_location_id": "location.lighthouse.quest_dagannoths",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.horror_from_the_deep.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.dagannoth_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Lighthouse); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest dagannoth ribs from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_dagannoth",
+    "name": "Use a vinegar pot, log and boiler to clean dagannoth ribs",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_dagannoth"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.dagannoth_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_snake",
+    "name": "Defeat snake spine source and recover snake spine",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.snake",
+    "end_location_id": "location.bones_key.snake",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.snake_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Kharidian Desert); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest snake spine from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_snake",
+    "name": "Use a vinegar pot, log and boiler to clean snake spine",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_snake"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.snake_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_zombie",
+    "name": "Defeat zombie source and recover zombie bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.varrock.sewer_silverlight_key",
+    "end_location_id": "location.varrock.sewer_silverlight_key",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.zombie_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Varrock sewers); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest zombie bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_zombie",
+    "name": "Use a vinegar pot, log and boiler to clean zombie bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_zombie"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.zombie_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_werewolf",
+    "name": "Defeat werewolf source and recover werewolf bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.werewolf",
+    "end_location_id": "location.bones_key.werewolf",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.werewolf_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Canifis); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest werewolf bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_werewolf",
+    "name": "Use a vinegar pot, log and boiler to clean werewolf bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_werewolf"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.werewolf_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_moss_giant",
+    "name": "Defeat moss giant source and recover moss giant bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.moss_giant",
+    "end_location_id": "location.bones_key.moss_giant",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.moss_giant_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Kandarin); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest moss giant bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_moss_giant",
+    "name": "Use a vinegar pot, log and boiler to clean moss giant bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_moss_giant"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.moss_giant_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_fire_giant",
+    "name": "Defeat fire giant source and recover fire giant bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.fire_giant",
+    "end_location_id": "location.bones_key.fire_giant",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.fire_giant_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Brimhaven Dungeon); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest fire giant bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_fire_giant",
+    "name": "Use a vinegar pot, log and boiler to clean fire giant bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_fire_giant"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.fire_giant_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_ice_giant",
+    "name": "Defeat ice giant ribs source and recover ice giant ribs",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.asgarnian_ice_dungeon.blurite",
+    "end_location_id": "location.asgarnian_ice_dungeon.blurite",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.ice_giant_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Asgarnian Ice Dungeon); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest ice giant ribs from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_ice_giant",
+    "name": "Use a vinegar pot, log and boiler to clean ice giant ribs",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_ice_giant"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.ice_giant_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_terrorbird",
+    "name": "Defeat terrorbird wing source and recover terrorbird wing",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.terrorbird",
+    "end_location_id": "location.bones_key.terrorbird",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.terrorbird_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Tree Gnome Stronghold); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest terrorbird wing from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_terrorbird",
+    "name": "Use a vinegar pot, log and boiler to clean terrorbird wing",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_terrorbird"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.terrorbird_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_ghoul",
+    "name": "Defeat ghoul source and recover ghoul bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.ghoul",
+    "end_location_id": "location.bones_key.ghoul",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.ghoul_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Morytania); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest ghoul bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_ghoul",
+    "name": "Use a vinegar pot, log and boiler to clean ghoul bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_ghoul"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.ghoul_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_troll",
+    "name": "Defeat troll source and recover troll bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.troll",
+    "end_location_id": "location.bones_key.troll",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.troll_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Death Plateau); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest troll bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_troll",
+    "name": "Use a vinegar pot, log and boiler to clean troll bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_troll"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.troll_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_seagull",
+    "name": "Defeat seagull wing source and recover seagull wing",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.port_sarim.jack_seagull",
+    "end_location_id": "location.port_sarim.jack_seagull",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.seagull_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Port Sarim); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest seagull wing from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_seagull",
+    "name": "Use a vinegar pot, log and boiler to clean seagull wing",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_seagull"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.seagull_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_undead_cow",
+    "name": "Defeat undead cow ribs source and recover undead cow ribs",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.undead_cow",
+    "end_location_id": "location.bones_key.undead_cow",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.undead_cow_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Morytania); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest undead cow ribs from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_undead_cow",
+    "name": "Use a vinegar pot, log and boiler to clean undead cow ribs",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_undead_cow"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.undead_cow_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_experiment",
+    "name": "Defeat experiment source and recover experiment bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.experiment_cave.experiment",
+    "end_location_id": "location.experiment_cave.experiment",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.creature_of_fenkenstrain.enter_memorial"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.experiment_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Fenkenstrain dungeon); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest experiment bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_experiment",
+    "name": "Use a vinegar pot, log and boiler to clean experiment bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_experiment"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.experiment_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_rabbit",
+    "name": "Defeat rabbit source and recover rabbit bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.rabbit",
+    "end_location_id": "location.bones_key.rabbit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.rabbit_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Fremennik Province); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest rabbit bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_rabbit",
+    "name": "Use a vinegar pot, log and boiler to clean rabbit bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_rabbit"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.rabbit_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_basilisk",
+    "name": "Defeat basilisk source and recover basilisk bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.basilisk",
+    "end_location_id": "location.bones_key.basilisk",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rag_bone_ii.mirror_shield",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 40,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.defence",
+          "minimum_level": 20,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.basilisk_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Fremennik Slayer Dungeon); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest basilisk bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_basilisk",
+    "name": "Use a vinegar pot, log and boiler to clean basilisk bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_basilisk"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.basilisk_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_desert_lizard",
+    "name": "Defeat desert lizard source and recover desert lizard bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.desert_lizard",
+    "end_location_id": "location.bones_key.desert_lizard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rag_bone_ii.ice_cooler",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.ice_cooler",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.desert_lizard_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Kharidian Desert); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest desert lizard bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_desert_lizard",
+    "name": "Use a vinegar pot, log and boiler to clean desert lizard bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_desert_lizard"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.desert_lizard_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_cave_goblin",
+    "name": "Defeat cave goblin skull source and recover cave goblin skull",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.lumbridge_swamp_caves.rope_bottom",
+    "end_location_id": "location.lumbridge_swamp_caves.rope_bottom",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_lost_tribe.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.cave_goblin_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Lumbridge Swamp Caves); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest cave goblin skull from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_cave_goblin",
+    "name": "Use a vinegar pot, log and boiler to clean cave goblin skull",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_cave_goblin"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.cave_goblin_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_vulture",
+    "name": "Defeat vulture wing source and recover vulture wing",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.vulture",
+    "end_location_id": "location.bones_key.vulture",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.vulture_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Kharidian Desert); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest vulture wing from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_vulture",
+    "name": "Use a vinegar pot, log and boiler to clean vulture wing",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_vulture"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.vulture_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.collect_jackal",
+    "name": "Defeat jackal source and recover jackal bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.bones_key.jackal",
+    "end_location_id": "location.bones_key.jackal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.jackal_bone",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 88,
+      "expected_seconds": 160,
+      "max_seconds": 384
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper monster site (Kharidian Desert); expected kills are estimated. This is a successful-unique-drop transition, not a guaranteed one-kill drop."
+    },
+    "planned_outcome": {
+      "success_condition": "Receive the unique quest jackal bone from the appropriate monster; if it does not drop, repeat fights until it does.",
+      "if_unmet": "Check the encounter or drop in game, obtain replacement resources and replan from observed progress."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.polish_jackal",
+    "name": "Use a vinegar pot, log and boiler to clean jackal bone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.collect_jackal"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.buy_vinegar"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rag_bone_ii.jackal_bone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rag_vinegar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.rag_bone_ii.cleaned",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 26,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Prepare pot and wait for one boiler cycle (about 12 seconds), then remove polished bone. The pot itself is reusable; handover is grouped at completion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_ii.complete",
+    "name": "Hand over all 27 polished bones and collect both keepsakes",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_ii",
+    "start_location_id": "location.digsite.rag_and_bone_man",
+    "end_location_id": "location.digsite.rag_and_bone_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "counter",
+          "token_id": "token.rag_bone_ii.cleaned",
+          "minimum": 27
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.prayer",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.bonesack",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rag_bone_ii.ram_skull_helm",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.rag_and_bone_man_ii.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 45,
+      "max_seconds": 108
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The rewards are 1 QP, 5,000 Prayer XP and both reclaimable cosmetic items. Both keepsakes are selected in this draft; exact dialogue needs review."
+    }
+  },
+  {
+    "id": "miniquest.the_enchanted_key.dig_south_rellekka",
+    "name": "Feel the enchanted key, triangulate and dig: South of Rellekka",
+    "kind": "quest_stage",
+    "activity_id": "miniquest.the_enchanted_key",
+    "start_location_id": "location.bones_key.key_south_rellekka",
+    "end_location_id": "location.bones_key.key_south_rellekka",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.steel_arrow",
+        "quantity": 20
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mithril_ore",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.law_rune",
+        "quantity": 15
+      }
+    ],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 90,
+      "max_seconds": 216
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "First fixed treasure location. Coordinates approximate; check the key's warm/cold clues and use a spade at the observed tile."
+    }
+  },
+  {
+    "id": "miniquest.the_enchanted_key.dig_south_ardougne",
+    "name": "Feel the enchanted key, triangulate and dig: South of Ardougne",
+    "kind": "quest_stage",
+    "activity_id": "miniquest.the_enchanted_key",
+    "start_location_id": "location.bones_key.key_south_ardougne",
+    "end_location_id": "location.bones_key.key_south_ardougne",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_enchanted_key.dig_south_rellekka"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pure_essence",
+        "quantity": 36
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_ore",
+        "quantity": 15
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fire_rune",
+        "quantity": 30
+      }
+    ],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 90,
+      "max_seconds": 216
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Random-order treasure: this stage only requires the fixed first find. Coordinates approximate; check the key's warm/cold clues and use a spade at the observed tile."
+    },
+    "planned_outcome": {
+      "success_condition": "The enchanted key currently points to this site as the next treasure; triangulation and a spade reveal the finite cache.",
+      "if_unmet": "Feel the enchanted key to locate the actual next treasure. Visit that site first and replan this randomized order."
+    }
+  },
+  {
+    "id": "miniquest.the_enchanted_key.dig_west_ardougne",
+    "name": "Feel the enchanted key, triangulate and dig: South of Gnome Stronghold",
+    "kind": "quest_stage",
+    "activity_id": "miniquest.the_enchanted_key",
+    "start_location_id": "location.bones_key.key_west_ardougne",
+    "end_location_id": "location.bones_key.key_west_ardougne",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_enchanted_key.dig_south_rellekka"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pure_essence",
+        "quantity": 40
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_arrowtip",
+        "quantity": 20
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fire_rune",
+        "quantity": 20
+      }
+    ],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 90,
+      "max_seconds": 216
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Random-order treasure: this stage only requires the fixed first find. Coordinates approximate; check the key's warm/cold clues and use a spade at the observed tile."
+    },
+    "planned_outcome": {
+      "success_condition": "The enchanted key currently points to this site as the next treasure; triangulation and a spade reveal the finite cache.",
+      "if_unmet": "Feel the enchanted key to locate the actual next treasure. Visit that site first and replan this randomized order."
+    }
+  },
+  {
+    "id": "miniquest.the_enchanted_key.dig_gnome_stronghold",
+    "name": "Feel the enchanted key, triangulate and dig: Tree Gnome Stronghold",
+    "kind": "quest_stage",
+    "activity_id": "miniquest.the_enchanted_key",
+    "start_location_id": "location.bones_key.key_gnome_stronghold",
+    "end_location_id": "location.bones_key.key_gnome_stronghold",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_enchanted_key.dig_south_rellekka"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pure_essence",
+        "quantity": 39
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_arrowtip",
+        "quantity": 20
+      },
+      {
+        "kind": "item",
+        "item_id": "item.water_rune",
+        "quantity": 30
+      }
+    ],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 90,
+      "max_seconds": 216
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Random-order treasure: this stage only requires the fixed first find. Coordinates approximate; check the key's warm/cold clues and use a spade at the observed tile."
+    },
+    "planned_outcome": {
+      "success_condition": "The enchanted key currently points to this site as the next treasure; triangulation and a spade reveal the finite cache.",
+      "if_unmet": "Feel the enchanted key to locate the actual next treasure. Visit that site first and replan this randomized order."
+    }
+  },
+  {
+    "id": "miniquest.the_enchanted_key.dig_body_altar",
+    "name": "Feel the enchanted key, triangulate and dig: Near the Body altar",
+    "kind": "quest_stage",
+    "activity_id": "miniquest.the_enchanted_key",
+    "start_location_id": "location.bones_key.key_body_altar",
+    "end_location_id": "location.bones_key.key_body_altar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_enchanted_key.dig_south_rellekka"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.mithril_ore",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_ore",
+        "quantity": 15
+      },
+      {
+        "kind": "item",
+        "item_id": "item.earth_rune",
+        "quantity": 45
+      }
+    ],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 90,
+      "max_seconds": 216
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Random-order treasure: this stage only requires the fixed first find. Coordinates approximate; check the key's warm/cold clues and use a spade at the observed tile."
+    },
+    "planned_outcome": {
+      "success_condition": "The enchanted key currently points to this site as the next treasure; triangulation and a spade reveal the finite cache.",
+      "if_unmet": "Feel the enchanted key to locate the actual next treasure. Visit that site first and replan this randomized order."
+    }
+  },
+  {
+    "id": "miniquest.the_enchanted_key.dig_falador",
+    "name": "Feel the enchanted key, triangulate and dig: South of Falador",
+    "kind": "quest_stage",
+    "activity_id": "miniquest.the_enchanted_key",
+    "start_location_id": "location.bones_key.key_falador",
+    "end_location_id": "location.bones_key.key_falador",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_enchanted_key.dig_south_rellekka"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.earth_rune",
+        "quantity": 15
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_arrow",
+        "quantity": 20
+      },
+      {
+        "kind": "item",
+        "item_id": "item.saradomin_mjolnir",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 90,
+      "max_seconds": 216
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Random-order treasure: this stage only requires the fixed first find. Coordinates approximate; check the key's warm/cold clues and use a spade at the observed tile."
+    },
+    "planned_outcome": {
+      "success_condition": "The enchanted key currently points to this site as the next treasure; triangulation and a spade reveal the finite cache.",
+      "if_unmet": "Feel the enchanted key to locate the actual next treasure. Visit that site first and replan this randomized order."
+    }
+  },
+  {
+    "id": "miniquest.the_enchanted_key.dig_mudskipper",
+    "name": "Feel the enchanted key, triangulate and dig: Mudskipper Point",
+    "kind": "quest_stage",
+    "activity_id": "miniquest.the_enchanted_key",
+    "start_location_id": "location.bones_key.key_mudskipper",
+    "end_location_id": "location.bones_key.key_mudskipper",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_enchanted_key.dig_south_rellekka"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.iron_ore",
+        "quantity": 15
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mithril_arrow",
+        "quantity": 20
+      },
+      {
+        "kind": "item",
+        "item_id": "item.death_rune",
+        "quantity": 15
+      }
+    ],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 90,
+      "max_seconds": 216
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Random-order treasure: this stage only requires the fixed first find. Coordinates approximate; check the key's warm/cold clues and use a spade at the observed tile."
+    },
+    "planned_outcome": {
+      "success_condition": "The enchanted key currently points to this site as the next treasure; triangulation and a spade reveal the finite cache.",
+      "if_unmet": "Feel the enchanted key to locate the actual next treasure. Visit that site first and replan this randomized order."
+    }
+  },
+  {
+    "id": "miniquest.the_enchanted_key.dig_lumbridge_swamp",
+    "name": "Feel the enchanted key, triangulate and dig: Lumbridge Swamp",
+    "kind": "quest_stage",
+    "activity_id": "miniquest.the_enchanted_key",
+    "start_location_id": "location.bones_key.key_lumbridge_swamp",
+    "end_location_id": "location.bones_key.key_lumbridge_swamp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_enchanted_key.dig_south_rellekka"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pure_essence",
+        "quantity": 29
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mind_rune",
+        "quantity": 20
+      },
+      {
+        "kind": "item",
+        "item_id": "item.steel_arrow",
+        "quantity": 20
+      }
+    ],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 90,
+      "max_seconds": 216
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Random-order treasure: this stage only requires the fixed first find. Coordinates approximate; check the key's warm/cold clues and use a spade at the observed tile."
+    },
+    "planned_outcome": {
+      "success_condition": "The enchanted key currently points to this site as the next treasure; triangulation and a spade reveal the finite cache.",
+      "if_unmet": "Feel the enchanted key to locate the actual next treasure. Visit that site first and replan this randomized order."
+    }
+  },
+  {
+    "id": "miniquest.the_enchanted_key.dig_al_kharid",
+    "name": "Feel the enchanted key, triangulate and dig: Al Kharid",
+    "kind": "quest_stage",
+    "activity_id": "miniquest.the_enchanted_key",
+    "start_location_id": "location.bones_key.key_al_kharid",
+    "end_location_id": "location.bones_key.key_al_kharid",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_enchanted_key.dig_south_rellekka"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pure_essence",
+        "quantity": 40
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mithril_ore",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.zamorak_mjolnir",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 90,
+      "max_seconds": 216
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Random-order treasure: this stage only requires the fixed first find. Coordinates approximate; check the key's warm/cold clues and use a spade at the observed tile."
+    },
+    "planned_outcome": {
+      "success_condition": "The enchanted key currently points to this site as the next treasure; triangulation and a spade reveal the finite cache.",
+      "if_unmet": "Feel the enchanted key to locate the actual next treasure. Visit that site first and replan this randomized order."
+    }
+  },
+  {
+    "id": "miniquest.the_enchanted_key.dig_varrock_mine",
+    "name": "Feel the enchanted key, triangulate and dig: Southeast Varrock mine",
+    "kind": "quest_stage",
+    "activity_id": "miniquest.the_enchanted_key",
+    "start_location_id": "location.bones_key.key_varrock_mine",
+    "end_location_id": "location.bones_key.key_varrock_mine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_enchanted_key.dig_south_rellekka"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pure_essence",
+        "quantity": 40
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_ore",
+        "quantity": 15
+      },
+      {
+        "kind": "item",
+        "item_id": "item.guthix_mjolnir",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 90,
+      "max_seconds": 216
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Random-order treasure: this stage only requires the fixed first find. Coordinates approximate; check the key's warm/cold clues and use a spade at the observed tile."
+    },
+    "planned_outcome": {
+      "success_condition": "The enchanted key currently points to this site as the next treasure; triangulation and a spade reveal the finite cache.",
+      "if_unmet": "Feel the enchanted key to locate the actual next treasure. Visit that site first and replan this randomized order."
+    }
+  },
+  {
+    "id": "miniquest.the_enchanted_key.dig_grand_exchange",
+    "name": "Feel the enchanted key, triangulate and dig: Grand Exchange",
+    "kind": "quest_stage",
+    "activity_id": "miniquest.the_enchanted_key",
+    "start_location_id": "location.bones_key.key_grand_exchange",
+    "end_location_id": "location.bones_key.key_grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.making_history.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.enchanted_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_enchanted_key.dig_south_rellekka"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pure_essence",
+        "quantity": 39
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mithril_arrow",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.law_rune",
+        "quantity": 15
+      }
+    ],
+    "duration": {
+      "min_seconds": 49,
+      "expected_seconds": 90,
+      "max_seconds": 216
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Random-order treasure: this stage only requires the fixed first find. Coordinates approximate; check the key's warm/cold clues and use a spade at the observed tile."
+    },
+    "planned_outcome": {
+      "success_condition": "The enchanted key currently points to this site as the next treasure; triangulation and a spade reveal the finite cache.",
+      "if_unmet": "Feel the enchanted key to locate the actual next treasure. Visit that site first and replan this randomized order."
+    }
+  }
+]

@@ -1,0 +1,1107 @@
+[
+  {
+    "id": "quest.grim_tales.start",
+    "name": "Ask Sylas about the two rare items",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.sylas",
+    "end_location_id": "location.grim.sylas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.witchs_house.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Witch's House is prerequisite; five boostable skills gate later stages instead of quest start."
+    }
+  },
+  {
+    "id": "supply.grim_tales.ge_supplies",
+    "name": "Buy two tarromin potion bases, farming tools, leather gloves and axe",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.start"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 4500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tarromin_potion_unf",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.seed_dibber",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.watering_can_full",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_axe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.leather_gloves",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 10
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 160
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "GE-budgeted tradeable supplies; prices fluctuate; verify live price and exact gloves/axe choices."
+    }
+  },
+  {
+    "id": "quest.grim_tales.tell_griffin_story",
+    "name": "Tell Grimgnash a suitably frightening bedtime story",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.grimgnash",
+    "end_location_id": "location.grim.grimgnash",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  },
+  {
+    "id": "quest.grim_tales.take_feather",
+    "name": "Pick up the sleeping griffin's feather",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.grimgnash",
+    "end_location_id": "location.grim.grimgnash",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.tell_griffin_story"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grim_griffin_feather",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  },
+  {
+    "id": "quest.grim_tales.bring_feather",
+    "name": "Return Grimgnash's feather to Sylas",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.sylas",
+    "end_location_id": "location.grim.sylas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.take_feather"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grim_griffin_feather",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grim_griffin_feather",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  },
+  {
+    "id": "quest.grim_tales.climb_tower_wall",
+    "name": "Scale the crumbling wall of Rupert's tower",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.tower_wall",
+    "end_location_id": "location.grim.tower_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.bring_feather"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 58,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  },
+  {
+    "id": "quest.grim_tales.speak_pipe",
+    "name": "Call to Rupert through the drainpipe twice",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.tower_pipe",
+    "end_location_id": "location.grim.tower_pipe",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.climb_tower_wall"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  },
+  {
+    "id": "quest.grim_tales.climb_beard",
+    "name": "Climb Rupert's beard to the tower top",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.tower_pipe",
+    "end_location_id": "location.grim.rupert",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.speak_pipe"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 59,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  },
+  {
+    "id": "quest.grim_tales.ask_rupert",
+    "name": "Learn that Miazrqa took Rupert's helmet",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.rupert",
+    "end_location_id": "location.grim.rupert",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.climb_beard"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  },
+  {
+    "id": "quest.grim_tales.ask_miazrqa",
+    "name": "Promise Miazrqa to retrieve her pendant; receive witch's key",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.miazrqa",
+    "end_location_id": "location.grim.miazrqa",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.ask_rupert"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grim_witch_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  },
+  {
+    "id": "quest.grim_tales.search_basement",
+    "name": "Unlock the witch's basement, play the piano and collect two ogleroots",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.witch_basement",
+    "end_location_id": "location.grim.witch_basement",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.ask_miazrqa"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grim_witch_key",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grim_shrunk_ogleroot",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Leather gloves guard against the electric gate; piano sequence is EFEDCAEGA. Gloves are included in earlier GE supply."
+    }
+  },
+  {
+    "id": "quest.grim_tales.mix_potions",
+    "name": "Mix two shrink-me-quick potions",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.witch_basement",
+    "end_location_id": "location.grim.witch_basement",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.search_basement"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 52,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tarromin_potion_unf",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grim_shrunk_ogleroot",
+          "quantity": 2
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tarromin_potion_unf",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.grim_shrunk_ogleroot",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grim_shrinking_potion",
+        "quantity": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 120
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Add shrunk ogleroots to two tarromin unfinished potions; 6 Herblore XP each, separate from 15,000 completion XP."
+    }
+  },
+  {
+    "id": "quest.grim_tales.shrink_into_mouse_hole",
+    "name": "Drink only one potion and crawl into the mouse hole",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.witch_mousehole",
+    "end_location_id": "location.grim.mouse_lair",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.mix_potions"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grim_shrinking_potion",
+          "quantity": 2
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grim_shrinking_potion",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Keep the second potion for shrinking the beanstalk; no follower allowed when shrinking."
+    }
+  },
+  {
+    "id": "quest.grim_tales.navigate_mouse_maze",
+    "name": "Climb the five nail walls to the pendant",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.mouse_lair",
+    "end_location_id": "location.grim.mouse_pendant",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.shrink_into_mouse_hole"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the north passage without using the wrong grate.",
+      "if_unmet": "Return to the mouse-hole route and redo the ladder sequence; avoid the north-eastern exit grate."
+    }
+  },
+  {
+    "id": "quest.grim_tales.recover_pendant",
+    "name": "Recover Miazrqa's stolen pendant",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.mouse_pendant",
+    "end_location_id": "location.grim.mouse_pendant",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.navigate_mouse_maze"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grim_princess_pendant",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  },
+  {
+    "id": "quest.grim_tales.return_pendant",
+    "name": "Return the pendant to the princess",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.miazrqa",
+    "end_location_id": "location.grim.miazrqa",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.recover_pendant"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grim_princess_pendant",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grim_princess_pendant",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  },
+  {
+    "id": "quest.grim_tales.collect_helmet",
+    "name": "Receive Rupert's helmet after his release",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.miazrqa",
+    "end_location_id": "location.grim.miazrqa",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.return_pendant"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grim_ruperts_helmet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  },
+  {
+    "id": "quest.grim_tales.exchange_helmet",
+    "name": "Give Rupert's helmet to Sylas for the magic beans",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.sylas",
+    "end_location_id": "location.grim.sylas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.collect_helmet"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grim_ruperts_helmet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grim_ruperts_helmet",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grim_magic_beans",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  },
+  {
+    "id": "quest.grim_tales.plant_and_water",
+    "name": "Plant and water the magic beans",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.bean_patch",
+    "end_location_id": "location.grim.bean_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.exchange_helmet"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 45,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.watering_can_full",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grim_magic_beans",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grim_magic_beans",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Leprechaun farming tools remain held; giant beanstalk grows rapidly after watering."
+    }
+  },
+  {
+    "id": "quest.grim_tales.climb_bean",
+    "name": "Climb the beanstalk into Glod's arena",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.bean_patch",
+    "end_location_id": "location.grim.cloud_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.plant_and_water"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 59,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "An instanced cloud area; bank follower before entering."
+    }
+  },
+  {
+    "id": "quest.grim_tales.defeat_glod",
+    "name": "Defeat Glod the cloud giant and collect golden goblin",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.cloud_arena",
+    "end_location_id": "location.grim.cloud_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.climb_bean"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lobster",
+          "quantity": 6
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 6
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grim_golden_goblin",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 100,
+      "expected_seconds": 220,
+      "max_seconds": 480
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    },
+    "planned_outcome": {
+      "success_condition": "Glod is defeated; the golden goblin is picked up.",
+      "if_unmet": "Re-equip and replenish food/prayer; Glod periodically drains prayer and can heal. Retry the instanced fight."
+    }
+  },
+  {
+    "id": "quest.grim_tales.deliver_goblin",
+    "name": "Deliver the golden goblin to Sylas",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.sylas",
+    "end_location_id": "location.grim.sylas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.defeat_glod"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grim_golden_goblin",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grim_golden_goblin",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  },
+  {
+    "id": "quest.grim_tales.shrink_and_chop_bean",
+    "name": "Use the remaining potion, then chop the beanstalk",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.bean_patch",
+    "end_location_id": "location.grim.bean_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.deliver_goblin"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 71,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grim_shrinking_potion",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_axe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grim_shrinking_potion",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Second shrink-me-quick dose must be retained until Glod is defeated; axe is a held tool."
+    }
+  },
+  {
+    "id": "quest.grim_tales.complete",
+    "name": "Report to Sylas for the Dwarven helmet and quest rewards",
+    "activity_id": "quest.grim_tales",
+    "kind": "quest_stage",
+    "start_location_id": "location.grim.sylas",
+    "end_location_id": "location.grim.sylas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.grim_tales.shrink_and_chop_bean"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 600000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 250000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 250000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 150000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "item",
+        "item_id": "item.grim_dwarven_helmet",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.grim_tales.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.nmz_glod",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 40,
+      "max_seconds": 86
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest stage reconstructed from pinned Quest Helper stage/waypoint; travel and interaction timing are estimates."
+    }
+  }
+]

@@ -1,0 +1,2861 @@
+[
+  {
+    "id": "quest.regicide.go_to_ardougne_castle_floor2",
+    "name": "Climb to King Lathas in Ardougne Castle",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.go_to_ardougne_castle_floor2",
+    "end_location_id": "location.regicide.go_to_ardougne_castle_floor2",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. goToArdougneCastleFloor2"
+    }
+  },
+  {
+    "id": "quest.regicide.talk_to_king_lathas",
+    "name": "Accept the Regicide mission from King Lathas",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.talk_to_king_lathas",
+    "end_location_id": "location.regicide.talk_to_king_lathas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.go_to_ardougne_castle_floor2"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 10,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 56,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. talkToKingLathas"
+    }
+  },
+  {
+    "id": "supply.regicide.ge_gear",
+    "name": "Obtain the Regicide travel, distillation and bomb supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.talk_to_king_lathas"
+        },
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 85000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shortbow",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.bronze_arrow",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.tinderbox",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.leather_gloves",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pot",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.regicide_limestone",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.regicide_strip_of_cloth",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coal",
+        "quantity": 20
+      },
+      {
+        "kind": "item",
+        "item_id": "item.regicide_cooked_rabbit",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.falador_teleport_tablet",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. supplyGear"
+    }
+  },
+  {
+    "id": "quest.regicide.go_down_castle_stairs",
+    "name": "Go down castle stairs",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.go_down_castle_stairs",
+    "end_location_id": "location.regicide.go_down_castle_stairs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "supply.regicide.ge_gear"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. goDownCastleStairs"
+    }
+  },
+  {
+    "id": "quest.regicide.enter_west_ardougne",
+    "name": "Enter west ardougne",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.enter_west_ardougne",
+    "end_location_id": "location.regicide.enter_west_ardougne",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.go_down_castle_stairs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. enterWestArdougne"
+    }
+  },
+  {
+    "id": "quest.regicide.enter_the_dungeon",
+    "name": "Enter the dungeon",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.enter_the_dungeon",
+    "end_location_id": "location.regicide.enter_the_dungeon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.enter_west_ardougne"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. enterTheDungeon"
+    }
+  },
+  {
+    "id": "quest.regicide.climb_over_rockslide1",
+    "name": "Climb over rockslide1",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.climb_over_rockslide1",
+    "end_location_id": "location.regicide.climb_over_rockslide1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.enter_the_dungeon"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. climbOverRockslide1"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.climb_over_rockslide2",
+    "name": "Climb over rockslide2",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.climb_over_rockslide2",
+    "end_location_id": "location.regicide.climb_over_rockslide2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.climb_over_rockslide1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. climbOverRockslide2"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.climb_over_rockslide3",
+    "name": "Climb over rockslide3",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.climb_over_rockslide3",
+    "end_location_id": "location.regicide.climb_over_rockslide3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.climb_over_rockslide2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. climbOverRockslide3"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.search_bag_for_cloth",
+    "name": "Take cloth from Koftik’s bag",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.search_bag_for_cloth",
+    "end_location_id": "location.regicide.search_bag_for_cloth",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.climb_over_rockslide3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.up_damp_cloth",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. searchBagForCloth"
+    }
+  },
+  {
+    "id": "quest.regicide.light_arrow",
+    "name": "Prepare a burning arrow for the bridge",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.light_arrow",
+    "end_location_id": "location.regicide.light_arrow",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.search_bag_for_cloth"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.up_damp_cloth",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bronze_arrow",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.regicide_fire_arrow",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. lightArrow"
+    }
+  },
+  {
+    "id": "quest.regicide.walk_north_east_of_bridge",
+    "name": "Fire the burning arrow and cross the bridge",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.walk_north_east_of_bridge",
+    "end_location_id": "location.regicide.walk_north_east_of_bridge",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.light_arrow"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.shortbow",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.regicide_fire_arrow",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. walkNorthEastOfBridge"
+    }
+  },
+  {
+    "id": "quest.regicide.collect_plank",
+    "name": "Pick up the loose plank",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.collect_plank",
+    "end_location_id": "location.regicide.collect_plank",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.walk_north_east_of_bridge"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.plank",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. collectPlank"
+    }
+  },
+  {
+    "id": "quest.regicide.cross_the_pit",
+    "name": "Cross the floor pit with the plank",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.cross_the_pit",
+    "end_location_id": "location.regicide.cross_the_pit",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.collect_plank"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.plank",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. crossThePit"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.climb_over_rockslide4",
+    "name": "Climb over rockslide4",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.climb_over_rockslide4",
+    "end_location_id": "location.regicide.climb_over_rockslide4",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.cross_the_pit"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. climbOverRockslide4"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.climb_over_rockslide5",
+    "name": "Climb over rockslide5",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.climb_over_rockslide5",
+    "end_location_id": "location.regicide.climb_over_rockslide5",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.climb_over_rockslide4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. climbOverRockslide5"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.pass_trap1",
+    "name": "Pass trap1",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.pass_trap1",
+    "end_location_id": "location.regicide.pass_trap1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.climb_over_rockslide5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. passTrap1"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.pass_trap2",
+    "name": "Pass trap2",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.pass_trap2",
+    "end_location_id": "location.regicide.pass_trap2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.pass_trap1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. passTrap2"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.pass_trap3",
+    "name": "Pass trap3",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.pass_trap3",
+    "end_location_id": "location.regicide.pass_trap3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.pass_trap2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. passTrap3"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.pass_trap4",
+    "name": "Pass trap4",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.pass_trap4",
+    "end_location_id": "location.regicide.pass_trap4",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.pass_trap3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. passTrap4"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.pass_trap5",
+    "name": "Pass trap5",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.pass_trap5",
+    "end_location_id": "location.regicide.pass_trap5",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.pass_trap4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. passTrap5"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.climb_down_well",
+    "name": "Climb down well",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.climb_down_well",
+    "end_location_id": "location.regicide.climb_down_well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.pass_trap5"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. climbDownWell"
+    }
+  },
+  {
+    "id": "quest.regicide.pick_cell_lock",
+    "name": "Pick cell lock",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.pick_cell_lock",
+    "end_location_id": "location.regicide.pick_cell_lock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.climb_down_well"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. pickCellLock"
+    }
+  },
+  {
+    "id": "quest.regicide.dig_mud",
+    "name": "Dig mud",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.dig_mud",
+    "end_location_id": "location.regicide.dig_mud",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.pick_cell_lock"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. digMud"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.cross_ledge",
+    "name": "Cross ledge",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.cross_ledge",
+    "end_location_id": "location.regicide.cross_ledge",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.dig_mud"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. crossLedge"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.go_through_pipe",
+    "name": "Go through pipe",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.go_through_pipe",
+    "end_location_id": "location.regicide.go_through_pipe",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.cross_ledge"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. goThroughPipe"
+    }
+  },
+  {
+    "id": "quest.regicide.leave_unicorn_area",
+    "name": "Leave unicorn area",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.leave_unicorn_area",
+    "end_location_id": "location.regicide.leave_unicorn_area",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.go_through_pipe"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. leaveUnicornArea"
+    }
+  },
+  {
+    "id": "quest.regicide.open_ibans_door",
+    "name": "Open ibans door",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.open_ibans_door",
+    "end_location_id": "location.regicide.open_ibans_door",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.leave_unicorn_area"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. openIbansDoor"
+    }
+  },
+  {
+    "id": "quest.regicide.go_back_up_to_ibans_cavern",
+    "name": "Go back up to ibans cavern",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.go_back_up_to_ibans_cavern",
+    "end_location_id": "location.regicide.go_back_up_to_ibans_cavern",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.open_ibans_door"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. goBackUpToIbansCavern"
+    }
+  },
+  {
+    "id": "quest.regicide.enter_temple",
+    "name": "Enter temple",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.enter_temple",
+    "end_location_id": "location.regicide.enter_temple",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.go_back_up_to_ibans_cavern"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. enterTemple"
+    }
+  },
+  {
+    "id": "quest.regicide.enter_well",
+    "name": "Use the Well of Voyage to Tirannwn",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.enter_well",
+    "end_location_id": "location.regicide.enter_well",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.enter_temple"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.well_of_voyage",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. enterWell"
+    }
+  },
+  {
+    "id": "quest.regicide.leave_well_cave",
+    "name": "Leave well cave",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.leave_well_cave",
+    "end_location_id": "location.regicide.leave_well_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.enter_well"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. leaveWellCave"
+    }
+  },
+  {
+    "id": "quest.regicide.encounter_idris",
+    "name": "Meet Idris and the Iorwerth scouts outside the cavern",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.leave_well_cave",
+    "end_location_id": "location.regicide.leave_well_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.leave_well_cave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. encounterIdris"
+    }
+  },
+  {
+    "id": "quest.regicide.talk_to_iorwerth",
+    "name": "Report to Lord Iorwerth at the elf camp",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.talk_to_iorwerth",
+    "end_location_id": "location.regicide.talk_to_iorwerth",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.encounter_idris"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. talkToIorwerth"
+    }
+  },
+  {
+    "id": "quest.regicide.go_from_cave_to_leaves",
+    "name": "Go from cave to leaves",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.go_from_cave_to_leaves",
+    "end_location_id": "location.regicide.go_from_cave_to_leaves",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.talk_to_iorwerth"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. goFromCaveToLeaves"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.go_from_leaves_to_stick_trap",
+    "name": "Go from leaves to stick trap",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.go_from_leaves_to_stick_trap",
+    "end_location_id": "location.regicide.go_from_leaves_to_stick_trap",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.go_from_cave_to_leaves"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. goFromLeavesToStickTrap"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.go_up_to_leaf_towards_log",
+    "name": "Go up to leaf towards log",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.go_up_to_leaf_towards_log",
+    "end_location_id": "location.regicide.go_up_to_leaf_towards_log",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.go_from_leaves_to_stick_trap"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. goUpToLeafTowardsLog"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.go_cross_log_to_camp",
+    "name": "Go cross log to camp",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.go_cross_log_to_camp",
+    "end_location_id": "location.regicide.go_cross_log_to_camp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.go_up_to_leaf_towards_log"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. goCrossLogToCamp"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.cross_log_from_camp",
+    "name": "Cross log from camp",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.cross_log_from_camp",
+    "end_location_id": "location.regicide.cross_log_from_camp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.go_cross_log_to_camp"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. crossLogFromCamp"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.go_from_camp_to_leaves_south",
+    "name": "Go from camp to leaves south",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.go_from_camp_to_leaves_south",
+    "end_location_id": "location.regicide.go_from_camp_to_leaves_south",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.cross_log_from_camp"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. goFromCampToLeavesSouth"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.talk_to_tracker",
+    "name": "Meet Iorwerth’s elf tracker",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.talk_to_tracker",
+    "end_location_id": "location.regicide.talk_to_tracker",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.go_from_camp_to_leaves_south"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. talkToTracker"
+    }
+  },
+  {
+    "id": "quest.regicide.talk_to_iorwerth_again",
+    "name": "Ask Iorwerth for the crystal pendant",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.talk_to_iorwerth_again",
+    "end_location_id": "location.regicide.talk_to_iorwerth_again",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.talk_to_tracker"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.regicide_crystal_pendant",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. talkToIorwerthAgain"
+    }
+  },
+  {
+    "id": "quest.regicide.talk_to_tracker_again",
+    "name": "Show the crystal pendant to the tracker",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.talk_to_tracker_again",
+    "end_location_id": "location.regicide.talk_to_tracker_again",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.talk_to_iorwerth_again"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.regicide_crystal_pendant",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. talkToTrackerAgain"
+    }
+  },
+  {
+    "id": "quest.regicide.click_tracks",
+    "name": "Inspect tracks leading toward Tyras Camp",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.click_tracks",
+    "end_location_id": "location.regicide.click_tracks",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.talk_to_tracker_again"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. clickTracks"
+    }
+  },
+  {
+    "id": "quest.regicide.climb_through_forest",
+    "name": "Force a route through the dense forest",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.climb_through_forest",
+    "end_location_id": "location.regicide.climb_through_forest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.click_tracks"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 56,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. climbThroughForest"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.cross_tripwire",
+    "name": "Step carefully over the poison tripwire",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.cross_tripwire",
+    "end_location_id": "location.regicide.cross_tripwire",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.climb_through_forest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. crossTripwire"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.go_kill_guard_at_second_forest",
+    "name": "Defeat a level-110 Tyras guard",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.go_kill_guard_at_second_forest",
+    "end_location_id": "location.regicide.go_kill_guard_at_second_forest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.cross_tripwire"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 105,
+      "expected_seconds": 210,
+      "max_seconds": 630
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. goKillGuardAtSecondForest"
+    },
+    "planned_outcome": {
+      "success_condition": "The player passes the obstacle or defeats the guard and observes the described stage progression.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.enter_tyras_camp",
+    "name": "Reach the Tyras military camp",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.enter_tyras_camp",
+    "end_location_id": "location.regicide.enter_tyras_camp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.go_kill_guard_at_second_forest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. enterTyrasCamp"
+    }
+  },
+  {
+    "id": "quest.regicide.talk_to_general_hining",
+    "name": "Question General Hining in Tyras Camp",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.enter_tyras_camp",
+    "end_location_id": "location.regicide.enter_tyras_camp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.enter_tyras_camp"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. talkToGeneralHining"
+    }
+  },
+  {
+    "id": "quest.regicide.take2_barrels",
+    "name": "Collect two empty barrels from the elf camp",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.take2_barrels",
+    "end_location_id": "location.regicide.take2_barrels",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.talk_to_general_hining"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.regicide_empty_barrel",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. take2Barrels"
+    }
+  },
+  {
+    "id": "quest.regicide.go_from_tyras_to_trap",
+    "name": "Go from tyras to trap",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.go_from_tyras_to_trap",
+    "end_location_id": "location.regicide.go_from_tyras_to_trap",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.take2_barrels"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. goFromTyrasToTrap"
+    }
+  },
+  {
+    "id": "quest.regicide.fill2_barrels",
+    "name": "Fill both barrels with coal tar by the swamp",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.fill2_barrels",
+    "end_location_id": "location.regicide.fill2_barrels",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.go_from_tyras_to_trap"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.regicide_empty_barrel",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.regicide_tar_barrel",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. fill2Barrels"
+    }
+  },
+  {
+    "id": "quest.regicide.get_sulphur",
+    "name": "Take a piece of sulphur by the swamp",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.get_sulphur",
+    "end_location_id": "location.regicide.get_sulphur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.fill2_barrels"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.regicide_sulphur",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. getSulphur"
+    }
+  },
+  {
+    "id": "quest.regicide.return_to_iorwerth_for_book",
+    "name": "Ask Lord Iorwerth for the Big Book of Bangs",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.talk_to_iorwerth",
+    "end_location_id": "location.regicide.talk_to_iorwerth",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.get_sulphur"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.regicide_big_book_of_bangs",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. returnToIorwerthForBook"
+    }
+  },
+  {
+    "id": "quest.regicide.ask_about_quicklime",
+    "name": "Ask Iorwerth about quicklime",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.ask_about_quicklime",
+    "end_location_id": "location.regicide.ask_about_quicklime",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.return_to_iorwerth_for_book"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. askAboutQuicklime"
+    }
+  },
+  {
+    "id": "quest.regicide.ask_about_naphtha",
+    "name": "Ask Iorwerth about naphtha",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.ask_about_naphtha",
+    "end_location_id": "location.regicide.ask_about_naphtha",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.ask_about_quicklime"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. askAboutNaphtha"
+    }
+  },
+  {
+    "id": "quest.regicide.ask_about_sulphur",
+    "name": "Ask Iorwerth about sulphur",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.ask_about_sulphur",
+    "end_location_id": "location.regicide.ask_about_sulphur",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.ask_about_naphtha"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. askAboutSulphur"
+    }
+  },
+  {
+    "id": "quest.regicide.ask_about_barrel",
+    "name": "Ask Iorwerth about barrels",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.ask_about_barrel",
+    "end_location_id": "location.regicide.ask_about_barrel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.ask_about_sulphur"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. askAboutBarrel"
+    }
+  },
+  {
+    "id": "quest.regicide.ask_about_fuse",
+    "name": "Ask Iorwerth about the fuse",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.ask_about_fuse",
+    "end_location_id": "location.regicide.ask_about_fuse",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.ask_about_barrel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. askAboutFuse"
+    }
+  },
+  {
+    "id": "quest.regicide.prepare_quicklime",
+    "name": "Heat limestone and grind quicklime into a pot",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.camp_furnace",
+    "end_location_id": "location.regicide.camp_furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.ask_about_fuse"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pot",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.regicide_limestone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.pot",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.regicide_pot_of_quicklime",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. prepareQuicklime"
+    }
+  },
+  {
+    "id": "quest.regicide.grind_sulphur",
+    "name": "Grind sulphur with a pestle and mortar",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.camp_furnace",
+    "end_location_id": "location.regicide.camp_furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.prepare_quicklime"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.regicide_sulphur",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.regicide_ground_sulphur",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. grindSulphur"
+    }
+  },
+  {
+    "id": "quest.regicide.talk_to_chemist",
+    "name": "Consult the Rimmington chemist with the book",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.talk_to_chemist",
+    "end_location_id": "location.regicide.talk_to_chemist",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.grind_sulphur"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.regicide_big_book_of_bangs",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. talkToChemist"
+    }
+  },
+  {
+    "id": "quest.regicide.use_tar_on_fractionalising_still",
+    "name": "Load coal tar into the Rimmington still",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.use_tar_on_fractionalising_still",
+    "end_location_id": "location.regicide.use_tar_on_fractionalising_still",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.talk_to_chemist"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.regicide_tar_barrel",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.coal",
+          "quantity": 10
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. useTarOnFractionalisingStill"
+    }
+  },
+  {
+    "id": "quest.regicide.operate_still",
+    "name": "Distil coal tar to a barrel of naphtha",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.operate_still",
+    "end_location_id": "location.regicide.operate_still",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.use_tar_on_fractionalising_still"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.regicide_tar_barrel",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.coal",
+        "quantity": 10
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.regicide_naphtha_barrel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 105,
+      "expected_seconds": 210,
+      "max_seconds": 630
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. operateStill"
+    },
+    "planned_outcome": {
+      "success_condition": "The still produces one usable barrel of naphtha.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.mix_barrel_bomb",
+    "name": "Mix naphtha, quicklime, sulphur and the cloth fuse",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.operate_still",
+    "end_location_id": "location.regicide.operate_still",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.operate_still"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.regicide_naphtha_barrel",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.regicide_pot_of_quicklime",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.regicide_ground_sulphur",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.regicide_strip_of_cloth",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.regicide_barrel_bomb",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. mixBarrelBomb"
+    }
+  },
+  {
+    "id": "quest.regicide.return_to_tirannwn",
+    "name": "Return to the Tyras Camp via Underground Pass",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.enter_tyras_camp",
+    "end_location_id": "location.regicide.enter_tyras_camp",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.mix_barrel_bomb"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. returnToTirannwn"
+    }
+  },
+  {
+    "id": "quest.regicide.use_rabbit_on_guard",
+    "name": "Distract the catapult guard with cooked rabbit",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.use_rabbit_on_guard",
+    "end_location_id": "location.regicide.use_rabbit_on_guard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.return_to_tirannwn"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.regicide_cooked_rabbit",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. useRabbitOnGuard"
+    }
+  },
+  {
+    "id": "quest.regicide.use_bomb_on_catapult",
+    "name": "Set and ignite the explosive on Tyras’s catapult",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.use_bomb_on_catapult",
+    "end_location_id": "location.regicide.use_bomb_on_catapult",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.use_rabbit_on_guard"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.regicide_barrel_bomb",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.regicide_catapult_destroyed",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 105,
+      "expected_seconds": 210,
+      "max_seconds": 630
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. useBombOnCatapult"
+    },
+    "planned_outcome": {
+      "success_condition": "The bomb ignites and Tyras’s catapult is destroyed.",
+      "if_unmet": "Recover and heal, restock any spent materials, and retry this check without crediting the next stage."
+    }
+  },
+  {
+    "id": "quest.regicide.leave_from_catapult",
+    "name": "Leave the destroyed Tyras catapult",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.leave_from_catapult",
+    "end_location_id": "location.regicide.leave_from_catapult",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.use_bomb_on_catapult"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. leaveFromCatapult"
+    }
+  },
+  {
+    "id": "quest.regicide.talk_to_iorwerth_for_letter",
+    "name": "Receive Iorwerth’s sealed letter and Arandar access",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.talk_to_iorwerth",
+    "end_location_id": "location.regicide.talk_to_iorwerth",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.leave_from_catapult"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.regicide_iorwerth_letter",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.arandar_overpass",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. talkToIorwerthForLetter"
+    }
+  },
+  {
+    "id": "quest.regicide.talk_to_arianwyn",
+    "name": "Meet Arianwyn and read the unsealed letter",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.regicide.talk_to_arianwyn",
+    "end_location_id": "location.regicide.talk_to_arianwyn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.talk_to_iorwerth_for_letter"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.regicide_iorwerth_letter",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. talkToArianwyn"
+    }
+  },
+  {
+    "id": "quest.regicide.complete",
+    "name": "Deliver Iorwerth’s letter to King Lathas",
+    "activity_id": "quest.regicide",
+    "kind": "quest_stage",
+    "start_location_id": "location.ardougne.king_lathas",
+    "end_location_id": "location.ardougne.king_lathas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.regicide.talk_to_arianwyn"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.regicide_iorwerth_letter",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.regicide_crystal_pendant",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 3
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 137500
+      },
+      {
+        "kind": "item",
+        "item_id": "item.coins",
+        "quantity": 15000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.regicide_complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.tirannwn_access",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.port_tyras_charter",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.dragon_halberd_equipping",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.iorwerth_camp_teleport_scrolls",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.zul_andra_teleport_scrolls",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.bjs_fairy_ring",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.gwenith_glide_attempt",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Regicide helper waypoint and ordered guide phase; times and consumptions are provisional. complete"
+    }
+  }
+]

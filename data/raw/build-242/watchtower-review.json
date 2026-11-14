@@ -1,0 +1,38 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "collected",
+  "activity_ids": ["quest.watchtower"],
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.project.travel_timing",
+    "source.project.early_quest_timing",
+    "source.runelite.magic_calculator",
+    "source.jagex.grand_exchange_catalogue"
+  ],
+  "helper_file": "src/main/java/com/questhelper/helpers/quests/watchtower/Watchtower.java",
+  "observations": {
+    "route": "Begin at Watchtower Wizard, inspect nearby bushes, gain three Ogre relic parts from Og, Grew and Toban by delivering dragon bones, recovering Og's gold and Gorad's tooth. Cross to Grew's island twice with two ropes. Restore the relic, negotiate Gu'Tanoth guards with it, steal and pass a rock cake, pay 20 coins at the bridge and exchange a death rune for a Skavid map. Speak to the frightened Skavid, learn four phrases in separate caves, pay a gold bar to reach the Mad Skavid, collect the second crystal and two nightshades. Scout the Ogre Enclave, mix guam potion (unf), jangerberries and ground bat bones, ask the wizard to enchant the potion, use it against six Ogre shamans, mine the Rock of Dalgroth, position four crystals and pull the final lever.",
+    "gates": [
+      {"stage": "quest.watchtower.start", "skill": "skill.magic", "level": 15, "boostable": false},
+      {"stage": "travel.watchtower.tower_trellis.out", "skill": "skill.agility", "level": 18, "boostable": true},
+      {"stage": "quest.watchtower.steal_rock_cake", "skill": "skill.thieving", "level": 15, "boostable": false},
+      {"stage": "quest.watchtower.cross_bridge", "skill": "skill.agility", "level": 25, "boostable": true},
+      {"stage": "quest.watchtower.brew_potion", "skill": "skill.herblore", "level": 14, "boostable": true},
+      {"stage": "quest.watchtower.mine_dalgroth", "skill": "skill.mining", "level": 40, "boostable": true},
+      {"stage": "travel.watchtower.teleport.yanille", "skill": "skill.magic", "level": 58, "boostable": true}
+    ],
+    "consumable_supplies": "Two ropes, dragon bones, a gold bar, a death rune, 20 bridge coins, guam potion (unf), jangerberries, bat bones and two separately collected cave nightshades. A pickaxe, light source and pestle and mortar are held tools. A trade-enabled GE bundle has an estimated 18,000 GP total; exact market cost must be refreshed.",
+    "rewards": "The final lever gives 4 quest points, 15,250 Magic XP and 5,000 coins plus a Watchtower Teleport scroll. Reading it is a one-time post-quest action. A level-58 standard-spellbook cast uses two Law and two Earth runes, gives 68 Magic XP and lands at the Watchtower."
+  },
+  "pending_reviews": [
+    "The Quest Helper helper and archived candidate waypoints identify ordered stages. Exact public walk geometry, roof/trellis positions, rune-payment dialogue and dungeon exit coordinates have not been independently replayed against live build 242.",
+    "The four cave interiors use representative absolute coordinates; some entrances are collapsed to a guarded regional connector and can cause unrealistic shortcut costs. In-game travel timings must be measured.",
+    "Gorad's tooth and the six shaman potion uses are forecast successful outcomes. Actual combat XP, ammo, food, protection prayers and any shaman danger or potion losses are not modeled.",
+    "Two cave nightshades are modeled as one collected pair; the real respawn or world-hop delay and Ardougne Medium diary overlap require an independently observed timeline.",
+    "The Skavid responses, 4-crystal exact pillar colour/orientation and one-time potion ingredient order need live-client confirmation.",
+    "The optional GE bundle is a conservative fixed estimate, not a quote for the pinned client timestamp. Distinct player sourcing for dragon bones and light source remains to be reviewed.",
+    "The completion and scroll reading effects are separated, but item retention, Watchtower Teleport destination choice and every viable cast-origin location are not fully surveyed."
+  ],
+  "focused_replay": "optimizer/tests/test_watchtower.py",
+  "independent_review": "pending"
+}

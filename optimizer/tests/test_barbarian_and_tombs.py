@@ -32,7 +32,8 @@ class BarbarianAndTombsTests(unittest.TestCase):
         start = read_json(ROOT / "data/profiles/main-baseline.json")["initial_state"]
         start["location_id"] = "location.bt.otto"
         start["completed_action_ids"] = ["quest.druidic_ritual.complete"]
-        start["flags"] = {"flag.barbarian.tamayu_combat_claimed": tamayu}
+        if tamayu:
+            start["completed_action_ids"].append("quest.tai_bwo_wannai_trio.claim_combat")
         start["inventory"] = {"item.shortbow": 1, "item.knife": 1, "item.feather": 1,
                               "item.oak_logs": 1, "item.logs": 3, "item.bronze_bar": 2,
                               "item.bronze_axe": 1, "item.hammer": 1, "item.tinderbox": 1,
