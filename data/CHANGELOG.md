@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.58.0 | Added Dragon Slayer II and Ellen's separate combat training. Connected instance travel, reused shared prerequisite and item records, and added priced GE supplies for the rowboat, locator orb and forge. |
 | 0.57.0 | Added Desert Treasure II and the separate Ancient Vault lamp claim. The draft joins four medallion routes at the hideout encounter and uses existing prerequisite quests, shared soul runes and a priced GE supply bundle. |
 | 0.56.0 | Added 24 journal activities, including the Sophanem and Sailing quests, Desert Treasure I, Legends' Quest, the last Recipe for Disaster stages and The Fractured Archive. Connected prerequisite quests, added missing supply sources and updated the museum reports. The Fractured Archive awaits While Guthix Sleeps. |
 | 0.55.0 | Integrated PR #17 into the build-242 catalog, connected cross-quest prerequisites and reconciled the Museum rewards, trackers and route examples. |

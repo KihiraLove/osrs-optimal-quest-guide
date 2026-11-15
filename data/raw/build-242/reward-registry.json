@@ -824,13 +824,13 @@
     {
       "id": "review.quest.dragon_slayer_ii.combat_training",
       "activity_id": "quest.dragon_slayer_ii",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "post_quest_claim",
       "source_ids": [
         "source.quest_helper.quest_observations",
         "source.jagex.garden_of_death_rewards"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "claim.dragon_slayer_ii.ellen_training",
       "repeat_limit": 1,
       "package": {
         "kind": "choice",
@@ -840,13 +840,34 @@
           "kind": "fixed",
           "xp_tenths": 250000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
-        "reported_eligibility": "combat"
+        "eligible_skills": [
+          "skill.attack",
+          "skill.strength",
+          "skill.defence",
+          "skill.hitpoints",
+          "skill.ranged",
+          "skill.magic"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": false,
+        "reported_eligibility": "combat_except_prayer"
       },
-      "notes": "The helper displays a placeholder tome. Verify which Myths' Guild NPCs grant each part and whether any choices are tied to specific combat styles."
+      "notes": "Ellen in the Myths Guild gives four 25,000-XP direct NPC training selections among six combat skills (not Prayer). The captured helper renders a placeholder tome; no held physical lamp is created. Verify same-skill repeat and precise claim tile.",
+      "requires": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "quest.dragon_slayer_ii.complete"
+          }
+        ]
+      },
+      "claim_location": {
+        "name": "Ellen on the Myths' Guild ground floor",
+        "tile": null,
+        "anchor": "location.ds2.ellen_myths_guild"
+      }
     },
     {
       "id": "review.quest.dream_mentor.xp_package",
