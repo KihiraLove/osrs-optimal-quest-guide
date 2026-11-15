@@ -328,7 +328,7 @@ class QuestCollectionTests(unittest.TestCase):
         quest = "quest.demon_slayer"
         profile = read_json(ROOT / "examples/build-242/demon-slayer-profile.json")
         validator = CatalogValidator(self.catalog, self.contracts)
-        solution, _ = solve_bounded(validator, profile, beam_width=96)
+        solution, _ = solve_bounded(validator, profile, beam_width=192)
         report = verify_solution(solution, profile, validator)
         self.assertEqual(report["manual_training_xp_tenths_by_skill"], {})
         inventory = report["final_state"]["inventory"]

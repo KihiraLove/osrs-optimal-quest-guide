@@ -33,7 +33,7 @@ class QuestMonthFixedXpFollowupTests(unittest.TestCase):
         cls.tables = CatalogValidator(load_catalog(ROOT / "data/manifest.json", contracts), contracts).tables
         cls.profile = read_json(ROOT / "data/profiles/main-baseline.json")
 
-    def seeded(self, action, *, predecessor=True, flags=True):
+    def seeded(self, action, *, predecessor=True, missing_flag=None):
         initial = {**self.profile["initial_state"]}
         initial["xp_tenths"] = {k: 10_000_000 for k in initial["xp_tenths"]}
         requirements = flatten(action["requirements"])
@@ -42,7 +42,9 @@ class QuestMonthFixedXpFollowupTests(unittest.TestCase):
         initial["flags"] = {**initial["flags"]}
         for req in requirements:
             if req["kind"] == "flag":
-                initial["flags"][req["token_id"]] = req["value"] if flags else not req["value"]
+                initial["flags"][req["token_id"]] = (
+                    not req["value"] if req["token_id"] == missing_flag else req["value"]
+                )
         initial["counters"] = {**initial["counters"], "token.quest_points": 100}
         initial["location_id"] = action["start_location_id"]
         return RouteState(self.tables, self.profile["policies"], initial)
@@ -74,8 +76,10 @@ class QuestMonthFixedXpFollowupTests(unittest.TestCase):
                 start = state.snapshot()
                 done = self.apply(state, action)
                 finish = done.snapshot()
-                for skill, amount in amounts.items():
-                    self.assertEqual(finish["xp_tenths"][skill] - start["xp_tenths"][skill], amount)
+                self.assertEqual(finish["xp_tenths"], {
+                    skill: xp + amounts.get(skill, 0)
+                    for skill, xp in start["xp_tenths"].items()
+                })
                 self.assertEqual(finish["counters"]["token.quest_points"],
                                  start["counters"]["token.quest_points"] +
                                  next(e["delta"] for e in action["effects"]
@@ -95,8 +99,9 @@ class QuestMonthFixedXpFollowupTests(unittest.TestCase):
         requirement_flags = [r["token_id"] for r in flatten(action["requirements"])
                              if r["kind"] == "flag"]
         self.assertEqual(len(requirement_flags), 3)
-        with self.assertRaises(DataError):
-            self.apply(self.seeded(action, flags=False), action)
+        for flag in requirement_flags:
+            with self.subTest(flag=flag), self.assertRaises(DataError):
+                self.apply(self.seeded(action, missing_flag=flag), action)
 
     def test_throne_exact_effects_review_matches_new_xp(self):
         action = self.tables["actions"]["quest.throne_of_miscellania.complete"]
@@ -106,7 +111,7 @@ class QuestMonthFixedXpFollowupTests(unittest.TestCase):
         self.assertEqual(completion["expected_effects"][action["id"]], action["effects"])
         self.assertIn("source.jagex.quest_month_2026_11_03", completion["source_ids"])
 
-    def test_four_reward_review_entries_collected_without_new_claims(self):
+    def test_reward_reviews_link_their_completion_producers(self):
         reviews = read_json(ROOT / "data/coverage/build-242/reward-reviews.json")
         by_id = {r["id"]: r for r in reviews}
         for quest in EXPECTED:

@@ -1,0 +1,1074 @@
+[
+  {
+    "id": "quest.pandemonium.start",
+    "name": "Agree to salvage with Will and Anne",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.will_anne",
+    "end_location_id": "location.pandemonium.will_anne",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "No quest or skill prerequisites; a member can begin with no Sailing level and no outside tools."
+    }
+  },
+  {
+    "id": "quest.pandemonium.board_ship",
+    "name": "Board Will and Anne's sailing ship",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.will_ship",
+    "end_location_id": "location.pandemonium.will_ship",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.explain_salvage",
+    "name": "Listen to Will and Anne's salvaging instructions",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.will_ship",
+    "end_location_id": "location.pandemonium.will_ship",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.board_ship"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.helm_south",
+    "name": "Steer through the Bay of Sarim and trim the sails",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.bay_of_sarim",
+    "end_location_id": "location.pandemonium.bay_of_sarim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.explain_salvage"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 105,
+      "expected_seconds": 210,
+      "max_seconds": 630
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Scripted Sailing tutorial on Will and Anne's ship; sailing steering/trim XP is not estimated."
+    }
+  },
+  {
+    "id": "quest.pandemonium.salvage_wreck",
+    "name": "Stop the sails and deploy the salvaging hook",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.salvage_wreck",
+    "end_location_id": "location.pandemonium.salvage_wreck",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.helm_south"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pandemonium.old_cup",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mysterious medallion is kept by Will; player retains an old cup from the salvaging hook and is betrayed."
+    }
+  },
+  {
+    "id": "quest.pandemonium.wash_ashore",
+    "name": "Recover from the shipwreck on The Pandemonium",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.washup_beach",
+    "end_location_id": "location.pandemonium.washup_beach",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.salvage_wreck"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pandemonium.old_cup",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Scripted forced swim after Anne's betrayal; the one-way shipwreck transition must be used."
+    }
+  },
+  {
+    "id": "quest.pandemonium.talk_steve",
+    "name": "Ask Squawking Steve Beanie about Will and Anne",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.steve",
+    "end_location_id": "location.prying.steve",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.wash_ashore"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.ask_ribs",
+    "name": "Ask Ribs about the stolen map",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.ribs",
+    "end_location_id": "location.pandemonium.ribs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.talk_steve"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.question_steve",
+    "name": "Return to Steve for the pirate story",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.steve",
+    "end_location_id": "location.prying.steve",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.ask_ribs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.exchange_cup",
+    "name": "Trade the old cup to Junior Jim for a raft",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.junior_jim",
+    "end_location_id": "location.pandemonium.junior_jim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.question_steve"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pandemonium.old_cup",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pandemonium.old_cup",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.pandemonium.raft",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Junior Jim grants permanent raft ownership, not a carriable raft inventory item."
+    }
+  },
+  {
+    "id": "quest.pandemonium.enter_shipyard",
+    "name": "Take the raft into Junior Jim's shipyard",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.shipyard_crates",
+    "end_location_id": "location.pandemonium.shipyard_crates",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.exchange_cup"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.take_free_tools",
+    "name": "Collect the hammer and saw from the shipyard crates",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.shipyard_crates",
+    "end_location_id": "location.pandemonium.shipyard_crates",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.enter_shipyard"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.saw",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 38,
+      "max_seconds": 114
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Hammer and saw are free quest-provided tools; they are retained after construction."
+    }
+  },
+  {
+    "id": "quest.pandemonium.board_raft",
+    "name": "Board the raft in the shipyard",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.raft_helm",
+    "end_location_id": "location.pandemonium.raft_helm",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.take_free_tools"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 38,
+      "max_seconds": 114
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.build_hold",
+    "name": "Build a basic cargo hold in the raft's facilities hotspot",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.raft_helm",
+    "end_location_id": "location.pandemonium.raft_helm",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.board_raft"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.saw",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.pandemonium.cargo_hold",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 95,
+      "max_seconds": 285
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "No purchased planks are required for the tutorial cargo hold; the hammer and saw remain held."
+    }
+  },
+  {
+    "id": "quest.pandemonium.return_to_jim",
+    "name": "Disembark and return to Junior Jim",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.junior_jim",
+    "end_location_id": "location.pandemonium.junior_jim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.build_hold"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.get_log",
+    "name": "Receive the Captain's log from Junior Jim",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.junior_jim",
+    "end_location_id": "location.pandemonium.junior_jim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.return_to_jim"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.prying.captains_log",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.pandemonium.captains_log",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Captain's log is a persistent unlock/tool; already reused as item.prying.captains_log by Prying Times."
+    }
+  },
+  {
+    "id": "quest.pandemonium.accept_task",
+    "name": "Accept Junior Jim's first port cargo task",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.junior_jim",
+    "end_location_id": "location.pandemonium.junior_jim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.get_log"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.prying.captains_log",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.pandemonium.port_task",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 48,
+      "max_seconds": 144
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.sail_to_port",
+    "name": "Helm the raft north to Port Sarim",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.charter_dock",
+    "end_location_id": "location.port_sarim.charter_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.accept_task"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 115,
+      "expected_seconds": 230,
+      "max_seconds": 690
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest's first independently owned-raft voyage; ship edge checks raft ownership and Captain's log."
+    }
+  },
+  {
+    "id": "quest.pandemonium.take_cargo",
+    "name": "Take the cargo from the Port Sarim ledger",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.port_sarim_ledger",
+    "end_location_id": "location.prying.port_sarim_ledger",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.sail_to_port"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pandemonium.port_task_cargo",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Port Task cargo requires free hands; this draft represents the carrying/ship hold as one cargo token."
+    }
+  },
+  {
+    "id": "quest.pandemonium.stow_cargo",
+    "name": "Store the cargo in the basic raft cargo hold",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.port_sarim.charter_dock",
+    "end_location_id": "location.port_sarim.charter_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.take_cargo"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pandemonium.cargo_hold",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pandemonium.port_task_cargo",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 47,
+      "max_seconds": 141
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Items move into a ship-only hold in-game. Inventory token persists through ship travel in the draft."
+    }
+  },
+  {
+    "id": "quest.pandemonium.sail_back",
+    "name": "Sail south and moor at The Pandemonium",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.pandemonium_dock",
+    "end_location_id": "location.prying.pandemonium_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.stow_cargo"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 112,
+      "expected_seconds": 225,
+      "max_seconds": 675
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.retrieve_cargo",
+    "name": "Withdraw the shipment from the raft's cargo hold",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.pandemonium_dock",
+    "end_location_id": "location.prying.pandemonium_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.sail_back"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pandemonium.port_task_cargo",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 44,
+      "max_seconds": 132
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.deliver_cargo",
+    "name": "Deliver cargo to the Pandemonium port-task ledger",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.pandemonium_ledger",
+    "end_location_id": "location.pandemonium.pandemonium_ledger",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.retrieve_cargo"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pandemonium.port_task_cargo",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.pandemonium.port_task_cargo",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.sailing",
+        "xp_tenths": 1000
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "First port delivery grants the additional fixed 100 Sailing XP before the quest's separate 300 XP reward."
+    }
+  },
+  {
+    "id": "quest.pandemonium.report_to_jim",
+    "name": "Report the completed cargo delivery to Junior Jim",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.pandemonium.junior_jim",
+    "end_location_id": "location.pandemonium.junior_jim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.deliver_cargo"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 62,
+      "max_seconds": 186
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.return_to_steve",
+    "name": "Find Squawking Steve Beanie at the pub",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.steve",
+    "end_location_id": "location.prying.steve",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.report_to_jim"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.meet_grog",
+    "name": "Hear Steve's introduction to Old Grog",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.steve",
+    "end_location_id": "location.prying.steve",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.return_to_steve"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 34,
+      "expected_seconds": 68,
+      "max_seconds": 204
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step; dialogue and duration are provisional."
+    }
+  },
+  {
+    "id": "quest.pandemonium.complete",
+    "name": "Finish Pandemonium and unlock Sailing",
+    "activity_id": "quest.pandemonium",
+    "kind": "quest_stage",
+    "start_location_id": "location.prying.steve",
+    "end_location_id": "location.prying.steve",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.pandemonium.meet_grog"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.pandemonium.wood_sawmill_coupon",
+        "quantity": 25
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pandemonium.repair_kit",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pandemonium.spyglass",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.pandemonium.sailing",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.pandemonium.island_access",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.pandemonium.port_tasks",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.pandemonium.complete",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.sailing",
+        "xp_tenths": 3000
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.pandemonium_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Quest completion: 1 QP, 300 Sailing XP, 25 wood-plank coupons, two repair kits and spyglass; preceding delivery gave 100 Sailing XP."
+    }
+  }
+]
