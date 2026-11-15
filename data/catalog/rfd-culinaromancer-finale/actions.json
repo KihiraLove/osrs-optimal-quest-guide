@@ -1,0 +1,425 @@
+[
+  {
+    "id": "supply.rfd_finale.buy_restores",
+    "name": "Buy two super restore potions for the RFD boss gauntlet",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 15000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.super_restore_4",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 41,
+      "expected_seconds": 75,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated 15,000 GP budget for two super restore(4) potions; actual GE price and fight food requirements are variable."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.prepare",
+    "name": "Prepare to enter the Culinaromancer's six boss fights",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.finale_portal",
+    "end_location_id": "location.rfd.finale_portal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.another_cooks_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_mountain_dwarf.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_goblin_generals.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_pirate_pete.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_the_lumbridge_guide.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_evil_dave.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_skrach_uglogwee.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_king_awowogei.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.horror_from_the_deep.complete"
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 175
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.rfd.sir_amik_varze_catalog_complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.desert_treasure_i_catalog_complete",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 40,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "RFD's nine banquet subquests, Desert Treasure I, Horror from the Deep and 175 QP are required. Missing Sir Amik and Desert Treasure I catalog producers are represented by explicit seeded prerequisite flags."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.defeat_agrith",
+    "name": "Defeat Agrith-Na-Na",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.finale_arena",
+    "end_location_id": "location.rfd.finale_portal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.defeating_the_culinaromancer.prepare"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.finale.agrith_defeated",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 102,
+      "expected_seconds": 185,
+      "max_seconds": 444
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "First boss (level 146), strong melee and ranged hits; use suitable combat gear, food and safespot tactics where possible."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat agrith and confirm the game returns to Lumbridge Castle, preserving progress to the next opponent.",
+      "if_unmet": "Retreat through the portal or teleport, restock and recover. Reconcile combat XP, damage and consumables before retrying this encounter."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.defeat_flambeed",
+    "name": "Defeat Flambeed wearing ice gloves",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.finale_arena",
+    "end_location_id": "location.rfd.finale_portal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.defeating_the_culinaromancer.defeat_agrith"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ice_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.finale.flambeed_defeated",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 118,
+      "expected_seconds": 215,
+      "max_seconds": 516
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Second boss (level 149) can remove equipped weapons without ice gloves; gloves are held, not consumed."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat flambeed and confirm the game returns to Lumbridge Castle, preserving progress to the next opponent.",
+      "if_unmet": "Retreat through the portal or teleport, restock and recover. Reconcile combat XP, damage and consumables before retrying this encounter."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.defeat_karamel",
+    "name": "Defeat Karamel and recover drained stats",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.finale_arena",
+    "end_location_id": "location.rfd.finale_portal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.defeating_the_culinaromancer.defeat_flambeed"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.super_restore_4",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.super_restore_4",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.finale.karamel_defeated",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 118,
+      "expected_seconds": 215,
+      "max_seconds": 516
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Third boss (level 136) drains stats and freezes the player; spend one four-dose super restore as a conservative consumable allowance."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat karamel and confirm the game returns to Lumbridge Castle, preserving progress to the next opponent.",
+      "if_unmet": "Retreat through the portal or teleport, restock and recover. Reconcile combat XP, damage and consumables before retrying this encounter."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.defeat_dessourt",
+    "name": "Defeat Dessourt",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.finale_arena",
+    "end_location_id": "location.rfd.finale_portal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.defeating_the_culinaromancer.defeat_karamel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.finale.dessourt_defeated",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 105,
+      "expected_seconds": 190,
+      "max_seconds": 456
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fourth boss (level 121); protect against high damage and unpredictable specials."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat dessourt and confirm the game returns to Lumbridge Castle, preserving progress to the next opponent.",
+      "if_unmet": "Retreat through the portal or teleport, restock and recover. Reconcile combat XP, damage and consumables before retrying this encounter."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.defeat_gelatinnoth_mother",
+    "name": "Defeat the Gelatinnoth Mother",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.finale_arena",
+    "end_location_id": "location.rfd.finale_portal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.defeating_the_culinaromancer.defeat_dessourt"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.finale.gelatinnoth_mother_defeated",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 140,
+      "expected_seconds": 255,
+      "max_seconds": 612
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fifth boss (level 130) changes colour and weaknesses; carry multi-style gear and enough food."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat gelatinnoth mother and confirm the game returns to Lumbridge Castle, preserving progress to the next opponent.",
+      "if_unmet": "Retreat through the portal or teleport, restock and recover. Reconcile combat XP, damage and consumables before retrying this encounter."
+    }
+  },
+  {
+    "id": "rfd.defeating_the_culinaromancer.complete",
+    "name": "Defeat the Culinaromancer and finish the subquest",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd.finale_arena",
+    "end_location_id": "location.rfd.finale_portal",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.defeating_the_culinaromancer.defeat_gelatinnoth_mother"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.finale.culinaromancer_defeated",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.finale_complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.rfd_barrows_gloves_purchase",
+        "value": true
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.rfd.culinaromancer_antique_lamp",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 105,
+      "expected_seconds": 190,
+      "max_seconds": 456
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sixth boss (level 75) ends the instance, awards the final quest point and gives the 20,000-XP antique lamp."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat culinaromancer and confirm the game returns to Lumbridge Castle, preserving progress to the next opponent.",
+      "if_unmet": "Retreat through the portal or teleport, restock and recover. Reconcile combat XP, damage and consumables before retrying this encounter."
+    }
+  }
+]

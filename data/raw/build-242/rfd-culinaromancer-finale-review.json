@@ -1,0 +1,66 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "collected",
+  "activity_ids": [
+    "rfd.defeating_the_culinaromancer"
+  ],
+  "reward_review_ids": [
+    "review.rfd.defeating_the_culinaromancer.completion_rewards",
+    "review.rfd.defeating_the_culinaromancer.xp_package"
+  ],
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.runelite.quests",
+    "source.project.travel_timing",
+    "source.project.early_quest_timing"
+  ],
+  "helper_file": "src/main/java/com/questhelper/helpers/quests/recipefordisaster/RFDFinal.java",
+  "observations": {
+    "start_tile": [
+      3209,
+      3218,
+      0
+    ],
+    "arena_tile": [
+      1900,
+      5355,
+      2
+    ],
+    "arena_instance_id": "rfd.culinaromancer_arena",
+    "prerequisites": "Nine prior banquet subquests, Desert Treasure I, Horror from the Deep, 175 quest points. Sir Amik Varze's rescue and Desert Treasure I have no producing catalog actions in main yet; temporary explicit flags leave this branch unreachable without seeded progress until integration.",
+    "encounters": [
+      "Agrith-Na-Na",
+      "Flambeed",
+      "Karamel",
+      "Dessourt",
+      "Gelatinnoth Mother",
+      "Culinaromancer"
+    ],
+    "route": "After the banquet rescues, enter the portal for each of six separate fights. Each successful fight returns the player to Lumbridge Castle and opens the next encounter. The final win sets the RFD finale flag. The existing parent action later records the whole Recipe for Disaster without another reward.",
+    "equipment_and_supplies": "Ice gloves acquired through Heroes' Quest, two tradeable super restore(4) potions budgeted at an estimated 15,000 GP. Suitable multi-style combat gear and food are unmodeled because the pinned helper lists them as an open-ended requirement.",
+    "completion_rewards": "One RFD quest point, access to Barrows-glove purchase from the Culinaromancer's Chest, one bankable antique lamp giving 20,000 XP in a qualifying skill. The minimum base level is provisionally modeled as 50; exact interpretation of 'above 50' remains for live confirmation."
+  },
+  "upstream_blockers": [
+    {
+      "activity_id": "rfd.freeing_sir_amik_varze",
+      "catalog_status": "expected",
+      "provisional_gate_token_id": "flag.rfd.sir_amik_varze_catalog_complete",
+      "required_next_action": "When the Sir Amik subquest is cataloged, replace this temporary flag with action_completed on rfd.freeing_sir_amik_varze.complete."
+    },
+    {
+      "activity_id": "quest.desert_treasure_i",
+      "catalog_status": "expected",
+      "provisional_gate_token_id": "flag.quest.desert_treasure_i_catalog_complete",
+      "required_next_action": "When Desert Treasure I is cataloged, replace this temporary flag with action_completed on quest.desert_treasure_i.complete."
+    }
+  ],
+  "pending_reviews": [
+    "Six combat stages forecast success and do not charge incidental combat XP, damage, variable food or ammunition. Confirm exact boss weaknesses, damage mitigation and recovery in a live account.",
+    "The boss arena exit and per-fight reset are modeled as an automatic return to the external portal; exit timing, instance boundary, inventory restrictions and emergency retreat paths need in-client verification.",
+    "The fixed 15,000 GP budget for two restore potions is not a GE snapshot. The Karamel encounter debits one whole four-dose potion conservatively; real doses depend on attacks.",
+    "The antique lamp is modeled retainable, as player reports say it can be banked; verify the exact item handover tile, full inventory behavior and minimum base level boundary at 50 versus 51.",
+    "The Sir Amik Varze rescue and Desert Treasure I currently lack producing catalog actions, so focused replay seeds their complete flags; integrate those dependencies when their pending catalog batches land."
+  ],
+  "focused_replay": "optimizer/tests/test_rfd_culinaromancer_finale.py",
+  "independent_review": "pending"
+}
