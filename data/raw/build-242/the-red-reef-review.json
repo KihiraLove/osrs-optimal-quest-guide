@@ -1,0 +1,95 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "activity_id": "quest.the_red_reef",
+  "status": "draft_collected",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.reference.red_reef_quick_guide"
+  ],
+  "helper_file": "src/main/java/com/questhelper/helpers/quests/theredreef/TheRedReef.java",
+  "prerequisites": {
+    "quest_ids": [
+      "quest.troubled_tortugans"
+    ],
+    "base_unboostable": {
+      "skill.sailing": 52,
+      "skill.smithing": 48
+    },
+    "boat_access": [
+      "unlock.pandemonium.raft",
+      "unlock.pandemonium.captains_log"
+    ]
+  },
+  "stage_flow": [
+    "Raley–Finn–Katt–Floopa",
+    "Red Rock headquarters and four displays",
+    "Paxton",
+    "two pirate ships",
+    "Last Light six pirates and Black Eye Bethel",
+    "Paxton report",
+    "Zenith Spencer and borrowed dive gear",
+    "seabed giant lobster (kill or wait)",
+    "northern dredger",
+    "Spencer east and resurfacing",
+    "Floopa completion"
+  ],
+  "optional_milestone": {
+    "id": "quest.the_red_reef.inspect_sailors_marker",
+    "unlocks": "Red Rock Sailor's amulet destination",
+    "requires": "Red Rock docking first visit; not required for quest completion"
+  },
+  "combat": [
+    {
+      "stage": "ship encounter",
+      "targets": [
+        "Bark of the Bight",
+        "Four of a Kind"
+      ],
+      "method": "cannons or Magic/Ranged crew elimination",
+      "outcome": "planned_success"
+    },
+    {
+      "stage": "Last Light",
+      "targets": [
+        "six level-52 pirates",
+        "Black Eye Bethel level 191"
+      ],
+      "outcome": "planned_success"
+    },
+    {
+      "stage": "seabed",
+      "target": "giant lobster level 112",
+      "alternatives": [
+        "defeat",
+        "wait for despawn"
+      ],
+      "outcome": "planned_success"
+    }
+  ],
+  "fixed_rewards": {
+    "quest_points": 2,
+    "skill.sailing_xp_tenths": 150000,
+    "skill.smithing_xp_tenths": 50000,
+    "quest_item": "item.redreef.bosun_schematic",
+    "permanent_unlocks": [
+      "unlock.redreef.sacred_grove",
+      "unlock.redreef.bosuns_bench_schematic"
+    ]
+  },
+  "remaining_review_gaps": [
+    "Exact Red Rock/Last Light/Sacred Grove object positions, sea lane travel times and player-owned boat boarding coordinates remain estimates; helper supplies main candidate waypoints.",
+    "Ship fight requires real cannons and their ammunition or an appropriate Magic/Ranged loadout, but model uses planned_success due to missing calibrated boat loadout inventory/cannon facilities.",
+    "Boat health repair kits, ammo, NPC crew assistance, food, prayer and boss incidental XP cannot be deterministically debited; separate combat simulation is needed.",
+    "Borrowed deep sea helmet/apparatus are provisionally returned after ascent; confirm exact equipment retention and ownership rules.",
+    "The diving equipment flag models equipped gear, but the transition engine does not validate equipment slots or alternative medallion of the deep.",
+    "On death or teleport during Last Light/Zenith stages the ship may become lost and require recovery; recovery path is not enumerated.",
+    "The Zenith sometimes does not spawn on a world; route notes the possible world-hop but does not estimate delays.",
+    "Confirm whether the quest schematic is physically retained or registered as a lost-schematic unlock; current draft records both to support future producer/claim.",
+    "Red Rock port and optional Sailor's Marker timing reflect the quick guide; future charter/amulet travel edges are outside this batch."
+  ],
+  "integrator_reserved": [
+    "dataset_version",
+    "tracker_regeneration",
+    "saved_examples"
+  ]
+}

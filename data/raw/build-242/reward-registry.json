@@ -163,7 +163,7 @@
     {
       "id": "claim.demon_slayer.aris",
       "activity_id": "quest.demon_slayer",
-      "status": "expected",
+      "status": "collected",
       "delivery": "post_quest_claim",
       "source_ids": [
         "source.jagex.quest_month_2026_11_03",
@@ -186,7 +186,7 @@
         "retainable": null,
         "reported_eligibility": "combat"
       },
-      "notes": "The November update gives these at a separate claim. Verify the exact combat skill list, minimum base level and retention.",
+      "notes": "The November update gives two combat lamps from Aris at a separate post-quest claim. Draft catalog assumes the seven conventional combat skills including Prayer, level 1 minimum and retainable lamps; the publisher did not specify those details, so independently verify them in game.",
       "requires": {
         "kind": "all",
         "requirements": [
@@ -214,7 +214,7 @@
     {
       "id": "claim.desert_treasure_ii.ancient_vault",
       "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
-      "status": "expected",
+      "status": "collected",
       "delivery": "post_quest_claim",
       "source_ids": [
         "source.jagex.desert_treasure_ii_release",
@@ -231,13 +231,13 @@
           "kind": "fixed",
           "xp_tenths": 1000000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
+        "eligible_skills": ["skill.attack", "skill.strength", "skill.defence", "skill.hitpoints", "skill.ranged", "skill.magic", "skill.prayer"],
+        "minimum_level": 60,
+        "distinct_skills": false,
         "retainable": true,
         "reported_eligibility": "combat"
       },
-      "notes": "Quest Helper lists physical lamps. The publisher locates the claim after quest completion in the Ancient Vault. Verify the tile and exact use gates.",
+      "notes": "Three 100,000-XP combat lamps for skills at base level 60 or higher, including Prayer. The first award and subsequent reclamation at the Ancient Vault need exact NPC/dialogue verification.",
       "requires": {
         "kind": "all",
         "requirements": [
@@ -252,7 +252,7 @@
         "tile": null,
         "anchor": "Desert Treasure II release coldfix"
       },
-      "claim_duration_seconds": null,
+      "claim_duration_seconds": {"min_seconds": 27, "expected_seconds": 55, "max_seconds": 165},
       "trackers": [
         {
           "symbol": "DT2_REWARD_LAMP",
@@ -422,7 +422,7 @@
     {
       "id": "claim.while_guthix_sleeps.kuradal",
       "activity_id": "quest.while_guthix_sleeps",
-      "status": "expected",
+      "status": "collected",
       "delivery": "post_quest_claim",
       "source_ids": [
         "source.quest_helper.quest_observations",
@@ -434,13 +434,18 @@
         "kind": "tome",
         "quantity": 1,
         "selection_count": 1,
-        "amount": null,
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
+        "amount": {
+          "kind": "per_skill_level",
+          "xp_tenths_per_level": 150
+        },
+        "eligible_skills": [
+          "skill.slayer"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
         "retainable": true
       },
-      "notes": "Keep obtaining Duradel's notes separate from reading them. Verify the awarded skill, amount rule and one-time claim conditions in game.",
+      "notes": "Keep the book after claiming it. Reading once grants 15 × current Slayer level XP and demonbane crafting knowledge.",
       "requires": {
         "kind": "all",
         "requirements": [
@@ -461,7 +466,9 @@
           "symbol": "WGS_FOUND_NOTES",
           "id": 10760
         }
-      ]
+      ],
+      "read_action_id": "claim.while_guthix_sleeps.read_duradels_notes",
+      "xp_reward_id": "reward.wgs.duradels_notes_slayer"
     },
     {
       "id": "review.activity.knight_waves_training_grounds.completion",
@@ -500,12 +507,13 @@
     {
       "id": "review.miniquest.curse_of_the_empty_lord.xp_package",
       "activity_id": "miniquest.curse_of_the_empty_lord",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "post_quest_claim",
       "source_ids": [
-        "source.quest_helper.quest_observations"
+        "source.quest_helper.quest_observations",
+        "source.field.varrock_museum_history"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "museum.history.empty_lord",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -515,14 +523,35 @@
           "kind": "fixed",
           "xp_tenths": 100000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 50,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 1,
         "reported_eligibility": "reported_over_level_50"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "Minas awards this 10k XP lamp with 10 Kudos after the ghostly robe tale; eligibility over level 50 modeled as 50 pending review.",
+      "requires": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "miniquest.curse_of_the_empty_lord.complete"
+          }
+        ]
+      },
+      "claim_location": {
+        "name": "Historian Minas at Varrock Museum",
+        "tile": [
+          3256,
+          3448,
+          1
+        ],
+        "anchor": "CurseOfTheEmptyLord.museumReward"
+      },
+      "other_effects": {
+        "kudos": 10
+      }
     },
     {
       "id": "review.miniquest.in_search_of_knowledge.xp_package",
@@ -568,7 +597,7 @@
           "skill.slayer": 50000
         }
       },
-      "notes": "Reading Tarn's diary after defeating both forms of Tarn completes the miniquest and grants a single fixed 5,000 Slayer XP award. The collected diary item is also retained; exact client interaction timing remains a gameplay review point."
+      "notes": "The final diary interaction after defeating both forms grants 5,000 Slayer XP and Tarn's diary. The draft groups reading and collecting; verify the precise trigger in game."
     },
     {
       "id": "review.quest.a_kingdom_divided.xp_package",
@@ -634,12 +663,12 @@
     {
       "id": "review.quest.a_tail_of_two_cats.xp_package",
       "activity_id": "quest.a_tail_of_two_cats",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.a_tail_of_two_cats.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -649,14 +678,14 @@
           "kind": "fixed",
           "xp_tenths": 25000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 30,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 2,
         "reported_eligibility": "reported_over_level_30"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "Two separately held antique lamps, each with one 2,500 XP pick at modeled minimum level 30 (level boundary and bankability pending review)."
     },
     {
       "id": "review.quest.a_taste_of_hope.xp_package",
@@ -688,7 +717,7 @@
     {
       "id": "review.quest.black_knights_fortress.quest_month_lamp",
       "activity_id": "quest.black_knights_fortress",
-      "status": "expected",
+      "status": "collected",
       "delivery": "completion",
       "source_ids": [
         "source.jagex.quest_month_2026_11_03"
@@ -714,12 +743,12 @@
     {
       "id": "review.quest.client_of_kourend.xp_package",
       "activity_id": "quest.client_of_kourend",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.client_of_kourend.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -729,41 +758,48 @@
           "kind": "fixed",
           "xp_tenths": 5000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 2,
         "reported_eligibility": "any_skill"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "Two separate retainable 500-XP antique lamp instances are awarded with the Client of Kourend completion. Catalogued as an all-skills choice with no higher minimum level; verify any additional reclaim rules separately."
     },
     {
       "id": "review.quest.contact.xp_package",
       "activity_id": "quest.contact",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.contact.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
-        "quantity": 2,
-        "selection_count": 1,
+        "quantity": 1,
+        "selection_count": 2,
         "amount": {
           "kind": "fixed",
           "xp_tenths": 70000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": [
+          "skill.attack",
+          "skill.strength",
+          "skill.defence",
+          "skill.hitpoints",
+          "skill.ranged",
+          "skill.magic"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 2,
         "reported_eligibility": "combat"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "One bankable two-pick combat lamp; minimum and repeat skill rules require independent verification."
     },
     {
       "id": "review.quest.darkness_of_hallowvale.xp_package",
@@ -795,13 +831,13 @@
     {
       "id": "review.quest.dragon_slayer_ii.combat_training",
       "activity_id": "quest.dragon_slayer_ii",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "post_quest_claim",
       "source_ids": [
         "source.quest_helper.quest_observations",
         "source.jagex.garden_of_death_rewards"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "claim.dragon_slayer_ii.ellen_training",
       "repeat_limit": 1,
       "package": {
         "kind": "choice",
@@ -811,23 +847,44 @@
           "kind": "fixed",
           "xp_tenths": 250000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
-        "reported_eligibility": "combat"
+        "eligible_skills": [
+          "skill.attack",
+          "skill.strength",
+          "skill.defence",
+          "skill.hitpoints",
+          "skill.ranged",
+          "skill.magic"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": false,
+        "reported_eligibility": "combat_except_prayer"
       },
-      "notes": "The helper displays a placeholder tome. Verify which Myths' Guild NPCs grant each part and whether any choices are tied to specific combat styles."
+      "notes": "Ellen in the Myths Guild gives four 25,000-XP direct NPC training selections among six combat skills (not Prayer). The captured helper renders a placeholder tome; no held physical lamp is created. Verify same-skill repeat and precise claim tile.",
+      "requires": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "quest.dragon_slayer_ii.complete"
+          }
+        ]
+      },
+      "claim_location": {
+        "name": "Ellen on the Myths' Guild ground floor",
+        "tile": null,
+        "anchor": "location.ds2.ellen_myths_guild"
+      }
     },
     {
       "id": "review.quest.dream_mentor.xp_package",
       "activity_id": "quest.dream_mentor",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.dream_mentor.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -837,14 +894,20 @@
           "kind": "fixed",
           "xp_tenths": 150000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": [
+          "skill.strength",
+          "skill.defence",
+          "skill.hitpoints",
+          "skill.ranged",
+          "skill.magic"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 1,
         "reported_eligibility": "combat_except_attack_and_prayer"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "Dream Mentor completion grants one 15,000-XP dreamy lamp for Strength, Defence, Hitpoints, Ranged or Magic. This row and review.quest.dream_mentor.dreamy_lamp refer to that same award. Retention and reclaim rules remain provisional."
     },
     {
       "id": "review.quest.ernest_the_chicken.quest_month_lamp",
@@ -929,18 +992,18 @@
     {
       "id": "review.quest.legends_quest.radimus_xp",
       "activity_id": "quest.legends_quest",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.jagex.garden_of_death_rewards",
         "source.quest_helper.legends_quest"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.legends_quest.complete",
       "repeat_limit": 1,
       "package": {
-        "kind": "choice",
-        "quantity": 1,
-        "selection_count": 4,
+        "kind": "quest_lamp",
+        "quantity": 4,
+        "selection_count": 1,
         "amount": {
           "kind": "fixed",
           "xp_tenths": 300000
@@ -959,11 +1022,11 @@
           "skill.agility",
           "skill.thieving"
         ],
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": true
       },
-      "notes": "Verify repeat-skill choices and the award timing for a fresh completion. The publisher separately identifies Radimus for retroactive claims.",
+      "notes": "Four held 30,000 XP lamps from completing the quest. Repeating the same selected skill is allowed; Radimus can replace lost lamps. Existing accounts can claim retroactive XP from Radimus.",
       "claim_location": {
         "name": "Radimus Erkle, Legends' Guild",
         "tile": [
@@ -1131,6 +1194,15 @@
         "quest.tai_bwo_wannai_trio.claim_combat"
       ],
       "repeat_limit": 1,
+      "requires": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "quest.tai_bwo_wannai_trio.complete"
+          }
+        ]
+      },
       "package": {
         "kind": "fixed_awards",
         "fixed_xp_tenths": {
@@ -1140,7 +1212,7 @@
           "skill.strength": 25000
         }
       },
-      "notes": "This is an aggregate registry row for THREE existing, independent once-only post-quest dialogues: Tiadeche grants 5,000 Fishing XP, Tinsay grants 5,000 Cooking XP, and Tamayu grants 2,500 Attack plus 2,500 Strength XP and the karambwan-poisoned rune spear. The plural producer_action_ids are authoritative; the legacy singular producer_action_id remains null to avoid falsely naming one producer for all awards. No extra XP action is added. Exact NPC tiles and dialogue steps await gameplay review."
+      "notes": "Three once-only dialogues grant this package. Tiadeche grants 5,000 Fishing XP, Tinsay grants 5,000 Cooking XP, and Tamayu grants 2,500 XP each in Attack and Strength plus the karambwan-poisoned rune spear. NPC tiles and dialogue steps remain provisional."
     },
     {
       "id": "review.quest.the_blood_moon_rises.xp_package",
@@ -1240,12 +1312,12 @@
     {
       "id": "review.quest.the_great_brain_robbery.xp_package",
       "activity_id": "quest.the_great_brain_robbery",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "quest.the_great_brain_robbery.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -1255,14 +1327,14 @@
           "kind": "fixed",
           "xp_tenths": 50000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 30,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 1,
         "reported_eligibility": "reported_above_level_30"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "One retainable blessed lamp grants 5,000 XP to a chosen skill at the current catalog minimum base level 30 on The Great Brain Robbery completion. Independently verify the inclusive level boundary described in some sources as 'above level 30'."
     },
     {
       "id": "review.quest.the_tourist_trap.xp_package",
@@ -1300,12 +1372,12 @@
     {
       "id": "review.rfd.defeating_the_culinaromancer.xp_package",
       "activity_id": "rfd.defeating_the_culinaromancer",
-      "status": "expected",
-      "delivery": "unresolved",
+      "status": "collected",
+      "delivery": "completion",
       "source_ids": [
         "source.quest_helper.quest_observations"
       ],
-      "producer_action_id": null,
+      "producer_action_id": "rfd.defeating_the_culinaromancer.complete",
       "repeat_limit": 1,
       "package": {
         "kind": "quest_lamp",
@@ -1315,14 +1387,14 @@
           "kind": "fixed",
           "xp_tenths": 200000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
-        "retainable": null,
+        "eligible_skills": "all",
+        "minimum_level": 51,
+        "distinct_skills": false,
+        "retainable": true,
         "reported_pick_or_item_count": 1,
         "reported_eligibility": "reported_over_level_50"
       },
-      "notes": "Confirm delivery, minimum level wording, independent items versus multi-pick packages, and whether the reward may be deferred."
+      "notes": "The finale produces one retainable 20,000 XP lamp for a skill strictly above level 50; quest point and Barrows gloves are separate effects."
     },
     {
       "id": "reward.x_marks_the_spot.ancient_lamp",
@@ -1583,6 +1655,38 @@
         "retainable": true
       },
       "notes": "One retainable Dream Mentor dreamy lamp; five eligible combat skills exclude Attack and Prayer. The helper lists an anomalous lamp item symbol; eligibility and reclaimability need in-game review."
+    },
+    {
+      "id": "review.miniquest.into_the_tombs.xp_package",
+      "activity_id": "miniquest.into_the_tombs",
+      "status": "collected",
+      "delivery": "completion",
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "producer_action_id": "miniquest.into_the_tombs.complete",
+      "repeat_limit": 1,
+      "package": {
+        "kind": "quest_lamp",
+        "quantity": 1,
+        "selection_count": 1,
+        "amount": {
+          "kind": "fixed",
+          "xp_tenths": 500000
+        },
+        "eligible_skills": [
+          "skill.attack",
+          "skill.strength",
+          "skill.defence",
+          "skill.hitpoints",
+          "skill.ranged",
+          "skill.magic"
+        ],
+        "minimum_level": 60,
+        "distinct_skills": false,
+        "retainable": true
+      },
+      "notes": "Awarded on Maisa's final post-raid dialogue; does not repeat for later Tombs of Amascut completions. Reclaim/bank status requires field check."
     }
   ],
   "exclusions": [

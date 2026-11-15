@@ -63,10 +63,11 @@ class TarnAndTrioRewardTests(unittest.TestCase):
         self.assertEqual(tuple(trio["producer_action_ids"]), CLAIMS)
         self.assertEqual(trio["package"]["fixed_xp_tenths"], EXPECTED)
         self.assertFalse(any(e["kind"] == "xp" for e in self.tables["actions"][TRIO]["effects"]))
+        requirements = trio["requires"]["requirements"]
+        self.assertIn({"kind": "action_completed", "action_id": TRIO}, requirements)
         for action_id in CLAIMS:
             self.assertEqual(self.tables["actions"][action_id]["repeat_limit"], 1)
-            self.assertIn({"kind": "action_completed", "action_id": TRIO},
-                          self.tables["actions"][action_id]["requirements"]["requirements"])
+            self.assertEqual(self.tables["actions"][action_id]["requirements"]["requirements"], requirements)
 
     def test_tarn_reading_diary_grants_one_reward(self):
         action = self.tables["actions"][TARN]
