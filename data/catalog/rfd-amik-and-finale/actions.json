@@ -208,8 +208,9 @@
       "kind": "all",
       "requirements": [
         {
-          "kind": "action_completed",
-          "action_id": "rfd.freeing_sir_amik_varze.inspect"
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
         },
         {
           "kind": "item",
@@ -344,29 +345,15 @@
   },
   {
     "id": "rfd.freeing_sir_amik_varze.pick_vanilla",
-    "name": "Cut a vanilla pod in Kharazi Jungle",
+    "name": "Pick a vanilla pod from the Kharazi plant",
     "activity_id": "rfd.freeing_sir_amik_varze",
     "kind": "quest_stage",
     "start_location_id": "location.rfd.kharazi_vanilla",
     "end_location_id": "location.rfd.kharazi_vanilla",
     "requirements": {
-      "kind": "all",
-      "requirements": [
-        {
-          "kind": "action_completed",
-          "action_id": "rfd.freeing_sir_amik_varze.ask_cook"
-        },
-        {
-          "kind": "flag",
-          "token_id": "flag.rfd.legends_started",
-          "value": true
-        },
-        {
-          "kind": "item",
-          "item_id": "item.rfd.machete",
-          "quantity": 1
-        }
-      ]
+      "kind": "flag",
+      "token_id": "flag.rfd.legends_started",
+      "value": true
     },
     "consumes": [],
     "effects": [
@@ -385,10 +372,11 @@
     "evidence": {
       "source_ids": [
         "source.quest_helper.quest_observations",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.rfd_freeing_sir_amik_varze"
       ],
       "status": "estimated",
-      "note": "Kharazi access needs at least started Legends' Quest, jungle equipment and quest navigation; path estimates to review."
+      "note": "Vanilla can be picked as soon as the jungle is accessible. The axe and machete are carried for entering the jungle."
     }
   },
   {
@@ -466,10 +454,11 @@
     "evidence": {
       "source_ids": [
         "source.quest_helper.quest_observations",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.rfd_freeing_sir_amik_varze"
       ],
       "status": "estimated",
-      "note": "Complete the entire Evil Chicken dialogue; Swan Song may temporarily hide the option."
+      "note": "Ask about strange beasts and then the Evil Chicken. Some Swan Song dialogue may need to be cleared first."
     }
   },
   {
@@ -505,14 +494,15 @@
     "evidence": {
       "source_ids": [
         "source.quest_helper.quest_observations",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.rfd_freeing_sir_amik_varze"
       ],
       "status": "estimated",
-      "note": "Combat outcome and exact supply/food budget need a live run; death returns protected items to grave outside."
+      "note": "The Evil Chicken uses Magic. Protect from Magic is optional when available. Loot the egg before leaving."
     },
     "planned_outcome": {
       "success_condition": "Defeat the Evil Chicken in the instance and pick up its egg before leaving.",
-      "if_unmet": "Restock, retry the encounter, and verify the relevant quest progress before proceeding."
+      "if_unmet": "Leave through the portal, restock in Zanaris and offer another raw chicken to re-enter. Recover the egg before leaving if the Evil Chicken is already defeated."
     }
   },
   {
@@ -548,14 +538,15 @@
     "evidence": {
       "source_ids": [
         "source.quest_helper.quest_observations",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.rfd_freeing_sir_amik_varze"
       ],
       "status": "estimated",
-      "note": "Anti-dragon shield/antifire and combat loadout are required in practice; precise setup, damage and supplies are an open review."
+      "note": "An anti-dragon shield is useful on arrival because black dragons can attack near the portal. Combat supplies depend on the setup."
     },
     "planned_outcome": {
-      "success_condition": "Kill the quest black dragon in the lair and pick up its dragon token.",
-      "if_unmet": "Restock, retry the encounter, and verify the relevant quest progress before proceeding."
+      "success_condition": "Defeat a black dragon and collect the token. Bring dragonfire protection for the approach if available. The eastern safespot allows ranged combat.",
+      "if_unmet": "Leave through the portal to restock in Zanaris, then offer another raw chicken and return for the token."
     }
   },
   {
@@ -762,10 +753,69 @@
     "evidence": {
       "source_ids": [
         "source.quest_helper.quest_observations",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.rfd_freeing_sir_amik_varze"
       ],
       "status": "estimated",
-      "note": "The dragon appears on rubbing the token; ice gloves must protect the held brûlée."
+      "note": "The safe route wears ice gloves when asking the fairy dragon to cook the brulee. The player can also rub the token in Lumbridge."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.flambe_in_lumbridge",
+    "name": "Rub the dragon token with ice gloves in Lumbridge",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.kill_black_dragon"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.add_cinnamon"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ice_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd.brulee_raw",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd.dragon_token",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd.brulee_supreme",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 30,
+      "max_seconds": 80
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.reference.rfd_freeing_sir_amik_varze"
+      ],
+      "status": "estimated",
+      "note": "The safe route wears ice gloves when asking the fairy dragon to cook the brulee. The player can also rub the token in Lumbridge."
     }
   },
   {
@@ -779,8 +829,17 @@
       "kind": "all",
       "requirements": [
         {
-          "kind": "action_completed",
-          "action_id": "rfd.freeing_sir_amik_varze.flambe"
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "rfd.freeing_sir_amik_varze.flambe"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "rfd.freeing_sir_amik_varze.flambe_in_lumbridge"
+            }
+          ]
         }
       ]
     },

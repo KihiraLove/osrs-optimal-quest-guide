@@ -68,13 +68,50 @@ class RfdAmikAndFinaleTests(unittest.TestCase):
         record = self.tables["actions"][prefix + "." + suffix]
         return self.apply(self.at(state, record["start_location_id"]), record)
 
-    def amik(self, state):
+    def prepare_amik_dessert(self, state):
         for suffix in ("inspect", "ask_cook", "mix_milk", "add_cornflour", "pick_vanilla",
                        "add_vanilla", "ask_wise_old_man", "kill_evil_chicken",
                        "kill_black_dragon", "add_egg", "make_cinnamon",
-                       "add_cinnamon", "flambe", "complete"):
+                       "add_cinnamon"):
             state = self.do(state, suffix)
         return state
+
+    def amik(self, state):
+        prepared = self.prepare_amik_dessert(state)
+        return self.do(self.do(prepared, "flambe"), "complete")
+
+    def test_vanilla_can_be_picked_before_inspecting_sir_amik(self):
+        entrance = self.tables["travel_edges"]["travel.walk.legends.location.brimhaven.sandy.to.jungle_west"]
+        snapshot = self.seeded().snapshot()
+        snapshot["inventory"].pop("item.rfd.machete")
+        snapshot["inventory"]["item.coins"] = 300
+        state = self.do(RouteState(self.tables, self.profile["policies"], snapshot), "buy_machete")
+        self.assertEqual(state.inventory["item.coins"], 0)
+        state = self.at(state, entrance["from_location_id"])
+        with self.assertRaises(DataError):
+            self.apply(state, entrance, travel=True)
+        snapshot = state.snapshot()
+        snapshot["inventory"]["item.legends.radimus_notes"] = 1
+        state = self.apply(RouteState(self.tables, self.profile["policies"], snapshot), entrance, travel=True)
+        for edge_id in (
+            "travel.walk.legends.jungle_west.to.cave_entrance",
+            "travel.walk.legends.cave_entrance.to.sacred_pool",
+            "travel.walk.rfd_final.kharazi.out",
+        ):
+            state = self.apply(state, self.tables["travel_edges"][edge_id], travel=True)
+        state = self.apply(state, self.tables["actions"][AMIK + ".pick_vanilla"])
+        self.assertEqual(state.inventory["item.rfd.vanilla_pod"], 1)
+        self.assertNotIn(AMIK + ".inspect", state.completed)
+
+    def test_lumbridge_flambe_can_finish_the_same_rescue(self):
+        state = self.do(self.prepare_amik_dessert(self.seeded()), "flambe_in_lumbridge")
+        self.assertEqual(state.location, "location.lumbridge_castle.cook")
+        self.assertEqual(state.inventory["item.rfd.brulee_supreme"], 1)
+        with self.assertRaises(DataError):
+            self.do(state, "flambe")
+        finished = self.do(state, "complete")
+        self.assertIn(AMIK + ".complete", finished.completed)
+        self.assertEqual(finished.counters["token.quest_points"], 176)
 
     def test_sir_amik_reward_and_ingredient_consumption(self):
         original = self.seeded()
@@ -118,7 +155,16 @@ class RfdAmikAndFinaleTests(unittest.TestCase):
         state = self.do(state, "ask_wise_old_man")
         moved = self.apply(self.at(state, edge["from_location_id"]), edge, travel=True)
         self.assertEqual(moved.location, "location.rfd.evil_chicken")
-        self.assertNotIn("item.raw_chicken",moved.snapshot()["inventory"])
+        self.assertNotIn("item.raw_chicken", moved.snapshot()["inventory"])
+        lair_exit = self.tables["travel_edges"]["travel.other.rfd_final.lair.exit"]
+        outside = self.apply(moved, lair_exit, travel=True)
+        with self.assertRaises(DataError):
+            self.apply(outside, edge, travel=True)
+        snapshot = outside.snapshot()
+        snapshot["inventory"]["item.raw_chicken"] = 1
+        back = self.apply(RouteState(self.tables, self.profile["policies"], snapshot), edge, travel=True)
+        self.assertEqual(back.location, moved.location)
+        self.assertNotIn("item.raw_chicken", back.snapshot()["inventory"])
 
     def test_finale_order_one_point_lamp_and_parent_no_duplicate(self):
         state = self.amik(self.seeded())
