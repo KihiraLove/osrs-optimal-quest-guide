@@ -74,6 +74,10 @@ canonical ID for assignments and references.
 def render_activities(ledger_path, ledger, entries, reward_registry, regions):
     journal = entries["journal"]
     activity_names = {row["id"]: row["name"] for row in journal}
+    quest_stage_counts = {
+        label: Counter(row["status"] for row in journal if row["kind"] == kind)
+        for kind, label in (("quest", "Quests"), ("subquest", "Recipe for Disaster segments"))
+    }
     return "\n".join((
         header("Activity tracker", ledger_path, ledger, "[Diary tracker](diary-tracker.md)"),
         "## Overview",
@@ -92,6 +96,19 @@ def render_activities(ledger_path, ledger, entries, reward_registry, regions):
         "Journal entries include quests, Recipe for Disaster subquests and miniquests.",
         "Optional activities include museum, transport and other unlocks.",
         "The coverage reviews and the raw reward registry track separate work. Their rows can overlap.",
+        "",
+        "## Quest stage review",
+        "",
+        "[Issue #4](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/4) requires independent",
+        "review of quest stages, prerequisites, waypoints, mandatory XP and completion rewards.",
+        "",
+        table(("Activities", "Missing from catalog", "Awaiting review", "Reviewed", "Excluded"), (
+            (label, totals["expected"], totals["collected"], totals["reviewed"], totals["excluded"])
+            for label, totals in quest_stage_counts.items()
+        )),
+        "",
+        "The numbered [journal](#journal) lists every quest and subquest by ID. For those rows,",
+        "**Pending** identifies a missing route and **Added** identifies a draft route awaiting independent review.",
         "",
         inventory("Journal", journal, {
             "Activity": lambda row: row["name"],
