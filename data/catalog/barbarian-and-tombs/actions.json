@@ -1,0 +1,2196 @@
+[
+  {
+    "id": "miniquest.barbarian_training.start",
+    "name": "Ask Otto to begin Barbarian Training",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 62,
+      "max_seconds": 144
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.learn_rod",
+    "name": "Ask Otto about heavy rod fishing",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.take_rod",
+    "name": "Search Otto's bed for a barbarian rod",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.bed",
+    "end_location_id": "location.bt.bed",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.learn_rod"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.barbarian_rod",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 22,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.catch_trout",
+    "name": "Catch a leaping trout and gut it for roe",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.lake",
+    "end_location_id": "location.bt.lake",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.take_rod"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.barbarian_rod",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.feather",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fishing",
+          "minimum_level": 48,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 15,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.strength",
+          "minimum_level": 15,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.feather",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.barbarian_roe",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 500
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 50
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 50
+      }
+    ],
+    "duration": {
+      "min_seconds": 65,
+      "expected_seconds": 130,
+      "max_seconds": 280
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Fishing/cross-skill XP on one leaping trout; variable gutting Cooking XP and offcuts not modeled."
+    },
+    "planned_outcome": {
+      "success_condition": "Catch and gut a leaping trout successfully, keeping the roe for Herblore.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.report_rod",
+    "name": "Show Otto success at heavy rod fishing",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.catch_trout"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.barbarian.rod_fishing",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.learn_hand",
+    "name": "Ask Otto about fishing with bare hands",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.catch_tuna",
+    "name": "Catch a tuna barehanded at Catherby",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.catherby_harpoon",
+    "end_location_id": "location.bt.catherby_harpoon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.learn_hand"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.fishing",
+          "minimum_level": 55,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.strength",
+          "minimum_level": 35,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.raw_tuna",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.fishing",
+        "xp_tenths": 800
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.strength",
+        "xp_tenths": 80
+      }
+    ],
+    "duration": {
+      "min_seconds": 65,
+      "expected_seconds": 130,
+      "max_seconds": 280
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Catch tuna with no harpoon equipped or carried.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.report_hand",
+    "name": "Report barehanded fishing to Otto",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.catch_tuna"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.barbarian.barehand_fishing",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.learn_bow",
+    "name": "Ask Otto about firemaking with a bow",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.burn_oak",
+    "name": "Light oak logs with a shortbow",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.pyre",
+    "end_location_id": "location.bt.pyre",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.learn_bow"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 35,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.shortbow",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 600
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 68
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.report_bow",
+    "name": "Report bow firemaking and unlock Ancient Cavern",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.burn_oak"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.barbarian.bow_firemaking",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.ancient_cavern",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 48,
+      "max_seconds": 116
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.learn_pyre",
+    "name": "Ask Otto about pyre ships",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.report_bow"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.enter_cavern",
+    "name": "Jump through whirlpool into Ancient Cavern",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.whirlpool",
+    "end_location_id": "location.bt.ancient_lower",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.learn_pyre"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 46,
+      "max_seconds": 112
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "This whirlpool is one-way. The aged-log escape or a teleport is needed to leave."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.get_chewed_bones",
+    "name": "Defeat mithril dragons until chewed bones drop",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.dragons",
+    "end_location_id": "location.bt.dragons",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.enter_cavern"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 11,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.chewed_bones",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 2200,
+      "expected_seconds": 4400,
+      "max_seconds": 8820
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Expected time represents an estimated ~42 dragon kills; loot randomness, combat resources and death risk require calibration."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat level-304 mithril dragons until the roughly 1-in-42 chewed-bone drop appears and collect it.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.light_pyre_ship",
+    "name": "Build and light a pyre ship with chewed bones",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.pyre",
+    "end_location_id": "location.bt.pyre",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.get_chewed_bones"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_axe",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 11,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.firemaking",
+          "minimum_level": 11,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.chewed_bones",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 100
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.firemaking",
+        "xp_tenths": 400
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Normal-logs pyre baseline: 10 Crafting XP and 40 Firemaking XP; next-bone bonus not claimed immediately."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.report_pyre",
+    "name": "Report the successful pyre ship to Otto",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.light_pyre_ship"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.barbarian.pyre_ships",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.learn_farming",
+    "name": "Ask Otto about planting without a seed dibber",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.plant_seeds",
+    "name": "Plant potato seeds barehanded in Catherby allotment",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.catherby_allotment",
+    "end_location_id": "location.bt.catherby_allotment",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.learn_farming"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 15,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.potato_seed",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 80
+      }
+    ],
+    "duration": {
+      "min_seconds": 29,
+      "expected_seconds": 58,
+      "max_seconds": 136
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Successfully plant three potato seeds without a seed dibber; retry on a failed barehand attempt.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.report_farming",
+    "name": "Report successful barehand planting",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.plant_seeds"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.barbarian.seed_planting",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.learn_pots",
+    "name": "Ask Otto about smashing empty plant pots",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.report_farming"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.plant_sapling",
+    "name": "Plant oak sapling and smash the pot",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.catherby_tree_patch",
+    "end_location_id": "location.bt.catherby_tree_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.learn_pots"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 15,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_sapling",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 31,
+      "expected_seconds": 62,
+      "max_seconds": 144
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Requires an empty tree patch; clearing or planting prior saplings is outside this one-off route."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.report_pots",
+    "name": "Report pot-smashing technique to Otto",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.plant_sapling"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.barbarian.pot_smashing",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.learn_spears",
+    "name": "Ask Otto about making barbarian spears",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.report_rod"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.report_hand"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 5,
+          "boostable": false
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tai_bwo_wannai_trio.claim_combat"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Requires the separate Tamayu combat training claim after Tai Bwo Wannai Trio."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.smith_spear",
+    "name": "Smith a bronze spear at the barbarian anvil",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.anvil",
+    "end_location_id": "location.bt.anvil",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.learn_spears"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bronze_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bronze_spear",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 250
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 38,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.report_spear",
+    "name": "Tell Otto the bronze spear is complete",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.smith_spear"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.barbarian.spears",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.learn_hastae",
+    "name": "Ask Otto about one-handed hastae",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.report_spear"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.smith_hasta",
+    "name": "Smith a bronze hasta at the barbarian anvil",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.anvil",
+    "end_location_id": "location.bt.anvil",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.learn_hastae"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.bronze_bar",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bronze_hasta",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 250
+      }
+    ],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 38,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.report_hasta",
+    "name": "Report completion of barbarian hastae",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.smith_hasta"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.barbarian.hastae",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.learn_herblore",
+    "name": "Ask Otto about mixing roe with potions",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.report_rod"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 4,
+          "boostable": false
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.druidic_ritual.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.make_mix",
+    "name": "Mix roe into a two-dose attack potion",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.learn_herblore"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.barbarian_roe",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.attack_potion_2",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.attack_mix_2",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 80
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 58
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.report_herblore",
+    "name": "Show Otto the completed attack mix",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.make_mix"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.barbarian.herblore",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.barbarian_training.complete",
+    "name": "Finish all five branches of Barbarian Training",
+    "activity_id": "miniquest.barbarian_training",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.otto",
+    "end_location_id": "location.bt.otto",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.report_rod"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.report_hand"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.report_pyre"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.report_pots"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.report_hasta"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.report_herblore"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.miniquest.barbarian_training.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 14,
+      "max_seconds": 48
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations"
+      ],
+      "status": "estimated",
+      "note": "The miniquest finishes once every training subsection is credited. No fixed quest XP or quest points; training skill XP is paid by each demonstration."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.start",
+    "name": "Talk to Maisa and accept the task to free the lesser gods",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_lobby",
+    "end_location_id": "location.bt.toa_lobby",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.beneath_cursed_sands.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.akilas_journal",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 44,
+      "expected_seconds": 88,
+      "max_seconds": 196
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "At the Jaltevas Pyramid lobby, Maisa gives Akila's journal and introduces all four paths."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.entry_raid",
+    "name": "Start a Tombs of Amascut raid at invocation level 0",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_lobby",
+    "end_location_id": "location.bt.toa_lobby",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 26,
+      "expected_seconds": 52,
+      "max_seconds": 124
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Entry mode is a valid first clear. Party size and raid supplies are performance-dependent."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.enter_apmeken",
+    "name": "Enter the Path of Apmeken",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_lobby",
+    "end_location_id": "location.bt.toa_apmeken",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.entry_raid"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Each path may be chosen in any order; its door remains closed until the path is cleared."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.puzzle_apmeken",
+    "name": "Complete the Path of Apmeken challenge",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_apmeken",
+    "end_location_id": "location.bt.toa_apmeken",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.enter_apmeken"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 180,
+      "expected_seconds": 360,
+      "max_seconds": 740
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Complete the Apmeken path puzzle and survive its hazards at raid level 0.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.defeat_apmeken",
+    "name": "Defeat Ba-Ba and free Apmeken",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_apmeken",
+    "end_location_id": "location.bt.toa_lobby",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.puzzle_apmeken"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 300,
+      "expected_seconds": 600,
+      "max_seconds": 1220
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Ba-Ba at raid level 0 and release Apmeken.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.enter_crondis",
+    "name": "Enter the Path of Crondis",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_lobby",
+    "end_location_id": "location.bt.toa_crondis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.entry_raid"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Each path may be chosen in any order; its door remains closed until the path is cleared."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.puzzle_crondis",
+    "name": "Complete the Path of Crondis challenge",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_crondis",
+    "end_location_id": "location.bt.toa_crondis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.enter_crondis"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 180,
+      "expected_seconds": 360,
+      "max_seconds": 740
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Complete the Crondis path puzzle and survive its hazards at raid level 0.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.defeat_crondis",
+    "name": "Defeat Zebak and free Crondis",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_crondis",
+    "end_location_id": "location.bt.toa_lobby",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.puzzle_crondis"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 300,
+      "expected_seconds": 600,
+      "max_seconds": 1220
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Zebak at raid level 0 and release Crondis.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.enter_het",
+    "name": "Enter the Path of Het",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_lobby",
+    "end_location_id": "location.bt.toa_het",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.entry_raid"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Each path may be chosen in any order; its door remains closed until the path is cleared."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.puzzle_het",
+    "name": "Complete the Path of Het challenge",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_het",
+    "end_location_id": "location.bt.toa_het",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.enter_het"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 180,
+      "expected_seconds": 360,
+      "max_seconds": 740
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Complete the Het path puzzle and survive its hazards at raid level 0.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.defeat_het",
+    "name": "Defeat Akkha and free Het",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_het",
+    "end_location_id": "location.bt.toa_lobby",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.puzzle_het"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 300,
+      "expected_seconds": 600,
+      "max_seconds": 1220
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Akkha at raid level 0 and release Het.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.enter_scabaras",
+    "name": "Enter the Path of Scabaras",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_lobby",
+    "end_location_id": "location.bt.toa_scabaras",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.entry_raid"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Each path may be chosen in any order; its door remains closed until the path is cleared."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.puzzle_scabaras",
+    "name": "Complete the Path of Scabaras challenge",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_scabaras",
+    "end_location_id": "location.bt.toa_scabaras",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.enter_scabaras"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 180,
+      "expected_seconds": 360,
+      "max_seconds": 740
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Complete the Scabaras path puzzle and survive its hazards at raid level 0.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.defeat_scabaras",
+    "name": "Defeat Kephri and free Scabaras",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_scabaras",
+    "end_location_id": "location.bt.toa_lobby",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.puzzle_scabaras"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 300,
+      "expected_seconds": 600,
+      "max_seconds": 1220
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Kephri at raid level 0 and release Scabaras.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.enter_wardens",
+    "name": "Open the central lower-level door after four guardians",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_lobby",
+    "end_location_id": "location.bt.toa_warden",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.defeat_apmeken"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.defeat_crondis"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.defeat_het"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.defeat_scabaras"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 46,
+      "max_seconds": 112
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.wardens_orbs",
+    "name": "Survive Warden phase 1 and channel energy",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_warden",
+    "end_location_id": "location.bt.toa_warden",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.enter_wardens"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 92,
+      "expected_seconds": 185,
+      "max_seconds": 390
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Survive the energy-orb phase and disrupt a Warden.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.wardens_combat",
+    "name": "Defeat the activated Warden through combat phase",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_warden",
+    "end_location_id": "location.bt.toa_warden",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.wardens_orbs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 210,
+      "expected_seconds": 420,
+      "max_seconds": 860
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Warden and its summoned shadow threats.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.wardens_final",
+    "name": "Defeat the remaining Warden in the final arena",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_warden",
+    "end_location_id": "location.bt.toa_rewards",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.wardens_combat"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 210,
+      "expected_seconds": 420,
+      "max_seconds": 860
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Quest Helper stage or raid walkthrough; expected time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Complete the last Warden phase to end the full raid.",
+      "if_unmet": "Return with supplies, retry the action or encounter, and verify progress before advancing."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.chest",
+    "name": "Speak to Osmumten and collect the raid chest",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_rewards",
+    "end_location_id": "location.bt.toa_rewards",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.wardens_final"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 84,
+      "max_seconds": 188
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "Raid chest contents vary by difficulty, group and roll; no repeatable GP/unique award is assumed in this one-time quest catalog."
+    }
+  },
+  {
+    "id": "miniquest.into_the_tombs.complete",
+    "name": "Talk to Maisa in the lobby for the combat antique lamp",
+    "activity_id": "miniquest.into_the_tombs",
+    "kind": "quest_stage",
+    "start_location_id": "location.bt.toa_lobby",
+    "end_location_id": "location.bt.toa_lobby",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.into_the_tombs.chest"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.miniquest.into_the_tombs.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.toa_repeatable_raids",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.toa_ancient_key",
+        "value": true
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.into_the_tombs.combat_lamp",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 39,
+      "expected_seconds": 78,
+      "max_seconds": 176
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.tombs_of_amascut"
+      ],
+      "status": "estimated",
+      "note": "The lamp is given by Maisa after a full first raid and her final dialogue; 0 quest points, separate repeatable raid loot."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.barbarian_skilling_supplies",
+    "name": "Buy an oak sapling and two-dose attack potion",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.barbarian_training.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 550
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.oak_sapling",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.attack_potion_2",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy the listed tradeable materials for a rounded price estimate."
+    }
+  }
+]

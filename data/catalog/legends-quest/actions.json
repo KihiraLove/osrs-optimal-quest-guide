@@ -1,0 +1,2461 @@
+[
+  {
+    "id": "quest.legends_quest.start",
+    "name": "Begin Legends' Quest with the Legends' Guard and Radimus",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.radimus",
+    "end_location_id": "location.legends.radimus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 107
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.family_crest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.waterfall_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.radimus_notes",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd.legends_started",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Speak to the guard and Radimus. The 107 quest points and five quest completions gate the start. Skill checks apply at later stages."
+    }
+  },
+  {
+    "id": "quest.legends_quest.sketch_west",
+    "name": "Chart western Kharazi Jungle",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.jungle_west",
+    "end_location_id": "location.legends.jungle_west",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.start"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.radimus_notes",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.papyrus",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.charcoal",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd.machete",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.rune_axe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.papyrus",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.sketch_middle",
+    "name": "Chart central Kharazi Jungle",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.jungle_middle",
+    "end_location_id": "location.legends.jungle_middle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.sketch_west"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.radimus_notes",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.papyrus",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.papyrus",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.sketch_east",
+    "name": "Chart eastern Kharazi Jungle",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.jungle_east",
+    "end_location_id": "location.legends.jungle_east",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.sketch_middle"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.radimus_notes",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.papyrus",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.papyrus",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.complete_sketch",
+    "name": "Mark the complete jungle map on Radimus notes",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.jungle_notes",
+    "end_location_id": "location.legends.jungle_notes",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.sketch_east"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.radimus_notes",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.jungle_sketch",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.summon_gujuo",
+    "name": "Use the bullroarer and ask Gujuo about the totem",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.jungle_gujuo",
+    "end_location_id": "location.legends.jungle_gujuo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.complete_sketch"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.jungle_sketch",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.bullroarer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Native meeting near the jungle totem; the bullroarer is a quest-stage tool. The helper's precise timing is not observed."
+    }
+  },
+  {
+    "id": "quest.legends_quest.investigate_fire",
+    "name": "Enter the cave and examine Ungadulu's fire wall",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.fire_wall",
+    "end_location_id": "location.legends.fire_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.summon_gujuo"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 50,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd.machete",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.bullroarer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.ask_gujuo_water",
+    "name": "Ask Gujuo about the sacred pool and a blessed vessel",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.jungle_gujuo",
+    "end_location_id": "location.legends.jungle_gujuo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.investigate_fire"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.find_bookcase",
+    "name": "Pass the bookcase and investigate the cave puzzle",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.bookcase",
+    "end_location_id": "location.legends.bookcase",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.ask_gujuo_water"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 50,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.unlock_gates",
+    "name": "Pick the ancient gate and force the boulder gates",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.ancient_gates",
+    "end_location_id": "location.legends.ancient_gates",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.find_bookcase"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 50,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.strength",
+          "minimum_level": 50,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 52,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lockpick",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rune_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 105,
+      "expected_seconds": 210,
+      "max_seconds": 630
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Pass the lock and boulder obstacles without losing required tools or suffering a fatal failed obstacle.",
+      "if_unmet": "Re-equip, restock, retry this encounter or skill check, and confirm quest state before continuing."
+    }
+  },
+  {
+    "id": "quest.legends_quest.inscribe_runes",
+    "name": "Activate the marked wall with five runes",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.rune_wall",
+    "end_location_id": "location.legends.rune_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.unlock_gates"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.soul_rune",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mind_rune",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.earth_rune",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.law_rune",
+          "quantity": 2
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.soul_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.mind_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.earth_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.law_rune",
+        "quantity": 2
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 105,
+      "max_seconds": 315
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.place_gems",
+    "name": "Place seven gems in the cave pillars",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.gemstones",
+    "end_location_id": "location.legends.gemstones",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.inscribe_runes"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.sapphire",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.emerald",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ruby",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.diamond",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.opal",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.jade",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.red_topaz",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sapphire",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.emerald",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ruby",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.diamond",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.opal",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.legends.jade",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.legends.red_topaz",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 75,
+      "expected_seconds": 150,
+      "max_seconds": 450
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.take_binding_book",
+    "name": "Obtain and read the binding book",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.rune_wall",
+    "end_location_id": "location.legends.rune_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.place_gems"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.binding_book",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.craft_bowl",
+    "name": "Smith a golden bowl from two gold bars",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.jungle_gujuo",
+    "end_location_id": "location.legends.jungle_gujuo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.take_binding_book"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 50,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 50,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.gold_bar",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.gold_bar",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.golden_bowl",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 120,
+      "max_seconds": 360
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Golden bowl craft/engraving and Gujuo's blessing are separate conceptual steps; exact smithing anvil location needs in-game replay."
+    }
+  },
+  {
+    "id": "quest.legends_quest.bless_bowl",
+    "name": "Ask Gujuo to bless the golden bowl",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.jungle_gujuo",
+    "end_location_id": "location.legends.jungle_gujuo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.craft_bowl"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.prayer",
+          "minimum_level": 42,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.golden_bowl",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.bullroarer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.golden_bowl",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.blessed_bowl",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.cut_reeds",
+    "name": "Cut the sacred pool reeds with a machete",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.sacred_reeds",
+    "end_location_id": "location.legends.sacred_reeds",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.bless_bowl"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd.machete",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.hollow_reed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.fill_bowl",
+    "name": "Use the hollow reed to collect sacred pool water",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.sacred_pool",
+    "end_location_id": "location.legends.sacred_pool",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.cut_reeds"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.hollow_reed",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.blessed_bowl",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.pure_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.douse_fire",
+    "name": "Douse the fire wall with blessed water",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.fire_wall",
+    "end_location_id": "location.legends.fire_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.fill_bowl"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.pure_water",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.pure_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.bind_ungadulu",
+    "name": "Use the binding book to break Ungadulu's enchantment",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.ungadulu",
+    "end_location_id": "location.legends.ungadulu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.douse_fire"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.binding_book",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.fight_nezik_first",
+    "name": "Defeat Nezikchened in Ungadulu's cave",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.ungadulu",
+    "end_location_id": "location.legends.ungadulu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.bind_ungadulu"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 110,
+      "expected_seconds": 220,
+      "max_seconds": 660
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Nezikchened and survive prayer drain; verify the shaman is freed.",
+      "if_unmet": "Re-equip, restock, retry this encounter or skill check, and confirm quest state before continuing."
+    }
+  },
+  {
+    "id": "quest.legends_quest.receive_yommi_seeds",
+    "name": "Talk to Ungadulu and receive Yommi tree seeds",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.ungadulu",
+    "end_location_id": "location.legends.ungadulu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.fight_nezik_first"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.yommi_seeds",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.attempt_yommi",
+    "name": "Plant Yommi seeds and discover the water is tainted",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.yommi_patch",
+    "end_location_id": "location.legends.yommi_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.receive_yommi_seeds"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 50,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.yommi_seeds",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.learn_source",
+    "name": "Ask Gujuo how to restore the sacred source",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.jungle_gujuo",
+    "end_location_id": "location.legends.jungle_gujuo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.attempt_yommi"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.gather_herbs",
+    "name": "Gather ardrigal and snakeweed for bravery potion",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.jungle_west",
+    "end_location_id": "location.legends.jungle_west",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.learn_source"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.ardrigal",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.legends.snake_weed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 105,
+      "max_seconds": 315
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Both native herbs are gathered during quest progression; exact nearby patch tiles and accessible alternate gathering locations require review."
+    }
+  },
+  {
+    "id": "quest.legends_quest.brew_bravery",
+    "name": "Prepare bravery potion for the lower caves",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.jungle_gujuo",
+    "end_location_id": "location.legends.jungle_gujuo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.gather_herbs"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 45,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.ardrigal",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.snake_weed",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.vial_of_water",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.ardrigal",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.legends.snake_weed",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.vial_of_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.bravery_potion",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Herblore combination from helper's ardrigal and snakeweed; exact herb acquisition and dose count unresolved."
+    }
+  },
+  {
+    "id": "quest.legends_quest.open_source_door",
+    "name": "Cast Charge Orb to unlock the source passage",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.rune_wall",
+    "end_location_id": "location.legends.rune_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.brew_bravery"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 56,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.unpowered_orb",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.unpowered_orb",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.charged_orb",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Charge Orb spell has rune/obelisk details outside pinned observation; unpowered orb is debited, incidental Magic XP omitted pending spell verification."
+    }
+  },
+  {
+    "id": "quest.legends_quest.descend_winch",
+    "name": "Tie rope to the winch and drink bravery potion",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.winch",
+    "end_location_id": "location.legends.winch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.open_source_door"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rope",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.bravery_potion",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.bravery_potion",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 120,
+      "max_seconds": 360
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Survive the descent to the Viyeldi caves; failed rock traversals may deal significant damage.",
+      "if_unmet": "Re-equip, restock, retry this encounter or skill check, and confirm quest state before continuing."
+    }
+  },
+  {
+    "id": "quest.legends_quest.defeat_ranalph",
+    "name": "Defeat Ranalph Devere and collect red crystal",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.crystal_furnace",
+    "end_location_id": "location.legends.crystal_furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.descend_winch"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.crystal_piece_red",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 80,
+      "expected_seconds": 160,
+      "max_seconds": 480
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the level-92 warrior and retrieve his crystal piece.",
+      "if_unmet": "Re-equip, restock, retry this encounter or skill check, and confirm quest state before continuing."
+    }
+  },
+  {
+    "id": "quest.legends_quest.defeat_irvig",
+    "name": "Defeat Irvig Senay and collect green crystal",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.crystal_furnace",
+    "end_location_id": "location.legends.crystal_furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.defeat_ranalph"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.crystal_piece_green",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 82,
+      "expected_seconds": 165,
+      "max_seconds": 495
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the level-100 warrior and retrieve his crystal piece.",
+      "if_unmet": "Re-equip, restock, retry this encounter or skill check, and confirm quest state before continuing."
+    }
+  },
+  {
+    "id": "quest.legends_quest.defeat_san",
+    "name": "Defeat San Tojalon and collect blue crystal",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.crystal_furnace",
+    "end_location_id": "location.legends.crystal_furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.defeat_irvig"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.crystal_piece_blue",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 82,
+      "expected_seconds": 165,
+      "max_seconds": 495
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the level-106 warrior and retrieve his crystal piece.",
+      "if_unmet": "Re-equip, restock, retry this encounter or skill check, and confirm quest state before continuing."
+    }
+  },
+  {
+    "id": "quest.legends_quest.forge_crystal",
+    "name": "Fuse the three crystal pieces in the furnace",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.crystal_furnace",
+    "end_location_id": "location.legends.crystal_furnace",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.defeat_san"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.crystal_piece_red",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.crystal_piece_green",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.crystal_piece_blue",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.crystal_piece_red",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.legends.crystal_piece_green",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.legends.crystal_piece_blue",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.crystal_heart",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.activate_heart",
+    "name": "Use the crystal heart on the mossy rock",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.heart_rock",
+    "end_location_id": "location.legends.heart_rock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.forge_crystal"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.crystal_heart",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.open_barrier",
+    "name": "Place the crystal heart in the recess",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.crystal_recess",
+    "end_location_id": "location.legends.crystal_recess",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.activate_heart"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.crystal_heart",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.crystal_heart",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.meet_echned",
+    "name": "Push the boulder and speak to Echned Zekin",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.echned",
+    "end_location_id": "location.legends.echned",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.open_barrier"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.strength",
+          "minimum_level": 50,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.dark_dagger",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 120,
+      "max_seconds": 360
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.kill_viyeldi",
+    "name": "Use the dark dagger on Viyeldi",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.viyeldi",
+    "end_location_id": "location.legends.viyeldi",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.meet_echned"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.dark_dagger",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.dark_dagger",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.glowing_dagger",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 65,
+      "expected_seconds": 130,
+      "max_seconds": 390
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Speak to Viyeldi with dagger equipped and obtain the glowing dagger; this selects the shorter quest branch.",
+      "if_unmet": "Re-equip, restock, retry this encounter or skill check, and confirm quest state before continuing."
+    }
+  },
+  {
+    "id": "quest.legends_quest.give_echned_dagger",
+    "name": "Return the glowing dagger to Echned",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.echned",
+    "end_location_id": "location.legends.echned",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.kill_viyeldi"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.glowing_dagger",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.glowing_dagger",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.fight_nezik_source",
+    "name": "Defeat Nezikchened at the underground source",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.echned",
+    "end_location_id": "location.legends.echned",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.give_echned_dagger"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 720
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat Nezikchened after the prayer drain; if the short path was chosen, the three spirits may reappear.",
+      "if_unmet": "Re-equip, restock, retry this encounter or skill check, and confirm quest state before continuing."
+    }
+  },
+  {
+    "id": "quest.legends_quest.clear_boulder",
+    "name": "Push the source boulder to restore the water flow",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.source_boulder",
+    "end_location_id": "location.legends.source_boulder",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.fight_nezik_source"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.strength",
+          "minimum_level": 50,
+          "boostable": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 37,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.draw_sacred_water",
+    "name": "Collect the restored sacred water for the seeds",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.source_boulder",
+    "end_location_id": "location.legends.source_boulder",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.clear_boulder"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.blessed_bowl",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.sacred_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Water can evaporate after teleporting before the seed is watered; exact duration and bowl retention need replay."
+    }
+  },
+  {
+    "id": "quest.legends_quest.grow_yommi",
+    "name": "Water and grow a Yommi tree",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.yommi_patch",
+    "end_location_id": "location.legends.yommi_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.draw_sacred_water"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 50,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.yommi_seeds",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.sacred_water",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.yommi_seeds",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.legends.sacred_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 60,
+      "expected_seconds": 120,
+      "max_seconds": 360
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.cut_yommi",
+    "name": "Fell the Yommi tree and carve its totem",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.yommi_patch",
+    "end_location_id": "location.legends.yommi_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.grow_yommi"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 50,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.rune_axe",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd.machete",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.yommi_totem",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 105,
+      "max_seconds": 315
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.offer_totem",
+    "name": "Place the carved Yommi totem",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.totem",
+    "end_location_id": "location.legends.totem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.cut_yommi"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.yommi_totem",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.fight_nezik_totem",
+    "name": "Defeat Nezikchened at the totem site",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.totem",
+    "end_location_id": "location.legends.totem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.offer_totem"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 117,
+      "expected_seconds": 235,
+      "max_seconds": 705
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Survive the final Nezikchened encounter and any repeat undead warriors.",
+      "if_unmet": "Re-equip, restock, retry this encounter or skill check, and confirm quest state before continuing."
+    }
+  },
+  {
+    "id": "quest.legends_quest.restore_totem",
+    "name": "Restore the sacred totem and gain the gilded totem",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.totem",
+    "end_location_id": "location.legends.totem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.fight_nezik_totem"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.yommi_totem",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.yommi_totem",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.gilded_totem",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.return_radimus",
+    "name": "Present the gilded totem and survey notes to Radimus",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.radimus",
+    "end_location_id": "location.legends.radimus",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.restore_totem"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.gilded_totem",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.radimus_notes",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.gilded_totem",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper sequence; stage timing estimated."
+    }
+  },
+  {
+    "id": "quest.legends_quest.complete",
+    "name": "Speak to Radimus inside the Legends' Guild",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.radimus_guild",
+    "end_location_id": "location.legends.radimus_guild",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.return_radimus"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.legends_quest.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.legends_guild",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 4
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.legends_quest.lamp",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Four quest points and four separate held 30,000 XP lamps, reclaimable from Radimus, once only. Each lamp permits any of the 12 listed skills and can choose the same skill as another lamp."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.legends_tools_and_materials",
+    "name": "Buy Legends' Quest tools and cave supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 38000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.rune_axe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rune_pickaxe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.papyrus",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.charcoal",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rfd.machete",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lockpick",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.legends.soul_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.mind_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.earth_rune",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.law_rune",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.opal",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.legends.jade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.legends.red_topaz",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.sapphire",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.emerald",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ruby",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.diamond",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.gold_bar",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.vial_of_water",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.legends.unpowered_orb",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rope",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Buy the listed tradeable materials for a rounded price estimate."
+    }
+  }
+]

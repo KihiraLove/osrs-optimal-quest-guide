@@ -2211,11 +2211,40 @@
   {
     "id": "review.quest.legends_quest.xp_choices",
     "activity_id": "quest.legends_quest",
-    "status": "expected",
+    "status": "collected",
     "source_ids": [
-      "source.quest_helper.legends_quest"
+      "source.quest_helper.legends_quest",
+      "source.jagex.garden_of_death_rewards"
     ],
-    "note": "Review choice count, eligible skills and point of award."
+    "catalog_ids": [
+      "quest.legends_quest.complete",
+      "reward.legends_quest.lamp"
+    ],
+    "expected_effects": {
+      "quest.legends_quest.complete": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.legends_quest.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.legends_guild",
+          "value": true
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 4
+        },
+        {
+          "kind": "xp_reward",
+          "reward_id": "reward.legends_quest.lamp",
+          "quantity": 4
+        }
+      ]
+    },
+    "note": "Four separate held 30,000 XP lamps on guild completion. Repeat skill choice permitted; reclaimable if lost."
   },
   {
     "id": "review.quest.lost_city.quest_month_xp",
@@ -9341,5 +9370,1150 @@
       ]
     },
     "note": "Three quest points, 55,000 Thieving XP, 25,000 Fletching XP and 25,000 Runecraft XP, Arkan blade and one retainable 55,000-XP combat lamp (including Prayer; 40+). No invented fixed combat XP."
+  },
+  {
+    "id": "review.quest.icthlarins_little_helper.completion_rewards",
+    "activity_id": "quest.icthlarins_little_helper",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.icthlarins_little_helper.complete"
+    ],
+    "expected_effects": {
+      "quest.icthlarins_little_helper.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.thieving",
+          "xp_tenths": 45000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.agility",
+          "xp_tenths": 40000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.woodcutting",
+          "xp_tenths": 40000
+        },
+        {
+          "kind": "item",
+          "item_id": "item.icthlarin_catspeak_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.icthlarins_little_helper.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Quest reward review from the pinned helper, with lamp restrictions and field timing still pending."
+  },
+  {
+    "id": "review.quest.contact.completion_rewards",
+    "activity_id": "quest.contact",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.contact.complete"
+    ],
+    "expected_effects": {
+      "quest.contact.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.thieving",
+          "xp_tenths": 70000
+        },
+        {
+          "kind": "item",
+          "item_id": "item.keris",
+          "quantity": 1
+        },
+        {
+          "kind": "xp_reward",
+          "reward_id": "reward.contact.combat_lamp",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.contact.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.sophanem_bank",
+          "value": true
+        }
+      ]
+    },
+    "note": "Quest reward review from the pinned helper, with lamp restrictions and field timing still pending."
+  },
+  {
+    "id": "review.quest.a_tail_of_two_cats.completion_rewards",
+    "activity_id": "quest.a_tail_of_two_cats",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.a_tail_of_two_cats.complete"
+    ],
+    "expected_effects": {
+      "quest.a_tail_of_two_cats.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tail_mouse_toy",
+          "quantity": 1
+        },
+        {
+          "kind": "xp_reward",
+          "reward_id": "reward.a_tail_of_two_cats.antique_lamps",
+          "quantity": 2
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.a_tail_of_two_cats.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "The present contains two separately redeemable 2,500-XP antique lamps and a mouse toy; chosen medical hat is earlier."
+  },
+  {
+    "id": "review.quest.ratcatchers.completion_rewards",
+    "activity_id": "quest.ratcatchers",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.ratcatchers.get_rat_pole",
+      "quest.ratcatchers.complete"
+    ],
+    "expected_effects": {
+      "quest.ratcatchers.get_rat_pole": [
+        {
+          "kind": "item",
+          "item_id": "item.rat_pole",
+          "quantity": 1
+        }
+      ],
+      "quest.ratcatchers.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.thieving",
+          "xp_tenths": 45000
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.rat_pits",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.ratcatchers.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Rat pole awarded mid-quest; quest points, fixed Thieving XP and Rat Pits unlock at completion."
+  },
+  {
+    "id": "review.quest.beneath_cursed_sands.completion_rewards",
+    "activity_id": "quest.beneath_cursed_sands",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.beneath_cursed_sands.meet_maisa",
+      "quest.beneath_cursed_sands.complete"
+    ],
+    "expected_effects": {
+      "quest.beneath_cursed_sands.meet_maisa": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.necropolis_akp",
+          "value": true
+        }
+      ],
+      "quest.beneath_cursed_sands.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.agility",
+          "xp_tenths": 500000
+        },
+        {
+          "kind": "item",
+          "item_id": "item.keris_partisan",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.circlet_of_water",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.tombs_of_amascut",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.beneath_cursed_sands.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "AKP becomes accessible when first visiting the necropolis; final 2 QP/50k Agility/items/ToA access at quest completion."
+  },
+  {
+    "id": "review.quest.desert_treasure_i.completion_rewards",
+    "activity_id": "quest.desert_treasure_i",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.desert_treasure_i.visibility_ring",
+      "quest.desert_treasure_i.complete",
+      "quest.desert_treasure_i.buy_ancient_staff",
+      "quest.desert_treasure_i.claim_ancient_signet"
+    ],
+    "expected_effects": {
+      "quest.desert_treasure_i.visibility_ring": [
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        }
+      ],
+      "quest.desert_treasure_i.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 3
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.magic",
+          "xp_tenths": 200000
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.desert_treasure_i.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.ancient_magicks",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.ancient_pyramid",
+          "value": true
+        }
+      ],
+      "quest.desert_treasure_i.buy_ancient_staff": [
+        {
+          "kind": "item",
+          "item_id": "item.ancient_staff",
+          "quantity": 1
+        }
+      ],
+      "quest.desert_treasure_i.claim_ancient_signet": [
+        {
+          "kind": "item",
+          "item_id": "item.ancient_signet",
+          "quantity": 1
+        }
+      ]
+    },
+    "note": "Quest awards 3 QP/20k fixed Magic XP/Ancient Magicks. Rasolo's ring is acquired midquest; Eblis's ancient staff and signet are separate, optional claims."
+  },
+  {
+    "id": "review.miniquest.curse_of_the_empty_lord.completion_rewards",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.field.varrock_museum_history"
+    ],
+    "catalog_ids": [
+      "miniquest.curse_of_the_empty_lord.valdez",
+      "miniquest.curse_of_the_empty_lord.complete",
+      "museum.history.empty_lord"
+    ],
+    "expected_effects": {
+      "miniquest.curse_of_the_empty_lord.valdez": [
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_robe_top",
+          "quantity": 1
+        }
+      ],
+      "miniquest.curse_of_the_empty_lord.complete": [
+        {
+          "kind": "flag",
+          "token_id": "flag.miniquest.curse_of_the_empty_lord.complete",
+          "value": true
+        }
+      ],
+      "museum.history.empty_lord": [
+        {
+          "kind": "counter",
+          "token_id": "token.museum.kudos",
+          "delta": 10
+        },
+        {
+          "kind": "xp_reward",
+          "reward_id": "reward.curse_of_the_empty_lord.museum_lamp",
+          "quantity": 1
+        }
+      ]
+    },
+    "note": "Other five robe pieces come from route-specific ghosts. The 10 Kudos and 10k lamp are awarded separately by Minas, never at Viggora."
+  },
+  {
+    "id": "review.miniquest.the_generals_shadow.completion_rewards",
+    "activity_id": "miniquest.the_generals_shadow",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "miniquest.the_generals_shadow.complete"
+    ],
+    "expected_effects": {
+      "miniquest.the_generals_shadow.complete": [
+        {
+          "kind": "item",
+          "item_id": "item.shadow_sword",
+          "quantity": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.slayer",
+          "xp_tenths": 20000
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.miniquest.the_generals_shadow.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "The Ghost of Bouncer awards 2,000 Slayer XP and the Shadow sword. No quest points."
+  },
+  {
+    "id": "review.quest.land_of_the_goblins.completion_rewards",
+    "activity_id": "quest.land_of_the_goblins",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "quest.land_of_the_goblins.prepare_goblin_potion",
+      "quest.land_of_the_goblins.complete"
+    ],
+    "expected_effects": {
+      "quest.land_of_the_goblins.prepare_goblin_potion": [
+        {
+          "kind": "item",
+          "item_id": "item.goblin_potion_3",
+          "quantity": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.herblore",
+          "xp_tenths": 550
+        }
+      ],
+      "quest.land_of_the_goblins.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.agility",
+          "xp_tenths": 80000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.fishing",
+          "xp_tenths": 80000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.thieving",
+          "xp_tenths": 80000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.herblore",
+          "xp_tenths": 80000
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.land_of_the_goblins.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.yubiusk_blq",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.goblin_potion_recipe",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.plain_of_mud_sphere_shop",
+          "value": true
+        }
+      ]
+    },
+    "note": "2 QP and 8k XP each in Agility/Fishing/Thieving/Herblore at Yu'biusk; making the potion grants 55 additional Herblore XP."
+  },
+  {
+    "id": "review.miniquest.hopespears_will.completion_rewards",
+    "activity_id": "miniquest.hopespears_will",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "miniquest.hopespears_will.bury_snothead",
+      "miniquest.hopespears_will.bury_snailfeet",
+      "miniquest.hopespears_will.bury_mosschin",
+      "miniquest.hopespears_will.bury_redeyes",
+      "miniquest.hopespears_will.bury_strongbones",
+      "miniquest.hopespears_will.complete"
+    ],
+    "expected_effects": {
+      "miniquest.hopespears_will.bury_snothead": [
+        {
+          "kind": "xp",
+          "skill_id": "skill.prayer",
+          "xp_tenths": 12500
+        }
+      ],
+      "miniquest.hopespears_will.bury_snailfeet": [
+        {
+          "kind": "xp",
+          "skill_id": "skill.prayer",
+          "xp_tenths": 25000
+        }
+      ],
+      "miniquest.hopespears_will.bury_mosschin": [
+        {
+          "kind": "xp",
+          "skill_id": "skill.prayer",
+          "xp_tenths": 50000
+        }
+      ],
+      "miniquest.hopespears_will.bury_redeyes": [
+        {
+          "kind": "xp",
+          "skill_id": "skill.prayer",
+          "xp_tenths": 100000
+        }
+      ],
+      "miniquest.hopespears_will.bury_strongbones": [
+        {
+          "kind": "xp",
+          "skill_id": "skill.prayer",
+          "xp_tenths": 200000
+        }
+      ],
+      "miniquest.hopespears_will.complete": [
+        {
+          "kind": "flag",
+          "token_id": "flag.miniquest.hopespears_will.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "38,750 total Prayer XP, granted on the five Yu'biusk bone burials, not at the automatic miniquest completion; no QP."
+  },
+  {
+    "id": "review.miniquest.barbarian_training.completion_rewards",
+    "activity_id": "miniquest.barbarian_training",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "miniquest.barbarian_training.complete",
+      "miniquest.barbarian_training.report_bow"
+    ],
+    "expected_effects": {
+      "miniquest.barbarian_training.complete": [
+        {
+          "kind": "flag",
+          "token_id": "flag.miniquest.barbarian_training.complete",
+          "value": true
+        }
+      ],
+      "miniquest.barbarian_training.report_bow": [
+        {
+          "kind": "flag",
+          "token_id": "flag.barbarian.bow_firemaking",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.ancient_cavern",
+          "value": true
+        }
+      ]
+    },
+    "note": "No fixed XP or QP at completion; individual demonstrations train skills and Otto records nine independent technique credits."
+  },
+  {
+    "id": "review.miniquest.into_the_tombs.completion_rewards",
+    "activity_id": "miniquest.into_the_tombs",
+    "status": "collected",
+    "source_ids": [
+      "source.jagex.tombs_of_amascut"
+    ],
+    "catalog_ids": [
+      "miniquest.into_the_tombs.complete"
+    ],
+    "expected_effects": {
+      "miniquest.into_the_tombs.complete": [
+        {
+          "kind": "flag",
+          "token_id": "flag.miniquest.into_the_tombs.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.toa_repeatable_raids",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.toa_ancient_key",
+          "value": true
+        },
+        {
+          "kind": "xp_reward",
+          "reward_id": "reward.into_the_tombs.combat_lamp",
+          "quantity": 1
+        }
+      ]
+    },
+    "note": "Maisa awards one retained 50k combat lamp after the first full raid; further raid rewards and future ancient-key crafting are distinct."
+  },
+  {
+    "id": "review.rfd.freeing_sir_amik_varze.completion_rewards",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "rfd.freeing_sir_amik_varze.complete"
+    ],
+    "expected_effects": {
+      "rfd.freeing_sir_amik_varze.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.cooking",
+          "xp_tenths": 40000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.hitpoints",
+          "xp_tenths": 40000
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.rfd_evil_chicken_lair",
+          "value": true
+        }
+      ]
+    },
+    "note": "Completion reward is applied exactly once; no duplicate parent RFD award."
+  },
+  {
+    "id": "review.rfd.defeating_the_culinaromancer.completion_rewards",
+    "activity_id": "rfd.defeating_the_culinaromancer",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations"
+    ],
+    "catalog_ids": [
+      "rfd.defeating_the_culinaromancer.complete"
+    ],
+    "expected_effects": {
+      "rfd.defeating_the_culinaromancer.complete": [
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.rfd.finale_complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.rfd_barrows_gloves",
+          "value": true
+        },
+        {
+          "kind": "xp_reward",
+          "reward_id": "reward.rfd.culinaromancer_lamp",
+          "quantity": 1
+        }
+      ]
+    },
+    "note": "Completion reward is applied exactly once; no duplicate parent RFD award."
+  },
+  {
+    "id": "review.quest.pandemonium.completion_rewards",
+    "activity_id": "quest.pandemonium",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.reference.pandemonium_quick_guide"
+    ],
+    "catalog_ids": [
+      "quest.pandemonium.deliver_cargo",
+      "quest.pandemonium.complete"
+    ],
+    "expected_effects": {
+      "quest.pandemonium.deliver_cargo": [
+        {
+          "kind": "xp",
+          "skill_id": "skill.sailing",
+          "xp_tenths": 1000
+        }
+      ],
+      "quest.pandemonium.complete": [
+        {
+          "kind": "item",
+          "item_id": "item.pandemonium.wood_sawmill_coupon",
+          "quantity": 25
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pandemonium.repair_kit",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pandemonium.spyglass",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pandemonium.sailing",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pandemonium.island_access",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pandemonium.port_tasks",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.pandemonium.complete",
+          "value": true
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.sailing",
+          "xp_tenths": 3000
+        }
+      ]
+    },
+    "note": "One fixed 100 XP Sailing award at first cargo delivery plus 300 XP at quest completion; 400 XP total. Free raft, Captain's log and basic cargo hold are separate preceding milestone unlocks."
+  },
+  {
+    "id": "review.quest.current_affairs.completion_rewards",
+    "activity_id": "quest.current_affairs",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.reference.current_affairs_quick_guide"
+    ],
+    "catalog_ids": [
+      "quest.current_affairs.catch_mayor",
+      "quest.current_affairs.get_current_duck",
+      "quest.current_affairs.complete"
+    ],
+    "expected_effects": {
+      "quest.current_affairs.catch_mayor": [
+        {
+          "kind": "item",
+          "item_id": "item.current.mayor_catherby",
+          "quantity": 1
+        }
+      ],
+      "quest.current_affairs.get_current_duck": [
+        {
+          "kind": "item",
+          "item_id": "item.current.current_duck",
+          "quantity": 1
+        }
+      ],
+      "quest.current_affairs.complete": [
+        {
+          "kind": "item",
+          "item_id": "item.prying.oak_sawmill_coupon",
+          "quantity": 25
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.current.sea_charting",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.current_affairs.complete",
+          "value": true
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.sailing",
+          "xp_tenths": 14000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.fishing",
+          "xp_tenths": 10000
+        }
+      ]
+    },
+    "note": "The fish mayor and reusable current duck are gained earlier and retained after the sea trial; completion awards 1 QP, 1,400 Sailing XP, 1,000 Fishing XP, 25 oak-plank coupons and the charting unlock once."
+  },
+  {
+    "id": "review.quest.troubled_tortugans.completion_rewards",
+    "activity_id": "quest.troubled_tortugans",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.reference.troubled_tortugans_quick_guide"
+    ],
+    "catalog_ids": [
+      "quest.troubled_tortugans.cut_jatoba",
+      "quest.troubled_tortugans.repair_krill_wall",
+      "quest.troubled_tortugans.repair_krill_stall",
+      "quest.troubled_tortugans.repair_strom_wall",
+      "quest.troubled_tortugans.repair_strom_crate",
+      "quest.troubled_tortugans.repair_coco_crate",
+      "quest.troubled_tortugans.repair_coco_stall",
+      "quest.troubled_tortugans.complete"
+    ],
+    "expected_effects": {
+      "quest.troubled_tortugans.cut_jatoba": [
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.jatoba_logs",
+          "quantity": 10
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.woodcutting",
+          "xp_tenths": 9200
+        }
+      ],
+      "quest.troubled_tortugans.repair_krill_wall": [
+        {
+          "kind": "xp",
+          "skill_id": "skill.construction",
+          "xp_tenths": 800
+        }
+      ],
+      "quest.troubled_tortugans.repair_krill_stall": [
+        {
+          "kind": "xp",
+          "skill_id": "skill.construction",
+          "xp_tenths": 800
+        }
+      ],
+      "quest.troubled_tortugans.repair_strom_wall": [
+        {
+          "kind": "xp",
+          "skill_id": "skill.construction",
+          "xp_tenths": 800
+        }
+      ],
+      "quest.troubled_tortugans.repair_strom_crate": [
+        {
+          "kind": "xp",
+          "skill_id": "skill.construction",
+          "xp_tenths": 800
+        }
+      ],
+      "quest.troubled_tortugans.repair_coco_crate": [
+        {
+          "kind": "xp",
+          "skill_id": "skill.construction",
+          "xp_tenths": 800
+        }
+      ],
+      "quest.troubled_tortugans.repair_coco_stall": [
+        {
+          "kind": "xp",
+          "skill_id": "skill.construction",
+          "xp_tenths": 800
+        }
+      ],
+      "quest.troubled_tortugans.complete": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.tortugans.little_pearl",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.tortugans.gryphon_combat",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.tortugans.great_conch_facilities",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.troubled_tortugans.complete",
+          "value": true
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 1
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.sailing",
+          "xp_tenths": 100000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.slayer",
+          "xp_tenths": 80000
+        }
+      ]
+    },
+    "note": "Six 80-XP Construction repairs, ten 92-XP Woodcutting log cuts, then one-time 1 QP, 10,000 Sailing and 8,000 Slayer XP. Combat XP and variable resources are not claimed to be deterministic."
+  },
+  {
+    "id": "review.quest.the_red_reef.completion_rewards",
+    "activity_id": "quest.the_red_reef",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.reference.red_reef_quick_guide"
+    ],
+    "catalog_ids": [
+      "quest.the_red_reef.land_red_rock",
+      "quest.the_red_reef.inspect_sailors_marker",
+      "quest.the_red_reef.complete"
+    ],
+    "expected_effects": {
+      "quest.the_red_reef.land_red_rock": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.redreef.red_rock_dock",
+          "value": true
+        }
+      ],
+      "quest.the_red_reef.inspect_sailors_marker": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.redreef.sailors_amulet_red_rock",
+          "value": true
+        }
+      ],
+      "quest.the_red_reef.complete": [
+        {
+          "kind": "item",
+          "item_id": "item.redreef.bosun_schematic",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.redreef.sacred_grove",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.redreef.bosuns_bench_schematic",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.the_red_reef.complete",
+          "value": true
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.sailing",
+          "xp_tenths": 150000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.smithing",
+          "xp_tenths": 50000
+        }
+      ]
+    },
+    "note": "Red Rock access is a midquest milestone. The Sailor's amulet marker is optional and must be interacted with separately. Completion gives 2 QP, 15,000 Sailing XP, 5,000 Smithing XP, Sacred Grove access and the Bosun's workbench schematic once."
+  },
+  {
+    "id": "review.quest.fallen_from_grace.completion_rewards",
+    "activity_id": "quest.fallen_from_grace",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.reference.fallen_from_grace_quick_guide"
+    ],
+    "catalog_ids": [
+      "quest.fallen_from_grace.unlock_mortimer",
+      "quest.fallen_from_grace.defeat_mad_angel",
+      "quest.fallen_from_grace.complete"
+    ],
+    "expected_effects": {
+      "quest.fallen_from_grace.unlock_mortimer": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.grace.mortimer",
+          "value": true
+        }
+      ],
+      "quest.fallen_from_grace.defeat_mad_angel": [
+        {
+          "kind": "flag",
+          "token_id": "flag.grace.angel_defeated",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grace.sunstone_crystal",
+          "quantity": 1
+        }
+      ],
+      "quest.fallen_from_grace.complete": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.fallen_from_grace.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.grace.mad_angel_repeat",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.grace.golem_crafting",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.grace.wyrmscraig_teleports",
+          "value": true
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.crafting",
+          "xp_tenths": 100000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.sailing",
+          "xp_tenths": 125000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.mining",
+          "xp_tenths": 50000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.runecraft",
+          "xp_tenths": 50000
+        }
+      ]
+    },
+    "note": "Mortimer becomes available at the three-troll cavern milestone. Sunstone crystal comes from the Mad Angel, and the 2 QP, 32,500 fixed XP and remaining destination/minigame/repeat boss unlocks are granted only at completion."
+  },
+  {
+    "id": "review.quest.secrets_of_the_north.completion_rewards",
+    "activity_id": "quest.secrets_of_the_north",
+    "status": "collected",
+    "source_ids": [
+      "source.quest_helper.quest_observations",
+      "source.reference.secrets_of_the_north_quick_guide"
+    ],
+    "catalog_ids": [
+      "quest.secrets_of_the_north.open_weiss",
+      "quest.secrets_of_the_north.open_south_gate",
+      "quest.secrets_of_the_north.fight_muspah",
+      "quest.secrets_of_the_north.complete"
+    ],
+    "expected_effects": {
+      "quest.secrets_of_the_north.open_weiss": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.secrets.weiss_opened",
+          "value": true
+        }
+      ],
+      "quest.secrets_of_the_north.open_south_gate": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.secrets.crevice",
+          "value": true
+        }
+      ],
+      "quest.secrets_of_the_north.fight_muspah": [
+        {
+          "kind": "flag",
+          "token_id": "flag.secrets.muspah",
+          "value": true
+        }
+      ],
+      "quest.secrets_of_the_north.complete": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.secrets_of_the_north.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.secrets.repeat",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.secrets.essence",
+          "value": true
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "delta": 2
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.agility",
+          "xp_tenths": 600000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.thieving",
+          "xp_tenths": 500000
+        },
+        {
+          "kind": "xp",
+          "skill_id": "skill.hunter",
+          "xp_tenths": 400000
+        }
+      ]
+    },
+    "note": "2 quest points, 60,000 Agility XP, 50,000 Thieving XP, 40,000 Hunter XP and repeatable Phantom Muspah / ancient essence access awarded at final Carnillean report. Dungeon and crevice unlock earlier."
+  },
+  {
+    "id": "review.miniquest.the_fractured_archive.completion_rewards",
+    "activity_id": "miniquest.the_fractured_archive",
+    "status": "collected",
+    "source_ids": [
+      "source.jagex.fractured_archive",
+      "source.runelite.quests"
+    ],
+    "catalog_ids": [
+      "miniquest.the_fractured_archive.start",
+      "miniquest.the_fractured_archive.complete"
+    ],
+    "expected_effects": {
+      "miniquest.the_fractured_archive.start": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.archive.raid_access",
+          "value": true
+        }
+      ],
+      "miniquest.the_fractured_archive.complete": [
+        {
+          "kind": "flag",
+          "token_id": "flag.miniquest.the_fractured_archive.complete",
+          "value": true
+        }
+      ]
+    },
+    "note": "Archive access unlocks at first lobby entry. The miniquest ends after the first successful five-boss raid clear; no fixed XP or quest points are paid. The post-Ocellus chest uses randomized raid drops and never guarantees an Archivist's Folio."
   }
 ]
