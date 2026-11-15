@@ -17,24 +17,22 @@
   ],
   "observations": {
     "start": "Ivy Sophista at 2907,3450,0 in Taverley. Quest Helper requires 180 QP, ten completed quests, six nonboostable skills and Warriors’ Guild access.",
-    "requirements": "72 Thieving, 67 Magic, 66 Agility, 65 Herblore, 65 Farming, 62 Hunter; ten direct quests. Warriors’ Guild requires Attack + Strength >=130, or 99 in either skill; see schema limitation below.",
+    "requirements": "72 Thieving, 67 Magic, 66 Agility, 65 Herblore, 65 Farming and 62 Hunter, plus ten direct quests. Warriors’ Guild access requires 130 combined base Attack and Strength, or 99 in either. The catalog enumerates all valid minimum pairs.",
     "chapters": "Ivy and Thaerisk; broav tracking and Movario’s basement/library; mercenary ambush and the secret order; suspect scrying orb, pink lens and enriched snapdragon; Slayer-master contacts and Warriors’ Guild recruitment; prisoner sketch, Black Knights’ catacombs, Silif and Surok; Squall disguise, chapel and Chasm of Tears; elemental braziers/block cavities, druid pouch, Balance Elemental, Stone of Jas and Tormented Demons.",
-    "supplies": "500 coins for launderer as modeled route (Charos(a) alternative not yet modeled), 20 coins pink dye; knife, log, lantern lens, seed dibber, bronze med helm, iron chainbody, sapphire lantern, 8 air/4 astral/4 cosmic runes for NPC Contact, unpowered orb and 30 fire +3 cosmic for Charge Fire Orb, plus ordinary fighting supplies. Broav, quest seed, serum, disguise and puzzle resources produced inside route.",
+    "supplies": "The launderer accepts 500 coins or the activated Ring of Charos. Pink dye costs 20 coins. A fixed 5,000 GP GE estimate covers runes, the unpowered orb, bronze med helm, iron chainbody and other traded tools. Reuse the lit sapphire lantern from Tears of Guthix and collect the law and death runes in the hideout.",
     "completion": "5 quest points; 80,000 Thieving, 75,000 Farming, 75,000 Herblore and 50,000 Hunter XP, awarded exactly once on the completion action; Tormented Demon access unlock.",
-    "claim": "Post-quest Kuradal in Shilo Village provides Duradel’s notes, a single retainable book. Reading the notes is distinct from receiving them: 15 × current Slayer level XP and demonbane crafting knowledge, omitted as dynamic effects until semantics support this formula."
+    "claim": "Post-quest Kuradal in Shilo Village provides Duradel’s notes. Reading consumes the book, immediately awards 15 XP per current Slayer level through the existing level-based reward table, and unlocks demonbane crafting."
   },
   "review_gaps": [
-    "Warriors’ Guild entry accepts Attack + Strength >=130, or 99 in either. Current skill requirement language cannot express a sum; the start uses conservative 65/65 or 99 alternatives and incorrectly excludes asymmetric valid levels such as 90/40. Extend requirement evaluator before independent review.",
-    "The launderer also accepts Ring of Charos(a) instead of 500 coins. Add an exact alternative branch rather than treating the coin route as mandatory for all accounts.",
     "Check item counts and transitions for the broav, trap fungus, the Movario rune door, variable code, bookcase puzzle, chest traps and painting. These success events are not guaranteed.",
-    "The enriched snapdragon matures after fellowship recruitment; no arbitrary real-world herb-patch grow timer is added. Confirm growth gating and whether all four NPC Contact spell casts are required.",
-    "The quest uses 4 NPC Contact casts in pinned supply declarations. The charge orb spell branch is deliberately Charge Fire (30 fire +3 cosmic) but alternate element spells and exact spell XP need individual travel/cast routes.",
-    "Equipment supplies (bronze med helm, iron chainbody, lit sapphire lantern, spell runes, equipment/food) are required external inventory. Verify exact source and availability; they are seeded in isolated replay.",
+    "The enriched snapdragon matures after all four recruits are contacted. Verify the individual NPC Contact alternatives and in-person routes.",
+    "The draft uses four NPC Contact casts at the Lunar altar and Charge Fire Orb on the carved fortress tile. Review alternate element spells and the incidental spell XP.",
+    "Check combat loadouts, food use, recovery and exact house, dungeon and floor transitions. The travel times are draft estimates.",
     "Catacomb mechanics, disguise garment quantities, restore potion strength, second spy orb and one-way chapel teleorb need item-by-item in-game reconciliation. Grouped item records are placeholders, not final cache IDs.",
     "The temple puzzles have randomized/instance geometry. Check elemental recessed blocks/cavities, transport and retry costs. All combat actions require observed success, not guaranteed wins.",
-    "No fixed Slayer XP is invented for Duradel’s notes: the 15 × current Slayer level on reading needs a dynamic-XP effect schema. The claim tile at Shilo Village is estimated; verify exact Kuradal floor and position.",
+    "The catalog schedules reading Duradel’s notes at Kuradal’s waypoint. Confirm the exact claim tile and expand usable read locations when portable item actions are modeled.",
     "Confirm whether the broav is retained when entering the base; quest-specific fungus capture source; chasm druid pouch and food recovery. Timing and return edges are conservative unverified draft estimates.",
     "The pinned source has 160+ candidate waypoints; this route clusters closely related puzzle interactions and alternative paths into higher-level success checks. Expand alternate paths after gameplay review.",
-    "A Tail of Two Cats prerequisite is on an unmerged upstream PR. Its completion is represented by a temporary flag, seeded by focused replay; wire the merged quest completion action during integration."
+    "Movario’s optional cache contains 100 each of death runes, fire runes, coal and magic logs. Review the one-time quantities, notes confiscation and the multiple trips needed for unnoted items before adding the claim."
   ]
 }

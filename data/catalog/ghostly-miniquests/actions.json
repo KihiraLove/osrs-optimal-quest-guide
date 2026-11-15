@@ -1,0 +1,1762 @@
+[
+  {
+    "id": "miniquest.curse_of_the_empty_lord.valdez",
+    "name": "Find Valdez at Glarial's Tomb and receive the ghostly robe top",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.valdez",
+    "end_location_id": "location.ghostly.valdez",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_i.visibility_ring"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_restless_ghost.start"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.the_restless_ghost.complete"
+            }
+          ]
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_robe_top",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 64,
+      "max_seconds": 136
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only partial Desert Treasure I and started Restless Ghost required. Valdez gives the robe top and one of three random location clues."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.clue_shipwreck",
+    "name": "Interpret Valdez's shipwreck ghost clue",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.valdez",
+    "end_location_id": "location.ghostly.valdez",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.valdez"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": null
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "choose",
+        "token_id": "choice.curse_of_the_empty_lord.sequence",
+        "option": "shipwreck"
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage and licensed quest walkthrough; time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Valdez's randomized hint matches this entire ghost location sequence.",
+      "if_unmet": "Follow the game's clue, resupply and retry after restoring the required conditions."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.rennard_shipwreck",
+    "name": "Speak to Rennard and receive ghostly gloves",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.rennard_shipwreck",
+    "end_location_id": "location.ghostly.rennard_shipwreck",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.clue_shipwreck"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "shipwreck"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_gloves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.kharrim_shipwreck",
+    "name": "Speak to Kharrim and receive ghostly boots",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.kharrim_chaos_church",
+    "end_location_id": "location.ghostly.kharrim_chaos_church",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.rennard_shipwreck"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "shipwreck"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_boots",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.lennissa_shipwreck",
+    "name": "Speak to Lennissa and receive ghostly robe bottom",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.entrana.high_priest",
+    "end_location_id": "location.entrana.high_priest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.kharrim_shipwreck"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "shipwreck"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_robe_bottom",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.dhalak_shipwreck",
+    "name": "Speak to Dhalak and receive ghostly hood",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.dhalak_wizards_tower",
+    "end_location_id": "location.ghostly.dhalak_wizards_tower",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.lennissa_shipwreck"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "shipwreck"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_hood",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.viggora_shipwreck",
+    "name": "Speak to Viggora and receive ghostly cloak",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.viggora_rogues_castle",
+    "end_location_id": "location.ghostly.viggora_rogues_castle",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.dhalak_shipwreck"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "shipwreck"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_cloak",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.clue_wilderness",
+    "name": "Interpret Valdez's wilderness ghost clue",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.valdez",
+    "end_location_id": "location.ghostly.valdez",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.valdez"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": null
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "choose",
+        "token_id": "choice.curse_of_the_empty_lord.sequence",
+        "option": "wilderness"
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage and licensed quest walkthrough; time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Valdez's randomized hint matches this entire ghost location sequence.",
+      "if_unmet": "Follow the game's clue, resupply and retry after restoring the required conditions."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.rennard_wilderness",
+    "name": "Speak to Rennard and receive ghostly gloves",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.rennard_wilderness_bandits",
+    "end_location_id": "location.ghostly.rennard_wilderness_bandits",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.clue_wilderness"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "wilderness"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_gloves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.kharrim_wilderness",
+    "name": "Speak to Kharrim and receive ghostly boots",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.kharrim_graveyard",
+    "end_location_id": "location.ghostly.kharrim_graveyard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.rennard_wilderness"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "wilderness"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_boots",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.lennissa_wilderness",
+    "name": "Speak to Lennissa and receive ghostly robe bottom",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.lennissa_port_sarim",
+    "end_location_id": "location.ghostly.lennissa_port_sarim",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.kharrim_wilderness"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "wilderness"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_robe_bottom",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.dhalak_wilderness",
+    "name": "Speak to Dhalak and receive ghostly hood",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.dhalak_monastery",
+    "end_location_id": "location.ghostly.dhalak_monastery",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.lennissa_wilderness"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "wilderness"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.prayer",
+          "minimum_level": 31,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_hood",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.viggora_wilderness",
+    "name": "Speak to Viggora and receive ghostly cloak",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.viggora_slayer_tower",
+    "end_location_id": "location.ghostly.viggora_slayer_tower",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.dhalak_wilderness"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "wilderness"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_cloak",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.clue_desert",
+    "name": "Interpret Valdez's desert ghost clue",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.valdez",
+    "end_location_id": "location.ghostly.valdez",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.valdez"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": null
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "choose",
+        "token_id": "choice.curse_of_the_empty_lord.sequence",
+        "option": "desert"
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage and licensed quest walkthrough; time estimated."
+    },
+    "planned_outcome": {
+      "success_condition": "Valdez's randomized hint matches this entire ghost location sequence.",
+      "if_unmet": "Follow the game's clue, resupply and retry after restoring the required conditions."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.rennard_desert",
+    "name": "Speak to Rennard and receive ghostly gloves",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.rennard_desert_bandits",
+    "end_location_id": "location.ghostly.rennard_desert_bandits",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.clue_desert"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "desert"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_gloves",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.kharrim_desert",
+    "name": "Speak to Kharrim and receive ghostly boots",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.kharrim_lava_maze",
+    "end_location_id": "location.ghostly.kharrim_lava_maze",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.rennard_desert"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "desert"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.knife",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_boots",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.lennissa_desert",
+    "name": "Speak to Lennissa and receive ghostly robe bottom",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.lennissa_gnome_ball",
+    "end_location_id": "location.ghostly.lennissa_gnome_ball",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.kharrim_desert"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "desert"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_robe_bottom",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.dhalak_desert",
+    "name": "Speak to Dhalak and receive ghostly hood",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.dhalak_party_room",
+    "end_location_id": "location.ghostly.dhalak_party_room",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.lennissa_desert"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "desert"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_hood",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.viggora_desert",
+    "name": "Speak to Viggora and receive ghostly cloak",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.viggora_edgeville_dungeon",
+    "end_location_id": "location.ghostly.viggora_edgeville_dungeon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.dhalak_desert"
+        },
+        {
+          "kind": "choice",
+          "token_id": "choice.curse_of_the_empty_lord.sequence",
+          "option": "desert"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ghostly_cloak",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 56,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Only the sequence named by Valdez advances the ghost tale; Wilderness ghosts and inter-ghost movement have PK hazards. Possession is a proxy for wearing ring/amulet."
+    }
+  },
+  {
+    "id": "miniquest.curse_of_the_empty_lord.complete",
+    "name": "Record Curse of the Empty Lord completion after Viggora",
+    "activity_id": "miniquest.curse_of_the_empty_lord",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.valdez",
+    "end_location_id": "location.ghostly.valdez",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "miniquest.curse_of_the_empty_lord.viggora_shipwreck"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "miniquest.curse_of_the_empty_lord.viggora_wilderness"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "miniquest.curse_of_the_empty_lord.viggora_desert"
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.miniquest.curse_of_the_empty_lord.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 18,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "An abstract, one-location journal marker after Viggora on any valid sequence; the game completes at Viggora, so returning to this Valdez anchor is not actually necessary. No QP or fixed XP; Minas offers a separate claim."
+    }
+  },
+  {
+    "id": "miniquest.the_generals_shadow.start",
+    "name": "Ask General Khazard about his lost scouts",
+    "activity_id": "miniquest.the_generals_shadow",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.khazard",
+    "end_location_id": "location.ghostly.khazard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fight_arena.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_robe_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_robe_bottom",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_hood",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_cloak",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 33,
+      "expected_seconds": 67,
+      "max_seconds": 142
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The General wanders south-east of Rellekka; ring, ghostspeak amulet and all six ghostly robe pieces must be equipped."
+    }
+  },
+  {
+    "id": "miniquest.the_generals_shadow.sin_seer",
+    "name": "Pay Sin Seer for her worthiness note",
+    "activity_id": "miniquest.the_generals_shadow",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.sin_seer",
+    "end_location_id": "location.ghostly.sin_seer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.start"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 40
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.sin_seers_note",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 51,
+      "max_seconds": 110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Sin Seer charges 40 coins and gives a written note. The 30 GP Karamja boat fare, if used, belongs to travel edges."
+    }
+  },
+  {
+    "id": "miniquest.the_generals_shadow.show_note",
+    "name": "Take Sin Seer's note back to General Khazard",
+    "activity_id": "miniquest.the_generals_shadow",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.khazard",
+    "end_location_id": "location.ghostly.khazard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.sin_seer"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sin_seers_note",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 41,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage and licensed quest walkthrough; time estimated."
+    }
+  },
+  {
+    "id": "miniquest.the_generals_shadow.scout_gnome",
+    "name": "Deliver Khazard's message to the gnome scout",
+    "activity_id": "miniquest.the_generals_shadow",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.scout_gnome",
+    "end_location_id": "location.ghostly.scout_gnome",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.show_note"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_robe_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_robe_bottom",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_hood",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_cloak",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 49,
+      "max_seconds": 106
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One of four ghost scouts, visitable in any order; all are invisible on the minimap and roam locally."
+    }
+  },
+  {
+    "id": "miniquest.the_generals_shadow.scout_falador",
+    "name": "Deliver Khazard's message to the falador scout",
+    "activity_id": "miniquest.the_generals_shadow",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.scout_falador",
+    "end_location_id": "location.ghostly.scout_falador",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.show_note"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_robe_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_robe_bottom",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_hood",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_cloak",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 49,
+      "max_seconds": 106
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One of four ghost scouts, visitable in any order; all are invisible on the minimap and roam locally."
+    }
+  },
+  {
+    "id": "miniquest.the_generals_shadow.scout_shantay",
+    "name": "Deliver Khazard's message to the shantay scout",
+    "activity_id": "miniquest.the_generals_shadow",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.scout_shantay",
+    "end_location_id": "location.ghostly.scout_shantay",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.show_note"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_robe_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_robe_bottom",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_hood",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_cloak",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 49,
+      "max_seconds": 106
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One of four ghost scouts, visitable in any order; all are invisible on the minimap and roam locally."
+    }
+  },
+  {
+    "id": "miniquest.the_generals_shadow.scout_karamja",
+    "name": "Deliver Khazard's message to the karamja scout",
+    "activity_id": "miniquest.the_generals_shadow",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.scout_karamja",
+    "end_location_id": "location.ghostly.scout_karamja",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.show_note"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ring_of_visibility",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_robe_top",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_gloves",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_boots",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_robe_bottom",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_hood",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostly_cloak",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 49,
+      "max_seconds": 106
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One of four ghost scouts, visitable in any order; all are invisible on the minimap and roam locally."
+    }
+  },
+  {
+    "id": "miniquest.the_generals_shadow.report_scouts",
+    "name": "Report all four scout conversations to General Khazard",
+    "activity_id": "miniquest.the_generals_shadow",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.khazard",
+    "end_location_id": "location.ghostly.khazard",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.scout_gnome"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.scout_falador"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.scout_shantay"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.scout_karamja"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.severed_leg",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 64,
+      "max_seconds": 136
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "General gives a severed leg and directs the player toward the Goblin Cave near the Fishing Guild."
+    }
+  },
+  {
+    "id": "miniquest.the_generals_shadow.enter_cave",
+    "name": "Enter the Goblin Cave northeast passage",
+    "activity_id": "miniquest.the_generals_shadow",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.goblin_cave",
+    "end_location_id": "location.ghostly.goblin_cave_inner",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.report_scouts"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.severed_leg",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 88
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage and licensed quest walkthrough; time estimated."
+    }
+  },
+  {
+    "id": "miniquest.the_generals_shadow.enter_crack",
+    "name": "Crawl through the crack to Bouncer's ghost",
+    "activity_id": "miniquest.the_generals_shadow",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.goblin_cave_inner",
+    "end_location_id": "location.ghostly.bouncer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.enter_cave"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.severed_leg",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 34,
+      "max_seconds": 76
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned Quest Helper stage and licensed quest walkthrough; time estimated."
+    }
+  },
+  {
+    "id": "miniquest.the_generals_shadow.complete",
+    "name": "Defeat Bouncer's ghost and obtain the Shadow sword",
+    "activity_id": "miniquest.the_generals_shadow",
+    "kind": "quest_stage",
+    "start_location_id": "location.ghostly.bouncer",
+    "end_location_id": "location.ghostly.bouncer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.the_generals_shadow.enter_crack"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.severed_leg",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.shadow_sword",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.slayer",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.miniquest.the_generals_shadow.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 105,
+      "expected_seconds": 210,
+      "max_seconds": 428
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Reward is delivered on Bouncer defeat: 2,000 Slayer XP and untradeable Shadow sword. Prayer is disabled in this arena."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the level-160 Bouncer ghost without protection prayers; severed leg distracts it at the end.",
+      "if_unmet": "Follow the game's clue, resupply and retry after restoring the required conditions."
+    }
+  },
+  {
+    "id": "museum.history.empty_lord",
+    "name": "Tell Historian Minas the ghostly-robes story",
+    "activity_id": null,
+    "kind": "museum",
+    "start_location_id": "location.varrock_museum.historian_minas",
+    "end_location_id": "location.varrock_museum.historian_minas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "miniquest.curse_of_the_empty_lord.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.museum.kudos",
+        "delta": 10
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.curse_of_the_empty_lord.museum_lamp",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 22,
+      "max_seconds": 52
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.field.varrock_museum_history",
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Minas separately awards 10 kudos and a 10,000 XP skill-choice antique lamp after Curse of the Empty Lord."
+    }
+  }
+]
