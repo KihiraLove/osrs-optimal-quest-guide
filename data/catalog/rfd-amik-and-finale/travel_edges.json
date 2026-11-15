@@ -351,5 +351,63 @@
       "status": "estimated",
       "note": "Leave between bosses to bank and restock; do not reset the next boss phase."
     }
+  },
+  {
+    "id": "travel.other.rfd.culinaromancers_chest.out",
+    "name": "Descend the kitchen trapdoor to the Culinaromancer's Chest",
+    "mode": "other",
+    "from_location_id": "location.lumbridge_castle.cook",
+    "to_location_id": "location.rfd.culinaromancers_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.culinaromancers_chest",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 22
+    },
+    "evidence": {
+      "source_ids": [
+        "source.reference.culinaromancers_chest",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes the short walk and the kitchen trapdoor or cellar ladder. Use this bank to restock between finale encounters."
+    }
+  },
+  {
+    "id": "travel.other.rfd.culinaromancers_chest.back",
+    "name": "Return through the cellar ladder to the castle kitchen",
+    "mode": "other",
+    "from_location_id": "location.rfd.culinaromancers_chest",
+    "to_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 22
+    },
+    "evidence": {
+      "source_ids": [
+        "source.reference.culinaromancers_chest",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "Includes the short walk and the kitchen trapdoor or cellar ladder. Use this bank to restock between finale encounters."
+    }
   }
 ]
