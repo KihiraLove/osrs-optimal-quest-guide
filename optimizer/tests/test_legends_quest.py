@@ -11,6 +11,8 @@ from quest_optimizer.transitions import RouteState
 
 ROOT = Path(__file__).resolve().parents[2]
 QUEST = "quest.legends_quest"
+HOLY_FORCE_STAGES = {"receive_holy_force", "reopen_source_door", "fight_nezik_source_with_holy_force"}
+DAGGER_STAGES = {"kill_viyeldi", "give_echned_dagger", "fight_nezik_source", "defeat_returning_heroes"}
 
 
 class LegendsQuestTests(unittest.TestCase):
@@ -49,7 +51,8 @@ class LegendsQuestTests(unittest.TestCase):
                                   "item.ruby": 1, "item.diamond": 1, "item.opal": 1,
                                   "item.legends.jade": 1, "item.legends.red_topaz": 1,
                                   "item.gold_bar": 2, "item.hammer": 1, "item.vial_of_water": 1,
-                                  "item.legends.unpowered_orb": 1, "item.rope": 1}
+                                  "item.legends.unpowered_orb": 2, "item.cosmic_rune": 6,
+                                  "item.water_rune": 60, "item.rope": 1}
         return RouteState(self.tables, self.profile["policies"], state)
 
     @staticmethod
@@ -90,9 +93,10 @@ class LegendsQuestTests(unittest.TestCase):
                 todo.append(progressed)
         self.fail(f"No viable route from {state.location} to {target} (reachable: {len(seen)})")
 
-    def full_route(self, state):
+    def full_route(self, state, *, holy_force=False):
+        excluded = DAGGER_STAGES if holy_force else HOLY_FORCE_STAGES
         for record in self.actions:
-            if record["activity_id"] == QUEST:
+            if record["activity_id"] == QUEST and record["id"].split(".")[-1] not in excluded:
                 state = self.apply(self.arrive(state, record["start_location_id"]), record)
         return state
 
@@ -108,8 +112,24 @@ class LegendsQuestTests(unittest.TestCase):
         self.assertNotIn("item.gold_bar", snap["inventory"])
         self.assertNotIn("item.papyrus", snap["inventory"])
         self.assertNotIn("item.legends.yommi_seeds", snap["inventory"])
+        self.assertNotIn("item.legends.germinated_yommi_seeds", snap["inventory"])
+        self.assertIn(QUEST + ".defeat_returning_heroes", snap["completed_action_ids"])
+        self.assertEqual(snap["inventory"]["item.legends.unpowered_orb"], 1)
+        self.assertEqual(snap["inventory"]["item.cosmic_rune"], 3)
+        self.assertEqual(snap["inventory"]["item.water_rune"], 30)
         with self.assertRaises(DataError):
             self.do(done, "complete")
+
+    def test_holy_force_route_uses_two_casts_and_skips_returning_heroes(self):
+        snap = self.full_route(self.seeded(), holy_force=True).snapshot()
+        self.assertEqual(snap["counters"]["token.quest_points"], 111)
+        self.assertTrue(snap["flags"]["flag.quest.legends_quest.complete"])
+        self.assertIn("reward.legends_quest.lamp", str(snap))
+        completed = set(snap["completed_action_ids"])
+        self.assertTrue({f"{QUEST}.{stage}" for stage in HOLY_FORCE_STAGES} <= completed)
+        self.assertTrue({f"{QUEST}.{stage}" for stage in DAGGER_STAGES}.isdisjoint(completed))
+        for item in ("legends.holy_force", "legends.unpowered_orb", "cosmic_rune", "water_rune"):
+            self.assertNotIn("item." + item, snap["inventory"])
 
     def test_prerequisite_gates_and_started_flag(self):
         for state in (self.seeded(quest_points=106), self.seeded(bridges=False)):
@@ -129,6 +149,23 @@ class LegendsQuestTests(unittest.TestCase):
         winch_edge = self.tables["travel_edges"]["travel.other.legends.winch.to.crystal_furnace"]
         with self.assertRaises(DataError):
             self.apply(self.at(state, winch_edge["from_location_id"]), winch_edge, travel=True)
+        door_edge = self.tables["travel_edges"]["travel.walk.legends.rune_wall.to.winch"]
+        at_door = self.at(state, door_edge["from_location_id"])
+        with self.assertRaises(DataError):
+            self.apply(at_door, door_edge, travel=True)
+
+        snapshot = at_door.snapshot()
+        snapshot["completed_action_ids"].append(QUEST + ".brew_bravery")
+        first_cast = self.do(RouteState(self.tables, self.profile["policies"], snapshot), "open_source_door")
+        inside = self.apply(first_cast, door_edge, travel=True)
+        exit_edge = self.tables["travel_edges"]["travel.walk.legends.winch.to.rune_wall"]
+        outside = self.apply(inside, exit_edge, travel=True)
+        with self.assertRaises(DataError):
+            self.apply(outside, door_edge, travel=True)
+        snapshot = outside.snapshot()
+        snapshot["inventory"].pop("item.cosmic_rune")
+        with self.assertRaises(DataError):
+            self.do(RouteState(self.tables, self.profile["policies"], snapshot), "reopen_source_door")
 
     def test_reward_definition_four_reclaimable_lamps(self):
         reward = self.tables["xp_rewards"]["reward.legends_quest.lamp"]

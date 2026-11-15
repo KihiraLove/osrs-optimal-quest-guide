@@ -1,13 +1,19 @@
 {
   "game_revision": "osrs-live-242-2026-11-11",
   "status": "draft_collected",
-  "activity_ids": ["quest.legends_quest"],
+  "activity_ids": [
+    "quest.legends_quest"
+  ],
   "source_ids": [
     "source.quest_helper.quest_observations",
     "source.quest_helper.legends_quest",
-    "source.jagex.garden_of_death_rewards"
+    "source.jagex.garden_of_death_rewards",
+    "source.reference.legends_quest_walkthrough",
+    "source.reference.charge_water_orb"
   ],
-  "helper_files": ["src/main/java/com/questhelper/helpers/quests/legendsquest/LegendsQuest.java"],
+  "helper_files": [
+    "src/main/java/com/questhelper/helpers/quests/legendsquest/LegendsQuest.java"
+  ],
   "source_observations": {
     "entry": [
       "107 quest points and Family Crest, Heroes' Quest, Shilo Village, Underground Pass and Waterfall Quest are the start gates.",
@@ -19,7 +25,10 @@
       "The cave puzzle passes a bookcase, lock and boulder gates, five runes and seven gems before the binding-book stage.",
       "The blessed golden bowl and hollow reeds collect sacred pool water to pass the fire wall, after which Nezikchened is fought to free Ungadulu and obtain Yommi seeds.",
       "Brew bravery potion from ardrigal and snakeweed before using rope/winch to reach the lower Viyeldi caves. Three undead warriors drop crystal pieces used in the furnace and heart barrier puzzle.",
-      "This draft models the shorter Viyeldi-dagger branch, then restores the source, waters Yommi seeds, carves and restores the totem, and returns to Radimus in the guild."
+      "After receiving the seeds, refill the bowl and use that water to germinate them. The next refill reveals the polluted pool.",
+      "The dagger route fights Nezikchened twice after the first rescue and faces three returning undead warriors at the finale.",
+      "The Holy Force route gives the original dagger to Ungadulu, pays for a second Charge Orb spell, then reveals and defeats Nezikchened at the source. The finale skips the three repeat fights.",
+      "The restored pool supplies the water for the sapling. Planting requires 45 Herblore and cutting requires 50 Woodcutting."
     ],
     "rewards": [
       "Four quest points at final Radimus completion, not at the jungle totem stage.",
@@ -32,12 +41,12 @@
   ],
   "review_gaps": [
     "Travel from Brimhaven into the western jungle and between sections is measured approximately. The game requires active jungle-cutting tools and the exact trail may have obstacles; walk edges currently do not debit durability.",
-    "This route selects the short dagger path. The long Holy Force alternative is not yet represented and may have different combat and door-casting costs.",
-    "The exact bowl-crafting location, blessing dialogue, cave gem sequence, rune/law charges and Charge Orb casting requirements must be confirmed against live revision 242. Incidental XP from mining, smithing, crafting and spells is intentionally omitted.",
+    "Both branches use forecast combat times. Verify timings and resource costs in game, including the repeated warrior encounters on the dagger path.",
+    "Confirm actual bowl-crafting and cave puzzle timings and any incidental XP from skill checks and the orb door. Charge Water Orb is modeled as one possible spell, with two sets of supplies in the proposed GE kit.",
     "Confirm the Grand Exchange budget and whether the catalog needs substitutes for the pickaxe and axe.",
     "Ardrigal and snakeweed sources, food/prayer/antipoison and combat gear requirements and three Nezikchened encounters require a live timing and supply review.",
     "Prayer drain, failed boulder/lock checks and death re-entry are recorded as planned outcomes, not stochastic probabilities. The short path repeats undead warriors in the final fight.",
     "The four lamps are modeled on completion as reclaimable held packages. Reclaim/redeem route for lost lamps is delegated to existing quest-lamp reward semantics; verify with a live client."
   ],
-  "notes": "Isolated single-master-quest batch with modeled mainline action dependencies. No adjacent tracker rows or integration-wide generated files were claimed."
+  "notes": "The second Legends' Quest draft supplied Holy Force routing and the separate pre-cave seed germination step. Both routes use the single existing four-lamp completion reward."
 }

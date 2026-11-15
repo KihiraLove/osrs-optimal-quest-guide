@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.66.0 | Added the Holy Force alternative and Yommi seed germination to Legends' Quest, including Charge Orb costs and branch-specific finale encounters. |
 | 0.65.0 | Added Captain Harlan’s magic equipment, Farmer Bea’s Hunter and dart supplies, and North Aldarin Pendant of Ates attunement and charged travel. |
 | 0.64.0 | Linked Tarn’s diary and the three Tai Bwo Wannai Trio training dialogues to their existing reward producers. |
 | 0.63.0 | Linked the Client of Kourend, Dream Mentor and The Great Brain Robbery registry entries to their existing completion lamp awards. |
