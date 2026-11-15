@@ -1,0 +1,1068 @@
+[
+  {
+    "id": "quest.fallen_from_grace.pass_ffion",
+    "name": "Disembark from the raft and answer Ffion at the pier",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.ffion",
+    "end_location_id": "location.grace.ffion",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.pandemonium.raft",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.pandemonium.captains_log",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.sailing",
+          "minimum_level": 62,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.grace.arrived",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 42,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Wyrmscraig is reached by personal raft/skiff; 62 Sailing is unboostable. Ffion stops the first landfall."
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.start",
+    "name": "Talk to Cormac about missing Keenan",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.cormac",
+    "end_location_id": "location.grace.cormac",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.pass_ffion"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.pandemonium.complete",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.sailing",
+          "minimum_level": 62,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.runecraft",
+          "minimum_level": 47,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 53,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.talk_muriel",
+    "name": "Ask Muriel where Keenan went",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.muriel",
+    "end_location_id": "location.grace.muriel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.take_pickaxe",
+    "name": "Take an iron pickaxe from the mining tent if needed",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.mining_tent",
+    "end_location_id": "location.grace.mining_tent",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.talk_muriel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grace.iron_pickaxe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Guide: an iron pickaxe is available on Wyrmscraig; the tent's exact spawn tile remains estimated."
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.take_chisel",
+    "name": "Take a chisel from the mining tent if needed",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.mining_tent",
+    "end_location_id": "location.grace.mining_tent",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.talk_muriel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.chisel",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.take_hammer",
+    "name": "Optionally take a hammer from the mining tent",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.mining_tent",
+    "end_location_id": "location.grace.mining_tent",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.talk_muriel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The hammer is a convenience for the optional postquest bank, not a mandatory quest ingredient."
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.inspect_monolith",
+    "name": "Read the inscription on the sunstone monolith",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.monolith",
+    "end_location_id": "location.grace.monolith",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.talk_muriel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.mine_sunstone",
+    "name": "Mine a piece of sunstone from the monolith",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.monolith",
+    "end_location_id": "location.grace.monolith",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.inspect_monolith"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grace.iron_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grace.sunstone_chunk",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 75,
+      "max_seconds": 225
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Requires any pickaxe. The draft uses the Wyrmscraig iron pickaxe producer; higher-tier substitutes need a generic pickaxe predicate."
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.refine_sunstone",
+    "name": "Chisel the sunstone into the golem core",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.monolith",
+    "end_location_id": "location.grace.monolith",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.mine_sunstone"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grace.sunstone_chunk",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.chisel",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grace.sunstone_chunk",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grace.sunstone_core",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.inspect_hat",
+    "name": "Follow the scattered dust and examine Keenan's hat",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.keenan_hat",
+    "end_location_id": "location.grace.keenan_hat",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.refine_sunstone"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.report_to_cormac",
+    "name": "Tell Cormac about the sunstone and Keenan's hat",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.cormac",
+    "end_location_id": "location.grace.cormac",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.inspect_hat"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.grace.cavern",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.meet_skeleton",
+    "name": "Meet the speaking skeleton at the cavern landing",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.mortimer",
+    "end_location_id": "location.grace.mortimer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.report_to_cormac"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.defeat_trolls",
+    "name": "Defeat all three level-69 mountain trolls",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.trolls",
+    "end_location_id": "location.grace.trolls",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.meet_skeleton"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 90,
+      "expected_seconds": 180,
+      "max_seconds": 540
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    },
+    "planned_outcome": {
+      "success_condition": "Three mountain trolls are defeated in multicombat with combat equipment, food and prayer as needed.",
+      "if_unmet": "Replenish combat supplies and retry this encounter; do not assume an automatic victory."
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.unlock_mortimer",
+    "name": "Report the trolls' defeat and clear the cave rocks with Mortimer",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.mortimer",
+    "end_location_id": "location.grace.mortimer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.defeat_trolls"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.grace.mortimer",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 28,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mortimer becomes a usable Slayer Master when the first cave obstruction is removed, before finishing the quest."
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.inspect_golem",
+    "name": "Inspect the broken golem and remove its dull core",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.golem",
+    "end_location_id": "location.grace.golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.unlock_mortimer"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grace.dull_core",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.repair_golem",
+    "name": "Power the broken golem with the refined sunstone core",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.golem",
+    "end_location_id": "location.grace.golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.inspect_golem"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grace.sunstone_core",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grace.sunstone_core",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.grace.golem_door",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.clear_shortcut",
+    "name": "Optionally mine the rocks to open the 54-Agility cathedral shortcut",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.shortcut",
+    "end_location_id": "location.grace.shortcut",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.unlock_mortimer"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 54,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grace.iron_pickaxe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.grace.shortcut",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Optional shortcut west of the cave; not required for quest completion. Agility gate is conservatively nonboostable pending verification."
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.open_chest",
+    "name": "Solve the east-west-down-down cipher chest",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.chest",
+    "end_location_id": "location.grace.chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.repair_golem"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grace.ancient_core",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.grace.golem_primer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.make_key",
+    "name": "Break the ancient sunstone core to reveal a key",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.chest",
+    "end_location_id": "location.grace.chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.open_chest"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grace.ancient_core",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grace.ancient_core",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.grace.cathedral_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 18,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Destroying the ancient core also yields the key; chisel is not required for this step."
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.climb_stairs",
+    "name": "Use the recovered key and enter the cathedral",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.stairs",
+    "end_location_id": "location.grace.stairs",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.make_key"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.grace.cathedral_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.grace.cathedral_key",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Models the key as expended to open cathedral access. Verify whether the physical key persists."
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.defeat_mad_angel",
+    "name": "Defeat the level-270 Mad Angel",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.mad_angel",
+    "end_location_id": "location.grace.mad_angel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.climb_stairs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.grace.angel_defeated",
+        "value": true
+      },
+      {
+        "kind": "item",
+        "item_id": "item.grace.sunstone_crystal",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 210,
+      "expected_seconds": 420,
+      "max_seconds": 1260
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    },
+    "planned_outcome": {
+      "success_condition": "Mad Angel reaches zero health after correctly avoiding sword cleave, moving to bouncing projectiles and timing Protect from Magic on lightning, including the enraged phase.",
+      "if_unmet": "Replenish combat supplies and retry this encounter; do not assume an automatic victory."
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.search_keenan",
+    "name": "Search Keenan's body and read the note",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.body",
+    "end_location_id": "location.grace.body",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.defeat_mad_angel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 48,
+      "max_seconds": 144
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper step and independently summarized guide sequence; exact time provisional"
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.solve_exit_lock",
+    "name": "Solve the variable tumbler lock to leave the cathedral",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.cathedral_lock",
+    "end_location_id": "location.grace.cathedral_lock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.search_keenan"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Each lock attempt can randomize the combination; player must find the correct tumblers by green feedback."
+    }
+  },
+  {
+    "id": "quest.fallen_from_grace.complete",
+    "name": "Report Keenan's fate to Cormac and finish Fallen From Grace",
+    "activity_id": "quest.fallen_from_grace",
+    "kind": "quest_stage",
+    "start_location_id": "location.grace.cormac",
+    "end_location_id": "location.grace.cormac",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.fallen_from_grace.solve_exit_lock"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.fallen_from_grace.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.grace.mad_angel_repeat",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.grace.golem_crafting",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.grace.wyrmscraig_teleports",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.crafting",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.sailing",
+        "xp_tenths": 125000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 50000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.runecraft",
+        "xp_tenths": 50000
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.fallen_from_grace_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One-time 2 QP, 10k Crafting, 12.5k Sailing, 5k Mining, 5k Runecraft. Repeatable boss, golem minigame and island teleports open on completion; Mortimer already opened."
+    }
+  }
+]

@@ -1,0 +1,3034 @@
+[
+  {
+    "id": "quest.dragon_slayer_ii.start",
+    "name": "Ask Alec Kincade to begin the Myths Guild investigation",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2458_2869_0",
+    "end_location_id": "location.ds2.tile_2458_2869_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.legends_quest.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.a_tail_of_two_cats.complete",
+          "value": true
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dream_mentor.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.animal_magnetism.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.ghosts_ahoy.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.bone_voyage.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.client_of_kourend.complete"
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 200
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 75,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 70,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.mining",
+          "minimum_level": 68,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 62,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.agility",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.thieving",
+          "minimum_level": 60,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 50,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.hitpoints",
+          "minimum_level": 50,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.talk_dallas_musa",
+    "name": "Meet Dallas Jones at the Karamja pub",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2924_3146_0",
+    "end_location_id": "location.ds2.tile_2924_3146_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.meet_dallas_crandor",
+    "name": "Find Dallas inside Elvarg’s Crandor lair",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2856_9645_0",
+    "end_location_id": "location.ds2.tile_2856_9645_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.talk_dallas_musa"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.mine_crandor_wall",
+    "name": "Mine the disguised wall in the old dragon lair",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2860_9648_0",
+    "end_location_id": "location.ds2.tile_2860_9648_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.meet_dallas_crandor"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_pickaxe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.grace.iron_pickaxe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.rune_pickaxe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.defeat_spawn",
+    "name": "Defeat the laboratory spawn",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2867_9676_0",
+    "end_location_id": "location.ds2.tile_2867_9676_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.mine_crandor_wall"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 140,
+      "expected_seconds": 280,
+      "max_seconds": 840
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify defeat the laboratory spawn succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.inspect_mural",
+    "name": "Read the Dragonkin mural with Dallas",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2867_9680_0",
+    "end_location_id": "location.ds2.tile_2867_9680_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.defeat_spawn"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.meet_dallas_house",
+    "name": "Find Dallas in the House on the Hill",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3762_3868_0",
+    "end_location_id": "location.ds2.tile_3762_3868_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.inspect_mural"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.house_chest",
+    "name": "Search the House on the Hill map-room chest",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3765_3873_0",
+    "end_location_id": "location.ds2.tile_3765_3873_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.meet_dallas_house"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.map_piece",
+        "quantity": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 62,
+      "expected_seconds": 125,
+      "max_seconds": 375
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.upstairs_chest",
+    "name": "Search the upstairs stone chest",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3767_3874_1",
+    "end_location_id": "location.ds2.tile_3767_3874_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.meet_dallas_house"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.map_piece",
+        "quantity": 3
+      }
+    ],
+    "duration": {
+      "min_seconds": 62,
+      "expected_seconds": 125,
+      "max_seconds": 375
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.fungi_fragments",
+    "name": "Gather the map fragments from the house fungi",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3755_3873_0",
+    "end_location_id": "location.ds2.tile_3755_3873_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.meet_dallas_house"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.map_piece",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 62,
+      "expected_seconds": 125,
+      "max_seconds": 375
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.briar_fragments",
+    "name": "Gather the map fragments by the hook briar",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3765_3862_0",
+    "end_location_id": "location.ds2.tile_3765_3862_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.meet_dallas_house"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.map_piece",
+        "quantity": 7
+      }
+    ],
+    "duration": {
+      "min_seconds": 62,
+      "expected_seconds": 125,
+      "max_seconds": 375
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.mushtree_fragments",
+    "name": "Gather the map fragments from the mushtree",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3791_3877_0",
+    "end_location_id": "location.ds2.tile_3791_3877_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.meet_dallas_house"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.map_piece",
+        "quantity": 5
+      }
+    ],
+    "duration": {
+      "min_seconds": 62,
+      "expected_seconds": 125,
+      "max_seconds": 375
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.solve_lithkren_map",
+    "name": "Assemble all 24 pieces of the Lithkren map",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3764_3869_0",
+    "end_location_id": "location.ds2.tile_3764_3869_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.house_chest"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.upstairs_chest"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.fungi_fragments"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.briar_fragments"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.mushtree_fragments"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ds2.map_piece",
+          "quantity": 24
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ds2.map_piece",
+        "quantity": 24
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 250,
+      "expected_seconds": 500,
+      "max_seconds": 1500
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify assemble all 24 pieces of the lithkren map succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.ask_jardric",
+    "name": "Ask Jardric about travelling to Lithkren",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3719_3812_0",
+    "end_location_id": "location.ds2.tile_3719_3812_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.solve_lithkren_map"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.build_rowboat",
+    "name": "Repair the mushroom coast rowboat for Lithkren",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3659_3849_0",
+    "end_location_id": "location.ds2.tile_3659_3849_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.ask_jardric"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.oak_plank",
+          "quantity": 8
+        },
+        {
+          "kind": "item",
+          "item_id": "item.swamp_paste",
+          "quantity": 10
+        },
+        {
+          "kind": "item",
+          "item_id": "item.iron_nails",
+          "quantity": 12
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.saw",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.oak_plank",
+        "quantity": 8
+      },
+      {
+        "item_id": "item.swamp_paste",
+        "quantity": 10
+      },
+      {
+        "item_id": "item.iron_nails",
+        "quantity": 12
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.ds2.lithkren_rowboat",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 180,
+      "expected_seconds": 360,
+      "max_seconds": 1080
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "8 oak planks, 10 paste, 12 iron nails plus hammer/saw; the nails may bend, so the actual consumption can exceed this lower bound."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify repair the mushroom coast rowboat for lithkren succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.board_lithkren",
+    "name": "Sail to Lithkren using the rebuilt rowboat",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3659_3849_0",
+    "end_location_id": "location.ds2.tile_3555_10419_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.build_rowboat"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.ds2.lithkren_rowboat",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 70,
+      "expected_seconds": 140,
+      "max_seconds": 420
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.read_aivas_diary",
+    "name": "Examine the Lithkren ruins and read Aivas’s diary",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3555_10419_0",
+    "end_location_id": "location.ds2.tile_3555_10419_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.board_lithkren"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 225,
+      "expected_seconds": 450,
+      "max_seconds": 1350
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.find_bob",
+    "name": "Locate Bob the cat and ask about his past",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.current.harry_shop",
+    "end_location_id": "location.current.harry_shop",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.read_aivas_diary"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.catspeak_amulet_enchanted",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 160,
+      "expected_seconds": 320,
+      "max_seconds": 960
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Search from the Catherby archery shop, a reported place to look. Bob roams and may be elsewhere."
+    },
+    "planned_outcome": {
+      "success_condition": "Follow the enchanted catspeak amulet and speak to Bob wherever he is roaming.",
+      "if_unmet": "Check the amulet again and continue the search before visiting the Sphinx."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.sphinx_memory",
+    "name": "Ask the Sphinx to restore Bob’s memories",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.sophanem.sphinx",
+    "end_location_id": "location.sophanem.sphinx",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.find_bob"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.ds2.speak_to_cats",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.talk_oneiromancer",
+    "name": "Request dream-potion guidance and a vial",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.lunar_quests.oneiromancer",
+    "end_location_id": "location.lunar_quests.oneiromancer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.sphinx_memory"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_seal_of_passage",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.dream_vial",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.make_dream_potion",
+    "name": "Crush the astral rune and mix goutweed in the dream vial",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.lunar_quests.isle_fountain",
+    "end_location_id": "location.lunar_quests.isle_fountain",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.talk_oneiromancer"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.astral_rune",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.goutweed",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ds2.dream_vial",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.astral_rune",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.goutweed",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ds2.dream_vial",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.dream_potion",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 95,
+      "expected_seconds": 190,
+      "max_seconds": 570
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.enter_dream",
+    "name": "Light the brazier and enter Bob’s dream",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.lunar_quests.brazier",
+    "end_location_id": "location.ds2.tile_1824_5224_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.make_dream_potion"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tinderbox",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ds2.dream_potion",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ds2.dream_potion",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 75,
+      "expected_seconds": 150,
+      "max_seconds": 450
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.defeat_robert",
+    "name": "Defeat Robert the Strong using melee in Bob’s dream",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1824_5224_2",
+    "end_location_id": "location.lunar_quests.brazier",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.enter_dream"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 300,
+      "expected_seconds": 600,
+      "max_seconds": 1800
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fight Robert in the dream. The successful exit returns to the Lunar Isle brazier."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify defeat robert the strong using melee in bob’s dream succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.learn_four_keys",
+    "name": "Discover the four dragon key pieces from Bob",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.lunar_quests.brazier",
+    "end_location_id": "location.lunar_quests.brazier",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.defeat_robert"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.ds2.four_key_pieces_known",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.enter_kharazi_maze",
+    "name": "Enter the Kharazi dragon temple maze",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2944_2895_0",
+    "end_location_id": "location.ds2.tile_2848_9248_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.learn_four_keys"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rfd.machete",
+          "quantity": 1
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.iron_axe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 140,
+      "expected_seconds": 280,
+      "max_seconds": 840
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Representative axe+machete route; the 79-Agility vine shortcut is a separately verifiable alternative."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.solve_kharazi_maze",
+    "name": "Navigate the coloured golem traps and reach the maze centre",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2848_9248_0",
+    "end_location_id": "location.ds2.tile_2848_9248_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.enter_kharazi_maze"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 330,
+      "expected_seconds": 660,
+      "max_seconds": 1980
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify navigate the coloured golem traps and reach the maze centre succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.claim_kharazi_key",
+    "name": "Take the Karamjan temple dragon key piece",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2848_9248_0",
+    "end_location_id": "location.ds2.tile_2848_9248_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.solve_kharazi_maze"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.key_kharazi",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.ask_reldo",
+    "name": "Research Tristan in the Varrock Palace library",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.varrock.reldo",
+    "end_location_id": "location.varrock.reldo",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.learn_four_keys"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.read_tristan_book",
+    "name": "Find the old account in Reldo’s bookcase",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3211_3495_0",
+    "end_location_id": "location.ds2.tile_3211_3495_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.ask_reldo"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.ask_sarah",
+    "name": "Ask Sarah about the Morytanian dragon key",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3674_3469_0",
+    "end_location_id": "location.ds2.tile_3674_3469_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.read_tristan_book"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ghostspeak_amulet",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.create_locator_orb",
+    "name": "Give Ava glass and dragonstone to make a locator orb",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.draynor_manor.ava",
+    "end_location_id": "location.draynor_manor.ava",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.ask_sarah"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ds2.cut_dragonstone",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.molten_glass",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.exiles_glassblowing_pipe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ds2.cut_dragonstone",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.molten_glass",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.locator_orb",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.track_swamp_key",
+    "name": "Follow the locator’s randomized directions through Mort Myre",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.mort_myre.north_gate",
+    "end_location_id": "location.mort_myre.north_gate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.create_locator_orb"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ds2.locator_orb",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 240,
+      "expected_seconds": 480,
+      "max_seconds": 1440
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Mort Myre gate represents the search area. The locator readings determine the actual dig tile."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify follow the locator’s randomized directions through mort myre succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.claim_morytania_key",
+    "name": "Dig up the Morytanian dragon key piece",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.mort_myre.north_gate",
+    "end_location_id": "location.mort_myre.north_gate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.track_swamp_key"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.key_morytania",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Mort Myre gate represents the search area. The locator readings determine the actual dig tile."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.ask_brundt",
+    "name": "Ask Brundt about the dragonkin island",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.rellekka.brundt",
+    "end_location_id": "location.rellekka.brundt",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.learn_four_keys"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.sail_ungael",
+    "name": "Travel with Torfinn to Ungael",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2640_3696_0",
+    "end_location_id": "location.ds2.tile_2273_4065_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.ask_brundt"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.defeat_vorkath",
+    "name": "Defeat Vorkath for access to its northern cave",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2273_4065_0",
+    "end_location_id": "location.ds2.tile_2273_4065_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.sail_ungael"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 375,
+      "expected_seconds": 750,
+      "max_seconds": 2250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify defeat vorkath for access to its northern cave succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.enter_ungael_cave",
+    "name": "Enter the cave behind Vorkath’s arena",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2249_4078_0",
+    "end_location_id": "location.ds2.tile_2260_10464_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.defeat_vorkath"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.ungael_lever",
+    "name": "Pull the timed lever and run to the east passage",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2260_10464_0",
+    "end_location_id": "location.ds2.tile_2260_10464_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.enter_ungael_cave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The lever route is time-gated and requires spare run energy. Exact trigger deadline and route length need gameplay review."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify pull the timed lever and run to the east passage succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.claim_ungael_key",
+    "name": "Open the stone chest for the third piece and ancient key",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2293_10467_0",
+    "end_location_id": "location.ds2.tile_2293_10467_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.ungael_lever"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.key_ungael",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.ds2.ancient_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.ask_amelia",
+    "name": "Ask Amelia about the Shayzien Heroes’ Graveyard",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1540_3545_0",
+    "end_location_id": "location.ds2.tile_1540_3545_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.learn_four_keys"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.enter_shayzien_crypt",
+    "name": "Descend through the crypt’s hostile lower floors",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1483_3548_0",
+    "end_location_id": "location.ds2.tile_1504_9939_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.ask_amelia"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.lit_candle",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.sapphire_lantern",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.lunar_bullseye_lantern",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 130,
+      "expected_seconds": 260,
+      "max_seconds": 780
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.solve_crypt_statues",
+    "name": "Interpret the tomb clues and align four statues",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1504_9939_1",
+    "end_location_id": "location.ds2.tile_1504_9939_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.enter_shayzien_crypt"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 215,
+      "expected_seconds": 430,
+      "max_seconds": 1290
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Relative statue positions depend on randomized inscription, not a fixed universal answer."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify interpret the tomb clues and align four statues succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.claim_kourend_key",
+    "name": "Recover the Shayzien dragon key piece",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1504_9939_1",
+    "end_location_id": "location.ds2.tile_1504_9939_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.solve_crypt_statues"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.key_kourend",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.reach_ancient_cavern",
+    "name": "Enter the Ancient Cavern via Otto’s whirlpool",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.bt.whirlpool",
+    "end_location_id": "location.bt.ancient_lower",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.claim_kharazi_key"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.claim_morytania_key"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.claim_ungael_key"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.claim_kourend_key"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.ancient_cavern",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 185,
+      "expected_seconds": 370,
+      "max_seconds": 1110
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.unlock_mithril_door",
+    "name": "Open the hidden forge door using the Ungael ancient key",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1759_5343_1",
+    "end_location_id": "location.ds2.dragon_heads",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.reach_ancient_cavern"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ds2.ancient_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 80,
+      "expected_seconds": 160,
+      "max_seconds": 480
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.heat_dragon_head_1",
+    "name": "Cast Fire Wave on the 1th mithril dragon head",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.dragon_heads",
+    "end_location_id": "location.ds2.dragon_heads",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.unlock_mithril_door"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fire_rune",
+          "quantity": 7
+        },
+        {
+          "kind": "item",
+          "item_id": "item.air_rune",
+          "quantity": 5
+        },
+        {
+          "kind": "item",
+          "item_id": "item.blood_rune",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 7
+      },
+      {
+        "item_id": "item.air_rune",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.blood_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One of three Fire Wave casts; spell rune costs are debited. Incidental Magic XP awaits exact capture."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.heat_dragon_head_2",
+    "name": "Cast Fire Wave on the 2th mithril dragon head",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.dragon_heads",
+    "end_location_id": "location.ds2.dragon_heads",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.heat_dragon_head_1"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fire_rune",
+          "quantity": 7
+        },
+        {
+          "kind": "item",
+          "item_id": "item.air_rune",
+          "quantity": 5
+        },
+        {
+          "kind": "item",
+          "item_id": "item.blood_rune",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 7
+      },
+      {
+        "item_id": "item.air_rune",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.blood_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One of three Fire Wave casts; spell rune costs are debited. Incidental Magic XP awaits exact capture."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.heat_dragon_head_3",
+    "name": "Cast Fire Wave on the 3th mithril dragon head",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.dragon_heads",
+    "end_location_id": "location.ds2.dragon_heads",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.heat_dragon_head_2"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fire_rune",
+          "quantity": 7
+        },
+        {
+          "kind": "item",
+          "item_id": "item.air_rune",
+          "quantity": 5
+        },
+        {
+          "kind": "item",
+          "item_id": "item.blood_rune",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 7
+      },
+      {
+        "item_id": "item.air_rune",
+        "quantity": 5
+      },
+      {
+        "item_id": "item.blood_rune",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One of three Fire Wave casts; spell rune costs are debited. Incidental Magic XP awaits exact capture."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.forge_dragon_key",
+    "name": "Reforge four unique pieces into the complete dragon key",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1748_5288_1",
+    "end_location_id": "location.ds2.tile_1748_5288_1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.heat_dragon_head_3"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ds2.key_kharazi",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ds2.key_morytania",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ds2.key_ungael",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ds2.key_kourend",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.ds2.key_kharazi",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ds2.key_morytania",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ds2.key_ungael",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.ds2.key_kourend",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.dragon_key",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 125,
+      "expected_seconds": 250,
+      "max_seconds": 750
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.open_lithkren_vault",
+    "name": "Unlock the Lithkren vault and discover Zorgoth",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3550_10425_0",
+    "end_location_id": "location.ds2.tile_3550_10425_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.forge_dragon_key"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ds2.dragon_key",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 125,
+      "expected_seconds": 250,
+      "max_seconds": 750
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.warn_roald",
+    "name": "Warn King Roald about the approaching dragonkin fleet",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.varrock.king_roald",
+    "end_location_id": "location.varrock.king_roald",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.open_lithkren_vault"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 85,
+      "expected_seconds": 170,
+      "max_seconds": 510
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.recruit_amik",
+    "name": "Secure Sir Amik Varze’s support in Falador",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.falador_castle.amik_varze",
+    "end_location_id": "location.falador_castle.amik_varze",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.warn_roald"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.recruit_lathas",
+    "name": "Secure Ardougne support from Lathas or Thoros",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ardougne.king_lathas",
+    "end_location_id": "location.ardougne.king_lathas",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.warn_roald"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.recruit_brundt",
+    "name": "Secure Brundt’s Rellekka support",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.rellekka.brundt",
+    "end_location_id": "location.rellekka.brundt",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.warn_roald"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.war_council",
+    "name": "Agree on the combined fleet defence in Varrock",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_3222_3479_0",
+    "end_location_id": "location.ds2.tile_3222_3479_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.recruit_amik"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.recruit_lathas"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.recruit_brundt"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 180,
+      "expected_seconds": 360,
+      "max_seconds": 1080
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.boat_to_assault",
+    "name": "Sail with Torfinn to defend the Ungael fleet",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2640_3696_0",
+    "end_location_id": "location.ds2.fleet_defence_deck",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.war_council"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 140,
+      "expected_seconds": 280,
+      "max_seconds": 840
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.defend_ship",
+    "name": "Repair leaks, flames, soldiers and mast for the four-minute assault",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.fleet_defence_deck",
+    "end_location_id": "location.ds2.tile_1631_5735_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.boat_to_assault"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 240,
+      "expected_seconds": 260,
+      "max_seconds": 780
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The defence is active gameplay. The end includes movement on the fleet toward its first dragon encounters."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify repair leaks, flames, soldiers and mast for the four-minute assault succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.defeat_green_blue",
+    "name": "Clear the green and blue dragons blocking the passage",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1631_5735_2",
+    "end_location_id": "location.ds2.tile_1631_5735_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.defend_ship"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 305,
+      "expected_seconds": 610,
+      "max_seconds": 1830
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify clear the green and blue dragons blocking the passage succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.defeat_black_red",
+    "name": "Defeat the black, steel and brutal red dragons",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1631_5735_2",
+    "end_location_id": "location.ds2.tile_1631_5735_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.defeat_green_blue"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 350,
+      "expected_seconds": 700,
+      "max_seconds": 2100
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    },
+    "planned_outcome": {
+      "success_condition": "Confirm the black, steel and brutal red dragon encounters are cleared before moving to the next ship.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.defeat_metal_dragon_wave",
+    "name": "Defeat the mithril, adamant and rune dragons",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1631_5735_2",
+    "end_location_id": "location.ds2.tile_1631_5735_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.defeat_black_red"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 375,
+      "expected_seconds": 750,
+      "max_seconds": 2250
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify defeat the mithril, adamant and rune dragons succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.galvek_phase_1",
+    "name": "Defeat Galvek’s fire trap phase",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1631_5735_2",
+    "end_location_id": "location.ds2.tile_1631_5735_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.defeat_metal_dragon_wave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 150,
+      "expected_seconds": 300,
+      "max_seconds": 900
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One segment of Galvek’s continuous four-phase encounter. Failure may reset the entire fight, not only this phase. Carry dragonfire protection and watch ground attacks."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify defeat galvek’s fire trap phase succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.galvek_phase_2",
+    "name": "Defeat Galvek’s stat-drain phase",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1631_5735_2",
+    "end_location_id": "location.ds2.tile_1631_5735_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.galvek_phase_1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 150,
+      "expected_seconds": 300,
+      "max_seconds": 900
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One segment of Galvek’s continuous four-phase encounter. Failure may reset the entire fight, not only this phase. Carry dragonfire protection and watch ground attacks."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify defeat galvek’s stat-drain phase succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.galvek_phase_3",
+    "name": "Defeat Galvek’s tidal wave phase",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1631_5735_2",
+    "end_location_id": "location.ds2.tile_1631_5735_2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.galvek_phase_2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 150,
+      "expected_seconds": 300,
+      "max_seconds": 900
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One segment of Galvek’s continuous four-phase encounter. Failure may reset the entire fight, not only this phase. Carry dragonfire protection and watch ground attacks."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify defeat galvek’s tidal wave phase succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.galvek_phase_4",
+    "name": "Defeat Galvek’s earth-bind phase",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_1631_5735_2",
+    "end_location_id": "location.ds2.tile_2640_3696_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.galvek_phase_3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 150,
+      "expected_seconds": 300,
+      "max_seconds": 900
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Finish the continuous Galvek fight, resolve the end dialogue and leave the fleet. The return is included."
+    },
+    "planned_outcome": {
+      "success_condition": "Verify defeat galvek’s earth-bind phase succeeded and the journal advances before continuing.",
+      "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
+    }
+  },
+  {
+    "id": "quest.dragon_slayer_ii.complete",
+    "name": "Return to Alec Kincade and complete Dragon Slayer II",
+    "kind": "quest_stage",
+    "activity_id": "quest.dragon_slayer_ii",
+    "start_location_id": "location.ds2.tile_2458_2869_0",
+    "end_location_id": "location.ds2.tile_2458_2869_0",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.galvek_phase_4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 5
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 800000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.mining",
+        "xp_tenths": 600000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.agility",
+        "xp_tenths": 500000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.thieving",
+        "xp_tenths": 500000
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.dragon_slayer_ii.complete",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.ds2.myths_guild",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.ds2.lithkren_vault_dragons",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.ds2.vorkath_repeatable",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.ds2.assembler_and_dragon_plate",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.ds2.speak_to_cats",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 100,
+      "expected_seconds": 200,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.garden_of_death_rewards"
+      ],
+      "status": "estimated",
+      "note": "Five quest points and fixed 80k Smithing, 60k Mining, 50k Agility and 50k Thieving XP, plus permanent unlocks. Ellen’s four choices are separate."
+    }
+  },
+  {
+    "id": "claim.dragon_slayer_ii.ellen_training",
+    "name": "Claim four 25,000-XP combat training selections from Ellen",
+    "kind": "reward_claim",
+    "activity_id": null,
+    "start_location_id": "location.ds2.ellen_myths_guild",
+    "end_location_id": "location.ds2.ellen_myths_guild",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_ii.complete"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.ds2.ellen_combat_training",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "One NPC-delivered package of four 25,000-XP combat training picks. This is separate from fixed quest completion XP."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_ds2_rowboat_supplies",
+    "name": "Buy Dragon Slayer II rowboat supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 5500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.oak_plank",
+        "quantity": 8
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swamp_paste",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_nails",
+        "quantity": 18
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.saw",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 60,
+      "max_seconds": 140
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "The draft construction transition spends the 12-nail minimum. Six spare nails cover some possible bending."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_ds2_locator_and_forge_supplies",
+    "name": "Buy locator and forge materials",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 14000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.cut_dragonstone",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.molten_glass",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.exiles_glassblowing_pipe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.blood_rune",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.air_rune",
+        "quantity": 15
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fire_rune",
+        "quantity": 21
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 60,
+      "max_seconds": 140
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "Fixed GE estimate for a cut dragonstone, locator tools and three Fire Wave casts."
+    }
+  }
+]

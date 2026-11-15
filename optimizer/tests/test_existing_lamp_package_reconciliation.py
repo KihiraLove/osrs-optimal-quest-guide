@@ -32,7 +32,7 @@ class ExistingLampPackageTests(unittest.TestCase):
         cls.tables = CatalogValidator(load_catalog(ROOT / "data/manifest.json", contracts), contracts).tables
         cls.profile = read_json(ROOT / "data/profiles/main-baseline.json")
 
-    def seeded(self, action, *, prerequisites=True):
+    def seeded(self, action, *, prerequisites=True, lamp_policy=None):
         init = {**self.profile["initial_state"]}
         init["xp_tenths"] = {k: 10_000_000 for k in init["xp_tenths"]}
         reqs = flatten(action["requirements"])
@@ -49,7 +49,10 @@ class ExistingLampPackageTests(unittest.TestCase):
             elif r["kind"] == "counter":
                 init["counters"][r["token_id"]] = max(init["counters"].get(r["token_id"], 0), r["minimum"])
         init["location_id"] = action["start_location_id"]
-        return RouteState(self.tables, self.profile["policies"], init)
+        policies = self.profile["policies"].copy()
+        if lamp_policy is not None:
+            policies["quest_lamp_skill_policy"] = lamp_policy
+        return RouteState(self.tables, policies, init)
 
     def do(self, state, action):
         step = {"kind": "action", "action_id": action["id"],
@@ -58,11 +61,11 @@ class ExistingLampPackageTests(unittest.TestCase):
             step["planned_outcome"] = action["planned_outcome"]
         return state.apply(step, action["id"])
 
-    def use(self, state, reward_id, instance, skill, amount):
+    def use(self, state, reward_id, instance, skill, amount, *, override=False):
         return state.apply({"kind": "reward_use", "reward_id": reward_id,
                             "instance_id": reward_id + ".instance." + str(instance),
                             "skill_id": skill, "gain_xp_tenths": amount,
-                            "overrides_observed_skill_restriction": False})
+                            "overrides_observed_skill_restriction": override})
 
     def test_package_registry_matches_existing_catalog_records(self):
         registry = read_json(ROOT / "data/raw/build-242/reward-registry.json")
@@ -79,6 +82,8 @@ class ExistingLampPackageTests(unittest.TestCase):
                 reward = self.tables["xp_rewards"][reward_id]
                 self.assertEqual(reward["amount"]["xp_tenths"], amount)
                 self.assertEqual(reward["minimum_level"], level)
+                for field in ("kind", "amount", "eligible_skills", "selection_count", "distinct_skills", "retainable"):
+                    self.assertEqual(row["package"][field], reward[field], field)
                 self.assertIn({"kind":"xp_reward", "reward_id":reward_id, "quantity":quantity},
                               self.tables["actions"][producer]["effects"])
 
@@ -118,11 +123,15 @@ class ExistingLampPackageTests(unittest.TestCase):
                              if e["kind"] == "xp_reward" and e["reward_id"] == reward), 1)
         state = self.do(self.seeded(action), action)
         self.assertEqual(len([r for r in state.snapshot()["held_rewards"] if r["reward_id"] == reward]), 1)
-        with self.assertRaises(DataError):
-            self.use(state, reward, 1, "skill.attack", amount)
-        with self.assertRaises(DataError):
-            self.use(state, reward, 1, "skill.prayer", amount)
-        state = self.use(state, reward, 1, "skill.magic", amount)
+        strict = self.do(self.seeded(action, lamp_policy="observed"), action)
+        for skill in ("skill.attack", "skill.prayer"):
+            with self.subTest(skill=skill), self.assertRaisesRegex(DataError, "ineligible"):
+                self.use(strict, reward, 1, skill, amount, override=True)
+        spent = self.use(strict, reward, 1, "skill.magic", amount)
+        self.assertFalse([r for r in spent.snapshot()["held_rewards"] if r["reward_id"] == reward])
+        baseline = state.snapshot()["xp_tenths"]["skill.attack"]
+        state = self.use(state, reward, 1, "skill.attack", amount, override=True)
+        self.assertEqual(state.snapshot()["xp_tenths"]["skill.attack"], baseline + amount)
         self.assertFalse([r for r in state.snapshot()["held_rewards"] if r["reward_id"] == reward])
         registry = read_json(ROOT / "data/raw/build-242/reward-registry.json")
         older = next(e for e in registry["entries"] if e["id"] == "review.quest.dream_mentor.dreamy_lamp")

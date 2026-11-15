@@ -1,0 +1,1395 @@
+[
+  {
+    "id": "quest.the_red_reef.start",
+    "name": "Ask Elder Raley about Floopa and the red-sailed ship",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.raley",
+    "end_location_id": "location.tortugans.raley",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.troubled_tortugans.complete",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.sailing",
+          "minimum_level": 52,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 48,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Tortugan quest 1 plus 52 Sailing and 48 Smithing are nonboostable prerequisites."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.speak_finn",
+    "name": "Ask Finn about Floopa's whereabouts",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.finn",
+    "end_location_id": "location.redreef.finn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 21,
+      "expected_seconds": 42,
+      "max_seconds": 126
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.speak_katt",
+    "name": "Ask Elder Katt at the Sacred Grove entrance",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.katt",
+    "end_location_id": "location.redreef.katt",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.speak_finn"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.redreef.sacred_grove_story_access",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 50,
+      "max_seconds": 150
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.speak_floopa",
+    "name": "Meet Floopa in the Sacred Grove",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.floopa",
+    "end_location_id": "location.redreef.floopa",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.speak_katt"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.land_red_rock",
+    "name": "Sail west to Red Rock and dock",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.red_dock",
+    "end_location_id": "location.redreef.red_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.speak_floopa"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.redreef.red_rock_dock",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Docking at Red Rock grants persistent port/charter access midway through the quest."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.inspect_sailors_marker",
+    "name": "Optionally inspect Red Rock's Sailors' Marker",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.sailors_marker",
+    "end_location_id": "location.redreef.sailors_marker",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.land_red_rock"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.redreef.sailors_amulet_red_rock",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 20,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Separate optional post-arrival claim; inspecting the marker, not quest completion, unlocks the Sailor's amulet destination."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.speak_receptionist",
+    "name": "Request work from the Red Reef Trading Company receptionist",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.reception",
+    "end_location_id": "location.redreef.reception",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.land_red_rock"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.inspect_display_1",
+    "name": "Read the trading company's display 1",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.display1",
+    "end_location_id": "location.redreef.display1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.speak_receptionist"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Four company exhibits inspected in chronological anticlockwise order before meeting Paxton."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.inspect_display_2",
+    "name": "Read the trading company's display 2",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.display2",
+    "end_location_id": "location.redreef.display2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.inspect_display_1"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Four company exhibits inspected in chronological anticlockwise order before meeting Paxton."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.inspect_display_3",
+    "name": "Read the trading company's display 3",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.display3",
+    "end_location_id": "location.redreef.display3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.inspect_display_2"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Four company exhibits inspected in chronological anticlockwise order before meeting Paxton."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.inspect_display_4",
+    "name": "Read the trading company's display 4",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.display4",
+    "end_location_id": "location.redreef.display4",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.inspect_display_3"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Four company exhibits inspected in chronological anticlockwise order before meeting Paxton."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.paxton_request",
+    "name": "Accept Theodore Paxton's assignment against Black Eye Bethel",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.paxton",
+    "end_location_id": "location.redreef.paxton",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.inspect_display_4"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.clear_bark_of_bight",
+    "name": "Defeat the Bark of the Bight or eliminate its crew",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.ship_encounter",
+    "end_location_id": "location.redreef.ship_encounter",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.paxton_request"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 105,
+      "expected_seconds": 210,
+      "max_seconds": 630
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Scripted ship instance; ranged or magic gear can substitute for cannons. Ship HP, cannonballs, food and repair-kits depend on loadout."
+    },
+    "planned_outcome": {
+      "success_condition": "Disable the first pirate vessel, using ship cannons or ranged/magic attacks against its crew.",
+      "if_unmet": "Recover the ship or gear, restock, and retry; do not assume a guaranteed fight outcome."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.clear_four_of_kind",
+    "name": "Defeat the Four of a Kind or eliminate its crew",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.ship_encounter",
+    "end_location_id": "location.redreef.ship_encounter",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.clear_bark_of_bight"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.redreef.pirate_ships_cleared",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 112,
+      "expected_seconds": 225,
+      "max_seconds": 675
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    },
+    "planned_outcome": {
+      "success_condition": "Disable the second pirate vessel by destroying the hull or eliminating its crew.",
+      "if_unmet": "Recover the ship or gear, restock, and retry; do not assume a guaranteed fight outcome."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.dock_last_light",
+    "name": "Moor at Last Light after both pirate ships are cleared",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.last_dock",
+    "end_location_id": "location.redreef.last_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.clear_four_of_kind"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 20,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.clear_six_pirates",
+    "name": "Defeat six level-52 pirates guarding Last Light",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.pirates",
+    "end_location_id": "location.redreef.pirates",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.dock_last_light"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.redreef.last_light_pirates_cleared",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 90,
+      "expected_seconds": 180,
+      "max_seconds": 540
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Six mandatory enemies. Leaving via mooring early resets them; after clearing, progression persists."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat all six pirates in multicombat; Protect from Melee or safespots can mitigate damage.",
+      "if_unmet": "Recover the ship or gear, restock, and retry; do not assume a guaranteed fight outcome."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.climb_first",
+    "name": "Climb the lighthouse staircase to its first floor",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.stairs_ground",
+    "end_location_id": "location.redreef.stairs_ground",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.clear_six_pirates"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.climb_second",
+    "name": "Climb to the top of Last Light's lighthouse",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.stairs_first",
+    "end_location_id": "location.redreef.stairs_first",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.climb_first"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.defeat_bethel",
+    "name": "Defeat Black Eye Bethel at the lighthouse top",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.bethel",
+    "end_location_id": "location.redreef.bethel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.climb_second"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.redreef.bethel_defeated",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 110,
+      "expected_seconds": 220,
+      "max_seconds": 660
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat level-191 Bethel by dodging her charged lane attack and handling the dragon-scimitar prayer disable.",
+      "if_unmet": "Recover the ship or gear, restock, and retry; do not assume a guaranteed fight outcome."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.descend_first",
+    "name": "Go back down to the lighthouse first floor",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.stairs_second",
+    "end_location_id": "location.redreef.stairs_second",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.defeat_bethel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 14,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.descend_ground",
+    "name": "Descend to the lighthouse ground floor",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.stairs_first",
+    "end_location_id": "location.redreef.stairs_first",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.descend_first"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 14,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.board_own_ship",
+    "name": "Reboard the moored ship at Last Light",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.last_dock",
+    "end_location_id": "location.redreef.last_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.descend_ground"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.report_paxton",
+    "name": "Report Bethel's defeat to Theodore Paxton",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.paxton",
+    "end_location_id": "location.redreef.paxton",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.board_own_ship"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 42,
+      "expected_seconds": 85,
+      "max_seconds": 255
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.board_zenith",
+    "name": "Sail to the Zenith and board Spencer's ship",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.zenith_dock",
+    "end_location_id": "location.redreef.zenith_dock",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.report_paxton"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The Zenith sometimes fails to appear on a world; world-hop if absent. Its sea coordinate is from pinned helper."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.meet_spencer",
+    "name": "Meet Spencer Brentwood aboard the Zenith",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.spencer_deck",
+    "end_location_id": "location.redreef.spencer_deck",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.board_zenith"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.borrow_diving_gear",
+    "name": "Borrow a deep sea helmet and apparatus from Spencer",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.spencer_deck",
+    "end_location_id": "location.redreef.spencer_deck",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.meet_spencer"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.redreef.deep_sea_helmet",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.redreef.deep_sea_apparatus",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Spencer lends full diving gear when the player did not bring a working set; no prerequisite inventory seed."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.equip_diving_gear",
+    "name": "Equip the borrowed helmet and apparatus before diving",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.spencer_deck",
+    "end_location_id": "location.redreef.spencer_deck",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.borrow_diving_gear"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.redreef.deep_sea_helmet",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.redreef.deep_sea_apparatus",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.redreef.diving_gear_equipped",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Equipment is represented by a persistent stage flag; an alternate medallion of the deep remains a reviewable optional route."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.dive",
+    "name": "Enter the diving bell to the Red Reef seabed",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.spencer_deck",
+    "end_location_id": "location.redreef.spencer_deck",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.equip_diving_gear"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.redreef.diving_gear_equipped",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 32,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.listen_seabed",
+    "name": "Listen to Spencer explain the coral dredgers on the seabed",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.seabed_intro",
+    "end_location_id": "location.redreef.seabed_intro",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.dive"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 47,
+      "expected_seconds": 95,
+      "max_seconds": 285
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.encounter_lobster",
+    "name": "Approach the northern dredger and disturb its giant lobster",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.north_dredger",
+    "end_location_id": "location.redreef.north_dredger",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.listen_seabed"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 75
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.clear_lobster",
+    "name": "Defeat the level-112 giant lobster or let it despawn",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.north_dredger",
+    "end_location_id": "location.redreef.north_dredger",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.encounter_lobster"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.redreef.lobster_cleared",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 70,
+      "expected_seconds": 140,
+      "max_seconds": 420
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Giant lobster can be safespotted near the dredger; moving from blue particles avoids special attack. The fight is avoidable by waiting."
+    },
+    "planned_outcome": {
+      "success_condition": "Remove the lobster obstruction by defeating it or waiting safely until it despawns.",
+      "if_unmet": "Recover the ship or gear, restock, and retry; do not assume a guaranteed fight outcome."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.repair_north_dredger",
+    "name": "Reattach the northern coral dredger's loose components",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.north_dredger",
+    "end_location_id": "location.redreef.north_dredger",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.clear_lobster"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.redreef.lobster_cleared",
+          "value": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.smithing",
+          "minimum_level": 48,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.redreef.northern_dredger_repaired",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Interaction needs 48 Smithing but no separate materials or hammer in the quick guide; no invented material debit."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.talk_east_dredger",
+    "name": "Find Spencer at the eastern dredger and report your repair",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.east_dredger",
+    "end_location_id": "location.redreef.east_dredger",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.repair_north_dredger"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.surface",
+    "name": "Ascend with Spencer to the Zenith's deck",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.east_dredger",
+    "end_location_id": "location.redreef.east_dredger",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.talk_east_dredger"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.redreef.deep_sea_helmet",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.redreef.deep_sea_apparatus",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Borrowed gear provisionally returned on resurfacing; confirm retention/reclaim with live observation."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.spencer_briefing",
+    "name": "Hear Spencer's plan for red coral operations near the Little Pearl",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.redreef.spencer_deck",
+    "end_location_id": "location.redreef.spencer_deck",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.surface"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned helper progression and independently summarized quick-guide stage."
+    }
+  },
+  {
+    "id": "quest.the_red_reef.complete",
+    "name": "Return to Floopa and Elder Raley to finish The Red Reef",
+    "activity_id": "quest.the_red_reef",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.raley",
+    "end_location_id": "location.tortugans.raley",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_red_reef.spencer_briefing"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.redreef.bosun_schematic",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.redreef.sacred_grove",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.redreef.bosuns_bench_schematic",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.the_red_reef.complete",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.sailing",
+        "xp_tenths": 150000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.smithing",
+        "xp_tenths": 50000
+      }
+    ],
+    "duration": {
+      "min_seconds": 50,
+      "expected_seconds": 100,
+      "max_seconds": 300
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.red_reef_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Completion awards 2 QP, 15,000 Sailing XP, 5,000 Smithing XP, the Bosun's workbench schematic and permanent Sacred Grove access; Red Rock opened earlier."
+    }
+  }
+]

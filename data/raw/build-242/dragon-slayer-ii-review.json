@@ -1,0 +1,42 @@
+{
+  "batch_id": "dragon-slayer-ii-recovery",
+  "revision": "osrs-live-242-2026-11-11",
+  "status": "collected_draft_not_independently_reviewed",
+  "activity_ids": ["quest.dragon_slayer_ii", "review.quest.dragon_slayer_ii.combat_training"],
+  "source_ids": ["source.quest_helper.quest_observations", "source.jagex.garden_of_death_rewards", "source.jagex.grand_exchange_catalogue", "source.project.early_quest_timing", "source.project.travel_timing"],
+  "helper_files": ["src/main/java/com/questhelper/helpers/quests/dragonslayerii/DragonSlayerII.java"],
+  "observations": {
+    "start": "Alec Kincade near 2458,2869,0, after 200 quest points, seven specified quests and eight nonboostable skills. The existing Barbarian Training access flag gates the later Ancient Cavern forge.",
+    "requirements": "75 Magic, 70 Smithing, 68 Mining, 62 Crafting, 60 Agility, 60 Thieving, 50 Construction, 50 Hitpoints. Legends' Quest, Dream Mentor, A Tail of Two Cats, Animal Magnetism, Ghosts Ahoy, Bone Voyage and Client of Kourend.",
+    "crandor": "Dallas Jones at Musa Point, Elvarg's lair, mined wall, Spawn fight, Ancient Mural, then Dallas' House on the Hill research.",
+    "fossil_map": "Five independent finds yield 24 map pieces used at the map table. Jardric's boat uses eight oak planks, ten swamp paste, at least twelve nails, a hammer and a saw. The supply purchase includes six spare nails.",
+    "lithkren": "Take the rowboat, explore Lithkren, recover Aivas' diary, find Bob and gain the Sphinx's permanent cat-language unlock. Dream potion on Lunar Isle uses astral rune, goutweed and a Oneiromancer vial; crush the rune with hammer/pestle, light the brazier, defeat Robert the Strong with melee.",
+    "four_key_branches": {
+      "kharazi": "Navigate Kharazi Jungle and the temple's coloured golem maze; one of four dragon key pieces.",
+      "morytania": "Reldo's old book, Sarah, Ava's glass-and-dragonstone locator orb, randomized Mort Myre scan and a dug-up key piece.",
+      "ungael": "Brundt and Torfinn, Vorkath, the northern cave's timed lever and chest with a key piece and ancient key.",
+      "kourend": "Amelia, Shayzien crypt, randomized statue-clue puzzle and the final key piece."
+    },
+    "key_join": "All four branch pieces plus the Ungael ancient key required at the Ancient Cavern forge; three Fire Wave casts consume 21 fire, 15 air and three blood runes. The forged key opens the Lithkren vault.",
+    "finale": "Warn Roald; recruit Sir Amik Varze, Lathas/Thoros and Brundt in any order; convene in Varrock and take Torfinn's ship. Four-minute repair defence, three dragon waves, Galvek's four continuous phases and final Alec hand-in.",
+    "rewards": "5 quest points; 80,000 Smithing, 60,000 Mining, 50,000 Agility and 50,000 Thieving XP, plus guild, Lithkren, catspeak and dragon crafting unlocks. Postquest Ellen training pays four individual 25,000-XP choices among Attack, Strength, Defence, Hitpoints, Ranged, Magic (no Prayer)."
+  },
+  "external_dependencies": [
+    "Legends' Quest and A Tail of Two Cats produce the existing completion flags used by Alec. A Tail of Two Cats provides the enchanted catspeak amulet. The forge uses the existing Ancient Cavern unlock.",
+    "Existing sources provide the Lunar seal, lights, goutweed and other tools. The starting bronze axe and pickaxe qualify.",
+    "Draft GE purchases allocate 5,500 GP for boat supplies and 14,000 GP for locator materials and forge runes. The route can also use items already acquired. Combat supplies require a separate budget."
+  ],
+  "review_gaps": [
+    "Quest Helper supplies 97 waypoint candidates but repeated selectors can be alternate UI branches or floor transitions. Many location coordinates are exact helper tiles while instance IDs and regional room labels remain unreviewed.",
+    "The route omits the nonmandatory alternate 79-Agility Kharazi Jungle shortcut and other navigation alternatives; optimize those after ground-truth review.",
+    "The 24 map pieces are modeled as one quantity token but in-game shapes and map placement order may matter. Handle retaining pieces deposited with Dallas and repeat search prevention after an interruption.",
+    "Twelve iron nails are the minimum for the rowboat; random bending and replenishment, boat construction tile, and subsequent multiway ferry links should be confirmed.",
+    "The Catherby archery shop is a starting waypoint for the search for roaming Bob. Recalculate the search when the amulet points to another location. The Sphinx stage uses the existing Sophanem waypoint.",
+    "The modeled dream entrance spends the potion once and success exits at the Lunar brazier. Review re-entry without remaking the potion, deathbank charges and seal-of-passage alternatives.",
+    "Morytania locator readings are random and damage the player; no fixed buried location is invented. Kourend's statue inscription is similarly variable. The Kharazi maze, Ungael lever deadline, and interior passages need exact retries and costs.",
+    "The Ancient Cavern route uses the existing whirlpool and mithril dragon waypoints, with separate Mithril Door chamber and forge stairs. Review Fire Surge and elemental staff alternatives, incidental XP and exact dungeon travel times.",
+    "Combat outcomes are planned success, not guaranteed. Vorkath, Robert the Strong, the spawn, the fleet waves, Galvek and quest deathbanks need gear, food, dragonfire protection, death fees and exact checkpoint review.",
+    "Ellen's NPC-delivered choices are not physical XP tomes. The four 25,000-XP selections exclude Prayer; verify skill minimum, same-skill repetition, remaining claim accounting and actual NPC tile/floor.",
+    "Review the post-quest Digsite Pendant destination at Lithkren, including the machine interaction and charge use."
+  ]
+}
