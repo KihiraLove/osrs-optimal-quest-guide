@@ -27,6 +27,19 @@ Journal entries include quests, Recipe for Disaster subquests and miniquests.
 Optional activities include museum, transport and other unlocks.
 The coverage reviews and the raw reward registry track separate work. Their rows can overlap.
 
+## Quest stage review
+
+[Issue #4](https://github.com/KihiraLove/osrs-optimal-quest-guide/issues/4) requires independent
+review of quest stages, prerequisites, waypoints, mandatory XP and completion rewards.
+
+| Activities | Missing from catalog | Awaiting review | Reviewed | Excluded |
+| --- | --- | --- | --- | --- |
+| Quests | 0 | 188 | 0 | 1 |
+| Recipe for Disaster segments | 0 | 10 | 0 | 0 |
+
+The numbered [journal](#journal) lists every quest and subquest by ID. For those rows,
+**Pending** identifies a missing route and **Added** identifies a draft route awaiting independent review.
+
 ## Journal
 
 0 pending, 217 added, 0 reviewed, 1 excluded.
