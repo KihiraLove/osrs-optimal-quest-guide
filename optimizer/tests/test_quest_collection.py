@@ -568,12 +568,20 @@ class QuestCollectionTests(unittest.TestCase):
             "item.bronze_axe": 1, "item.lumbridge_teleport_tablet": 1,
         })
 
-    def test_lost_city_completion_requires_combat_or_saved_progress(self):
+    def test_lost_city_cutting_branch_requires_tree_spirit_defeat(self):
         profile = read_json(ROOT / "examples/build-242/lost-city-completion-profile.json")
-        del profile["initial_state"]["flags"]["flag.quest.lost_city.tree_spirit_defeated"]
         validator = CatalogValidator(self.catalog, self.contracts)
-        with self.assertRaisesRegex(DataError, r"Catalog reachability blocks goals: quest\.lost_city\.complete"):
-            solve_bounded(validator, profile, max_expansions=4000)
+        branch = validator.tables["actions"]["quest.lost_city.cut_branch"]
+        step = {"kind": "action", "action_id": branch["id"],
+                "modeled_seconds": branch["duration"]["expected_seconds"]}
+        initial = profile["initial_state"]
+        saved = RouteState(validator.tables, profile["policies"], initial)
+        self.assertEqual(saved.apply(step).inventory["item.dramen_branch"], 1)
+
+        del initial["flags"]["flag.quest.lost_city.tree_spirit_defeated"]
+        before_combat = RouteState(validator.tables, profile["policies"], initial)
+        with self.assertRaisesRegex(DataError, "required completed action, flag or counter"):
+            before_combat.apply(step)
 
     def test_rfd_preserves_each_stage_and_awards_points_once(self):
         stages = self.rfd["stages"]
