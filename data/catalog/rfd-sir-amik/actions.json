@@ -1,0 +1,859 @@
+[
+  {
+    "id": "supply.rfd_amik.buy_ingredients",
+    "name": "Buy Sir Amik's kitchen ingredients",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        },
+        {
+          "kind": "policy",
+          "name": "gp_policy",
+          "value": "self_funded"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 4000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.raw_chicken",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rfd_amik.pot_of_cream",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rfd_amik.pot_of_cornflour",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 55,
+      "max_seconds": 121
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Estimated static GP reserve for ordinary tradeable ingredients. Pot of cornflour is in the official Jagex GE catalogue; no live pricing is assumed."
+    }
+  },
+  {
+    "id": "supply.rfd_amik.obtain_axe",
+    "name": "Recover an axe from Entrana dungeon zombies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.entrana_dungeon.zombies",
+    "end_location_id": "location.entrana_dungeon.zombies",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lost_city.complete"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.air_rune",
+          "quantity": 20
+        },
+        {
+          "kind": "item",
+          "item_id": "item.fire_rune",
+          "quantity": 30
+        },
+        {
+          "kind": "item",
+          "item_id": "item.mind_rune",
+          "quantity": 10
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.air_rune",
+        "quantity": 20
+      },
+      {
+        "item_id": "item.fire_rune",
+        "quantity": 30
+      },
+      {
+        "item_id": "item.mind_rune",
+        "quantity": 10
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bronze_axe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 69,
+      "expected_seconds": 125,
+      "max_seconds": 275
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Entrana weapon restrictions prevent simply ferrying an axe. Successful zombie drop assumed, with a conservative 10 Fire Strike cast reserve. The Magic XP is excluded pending live cast count."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat dungeon zombies and collect a bronze axe before the reserved runes run out.",
+      "if_unmet": "Restock, return and retry; no axe is credited until the drop is observed."
+    }
+  },
+  {
+    "id": "supply.rfd_amik.cut_branch",
+    "name": "Cut a second dramen branch for cinnamon",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.entrana_dungeon.dramen_tree",
+    "end_location_id": "location.entrana_dungeon.dramen_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lost_city.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 36,
+          "boostable": true
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.iron_axe",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dramen_branch",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 14,
+      "max_seconds": 31
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The first branch was consumed when crafting the Lost City staff. Cut an additional branch after the Tree Spirit has been defeated."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.inspect",
+    "name": "Inspect Sir Amik in the frozen dining room",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd_amik.sir_amik",
+    "end_location_id": "location.rfd_amik.sir_amik",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.another_cooks_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.start"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.family_crest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.heroes_quest.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.shilo_village.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.underground_pass.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.waterfall_quest.complete"
+        },
+        {
+          "kind": "counter",
+          "token_id": "token.quest_points",
+          "minimum": 107
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 15,
+      "max_seconds": 33
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "107 quest points and Legends' Quest started, not completed, gate the rescue."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.ask_cook",
+    "name": "Learn the crème brûlée recipe from the Cook",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_sir_amik_varze.inspect"
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 24,
+      "max_seconds": 53
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Must ask the Cook before querying the Wise Old Man about the Evil Chicken."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.ask_wise_old_man",
+    "name": "Ask the Wise Old Man about the Evil Chicken",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.draynor.wise_old_man",
+    "end_location_id": "location.draynor.wise_old_man",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_sir_amik_varze.ask_cook"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.rfd_amik.lair_discovered",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 36,
+      "max_seconds": 79
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "This conversation unlocks the special shrine dialogue. Swan Song's early dialogue state may mask this option."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.make_milky_mix",
+    "name": "Combine milk and cream",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_sir_amik_varze.ask_cook"
+    },
+    "consumes": [
+      {
+        "item_id": "item.bucket_of_milk",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd_amik.pot_of_cream",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_amik.milky_mixture",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 7,
+      "max_seconds": 15
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "First required recipe combination."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.add_cornflour",
+    "name": "Stir cornflour into the mixture",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_sir_amik_varze.make_milky_mix"
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd_amik.milky_mixture",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd_amik.pot_of_cornflour",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_amik.cornflour_mixture",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 6,
+      "max_seconds": 13
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Cornflour follows milk and cream in the recipe."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.pick_vanilla",
+    "name": "Pick a vanilla pod in Kharazi Jungle",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd_amik.vanilla_plant",
+    "end_location_id": "location.rfd_amik.vanilla_plant",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.start"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.kharazi_jungle",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.machete",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_amik.vanilla_pod",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 28,
+      "max_seconds": 62
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Vanilla pod source is just southwest of the sacred pool; precise tile is estimated from area description."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.add_vanilla",
+    "name": "Add the Kharazi vanilla pod",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.lumbridge_castle.cook",
+    "end_location_id": "location.lumbridge_castle.cook",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_sir_amik_varze.add_cornflour"
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd_amik.cornflour_mixture",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd_amik.vanilla_pod",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_amik.vanilla_mix",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 7,
+      "max_seconds": 15
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Order of ingredients enforced through inventory consumption."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.make_cinnamon",
+    "name": "Grind the second dramen branch with a pestle",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.entrana_dungeon.dramen_tree",
+    "end_location_id": "location.entrana_dungeon.dramen_tree",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.inspect"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.pestle_and_mortar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.dramen_branch",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_amik.cinnamon",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 7,
+      "max_seconds": 15
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Can be done immediately after gathering the spare branch; the staff must be retained for Zanaris."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.enter_lair",
+    "name": "Offer a raw chicken at the Zanaris shrine",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd_amik.evil_chicken_shrine",
+    "end_location_id": "location.rfd_amik.evil_chicken",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.ask_wise_old_man"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.lost_city.complete"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.rfd_amik.lair_discovered",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.dramen_staff",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.raw_chicken",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 19,
+      "expected_seconds": 35,
+      "max_seconds": 77
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Chicken is consumed by the shrine; action moves into the lair after the discovery dialogue."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.defeat_evil_chicken",
+    "name": "Defeat the Evil Chicken and collect its egg",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd_amik.evil_chicken",
+    "end_location_id": "location.rfd_amik.evil_chicken",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_sir_amik_varze.enter_lair"
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_amik.evil_chicken_egg",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 105,
+      "expected_seconds": 190,
+      "max_seconds": 418
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Combat difficulty and supplies are approximate; reward requires successful enemy defeat."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Evil Chicken, survive and pick up its egg.",
+      "if_unmet": "Heal or restock and retry; do not award the egg until it is picked up."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.defeat_black_dragon",
+    "name": "Defeat the Black Dragon for the dragon token",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd_amik.black_dragon",
+    "end_location_id": "location.rfd_amik.black_dragon",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.defeat_evil_chicken"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.anti_dragon_shield",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_amik.dragon_token",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 143,
+      "expected_seconds": 260,
+      "max_seconds": 572
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Requires dragonfire protection and appropriate combat gear; damage and consumables depend on combat build."
+    },
+    "planned_outcome": {
+      "success_condition": "Kill the Black Dragon safely and collect its token.",
+      "if_unmet": "Retreat, recover combat supplies, and repeat the fight without claiming the token."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.add_egg_and_cinnamon",
+    "name": "Finish the uncooked crème brûlée mixture",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd_amik.evil_chicken_shrine",
+    "end_location_id": "location.rfd_amik.evil_chicken_shrine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.defeat_black_dragon"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.add_vanilla"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.make_cinnamon"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd_amik.vanilla_mix",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd_amik.evil_chicken_egg",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd_amik.cinnamon",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_amik.unflambeed_brulee",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 9,
+      "max_seconds": 20
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Combine the gathered egg and cinnamon with the prepared mixture outside the dungeon."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.flambe",
+    "name": "Flambé the brûlée with the dragon token",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd_amik.evil_chicken_shrine",
+    "end_location_id": "location.rfd_amik.evil_chicken_shrine",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "rfd.freeing_sir_amik_varze.add_egg_and_cinnamon"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.ice_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd_amik.unflambeed_brulee",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.rfd_amik.dragon_token",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rfd_amik.brulee_supreme",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ice gloves are a safe-route requirement; without them the interaction can inflict large damage."
+    }
+  },
+  {
+    "id": "rfd.freeing_sir_amik_varze.complete",
+    "name": "Serve Sir Amik the finished crème brûlée",
+    "activity_id": "rfd.freeing_sir_amik_varze",
+    "kind": "quest_stage",
+    "start_location_id": "location.rfd_amik.sir_amik",
+    "end_location_id": "location.rfd_amik.sir_amik",
+    "requirements": {
+      "kind": "action_completed",
+      "action_id": "rfd.freeing_sir_amik_varze.flambe"
+    },
+    "consumes": [
+      {
+        "item_id": "item.rfd_amik.brulee_supreme",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 40000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.hitpoints",
+        "xp_tenths": 40000
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.rfd_amik.evil_chicken_lair",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 45,
+      "max_seconds": 99
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Subquest completion awards one quest point and fixed 4,000 XP in Cooking and Hitpoints; permanent lair access unlocks."
+    }
+  }
+]
