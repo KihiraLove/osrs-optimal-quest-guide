@@ -950,7 +950,13 @@ class QuestCollectionTests(unittest.TestCase):
         self.assertEqual(len({row["id"] for row in records}), len(records))
         self.assertTrue({source for row in records for source in row["source_ids"]} <= known_sources)
         claims = [row for row in entries if row["delivery"] == "post_quest_claim"]
-        self.assertEqual(len({row["producer_action_id"] for row in claims}), len(claims))
+        producers = [
+            action_id
+            for row in claims
+            for action_id in row.get("producer_action_ids", [row["producer_action_id"]])
+        ]
+        self.assertTrue(all(producers))
+        self.assertEqual(len(set(producers)), len(producers))
         for claim in claims:
             self.assertIn({
                 "kind": "action_completed", "action_id": claim["activity_id"] + ".complete",

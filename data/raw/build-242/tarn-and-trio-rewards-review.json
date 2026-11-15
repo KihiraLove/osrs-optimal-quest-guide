@@ -1,0 +1,54 @@
+{
+  "batch_id": "tarn-and-trio-rewards",
+  "revision": "osrs-live-242-2026-11-11",
+  "status": "collected_draft_not_independently_reviewed",
+  "registry_ids": [
+    "review.miniquest.lair_of_tarn_razorlor.diary",
+    "review.quest.tai_bwo_wannai_trio.training"
+  ],
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.project.early_quest_timing"
+  ],
+  "tarn": {
+    "activity_id": "miniquest.lair_of_tarn_razorlor",
+    "producer_action_id": "miniquest.lair_of_tarn_razorlor.complete",
+    "prerequisite_action_id": "miniquest.lair_of_tarn_razorlor.fight_tarn",
+    "interaction": "Read through Tarn's diary in the room beyond the boss, and retain the book.",
+    "fixed_xp_tenths": {"skill.slayer": 50000},
+    "item_reward": {"item_id": "item.tarns_diary", "quantity": 1},
+    "repeat_limit": 1,
+    "note": "The existing completion action places the Slayer XP and diary item on this final interaction. Its name now makes the reading step explicit."
+  },
+  "trio": {
+    "activity_id": "quest.tai_bwo_wannai_trio",
+    "prerequisite_action_id": "quest.tai_bwo_wannai_trio.complete",
+    "post_quest_claims": [
+      {
+        "npc": "Tiadeche",
+        "producer_action_id": "quest.tai_bwo_wannai_trio.claim_fishing",
+        "fixed_xp_tenths": {"skill.fishing": 50000},
+        "sets_flag_id": "unlock.karambwan_fishing"
+      },
+      {
+        "npc": "Tinsay",
+        "producer_action_id": "quest.tai_bwo_wannai_trio.claim_cooking",
+        "fixed_xp_tenths": {"skill.cooking": 50000},
+        "sets_flag_id": "unlock.karambwan_cooking"
+      },
+      {
+        "npc": "Tamayu",
+        "producer_action_id": "quest.tai_bwo_wannai_trio.claim_combat",
+        "fixed_xp_tenths": {"skill.attack": 25000, "skill.strength": 25000},
+        "item_reward": {"item_id": "item.karambwan_poisoned_rune_spear", "quantity": 1}
+      }
+    ],
+    "repeat_limit_each": 1,
+    "registry_mapping": "The registry row links the shared quest prerequisite and the three existing dialogue actions that award its four skill amounts."
+  },
+  "review_gaps": [
+    "Verify Tarn's diary reading-versus-collecting UI timing in the current client; the single completion interaction is a draft abstraction.",
+    "Measure individual Tai Bwo Wannai Trio brother dialogue paths, exact house tiles and whether any unlock is granted earlier in the quest.",
+    "The pinned helper lists the XP amounts. Confirm the exact claim dialogue in the game client."
+  ]
+}
