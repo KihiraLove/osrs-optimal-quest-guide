@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.59.0 | Added While Guthix Sleeps and Kuradal’s claim. Reading Duradel’s notes awards level-based Slayer XP and unlocks demonbane crafting. The Fractured Archive now uses the quest’s completion action. |
 | 0.58.0 | Added Dragon Slayer II and Ellen's separate combat training. Connected instance travel, reused shared prerequisite and item records, and added priced GE supplies for the rowboat, locator orb and forge. |
 | 0.57.0 | Added Desert Treasure II and the separate Ancient Vault lamp claim. The draft joins four medallion routes at the hideout encounter and uses existing prerequisite quests, shared soul runes and a priced GE supply bundle. |
 | 0.56.0 | Added 24 journal activities, including the Sophanem and Sailing quests, Desert Treasure I, Legends' Quest, the last Recipe for Disaster stages and The Fractured Archive. Connected prerequisite quests, added missing supply sources and updated the museum reports. The Fractured Archive awaits While Guthix Sleeps. |

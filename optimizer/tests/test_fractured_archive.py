@@ -28,7 +28,7 @@ class FracturedArchiveTests(unittest.TestCase):
         raw = read_json(ROOT / "data/profiles/main-baseline.json")["initial_state"]
         raw["location_id"] = "location.tears_of_guthix.light_creature"
         raw["inventory"] = {"item.sapphire_lantern": 1} if lantern else {}
-        raw["flags"] = {"flag.archive.while_guthix_sleeps_complete_external": True} if wgs else {}
+        raw["completed_action_ids"] = ["quest.while_guthix_sleeps.complete"] if wgs else []
         return RouteState(self.tables, self.policies, raw)
 
     @staticmethod

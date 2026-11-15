@@ -422,7 +422,7 @@
     {
       "id": "claim.while_guthix_sleeps.kuradal",
       "activity_id": "quest.while_guthix_sleeps",
-      "status": "expected",
+      "status": "collected",
       "delivery": "post_quest_claim",
       "source_ids": [
         "source.quest_helper.quest_observations",
@@ -434,13 +434,18 @@
         "kind": "tome",
         "quantity": 1,
         "selection_count": 1,
-        "amount": null,
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
+        "amount": {
+          "kind": "per_skill_level",
+          "xp_tenths_per_level": 150
+        },
+        "eligible_skills": [
+          "skill.slayer"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
         "retainable": true
       },
-      "notes": "Keep obtaining Duradel's notes separate from reading them. Verify the awarded skill, amount rule and one-time claim conditions in game.",
+      "notes": "Keep the book after claiming it. Reading once grants 15 × current Slayer level XP and demonbane crafting knowledge.",
       "requires": {
         "kind": "all",
         "requirements": [
@@ -461,7 +466,9 @@
           "symbol": "WGS_FOUND_NOTES",
           "id": 10760
         }
-      ]
+      ],
+      "read_action_id": "claim.while_guthix_sleeps.read_duradels_notes",
+      "xp_reward_id": "reward.wgs.duradels_notes_slayer"
     },
     {
       "id": "review.activity.knight_waves_training_grounds.completion",
