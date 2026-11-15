@@ -1,0 +1,32 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "status": "draft",
+  "activity_ids": [
+    "miniquest.curse_of_the_empty_lord",
+    "miniquest.the_generals_shadow",
+    "museum.history.empty_lord"
+  ],
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.field.varrock_museum_history"
+  ],
+  "observations": [
+    "Curse starts with partial Desert Treasure I (ring of visibility) and started Restless Ghost; Valdez gives ghostly robe top.",
+    "The three possible Valdez clues select one fixed five-ghost sequence; pieces are awarded by Rennard, Kharrim, Lennissa, Dhalak and Viggora in that order.",
+    "Sequence 1 includes wilderness pirate wreck, Chaos Temple, Entrana, Wizards' Tower and Rogues' Castle; sequence 2 uses Wilderness Bandit Camp, Graveyard of Shadows, Port Sarim, 31-Prayer Edgeville Monastery and Slayer Tower; sequence 3 uses Kharidian Bandit Camp, Lava Maze with slash knife, Gnome Stronghold, Falador Party Room and Edgeville Dungeon.",
+    "Minas gives a separately claimed 10 kudos plus 10,000-XP antique lamp for the ghostly robes history, not an automatic miniquest reward.",
+    "The General's Shadow requires Curse of Empty Lord, Fight Arena, six robes, ring, ghostspeak amulet and 40 GP for the Sin Seer note.",
+    "Khazard's four scouts at Karamja, Gnome Stronghold, Falador and Shantay Pass can be spoken to in any order.",
+    "Ghost Bouncer's final fight cannot use prayer; gives Shadow sword and 2,000 Slayer XP without quest points."
+  ],
+  "pending_reviews": [
+    "Valdez chooses one of three random paths; the optimizer can branch on the observed clue but cannot select the RNG outcome. A seeded deterministic variant is not a guarantee for a live account.",
+    "The schema has a single canonical completion action waypoint; the abstract marker is anchored to Valdez even though completion occurs at Viggora. The modeled return walk is artificial and must be eliminated in a later multi-location action design.",
+    "Wilderness travel can encounter player killers and Wilderness teleport limits, not accounted for in expected timings.",
+    "Ghost dialogues require worn ring, ghostspeak amulet and robes; the catalog's item requirements check possession rather than equipped slots.",
+    "Exact NPC roam radius and interior plane coordinates, especially Wilderness pirate ship, Lava Maze, Rogues' Castle and Bouncer's instanced arena, need field verification.",
+    "Minas lamp: level 50 vs strictly above 50, whether retainable/bankable and 2026 quest reward updates require field check.",
+    "Check the 40-GP Sin Seer payment, fight attrition and optional Karamja boat fare; our route uses existing ship edges.",
+    "Replacement ghostly robes and Shadow sword are reclaimable, but only the first award is modeled to avoid duplicated rewards."
+  ]
+}

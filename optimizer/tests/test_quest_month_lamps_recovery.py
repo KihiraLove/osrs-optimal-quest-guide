@@ -32,7 +32,7 @@ class QuestMonthLampsRecoveryTests(unittest.TestCase):
         cls.tables = CatalogValidator(load_catalog(ROOT / "data/manifest.json", contracts), contracts).tables
         cls.profile = read_json(ROOT / "data/profiles/main-baseline.json")
 
-    def seed(self, action, *, dependencies=True):
+    def seed(self, action, *, dependencies=True, lamp_policy=None):
         initial = {**self.profile["initial_state"]}
         initial["xp_tenths"] = {k: 10_000_000 for k in initial["xp_tenths"]}
         reqs = leaves(action["requirements"])
@@ -47,7 +47,10 @@ class QuestMonthLampsRecoveryTests(unittest.TestCase):
             if r["kind"] == "flag":
                 initial["flags"][r["token_id"]] = r["value"]
         initial["location_id"] = action["start_location_id"]
-        return RouteState(self.tables, self.profile["policies"], initial)
+        policies = self.profile["policies"].copy()
+        if lamp_policy is not None:
+            policies["quest_lamp_skill_policy"] = lamp_policy
+        return RouteState(self.tables, policies, initial)
 
     def do(self, state, action):
         step = {"kind": "action", "action_id": action["id"],
@@ -56,11 +59,11 @@ class QuestMonthLampsRecoveryTests(unittest.TestCase):
             step["planned_outcome"] = action["planned_outcome"]
         return state.apply(step, action["id"])
 
-    def use_lamp(self, state, instance, skill):
+    def use_lamp(self, state, instance, skill, *, override=False):
         return state.apply({"kind": "reward_use", "reward_id": ARIS_LAMP,
                             "instance_id": instance, "skill_id": skill,
                             "gain_xp_tenths": 10000,
-                            "overrides_observed_skill_restriction": False})
+                            "overrides_observed_skill_restriction": override})
 
     def test_publisher_lamp_quantities_and_completion_timing(self):
         changes = read_json(ROOT / "data/raw/build-242/quest-month-rewards.json")
@@ -118,16 +121,23 @@ class QuestMonthLampsRecoveryTests(unittest.TestCase):
         with self.assertRaises(DataError):
             self.use_lamp(claimed, ARIS_LAMP + ".instance.1", "skill.attack")
 
-    def test_combat_skill_list_excludes_noncombat_skills(self):
+    def test_combat_lamps_respect_the_profile_skill_policy(self):
         lamp = self.tables["xp_rewards"][ARIS_LAMP]
         self.assertEqual(set(lamp["eligible_skills"]), {
             "skill.attack", "skill.strength", "skill.defence", "skill.ranged",
             "skill.prayer", "skill.magic", "skill.hitpoints"})
         self.assertEqual(lamp["minimum_level"], 1)  # Provisional: review gap documented.
         self.assertTrue(lamp["retainable"])
-        claimed = self.do(self.seed(self.tables["actions"][CLAIM]), self.tables["actions"][CLAIM])
-        with self.assertRaises(DataError):
-            self.use_lamp(claimed, ARIS_LAMP + ".instance.1", "skill.herblore")
+        action = self.tables["actions"][CLAIM]
+        instance = ARIS_LAMP + ".instance.1"
+        strict = self.do(self.seed(action, lamp_policy="observed"), action)
+        with self.assertRaisesRegex(DataError, "ineligible"):
+            self.use_lamp(strict, instance, "skill.herblore", override=True)
+
+        main = self.do(self.seed(action), action)
+        before = main.snapshot()["xp_tenths"]["skill.herblore"]
+        after = self.use_lamp(main, instance, "skill.herblore", override=True)
+        self.assertEqual(after.snapshot()["xp_tenths"]["skill.herblore"], before + 10000)
 
     def test_reward_reviews_and_tracked_claims_reconciled(self):
         reviews = read_json(ROOT / "data/coverage/build-242/reward-reviews.json")
@@ -138,6 +148,8 @@ class QuestMonthLampsRecoveryTests(unittest.TestCase):
             self.assertEqual(row["status"], "collected")
             expected_producer = CLAIM if quest == "quest.demon_slayer" else quest + ".complete"
             self.assertEqual(row["catalog_ids"], [expected_producer])
+        self.assertEqual(by_id[CLAIM]["status"], "collected")
+        self.assertEqual(by_id[CLAIM]["expected_effects"][CLAIM], self.tables["actions"][CLAIM]["effects"])
         registry = read_json(ROOT / "data/raw/build-242/reward-registry.json")
         entries = {r["id"]: r for r in registry["entries"]}
         for key, producer in ((CLAIM, CLAIM),
