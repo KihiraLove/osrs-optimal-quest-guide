@@ -92,7 +92,8 @@ class LegendsQuestTests(unittest.TestCase):
 
     def full_route(self, state):
         for record in self.actions:
-            state = self.apply(self.arrive(state, record["start_location_id"]), record)
+            if record["activity_id"] == QUEST:
+                state = self.apply(self.arrive(state, record["start_location_id"]), record)
         return state
 
     def test_rewards_and_consumed_quest_items(self):
