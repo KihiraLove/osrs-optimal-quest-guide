@@ -290,7 +290,7 @@
       "requirements": [
         {
           "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.operate_winch"
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.meet_banikan"
         }
       ]
     },
@@ -942,68 +942,6 @@
     }
   },
   {
-    "id": "travel.dt2.ambush_to_prison.out",
-    "name": "DTII ambush to prison: out",
-    "mode": "walk",
-    "from_location_id": "location.dt2.chamber",
-    "to_location_id": "location.dt2.cell",
-    "requirements": {
-      "kind": "all",
-      "requirements": [
-        {
-          "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.return_with_four_medallions"
-        }
-      ]
-    },
-    "consumes": [],
-    "effects": [],
-    "duration": {
-      "min_seconds": 70,
-      "expected_seconds": 140,
-      "max_seconds": 420
-    },
-    "evidence": {
-      "source_ids": [
-        "source.quest_helper.quest_observations",
-        "source.project.travel_timing"
-      ],
-      "status": "estimated",
-      "note": "Provisional directed travel/passage; verify one-way segments, physical distance and instance exits. No free teleport is assumed."
-    }
-  },
-  {
-    "id": "travel.dt2.ambush_to_prison.back",
-    "name": "DTII ambush to prison: back",
-    "mode": "walk",
-    "from_location_id": "location.dt2.cell",
-    "to_location_id": "location.dt2.chamber",
-    "requirements": {
-      "kind": "all",
-      "requirements": [
-        {
-          "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.return_with_four_medallions"
-        }
-      ]
-    },
-    "consumes": [],
-    "effects": [],
-    "duration": {
-      "min_seconds": 70,
-      "expected_seconds": 140,
-      "max_seconds": 420
-    },
-    "evidence": {
-      "source_ids": [
-        "source.quest_helper.quest_observations",
-        "source.project.travel_timing"
-      ],
-      "status": "estimated",
-      "note": "Provisional directed travel/passage; verify one-way segments, physical distance and instance exits. No free teleport is assumed."
-    }
-  },
-  {
     "id": "travel.dt2.prison_chest.out",
     "name": "DTII prison chest: out",
     "mode": "walk",
@@ -1076,7 +1014,12 @@
       "requirements": [
         {
           "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.defeat_mysterious_figure"
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_last_medallion"
+        },
+        {
+          "kind": "counter",
+          "token_id": "counter.dt2.vault_medallions",
+          "minimum": 4
         }
       ]
     },
@@ -1249,6 +1192,68 @@
       ],
       "status": "estimated",
       "note": "Provisional directed travel/passage; verify one-way segments, physical distance and instance exits. No free teleport is assumed."
+    }
+  },
+  {
+    "id": "travel.dt2.hideout_portal.out",
+    "name": "Use the hideout portal near the quarry (out)",
+    "mode": "walk",
+    "from_location_id": "location.enakhra.quarry",
+    "to_location_id": "location.dt2.cell_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.escape_cell"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "The portal stands south of the desert quarry. The existing quarry waypoint includes the estimated approach."
+    }
+  },
+  {
+    "id": "travel.dt2.hideout_portal.back",
+    "name": "Use the hideout portal near the quarry (back)",
+    "mode": "walk",
+    "from_location_id": "location.dt2.cell_chest",
+    "to_location_id": "location.enakhra.quarry",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.escape_cell"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.travel_timing"
+      ],
+      "status": "estimated",
+      "note": "The portal stands south of the desert quarry. The existing quarry waypoint includes the estimated approach."
     }
   }
 ]

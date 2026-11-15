@@ -5,6 +5,7 @@ from pathlib import Path
 import unittest
 
 from quest_optimizer.data import Contracts, DataError, load_catalog, read_json
+from quest_optimizer.reachability import unreachable_records
 from quest_optimizer.semantics import CatalogValidator
 from quest_optimizer.transitions import RouteState
 
@@ -13,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 Q = 'quest.desert_treasure_ii_the_fallen_empire'
 CLAIM = 'claim.desert_treasure_ii.ancient_vault'
 LAMP = 'reward.dt2.ancient_lamp'
+SUPPLIES = 'supply.grand_exchange.purchase_dt2_runes_and_pestle'
 BRANCHES = ('vardorvis', 'leviathan', 'duke', 'whisperer')
 
 
@@ -20,7 +22,8 @@ class DesertTreasureIITests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         contracts = Contracts(ROOT / 'schemas')
-        cls.tables = CatalogValidator(load_catalog(ROOT / 'data/manifest.json', contracts), contracts).tables
+        cls.catalog = load_catalog(ROOT / 'data/manifest.json', contracts)
+        cls.tables = CatalogValidator(cls.catalog, contracts).tables
         cls.profile = read_json(ROOT / 'data/profiles/main-baseline.json')
         cls.actions = {x['id']: x for x in read_json(ROOT / 'data/catalog/desert-treasure-ii/actions.json')}
 
@@ -40,13 +43,14 @@ class DesertTreasureIITests(unittest.TestCase):
             **state.get('flags', {}),
             'flag.quest.desert_treasure_i.complete': dt1,
             'flag.quest.secrets_of_the_north.complete': secrets,
+            'unlock.ancient_magicks': True,
         }
         state['inventory'] = {
             **state['inventory'],
             'item.death_rune': 8,
             'item.chaos_rune': 16,
             'item.blood_rune': 2,
-            'item.soul_rune': soul_runes,
+            'item.legends.soul_rune': soul_runes,
             'item.fire_rune': 2,
             'item.air_rune': 3,
             'item.water_rune': 4,
@@ -75,7 +79,7 @@ class DesertTreasureIITests(unittest.TestCase):
 
     def run_route(self, state, branch_order=BRANCHES, *, stop_after=None):
         # Stage order in the draft collection is intro, four branches, finale.
-        ids = list(self.actions)
+        ids = [action_id for action_id in self.actions if action_id != SUPPLIES]
         branch_ranges = {}
         for branch in BRANCHES:
             begin = f'{Q}.ask_elissa' if branch == 'vardorvis' else (
@@ -86,8 +90,11 @@ class DesertTreasureIITests(unittest.TestCase):
             end = f'{Q}.deposit_{branch}_medallion'
             branch_ranges[branch] = ids[ids.index(begin):ids.index(end) + 1]
         intro = ids[:ids.index(f'{Q}.ask_elissa')]
-        tail = ids[ids.index(f'{Q}.return_with_four_medallions'):-1]
-        route = intro + [a for branch in branch_order for a in branch_ranges[branch]] + tail + [CLAIM]
+        first_three = [action for branch in branch_order[:-1] for action in branch_ranges[branch]]
+        last = branch_ranges[branch_order[-1]]
+        capture = ids.index(f'{Q}.return_with_four_medallions')
+        recovered = ids.index(f'{Q}.recover_last_medallion')
+        route = intro + first_three + last[:-1] + ids[capture:recovered + 1] + last[-1:] + ids[recovered + 1:]
         for action in route:
             if action == stop_after:
                 return state
@@ -118,8 +125,8 @@ class DesertTreasureIITests(unittest.TestCase):
     def test_prerequisites_are_hard_gates(self):
         for missing in (self.seed(dt1=False), self.seed(secrets=False), self.seed(levels=False)):
             with self.assertRaises(DataError):
-                self.apply(missing, Q + '.select_ancients')
-        required = self.actions[Q + '.select_ancients']['requirements']['requirements']
+                self.apply(self.apply(missing, Q + '.select_ancients'), Q + '.enter_vault')
+        required = self.actions[Q + '.enter_vault']['requirements']['requirements']
         skills = {r['skill_id']: r['minimum_level'] for r in required if r['kind'] == 'skill'}
         self.assertEqual(skills, {
             'skill.magic': 75, 'skill.firemaking': 75, 'skill.thieving': 70,
@@ -135,19 +142,35 @@ class DesertTreasureIITests(unittest.TestCase):
         after = self.apply(before, Q + '.cast_blood_burst')
         self.assertEqual(after.snapshot()['inventory'].get('item.blood_rune', 0), 0)
         self.assertEqual(after.snapshot()['inventory']['item.death_rune'], 6)
+        shadow = self.apply(after, Q + '.cast_shadow_burst')
+        self.assertEqual(shadow.snapshot()['inventory']['item.air_rune'], 2)
+        smoke = self.apply(shadow, Q + '.cast_smoke_burst')
+        self.assertNotIn('item.air_rune', smoke.snapshot()['inventory'])
         self.assertEqual(
             self.actions[Q + '.mix_duke_poison']['consumes'],
             [{'item_id': 'item.dt2.arder_mushroom', 'quantity': 3},
              {'item_id': 'item.dt2.musca_mushroom', 'quantity': 3}],
         )
 
-    def test_quest_fails_before_all_four_deposits(self):
-        state = self.run_route(self.seed(), stop_after=Q + '.deposit_whisperer_medallion')
-        self.assertEqual(state.snapshot()['counters']['counter.dt2.vault_medallions'], 3)
+    def test_last_deposit_requires_escaping_the_hideout(self):
+        last = Q + '.deposit_whisperer_medallion'
+        before_capture = self.run_route(self.seed(), stop_after=Q + '.return_with_four_medallions')
+        self.assertEqual(before_capture.snapshot()['counters']['counter.dt2.vault_medallions'], 3)
+        self.assertEqual(before_capture.snapshot()['inventory']['item.dt2.medallion_whisperer'], 1)
         with self.assertRaises(DataError):
-            self.apply(state, Q + '.return_with_four_medallions')
+            self.apply(before_capture, last)
+        state = self.run_route(self.seed(), stop_after=last)
+        self.assertEqual(state.snapshot()['counters']['counter.dt2.vault_medallions'], 3)
+        self.assertIn(Q + '.recover_last_medallion', state.snapshot()['completed_action_ids'])
+        with self.assertRaises(DataError):
+            self.apply(state, Q + '.descend_vault')
         with self.assertRaises(DataError):
             self.apply(state, Q + '.complete')
+        self.assertEqual(self.apply(state, last).snapshot()['counters']['counter.dt2.vault_medallions'], 4)
+
+    def test_all_stages_are_reachable_from_the_main_baseline(self):
+        unreachable = unreachable_records(self.catalog, self.profile)
+        self.assertFalse(set(self.actions) & set(unreachable['actions']))
 
     def test_lamp_rules_and_registry_are_one_time(self):
         lamp = self.tables['xp_rewards'][LAMP]

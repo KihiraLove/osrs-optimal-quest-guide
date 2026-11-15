@@ -1,7 +1,48 @@
 [
   {
     "id": "quest.desert_treasure_ii_the_fallen_empire.select_ancients",
-    "name": "Switch to Ancient Magicks for the vault and rune puzzle",
+    "name": "Switch to Ancient Magicks at the Ancient Pyramid altar",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt.pyramid_center",
+    "end_location_id": "location.dt.pyramid_center",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "unlock.ancient_magicks",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.dt2.ancient_spellbook_selected",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Uses the Ancient Pyramid altar unlocked by Desert Treasure I. The catalog scopes spellbook state to this quest."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.enter_vault",
+    "name": "Investigate the Ancient Vault with Asgarnia Smith",
     "kind": "quest_stage",
     "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
     "start_location_id": "location.dt2.vault",
@@ -9,6 +50,15 @@
     "requirements": {
       "kind": "all",
       "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.select_ancients"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.dt2.ancient_spellbook_selected",
+          "value": true
+        },
         {
           "kind": "flag",
           "token_id": "flag.quest.desert_treasure_i.complete",
@@ -74,51 +124,6 @@
           "skill_id": "skill.construction",
           "minimum_level": 60,
           "boostable": false
-        }
-      ]
-    },
-    "consumes": [],
-    "effects": [
-      {
-        "kind": "flag",
-        "token_id": "flag.dt2.ancient_spellbook_selected",
-        "value": true
-      }
-    ],
-    "duration": {
-      "min_seconds": 45,
-      "expected_seconds": 90,
-      "max_seconds": 270
-    },
-    "repeat_limit": 1,
-    "evidence": {
-      "source_ids": [
-        "source.quest_helper.quest_observations",
-        "source.jagex.desert_treasure_ii_release",
-        "source.project.early_quest_timing"
-      ],
-      "status": "estimated",
-      "note": "Spellbook selection is explicit; the active-spellbook engine contract is not yet implemented. Confirm Ancient Magicks is active in game."
-    }
-  },
-  {
-    "id": "quest.desert_treasure_ii_the_fallen_empire.enter_vault",
-    "name": "Investigate the Ancient Vault with Asgarnia Smith",
-    "kind": "quest_stage",
-    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
-    "start_location_id": "location.dt2.vault",
-    "end_location_id": "location.dt2.vault",
-    "requirements": {
-      "kind": "all",
-      "requirements": [
-        {
-          "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.select_ancients"
-        },
-        {
-          "kind": "flag",
-          "token_id": "flag.dt2.ancient_spellbook_selected",
-          "value": true
         }
       ]
     },
@@ -209,12 +214,12 @@
     }
   },
   {
-    "id": "quest.desert_treasure_ii_the_fallen_empire.meet_banikan",
-    "name": "Meet Dr Banikan at his eastern Digsite excavation",
+    "id": "quest.desert_treasure_ii_the_fallen_empire.operate_winch",
+    "name": "Lower the Digsite winch and enter the buried installation",
     "kind": "quest_stage",
     "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
-    "start_location_id": "location.dt2.banikan",
-    "end_location_id": "location.dt2.banikan",
+    "start_location_id": "location.dt2.winch",
+    "end_location_id": "location.dt2.winch",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -243,18 +248,18 @@
     }
   },
   {
-    "id": "quest.desert_treasure_ii_the_fallen_empire.operate_winch",
-    "name": "Lower the Digsite winch and enter the buried installation",
+    "id": "quest.desert_treasure_ii_the_fallen_empire.meet_banikan",
+    "name": "Meet Dr Banikan at his eastern Digsite excavation",
     "kind": "quest_stage",
     "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
-    "start_location_id": "location.dt2.winch",
-    "end_location_id": "location.dt2.winch",
+    "start_location_id": "location.dt2.banikan",
+    "end_location_id": "location.dt2.banikan",
     "requirements": {
       "kind": "all",
       "requirements": [
         {
           "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.meet_banikan"
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.operate_winch"
         }
       ]
     },
@@ -288,7 +293,12 @@
       "requirements": [
         {
           "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.operate_winch"
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.meet_banikan"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_pickaxe",
+          "quantity": 1
         }
       ]
     },
@@ -307,7 +317,7 @@
         "source.project.early_quest_timing"
       ],
       "status": "estimated",
-      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+      "note": "A pickaxe breaks the Ancient Guardian shield. The route can use the starting bronze pickaxe; the cavern also has a pickaxe crate."
     },
     "planned_outcome": {
       "success_condition": "Confirm that defeat the ancient guardian while avoiding falling debris succeeded and the quest journal advances.",
@@ -349,46 +359,6 @@
     }
   },
   {
-    "id": "quest.desert_treasure_ii_the_fallen_empire.recover_golem_cells",
-    "name": "Collect eight runic cells from the installation crates",
-    "kind": "quest_stage",
-    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
-    "start_location_id": "location.dt2.golem",
-    "end_location_id": "location.dt2.golem",
-    "requirements": {
-      "kind": "all",
-      "requirements": [
-        {
-          "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.inspect_golem"
-        }
-      ]
-    },
-    "consumes": [],
-    "effects": [
-      {
-        "kind": "item",
-        "item_id": "item.dt2.golem_cell",
-        "quantity": 8
-      }
-    ],
-    "duration": {
-      "min_seconds": 45,
-      "expected_seconds": 90,
-      "max_seconds": 270
-    },
-    "repeat_limit": 1,
-    "evidence": {
-      "source_ids": [
-        "source.quest_helper.quest_observations",
-        "source.jagex.desert_treasure_ii_release",
-        "source.project.early_quest_timing"
-      ],
-      "status": "estimated",
-      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
-    }
-  },
-  {
     "id": "quest.desert_treasure_ii_the_fallen_empire.cast_blood_burst",
     "name": "Cast Blood Burst on its Ancient spell statue",
     "kind": "quest_stage",
@@ -400,7 +370,7 @@
       "requirements": [
         {
           "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_golem_cells"
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.inspect_golem"
         },
         {
           "kind": "flag",
@@ -467,7 +437,7 @@
       "requirements": [
         {
           "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_golem_cells"
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.inspect_golem"
         },
         {
           "kind": "flag",
@@ -476,7 +446,7 @@
         },
         {
           "kind": "item",
-          "item_id": "item.soul_rune",
+          "item_id": "item.legends.soul_rune",
           "quantity": 2
         },
         {
@@ -488,12 +458,17 @@
           "kind": "item",
           "item_id": "item.chaos_rune",
           "quantity": 4
+        },
+        {
+          "kind": "item",
+          "item_id": "item.air_rune",
+          "quantity": 1
         }
       ]
     },
     "consumes": [
       {
-        "item_id": "item.soul_rune",
+        "item_id": "item.legends.soul_rune",
         "quantity": 2
       },
       {
@@ -503,6 +478,10 @@
       {
         "item_id": "item.chaos_rune",
         "quantity": 4
+      },
+      {
+        "item_id": "item.air_rune",
+        "quantity": 1
       }
     ],
     "effects": [],
@@ -534,7 +513,7 @@
       "requirements": [
         {
           "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_golem_cells"
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.inspect_golem"
         },
         {
           "kind": "flag",
@@ -549,7 +528,7 @@
         {
           "kind": "item",
           "item_id": "item.air_rune",
-          "quantity": 3
+          "quantity": 2
         },
         {
           "kind": "item",
@@ -570,7 +549,7 @@
       },
       {
         "item_id": "item.air_rune",
-        "quantity": 3
+        "quantity": 2
       },
       {
         "item_id": "item.death_rune",
@@ -610,7 +589,7 @@
       "requirements": [
         {
           "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_golem_cells"
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.inspect_golem"
         },
         {
           "kind": "flag",
@@ -666,8 +645,8 @@
     }
   },
   {
-    "id": "quest.desert_treasure_ii_the_fallen_empire.charge_golem",
-    "name": "Charge the eight golem cells and solve the row-column puzzle",
+    "id": "quest.desert_treasure_ii_the_fallen_empire.recover_golem_cells",
+    "name": "Collect eight runic cells from the installation crates",
     "kind": "quest_stage",
     "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
     "start_location_id": "location.dt2.golem",
@@ -690,6 +669,46 @@
         {
           "kind": "action_completed",
           "action_id": "quest.desert_treasure_ii_the_fallen_empire.cast_ice_burst"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.dt2.golem_cell",
+        "quantity": 8
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.charge_golem",
+    "name": "Charge the eight golem cells and solve the row-column puzzle",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.golem",
+    "end_location_id": "location.dt2.golem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_golem_cells"
         },
         {
           "kind": "item",
@@ -743,6 +762,11 @@
         "kind": "flag",
         "token_id": "flag.dt2.four_medallions_known",
         "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "counter.dt2.medallion_slots_available",
+        "delta": 3
       }
     ],
     "duration": {
@@ -1035,6 +1059,11 @@
           "kind": "item",
           "item_id": "item.dt2.medallion_vardorvis",
           "quantity": 1
+        },
+        {
+          "kind": "counter",
+          "token_id": "counter.dt2.medallion_slots_available",
+          "minimum": 1
         }
       ]
     },
@@ -1049,6 +1078,11 @@
         "kind": "counter",
         "token_id": "counter.dt2.vault_medallions",
         "delta": 1
+      },
+      {
+        "kind": "counter",
+        "token_id": "counter.dt2.medallion_slots_available",
+        "delta": -1
       }
     ],
     "duration": {
@@ -1067,7 +1101,7 @@
       "note": "Deposit only one owned medallion; the Mysterious Figure can ambush the second/third return. Refill supplies if ambushed; precise trigger and retry state await review."
     },
     "planned_outcome": {
-      "success_condition": "Confirm that place the vardorvis medallion in the ancient vault succeeded and the quest journal advances.",
+      "success_condition": "Confirm the statue accepted this medallion. Resolve any intervening encounter before crediting the deposit.",
       "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
     }
   },
@@ -1354,6 +1388,11 @@
           "kind": "item",
           "item_id": "item.dt2.medallion_leviathan",
           "quantity": 1
+        },
+        {
+          "kind": "counter",
+          "token_id": "counter.dt2.medallion_slots_available",
+          "minimum": 1
         }
       ]
     },
@@ -1368,6 +1407,11 @@
         "kind": "counter",
         "token_id": "counter.dt2.vault_medallions",
         "delta": 1
+      },
+      {
+        "kind": "counter",
+        "token_id": "counter.dt2.medallion_slots_available",
+        "delta": -1
       }
     ],
     "duration": {
@@ -1386,7 +1430,7 @@
       "note": "Deposit only one owned medallion; the Mysterious Figure can ambush the second/third return. Refill supplies if ambushed; precise trigger and retry state await review."
     },
     "planned_outcome": {
-      "success_condition": "Confirm that place the leviathan medallion in the ancient vault succeeded and the quest journal advances.",
+      "success_condition": "Confirm the statue accepted this medallion. Resolve any intervening encounter before crediting the deposit.",
       "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
     }
   },
@@ -1711,6 +1755,11 @@
           "kind": "item",
           "item_id": "item.dt2.medallion_duke",
           "quantity": 1
+        },
+        {
+          "kind": "counter",
+          "token_id": "counter.dt2.medallion_slots_available",
+          "minimum": 1
         }
       ]
     },
@@ -1725,6 +1774,11 @@
         "kind": "counter",
         "token_id": "counter.dt2.vault_medallions",
         "delta": 1
+      },
+      {
+        "kind": "counter",
+        "token_id": "counter.dt2.medallion_slots_available",
+        "delta": -1
       }
     ],
     "duration": {
@@ -1743,7 +1797,7 @@
       "note": "Deposit only one owned medallion; the Mysterious Figure can ambush the second/third return. Refill supplies if ambushed; precise trigger and retry state await review."
     },
     "planned_outcome": {
-      "success_condition": "Confirm that place the duke medallion in the ancient vault succeeded and the quest journal advances.",
+      "success_condition": "Confirm the statue accepted this medallion. Resolve any intervening encounter before crediting the deposit.",
       "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
     }
   },
@@ -2028,6 +2082,11 @@
           "kind": "item",
           "item_id": "item.dt2.medallion_whisperer",
           "quantity": 1
+        },
+        {
+          "kind": "counter",
+          "token_id": "counter.dt2.medallion_slots_available",
+          "minimum": 1
         }
       ]
     },
@@ -2042,6 +2101,11 @@
         "kind": "counter",
         "token_id": "counter.dt2.vault_medallions",
         "delta": 1
+      },
+      {
+        "kind": "counter",
+        "token_id": "counter.dt2.medallion_slots_available",
+        "delta": -1
       }
     ],
     "duration": {
@@ -2060,40 +2124,40 @@
       "note": "Deposit only one owned medallion; the Mysterious Figure can ambush the second/third return. Refill supplies if ambushed; precise trigger and retry state await review."
     },
     "planned_outcome": {
-      "success_condition": "Confirm that place the whisperer medallion in the ancient vault succeeded and the quest journal advances.",
+      "success_condition": "Confirm the statue accepted this medallion. Resolve any intervening encounter before crediting the deposit.",
       "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
     }
   },
   {
     "id": "quest.desert_treasure_ii_the_fallen_empire.return_with_four_medallions",
-    "name": "Return to the four Ancient Vault statues after all medallions",
+    "name": "Return to the Vault door carrying the last medallion",
     "kind": "quest_stage",
     "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
-    "start_location_id": "location.dt2.chamber",
-    "end_location_id": "location.dt2.chamber",
+    "start_location_id": "location.dt2.vault",
+    "end_location_id": "location.dt2.cell",
     "requirements": {
       "kind": "all",
       "requirements": [
         {
           "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.deposit_vardorvis_medallion"
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.collect_vardorvis_medallion"
         },
         {
           "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.deposit_leviathan_medallion"
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.collect_leviathan_medallion"
         },
         {
           "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.deposit_duke_medallion"
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.collect_duke_medallion"
         },
         {
           "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.deposit_whisperer_medallion"
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.collect_whisperer_medallion"
         },
         {
           "kind": "counter",
           "token_id": "counter.dt2.vault_medallions",
-          "minimum": 4
+          "minimum": 3
         }
       ]
     },
@@ -2112,7 +2176,7 @@
         "source.project.early_quest_timing"
       ],
       "status": "estimated",
-      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and puzzle timing."
+      "note": "The Mysterious Figure captures the player at the Vault door while the fourth medallion is still uninstalled."
     }
   },
   {
@@ -2185,11 +2249,11 @@
   },
   {
     "id": "quest.desert_treasure_ii_the_fallen_empire.defeat_mysterious_figure",
-    "name": "Defeat the Mysterious Figure and return to the vault",
+    "name": "Defeat the Mysterious Figure in the hideout",
     "kind": "quest_stage",
     "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
-    "start_location_id": "location.dt2.chamber",
-    "end_location_id": "location.dt2.chamber",
+    "start_location_id": "location.dt2.cell_chest",
+    "end_location_id": "location.dt2.cell_chest",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -2214,11 +2278,51 @@
         "source.project.early_quest_timing"
       ],
       "status": "estimated",
-      "note": "Draft quest stage based on the pinned helper and publisher; validate dialogue, precise tiles, and combat timing."
+      "note": "Fight in the hideout. The pinned helper locates its portal south of the quarry."
     },
     "planned_outcome": {
       "success_condition": "Confirm that defeat the mysterious figure and return to the vault succeeded and the quest journal advances.",
       "if_unmet": "Escape or recover, replenish health, prayer and combat supplies, and retry; do not claim the next stage."
+    }
+  },
+  {
+    "id": "quest.desert_treasure_ii_the_fallen_empire.recover_last_medallion",
+    "name": "Retrieve the last medallion after defeating the Mysterious Figure",
+    "kind": "quest_stage",
+    "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
+    "start_location_id": "location.dt2.cell_chest",
+    "end_location_id": "location.dt2.cell_chest",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.defeat_mysterious_figure"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "counter.dt2.medallion_slots_available",
+        "delta": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.desert_treasure_ii_release",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "The item is tracked through the encounter for accounting. In play, the last medallion is reclaimed before it can be deposited."
     }
   },
   {
@@ -2233,7 +2337,12 @@
       "requirements": [
         {
           "kind": "action_completed",
-          "action_id": "quest.desert_treasure_ii_the_fallen_empire.defeat_mysterious_figure"
+          "action_id": "quest.desert_treasure_ii_the_fallen_empire.recover_last_medallion"
+        },
+        {
+          "kind": "counter",
+          "token_id": "counter.dt2.vault_medallions",
+          "minimum": 4
         }
       ]
     },
@@ -2510,6 +2619,87 @@
       ],
       "status": "estimated",
       "note": "One-time postquest collection or reclaim of three 100,000-XP ancient lamps. Live claim tile, reclaiming spent lamps and eligibility require review."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_dt2_runes_and_pestle",
+    "activity_id": null,
+    "name": "Buy the Desert Treasure II puzzle runes and pestle and mortar",
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 5000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.death_rune",
+        "quantity": 8
+      },
+      {
+        "kind": "item",
+        "item_id": "item.chaos_rune",
+        "quantity": 16
+      },
+      {
+        "kind": "item",
+        "item_id": "item.blood_rune",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.water_rune",
+        "quantity": 4
+      },
+      {
+        "kind": "item",
+        "item_id": "item.legends.soul_rune",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.air_rune",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fire_rune",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.pestle_and_mortar",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 45,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "Fixed draft GP estimate for ordinary traded inputs. Puzzle uses one cast of each Burst spell."
     }
   }
 ]

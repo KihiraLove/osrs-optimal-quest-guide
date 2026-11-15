@@ -8,28 +8,28 @@
   "observations": {
     "start": "Ancient Vault door (3511,2971,0) north-east of Nardah, using Ancient Magicks after seven required activities and 75 Magic, 75 Firemaking, 70 Thieving, 62 Herblore, 60 Runecraft, 60 Construction (all nonboostable).",
     "required_quest_ids": ["quest.desert_treasure_i", "quest.secrets_of_the_north", "quest.enakhras_lament", "quest.temple_of_the_eye", "quest.the_garden_of_death", "quest.below_ice_mountain", "miniquest.his_faithful_servants"],
-    "intro": "Ancient Vault statues and Asgarnia, Terry Balando, Dr Banikan's Digsite excavation, Ancient Guardian and four Burst spell totems charging eight golem cells.",
+    "intro": "Select Ancient Magicks at the Ancient Pyramid altar. At the Digsite, speak to Terry Balando before descending the winch to reach Dr Banikan. Defeat the Ancient Guardian, then cast the four Burst spells and charge eight golem cells.",
     "branches": {
       "vardorvis": "Elissa's digsite investigation, Stranglewood route, Kasonde defence, Strangler serum, Vardorvis and Kasonde fights; medallion deposited back in vault.",
       "leviathan": "Temple of the Eye entrance to The Scar, three abyssal passages, burning wrecks and Leviathan; medallion deposited back in vault.",
       "duke": "Weiss/Ghorrock prison search, Jhallan, arder and musca gathering and poison preparation, Duke Sucellus; medallion deposited back in vault.",
       "whisperer": "Ice Mountain descent to Lassar Undercity, light/shadow puzzles, perfected torch, Whisperer arena; medallion deposited back in vault."
     },
-    "join": "The four branches require only the common golem introduction, not one another. Four unique deposited medallions are required before the prison escape, Mysterious Figure and final boss gauntlet. Ambushes can occur on the second and third deposit; each deposit is conditional.",
+    "join": "The four branches can be completed in any order. Return to the Vault door carrying the last medallion after depositing the other three. Escape the hideout, defeat the Mysterious Figure and recover the stolen medallion before the last deposit and the final gauntlet.",
     "completion": "Five quest points, Ring of shadows, Scar essence mine, ancient rings and repeatable Forgotten Four. No invented fixed XP or fight rewards.",
     "postquest": "One-time separate Ancient Vault Mysterious Bandit claim for 3 x 100,000 XP lamps; one 60+ combat skill per lamp including Prayer. All three can be held and spent separately."
   },
   "external_dependencies": [
-    "Desert Treasure I and Secrets of the North are tracked Added but have no action producer on the main commit used by this branch. Their canonical completion flags are currently seeded for the focused replay; the integrator must replace/reuse these with real upstream quest producers and deduplicate flags.",
-    "The player must acquire/bring runes for the four Burst spells, a tinderbox, pestle and mortar and combat supplies. A facemask or Slayer helmet reduces damage in the final Scar passage but is not a hard route prerequisite. The base catalog does not yet provide all direct supply routes; focused tests seed these rather than pretending they are free.",
+    "Desert Treasure I and Secrets of the North supply the existing completion flags used at the Vault door. The Lumbridge baseline reachability check covers every new catalog action.",
+    "A 5,000 GP estimated GE bundle supplies eight death, sixteen chaos, two blood, four water, two soul, three air and two fire runes, plus a pestle and mortar. The starting bronze pickaxe and tinderbox cover the excavation and fire steps. A facemask or Slayer helmet reduces damage in the final Scar passage.",
     "High-level boss success is planned_outcome, not guaranteed kills. Retry routes, fees, gear attrition and food budgets are unresolved."
   ],
   "review_gaps": [
     "The pinned helper provided 55 coordinates primarily for the introductory Digsite, the Vault and finale, not the four distant branch paths. Stranglewood, Scar, Ghorrock, Lassar and arena coordinates in this draft are approximate regional placeholders, not verified exact tiles. Verify instance identities, entrances, exits and whether return directions are reversible.",
     "The four independent branches use abbreviated puzzle actions. Split them into finer stages before release if partial routes or optimal travel among three Scar passages, Ghorrock ingredients and Lassar lantern puzzles are relevant.",
-    "Verify which medallions are physically carried, timing and exact trigger of second/third-deposit Mysterious Figure ambushes, and whether prison escape occurs before or after the final medallion deposit. Inventory reclaim after capture is represented as dialogue progress, not a full bank/inventory transfer.",
-    "Check initial Ancient spellbook selection against the actual requirement; the transition engine has no dedicated spellbook-state contract, so a scoped flag models the choice.",
-    "Verify the four Burst spell rune counts, incidental Magic XP, and whether active elemental runes or higher spells are permitted. This draft reserves exact fixed runes as one conservative loadout and does not award fixed combat spell XP.",
+    "Verify the exact trigger and location of the earlier Mysterious Figure ambushes. The prison sequence follows the pinned helper. The inventory stays accounted for while the last medallion must be recovered before its deposit.",
+    "Ancient Magicks uses a quest-scoped flag. Spellbook changes elsewhere and alternate access to an Ancient altar need review.",
+    "The four Burst rune costs follow the pinned helper. Verify incidental casting XP and add elemental staff or higher-spell route alternatives if supported.",
     "Verify the optional facemask or Slayer helmet mitigation and hazard damage in the third Scar passage; this draft does not falsely make the mask mandatory.",
     "Verify Strangler serum ingredients, Duke's three arder/musca mushroom counts (80 Herblore alternative), whether the pickaxe is required and supplied, the perfect torch consumption and the shadow puzzle outcomes.",
     "No combat supplies are invented. Vardorvis, Kasonde, Leviathan, Jhallan, Duke, Whisperer, Mysterious Figure and four finale fights need independent food/prayer/magic/ranged resource measurement. Failing the four-minute Kasonde defence restarts it.",

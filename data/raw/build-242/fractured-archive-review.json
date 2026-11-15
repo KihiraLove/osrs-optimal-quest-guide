@@ -1,0 +1,35 @@
+{
+  "game_revision":"osrs-live-242-2026-11-11",
+  "activity_id":"miniquest.the_fractured_archive",
+  "status":"draft_collected",
+  "source_ids":["source.runelite.quests","source.jagex.fractured_archive"],
+  "helper_file":null,
+  "start":"A messenger note directs the player to a cliff entrance near the Ancient Guthixian Temple in the Chasm of Tears. The miniquest starts on first attempt to enter the Archive lobby. Ride a light creature down using a lit sapphire lantern.",
+  "prerequisites":{"required":"While Guthix Sleeps complete (tracker still Pending; modeled as flag.archive.while_guthix_sleeps_complete_external until upstream integration)","item":"Lit sapphire lantern to attract the light creature; this item already exists in the Tears of Guthix catalog.","combat":"Difficult group raid with powerful bosses; combat gear, food and potions recommended; no unsupported hard Combat-level check applied."},
+  "stage_flow":[
+    "Reach Chasm of Tears on a light creature and enter the Archive lobby; first entry unlocks access before the miniquest itself is complete.",
+    "Assemble a group of one to eight players (alone uses two-player scaling), consult General Montoya and begin a raid.",
+    "Fight Archive Guardian (mandatory first encounter).",
+    "Fight either Ezekiel or Bork and the Smorks (exclusive second encounter).",
+    "Fight either Moia or Dreadnoth the Jellied (exclusive third encounter).",
+    "Quartermaster appears after the third boss; optional supplies cannot be assumed free and are not granted by the planner.",
+    "Fight either Xarth or the Dagon'hai Elder and monks (exclusive fourth encounter).",
+    "Defeat Ocellus (mandatory final fifth encounter), completing the miniquest's first full clear.",
+    "Use The Blade to travel to personal raid reward chests; reward amounts and unique drops are randomized and have no fixed quest-completion allocation. Return to lobby."
+  ],
+  "boss_choice_combinations":8,
+  "rewards":{"miniquest_fixed_quest_points":0,"miniquest_fixed_xp_tenths":{},"on_start":"Raid lobby and repeatable raid access unlock.","on_first_clear":"Miniquest completion flag only; no deterministic item, Archivist's Folio or XP.","raid_chest":"Variable standard and unique loot, outside scope of deterministic activity completion; Folio is a chance drop, not a reward guaranteed on first completion."},
+  "combat":"Each of five fights requires an explicit successful planned outcome. A full-party wipe ends the run, gravestone/death costs apply and Hardcore Ironmen can lose status. Fight XP, deaths, supplies, party scaling and replay resets are not deterministic in this catalog.",
+  "supplies_and_transport":{"approach":"Existing Tears of Guthix light creature and sapphire lantern references; added chasm descent, return and lobby entrances.","rooms":"Boss-choice hall abstracts each boss door and return, without treating all eight bosses as mandatory. The Blade is a gated final-arena to rewards transport.","timing":"All raid durations are estimated, highly variable by group size, gear, success and experience; no Quest Helper observations for this release."},
+  "remaining_review_gaps":[
+    "While Guthix Sleeps remains a pending journal row; replace flag.archive.while_guthix_sleeps_complete_external with actual completion action once available.",
+    "Pin Archive entrance coordinates and virtual instance location coordinates from a cache/map observation. Current coordinates are intentionally flagged illustrative, not verified.",
+    "Check whether the miniquest journal marks completion immediately after defeating Ocellus or upon first exit/chest interaction; currently modeled at full raid clear rather than random chest claim.",
+    "Validate the order of General Montoya/board interactions and whether the first lobby step alone unlocks repeat raids; no required dialogue is assumed.",
+    "Quantify optional quartermaster supplies and costs; no unearned inventory is generated.",
+    "If the full raid can be abandoned or restarted midway, model reset of per-run choices, room flags and deaths. The current optimizer route is a successful first clear only.",
+    "Confirm the lobby exit from the reward room, light creature return paths and actual times; transport is currently approximate.",
+    "No deterministic account XP, raid chest drops or participant contribution/difficulty payout can be estimated without additional mechanics and the player's combat loadout."
+  ],
+  "integrator_reserved":["dataset_version","tracker_regeneration","saved_examples"]
+}
