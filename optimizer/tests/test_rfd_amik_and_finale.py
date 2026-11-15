@@ -34,6 +34,7 @@ class RfdAmikAndFinaleTests(unittest.TestCase):
                 "freeing_the_lumbridge_guide", "freeing_evil_dave", "freeing_skrach_uglogwee")]
         ]
         start["flags"]["flag.rfd.legends_started"] = bridge
+        start["flags"]["unlock.culinaromancers_chest"] = True
         if bridge:
             start["completed_action_ids"].extend([
                 "quest.legends_quest.start", "quest.heroes_quest.complete",
@@ -132,19 +133,61 @@ class RfdAmikAndFinaleTests(unittest.TestCase):
         self.assertEqual(snap["counters"]["token.quest_points"],177)
         self.assertTrue(snap["flags"]["flag.rfd.finale_complete"])
         self.assertTrue(snap["flags"]["unlock.rfd_barrows_gloves"])
-        self.assertIn("reward.rfd.culinaromancer_lamp",str(snap))
-        self.assertEqual(state.location,"location.lumbridge_castle.cook")
+        self.assertEqual(snap["held_rewards"], [{
+            "instance_id": "reward.rfd.culinaromancer_lamp.instance.1",
+            "reward_id": "reward.rfd.culinaromancer_lamp",
+            "remaining_picks": 1,
+        }])
+        self.assertEqual(state.location, "location.lumbridge_castle.cook")
         parent = self.apply(state, self.tables["actions"]["quest.recipe_for_disaster.complete"])
-        self.assertEqual(parent.snapshot()["counters"]["token.quest_points"],177)
+        self.assertEqual(parent.snapshot()["counters"]["token.quest_points"], 177)
+        self.assertEqual(parent.snapshot()["held_rewards"], snap["held_rewards"])
         with self.assertRaises(DataError):
             self.do(state, "complete", FINALE)
 
-    def test_lamp_eligible_above_fifty_and_retainable(self):
-        reward = self.tables["xp_rewards"]["reward.rfd.culinaromancer_lamp"]
-        self.assertEqual(reward["minimum_level"],51)
-        self.assertEqual(reward["eligible_skills"],"all")
-        self.assertEqual(reward["amount"]["xp_tenths"],200000)
+    def test_finale_entry_requires_175_points_and_completed_prerequisites(self):
+        ready = self.amik(self.seeded(points=174))
+        self.assertEqual(ready.snapshot()["counters"]["token.quest_points"], 175)
+        self.assertEqual(self.do(ready, "enter", FINALE).location, "location.rfd.culinaromancer_arena")
+
+        snapshot = ready.snapshot()
+        snapshot["counters"]["token.quest_points"] = 174
+        with self.assertRaises(DataError):
+            self.do(RouteState(self.tables, self.profile["policies"], snapshot), "enter", FINALE)
+
+        for prerequisite in (AMIK + ".complete", "quest.desert_treasure_i.complete",
+                             "quest.horror_from_the_deep.complete"):
+            with self.subTest(prerequisite=prerequisite):
+                snapshot = ready.snapshot()
+                snapshot["completed_action_ids"].remove(prerequisite)
+                with self.assertRaises(DataError):
+                    self.do(RouteState(self.tables, self.profile["policies"], snapshot), "enter", FINALE)
+
+    def test_bankable_lamp_can_be_redeemed_at_level_50_once(self):
+        reward_id = "reward.rfd.culinaromancer_lamp"
+        reward = self.tables["xp_rewards"][reward_id]
+        self.assertEqual(reward["eligible_skills"], "all")
         self.assertTrue(reward["retainable"])
+
+        skill = "skill.agility"
+        thresholds = self.tables["skills"][skill]["xp_thresholds_tenths"]
+        snapshot = self.seeded().snapshot()
+        snapshot["held_rewards"] = [{
+            "instance_id": reward_id + ".instance.1", "reward_id": reward_id, "remaining_picks": 1,
+        }]
+        redemption = {
+            "kind": "reward_use", "instance_id": reward_id + ".instance.1", "reward_id": reward_id,
+            "skill_id": skill, "gain_xp_tenths": 200000, "overrides_observed_skill_restriction": False,
+        }
+        snapshot["xp_tenths"][skill] = thresholds[49] - 1
+        with self.assertRaises(DataError):
+            RouteState(self.tables, self.profile["policies"], snapshot).apply(redemption)
+        snapshot["xp_tenths"][skill] = thresholds[49]
+        redeemed = RouteState(self.tables, self.profile["policies"], snapshot).apply(redemption)
+        self.assertEqual(redeemed.snapshot()["xp_tenths"][skill], thresholds[49] + 200000)
+        self.assertEqual(redeemed.snapshot()["held_rewards"], [])
+        with self.assertRaises(DataError):
+            redeemed.apply(redemption)
 
     def test_portal_reentry_and_bidirectional_location_edges(self):
         forward = next(e for e in self.edges if e["id"]=="travel.other.rfd_final.arena.reenter")
@@ -154,6 +197,15 @@ class RfdAmikAndFinaleTests(unittest.TestCase):
         state = self.do(state,"defeat_agrith_na_na",FINALE)
         state = self.apply(state,back,travel=True)
         self.assertEqual(state.location,"location.lumbridge_castle.cook")
+        chest_out = self.tables["travel_edges"]["travel.other.rfd.culinaromancers_chest.out"]
+        chest_back = self.tables["travel_edges"]["travel.other.rfd.culinaromancers_chest.back"]
+        locked = state.snapshot()
+        locked["flags"].pop("unlock.culinaromancers_chest")
+        with self.assertRaises(DataError):
+            self.apply(RouteState(self.tables, self.profile["policies"], locked), chest_out, travel=True)
+        state = self.apply(state, chest_out, travel=True)
+        self.assertEqual(self.tables["locations"][state.location]["bank_access"], "full")
+        state = self.apply(state, chest_back, travel=True)
         state = self.apply(state,forward,travel=True)
         state = self.do(state,"defeat_flambeed",FINALE)
         self.assertIn(FINALE+".defeat_flambeed",state.snapshot()["completed_action_ids"])
