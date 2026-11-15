@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.68.0 | Linked Sir Amik's vanilla pickup to the Legends' Quest route, added a Lumbridge flambé, and documented Evil Chicken lair re-entry and dragonfire protection. |
 | 0.67.0 | Cataloged the Culinaromancer's Chest as a bank, documented optional restores for Karamel, and set the finale lamp minimum to level 50. |
 | 0.66.0 | Added the Holy Force alternative and Yommi seed germination to Legends' Quest, including Charge Orb costs and branch-specific finale encounters. |
 | 0.65.0 | Added Captain Harlan’s magic equipment, Farmer Bea’s Hunter and dart supplies, and North Aldarin Pendant of Ates attunement and charged travel. |
