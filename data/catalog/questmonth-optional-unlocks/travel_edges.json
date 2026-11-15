@@ -1,0 +1,100 @@
+[
+  {
+    "id": "travel.aldarin.villa_to_southwest_fountain",
+    "name": "Walk southwest from Villa Lucens to the fountain",
+    "from_location_id": "location.aldarin.villa_lucens_party",
+    "to_location_id": "location.aldarin.villa_southwest_fountain",
+    "mode": "walk",
+    "requirements": {"kind": "all", "requirements": []},
+    "consumes": [], "effects": [],
+    "duration": {"min_seconds": 8, "expected_seconds": 18, "max_seconds": 35},
+    "evidence": {"source_ids": ["source.capture.death_on_the_isle", "source.project.travel_timing"], "status": "estimated", "note": "Walk across Villa Lucens grounds. Exact fountain tile requires confirmation."}
+  },
+  {
+    "id": "travel.aldarin.southwest_fountain_to_villa",
+    "name": "Return from the fountain to Villa Lucens",
+    "from_location_id": "location.aldarin.villa_southwest_fountain",
+    "to_location_id": "location.aldarin.villa_lucens_party",
+    "mode": "walk",
+    "requirements": {"kind": "all", "requirements": []},
+    "consumes": [], "effects": [],
+    "duration": {"min_seconds": 8, "expected_seconds": 18, "max_seconds": 35},
+    "evidence": {"source_ids": ["source.capture.death_on_the_isle", "source.project.travel_timing"], "status": "estimated", "note": "Open return path across the Villa Lucens grounds."}
+  },
+  {
+    "id": "travel.aldarin.villa_to_ates_statue",
+    "name": "Walk to the Statue of Ates north of the Aldarin market",
+    "from_location_id": "location.aldarin.villa_lucens_party",
+    "to_location_id": "location.aldarin.statue_of_ates",
+    "mode": "walk",
+    "requirements": {"kind": "all", "requirements": []},
+    "consumes": [], "effects": [],
+    "duration": {"min_seconds": 45, "expected_seconds": 80, "max_seconds": 150},
+    "evidence": {"source_ids": ["source.capture.death_on_the_isle", "source.project.travel_timing"], "status": "estimated", "note": "North of the Aldarin market; conservative unoptimized walk."}
+  },
+  {
+    "id": "travel.aldarin.ates_statue_to_villa",
+    "name": "Walk from the Statue of Ates to Villa Lucens",
+    "from_location_id": "location.aldarin.statue_of_ates",
+    "to_location_id": "location.aldarin.villa_lucens_party",
+    "mode": "walk",
+    "requirements": {"kind": "all", "requirements": []},
+    "consumes": [], "effects": [],
+    "duration": {"min_seconds": 45, "expected_seconds": 80, "max_seconds": 150},
+    "evidence": {"source_ids": ["source.capture.death_on_the_isle", "source.project.travel_timing"], "status": "estimated", "note": "Open public walk back towards the villa."}
+  },
+  {
+    "id": "travel.aldarin.ates_statue_to_pendant_arrival",
+    "name": "Step from Statue of Ates to the pendant arrival tile",
+    "from_location_id": "location.aldarin.statue_of_ates",
+    "to_location_id": "location.aldarin.pendant_of_ates_arrival",
+    "mode": "walk",
+    "requirements": {"kind": "all", "requirements": []},
+    "consumes": [], "effects": [],
+    "duration": {"min_seconds": 1, "expected_seconds": 2, "max_seconds": 4},
+    "evidence": {"source_ids": ["source.capture.death_on_the_isle", "source.shortest_path.varlamore_item_teleports"], "status": "estimated", "note": "Adjacent waypoint to the pinned arrival tile at 1426,2995,0."}
+  },
+  {
+    "id": "travel.aldarin.pendant_arrival_to_ates_statue",
+    "name": "Step from the pendant arrival tile to the statue",
+    "from_location_id": "location.aldarin.pendant_of_ates_arrival",
+    "to_location_id": "location.aldarin.statue_of_ates",
+    "mode": "walk",
+    "requirements": {"kind": "all", "requirements": []},
+    "consumes": [], "effects": [],
+    "duration": {"min_seconds": 1, "expected_seconds": 2, "max_seconds": 4},
+    "evidence": {"source_ids": ["source.capture.death_on_the_isle", "source.shortest_path.varlamore_item_teleports"], "status": "estimated", "note": "Adjacent tile walking is accessible without a charged pendant."}
+  },
+  {
+    "id": "travel.pendant_of_ates.grand_exchange_to_north_aldarin",
+    "name": "Teleport from Grand Exchange to North Aldarin",
+    "from_location_id": "location.varrock.grand_exchange",
+    "to_location_id": "location.aldarin.pendant_of_ates_arrival",
+    "mode": "teleport_item",
+    "requirements": {"kind": "all", "requirements": [
+      {"kind": "flag", "token_id": "unlock.pendant_of_ates.north_aldarin", "value": true},
+      {"kind": "item", "item_id": "item.pendant_of_ates", "quantity": 1},
+      {"kind": "counter", "token_id": "token.pendant_of_ates.charges", "minimum": 1}
+    ]},
+    "consumes": [],
+    "effects": [{"kind": "counter", "token_id": "token.pendant_of_ates.charges", "delta": -1}],
+    "duration": {"min_seconds": 3, "expected_seconds": 5, "max_seconds": 10},
+    "evidence": {"source_ids": ["source.shortest_path.varlamore_item_teleports", "source.project.travel_timing"], "status": "estimated", "note": "Item teleport lands at 1426,2995,0. Each cast spends a frozen-tear charge; origin at GE is representative, not an exclusive restriction in game."}
+  },
+  {
+    "id": "travel.pendant_of_ates.aldarin_dock_to_north_aldarin",
+    "name": "Teleport from Aldarin charter dock to North Aldarin",
+    "from_location_id": "location.aldarin.charter_dock",
+    "to_location_id": "location.aldarin.pendant_of_ates_arrival",
+    "mode": "teleport_item",
+    "requirements": {"kind": "all", "requirements": [
+      {"kind": "flag", "token_id": "unlock.pendant_of_ates.north_aldarin", "value": true},
+      {"kind": "item", "item_id": "item.pendant_of_ates", "quantity": 1},
+      {"kind": "counter", "token_id": "token.pendant_of_ates.charges", "minimum": 1}
+    ]},
+    "consumes": [],
+    "effects": [{"kind": "counter", "token_id": "token.pendant_of_ates.charges", "delta": -1}],
+    "duration": {"min_seconds": 3, "expected_seconds": 5, "max_seconds": 10},
+    "evidence": {"source_ids": ["source.shortest_path.varlamore_item_teleports", "source.project.travel_timing"], "status": "estimated", "note": "Charged pendant teleports from a representative Aldarin source waypoint."}
+  }
+]
