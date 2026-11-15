@@ -1101,12 +1101,12 @@
     }
   },
   {
-    "id": "quest.legends_quest.attempt_yommi",
-    "name": "Plant Yommi seeds and discover the water is tainted",
+    "id": "quest.legends_quest.refill_bowl_for_seeds",
+    "name": "Refill the blessed bowl to germinate the Yommi seeds",
     "activity_id": "quest.legends_quest",
     "kind": "quest_stage",
-    "start_location_id": "location.legends.yommi_patch",
-    "end_location_id": "location.legends.yommi_patch",
+    "start_location_id": "location.legends.sacred_pool",
+    "end_location_id": "location.legends.sacred_pool",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1115,34 +1115,100 @@
           "action_id": "quest.legends_quest.receive_yommi_seeds"
         },
         {
-          "kind": "skill",
-          "skill_id": "skill.woodcutting",
-          "minimum_level": 50,
-          "boostable": true
+          "kind": "item",
+          "item_id": "item.legends.hollow_reed",
+          "quantity": 1
         },
         {
           "kind": "item",
-          "item_id": "item.legends.yommi_seeds",
+          "item_id": "item.legends.blessed_bowl",
           "quantity": 1
         }
       ]
     },
     "consumes": [],
-    "effects": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.pure_water",
+        "quantity": 1
+      }
+    ],
     "duration": {
-      "min_seconds": 42,
-      "expected_seconds": 85,
-      "max_seconds": 255
+      "min_seconds": 5,
+      "expected_seconds": 15,
+      "max_seconds": 45
     },
     "repeat_limit": 1,
     "evidence": {
       "source_ids": [
         "source.quest_helper.quest_observations",
         "source.jagex.garden_of_death_rewards",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough"
       ],
       "status": "estimated",
-      "note": "Pinned quest-helper sequence; stage timing estimated."
+      "note": "Refill the bowl after the first Nezikchened fight, before the pool becomes tainted."
+    }
+  },
+  {
+    "id": "quest.legends_quest.attempt_yommi",
+    "name": "Germinate the Yommi seeds and discover the pool is tainted",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.sacred_pool",
+    "end_location_id": "location.legends.sacred_pool",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.refill_bowl_for_seeds"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.yommi_seeds",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.pure_water",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.yommi_seeds",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.legends.pure_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.germinated_yommi_seeds",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 20,
+      "max_seconds": 55
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough"
+      ],
+      "status": "estimated",
+      "note": "Wet the seeds, then try to refill the empty bowl to discover the polluted pool."
     }
   },
   {
@@ -1300,7 +1366,7 @@
   },
   {
     "id": "quest.legends_quest.open_source_door",
-    "name": "Cast Charge Orb to unlock the source passage",
+    "name": "Cast Charge Water Orb on the door to the source",
     "activity_id": "quest.legends_quest",
     "kind": "quest_stage",
     "start_location_id": "location.legends.rune_wall",
@@ -1322,6 +1388,16 @@
           "kind": "item",
           "item_id": "item.legends.unpowered_orb",
           "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cosmic_rune",
+          "quantity": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.water_rune",
+          "quantity": 30
         }
       ]
     },
@@ -1329,13 +1405,21 @@
       {
         "item_id": "item.legends.unpowered_orb",
         "quantity": 1
+      },
+      {
+        "item_id": "item.cosmic_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.water_rune",
+        "quantity": 30
       }
     ],
     "effects": [
       {
-        "kind": "item",
-        "item_id": "item.legends.charged_orb",
-        "quantity": 1
+        "kind": "flag",
+        "token_id": "flag.legends.source_door_open",
+        "value": true
       }
     ],
     "duration": {
@@ -1348,10 +1432,12 @@
       "source_ids": [
         "source.quest_helper.quest_observations",
         "source.jagex.garden_of_death_rewards",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough",
+        "source.reference.charge_water_orb"
       ],
       "status": "estimated",
-      "note": "Charge Orb spell has rune/obelisk details outside pinned observation; unpowered orb is debited, incidental Magic XP omitted pending spell verification."
+      "note": "Any Charge Orb spell can open the door. This route uses the level-56 Water spell and debits its runes and orb. It opens the door without producing a charged orb; incidental Magic XP needs a live check."
     }
   },
   {
@@ -1835,6 +1921,138 @@
     }
   },
   {
+    "id": "quest.legends_quest.receive_holy_force",
+    "name": "Give the dark dagger to Ungadulu for Holy Force",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.ungadulu",
+    "end_location_id": "location.legends.ungadulu",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.meet_echned"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.dark_dagger",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.dark_dagger",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.legends.holy_force",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 15,
+      "expected_seconds": 40,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough"
+      ],
+      "status": "estimated",
+      "note": "Hand over the unaltered dagger to Ungadulu. This commits to the route that preserves Viyeldi and avoids the returning warriors in the final fight."
+    }
+  },
+  {
+    "id": "quest.legends_quest.reopen_source_door",
+    "name": "Cast Charge Water Orb again to reopen the source passage",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.rune_wall",
+    "end_location_id": "location.legends.rune_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.open_source_door"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.legends.source_door_open",
+          "value": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.magic",
+          "minimum_level": 56,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.unpowered_orb",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.cosmic_rune",
+          "quantity": 3
+        },
+        {
+          "kind": "item",
+          "item_id": "item.water_rune",
+          "quantity": 30
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.unpowered_orb",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.cosmic_rune",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.water_rune",
+        "quantity": 30
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.legends.source_door_open",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 10,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough",
+        "source.reference.charge_water_orb"
+      ],
+      "status": "estimated",
+      "note": "The door requires a new cast after exiting. Retrieve the rope from the winch and descend without a new rope or potion."
+    }
+  },
+  {
     "id": "quest.legends_quest.fight_nezik_source",
     "name": "Defeat Nezikchened at the underground source",
     "activity_id": "quest.legends_quest",
@@ -1862,13 +2080,67 @@
       "source_ids": [
         "source.quest_helper.quest_observations",
         "source.jagex.garden_of_death_rewards",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough"
       ],
       "status": "estimated",
-      "note": "Pinned quest-helper sequence; stage timing estimated."
+      "note": "The dagger route triggers the fight immediately. The returning undead warriors appear at the totem finale."
     },
     "planned_outcome": {
-      "success_condition": "Defeat Nezikchened after the prayer drain; if the short path was chosen, the three spirits may reappear.",
+      "success_condition": "Defeat Nezikchened at the source after surrendering the glowing dagger; survive the Prayer drain.",
+      "if_unmet": "Re-equip, restock, retry this encounter or skill check, and confirm quest state before continuing."
+    }
+  },
+  {
+    "id": "quest.legends_quest.fight_nezik_source_with_holy_force",
+    "name": "Cast Holy Force on Echned and defeat Nezikchened",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.echned",
+    "end_location_id": "location.legends.echned",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.receive_holy_force"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.reopen_source_door"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.holy_force",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.legends.holy_force",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 120,
+      "expected_seconds": 240,
+      "max_seconds": 720
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough"
+      ],
+      "status": "estimated",
+      "note": "Use the Holy Force card to reveal Echned's true form; this branch also drains some Prayer."
+    },
+    "planned_outcome": {
+      "success_condition": "Reveal Nezikchened with Holy Force and defeat him at the source.",
       "if_unmet": "Re-equip, restock, retry this encounter or skill check, and confirm quest state before continuing."
     }
   },
@@ -1883,8 +2155,17 @@
       "kind": "all",
       "requirements": [
         {
-          "kind": "action_completed",
-          "action_id": "quest.legends_quest.fight_nezik_source"
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "quest.legends_quest.fight_nezik_source"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.legends_quest.fight_nezik_source_with_holy_force"
+            }
+          ]
         },
         {
           "kind": "skill",
@@ -1914,11 +2195,11 @@
   },
   {
     "id": "quest.legends_quest.draw_sacred_water",
-    "name": "Collect the restored sacred water for the seeds",
+    "name": "Refill the bowl at the restored sacred pool",
     "activity_id": "quest.legends_quest",
     "kind": "quest_stage",
-    "start_location_id": "location.legends.source_boulder",
-    "end_location_id": "location.legends.source_boulder",
+    "start_location_id": "location.legends.sacred_pool",
+    "end_location_id": "location.legends.sacred_pool",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1929,6 +2210,11 @@
         {
           "kind": "item",
           "item_id": "item.legends.blessed_bowl",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.legends.hollow_reed",
           "quantity": 1
         }
       ]
@@ -1951,10 +2237,11 @@
       "source_ids": [
         "source.quest_helper.quest_observations",
         "source.jagex.garden_of_death_rewards",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough"
       ],
       "status": "estimated",
-      "note": "Water can evaporate after teleporting before the seed is watered; exact duration and bowl retention need replay."
+      "note": "The surface pool refills when the source boulder is cleared. Collect water next to the planting area so the route need not transport it out of the lower caves."
     }
   },
   {
@@ -1973,13 +2260,13 @@
         },
         {
           "kind": "skill",
-          "skill_id": "skill.woodcutting",
-          "minimum_level": 50,
+          "skill_id": "skill.herblore",
+          "minimum_level": 45,
           "boostable": true
         },
         {
           "kind": "item",
-          "item_id": "item.legends.yommi_seeds",
+          "item_id": "item.legends.germinated_yommi_seeds",
           "quantity": 1
         },
         {
@@ -1991,7 +2278,7 @@
     },
     "consumes": [
       {
-        "item_id": "item.legends.yommi_seeds",
+        "item_id": "item.legends.germinated_yommi_seeds",
         "quantity": 1
       },
       {
@@ -2010,10 +2297,15 @@
       "source_ids": [
         "source.quest_helper.quest_observations",
         "source.jagex.garden_of_death_rewards",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough"
       ],
       "status": "estimated",
-      "note": "Pinned quest-helper sequence; stage timing estimated."
+      "note": "Planting uses Herblore. Water the sapling during its brief growth window, then cut it promptly."
+    },
+    "planned_outcome": {
+      "success_condition": "Plant a germinated seed and water the sapling in time to grow an adult Yommi tree.",
+      "if_unmet": "Retry planting. If necessary, get more seeds from Ungadulu, germinate them and refill the bowl at the restored pool."
     }
   },
   {
@@ -2066,10 +2358,15 @@
       "source_ids": [
         "source.quest_helper.quest_observations",
         "source.jagex.garden_of_death_rewards",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough"
       ],
       "status": "estimated",
-      "note": "Pinned quest-helper sequence; stage timing estimated."
+      "note": "A rune axe and 50 Woodcutting model the cutting stage."
+    },
+    "planned_outcome": {
+      "success_condition": "Cut and carve the adult tree before it rots, then pick up the totem.",
+      "if_unmet": "Germinate and plant another seed, then water and cut it promptly."
     }
   },
   {
@@ -2112,6 +2409,49 @@
     }
   },
   {
+    "id": "quest.legends_quest.defeat_returning_heroes",
+    "name": "Defeat the three returning undead warriors at the totem",
+    "activity_id": "quest.legends_quest",
+    "kind": "quest_stage",
+    "start_location_id": "location.legends.totem",
+    "end_location_id": "location.legends.totem",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.offer_totem"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.legends_quest.fight_nezik_source"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 70,
+      "expected_seconds": 180,
+      "max_seconds": 540
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.jagex.garden_of_death_rewards",
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough"
+      ],
+      "status": "estimated",
+      "note": "At the finale, the dagger route summons three previously defeated warriors in order from strongest to weakest."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat San Tojalon, Irvig Senay and Ranalph Devere again and survive the interruptions by Nezikchened.",
+      "if_unmet": "Re-equip, restock, retry this encounter or skill check, and confirm quest state before continuing."
+    }
+  },
+  {
     "id": "quest.legends_quest.fight_nezik_totem",
     "name": "Defeat Nezikchened at the totem site",
     "activity_id": "quest.legends_quest",
@@ -2124,6 +2464,19 @@
         {
           "kind": "action_completed",
           "action_id": "quest.legends_quest.offer_totem"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "action_completed",
+              "action_id": "quest.legends_quest.defeat_returning_heroes"
+            },
+            {
+              "kind": "action_completed",
+              "action_id": "quest.legends_quest.fight_nezik_source_with_holy_force"
+            }
+          ]
         }
       ]
     },
@@ -2139,13 +2492,14 @@
       "source_ids": [
         "source.quest_helper.quest_observations",
         "source.jagex.garden_of_death_rewards",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough"
       ],
       "status": "estimated",
-      "note": "Pinned quest-helper sequence; stage timing estimated."
+      "note": "On the dagger route, defeat the three returning warriors first. The Holy Force route skips those additional fights."
     },
     "planned_outcome": {
-      "success_condition": "Survive the final Nezikchened encounter and any repeat undead warriors.",
+      "success_condition": "Defeat Nezikchened at the totem and survive the final encounter.",
       "if_unmet": "Re-equip, restock, retry this encounter or skill check, and confirm quest state before continuing."
     }
   },
@@ -2434,7 +2788,17 @@
       {
         "kind": "item",
         "item_id": "item.legends.unpowered_orb",
-        "quantity": 1
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cosmic_rune",
+        "quantity": 6
+      },
+      {
+        "kind": "item",
+        "item_id": "item.water_rune",
+        "quantity": 60
       },
       {
         "kind": "item",
@@ -2452,10 +2816,12 @@
       "source_ids": [
         "source.jagex.grand_exchange_catalogue",
         "source.quest_helper.quest_observations",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough",
+        "source.reference.charge_water_orb"
       ],
       "status": "estimated",
-      "note": "Buy the listed tradeable materials for a rounded price estimate."
+      "note": "The rounded quest kit allowance includes enough unpowered orbs and runes for two Charge Water Orb casts."
     }
   }
 ]

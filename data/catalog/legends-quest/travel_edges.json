@@ -1380,7 +1380,13 @@
     "to_location_id": "location.legends.winch",
     "requirements": {
       "kind": "all",
-      "requirements": []
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.legends.source_door_open",
+          "value": true
+        }
+      ]
     },
     "consumes": [],
     "effects": [],
@@ -1393,10 +1399,11 @@
       "source_ids": [
         "source.quest_helper.quest_observations",
         "source.jagex.garden_of_death_rewards",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough"
       ],
       "status": "estimated",
-      "note": "Directed walk/dungeon route; time and obstacles require in-game verification."
+      "note": "Open the gate by casting a Charge Orb spell before proceeding to the winch."
     }
   },
   {
@@ -1410,7 +1417,13 @@
       "requirements": []
     },
     "consumes": [],
-    "effects": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.legends.source_door_open",
+        "value": false
+      }
+    ],
     "duration": {
       "min_seconds": 32,
       "expected_seconds": 65,
@@ -1420,10 +1433,11 @@
       "source_ids": [
         "source.quest_helper.quest_observations",
         "source.jagex.garden_of_death_rewards",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.reference.legends_quest_walkthrough"
       ],
       "status": "estimated",
-      "note": "Directed walk/dungeon route; time and obstacles require in-game verification."
+      "note": "The orb gate requires a new cast after returning to the upper cave."
     }
   },
   {
