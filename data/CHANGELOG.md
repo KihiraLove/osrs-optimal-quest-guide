@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.63.0 | Linked the Client of Kourend, Dream Mentor and The Great Brain Robbery registry entries to their existing completion lamp awards. |
 | 0.62.0 | Added Aris’s one-time Demon Slayer claim for two 1,000-XP lamps and reconciled the existing Quest Month lamp awards for Black Knights’ Fortress, Ernest the Chicken and Romeo & Juliet. |
 | 0.61.0 | Reconciled four more Quest Month rewards and added the four 1,000-XP awards to Throne of Miscellania’s completion. |
 | 0.60.0 | Reconciled six Quest Month completion rewards with Jagex’s published amounts and corrected Merlin’s Crystal to award 1,000 Firemaking XP. |
