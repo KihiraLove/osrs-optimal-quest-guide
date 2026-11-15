@@ -45,7 +45,7 @@ class RfdAmikAndFinaleTests(unittest.TestCase):
                               "item.rfd.pot_of_cornflour": 1, "item.rfd.machete": 1,
                               "item.raw_chicken": 1, "item.pestle_and_mortar": 1,
                               "item.bronze_axe": 1, "item.ice_gloves": 1,
-                              "item.dramen_staff": 1}
+                              "item.dramen_staff": 1, "item.dramen_branch": 1}
         start["xp_tenths"]["skill.woodcutting"] = self.tables["skills"]["skill.woodcutting"]["xp_thresholds_tenths"][35]
         return RouteState(self.tables, self.profile["policies"], start)
 
@@ -70,7 +70,7 @@ class RfdAmikAndFinaleTests(unittest.TestCase):
     def amik(self, state):
         for suffix in ("inspect", "ask_cook", "mix_milk", "add_cornflour", "pick_vanilla",
                        "add_vanilla", "ask_wise_old_man", "kill_evil_chicken",
-                       "kill_black_dragon", "add_egg", "cut_dramen_branch", "make_cinnamon",
+                       "kill_black_dragon", "add_egg", "make_cinnamon",
                        "add_cinnamon", "flambe", "complete"):
             state = self.do(state, suffix)
         return state
@@ -94,6 +94,18 @@ class RfdAmikAndFinaleTests(unittest.TestCase):
         for state in (self.seeded(bridge=False), self.seeded(points=106)):
             with self.assertRaises(DataError):
                 self.do(state, "inspect")
+
+    def test_spare_dramen_branch_can_be_cut_during_lost_city(self):
+        cut_branch = self.tables["actions"]["quest.lost_city.cut_branch"]
+        initial = self.seeded().snapshot()
+        initial["location_id"] = cut_branch["start_location_id"]
+        initial["completed_action_ids"].remove("quest.lost_city.complete")
+        initial["completed_action_ids"].append("quest.lost_city.descend_entrana")
+        initial["flags"]["flag.quest.lost_city.tree_spirit_defeated"] = True
+        del initial["inventory"]["item.dramen_branch"]
+        state = RouteState(self.tables, self.profile["policies"], initial)
+        state = self.apply(self.apply(state, cut_branch), cut_branch)
+        self.assertEqual(state.inventory["item.dramen_branch"], 2)
 
     def test_shrine_requires_dialogue_and_uses_normal_chicken(self):
         edge = next(e for e in self.edges if e["id"]=="travel.other.rfd_final.lair.entry")
