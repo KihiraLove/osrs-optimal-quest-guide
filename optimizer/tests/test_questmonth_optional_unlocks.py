@@ -5,6 +5,7 @@ from pathlib import Path
 import unittest
 
 from quest_optimizer.data import Contracts, DataError, load_catalog, read_json
+from quest_optimizer.reachability import unreachable_records
 from quest_optimizer.semantics import CatalogValidator
 from quest_optimizer.transitions import RouteState
 
@@ -16,8 +17,8 @@ class QuestmonthOptionalUnlocksTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         contracts = Contracts(ROOT / "schemas")
-        catalog = load_catalog(ROOT / "data/manifest.json", contracts)
-        cls.tables = CatalogValidator(catalog, contracts).tables
+        cls.catalog = load_catalog(ROOT / "data/manifest.json", contracts)
+        cls.tables = CatalogValidator(cls.catalog, contracts).tables
         cls.profile = read_json(ROOT / "data/profiles/main-baseline.json")
 
     def seeded_state(self, location, *, completed=(), flags=None, inventory=None):
@@ -49,16 +50,19 @@ class QuestmonthOptionalUnlocksTests(unittest.TestCase):
             self.step(without_quest, claim)
 
         state = self.seeded_state(location, flags={"flag.quest.mudfoots_big_adventure.complete": True})
+        with self.assertRaises(DataError):
+            self.step(state, repeat)
         before = state.snapshot()["inventory"]
         state = self.step(state, claim)
         self.assertEqual(state.snapshot()["inventory"]["item.staff"], before.get("item.staff", 0) + 1)
         self.assertEqual(state.snapshot()["inventory"]["item.air_rune"], before["item.air_rune"] + 40)
         self.assertEqual(state.snapshot()["inventory"]["item.mind_rune"], before["item.mind_rune"] + 40)
         with self.assertRaises(DataError):
-            self.step(state, claim)
+            self.step(state, repeat)
+        state = state.apply({"kind": "wait", "modeled_seconds": 1799})
         with self.assertRaises(DataError):
             self.step(state, repeat)
-        state = state.apply({"kind": "wait", "modeled_seconds": 1800})
+        state = state.apply({"kind": "wait", "modeled_seconds": 1})
         state = self.step(state, repeat)
         self.assertEqual(state.snapshot()["inventory"]["item.staff"], before.get("item.staff", 0) + 2)
 
@@ -106,7 +110,9 @@ class QuestmonthOptionalUnlocksTests(unittest.TestCase):
         villa = "location.aldarin.villa_lucens_party"
         with self.assertRaises(DataError):
             self.step(self.seeded_state(villa), first)
-        state = self.seeded_state(villa, completed=["quest.death_on_the_isle.complete"])
+        state = self.seeded_state(villa, completed=[
+            "quest.death_on_the_isle.complete", "quest.the_heart_of_darkness.complete",
+        ])
         state.xp["skill.thieving"] = 10000000
         state = self.step(state, first)
         self.assertEqual(state.snapshot()["inventory"]["item.aldarin_chest_key"], 1)
@@ -130,19 +136,36 @@ class QuestmonthOptionalUnlocksTests(unittest.TestCase):
         state = self.step(state, "travel.aldarin.pendant_arrival_to_ates_statue")
         state = self.step(state, "travel.aldarin.ates_statue_to_villa")
 
+        source = "supply.amoxliatl.obtain_inert_pendant"
+        arena = "location.heart.defeat_amoxliatl"
+        with self.assertRaises(DataError):
+            self.step(self.seeded_state(arena), source)
+        at_arena = {**state.snapshot(), "location_id": arena}
+        state = self.step(RouteState(self.tables, self.profile["policies"], at_arena), source)
+        self.assertEqual(state.snapshot()["inventory"]["item.pendant_of_ates_inert"], 1)
+
         at_ge = state.snapshot()
-        at_ge["location_id"] = "location.varrock.grand_exchange"  # Seed travel from other region.
-        at_ge["inventory"]["item.pendant_of_ates_inert"] = 1  # Rare drop not produced by this catalog slice.
-        at_ge["inventory"]["item.frozen_tear"] = 2  # Seed two chance-drop charges.
+        at_ge["location_id"] = "location.varrock.grand_exchange"
+        at_ge["inventory"]["item.coins"] = 1500
         state = RouteState(self.tables, self.profile["policies"], at_ge)
         with self.assertRaises(DataError):
             self.step(state, "travel.pendant_of_ates.grand_exchange_to_north_aldarin")
+        state = self.step(state, "supply.grand_exchange.buy_frozen_tears")
+        self.assertEqual(state.snapshot()["inventory"]["item.frozen_tear"], 5)
+        self.assertNotIn("item.coins", state.snapshot()["inventory"])
         state = self.step(state, "supply.pendant_of_ates.charge_inert")
         state = self.step(state, "supply.pendant_of_ates.add_frozen_tear")
         self.assertEqual(state.snapshot()["counters"]["token.pendant_of_ates.charges"], 2)
         state = self.step(state, "travel.pendant_of_ates.grand_exchange_to_north_aldarin")
         self.assertEqual(state.snapshot()["location_id"], "location.aldarin.pendant_of_ates_arrival")
         self.assertEqual(state.snapshot()["counters"]["token.pendant_of_ates.charges"], 1)
+
+    def test_optional_routes_are_reachable_from_the_main_baseline(self):
+        batch = ROOT / "data/catalog/questmonth-optional-unlocks"
+        unreachable = unreachable_records(self.catalog, self.profile)
+        for collection in ("actions", "travel_edges"):
+            ids = {row["id"] for row in read_json(batch / f"{collection}.json")}
+            self.assertEqual(ids.intersection(unreachable[collection]), set())
 
 
 if __name__ == "__main__":

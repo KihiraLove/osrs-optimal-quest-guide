@@ -14,16 +14,18 @@
     "source.capture.mudfoots_big_adventure",
     "source.capture.the_birds_and_the_wasps",
     "source.capture.death_on_the_isle",
-    "source.shortest_path.varlamore_item_teleports"
+    "source.shortest_path.varlamore_item_teleports",
+    "source.reference.pendant_of_ates",
+    "source.jagex.grand_exchange_catalogue"
   ],
   "observations": [
     {
       "activity_id": "claim.mudfoots_big_adventure.harlan_weapons",
       "start": "Captain Harlan outside the Lumbridge General Store",
       "prerequisite": "Mudfoot's Big Adventure complete",
-      "confirmed_choice": "Magic gear: staff, 40 air runes, 40 mind runes (reported by a player in November 2026)",
+      "reported_choice": "Magic gear: staff, 40 air runes and 40 mind runes, based on a November 2026 player report.",
       "cooldown_seconds": 1800,
-      "model": "Claim requires the completed quest flag and a ready shared cooldown; claim starts that same cooldown, which expires during ordinary route time."
+      "model": "The first claim requires quest completion and starts the shared cooldown. A return claim requires the first claim and the elapsed cooldown, and restarts that timer."
     },
     {
       "activity_id": "activity.beas_hunter_field",
@@ -50,20 +52,20 @@
       "start": "Villa Lucens in Aldarin",
       "prerequisite": "Death on the Isle complete (including base 34 Thieving)",
       "stages": ["Pickpocket Constantinius for key", "Open fancy chest in the southern wine cellar", "Search southwest fountain for Icon (Aldarin)", "Use icon on Statue of Ates north of Aldarin market"],
-      "reward": "Enable fourth Pendant of Ates destination; statue drops one collectible water rune",
+      "reward": "Enable the North Aldarin destination. The statue drops one collectible water rune.",
       "arrival_tile": {"x": 1426, "y": 2995, "plane": 0},
       "arrival_source": "pinned skretzo/shortest-path teleportation_items.tsv (2026 snapshot)",
-      "teleport_rule": "A charged, untradeable pendant and one remaining frozen-tear charge are required; each teleport removes one charge. Inert pendant and tears come from chance drops, not deterministic actions in this draft."
+      "teleport_rule": "Each teleport requires a charged, untradeable pendant and consumes one charge. The pendant comes from a conditional post-quest Amoxliatl drop. Five frozen tears have a modeled Grand Exchange budget of 1,500 GP."
     }
   ],
   "pending_reviews": [
-    "Directly observe Captain Harlan's melee and ranged choices, exact amounts and whether claiming one style changes the options or carries additional inventory restrictions. Only independently confirmed magic yields were modeled.",
+    "Confirm Captain Harlan's equipment by combat style, the shared cooldown, and any inventory or bank checks.",
     "Current catalog validator permits XP effects only on one-time actions. Hunter XP from repeatable catches and Fletching XP from repeat dart crafting are documented here but omitted from repeated action effects to prevent incorrect one-time awards. The first wasp dart action awards its single 5 XP; add a training-aware XP model before using these actions for XP optimization.",
     "Verify Bea's wasp catch average XP, snare catch times, feather yields and whether ordinary feathers can substitute for the new brown/black feather items. Success-dependent catches are modeled by planned outcomes rather than guaranteed traps.",
     "Verify whether killer wasp darts award 25 XP per individual dart or per batch and whether 15 Fletching is the fixed minimum in live build 242.",
     "Identify exact tile of Villa Lucens southwest fountain and the statue interaction square. The pendant arrival tile is verified from pinned shortest-path data.",
     "Confirm the post-quest fancy chest key's client item ID and whether opening the chest consumes it.",
-    "Connect an independently reviewed source of the rare inert Pendant of Ates and frozen tears; neither is a guaranteed source in this batch.",
+    "Review Amoxliatl arena timing, gear and consumables for the rare pendant drop. Frozen tears have an estimated Grand Exchange price.",
     "Charge actions are exemplified at the Grand Exchange and the teleport from two representative origins. Expand origin coverage without granting free teleports when other travel nodes need the pendant."
   ]
 }

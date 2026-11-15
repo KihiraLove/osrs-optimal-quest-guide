@@ -328,7 +328,7 @@ class QuestCollectionTests(unittest.TestCase):
         quest = "quest.demon_slayer"
         profile = read_json(ROOT / "examples/build-242/demon-slayer-profile.json")
         validator = CatalogValidator(self.catalog, self.contracts)
-        solution, _ = solve_bounded(validator, profile, beam_width=96)
+        solution, _ = solve_bounded(validator, profile, beam_width=192)
         report = verify_solution(solution, profile, validator)
         self.assertEqual(report["manual_training_xp_tenths_by_skill"], {})
         inventory = report["final_state"]["inventory"]
@@ -950,7 +950,13 @@ class QuestCollectionTests(unittest.TestCase):
         self.assertEqual(len({row["id"] for row in records}), len(records))
         self.assertTrue({source for row in records for source in row["source_ids"]} <= known_sources)
         claims = [row for row in entries if row["delivery"] == "post_quest_claim"]
-        self.assertEqual(len({row["producer_action_id"] for row in claims}), len(claims))
+        producers = [
+            action_id
+            for row in claims
+            for action_id in row.get("producer_action_ids", [row["producer_action_id"]])
+        ]
+        self.assertTrue(all(producers))
+        self.assertEqual(len(set(producers)), len(producers))
         for claim in claims:
             self.assertIn({
                 "kind": "action_completed", "action_id": claim["activity_id"] + ".complete",
