@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.62.0 | Added Aris’s one-time Demon Slayer claim for two 1,000-XP lamps and reconciled the existing Quest Month lamp awards for Black Knights’ Fortress, Ernest the Chicken and Romeo & Juliet. |
 | 0.61.0 | Reconciled four more Quest Month rewards and added the four 1,000-XP awards to Throne of Miscellania’s completion. |
 | 0.60.0 | Reconciled six Quest Month completion rewards with Jagex’s published amounts and corrected Merlin’s Crystal to award 1,000 Firemaking XP. |
 | 0.59.0 | Added While Guthix Sleeps and Kuradal’s claim. Reading Duradel’s notes awards level-based Slayer XP and unlocks demonbane crafting. The Fractured Archive now uses the quest’s completion action. |
