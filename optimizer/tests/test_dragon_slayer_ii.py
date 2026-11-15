@@ -5,6 +5,7 @@ from pathlib import Path
 import unittest
 
 from quest_optimizer.data import Contracts, DataError, load_catalog, read_json
+from quest_optimizer.reachability import unreachable_records
 from quest_optimizer.semantics import CatalogValidator
 from quest_optimizer.transitions import RouteState
 
@@ -20,9 +21,11 @@ class DragonSlayerIITests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         contracts=Contracts(ROOT/'schemas')
-        cls.tables=CatalogValidator(load_catalog(ROOT/'data/manifest.json',contracts),contracts).tables
+        cls.catalog = load_catalog(ROOT / 'data/manifest.json', contracts)
+        cls.tables = CatalogValidator(cls.catalog, contracts).tables
         cls.profile=read_json(ROOT/'data/profiles/main-baseline.json')
-        cls.actions={x['id']:x for x in read_json(ROOT/'data/catalog/dragon-slayer-ii/actions.json')}
+        cls.batch_actions = read_json(ROOT / 'data/catalog/dragon-slayer-ii/actions.json')
+        cls.actions = {action['id']: action for action in cls.batch_actions if action['kind'] != 'supply'}
 
     def seed(self,*,legends=True,cats=True,barbarian=True,levels=True,quest_points=200,
              map_pieces_extra=0,swamp_paste=10):
@@ -36,16 +39,16 @@ class DragonSlayerIITests(unittest.TestCase):
         initial['flags']={**initial.get('flags',{}),
             'flag.quest.legends_quest.complete':legends,
             'flag.quest.a_tail_of_two_cats.complete':cats,
-            'flag.ds2.external_ancient_cavern_access':barbarian}
+            'unlock.ancient_cavern':barbarian}
         initial['counters']={**initial['counters'],'token.quest_points':quest_points}
         initial['inventory']={**initial['inventory'],
-            'item.rune_pickaxe':1,'item.iron_axe':1,'item.ds2.catspeak_amulet':1,
+            'item.catspeak_amulet_enchanted':1,'item.lunar_seal_of_passage':1,
             'item.oak_plank':8,'item.swamp_paste':swamp_paste,'item.iron_nails':12,
             'item.hammer':1,'item.saw':1,'item.tinderbox':1,
             'item.astral_rune':1,'item.goutweed':1,'item.pestle_and_mortar':1,
-            'item.ds2.machete':1,'item.ghostspeak_amulet':1,
+            'item.rfd.machete':1,'item.ghostspeak_amulet':1,'item.lit_candle':1,
             'item.ds2.cut_dragonstone':1,'item.molten_glass':2,
-            'item.ds2.glassblowing_pipe':1,'item.spade':1,
+            'item.exiles_glassblowing_pipe':1,'item.spade':1,
             'item.fire_rune':21,'item.air_rune':15,'item.blood_rune':3,
             'item.ds2.map_piece':map_pieces_extra,
         }
@@ -123,7 +126,7 @@ class DragonSlayerIITests(unittest.TestCase):
         s=self.route(self.seed(),stop_before=Q+'.reach_ancient_cavern')
         for key in BRANCHES:
             self.assertEqual(s.snapshot()['inventory'].get('item.ds2.key_'+key),1)
-        missing=self.seed(barbarian=False)
+        missing=self.route(self.seed(barbarian=False),stop_before=Q+'.reach_ancient_cavern')
         with self.assertRaises(DataError):self.apply(missing,Q+'.reach_ancient_cavern')
         s=self.route(self.seed(),stop_before=Q+'.forge_dragon_key')
         self.assertEqual(s.snapshot()['inventory'].get('item.fire_rune',0),0)
@@ -158,6 +161,31 @@ class DragonSlayerIITests(unittest.TestCase):
         pkg=next(x for x in raw if x['id']=='review.quest.dragon_slayer_ii.combat_training')
         self.assertEqual(pkg['status'],'collected')
         self.assertEqual(pkg['producer_action_id'],CLAIM)
+        self.assertIn({'kind': 'action_completed', 'action_id': f'{Q}.complete'},
+                      pkg['requires']['requirements'])
+
+    def test_every_stage_is_reachable_from_the_main_baseline(self):
+        unreachable = unreachable_records(self.catalog, self.profile)
+        action_ids = {action['id'] for action in self.batch_actions}
+        self.assertEqual(action_ids.intersection(unreachable['actions']), set())
+
+    def test_instance_stages_enter_and_return_through_their_own_locations(self):
+        for ingress, next_stage in (
+            ('enter_dream', 'defeat_robert'),
+            ('board_lithkren', 'read_aivas_diary'),
+            ('enter_kharazi_maze', 'solve_kharazi_maze'),
+            ('sail_ungael', 'defeat_vorkath'),
+            ('enter_ungael_cave', 'ungael_lever'),
+            ('enter_shayzien_crypt', 'solve_crypt_statues'),
+            ('unlock_mithril_door', 'heat_dragon_head_1'),
+            ('boat_to_assault', 'defend_ship'),
+            ('defend_ship', 'defeat_green_blue'),
+        ):
+            origin, destination = self.actions[f'{Q}.{ingress}'], self.actions[f'{Q}.{next_stage}']
+            self.assertNotEqual(origin['start_location_id'], origin['end_location_id'])
+            self.assertEqual(origin['end_location_id'], destination['start_location_id'])
+        self.assertEqual(self.actions[f'{Q}.defeat_robert']['end_location_id'], 'location.lunar_quests.brazier')
+        self.assertEqual(self.actions[f'{Q}.track_swamp_key']['start_location_id'], 'location.mort_myre.north_gate')
 
     def test_travel_never_walks_across_continents(self):
         locs=self.tables['locations']

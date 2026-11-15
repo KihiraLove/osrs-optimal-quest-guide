@@ -1,0 +1,1705 @@
+[
+  {
+    "id": "quest.troubled_tortugans.start",
+    "name": "Offer help to injured Floopa on the remote island",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.remote_injured",
+    "end_location_id": "location.tortugans.remote_injured",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.sailing",
+          "minimum_level": 45,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 51,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.hunter",
+          "minimum_level": 45,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.construction",
+          "minimum_level": 48,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 40,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.crafting",
+          "minimum_level": 34,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "All six skills are required to start and unboostable according to the live quest requirements. Helper incorrectly flags Woodcutting and Crafting as boostable."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.collect_seaweed",
+    "name": "Pick seaweed from the stranded island shore",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.remote_seaweed",
+    "end_location_id": "location.tortugans.remote_seaweed",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.seaweed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.shake_palm",
+    "name": "Shake a palm and take a leaf",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.remote_palm",
+    "end_location_id": "location.tortugans.remote_palm",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.collect_seaweed"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tortugans.palm_leaf",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 20,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.make_bandages",
+    "name": "Combine seaweed and palm leaf into bandages",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.remote_injured",
+    "end_location_id": "location.tortugans.remote_injured",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.shake_palm"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seaweed",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.palm_leaf",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.seaweed",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.tortugans.palm_leaf",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tortugans.bandages",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 20,
+      "max_seconds": 60
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.heal_floopa",
+    "name": "Bandage Floopa and invite her aboard",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.remote_injured",
+    "end_location_id": "location.tortugans.remote_injured",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.make_bandages"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.bandages",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tortugans.bandages",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.meet_korel",
+    "name": "Speak to Elder Korel after docking at the Great Conch",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.korel",
+    "end_location_id": "location.tortugans.korel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.heal_floopa"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.tortugans.great_conch_dock",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.meet_raley",
+    "name": "Speak to Floopa and Elder Raley and receive the repair list",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.raley",
+    "end_location_id": "location.tortugans.raley",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.meet_korel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tortugans.repair_list",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 52,
+      "expected_seconds": 105,
+      "max_seconds": 315
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.collect_axe",
+    "name": "Pick up the free bronze axe beside the jatoba trees",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.axe",
+    "end_location_id": "location.tortugans.axe",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.meet_raley"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bronze_axe",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.collect_hammer",
+    "name": "Pick up the hammer from the blacksmith's workshop",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.hammer",
+    "end_location_id": "location.tortugans.hammer",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.collect_axe"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 24,
+      "max_seconds": 72
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.collect_saw",
+    "name": "Pick up the saw in Elder Raley's house",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.raley",
+    "end_location_id": "location.tortugans.raley",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.collect_hammer"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.saw",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 18,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.gather_scutes",
+    "name": "Gather six loose tortugan scutes around the village",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.market",
+    "end_location_id": "location.tortugans.market",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.collect_saw"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tortugans.scute",
+        "quantity": 6
+      }
+    ],
+    "duration": {
+      "min_seconds": 55,
+      "expected_seconds": 110,
+      "max_seconds": 330
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.gather_shells",
+    "name": "Collect six sea shells on Summer Shore beach",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.shells",
+    "end_location_id": "location.tortugans.shells",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.gather_scutes"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tortugans.shell",
+        "quantity": 6
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.cut_jatoba",
+    "name": "Cut ten jatoba logs from the trees west of the village",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.jatoba",
+    "end_location_id": "location.tortugans.jatoba",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.gather_shells"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_axe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tortugans.jatoba_logs",
+        "quantity": 10
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 9200
+      }
+    ],
+    "duration": {
+      "min_seconds": 150,
+      "expected_seconds": 300,
+      "max_seconds": 900
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Ten 92-XP jatoba log cuts give 920 Woodcutting XP; the free bronze axe is a reachable supply. Cutting times depend on level and RNG."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.repair_krill_wall",
+    "name": "Repair Krill's shop wall",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.krill_wall",
+    "end_location_id": "location.tortugans.krill_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.cut_jatoba"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.saw",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.repair_list",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.scute",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.jatoba_logs",
+          "quantity": 2
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tortugans.scute",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.tortugans.jatoba_logs",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 800
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exact repair ingredients from the NPC's list; 80 Construction XP per repair (480 total)."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.repair_krill_stall",
+    "name": "Repair Krill's fish stall",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.krill_stall",
+    "end_location_id": "location.tortugans.krill_stall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.repair_krill_wall"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.saw",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.repair_list",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.scute",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.shell",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.jatoba_logs",
+          "quantity": 2
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tortugans.scute",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.tortugans.shell",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.tortugans.jatoba_logs",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 800
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exact repair ingredients from the NPC's list; 80 Construction XP per repair (480 total)."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.repair_strom_wall",
+    "name": "Repair Strom's shop wall",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.strom_wall",
+    "end_location_id": "location.tortugans.strom_wall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.repair_krill_stall"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.saw",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.repair_list",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.scute",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.jatoba_logs",
+          "quantity": 2
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tortugans.scute",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.tortugans.jatoba_logs",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 800
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exact repair ingredients from the NPC's list; 80 Construction XP per repair (480 total)."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.repair_strom_crate",
+    "name": "Repair Strom's market crate",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.strom_crate",
+    "end_location_id": "location.tortugans.strom_crate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.repair_strom_wall"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.saw",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.repair_list",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.shell",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.jatoba_logs",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tortugans.shell",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.tortugans.jatoba_logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 800
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exact repair ingredients from the NPC's list; 80 Construction XP per repair (480 total)."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.repair_coco_crate",
+    "name": "Repair Coco's market crate",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.coco_crate",
+    "end_location_id": "location.tortugans.coco_crate",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.repair_strom_crate"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.saw",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.repair_list",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.shell",
+          "quantity": 2
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.jatoba_logs",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tortugans.shell",
+        "quantity": 2
+      },
+      {
+        "item_id": "item.tortugans.jatoba_logs",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 800
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exact repair ingredients from the NPC's list; 80 Construction XP per repair (480 total)."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.repair_coco_stall",
+    "name": "Repair Coco's Crafting stall",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.coco_stall",
+    "end_location_id": "location.tortugans.coco_stall",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.repair_coco_crate"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.hammer",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.saw",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.repair_list",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.scute",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.shell",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.jatoba_logs",
+          "quantity": 2
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tortugans.scute",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.tortugans.shell",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.tortugans.jatoba_logs",
+        "quantity": 2
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.construction",
+        "xp_tenths": 800
+      }
+    ],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Exact repair ingredients from the NPC's list; 80 Construction XP per repair (480 total)."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.report_repairs",
+    "name": "Report all six completed repairs to Elder Raley",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.raley",
+    "end_location_id": "location.tortugans.raley",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.repair_krill_wall"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.repair_krill_stall"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.repair_strom_wall"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.repair_strom_crate"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.repair_coco_crate"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.repair_coco_stall"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.repair_list",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.tortugans.repair_list",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.tortugans.repairs_complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 35,
+      "expected_seconds": 70,
+      "max_seconds": 210
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Checks every repair milestone; list presumed handed back here (review item retention)."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.inspect_monument",
+    "name": "Inspect the town monument and start tracking gryphon prints",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.monument",
+    "end_location_id": "location.tortugans.monument",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.report_repairs"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 35,
+      "max_seconds": 105
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.track_first",
+    "name": "Follow gryphon tracks to flowers west of town",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.trail_plant1",
+    "end_location_id": "location.tortugans.trail_plant1",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.inspect_monument"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 65,
+      "max_seconds": 195
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.track_rockslide",
+    "name": "Find the gryphon trail near the rockslide",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.trail_rockslide",
+    "end_location_id": "location.tortugans.trail_rockslide",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.track_first"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.track_second",
+    "name": "Inspect plants beside the next set of tracks",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.trail_plant2",
+    "end_location_id": "location.tortugans.trail_plant2",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.track_rockslide"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.track_final",
+    "name": "Follow the final plant markers toward the cave",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.trail_plant3",
+    "end_location_id": "location.tortugans.trail_plant3",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.track_second"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 27,
+      "expected_seconds": 55,
+      "max_seconds": 165
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.clear_cave",
+    "name": "Cut roots blocking the gryphon cave with the axe",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.cave_entrance",
+    "end_location_id": "location.tortugans.cave_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.track_final"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.bronze_axe",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 32,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.enter_cave",
+    "name": "Enter the newly unblocked gryphon cave",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.cave_entrance",
+    "end_location_id": "location.tortugans.cave_entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.clear_cave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.defeat_gryphon",
+    "name": "Defeat the level-95 gryphon inside its cave",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.gryphon_cave",
+    "end_location_id": "location.tortugans.gryphon_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.enter_cave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.tortugans.cave_cleared",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 82,
+      "expected_seconds": 165,
+      "max_seconds": 495
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mandatory level-95 gryphon fight; combat XP and supply use depend on player's approach, so not invented as fixed rewards."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the wounded level-95 gryphon; use food and appropriate combat gear.",
+      "if_unmet": "Recover, restock supplies and retry this encounter."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.exit_cave",
+    "name": "Leave the gryphon cave after the battle",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.gryphon_cave",
+    "end_location_id": "location.tortugans.gryphon_cave",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.defeat_gryphon"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 18,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.report_gryphon",
+    "name": "Tell Raley the gryphon is defeated and hear of the Little Pearl attack",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.raley",
+    "end_location_id": "location.tortugans.raley",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.exit_cave"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.get_shield",
+    "name": "Receive a Tortugan shield from Elder Blunn",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.blunn",
+    "end_location_id": "location.tortugans.blunn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.report_gryphon"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.tortugans.shield",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 22,
+      "expected_seconds": 45,
+      "max_seconds": 135
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.equip_shield",
+    "name": "Equip the Tortugan shield in the cape slot",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.blunn",
+    "end_location_id": "location.tortugans.blunn",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.get_shield"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.shield",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.tortugans.shield_equipped",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 45
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mandatory cape-slot shield. A persistent flag represents equipping because catalog inventory does not expose equipment slots; replay verifies the gate."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.defeat_shellbane",
+    "name": "Defeat the level-235 Shellbane gryphon at the Little Pearl",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.pearl_grove",
+    "end_location_id": "location.tortugans.pearl_grove",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.equip_shield"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.tortugans.shield_equipped",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.tortugans.shield",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 172,
+      "expected_seconds": 345,
+      "max_seconds": 1035
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Mandatory level-235 fight starts upon landing; keep cape-slot shield on, mitigate slam and whirlwinds. Food, prayers and RNG are not assigned deterministic quantities."
+    },
+    "planned_outcome": {
+      "success_condition": "Survive the Shellbane gryphon's charge, corrosive spit and whirlwinds, then defeat it with the Tortugan shield worn.",
+      "if_unmet": "Recover, restock supplies and retry this encounter."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.speak_korel",
+    "name": "Tell Elder Korel about the fleeing red-sailed ship",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.pearl_korel",
+    "end_location_id": "location.tortugans.pearl_korel",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.defeat_shellbane"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 30,
+      "expected_seconds": 60,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Pinned quest-helper stage and independent walkthrough summary."
+    }
+  },
+  {
+    "id": "quest.troubled_tortugans.complete",
+    "name": "Return to Raley and Floopa to complete Troubled Tortugans",
+    "activity_id": "quest.troubled_tortugans",
+    "kind": "quest_stage",
+    "start_location_id": "location.tortugans.raley",
+    "end_location_id": "location.tortugans.raley",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.troubled_tortugans.speak_korel"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "unlock.tortugans.little_pearl",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.tortugans.gryphon_combat",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.tortugans.great_conch_facilities",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.troubled_tortugans.complete",
+        "value": true
+      },
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.sailing",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.slayer",
+        "xp_tenths": 80000
+      }
+    ],
+    "duration": {
+      "min_seconds": 45,
+      "expected_seconds": 90,
+      "max_seconds": 270
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.reference.troubled_tortugans_quick_guide",
+        "source.project.early_quest_timing"
+      ],
+      "status": "estimated",
+      "note": "Fixed quest reward: 1 QP, 10,000 Sailing XP, 8,000 Slayer XP, Great Conch facilities, gryphons and permanent Little Pearl docking. The village is accessible partway through."
+    }
+  }
+]

@@ -192,9 +192,24 @@
           "action_id": "quest.dragon_slayer_ii.meet_dallas_crandor"
         },
         {
-          "kind": "item",
-          "item_id": "item.rune_pickaxe",
-          "quantity": 1
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_pickaxe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.grace.iron_pickaxe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.rune_pickaxe",
+              "quantity": 1
+            }
+          ]
         }
       ]
     },
@@ -696,7 +711,7 @@
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
     "start_location_id": "location.ds2.tile_3659_3849_0",
-    "end_location_id": "location.ds2.tile_3659_3849_0",
+    "end_location_id": "location.ds2.tile_3555_10419_0",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -766,8 +781,8 @@
     "name": "Locate Bob the cat and ask about his past",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_3301_2785_0",
-    "end_location_id": "location.ds2.tile_3301_2785_0",
+    "start_location_id": "location.current.harry_shop",
+    "end_location_id": "location.current.harry_shop",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -777,7 +792,7 @@
         },
         {
           "kind": "item",
-          "item_id": "item.ds2.catspeak_amulet",
+          "item_id": "item.catspeak_amulet_enchanted",
           "quantity": 1
         }
       ]
@@ -796,7 +811,11 @@
         "source.project.early_quest_timing"
       ],
       "status": "estimated",
-      "note": "Bob wanders: this tile is the Sophanem Sphinx conversation, not an invented fixed Bob spawn. The enchanted amulet is supplied by A Tail of Two Cats on another PR."
+      "note": "Search from the Catherby archery shop, a reported place to look. Bob roams and may be elsewhere."
+    },
+    "planned_outcome": {
+      "success_condition": "Follow the enchanted catspeak amulet and speak to Bob wherever he is roaming.",
+      "if_unmet": "Check the amulet again and continue the search before visiting the Sphinx."
     }
   },
   {
@@ -804,8 +823,8 @@
     "name": "Ask the Sphinx to restore Bob’s memories",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_3301_2785_0",
-    "end_location_id": "location.ds2.tile_3301_2785_0",
+    "start_location_id": "location.sophanem.sphinx",
+    "end_location_id": "location.sophanem.sphinx",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -843,14 +862,19 @@
     "name": "Request dream-potion guidance and a vial",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_2151_3867_0",
-    "end_location_id": "location.ds2.tile_2151_3867_0",
+    "start_location_id": "location.lunar_quests.oneiromancer",
+    "end_location_id": "location.lunar_quests.oneiromancer",
     "requirements": {
       "kind": "all",
       "requirements": [
         {
           "kind": "action_completed",
           "action_id": "quest.dragon_slayer_ii.sphinx_memory"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.lunar_seal_of_passage",
+          "quantity": 1
         }
       ]
     },
@@ -882,8 +906,8 @@
     "name": "Crush the astral rune and mix goutweed in the dream vial",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_2091_3922_0",
-    "end_location_id": "location.ds2.tile_2091_3922_0",
+    "start_location_id": "location.lunar_quests.isle_fountain",
+    "end_location_id": "location.lunar_quests.isle_fountain",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -959,8 +983,8 @@
     "name": "Light the brazier and enter Bob’s dream",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_2073_3912_0",
-    "end_location_id": "location.ds2.tile_2073_3912_0",
+    "start_location_id": "location.lunar_quests.brazier",
+    "end_location_id": "location.ds2.tile_1824_5224_2",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1008,7 +1032,7 @@
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
     "start_location_id": "location.ds2.tile_1824_5224_2",
-    "end_location_id": "location.ds2.tile_1824_5224_2",
+    "end_location_id": "location.lunar_quests.brazier",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1032,7 +1056,7 @@
         "source.project.early_quest_timing"
       ],
       "status": "estimated",
-      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+      "note": "Fight Robert in the dream. The successful exit returns to the Lunar Isle brazier."
     },
     "planned_outcome": {
       "success_condition": "Verify defeat robert the strong using melee in bob’s dream succeeded and the journal advances before continuing.",
@@ -1044,8 +1068,8 @@
     "name": "Discover the four dragon key pieces from Bob",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_2074_3912_0",
-    "end_location_id": "location.ds2.tile_2074_3912_0",
+    "start_location_id": "location.lunar_quests.brazier",
+    "end_location_id": "location.lunar_quests.brazier",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1084,7 +1108,7 @@
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
     "start_location_id": "location.ds2.tile_2944_2895_0",
-    "end_location_id": "location.ds2.tile_2944_2895_0",
+    "end_location_id": "location.ds2.tile_2848_9248_0",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1094,13 +1118,23 @@
         },
         {
           "kind": "item",
-          "item_id": "item.ds2.machete",
+          "item_id": "item.rfd.machete",
           "quantity": 1
         },
         {
-          "kind": "item",
-          "item_id": "item.iron_axe",
-          "quantity": 1
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.iron_axe",
+              "quantity": 1
+            }
+          ]
         }
       ]
     },
@@ -1202,8 +1236,8 @@
     "name": "Research Tristan in the Varrock Palace library",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_3209_3492_0",
-    "end_location_id": "location.ds2.tile_3209_3492_0",
+    "start_location_id": "location.varrock.reldo",
+    "end_location_id": "location.varrock.reldo",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1306,8 +1340,8 @@
     "name": "Give Ava glass and dragonstone to make a locator orb",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_3093_3357_0",
-    "end_location_id": "location.ds2.tile_3093_3357_0",
+    "start_location_id": "location.draynor_manor.ava",
+    "end_location_id": "location.draynor_manor.ava",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1327,7 +1361,7 @@
         },
         {
           "kind": "item",
-          "item_id": "item.ds2.glassblowing_pipe",
+          "item_id": "item.exiles_glassblowing_pipe",
           "quantity": 1
         }
       ]
@@ -1369,8 +1403,8 @@
     "name": "Follow the locator’s randomized directions through Mort Myre",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_3093_3357_0",
-    "end_location_id": "location.ds2.tile_3093_3357_0",
+    "start_location_id": "location.mort_myre.north_gate",
+    "end_location_id": "location.mort_myre.north_gate",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1404,7 +1438,7 @@
         "source.project.early_quest_timing"
       ],
       "status": "estimated",
-      "note": "Actual dig coordinate is randomized. This dialogue tile is a placeholder for a variable-length search; no false fixed location is assumed."
+      "note": "The Mort Myre gate represents the search area. The locator readings determine the actual dig tile."
     },
     "planned_outcome": {
       "success_condition": "Verify follow the locator’s randomized directions through mort myre succeeded and the journal advances before continuing.",
@@ -1416,8 +1450,8 @@
     "name": "Dig up the Morytanian dragon key piece",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_3093_3357_0",
-    "end_location_id": "location.ds2.tile_3093_3357_0",
+    "start_location_id": "location.mort_myre.north_gate",
+    "end_location_id": "location.mort_myre.north_gate",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1452,7 +1486,7 @@
         "source.project.early_quest_timing"
       ],
       "status": "estimated",
-      "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
+      "note": "The Mort Myre gate represents the search area. The locator readings determine the actual dig tile."
     }
   },
   {
@@ -1460,8 +1494,8 @@
     "name": "Ask Brundt about the dragonkin island",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_2658_3666_0",
-    "end_location_id": "location.ds2.tile_2658_3666_0",
+    "start_location_id": "location.rellekka.brundt",
+    "end_location_id": "location.rellekka.brundt",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1494,7 +1528,7 @@
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
     "start_location_id": "location.ds2.tile_2640_3696_0",
-    "end_location_id": "location.ds2.tile_2640_3696_0",
+    "end_location_id": "location.ds2.tile_2273_4065_0",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1564,7 +1598,7 @@
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
     "start_location_id": "location.ds2.tile_2249_4078_0",
-    "end_location_id": "location.ds2.tile_2249_4078_0",
+    "end_location_id": "location.ds2.tile_2260_10464_0",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1711,13 +1745,33 @@
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
     "start_location_id": "location.ds2.tile_1483_3548_0",
-    "end_location_id": "location.ds2.tile_1483_3548_0",
+    "end_location_id": "location.ds2.tile_1504_9939_1",
     "requirements": {
       "kind": "all",
       "requirements": [
         {
           "kind": "action_completed",
           "action_id": "quest.dragon_slayer_ii.ask_amelia"
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.lit_candle",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.sapphire_lantern",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.lunar_bullseye_lantern",
+              "quantity": 1
+            }
+          ]
         }
       ]
     },
@@ -1819,8 +1873,8 @@
     "name": "Enter the Ancient Cavern via Otto’s whirlpool",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_2512_3508_0",
-    "end_location_id": "location.ds2.tile_2512_3508_0",
+    "start_location_id": "location.bt.whirlpool",
+    "end_location_id": "location.bt.ancient_lower",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1842,7 +1896,7 @@
         },
         {
           "kind": "flag",
-          "token_id": "flag.ds2.external_ancient_cavern_access",
+          "token_id": "unlock.ancient_cavern",
           "value": true
         }
       ]
@@ -1870,7 +1924,7 @@
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
     "start_location_id": "location.ds2.tile_1759_5343_1",
-    "end_location_id": "location.ds2.tile_1759_5343_1",
+    "end_location_id": "location.ds2.dragon_heads",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1907,8 +1961,8 @@
     "name": "Cast Fire Wave on the 1th mithril dragon head",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_1759_5343_1",
-    "end_location_id": "location.ds2.tile_1759_5343_1",
+    "start_location_id": "location.ds2.dragon_heads",
+    "end_location_id": "location.ds2.dragon_heads",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -1968,8 +2022,8 @@
     "name": "Cast Fire Wave on the 2th mithril dragon head",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_1759_5343_1",
-    "end_location_id": "location.ds2.tile_1759_5343_1",
+    "start_location_id": "location.ds2.dragon_heads",
+    "end_location_id": "location.ds2.dragon_heads",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -2029,8 +2083,8 @@
     "name": "Cast Fire Wave on the 3th mithril dragon head",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_1759_5343_1",
-    "end_location_id": "location.ds2.tile_1759_5343_1",
+    "start_location_id": "location.ds2.dragon_heads",
+    "end_location_id": "location.ds2.dragon_heads",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -2209,8 +2263,8 @@
     "name": "Warn King Roald about the approaching dragonkin fleet",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_3222_3473_0",
-    "end_location_id": "location.ds2.tile_3222_3473_0",
+    "start_location_id": "location.varrock.king_roald",
+    "end_location_id": "location.varrock.king_roald",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -2242,8 +2296,8 @@
     "name": "Secure Sir Amik Varze’s support in Falador",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_2962_3338_2",
-    "end_location_id": "location.ds2.tile_2962_3338_2",
+    "start_location_id": "location.falador_castle.amik_varze",
+    "end_location_id": "location.falador_castle.amik_varze",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -2275,8 +2329,8 @@
     "name": "Secure Ardougne support from Lathas or Thoros",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_2578_3293_1",
-    "end_location_id": "location.ds2.tile_2578_3293_1",
+    "start_location_id": "location.ardougne.king_lathas",
+    "end_location_id": "location.ardougne.king_lathas",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -2308,8 +2362,8 @@
     "name": "Secure Brundt’s Rellekka support",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_2658_3666_0",
-    "end_location_id": "location.ds2.tile_2658_3666_0",
+    "start_location_id": "location.rellekka.brundt",
+    "end_location_id": "location.rellekka.brundt",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -2383,7 +2437,7 @@
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
     "start_location_id": "location.ds2.tile_2640_3696_0",
-    "end_location_id": "location.ds2.tile_2640_3696_0",
+    "end_location_id": "location.ds2.fleet_defence_deck",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -2415,8 +2469,8 @@
     "name": "Repair leaks, flames, soldiers and mast for the four-minute assault",
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
-    "start_location_id": "location.ds2.tile_2640_3696_0",
-    "end_location_id": "location.ds2.tile_2640_3696_0",
+    "start_location_id": "location.ds2.fleet_defence_deck",
+    "end_location_id": "location.ds2.tile_1631_5735_2",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -2429,7 +2483,7 @@
     "consumes": [],
     "effects": [],
     "duration": {
-      "min_seconds": 130,
+      "min_seconds": 240,
       "expected_seconds": 260,
       "max_seconds": 780
     },
@@ -2440,7 +2494,7 @@
         "source.project.early_quest_timing"
       ],
       "status": "estimated",
-      "note": "Ship repair/defence lasts at least four minutes; damage and failures are variable. The pinned helper skips sub-objective tiles."
+      "note": "The defence is active gameplay. The end includes movement on the fleet toward its first dragon encounters."
     },
     "planned_outcome": {
       "success_condition": "Verify repair leaks, flames, soldiers and mast for the four-minute assault succeeded and the journal advances before continuing.",
@@ -2517,7 +2571,7 @@
       "note": "Pinned helper quest phase with estimated ordered interactions, travel/failure time and resources."
     },
     "planned_outcome": {
-      "success_condition": "Verify defeat the black, steel and brutal red dragons succeeded and the journal advances before continuing.",
+      "success_condition": "Confirm the black, steel and brutal red dragon encounters are cleared before moving to the next ship.",
       "if_unmet": "Restock, recover any deathbank items and retry from the last valid checkpoint; do not assume a guaranteed fight, random puzzle or key drop."
     }
   },
@@ -2675,7 +2729,7 @@
     "kind": "quest_stage",
     "activity_id": "quest.dragon_slayer_ii",
     "start_location_id": "location.ds2.tile_1631_5735_2",
-    "end_location_id": "location.ds2.tile_1631_5735_2",
+    "end_location_id": "location.ds2.tile_2640_3696_0",
     "requirements": {
       "kind": "all",
       "requirements": [
@@ -2699,7 +2753,7 @@
         "source.project.early_quest_timing"
       ],
       "status": "estimated",
-      "note": "One segment of Galvek’s continuous four-phase encounter. Failure may reset the entire fight, not only this phase. Carry dragonfire protection and watch ground attacks."
+      "note": "Finish the continuous Galvek fight, resolve the end dialogue and leave the fleet. The return is included."
     },
     "planned_outcome": {
       "success_condition": "Verify defeat galvek’s earth-bind phase succeeded and the journal advances before continuing.",
@@ -2789,7 +2843,8 @@
     "evidence": {
       "source_ids": [
         "source.quest_helper.quest_observations",
-        "source.project.early_quest_timing"
+        "source.project.early_quest_timing",
+        "source.jagex.garden_of_death_rewards"
       ],
       "status": "estimated",
       "note": "Five quest points and fixed 80k Smithing, 60k Mining, 50k Agility and 50k Thieving XP, plus permanent unlocks. Ellen’s four choices are separate."
@@ -2832,6 +2887,148 @@
       ],
       "status": "estimated",
       "note": "One NPC-delivered package of four 25,000-XP combat training picks. This is separate from fixed quest completion XP."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_ds2_rowboat_supplies",
+    "name": "Buy Dragon Slayer II rowboat supplies",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 5500
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.oak_plank",
+        "quantity": 8
+      },
+      {
+        "kind": "item",
+        "item_id": "item.swamp_paste",
+        "quantity": 10
+      },
+      {
+        "kind": "item",
+        "item_id": "item.iron_nails",
+        "quantity": 18
+      },
+      {
+        "kind": "item",
+        "item_id": "item.hammer",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.saw",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 60,
+      "max_seconds": 140
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "The draft construction transition spends the 12-nail minimum. Six spare nails cover some possible bending."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_ds2_locator_and_forge_supplies",
+    "name": "Buy locator and forge materials",
+    "activity_id": null,
+    "kind": "supply",
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 14000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.ds2.cut_dragonstone",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.molten_glass",
+        "quantity": 2
+      },
+      {
+        "kind": "item",
+        "item_id": "item.exiles_glassblowing_pipe",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.spade",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.blood_rune",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.air_rune",
+        "quantity": 15
+      },
+      {
+        "kind": "item",
+        "item_id": "item.fire_rune",
+        "quantity": 21
+      }
+    ],
+    "duration": {
+      "min_seconds": 25,
+      "expected_seconds": 60,
+      "max_seconds": 140
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.project.early_quest_timing",
+        "source.jagex.grand_exchange_catalogue"
+      ],
+      "status": "estimated",
+      "note": "Fixed GE estimate for a cut dragonstone, locator tools and three Fire Wave casts."
     }
   }
 ]

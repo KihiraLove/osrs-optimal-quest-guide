@@ -3,13 +3,13 @@
   "revision": "osrs-live-242-2026-11-11",
   "status": "collected_draft_not_independently_reviewed",
   "activity_ids": ["quest.dragon_slayer_ii", "review.quest.dragon_slayer_ii.combat_training"],
-  "source_ids": ["source.quest_helper.quest_observations", "source.project.early_quest_timing", "source.project.travel_timing"],
+  "source_ids": ["source.quest_helper.quest_observations", "source.jagex.garden_of_death_rewards", "source.jagex.grand_exchange_catalogue", "source.project.early_quest_timing", "source.project.travel_timing"],
   "helper_files": ["src/main/java/com/questhelper/helpers/quests/dragonslayerii/DragonSlayerII.java"],
   "observations": {
-    "start": "Alec Kincade near 2458,2869,0, after 200 quest points, seven specified quests, eight nonboostable skills and Ancient Cavern access at the later forge.",
+    "start": "Alec Kincade near 2458,2869,0, after 200 quest points, seven specified quests and eight nonboostable skills. The existing Barbarian Training access flag gates the later Ancient Cavern forge.",
     "requirements": "75 Magic, 70 Smithing, 68 Mining, 62 Crafting, 60 Agility, 60 Thieving, 50 Construction, 50 Hitpoints. Legends' Quest, Dream Mentor, A Tail of Two Cats, Animal Magnetism, Ghosts Ahoy, Bone Voyage and Client of Kourend.",
     "crandor": "Dallas Jones at Musa Point, Elvarg's lair, mined wall, Spawn fight, Ancient Mural, then Dallas' House on the Hill research.",
-    "fossil_map": "Five independent finds yielding 5+3+4+7+5=24 map pieces; consume all at the map table. Jardric's boat needs eight oak planks, ten swamp paste, twelve nails, a hammer and saw; bent nails may increase real cost.",
+    "fossil_map": "Five independent finds yield 24 map pieces used at the map table. Jardric's boat uses eight oak planks, ten swamp paste, at least twelve nails, a hammer and a saw. The supply purchase includes six spare nails.",
     "lithkren": "Take the rowboat, explore Lithkren, recover Aivas' diary, find Bob and gain the Sphinx's permanent cat-language unlock. Dream potion on Lunar Isle uses astral rune, goutweed and a Oneiromancer vial; crush the rune with hammer/pestle, light the brazier, defeat Robert the Strong with melee.",
     "four_key_branches": {
       "kharazi": "Navigate Kharazi Jungle and the temple's coloured golem maze; one of four dragon key pieces.",
@@ -22,21 +22,21 @@
     "rewards": "5 quest points; 80,000 Smithing, 60,000 Mining, 50,000 Agility and 50,000 Thieving XP, plus guild, Lithkren, catspeak and dragon crafting unlocks. Postquest Ellen training pays four individual 25,000-XP choices among Attack, Strength, Defence, Hitpoints, Ranged, Magic (no Prayer)."
   },
   "external_dependencies": [
-    "Legends' Quest and A Tail of Two Cats are marked Added by other agents, but their quest completion actions have not merged into this main commit. Their existing canonical completion flags are seeded during focused replay; use true upstream producers and deduplicate token definitions in integration.",
-    "Ancient Cavern access through the Barbarian Training pyre ship progression is likewise an external seed because the producer is on an unmerged worker branch.",
-    "Catspeak amulet, mining/woodcutting tools, 8 planks, 10 swamp paste, 12 iron nails, hammer, saw, goutweed, runes, cut dragonstone, two molten glass and other tradeable items require inventory or normal upstream suppliers. No unlimited free supply or boss drops are invented."
+    "Legends' Quest and A Tail of Two Cats produce the existing completion flags used by Alec. A Tail of Two Cats provides the enchanted catspeak amulet. The forge uses the existing Ancient Cavern unlock.",
+    "Existing sources provide the Lunar seal, lights, goutweed and other tools. The starting bronze axe and pickaxe qualify.",
+    "Draft GE purchases allocate 5,500 GP for boat supplies and 14,000 GP for locator materials and forge runes. The route can also use items already acquired. Combat supplies require a separate budget."
   ],
   "review_gaps": [
     "Quest Helper supplies 97 waypoint candidates but repeated selectors can be alternate UI branches or floor transitions. Many location coordinates are exact helper tiles while instance IDs and regional room labels remain unreviewed.",
     "The route omits the nonmandatory alternate 79-Agility Kharazi Jungle shortcut and other navigation alternatives; optimize those after ground-truth review.",
     "The 24 map pieces are modeled as one quantity token but in-game shapes and map placement order may matter. Handle retaining pieces deposited with Dallas and repeat search prevention after an interruption.",
     "Twelve iron nails are the minimum for the rowboat; random bending and replenishment, boat construction tile, and subsequent multiway ferry links should be confirmed.",
-    "Bob's roaming tile is variable, not a guaranteed Sphinx spawn. The catalogue uses a separate Sphinx-stage coordinate and needs a dynamic Bob search travel edge. The enchanted catspeak amulet is external until upstream branch integration.",
-    "The Lunar dream can be exited and re-entered without remaking potion; deathbank charges, temporary seal-of-passage needs and return travel edges require detailed replay.",
+    "The Catherby archery shop is a starting waypoint for the search for roaming Bob. Recalculate the search when the amulet points to another location. The Sphinx stage uses the existing Sophanem waypoint.",
+    "The modeled dream entrance spends the potion once and success exits at the Lunar brazier. Review re-entry without remaking the potion, deathbank charges and seal-of-passage alternatives.",
     "Morytania locator readings are random and damage the player; no fixed buried location is invented. Kourend's statue inscription is similarly variable. The Kharazi maze, Ungael lever deadline, and interior passages need exact retries and costs.",
-    "The Ancient Cavern's mithril dragon room and Dragonkin forge are represented by helper pins and require the external Barbarian pyre-ship unlock. Check Fire Wave/Suge alternatives, runes, incidental XP and true entrance/exit passages.",
+    "The Ancient Cavern route uses the existing whirlpool and mithril dragon waypoints, with separate Mithril Door chamber and forge stairs. Review Fire Surge and elemental staff alternatives, incidental XP and exact dungeon travel times.",
     "Combat outcomes are planned success, not guaranteed. Vorkath, Robert the Strong, the spawn, the fleet waves, Galvek and quest deathbanks need gear, food, dragonfire protection, death fees and exact checkpoint review.",
     "Ellen's NPC-delivered choices are not physical XP tomes. The four 25,000-XP selections exclude Prayer; verify skill minimum, same-skill repetition, remaining claim accounting and actual NPC tile/floor.",
-    "The guide's dataset version bump, combined route refresh and generated tracker are integrator work; this worker branch preserves the pinned revision and does not mark independently Reviewed."
+    "Review the post-quest Digsite Pendant destination at Lithkren, including the machine interaction and charge use."
   ]
 }

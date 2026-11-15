@@ -1,0 +1,87 @@
+{
+  "game_revision": "osrs-live-242-2026-11-11",
+  "activity_id": "quest.troubled_tortugans",
+  "status": "draft_collected",
+  "source_ids": [
+    "source.quest_helper.quest_observations",
+    "source.reference.troubled_tortugans_quick_guide"
+  ],
+  "helper_file": "src/main/java/com/questhelper/helpers/quests/troubledtortugans/TroubledTortugans.java",
+  "scope": "Floopa's island, first Great Conch arrival, six material-consuming repairs, gryphon cave, mandatory shield and Little Pearl boss, fixed and incidental rewards.",
+  "prerequisites": {
+    "minimum_base_levels": {
+      "skill.sailing": 45,
+      "skill.slayer": 51,
+      "skill.hunter": 45,
+      "skill.construction": 48,
+      "skill.woodcutting": 40,
+      "skill.crafting": 34
+    },
+    "additional_boat_access": [
+      "unlock.pandemonium.raft",
+      "unlock.pandemonium.captains_log"
+    ],
+    "notes": "No quest prerequisite declared by helper. The Woodcutting/Crafting boostable=true helper metadata disagrees with the current Wiki's start-gate unboostable flags; all six are conservatively modeled unboostable."
+  },
+  "free_sources": {
+    "seaweed": "ground spawn on initial island",
+    "palm_leaf": "shake nearby palm tree",
+    "bronze_axe": "near calquat patch west of village",
+    "hammer": "blacksmith workshop",
+    "saw": "Raley house",
+    "scutes": "six pickups in village",
+    "sea_shells": "six pickups by beach",
+    "jatoba_logs": "ten tree cuts"
+  },
+  "repair_material_counts": {
+    "tortugan_scutes": 6,
+    "sea_shells": 6,
+    "jatoba_logs": 10
+  },
+  "mandatory_incidental_xp_tenths": {
+    "skill.construction": 4800,
+    "skill.woodcutting": 9200
+  },
+  "completion_rewards": {
+    "quest_points": 1,
+    "skill.sailing_xp_tenths": 100000,
+    "skill.slayer_xp_tenths": 80000,
+    "unlocks": [
+      "The Great Conch facilities",
+      "Gryphon Slayer enemies",
+      "Little Pearl docking"
+    ]
+  },
+  "combat": [
+    {
+      "enemy": "Gryphon",
+      "level": 95,
+      "outcome": "planned_success"
+    },
+    {
+      "enemy": "Shellbane gryphon",
+      "level": 235,
+      "outcome": "planned_success",
+      "shield_mandatory": true,
+      "mechanics": [
+        "charge and knockback",
+        "corrosive spit",
+        "delayed whirlwind explosions"
+      ]
+    }
+  ],
+  "remaining_review_gaps": [
+    "Exact map positions of repair stalls, Hammer and axe spawn, player-owned ship arrival tiles and coastlines are estimated; Quest Helper supplies only major waypoints.",
+    "Whether Raley takes the list of repairs after completion and whether the shield is retained after the quest need in-game confirmation.",
+    "The model's shield_equipped flag represents the required cape equipment slot, which is not an inventory-level enforcement of actual gear state.",
+    "Gryphon and Shellbane combat XP, player food/prayer use and death/lost-ship recovery depend on fight and are not charged as fixed outputs.",
+    "Direct Port Sarim–Conch sailing after the introductory visit is modeled as an available sea connection; precise charting and vessel availability require live verification.",
+    "The Wiki guide is used as an observed current reference, not a pinned revision; pin source revision during independent review.",
+    "Optional postquest Gryphon repeatability, fairy-ring route and Little Pearl permanent access require transport expansion beyond this quest's mandatory route."
+  ],
+  "integrator_reserved": [
+    "dataset_version",
+    "tracker_regeneration",
+    "saved_examples"
+  ]
+}
