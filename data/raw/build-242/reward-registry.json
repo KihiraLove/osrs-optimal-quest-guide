@@ -214,7 +214,7 @@
     {
       "id": "claim.desert_treasure_ii.ancient_vault",
       "activity_id": "quest.desert_treasure_ii_the_fallen_empire",
-      "status": "expected",
+      "status": "collected",
       "delivery": "post_quest_claim",
       "source_ids": [
         "source.jagex.desert_treasure_ii_release",
@@ -231,13 +231,13 @@
           "kind": "fixed",
           "xp_tenths": 1000000
         },
-        "eligible_skills": null,
-        "minimum_level": null,
-        "distinct_skills": null,
+        "eligible_skills": ["skill.attack", "skill.strength", "skill.defence", "skill.hitpoints", "skill.ranged", "skill.magic", "skill.prayer"],
+        "minimum_level": 60,
+        "distinct_skills": false,
         "retainable": true,
         "reported_eligibility": "combat"
       },
-      "notes": "Quest Helper lists physical lamps. The publisher locates the claim after quest completion in the Ancient Vault. Verify the tile and exact use gates.",
+      "notes": "Three 100,000-XP combat lamps for skills at base level 60 or higher, including Prayer. The first award and subsequent reclamation at the Ancient Vault need exact NPC/dialogue verification.",
       "requires": {
         "kind": "all",
         "requirements": [
@@ -252,7 +252,7 @@
         "tile": null,
         "anchor": "Desert Treasure II release coldfix"
       },
-      "claim_duration_seconds": null,
+      "claim_duration_seconds": {"min_seconds": 27, "expected_seconds": 55, "max_seconds": 165},
       "trackers": [
         {
           "symbol": "DT2_REWARD_LAMP",

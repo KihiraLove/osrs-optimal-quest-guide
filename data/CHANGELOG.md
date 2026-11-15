@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.57.0 | Added Desert Treasure II and the separate Ancient Vault lamp claim. The draft joins four medallion routes at the hideout encounter and uses existing prerequisite quests, shared soul runes and a priced GE supply bundle. |
 | 0.56.0 | Added 24 journal activities, including the Sophanem and Sailing quests, Desert Treasure I, Legends' Quest, the last Recipe for Disaster stages and The Fractured Archive. Connected prerequisite quests, added missing supply sources and updated the museum reports. The Fractured Archive awaits While Guthix Sleeps. |
 | 0.55.0 | Integrated PR #17 into the build-242 catalog, connected cross-quest prerequisites and reconciled the Museum rewards, trackers and route examples. |
 | 0.54.0 | Added four Varrock Museum history reports at Historian Minas: Excalibur after Merlin's Crystal, King Lathas after Making History, Shield of Arrav and the two-stage Priestly Warriors exhibit after Priest in Peril/In Aid of the Myreque. Five new actions grant 25 kudos and three independent retainable 1,000-XP antique lamps (modeled 20+ base skill). Clarified that the Ardougne map tracker has no verified standalone report and remains pending. In-game review of lamp level boundary, retention and display states remains open. |
