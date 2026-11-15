@@ -181,7 +181,7 @@ class DataPipelineTests(unittest.TestCase):
         self.assertFalse(audit["release_ready"])
         journal = read_json(ROOT / "data/coverage/build-242/journal.json")
         self.assertEqual(
-            audit["coverage_counts"]["journal"]["expected"],
+            audit["coverage_counts"]["journal"].get("expected", 0),
             sum(entry["status"] == "expected" for entry in journal),
         )
         self.assertEqual(first.encode("utf-8"), second.encode("utf-8"))

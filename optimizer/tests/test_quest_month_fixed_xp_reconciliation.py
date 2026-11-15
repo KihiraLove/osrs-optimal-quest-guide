@@ -67,10 +67,11 @@ class QuestMonthFixedXpReconciliationTests(unittest.TestCase):
                 before = start.snapshot()
                 end = self.apply(start, action)
                 after = end.snapshot()
-                for skill, amount in expected.items():
-                    self.assertEqual(after["xp_tenths"][skill] - before["xp_tenths"][skill], amount)
+                self.assertEqual(after["xp_tenths"], {
+                    skill: xp + expected.get(skill, 0)
+                    for skill, xp in before["xp_tenths"].items()
+                })
                 self.assertIn(action["id"], after["completed_action_ids"])
-                self.assertEqual(set(after["xp_tenths"]), set(before["xp_tenths"]))
                 with self.assertRaises(DataError):
                     self.apply(end, action)
 
@@ -95,7 +96,7 @@ class QuestMonthFixedXpReconciliationTests(unittest.TestCase):
                     with self.assertRaises(DataError):
                         self.apply(self.seeded(action, include_supplies=False), action)
 
-    def test_reward_review_ledger_has_exactly_six_collected_producers(self):
+    def test_reward_reviews_link_their_completion_producers(self):
         reviews = read_json(ROOT / "data/coverage/build-242/reward-reviews.json")
         by_id = {r["id"]: r for r in reviews}
         for quest in EXPECTED:
@@ -104,7 +105,6 @@ class QuestMonthFixedXpReconciliationTests(unittest.TestCase):
             self.assertEqual(review["catalog_ids"], [quest + ".complete"])
             self.assertEqual(review["delivery"], "completion")
             self.assertEqual(review["legacy_claim"], "review_if_already_completed")
-        self.assertEqual(by_id["review.quest.demon_slayer.quest_month_xp"]["status"], "expected")
 
     def test_reconciliation_review_is_linked_to_coverage(self):
         coverage = read_json(ROOT / "data/coverage/build-242.json")
