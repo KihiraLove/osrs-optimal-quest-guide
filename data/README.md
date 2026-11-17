@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.71.0` loads 24 skill tables and
-4,885 draft actions across 217 journal activities, two Easy diary tiers, the
+11 November 2026 at 11:45:06 UTC. Dataset `0.72.0` loads 24 skill tables and
+4,916 draft actions across 217 journal activities, four diary tiers, the
 museum route and travel networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -120,8 +120,8 @@ source-specific branches, items and rewards. The remaining helper gaps and
 all uncollected entries are explicit in the inventory. The
 [publisher reward changes](raw/build-242/quest-month-rewards.json) identify the
 build 242 XP updates, including the separately claimed Demon Slayer reward.
-The [reward registry](raw/build-242/reward-registry.json) records 51 reward
-entries, including 13 post-quest claims and two diary claims. Each claim records
+The [reward registry](raw/build-242/reward-registry.json) records 53 reward
+entries, including 13 post-quest claims and four diary claims. Each claim records
 its producer ID, progression gate, available location evidence and known award details. Null values
 identify fields that need verification. The registry records Kuradal’s handover
 of Duradel’s notes and the later reading action separately. Reading grants 15 XP
@@ -145,7 +145,10 @@ The [Lumbridge & Draynor and Varrock Easy review](raw/build-242/lumbridge-varroc
 records all 26 tasks and the separate equipment and lamp claims from Mikasi and
 Toby. Each lamp grants 2,500 XP in a skill at base level 30 or higher. The Easy
 tiers reuse essence-mine and Stronghold progress, and Varrock’s task uses the
-museum’s shared kudos counter. The diary tracker lists the remaining 46 tiers.
+museum’s shared kudos counter. The [Medium tier review](raw/build-242/lumbridge-varrock-medium-diaries-review.json)
+records another 25 tasks and the separate claims after Easy. It links the ring’s
+three cabbage-patch teleports and the Grand Exchange spell and tablet destinations
+to the corresponding Medium claims. The diary tracker lists the remaining 44 tiers.
 
 The [museum review](raw/build-242/museum-review.json) links all 14 quiz plaques to
 the [archived object tiles](raw/build-242/museum-map.json). Each plaque gives two
