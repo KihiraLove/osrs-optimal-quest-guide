@@ -154,8 +154,8 @@ def render_diaries(ledger_path, ledger, regions):
         sections.extend((
             f'### {region["name"]}',
             "",
-            table(("#", "Tier", "Helper condition", "Task ID", "Status"), (
-                (number, tier, f'`{task["condition"]}`', f'`{task["id"]}`', STATUS[task["status"]])
+            table(("#", "Tier", "Task", "Task ID", "Status"), (
+                (number, tier, task.get("name", f'`{task["condition"]}`'), f'`{task["id"]}`', STATUS[task["status"]])
                 for number, (tier, task) in enumerate(tasks, task_number)
             )),
             "",

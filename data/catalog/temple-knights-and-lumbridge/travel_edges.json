@@ -1795,17 +1795,16 @@
     "to_location_id": "location.ham_hideout.crates",
     "requirements": {
       "kind": "all",
-      "requirements": [
-        {
-          "kind": "skill",
-          "skill_id": "skill.thieving",
-          "minimum_level": 13,
-          "boostable": true
-        }
-      ]
+      "requirements": []
     },
     "consumes": [],
-    "effects": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.lumbridge_draynor.easy.task.varp_1194_12",
+        "value": true
+      }
+    ],
     "duration": {
       "min_seconds": 9,
       "expected_seconds": 20,
@@ -1813,10 +1812,11 @@
     },
     "evidence": {
       "source_ids": [
+        "source.quest_helper.diaries",
         "source.project.travel_timing"
       ],
       "status": "estimated",
-      "note": "Pick the trapdoor lock and descend into the H.A.M. hideout."
+      "note": "Pick the trapdoor lock if needed and descend. Entering records the diary task."
     }
   },
   {
@@ -1827,14 +1827,7 @@
     "to_location_id": "location.ham_hideout.trapdoor",
     "requirements": {
       "kind": "all",
-      "requirements": [
-        {
-          "kind": "skill",
-          "skill_id": "skill.thieving",
-          "minimum_level": 13,
-          "boostable": true
-        }
-      ]
+      "requirements": []
     },
     "consumes": [],
     "effects": [],
@@ -1845,10 +1838,11 @@
     },
     "evidence": {
       "source_ids": [
+        "source.quest_helper.diaries",
         "source.project.travel_timing"
       ],
       "status": "estimated",
-      "note": "Pick the trapdoor lock and descend into the H.A.M. hideout."
+      "note": "Climb the ladder from the hideout to the surface."
     }
   },
   {
