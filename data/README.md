@@ -1,7 +1,7 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.68.0` loads 24 skill tables and
+11 November 2026 at 11:45:06 UTC. Dataset `0.69.0` loads 24 skill tables and
 4,846 draft actions across 217 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
@@ -120,14 +120,13 @@ source-specific branches, items and rewards. The remaining helper gaps and
 all uncollected entries are explicit in the inventory. The
 [publisher reward changes](raw/build-242/quest-month-rewards.json) identify the
 build 242 XP updates, including the separately claimed Demon Slayer reward.
-The [reward registry](raw/build-242/reward-registry.json) records 39 reward
-entries, including seven separate claims. Each claim records its producer ID,
+The [reward registry](raw/build-242/reward-registry.json) records 49 reward
+entries, including 13 post-quest claims. Each claim records its producer ID,
 quest gate, available location evidence and known award details. Null values
-identify fields that need verification. X Marks the Spot, Shadow of the
-Storm, Ernest the Chicken, Romeo & Juliet and Fairytale II have loaded reward
-producers.
-The remaining packages stay in review while their quest actions or use
-rules are being collected.
+identify fields that need verification. The registry records Kuradal’s handover
+of Duradel’s notes and the later reading action separately. Reading grants 15 XP
+per current Slayer level and unlocks demonbane crafting. All collected journal
+activities now link to a completion reward review.
 
 [Diary observations](raw/build-242/diaries/index.json) link all 492 tracker IDs
 to helper steps, requirements and item candidates across 48 tiers. Each tier

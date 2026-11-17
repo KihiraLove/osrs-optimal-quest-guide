@@ -2265,12 +2265,18 @@
     "id": "review.quest.lost_city.quest_month_xp",
     "activity_id": "quest.lost_city",
     "status": "collected",
-    "source_ids": [
-      "source.jagex.quest_month_2026_11_03"
-    ],
+    "source_ids": ["source.quest_helper.quest_observations", "source.jagex.quest_month_2026_11_03"],
     "catalog_ids": ["quest.lost_city.complete"],
     "delivery": "completion",
-    "legacy_claim": "review_if_already_completed"
+    "legacy_claim": "review_if_already_completed",
+    "expected_effects": {
+      "quest.lost_city.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 3},
+        {"kind": "xp", "skill_id": "skill.woodcutting", "xp_tenths": 15000},
+        {"kind": "xp", "skill_id": "skill.crafting", "xp_tenths": 15000},
+        {"kind": "flag", "token_id": "flag.quest.lost_city.complete", "value": true}
+      ]
+    }
   },
   {
     "id": "review.quest.merlins_crystal.quest_month_xp",
@@ -2380,12 +2386,18 @@
     "id": "review.quest.rune_mysteries.quest_month_xp",
     "activity_id": "quest.rune_mysteries",
     "status": "collected",
-    "source_ids": [
-      "source.jagex.quest_month_2026_11_03"
-    ],
+    "source_ids": ["source.quest_helper.quest_observations", "source.jagex.quest_month_2026_11_03"],
     "catalog_ids": ["quest.rune_mysteries.complete"],
     "delivery": "completion",
-    "legacy_claim": "review_if_already_completed"
+    "legacy_claim": "review_if_already_completed",
+    "expected_effects": {
+      "quest.rune_mysteries.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "xp", "skill_id": "skill.runecraft", "xp_tenths": 5000},
+        {"kind": "item", "item_id": "item.air_talisman", "quantity": 1},
+        {"kind": "flag", "token_id": "unlock.rune_essence_mine", "value": true}
+      ]
+    }
   },
   {
     "id": "review.quest.sheep_herder.quest_month_xp",
@@ -10638,5 +10650,233 @@
       ]
     },
     "note": "Five quest points; 80,000 Thieving, 75,000 Farming, 75,000 Herblore and 50,000 Hunter XP. Kuradal supplies Duradel’s notes separately. Reading the notes grants level-based Slayer XP."
+  },
+  {
+    "id": "review.miniquest.enter_the_abyss.completion_rewards",
+    "activity_id": "miniquest.enter_the_abyss",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["miniquest.enter_the_abyss.complete"],
+    "expected_effects": {
+      "miniquest.enter_the_abyss.complete": [
+        {"kind": "xp", "skill_id": "skill.runecraft", "xp_tenths": 10000},
+        {"kind": "item", "item_id": "item.rune_pouch.small", "quantity": 1},
+        {"kind": "flag", "token_id": "unlock.abyss", "value": true}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.bone_voyage.completion_rewards",
+    "activity_id": "quest.bone_voyage",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.bone_voyage", "source.jagex.fossil_island"],
+    "catalog_ids": ["quest.bone_voyage.complete"],
+    "expected_effects": {
+      "quest.bone_voyage.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "flag", "token_id": "unlock.fossil_island", "value": true}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.cooks_assistant.completion_rewards",
+    "activity_id": "quest.cooks_assistant",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.cooks_assistant.complete"],
+    "expected_effects": {
+      "quest.cooks_assistant.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "xp", "skill_id": "skill.cooking", "xp_tenths": 3000},
+        {"kind": "flag", "token_id": "unlock.cooks_range", "value": true}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.crab_quest.completion_rewards",
+    "activity_id": "quest.crab_quest",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations", "source.jagex.dog_and_crab_2026_09_08"],
+    "catalog_ids": ["quest.crab_quest.complete"],
+    "expected_effects": {
+      "quest.crab_quest.complete": [
+        {"kind": "item", "item_id": "item.crab.shell_collection", "quantity": 1},
+        {"kind": "flag", "token_id": "flag.quest.crab_quest.complete", "value": true},
+        {"kind": "flag", "token_id": "unlock.crab.shell_music", "value": true},
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "xp", "skill_id": "skill.sailing", "xp_tenths": 100000},
+        {"kind": "xp", "skill_id": "skill.fishing", "xp_tenths": 30000}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.dorics_quest.completion_rewards",
+    "activity_id": "quest.dorics_quest",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.dorics_quest.complete"],
+    "expected_effects": {
+      "quest.dorics_quest.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "xp", "skill_id": "skill.mining", "xp_tenths": 13000},
+        {"kind": "item", "item_id": "item.coins", "quantity": 180},
+        {"kind": "flag", "token_id": "unlock.dorics_anvils", "value": true}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.druidic_ritual.completion_rewards",
+    "activity_id": "quest.druidic_ritual",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.druidic_ritual.complete"],
+    "expected_effects": {
+      "quest.druidic_ritual.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 4},
+        {"kind": "xp", "skill_id": "skill.herblore", "xp_tenths": 2500},
+        {"kind": "flag", "token_id": "unlock.herblore", "value": true}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.enlightened_journey.completion_rewards",
+    "activity_id": "quest.enlightened_journey",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.enlightened_journey"],
+    "catalog_ids": ["quest.enlightened_journey.complete"],
+    "expected_effects": {
+      "quest.enlightened_journey.complete": [
+        {"kind": "xp", "skill_id": "skill.crafting", "xp_tenths": 20000},
+        {"kind": "xp", "skill_id": "skill.farming", "xp_tenths": 30000},
+        {"kind": "xp", "skill_id": "skill.woodcutting", "xp_tenths": 15000},
+        {"kind": "xp", "skill_id": "skill.firemaking", "xp_tenths": 40000},
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "item", "item_id": "item.enlightened_journey.bomber_jacket", "quantity": 1},
+        {"kind": "item", "item_id": "item.enlightened_journey.bomber_cap", "quantity": 1},
+        {"kind": "flag", "token_id": "unlock.balloon.entrana", "value": true},
+        {"kind": "flag", "token_id": "unlock.balloon.taverley", "value": true}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.goblin_diplomacy.completion_rewards",
+    "activity_id": "quest.goblin_diplomacy",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.goblin_diplomacy.complete"],
+    "expected_effects": {
+      "quest.goblin_diplomacy.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 5},
+        {"kind": "xp", "skill_id": "skill.crafting", "xp_tenths": 2000},
+        {"kind": "item", "item_id": "item.gold_bar", "quantity": 1}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.imp_catcher.completion_rewards",
+    "activity_id": "quest.imp_catcher",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.imp_catcher.complete"],
+    "expected_effects": {
+      "quest.imp_catcher.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "xp", "skill_id": "skill.magic", "xp_tenths": 8750},
+        {"kind": "item", "item_id": "item.amulet_of_accuracy", "quantity": 1}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.monks_friend.completion_rewards",
+    "activity_id": "quest.monks_friend",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.monks_friend.complete"],
+    "expected_effects": {
+      "quest.monks_friend.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "xp", "skill_id": "skill.woodcutting", "xp_tenths": 20000},
+        {"kind": "item", "item_id": "item.law_rune", "quantity": 8}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.prying_times.completion_rewards",
+    "activity_id": "quest.prying_times",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.prying_times.complete"],
+    "expected_effects": {
+      "quest.prying_times.complete": [
+        {"kind": "item", "item_id": "item.prying.oak_sawmill_coupon", "quantity": 25},
+        {"kind": "flag", "token_id": "flag.quest.prying_times.complete", "value": true},
+        {"kind": "flag", "token_id": "unlock.prying.forgotten_drinks", "value": true},
+        {"kind": "flag", "token_id": "unlock.prying.crowbars", "value": true},
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "xp", "skill_id": "skill.smithing", "xp_tenths": 10000},
+        {"kind": "xp", "skill_id": "skill.sailing", "xp_tenths": 8000}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.sheep_shearer.completion_rewards",
+    "activity_id": "quest.sheep_shearer",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.sheep_shearer.complete"],
+    "expected_effects": {
+      "quest.sheep_shearer.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "xp", "skill_id": "skill.crafting", "xp_tenths": 1500},
+        {"kind": "item", "item_id": "item.coins", "quantity": 60}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.the_restless_ghost.completion_rewards",
+    "activity_id": "quest.the_restless_ghost",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.the_restless_ghost.complete"],
+    "expected_effects": {
+      "quest.the_restless_ghost.complete": [
+        {"kind": "xp", "skill_id": "skill.prayer", "xp_tenths": 11250},
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1}
+      ]
+    }
+  },
+  {
+    "id": "review.quest.x_marks_the_spot.completion_rewards",
+    "activity_id": "quest.x_marks_the_spot",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations"],
+    "catalog_ids": ["quest.x_marks_the_spot.complete", "reward.x_marks_the_spot.ancient_lamp"],
+    "expected_effects": {
+      "quest.x_marks_the_spot.complete": [
+        {"kind": "counter", "token_id": "token.quest_points", "delta": 1},
+        {"kind": "item", "item_id": "item.coins", "quantity": 200},
+        {"kind": "xp_reward", "reward_id": "reward.x_marks_the_spot.ancient_lamp", "quantity": 1}
+      ]
+    }
+  },
+  {
+    "id": "review.claim.while_guthix_sleeps.read_duradels_notes",
+    "activity_id": "quest.while_guthix_sleeps",
+    "status": "collected",
+    "source_ids": ["source.quest_helper.quest_observations", "source.runelite.varbits"],
+    "catalog_ids": [
+      "claim.while_guthix_sleeps.kuradal",
+      "claim.while_guthix_sleeps.read_duradels_notes",
+      "reward.wgs.duradels_notes_slayer"
+    ],
+    "expected_effects": {
+      "claim.while_guthix_sleeps.kuradal": [
+        {"kind": "item", "item_id": "item.wgs_duradels_notes", "quantity": 1}
+      ],
+      "claim.while_guthix_sleeps.read_duradels_notes": [
+        {"kind": "xp_reward", "reward_id": "reward.wgs.duradels_notes_slayer", "quantity": 1},
+        {"kind": "flag", "token_id": "unlock.wgs.demonbane_crafting", "value": true}
+      ]
+    }
   }
 ]
