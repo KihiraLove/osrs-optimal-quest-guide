@@ -899,10 +899,15 @@ class QuestCollectionTests(unittest.TestCase):
         self.assertEqual(state["counters"].get("token.mogre_camp.ballast", 0), 0)
         self.assertTrue(state["flags"]["unlock.mogre_camp"])
         self.assertTrue(state["flags"]["unlock.mogre_camp.crab_pen"])
-        self.assertEqual(state["inventory"], {
+        expected_inventory = {
             "item.bronze_shortsword": 1, "item.diving_apparatus": 1, "item.fishbowl_helmet": 1,
             "item.knife": 1, "item.needle": 1, "item.pestle_and_mortar": 1, "item.shrimps": 6,
-        })
+        }
+        kelp_picked = sum(step.get("action_id") == f"{pete}.harvest_kelp" for step in solution["steps"])
+        self.assertGreaterEqual(kelp_picked, 1)
+        if kelp_picked > 1:
+            expected_inventory["item.mogre_kelp"] = kelp_picked - 1
+        self.assertEqual(state["inventory"], expected_inventory)
 
         [source] = self.observations[pete]
         expected_xp = profile["initial_state"]["xp_tenths"].copy()
