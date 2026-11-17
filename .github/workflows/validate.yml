@@ -57,7 +57,8 @@ jobs:
           quest-optimizer replay "$RUNNER_TEMP/lost-city-completion.json" --catalog data/manifest.json --profile examples/build-242/lost-city-completion-profile.json
           quest-optimizer solve-bounded data/manifest.json examples/build-242/stronghold-security-profile.json --beam-width 96 > "$RUNNER_TEMP/stronghold-security.json"
           quest-optimizer replay "$RUNNER_TEMP/stronghold-security.json" --catalog data/manifest.json --profile examples/build-242/stronghold-security-profile.json
-          quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-combat-profile.json --beam-width 256 > "$RUNNER_TEMP/lost-city-combat.json"
+          cp examples/build-242/lost-city-combat-solution.json "$RUNNER_TEMP/lost-city-combat-incumbent.json"
+          quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-combat-profile.json --beam-width 256 --incumbent "$RUNNER_TEMP/lost-city-combat-incumbent.json" > "$RUNNER_TEMP/lost-city-combat.json"
           quest-optimizer replay "$RUNNER_TEMP/lost-city-combat.json" --catalog data/manifest.json --profile examples/build-242/lost-city-combat-profile.json
           quest-optimizer solve-bounded data/manifest.json examples/build-242/rfd-opening-goblins-profile.json --beam-width 96 > "$RUNNER_TEMP/rfd-opening-goblins.json"
           quest-optimizer replay "$RUNNER_TEMP/rfd-opening-goblins.json" --catalog data/manifest.json --profile examples/build-242/rfd-opening-goblins-profile.json
