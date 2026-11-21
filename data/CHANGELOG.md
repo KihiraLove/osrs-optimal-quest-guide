@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.73.0 | Cataloged nine Lumbridge & Draynor and Varrock Hard tasks, including waka carving and travel, shortcut and train registrations, Barrows gloves, two Smite altars and Orlando Smith’s kudos check. |
 | 0.72.0 | Cataloged Lumbridge & Draynor Medium and Varrock Medium, including early task registration, Easy-to-Medium claim order, cabbage-patch charges and Grand Exchange spell and tablet destinations. |
 | 0.71.0 | Cataloged Lumbridge & Draynor Easy and Varrock Easy, including 26 task registrations, separate equipment and lamp claims, and Zaff’s first Easy diary stock purchase. |
 | 0.70.0 | Connected Imp Catcher and Monk’s Friend, supplied balloon discoveries and routine flights, repriced the Mage Arena II rune bundle, and added an Agility Pyramid coin route for the self-funded main. |

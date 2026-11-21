@@ -2,7 +2,7 @@
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
 11 November 2026 at 11:45:06 UTC. Dataset `0.72.0` loads 24 skill tables and
-4,916 draft actions across 217 journal activities, four diary tiers, the
+4,925 draft actions across 217 journal activities, four diary tiers, the
 museum route and travel networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -148,7 +148,9 @@ tiers reuse essence-mine and Stronghold progress, and Varrock’s task uses the
 museum’s shared kudos counter. The [Medium tier review](raw/build-242/lumbridge-varrock-medium-diaries-review.json)
 records another 25 tasks and the separate claims after Easy. It links the ring’s
 three cabbage-patch teleports and the Grand Exchange spell and tablet destinations
-to the corresponding Medium claims. The diary tracker lists the remaining 44 tiers.
+to the corresponding Medium claims. The [first Hard diary batch](raw/build-242/lumbridge-varrock-hard-diaries-review.json)
+adds nine tasks across the same regions. Twelve tasks and both Hard reward
+claims remain open for those regions. The diary tracker lists all 44 pending tiers.
 
 The [museum review](raw/build-242/museum-review.json) links all 14 quiz plaques to
 the [archived object tiles](raw/build-242/museum-map.json). Each plaque gives two
