@@ -13,6 +13,11 @@ checks the commit against `sources.json` and reads the Java files as text.
 It collects literal declarations and helper waypoint candidates. Complex
 conditions, combat feasibility and reward timing still need review.
 
+A New Leaf uses a separate Quest Helper contribution. The collector includes
+its committed observation when rebuilding the index. To regenerate that
+observation too, pass `--leaf-checkout <checkout>` at the revision recorded
+for `source.quest_helper.a_new_leaf` in `data/sources.json`.
+
 `declared: false` marks an absent source method. A null value records an
 unresolved fact. A helper's recommended supplies or progress selectors guide
 review and have no effect on the loaded catalog. Use the release notes for
