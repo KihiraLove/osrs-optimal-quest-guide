@@ -87,6 +87,8 @@ class WhileGuthixSleepsTests(unittest.TestCase):
         with self.assertRaises(DataError):
             self.apply(self.seed(), CLAIM)
         finished = self.complete(self.seed())
+        with self.assertRaises(DataError):
+            self.apply(finished, READ_NOTES)
         notes = self.apply(finished, CLAIM)
         self.assertEqual(notes.snapshot()["inventory"]["item.wgs_duradels_notes"],1)
         self.assertEqual(notes.snapshot()["xp_tenths"]["skill.slayer"],
@@ -197,19 +199,36 @@ class WhileGuthixSleepsTests(unittest.TestCase):
             self.apply(self.seed(), QUEST + ".balance_elemental")
 
     def test_coverage_and_registry_match_producers(self):
-        ledger=read_json(ROOT/"data/coverage/build-242/journal.json")
-        self.assertEqual(next(i for i in ledger if i["id"]==QUEST)["status"],"collected")
-        reg=read_json(ROOT/"data/raw/build-242/reward-registry.json")
-        claim=next(i for i in reg["entries"] if i["id"]==CLAIM)
-        self.assertEqual(claim["status"],"collected")
-        self.assertEqual(claim["producer_action_id"],CLAIM)
+        coverage = ROOT / "data/coverage/build-242"
+        ledger = read_json(coverage / "journal.json")
+        self.assertEqual(next(row for row in ledger if row["id"] == QUEST)["status"], "collected")
+        registry = read_json(ROOT / "data/raw/build-242/reward-registry.json")
+        entries = {row["id"]: row for row in registry["entries"]}
+        claim = entries[CLAIM]
+        self.assertEqual(claim["status"], "collected")
+        self.assertEqual(claim["producer_action_id"], CLAIM)
         self.assertEqual(claim["read_action_id"], READ_NOTES)
-        self.assertEqual(claim["xp_reward_id"], REWARD)
-        self.assertEqual(claim["package"]["amount"], {"kind": "per_skill_level", "xp_tenths_per_level": 150})
-        reward=next(i for i in read_json(ROOT/"data/coverage/build-242/reward-reviews.json")
-                    if i["id"]=="review.quest.while_guthix_sleeps.completion_rewards")
-        self.assertEqual(reward["expected_effects"][QUEST+".complete"],
-                         self.tables["actions"][QUEST+".complete"]["effects"])
+        self.assertEqual(claim["items"], [{"item_id": "item.wgs_duradels_notes", "quantity": 1}])
+        self.assertEqual([row["id"] for row in entries.values() if row.get("xp_reward_id") == REWARD], [READ_NOTES])
+        reading = entries[READ_NOTES]
+        read_action = self.tables["actions"][READ_NOTES]
+        self.assertEqual(reading["producer_action_id"], READ_NOTES)
+        self.assertEqual(reading["requires"], read_action["requirements"])
+        self.assertEqual(reading["consumes"], read_action["consumes"])
+        self.assertEqual(reading["repeat_limit"], read_action["repeat_limit"])
+        self.assertEqual(reading["package"]["amount"], {"kind": "per_skill_level", "xp_tenths_per_level": 150})
+        self.assertFalse(reading["package"]["retainable"])
+
+        reviews = {row["id"]: row for row in read_json(coverage / "reward-reviews.json")}
+        completion = reviews[f"review.{QUEST}.completion_rewards"]
+        completion_id = f"{QUEST}.complete"
+        self.assertEqual(completion["expected_effects"][completion_id], self.tables["actions"][completion_id]["effects"])
+        notes = reviews[f"review.{READ_NOTES}"]
+        self.assertEqual(notes["catalog_ids"], [CLAIM, READ_NOTES, REWARD])
+        self.assertEqual(notes["expected_effects"], {
+            CLAIM: self.tables["actions"][CLAIM]["effects"],
+            READ_NOTES: read_action["effects"],
+        })
 
     def test_travel_graph_connects_taverley_to_shilo_and_returns(self):
         graph=defaultdict(set)

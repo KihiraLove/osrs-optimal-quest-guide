@@ -41,6 +41,21 @@ class QuestCollectionTests(unittest.TestCase):
         variants = {row["helper_symbol"] for row in self.observations["quest.shield_of_arrav"]}
         self.assertEqual(variants, {"SHIELD_OF_ARRAV_BLACK_ARM_GANG", "SHIELD_OF_ARRAV_PHOENIX_GANG"})
 
+    def test_collected_journal_records_link_to_completion_rewards(self):
+        reviews = {
+            row["id"]: row for row in read_json(DATA / "coverage/build-242/reward-reviews.json")
+        }
+        activities = {row["id"]: row for row in self.catalog["activities"]}
+        for row in self.journal:
+            if row["status"] in {"collected", "reviewed"}:
+                activity_id = row["id"]
+                with self.subTest(activity=activity_id):
+                    review = reviews[row["completion_reward_review_id"]]
+                    self.assertEqual(review["activity_id"], activity_id)
+                    self.assertIn(review["status"], {"collected", "reviewed"})
+                    completion_ids = activities[activity_id]["completion_action_ids"]
+                    self.assertTrue(set(completion_ids).intersection(review["catalog_ids"]))
+
     def test_plague_city_unlocks_travel_separately_and_biohazard_preserves_samples(self):
         validator = CatalogValidator(self.catalog, self.contracts)
         baseline = read_json(DATA / "profiles/main-baseline.json")

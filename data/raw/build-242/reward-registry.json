@@ -430,22 +430,7 @@
       ],
       "producer_action_id": "claim.while_guthix_sleeps.kuradal",
       "repeat_limit": 1,
-      "package": {
-        "kind": "tome",
-        "quantity": 1,
-        "selection_count": 1,
-        "amount": {
-          "kind": "per_skill_level",
-          "xp_tenths_per_level": 150
-        },
-        "eligible_skills": [
-          "skill.slayer"
-        ],
-        "minimum_level": 1,
-        "distinct_skills": false,
-        "retainable": true
-      },
-      "notes": "Keep the book after claiming it. Reading once grants 15 × current Slayer level XP and demonbane crafting knowledge.",
+      "notes": "Kuradal gives Duradel’s notes. The player can keep the book and read it later.",
       "requires": {
         "kind": "all",
         "requirements": [
@@ -468,7 +453,61 @@
         }
       ],
       "read_action_id": "claim.while_guthix_sleeps.read_duradels_notes",
-      "xp_reward_id": "reward.wgs.duradels_notes_slayer"
+      "items": [
+        {
+          "item_id": "item.wgs_duradels_notes",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "claim.while_guthix_sleeps.read_duradels_notes",
+      "activity_id": "quest.while_guthix_sleeps",
+      "status": "collected",
+      "delivery": "item_use",
+      "source_ids": [
+        "source.quest_helper.quest_observations",
+        "source.runelite.varbits"
+      ],
+      "producer_action_id": "claim.while_guthix_sleeps.read_duradels_notes",
+      "repeat_limit": 1,
+      "xp_reward_id": "reward.wgs.duradels_notes_slayer",
+      "package": {
+        "kind": "tome",
+        "quantity": 1,
+        "selection_count": 1,
+        "amount": {
+          "kind": "per_skill_level",
+          "xp_tenths_per_level": 150
+        },
+        "eligible_skills": [
+          "skill.slayer"
+        ],
+        "minimum_level": 1,
+        "distinct_skills": false,
+        "retainable": false
+      },
+      "requires": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "claim.while_guthix_sleeps.kuradal"
+          },
+          {
+            "kind": "item",
+            "item_id": "item.wgs_duradels_notes",
+            "quantity": 1
+          }
+        ]
+      },
+      "consumes": [
+        {
+          "item_id": "item.wgs_duradels_notes",
+          "quantity": 1
+        }
+      ],
+      "notes": "Reading the book grants 15 XP per current Slayer level and unlocks demonbane crafting."
     },
     {
       "id": "review.activity.knight_waves_training_grounds.completion",
