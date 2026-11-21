@@ -231,8 +231,6 @@ class TravelTests(unittest.TestCase):
         report = verify_solution(solution, profile, self.validator)
         self.assertTrue(report["final_state"]["flags"]["unlock.fairy_rings"])
         self.assertEqual(report["final_state"]["counters"], {"token.quest_points": 1})
-        for skill in ("farming", "herblore", "thieving"):
-            self.assertEqual(report["final_state"]["xp_tenths"][f"skill.{skill}"], 0)
         unlock_index = next(index for index, step in enumerate(solution["steps"]) if step.get("action_id") == unlock)
         ring_index = next(index for index, step in enumerate(solution["steps"])
                           if step.get("edge_id", "").startswith("travel.fairy_ring."))
@@ -240,10 +238,13 @@ class TravelTests(unittest.TestCase):
         self.assertEqual(report["objective"]["priority_elapsed_seconds"], sum(
             step.get("modeled_seconds", 0) for step in solution["steps"][:unlock_index + 1]
         ))
-        # The hideout also opens with zero XP in the three later quest skills.
         state = RouteState(self.validator.tables, profile["policies"], profile["initial_state"])
         for step in solution["steps"][:unlock_index + 1]:
             state = state.apply(step)
+        for skill in ("farming", "herblore", "thieving"):
+            self.assertEqual(state.xp[f"skill.{skill}"], 0)
+
+        # The hideout also opens at these skill levels.
         for edge_id in (
             "travel.walk.zanaris.throne_ring.out",
             "travel.fairy_ring.zanaris.queen_hideout",
