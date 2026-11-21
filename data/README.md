@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.75.0` loads 24 skill tables and
-4,945 draft actions across 217 journal activities, four diary tiers, the
+18 November 2026 at 14:45:05 UTC. Dataset `0.76.0` loads 24 skill tables and
+5,019 draft actions across 219 journal activities, four diary tiers, the
 museum route and travel networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -271,7 +271,9 @@ selections, five Slug Menace altars and four Desert diary tasks.
 
 The [Quest Month weeks one and two review](raw/build-242/quest-month-week-two-review.json)
 records the four November quests, their rewards and the journal changes between
-the two build 242 archives.
+the two build 242 archives. The [week-three review](raw/build-242/quest-month-week-three-review.json)
+records A New Leaf and Rag and Bone Man III, the 18 November journal updates,
+separate lamps and the heavy bonesack claim.
 
 The [Lumbridge and Varlamore review](raw/build-242/lumbridge-and-varlamore-review.json)
 records seven quests and the Vale Totems tutorial, plus the Cowbell teleport,

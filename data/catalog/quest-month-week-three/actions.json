@@ -1,0 +1,3267 @@
+[
+  {
+    "id": "supply.grand_exchange.purchase_leaf_farming_supplies",
+    "name": "Buy potato seed, compost, and a vial for A New Leaf",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 150
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.potato_seed",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.compost",
+        "quantity": 4
+      },
+      {
+        "kind": "item",
+        "item_id": "item.vial_of_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 18,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Rounded planning allowance for a first potato contract and three perfect crops plus the potion. Buy garden tools separately if needed."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_leaf_combat_supplies",
+    "name": "Buy an adamant scimitar and food for the chefs and farmers",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 2200
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.adamant_scimitar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 6
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 18,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Uses the observed 1,436 GP scimitar and 88 GP cooked lobster guide figures plus a small allowance."
+    }
+  },
+  {
+    "id": "supply.farming_guild.accept_easy_potato_contract",
+    "name": "Accept a potato Farming contract",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.farming_guild.jane",
+    "end_location_id": "location.farming_guild.jane",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 45,
+          "boostable": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.farming_guild.contract_completed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.runelite.farming_produce",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "The forecast follows the Easy potato assignment. The NPC selects the crop."
+    },
+    "planned_outcome": {
+      "success_condition": "Jane assigns potatoes on an Easy contract.",
+      "if_unmet": "Complete the actual assigned crop and turn it in. This replay represents the potato assignment."
+    }
+  },
+  {
+    "id": "supply.farming_guild.plant_contract_potatoes",
+    "name": "Plant potatoes for the Farming contract",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.farming_guild.allotments",
+    "end_location_id": "location.farming_guild.allotments",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "supply.farming_guild.accept_easy_potato_contract"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.farming_guild.week_three_allotments_in_use",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.potato_seed",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 80
+      },
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.farming_guild.potato_contract",
+        "duration_seconds": 2400
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.farming_guild.week_three_allotments_in_use",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 24
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.runelite.farming_produce",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Clear an allotment and sow three potato seeds."
+    }
+  },
+  {
+    "id": "supply.farming_guild.harvest_contract_potatoes",
+    "name": "Harvest mature contract potatoes",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.farming_guild.allotments",
+    "end_location_id": "location.farming_guild.allotments",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "supply.farming_guild.plant_contract_potatoes"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.farming_guild.potato_contract"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.potato",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 90
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.farming_guild.week_three_allotments_in_use",
+        "value": false
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.runelite.farming_produce",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Credit one picked potato and its XP. The contract records a successful harvest."
+    },
+    "planned_outcome": {
+      "success_condition": "Pick potatoes from your mature Farming Guild allotment.",
+      "if_unmet": "Treat a diseased crop or plant another batch if necessary."
+    }
+  },
+  {
+    "id": "supply.farming_guild.report_first_contract",
+    "name": "Report the completed contract to Guildmaster Jane",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.farming_guild.jane",
+    "end_location_id": "location.farming_guild.jane",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "supply.farming_guild.harvest_contract_potatoes"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.farming_guild.contract_completed",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.farming_guild.contract_completed",
+        "value": true
+      },
+      {
+        "kind": "item",
+        "item_id": "item.easy_farming_seed_pack",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 18
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.jagex.quest_month_2026_11_18",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Report the first harvest and receive an Easy seed pack."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.pick_communication_cabbage",
+    "name": "Find a communication cabbage",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.hosidius.communication_cabbage_field",
+    "end_location_id": "location.hosidius.communication_cabbage_field",
+    "requirements": {
+      "kind": "all",
+      "requirements": []
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.communication_cabbage",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cabbage",
+        "quantity": 2
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 18,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Pick at the designated field. Keep two ordinary cabbages for the potion errands."
+    },
+    "planned_outcome": {
+      "success_condition": "Obtain a communication cabbage and two normal cabbages.",
+      "if_unmet": "Keep picking at the Hosidius field."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.start",
+    "name": "Eat the communication cabbage",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.hosidius.communication_cabbage_field",
+    "end_location_id": "location.hosidius.communication_cabbage_field",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.pick_communication_cabbage"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.priest_in_peril.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 45,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.cooking",
+          "minimum_level": 35,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.herblore",
+          "minimum_level": 32,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.communication_cabbage",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 10,
+      "max_seconds": 20
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Start the quest from the cabbage conversation."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.meet_dennis",
+    "name": "Speak with Dishop Dennis",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.kebos.dishop_dennis",
+    "end_location_id": "location.kebos.dishop_dennis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 22,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Discuss the work for the Church of Brassica."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.request_stew",
+    "name": "Ask Dennis about making the stew",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.kebos.dishop_dennis",
+    "end_location_id": "location.kebos.dishop_dennis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.meet_dennis"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cabbage_seed",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.potato_seed",
+        "quantity": 3
+      },
+      {
+        "kind": "item",
+        "item_id": "item.rosemary_seed",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.brassican_prayer",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 24
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Receive the crop seeds and the Prayer to Brassica."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.plant_perfect_crops",
+    "name": "Plant the three crops for Dennis",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.farming_guild.allotments",
+    "end_location_id": "location.farming_guild.allotments",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.request_stew"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.farming_guild.week_three_allotments_in_use",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.cabbage_seed",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.potato_seed",
+        "quantity": 3
+      },
+      {
+        "item_id": "item.rosemary_seed",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.compost",
+        "quantity": 3
+      }
+    ],
+    "effects": [
+      {
+        "kind": "flag",
+        "token_id": "flag.farming_guild.week_three_allotments_in_use",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Clear the two allotments and flower patch. Compost and plant cabbage, potato and rosemary in their own patches."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.harvest_perfect_crops",
+    "name": "Use the prayer and harvest the perfect crops",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.farming_guild.allotments",
+    "end_location_id": "location.farming_guild.allotments",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.plant_perfect_crops"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.brassican_prayer",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.perfect_cabbage",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.perfect_potato",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.perfect_rosemary",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.farming_guild.week_three_allotments_in_use",
+        "value": false
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 20,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Read the single-use prayer after all three crops have been planted, then harvest the three quest ingredients."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.collect_bowls",
+    "name": "Take four empty bowls from the farmhouse crates",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.kebos.dennis_stew_pot",
+    "end_location_id": "location.kebos.dennis_stew_pot",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.request_stew"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.bowl",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 18
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "The crates supply one bowl per recipient."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.cook_and_fill_stew",
+    "name": "Cook and portion four bowls of perfect cabbage stew",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.kebos.dennis_stew_pot",
+    "end_location_id": "location.kebos.dennis_stew_pot",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.harvest_perfect_crops"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.collect_bowls"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.perfect_cabbage",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.perfect_potato",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.perfect_rosemary",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.bowl",
+        "quantity": 4
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.perfect_cabbage_stew",
+        "quantity": 4
+      }
+    ],
+    "duration": {
+      "min_seconds": 11,
+      "expected_seconds": 22,
+      "max_seconds": 44
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Use the perfect vegetables and rosemary in Dennis’s pot. Confirm the recipients with Dennis and fill four bowls."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.give_stew_jane",
+    "name": "Deliver stew to Guildmaster Jane",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.farming_guild.jane",
+    "end_location_id": "location.farming_guild.jane",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.cook_and_fill_stew"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.perfect_cabbage_stew",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Deliver one prepared bowl to this recipient."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.give_stew_sergeant",
+    "name": "Deliver stew to the Farming Guild Sergeant",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.farming_guild.sergeant",
+    "end_location_id": "location.farming_guild.sergeant",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.cook_and_fill_stew"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.perfect_cabbage_stew",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Deliver one prepared bowl to this recipient."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.give_stew_mary",
+    "name": "Deliver stew to Mary",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.kebos.mary",
+    "end_location_id": "location.kebos.mary",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.cook_and_fill_stew"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.perfect_cabbage_stew",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Deliver one prepared bowl to this recipient."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.give_stew_konar",
+    "name": "Deliver stew to Konar",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.mount_karuulm.konar",
+    "end_location_id": "location.mount_karuulm.konar",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.cook_and_fill_stew"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.perfect_cabbage_stew",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Deliver one prepared bowl to this recipient."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.report_stew",
+    "name": "Report the four stew deliveries",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.kebos.dishop_dennis",
+    "end_location_id": "location.kebos.dishop_dennis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.give_stew_jane"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.give_stew_sergeant"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.give_stew_mary"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.give_stew_konar"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 24
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Tell Dennis that all four recipients were served."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.give_dennis_cabbage",
+    "name": "Give Dennis a cabbage for the potion research",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.kebos.dishop_dennis",
+    "end_location_id": "location.kebos.dishop_dennis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.meet_dennis"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.cabbage",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 16,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Give a regular cabbage and obtain the referral to Allanna."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.get_potion_book",
+    "name": "Get Allanna’s cabbage potion book",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.farming_guild.allanna",
+    "end_location_id": "location.farming_guild.allanna",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.give_dennis_cabbage"
+        },
+        {
+          "kind": "flag",
+          "token_id": "flag.farming_guild.contract_completed",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.brassican_potion_book",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Ask Allanna for the recipe book after completing at least one Farming Guild contract."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.make_cabbage_water",
+    "name": "Read the recipe and make cabbage water",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.farming_guild.allanna",
+    "end_location_id": "location.farming_guild.allanna",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.get_potion_book"
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.herblore",
+          "value": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.brassican_potion_book",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.cabbage",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.vial_of_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.cabbage_water",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 9,
+      "max_seconds": 18
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Use the remaining regular cabbage with a vial of water after reading the book."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.bless_compost",
+    "name": "Ask Dennis to bless the potion compost",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.kebos.dishop_dennis",
+    "end_location_id": "location.kebos.dishop_dennis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.make_cabbage_water"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.compost",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.blessed_compost",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 10,
+      "max_seconds": 20
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Use a bucket of regular compost. Supercompost and ultracompost are outside this potion recipe."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.make_sentience_potion",
+    "name": "Make the Brassican sentience potion",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.kebos.dishop_dennis",
+    "end_location_id": "location.kebos.dishop_dennis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.bless_compost"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.blessed_compost",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.cabbage_water",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.brassican_sentience_potion",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 7,
+      "max_seconds": 14
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Combine the blessed compost and cabbage water."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.receive_sprout_spies",
+    "name": "Give Dennis the potion and collect the spies",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.kebos.dishop_dennis",
+    "end_location_id": "location.kebos.dishop_dennis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.make_sentience_potion"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.brassican_sentience_potion",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.sprout_spy",
+        "quantity": 5
+      },
+      {
+        "kind": "item",
+        "item_id": "item.seed_of_growth",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 20,
+      "max_seconds": 40
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Finish the potion conversation and accept all five sprout spies and the return seed."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.place_falador_spy",
+    "name": "Place a sprout spy at the White Knights’ Castle range",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.a_new_leaf.falador_spy_range",
+    "end_location_id": "location.a_new_leaf.falador_spy_range",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.receive_sprout_spies"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sprout_spy",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Use one sprout spy on this appliance."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.place_hosidius_spy",
+    "name": "Place a sprout spy at the Hosidius mess-hall oven",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.a_new_leaf.hosidius_spy_range",
+    "end_location_id": "location.a_new_leaf.hosidius_spy_range",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.receive_sprout_spies"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sprout_spy",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Use one sprout spy on this appliance."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.place_gnome_spy",
+    "name": "Place a sprout spy at the upstairs Grand Tree cooker",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.a_new_leaf.gnome_spy_range",
+    "end_location_id": "location.a_new_leaf.gnome_spy_range",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.receive_sprout_spies"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sprout_spy",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Use one sprout spy on this appliance."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.place_phasmatys_spy",
+    "name": "Place a sprout spy at the cooking range in Sarah’s house",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.a_new_leaf.phasmatys_spy_range",
+    "end_location_id": "location.a_new_leaf.phasmatys_spy_range",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.receive_sprout_spies"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sprout_spy",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Use one sprout spy on this appliance."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.place_al_kharid_spy",
+    "name": "Place a sprout spy at the Al Kharid kebab-shop range",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.a_new_leaf.al_kharid_spy_range",
+    "end_location_id": "location.a_new_leaf.al_kharid_spy_range",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.receive_sprout_spies"
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.sprout_spy",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Use one sprout spy on this appliance."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.report_spies",
+    "name": "Report all five sprout spy placements",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.kebos.dishop_dennis",
+    "end_location_id": "location.kebos.dishop_dennis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.place_falador_spy"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.place_hosidius_spy"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.place_gnome_spy"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.place_phasmatys_spy"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.place_al_kharid_spy"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 24
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Tell Dennis that all five spies have been planted."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.enter_arena",
+    "name": "Ask Dennis to enter the chefs and farmers arena",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.kebos.dishop_dennis",
+    "end_location_id": "location.a_new_leaf.farmers_arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.report_stew"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.report_spies"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 13,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Both Dennis assignments must be reported. The dialogue transfers the player into the instance."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.defeat_chefs_and_farmers",
+    "name": "Defeat the five chefs and farmers",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.a_new_leaf.farmers_arena",
+    "end_location_id": "location.kebos.dishop_dennis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.enter_arena"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.attack",
+          "minimum_level": 30,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.adamant_scimitar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 6
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 40,
+      "expected_seconds": 145,
+      "max_seconds": 450
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Defeat the Gardener of Armadyl, Bandit Cactus Cultivator, Fermenter of Chaos, Sir Loin and Goblin Meat Tenderiser. Use melee protection if available. Food use is a planning reserve."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat all five opponents in one visit and return to Dennis.",
+      "if_unmet": "Restock and retry the encounter. Leaving the arena resets the enemies."
+    }
+  },
+  {
+    "id": "quest.a_new_leaf.complete",
+    "name": "Report the victory to Dishop Dennis",
+    "kind": "quest_stage",
+    "activity_id": "quest.a_new_leaf",
+    "start_location_id": "location.kebos.dishop_dennis",
+    "end_location_id": "location.kebos.dishop_dennis",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_new_leaf.defeat_chefs_and_farmers"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 2
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 100000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.cooking",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.herblore",
+        "xp_tenths": 20000
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.a_new_leaf.combat_lamp",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.farming_guild.allotment_disease_protection",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.farming_guild.seed_of_growth_pack_drop",
+        "value": true
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.a_new_leaf.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 18,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.cache_242_2026_11_18",
+        "source.jagex.quest_month_2026_11_18",
+        "source.quest_helper.a_new_leaf",
+        "source.capture.a_new_leaf",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Award two quest points from the client journal, the three fixed XP rewards, and the combat lamp. Enable the Farming Guild benefits."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_rag_iii_combat_supplies",
+    "name": "Buy a rune scimitar, food and a Prayer potion for Rag and Bone Man III",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 26000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rune_scimitar",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.lobster",
+        "quantity": 18
+      },
+      {
+        "kind": "item",
+        "item_id": "item.prayer_potion_4",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 18,
+      "max_seconds": 90
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Rounded forecast based on 14.7k GP for the rune scimitar, 88 GP per cooked lobster and 8,283 GP for the potion."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.start",
+    "name": "Ask the Odd Old Man about his collection",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.digsite.odd_old_man",
+    "end_location_id": "location.digsite.odd_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_ii.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.dragon_slayer_i.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.the_great_brain_robbery.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.defender_of_varrock.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.tower_of_life.complete"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.a_souls_bane.complete"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.slayer",
+          "minimum_level": 58,
+          "boostable": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.cache_242_2026_11_18",
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Start the third quest at the house north of the Digsite."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.read_monster_list",
+    "name": "Read the monster list on the wall",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.digsite.odd_old_man",
+    "end_location_id": "location.digsite.odd_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.start"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 6,
+      "max_seconds": 12
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "The list unlocks the qualifying kills. This route uses the Lumbridge cow and chicken."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.kill_listed_cow",
+    "name": "Kill a cow for the Odd Old Man’s list",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.lumbridge.diary_cow_pen",
+    "end_location_id": "location.lumbridge.diary_cow_pen",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.read_monster_list"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 10,
+      "max_seconds": 20
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Defeat one cow after reading the list. Keep the quest drop if one appears."
+    },
+    "planned_outcome": {
+      "success_condition": "The cow kill advances the quest list.",
+      "if_unmet": "Finish a cow kill at the pen and check for the quest prompt."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.kill_listed_chicken",
+    "name": "Kill a chicken for the Odd Old Man’s list",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.lumbridge.mudfoot_chicken_field",
+    "end_location_id": "location.lumbridge.mudfoot_chicken_field",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.read_monster_list"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Defeat one chicken after reading the list. Keep the quest drop if one appears."
+    },
+    "planned_outcome": {
+      "success_condition": "The chicken kill advances the quest list.",
+      "if_unmet": "Finish a chicken kill and check for the quest prompt."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.enter_dream",
+    "name": "Return to the Odd Old Man and enter the dream",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.digsite.odd_old_man",
+    "end_location_id": "location.rag_iii.dream_1.void",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.kill_listed_cow"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.kill_listed_chicken"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 18,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "The quest script kills and transfers the player to its void. This is a quest progression cutscene."
+    },
+    "planned_outcome": {
+      "success_condition": "Return after both listed kills and arrive in the quest void.",
+      "if_unmet": "Check the wall list and finish the missing qualifying kill, then return."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_1_romeo",
+    "name": "Find Romeo in the void",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_1.void",
+    "end_location_id": "location.rag_iii.dream_1.guide",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.enter_dream"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 32,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Speak to Death if prompted on the repeated pass. Locate Romeo and ask him to take you to the altered island."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_1_guide",
+    "name": "Speak with the Gielinor Guide",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_1.guide",
+    "end_location_id": "location.rag_iii.dream_1.survival",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_1_romeo"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 27,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Finish the opening lesson dialogue and walk to the Survival Expert."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_1_fish",
+    "name": "Finish the bare-handed fishing lesson",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_1.survival",
+    "end_location_id": "location.rag_iii.dream_1.roald",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_1_guide"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 34,
+      "max_seconds": 68
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Speak to the Survival Expert and catch the scripted fish by hand to reach King Roald."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_1_rescue_roald",
+    "name": "Rescue and speak to King Roald",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_1.roald",
+    "end_location_id": "location.rag_iii.dream_1.archmage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_1_fish"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 52,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Defeat the Lost Souls. Speak to the king to continue to the archmage’s chamber."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Lost Souls and advance through Roald’s dialogue.",
+      "if_unmet": "Defeat any remaining Lost Souls before speaking to him."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_1_make_bed",
+    "name": "Make Sedridor’s bed and return to him",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_1.archmage",
+    "end_location_id": "location.rag_iii.dream_1.rift",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_1_rescue_roald"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 27,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Complete the archmage’s conversation, make his bed and speak again to enter the rift."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_1_scripted_death",
+    "name": "Let the rift restart the dream",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_1.rift",
+    "end_location_id": "location.rag_iii.dream_2.void",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_1_make_bed"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 32,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Allow the planned dream encounter to send you back to the void. This does not use ordinary death travel."
+    },
+    "planned_outcome": {
+      "success_condition": "The scripted encounter restarts the dream at the next pass.",
+      "if_unmet": "Let the encounter finish and follow the return dialogue."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_2_romeo",
+    "name": "Find Romeo in the void",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_2.void",
+    "end_location_id": "location.rag_iii.dream_2.guide",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_1_scripted_death"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 32,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Speak to Death if prompted on the repeated pass. Locate Romeo and ask him to take you to the altered island."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_2_guide",
+    "name": "Speak with the Gielinor Guide",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_2.guide",
+    "end_location_id": "location.rag_iii.dream_2.survival",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_2_romeo"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 27,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Finish the opening lesson dialogue and walk to the Survival Expert."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_2_fish",
+    "name": "Finish the bare-handed fishing lesson",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_2.survival",
+    "end_location_id": "location.rag_iii.dream_2.roald",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_2_guide"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 17,
+      "expected_seconds": 34,
+      "max_seconds": 68
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Speak to the Survival Expert and catch the scripted fish by hand to reach King Roald."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_2_rescue_roald",
+    "name": "Rescue and speak to King Roald",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_2.roald",
+    "end_location_id": "location.rag_iii.dream_2.archmage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_2_fish"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 52,
+      "max_seconds": 180
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Defeat the Lost Souls. Speak to the king to continue to the archmage’s chamber."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Lost Souls and advance through Roald’s dialogue.",
+      "if_unmet": "Defeat any remaining Lost Souls before speaking to him."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_2_talk_to_traiborn",
+    "name": "Ask Traiborn about changing the dream",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_2.archmage",
+    "end_location_id": "location.rag_iii.dream_2.archmage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_2_rescue_roald"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 18,
+      "max_seconds": 36
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Speak to Wizard Traiborn during the second pass before finishing Sedridor’s task."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_2_make_bed",
+    "name": "Make Sedridor’s bed and return to him",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_2.archmage",
+    "end_location_id": "location.rag_iii.dream_2.rift",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_2_talk_to_traiborn"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 13,
+      "expected_seconds": 27,
+      "max_seconds": 54
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Complete the archmage’s conversation, make his bed and speak again to enter the rift."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_2_scripted_death",
+    "name": "Let the rift restart the dream",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_2.rift",
+    "end_location_id": "location.rag_iii.dream_3.void",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_2_make_bed"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 16,
+      "expected_seconds": 32,
+      "max_seconds": 64
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Allow the planned dream encounter to send you back to the void. This does not use ordinary death travel."
+    },
+    "planned_outcome": {
+      "success_condition": "The scripted encounter restarts the dream at the next pass.",
+      "if_unmet": "Let the encounter finish and follow the return dialogue."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_3_romeo",
+    "name": "Find Romeo for the third pass",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_3.void",
+    "end_location_id": "location.rag_iii.dream_3.guide",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_2_scripted_death"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 14,
+      "expected_seconds": 28,
+      "max_seconds": 56
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Use Romeo to enter the altered tutorial again."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_3_guide",
+    "name": "Take the Gielinor Guide’s shortcut to Roald",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_3.guide",
+    "end_location_id": "location.rag_iii.dream_3.roald",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_3_romeo"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 8,
+      "expected_seconds": 16,
+      "max_seconds": 32
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "The Guide now skips the Survival Expert and sends you directly to King Roald."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_3_rescue_roald",
+    "name": "Defeat the Lost Souls and leave without speaking to Roald",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_3.roald",
+    "end_location_id": "location.rag_iii.dream_3.roald",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_3_guide"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 24,
+      "expected_seconds": 48,
+      "max_seconds": 96
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "After the rescue, head west and south to Traiborn. Speaking to Roald would follow the earlier loop."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Lost Souls and keep the alternate route open by leaving Roald alone.",
+      "if_unmet": "Finish the remaining Lost Souls and seek Traiborn."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.dream_3_talk_to_traiborn",
+    "name": "Find Traiborn west and south of Roald",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_3.roald",
+    "end_location_id": "location.rag_iii.dream_3.archmage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_3_rescue_roald"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 18,
+      "expected_seconds": 37,
+      "max_seconds": 74
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Speak to Traiborn and follow his directions back to the archmage."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.get_archmage_staff",
+    "name": "Defeat the archmage and pick up his staff",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_3.archmage",
+    "end_location_id": "location.rag_iii.dream_3.archmage",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.dream_3_talk_to_traiborn"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.sedridor_staff",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 32,
+      "expected_seconds": 64,
+      "max_seconds": 128
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Speak to the archmage, win the dream fight and take the dropped staff."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the archmage and take the staff before leaving.",
+      "if_unmet": "Continue the fight, then pick up the staff."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.take_staff_to_tolna",
+    "name": "Return to Traiborn and enter Tolna’s rift",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_3.archmage",
+    "end_location_id": "location.rag_iii.dream_3.rift",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.get_archmage_staff"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.sedridor_staff",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 25,
+      "max_seconds": 50
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Take the staff to Traiborn. He transfers you to the rift."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.defeat_tolnas_creatures",
+    "name": "Defeat Tolna’s creatures with the archmage’s staff",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_3.rift",
+    "end_location_id": "location.rag_iii.dream_3.rift",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.take_staff_to_tolna"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.sedridor_staff",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 38,
+      "expected_seconds": 76,
+      "max_seconds": 152
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Equip the staff for this pass and defeat the creatures before speaking to Tolna."
+    },
+    "planned_outcome": {
+      "success_condition": "All of the creatures are defeated and Tolna can be spoken to.",
+      "if_unmet": "Equip the staff and defeat the remaining creatures."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.leap_into_asylum",
+    "name": "Speak to Tolna and leap into the pit",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.dream_3.rift",
+    "end_location_id": "location.rag_iii.asylum.entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.defeat_tolnas_creatures"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 21,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Tolna points you to the pit. Take the leap into the asylum."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.learn_about_waystones",
+    "name": "Ask the strange creature about the waystones",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.asylum.entrance",
+    "end_location_id": "location.rag_iii.asylum.entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.leap_into_asylum"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 9,
+      "expected_seconds": 19,
+      "max_seconds": 38
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Learn to break the four waystones before proceeding deeper."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.search_asylum_desk",
+    "name": "Take the key and earmuffs from the desk",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.asylum.entrance",
+    "end_location_id": "location.rag_iii.asylum.entrance",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.learn_about_waystones"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_iii_asylum_key",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.earmuffs",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 4,
+      "expected_seconds": 8,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Search the entrance desk before opening the passage east."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.defeat_asylum_banshee",
+    "name": "Defeat the Ancient Banshee while wearing earmuffs",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.asylum.banshee_wing",
+    "end_location_id": "location.rag_iii.asylum.banshee_wing",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.search_asylum_desk"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.attack",
+          "minimum_level": 40,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rune_scimitar",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.earmuffs",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 3
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 20,
+      "expected_seconds": 80,
+      "max_seconds": 240
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Wear the earmuffs. Reactivate Protect from Melee after the banshee disables it. Lobsters are an estimated reserve."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Ancient Banshee and reach its waystone.",
+      "if_unmet": "Check your earmuffs and protect from melee again after a scream."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.break_banshee_waystone",
+    "name": "Break the banshee wing waystone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.asylum.banshee_wing",
+    "end_location_id": "location.rag_iii.asylum.banshee_wing",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.defeat_asylum_banshee"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 6,
+      "max_seconds": 12
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Destroy the waystone after defeating its guard."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.read_asylum_lock_book",
+    "name": "Read the book in the southern desk",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.asylum.locked_wing",
+    "end_location_id": "location.rag_iii.asylum.locked_wing",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.learn_about_waystones"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.rag_iii_asylum_book",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 11,
+      "max_seconds": 22
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Record the combination before operating the mechanism."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.break_locked_waystone",
+    "name": "Enter the lock combination and break the waystone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.asylum.locked_wing",
+    "end_location_id": "location.rag_iii.asylum.locked_wing",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.read_asylum_lock_book"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rag_iii_asylum_book",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Use the combination 3118 from the book and break the exposed stone."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.cross_shadow_maze",
+    "name": "Cross the asylum shadow maze",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.asylum.shadow_maze",
+    "end_location_id": "location.rag_iii.asylum.maze_waystone",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.learn_about_waystones"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 23,
+      "expected_seconds": 60,
+      "max_seconds": 220
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Watch the moving shadows, use the centre gaps and work around the southern shadow."
+    },
+    "planned_outcome": {
+      "success_condition": "Reach the waystone on the far side of the maze.",
+      "if_unmet": "Return to the safe openings and retry the crossing."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.break_maze_waystone",
+    "name": "Break the shadow maze waystone and return",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.asylum.maze_waystone",
+    "end_location_id": "location.rag_iii.asylum.shadow_maze",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.cross_shadow_maze"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 24
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Break the far waystone and use a shadow to return to the maze entrance."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.break_north_waystone",
+    "name": "Break the northern asylum waystone",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.asylum.north_waystone",
+    "end_location_id": "location.rag_iii.asylum.north_waystone",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.learn_about_waystones"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 6,
+      "max_seconds": 12
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Break the remaining unguarded waystone in the north wing."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.enter_horror_arena",
+    "name": "Enter the Skeletal Horror arena",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.asylum.entrance",
+    "end_location_id": "location.rag_iii.horror.arena",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.break_banshee_waystone"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.break_locked_waystone"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.break_maze_waystone"
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.break_north_waystone"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [],
+    "duration": {
+      "min_seconds": 10,
+      "expected_seconds": 21,
+      "max_seconds": 42
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "With all four waystones destroyed, descend and speak to the Odd Old Man."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.defeat_skeletal_horror",
+    "name": "Defeat the Skeletal Horror",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.rag_iii.horror.arena",
+    "end_location_id": "location.digsite.odd_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.enter_horror_arena"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.attack",
+          "minimum_level": 40,
+          "boostable": false
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.prayer",
+          "minimum_level": 43,
+          "boostable": false
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rune_scimitar",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.lobster",
+        "quantity": 15
+      },
+      {
+        "item_id": "item.prayer_potion_4",
+        "quantity": 1
+      }
+    ],
+    "effects": [],
+    "duration": {
+      "min_seconds": 70,
+      "expected_seconds": 190,
+      "max_seconds": 600
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.capture.rag_and_bone_man_iii",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Use melee protection against melee attacks. Prioritize shadow rifts and crawling hands, and heal projectile damage. Food and Prayer potion consumption are forecast reserves."
+    },
+    "planned_outcome": {
+      "success_condition": "Defeat the Skeletal Horror and return to the Odd Old Man conversation.",
+      "if_unmet": "Use the regular death recovery if needed, restock and retry the final fight."
+    }
+  },
+  {
+    "id": "quest.rag_and_bone_man_iii.complete",
+    "name": "Finish speaking to the Odd Old Man",
+    "kind": "quest_stage",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.digsite.odd_old_man",
+    "end_location_id": "location.digsite.odd_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "quest.rag_and_bone_man_iii.defeat_skeletal_horror"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "counter",
+        "token_id": "token.quest_points",
+        "delta": 3
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.rag_and_bone_man_iii.prayer_lamp",
+        "quantity": 1
+      },
+      {
+        "kind": "xp_reward",
+        "reward_id": "reward.rag_and_bone_man_iii.slayer_lamp",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.quest.rag_and_bone_man_iii.complete",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 7,
+      "expected_seconds": 15,
+      "max_seconds": 30
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.cache_242_2026_11_18",
+        "source.jagex.quest_month_2026_11_18",
+        "source.runelite.quest_month_week_three",
+        "source.capture.rag_and_bone_man_iii_rewards",
+        "source.capture.rag_and_bone_man_iii",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Receive three quest points and the separate Prayer and Slayer lamps."
+    }
+  },
+  {
+    "id": "claim.rag_and_bone_man_iii.heavy_bonesack",
+    "name": "Claim the heavy bonesack from the Odd Old Man",
+    "kind": "reward_claim",
+    "activity_id": "quest.rag_and_bone_man_iii",
+    "start_location_id": "location.digsite.odd_old_man",
+    "end_location_id": "location.digsite.odd_old_man",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.quest.rag_and_bone_man_iii.complete",
+          "value": true
+        },
+        {
+          "kind": "flag",
+          "token_id": "unlock.rag_and_bone_man_iii.heavy_bonesack",
+          "value": false
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.heavy_bonesack",
+        "quantity": 1
+      },
+      {
+        "kind": "flag",
+        "token_id": "unlock.rag_and_bone_man_iii.heavy_bonesack",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 6,
+      "expected_seconds": 12,
+      "max_seconds": 24
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.quest_month_2026_11_18",
+        "source.runelite.quest_month_week_three",
+        "source.project.quest_month_week_three"
+      ],
+      "status": "estimated",
+      "note": "Talk to the Odd Old Man after the quest. This is the initial claim and its single item award."
+    }
+  }
+]

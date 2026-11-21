@@ -59,7 +59,7 @@ class Build242BaselineTests(unittest.TestCase):
 
     def test_goals_keep_journal_identity_and_separate_subquests(self):
         journal = self.entries["journal"]
-        self.assertEqual(len(journal), 218)
+        self.assertEqual(len(journal), 220)
         self.assertEqual(len({entry["id"] for entry in journal}), len(journal))
         self.assertEqual(len({entry["client_quest_id"] for entry in journal}), len(journal))
         goal_ids = [entry["goal_action_id"] for entry in journal
@@ -75,6 +75,8 @@ class Build242BaselineTests(unittest.TestCase):
             "quest.the_writings_on_the_wall": 17231,
             "quest.a_shell_of_a_friend": 17315,
             "quest.the_birds_and_the_wasps": 17316,
+            "quest.a_new_leaf": 13708,
+            "quest.rag_and_bone_man_iii": 13730,
         }
         actions = {action["id"] for action in self.catalog["actions"]}
         for entry in journal:

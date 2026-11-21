@@ -1,5 +1,5 @@
 {
-  "revision": "osrs-live-242-2026-11-11",
+  "revision": "osrs-live-242-2026-11-18",
   "source_ids": [
     "source.runelite.quests",
     "source.quest_helper.index",
@@ -8,7 +8,12 @@
     "source.quest_helper.diaries",
     "source.runelite.varbits",
     "source.jagex.cache_242_2026_11_11",
-    "source.jagex.quest_month_2026_11_11"
+    "source.jagex.quest_month_2026_11_11",
+    "source.jagex.cache_242_2026_11_18",
+    "source.jagex.quest_month_2026_11_18",
+    "source.quest_helper.a_new_leaf",
+    "source.runelite.quest_month_week_three",
+    "source.capture.rag_and_bone_man_iii_rewards"
   ],
   "observations": [
     {
@@ -138,6 +143,52 @@
       ],
       "accepted": 17316,
       "reason": "Read the new journal row from archive 2762. The preceding archive 2757 has the same client build and predates this release."
+    },
+    {
+      "id": "conflict.a_new_leaf.quest_points",
+      "record_id": "quest.a_new_leaf",
+      "field": "quest_points",
+      "status": "resolved",
+      "claims": [
+        {
+          "source_id": "source.jagex.quest_month_2026_11_18",
+          "value": 1
+        },
+        {
+          "source_id": "source.jagex.cache_242_2026_11_18",
+          "value": 2
+        },
+        {
+          "source_id": "source.quest_helper.a_new_leaf",
+          "value": 2
+        }
+      ],
+      "accepted": 2,
+      "reason": "Use the value in live English build 242 DB row 13708. The independent quest-helper reward declaration agrees."
+    },
+    {
+      "id": "conflict.rag_and_bone_man_iii.slayer_reward_delivery",
+      "record_id": "quest.rag_and_bone_man_iii",
+      "field": "slayer_reward_delivery",
+      "status": "resolved",
+      "claims": [
+        {
+          "source_id": "source.jagex.quest_month_2026_11_18",
+          "value": "10,000 Slayer XP"
+        },
+        {
+          "source_id": "source.runelite.quest_month_week_three",
+          "value": {
+            "lamp_item_id": 34838
+          }
+        },
+        {
+          "source_id": "source.capture.rag_and_bone_man_iii_rewards",
+          "value": "Separate 10,000 XP lamp for Slayer"
+        }
+      ],
+      "accepted": "held Slayer lamp",
+      "reason": "The client has separate Rag and Bone Man III Slayer and Prayer lamp item IDs and used flags. Record each award as one held lamp."
     }
   ]
 }
