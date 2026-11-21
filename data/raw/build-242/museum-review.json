@@ -811,18 +811,43 @@
     },
     {
       "id": "transport.fossil_island.mushtrees",
-      "status": "pending",
+      "status": "collected",
       "requires_flag_id": "unlock.fossil_island",
       "known_object_tile": [
         3764,
         3880,
         1
       ],
-      "note": "Review each endpoint's activation and directed network edges independently from camp construction."
+      "note": "Use each tree locally to enable it. All four discovered endpoints allow return travel. The valley landing is offset from its interaction tile. The swamp walk assumes a rake and axe. The rubber-cap alternative, hazard damage and incidental obstacle XP remain outside this route.",
+      "source_ids": [
+        "source.shortest_path.fossil_mushtrees",
+        "source.field.fossil_island_pendant_attunement",
+        "source.project.museum_timing"
+      ],
+      "discovery_action_ids": [
+        "transport.fossil_island.mushtree.house_on_the_hill",
+        "transport.fossil_island.mushtree.verdant_valley",
+        "transport.fossil_island.mushtree.sticky_swamp",
+        "transport.fossil_island.mushtree.mushroom_meadow"
+      ],
+      "edge_ids": [
+        "travel.fossil_island.mushtree.house_on_the_hill.verdant_valley",
+        "travel.fossil_island.mushtree.house_on_the_hill.sticky_swamp",
+        "travel.fossil_island.mushtree.house_on_the_hill.mushroom_meadow",
+        "travel.fossil_island.mushtree.verdant_valley.house_on_the_hill",
+        "travel.fossil_island.mushtree.verdant_valley.sticky_swamp",
+        "travel.fossil_island.mushtree.verdant_valley.mushroom_meadow",
+        "travel.fossil_island.mushtree.sticky_swamp.house_on_the_hill",
+        "travel.fossil_island.mushtree.sticky_swamp.verdant_valley",
+        "travel.fossil_island.mushtree.sticky_swamp.mushroom_meadow",
+        "travel.fossil_island.mushtree.mushroom_meadow.house_on_the_hill",
+        "travel.fossil_island.mushtree.mushroom_meadow.verdant_valley",
+        "travel.fossil_island.mushtree.mushroom_meadow.sticky_swamp"
+      ]
     },
     {
       "id": "transport.fossil_island.rowboats",
-      "status": "pending",
+      "status": "collected",
       "requires_flag_id": "unlock.fossil_island",
       "known_object_tiles": [
         [
@@ -841,7 +866,20 @@
           0
         ]
       ],
-      "note": "These are local rowboat objects. Verify destination and dialogue gates before adding separate travel edges."
+      "note": "Walk or row to the north shore and row out to sea to discover the small island. Later departures from camp can go there directly. The recorded return from the small island lands on the north shore. The existing barge edges serve the mainland. Diving is a separate activity and the Lithkren boat belongs to Dragon Slayer II. The zip line and its discovery interaction await separate shortcut review.",
+      "source_ids": [
+        "source.shortest_path.fossil_rowboats",
+        "source.jagex.cache_242_map",
+        "source.jagex.fossil_rowboat_shortcut",
+        "source.project.museum_timing"
+      ],
+      "edge_ids": [
+        "travel.fossil_island.rowboat.camp_to_north",
+        "travel.fossil_island.rowboat.north_to_camp",
+        "travel.fossil_island.rowboat.north_to_sea",
+        "travel.fossil_island.rowboat.sea_to_north",
+        "travel.fossil_island.rowboat.camp_to_sea"
+      ]
     }
   ],
   "fossils": {

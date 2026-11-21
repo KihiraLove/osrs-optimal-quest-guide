@@ -6,6 +6,7 @@ import unittest
 from quest_optimizer.data import Contracts, DataError, load_catalog, read_json
 from quest_optimizer.reward_trace import RewardTrace
 from quest_optimizer.semantics import CatalogValidator
+from quest_optimizer.transitions import RouteState
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -141,6 +142,92 @@ class MuseumTests(unittest.TestCase):
             trace.award(self.edges["travel.fossil_island.barge.out"], "before_voyage")
         trace.award(finish, "voyage_completion")
         trace.award(self.edges["travel.fossil_island.barge.back"], "after_voyage")
+
+    def fossil_route(self, state, *records):
+        for record_id in records:
+            if record_id in self.edges:
+                record = self.edges[record_id]
+                step = {"kind": "travel", "edge_id": record_id}
+            else:
+                record = self.actions[record_id]
+                step = {"kind": "action", "action_id": record_id}
+            state = state.apply({**step, "modeled_seconds": record["duration"]["expected_seconds"]})
+        return state
+
+    def finish_bone_voyage(self, **tools):
+        initial = dict(self.profile["initial_state"], location_id="location.digsite.barge_wharf",
+                       completed_action_ids=["quest.bone_voyage.get_potion"],
+                       inventory={"item.bone_voyage.bone_charm": 1, "item.bone_voyage.potion_of_sealegs": 1, **tools})
+        state = RouteState(self.validator.tables, self.profile["policies"], initial)
+        with self.assertRaises(DataError):
+            self.fossil_route(state, "travel.fossil_island.barge.out")
+        return self.fossil_route(state, "quest.bone_voyage.complete")
+
+    def test_mushtrees_require_local_discovery_and_allow_return_trips(self):
+        travel = "travel.fossil_island."
+        discover = "transport.fossil_island.mushtree."
+        ride = travel + "mushtree."
+        walk = travel + "walk."
+        state = self.fossil_route(self.finish_bone_voyage(), travel + "camp_pier.out",
+                                  walk + "valley_mushtree.out", discover + "verdant_valley")
+        with self.assertRaises(DataError):
+            self.fossil_route(state, ride + "verdant_valley.mushroom_meadow")
+        state = self.fossil_route(state, walk + "valley_mushtree.back", walk + "meadow_mushtree.out")
+        with self.assertRaises(DataError):
+            self.fossil_route(state, ride + "mushroom_meadow.verdant_valley")
+        state = self.fossil_route(state, discover + "mushroom_meadow")
+        with self.assertRaises(DataError):
+            self.fossil_route(state, discover + "mushroom_meadow")
+
+        walked = self.fossil_route(state, walk + "meadow_mushtree.back", walk + "valley_mushtree.out")
+        landed = self.fossil_route(state, ride + "mushroom_meadow.verdant_valley")
+        arrived = self.fossil_route(landed, walk + "valley_landing")
+        self.assertEqual(arrived.location, walked.location)
+        self.assertLess(arrived.elapsed, walked.elapsed)
+        repeat = self.fossil_route(arrived, ride + "verdant_valley.mushroom_meadow",
+                                   ride + "mushroom_meadow.verdant_valley")
+        self.assertEqual(repeat.location, landed.location)
+        self.assertEqual(repeat.inventory, state.inventory)
+        self.assertEqual(repeat.xp, state.xp)
+
+        for tools in ({}, {"item.rake": 1}, {"item.bronze_axe": 1}):
+            camp = self.fossil_route(self.finish_bone_voyage(**tools), travel + "camp_pier.out")
+            with self.assertRaises(DataError):
+                self.fossil_route(camp, walk + "swamp_mushtree.out")
+        camp = self.fossil_route(self.finish_bone_voyage(**{"item.rake": 1, "item.bronze_axe": 1}),
+                                 travel + "camp_pier.out")
+        swamp = self.fossil_route(camp, walk + "swamp_mushtree.out", discover + "sticky_swamp")
+        hill = self.fossil_route(swamp, walk + "swamp_mushtree.back", "travel.other.varrock_specimens.approach_house",
+                                 "travel.other.varrock_specimens.enter_house", "travel.walk.varrock_specimens.leg_5.back",
+                                 walk + "hill_mushtree.out", discover + "house_on_the_hill")
+        returned = self.fossil_route(hill, ride + "house_on_the_hill.sticky_swamp",
+                                    ride + "sticky_swamp.house_on_the_hill")
+        self.assertEqual(returned.location, hill.location)
+        self.assertEqual(returned.inventory, camp.inventory)
+
+    def test_north_shore_rowboat_unlocks_the_direct_camp_departure(self):
+        boat = "travel.fossil_island.rowboat."
+        camp = self.finish_bone_voyage()
+        with self.assertRaises(DataError):
+            self.fossil_route(camp, boat + "camp_to_sea")
+        north = self.fossil_route(camp, boat + "camp_to_north")
+        back = self.fossil_route(north, boat + "north_to_camp")
+        with self.assertRaises(DataError):
+            self.fossil_route(back, boat + "camp_to_sea")
+        island = self.fossil_route(north, boat + "north_to_sea")
+        back = self.fossil_route(island, boat + "sea_to_north", boat + "north_to_camp")
+        direct = self.fossil_route(back, boat + "camp_to_sea")
+        self.assertEqual(direct.location, island.location)
+        self.assertLess(direct.elapsed - back.elapsed, island.elapsed - camp.elapsed)
+        self.assertEqual(direct.inventory, camp.inventory)
+        self.assertEqual(direct.counters, camp.counters)
+        self.assertEqual(direct.xp, camp.xp)
+
+        saved = island.snapshot()
+        del saved["flags"]["unlock.fossil_island.small_island_visited"]
+        resumed = RouteState(self.validator.tables, self.profile["policies"], saved)
+        returned = self.fossil_route(resumed, boat + "sea_to_north", boat + "north_to_camp", boat + "camp_to_sea")
+        self.assertEqual(returned.location, island.location)
 
     def test_defender_of_varrock_uses_one_history_and_lamp_claim(self):
         [report] = [row for row in self.review["history_reports"] if row["id"] == "museum.history.dov"]
