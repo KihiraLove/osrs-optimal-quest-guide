@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.74.0` loads 24 skill tables and
-4,938 draft actions across 217 journal activities, four diary tiers, the
+11 November 2026 at 11:45:06 UTC. Dataset `0.75.0` loads 24 skill tables and
+4,945 draft actions across 217 journal activities, four diary tiers, the
 museum route and travel networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -149,10 +149,10 @@ museum’s shared kudos counter. The [Medium tier review](raw/build-242/lumbridg
 records another 25 tasks and the separate claims after Easy. It links the ring’s
 three cabbage-patch teleports and the Grand Exchange spell and tablet destinations
 to the corresponding Medium claims. The [Hard diary review](raw/build-242/lumbridge-varrock-hard-diaries-review.json)
-tracks fifteen tasks across the same regions. These include the Cosmic Altar,
-Lumbridge manufacturing and Varrock tailor, church and estate-agent routes. Six
-tasks and both Hard reward claims remain open. The diary tracker lists all 44
-pending tiers.
+tracks seventeen tasks across the same regions. Belladonna at Draynor Manor
+and a protected yew at Varrock Palace grow while other route steps progress.
+Four tasks and both Hard reward claims remain open. The diary tracker lists all
+44 pending tiers.
 
 The [museum review](raw/build-242/museum-review.json) links all 14 quiz plaques to
 the [archived object tiles](raw/build-242/museum-map.json). Each plaque gives two
