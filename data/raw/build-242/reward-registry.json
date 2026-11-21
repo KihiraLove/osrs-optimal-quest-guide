@@ -2064,7 +2064,34 @@
           }
         ]
       },
-      "notes": "Initial one-time claim. Replacing a lost sack costs 10,000 GP in game. Storage and replacement after loss are outside this replay."
+      "notes": "Initial one-time claim. Replacing a lost sack costs 10,000 GP in game. Storage and replacement after loss are outside this replay.",
+      "requires": {
+        "kind": "all",
+        "requirements": [
+          {
+            "kind": "action_completed",
+            "action_id": "quest.rag_and_bone_man_iii.complete"
+          },
+          {
+            "kind": "flag",
+            "token_id": "unlock.rag_and_bone_man_iii.heavy_bonesack",
+            "value": false
+          }
+        ]
+      },
+      "claim_location": {
+        "name": "Odd Old Man near the Dig Site",
+        "tile": [
+          3360,
+          3505,
+          0
+        ]
+      },
+      "claim_duration_seconds": {
+        "min_seconds": 6,
+        "expected_seconds": 12,
+        "max_seconds": 24
+      }
     }
   ],
   "exclusions": [
