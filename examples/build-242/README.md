@@ -69,10 +69,12 @@ and the starter kit with 25 GP in the bank. It uses 5,000 GP from the first two
 Stronghold floors to pay an estimated 4,143 GP for runes, a knife and an escape
 tablet. It budgets 60 Fire Strikes per encounter
 and credits 138 Magic XP as a floor across the successful fights. Each
-combat step states what must happen before continuing.
+combat step states what must happen before continuing. The saved solution
+gives the bounded search a replay-verified starting route.
 
 ```sh
-quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-combat-profile.json --beam-width 256 > artifacts/lost-city-combat.json
+cp examples/build-242/lost-city-combat-solution.json artifacts/lost-city-combat-incumbent.json
+quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-combat-profile.json --beam-width 256 --incumbent artifacts/lost-city-combat-incumbent.json > artifacts/lost-city-combat.json
 quest-optimizer replay artifacts/lost-city-combat.json --catalog data/manifest.json --profile examples/build-242/lost-city-combat-profile.json
 quest-optimizer solve-bounded data/manifest.json examples/build-242/lost-city-preparation-profile.json > artifacts/lost-city-preparation.json
 quest-optimizer replay artifacts/lost-city-preparation.json --catalog data/manifest.json --profile examples/build-242/lost-city-preparation-profile.json

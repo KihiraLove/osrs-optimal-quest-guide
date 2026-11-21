@@ -1,0 +1,541 @@
+{
+  "final_state": {
+    "action_counts": {
+      "supply.grand_exchange.purchase_stew": 5
+    },
+    "bank_inventory": {
+      "item.bronze_axe": 1,
+      "item.bronze_pickaxe": 1,
+      "item.bronze_shortsword": 1,
+      "item.shortbow": 1,
+      "item.wooden_shield": 1
+    },
+    "completed_action_ids": [
+      "diary.varrock.easy.task.varp_1176_5",
+      "quest.lost_city.complete",
+      "quest.lost_city.cut_branch",
+      "quest.lost_city.defeat_tree_spirit",
+      "quest.lost_city.descend_entrana",
+      "quest.lost_city.find_shamus",
+      "quest.lost_city.get_dungeon_axe",
+      "quest.lost_city.make_staff",
+      "quest.lost_city.start",
+      "stronghold.security.claim_famine",
+      "stronghold.security.claim_war",
+      "supply.bank.deposit_entrana_gear",
+      "supply.edgeville_monastery.collect_black_knights_cabbage",
+      "supply.grand_exchange.purchase_knife",
+      "supply.grand_exchange.purchase_lost_city_runes",
+      "supply.grand_exchange.purchase_lumbridge_tablet",
+      "supply.grand_exchange.purchase_stew",
+      "supply.grand_exchange.sell_bronze_dagger"
+    ],
+    "counters": {
+      "token.bank_coins": 25,
+      "token.quest_points": 4
+    },
+    "flags": {
+      "flag.diary.varrock.easy.task.varp_1176_5": true,
+      "flag.quest.lost_city.complete": true,
+      "flag.quest.lost_city.tree_spirit_defeated": true,
+      "flag.spellbook.standard": true,
+      "flag.travel.varrock_square_selected": true,
+      "unlock.stronghold.flap": true,
+      "unlock.stronghold.slap_head": true
+    },
+    "held_rewards": [],
+    "inventory": {
+      "item.air_rune": 25,
+      "item.body_rune": 2,
+      "item.bread": 1,
+      "item.bronze_arrow": 25,
+      "item.bronze_axe": 1,
+      "item.bucket": 1,
+      "item.cabbage": 1,
+      "item.coins": 132,
+      "item.dramen_staff": 1,
+      "item.earth_rune": 4,
+      "item.knife": 1,
+      "item.mind_rune": 15,
+      "item.pot": 1,
+      "item.shrimps": 1,
+      "item.small_fishing_net": 1,
+      "item.stew": 5,
+      "item.tinderbox": 1,
+      "item.water_rune": 6
+    },
+    "location_id": "location.zanaris.nuff_room",
+    "modeled_elapsed_seconds": 1906,
+    "xp_tenths": {
+      "skill.agility": 0,
+      "skill.attack": 0,
+      "skill.construction": 0,
+      "skill.cooking": 0,
+      "skill.crafting": 163330,
+      "skill.defence": 0,
+      "skill.farming": 0,
+      "skill.firemaking": 0,
+      "skill.fishing": 0,
+      "skill.fletching": 0,
+      "skill.herblore": 0,
+      "skill.hitpoints": 11540,
+      "skill.hunter": 0,
+      "skill.magic": 19710,
+      "skill.mining": 0,
+      "skill.prayer": 503390,
+      "skill.ranged": 0,
+      "skill.runecraft": 0,
+      "skill.sailing": 0,
+      "skill.slayer": 0,
+      "skill.smithing": 0,
+      "skill.strength": 0,
+      "skill.thieving": 0,
+      "skill.woodcutting": 263150
+    }
+  },
+  "inputs": {
+    "catalog_sha256": "dd077ed51e0c9f4453623c07d5363dbdc9ac95cf1a2b63fb80ad4e17fb52e92c",
+    "dataset_id": "osrs.main",
+    "dataset_version": "0.72.0",
+    "profile_id": "profile.fixture.lost_city_combat",
+    "profile_sha256": "7ad273140025cc6ebb6ab4e1a34108e52da2b3517ac289b2327bf99b55529c70",
+    "schemas_sha256": "67c5898cc3b30a41d5bf9996b5be36c2a5798fce998844e2adc6d9d26039a5c6"
+  },
+  "limitations": [
+    "Bounded beam search with width 256, 20000 allowed expansions and seed 0.",
+    "The reported lower bound relaxes award ordering, prerequisites and mutually exclusive reward picks.",
+    "Training steps specify XP gains and resume waypoints. The player chooses the method.",
+    "Replay checks the planned success path. Confirm each conditional outcome in game before continuing."
+  ],
+  "manual_training_xp_tenths_by_skill": {
+    "skill.prayer": 503390
+  },
+  "objective": {
+    "counted_manual_training_xp_tenths": 0,
+    "manual_training_xp_tenths": 503390,
+    "modeled_non_training_seconds": 1906,
+    "order": [
+      "counted_manual_training_xp_tenths",
+      "priority_skill_elapsed_seconds",
+      "modeled_non_training_seconds",
+      "stable_step_ids"
+    ],
+    "priority_skill_elapsed_seconds": 0
+  },
+  "policies": {
+    "allow_boosts": true,
+    "allow_death_travel": false,
+    "allow_minigame_teleports": true,
+    "allow_player_assistance": true,
+    "allow_poh_services": true,
+    "allow_repeatable_xp": false,
+    "allow_wilderness_travel": true,
+    "allow_world_switching": false,
+    "gp_policy": "self_funded",
+    "has_authenticator": true,
+    "has_bank_pin": true,
+    "has_jagex_account": true,
+    "quest_lamp_skill_policy": "any_skill",
+    "trade_enabled": true,
+    "training_methods": "user_choice",
+    "training_resume_policy": "return_to_route_waypoint",
+    "training_time_in_objective": false,
+    "world": 330
+  },
+  "schema_version": "0.1.0",
+  "solution_id": "solution.bounded.profile.fixture.lost_city_combat",
+  "solver": {
+    "name": "bounded-beam",
+    "primary_lower_bound_xp_tenths": 0,
+    "proof_artifact": null,
+    "secondary_lower_bound_seconds": null,
+    "seed": 0,
+    "status": "example",
+    "version": "0.1.0"
+  },
+  "steps": [
+    {
+      "after_xp_tenths": 503390,
+      "before_xp_tenths": 0,
+      "explanation": "Gain 503390 XP tenths and resume at this waypoint.",
+      "gain_xp_tenths": 503390,
+      "kind": "training",
+      "required_by": [
+        "skill.prayer"
+      ],
+      "resume_location_id": "location.lumbridge.castle_courtyard",
+      "skill_id": "skill.prayer",
+      "step_id": "step.000001"
+    },
+    {
+      "edge_id": "travel.walk.lumbridge.adventurer_camp.out",
+      "explanation": "Lumbridge and the adventurers' camp",
+      "kind": "travel",
+      "modeled_seconds": 42,
+      "step_id": "step.000002"
+    },
+    {
+      "action_id": "quest.lost_city.start",
+      "explanation": "Ask the warrior about Zanaris",
+      "kind": "action",
+      "modeled_seconds": 35,
+      "step_id": "step.000003"
+    },
+    {
+      "edge_id": "travel.walk.lumbridge.shamus_tree.out",
+      "explanation": "Adventurers' camp and Shamus's tree",
+      "kind": "travel",
+      "modeled_seconds": 10,
+      "step_id": "step.000004"
+    },
+    {
+      "action_id": "quest.lost_city.find_shamus",
+      "explanation": "Find Shamus and ask about the shed",
+      "kind": "action",
+      "modeled_seconds": 35,
+      "step_id": "step.000005"
+    },
+    {
+      "edge_id": "travel.walk.lumbridge.shamus_tree.back",
+      "explanation": "Adventurers' camp and Shamus's tree (return)",
+      "kind": "travel",
+      "modeled_seconds": 10,
+      "step_id": "step.000006"
+    },
+    {
+      "edge_id": "travel.walk.lumbridge.adventurer_camp.back",
+      "explanation": "Lumbridge and the adventurers' camp (return)",
+      "kind": "travel",
+      "modeled_seconds": 42,
+      "step_id": "step.000007"
+    },
+    {
+      "edge_id": "travel.walk.lumbridge.varrock.out",
+      "explanation": "Lumbridge to Varrock square",
+      "kind": "travel",
+      "modeled_seconds": 125,
+      "step_id": "step.000008"
+    },
+    {
+      "edge_id": "travel.walk.varrock.grand_exchange.out",
+      "explanation": "Walk from Varrock square to the Grand Exchange",
+      "kind": "travel",
+      "modeled_seconds": 48,
+      "step_id": "step.000009"
+    },
+    {
+      "action_id": "supply.grand_exchange.sell_bronze_dagger",
+      "explanation": "Sell the bronze dagger",
+      "kind": "action",
+      "modeled_seconds": 12,
+      "step_id": "step.000010"
+    },
+    {
+      "edge_id": "travel.walk.stronghold.ge.back",
+      "explanation": "Barbarian Village and the Grand Exchange",
+      "kind": "travel",
+      "modeled_seconds": 94,
+      "step_id": "step.000011"
+    },
+    {
+      "edge_id": "travel.walk.stronghold.war",
+      "explanation": "Enter the Stronghold and traverse the Vault of War",
+      "kind": "travel",
+      "modeled_seconds": 115,
+      "step_id": "step.000012"
+    },
+    {
+      "action_id": "stronghold.security.claim_war",
+      "explanation": "Open the Gift of Peace",
+      "kind": "action",
+      "modeled_seconds": 12,
+      "step_id": "step.000013"
+    },
+    {
+      "action_id": "diary.varrock.easy.task.varp_1176_5",
+      "explanation": "Enter the second floor of the Stronghold of Security",
+      "kind": "action",
+      "modeled_seconds": 8,
+      "step_id": "step.000014"
+    },
+    {
+      "edge_id": "travel.walk.stronghold.famine",
+      "explanation": "Traverse the Catacomb of Famine",
+      "kind": "travel",
+      "modeled_seconds": 132,
+      "step_id": "step.000015"
+    },
+    {
+      "action_id": "stronghold.security.claim_famine",
+      "explanation": "Open the Grain of Plenty",
+      "kind": "action",
+      "modeled_seconds": 12,
+      "step_id": "step.000016"
+    },
+    {
+      "edge_id": "travel.walk.stronghold.famine_exit",
+      "explanation": "Climb the Catacomb of Famine rope to the surface",
+      "kind": "travel",
+      "modeled_seconds": 12,
+      "step_id": "step.000017"
+    },
+    {
+      "edge_id": "travel.walk.stronghold.ge.out",
+      "explanation": "Barbarian Village and the Grand Exchange",
+      "kind": "travel",
+      "modeled_seconds": 94,
+      "step_id": "step.000018"
+    },
+    {
+      "action_id": "supply.grand_exchange.purchase_lost_city_runes",
+      "explanation": "Buy runes for the Lost City combat reserve",
+      "kind": "action",
+      "modeled_seconds": 12,
+      "step_id": "step.000019"
+    },
+    {
+      "action_id": "supply.grand_exchange.purchase_knife",
+      "explanation": "Buy a knife",
+      "kind": "action",
+      "modeled_seconds": 12,
+      "step_id": "step.000020"
+    },
+    {
+      "action_id": "supply.grand_exchange.purchase_lumbridge_tablet",
+      "explanation": "Buy a Lumbridge teleport tablet",
+      "kind": "action",
+      "modeled_seconds": 12,
+      "step_id": "step.000021"
+    },
+    {
+      "action_id": "supply.grand_exchange.purchase_stew",
+      "explanation": "Buy one plain stew",
+      "kind": "action",
+      "modeled_seconds": 8,
+      "step_id": "step.000022"
+    },
+    {
+      "action_id": "supply.grand_exchange.purchase_stew",
+      "explanation": "Buy one plain stew",
+      "kind": "action",
+      "modeled_seconds": 8,
+      "step_id": "step.000023"
+    },
+    {
+      "action_id": "supply.grand_exchange.purchase_stew",
+      "explanation": "Buy one plain stew",
+      "kind": "action",
+      "modeled_seconds": 8,
+      "step_id": "step.000024"
+    },
+    {
+      "action_id": "supply.grand_exchange.purchase_stew",
+      "explanation": "Buy one plain stew",
+      "kind": "action",
+      "modeled_seconds": 8,
+      "step_id": "step.000025"
+    },
+    {
+      "action_id": "supply.grand_exchange.purchase_stew",
+      "explanation": "Buy one plain stew",
+      "kind": "action",
+      "modeled_seconds": 8,
+      "step_id": "step.000026"
+    },
+    {
+      "edge_id": "travel.walk.between_a_rock.grand_exchange_edgefurnace.out",
+      "explanation": "Walk to Edgeville furnace",
+      "kind": "travel",
+      "modeled_seconds": 39,
+      "step_id": "step.000027"
+    },
+    {
+      "edge_id": "travel.walk.garden.well_furnace.back",
+      "explanation": "Walk to Edgeville well",
+      "kind": "travel",
+      "modeled_seconds": 20,
+      "step_id": "step.000028"
+    },
+    {
+      "edge_id": "travel.walk.garden.althric_well.back",
+      "explanation": "Walk to Brother Althric\u2019s roses",
+      "kind": "travel",
+      "modeled_seconds": 27,
+      "step_id": "step.000029"
+    },
+    {
+      "edge_id": "travel.walk.garden.althric_cabbage_patch.out",
+      "explanation": "Walk to cabbage patch",
+      "kind": "travel",
+      "modeled_seconds": 13,
+      "step_id": "step.000030"
+    },
+    {
+      "action_id": "supply.edgeville_monastery.collect_black_knights_cabbage",
+      "explanation": "Pick a cabbage at the monastery",
+      "kind": "action",
+      "modeled_seconds": 7,
+      "step_id": "step.000031"
+    },
+    {
+      "edge_id": "travel.walk.garden.althric_cabbage_patch.back",
+      "explanation": "Walk to Brother Althric\u2019s roses",
+      "kind": "travel",
+      "modeled_seconds": 13,
+      "step_id": "step.000032"
+    },
+    {
+      "edge_id": "travel.walk.a_ruff_situation.leg_1.back",
+      "explanation": "Walk to Talia at the dog shelter",
+      "kind": "travel",
+      "modeled_seconds": 35,
+      "step_id": "step.000033"
+    },
+    {
+      "edge_id": "travel.walk.a_ruff_situation.leg_2.out",
+      "explanation": "Walk to Willow south of Ice Mountain",
+      "kind": "travel",
+      "modeled_seconds": 26,
+      "step_id": "step.000034"
+    },
+    {
+      "edge_id": "travel.walk.camdozaal_approach.willow_east_bank.out",
+      "explanation": "Walk to east bank",
+      "kind": "travel",
+      "modeled_seconds": 54,
+      "step_id": "step.000035"
+    },
+    {
+      "edge_id": "travel.walk.white_knights.tiffy_falbank.back",
+      "explanation": "Walk to Falador Park, Sir Tiffy Cashien",
+      "kind": "travel",
+      "modeled_seconds": 22,
+      "step_id": "step.000036"
+    },
+    {
+      "edge_id": "travel.walk.white_knights.teleport_tiffy.back",
+      "explanation": "Walk to teleport",
+      "kind": "travel",
+      "modeled_seconds": 24,
+      "step_id": "step.000037"
+    },
+    {
+      "edge_id": "travel.walk.falador.port_sarim.out",
+      "explanation": "Walk between Falador and port sarim",
+      "kind": "travel",
+      "modeled_seconds": 63,
+      "step_id": "step.000038"
+    },
+    {
+      "edge_id": "travel.walk.port_sarim.deposit_box.out",
+      "explanation": "Walk from the ferry to the Port Sarim deposit box",
+      "kind": "travel",
+      "modeled_seconds": 3,
+      "step_id": "step.000039"
+    },
+    {
+      "action_id": "supply.bank.deposit_entrana_gear",
+      "explanation": "Deposit Entrana-restricted gear in Port Sarim",
+      "kind": "action",
+      "modeled_seconds": 12,
+      "step_id": "step.000040"
+    },
+    {
+      "edge_id": "travel.walk.port_sarim.deposit_box.back",
+      "explanation": "Return from the Port Sarim deposit box to the ferry",
+      "kind": "travel",
+      "modeled_seconds": 3,
+      "step_id": "step.000041"
+    },
+    {
+      "edge_id": "travel.ship.port_sarim.entrana",
+      "explanation": "Take the Entrana ferry from Port Sarim",
+      "kind": "travel",
+      "modeled_seconds": 55,
+      "step_id": "step.000042"
+    },
+    {
+      "edge_id": "travel.walk.entrana.dungeon_ladder.out",
+      "explanation": "Entrana balloon and dungeon ladder",
+      "kind": "travel",
+      "modeled_seconds": 28,
+      "step_id": "step.000043"
+    },
+    {
+      "action_id": "quest.lost_city.descend_entrana",
+      "explanation": "Descend into the Entrana dungeon",
+      "kind": "action",
+      "modeled_seconds": 18,
+      "step_id": "step.000044"
+    },
+    {
+      "action_id": "quest.lost_city.get_dungeon_axe",
+      "explanation": "Obtain a bronze axe from the Entrana dungeon zombies",
+      "kind": "action",
+      "modeled_seconds": 210,
+      "planned_outcome": {
+        "if_unmet": "Stop this route if the condition is unmet. Use the reserved Lumbridge tablet if leaving the dungeon, restock, and replan from observed progress and remaining items. If an iron axe drops first, record it in the new profile as a usable axe.",
+        "success_condition": "Solo the dungeon zombies with Fire Strike until you pick up a bronze axe, within the 60-cast reserve."
+      },
+      "step_id": "step.000045"
+    },
+    {
+      "edge_id": "travel.walk.entrana_dungeon.dramen_tree.out",
+      "explanation": "Entrana dungeon and dramen tree",
+      "kind": "travel",
+      "modeled_seconds": 28,
+      "step_id": "step.000046"
+    },
+    {
+      "action_id": "quest.lost_city.defeat_tree_spirit",
+      "explanation": "Defeat the Dramen Tree Spirit",
+      "kind": "action",
+      "modeled_seconds": 195,
+      "planned_outcome": {
+        "if_unmet": "Stop this route if the condition is unmet. Use the reserved Lumbridge tablet if leaving the dungeon, restock, and replan from observed progress and remaining items.",
+        "success_condition": "Spawn the Dramen Tree Spirit with your axe and defeat it solo from the fungi safespot using Fire Strike, within the 60-cast reserve."
+      },
+      "step_id": "step.000047"
+    },
+    {
+      "action_id": "quest.lost_city.cut_branch",
+      "explanation": "Cut a dramen branch",
+      "kind": "action",
+      "modeled_seconds": 12,
+      "step_id": "step.000048"
+    },
+    {
+      "edge_id": "travel.tablet.entrana_dungeon.lumbridge",
+      "explanation": "Break a Lumbridge teleport tablet",
+      "kind": "travel",
+      "modeled_seconds": 5,
+      "step_id": "step.000049"
+    },
+    {
+      "action_id": "quest.lost_city.make_staff",
+      "explanation": "Carve a dramen staff",
+      "kind": "action",
+      "modeled_seconds": 10,
+      "step_id": "step.000050"
+    },
+    {
+      "edge_id": "travel.walk.lumbridge.zanaris_shed.out",
+      "explanation": "Walk between Lumbridge and the Zanaris shed",
+      "kind": "travel",
+      "modeled_seconds": 28,
+      "step_id": "step.000051"
+    },
+    {
+      "action_id": "quest.lost_city.complete",
+      "explanation": "Enter Zanaris with the dramen staff",
+      "kind": "action",
+      "modeled_seconds": 42,
+      "step_id": "step.000052"
+    }
+  ],
+  "verification": {
+    "catalog_release_ready": false,
+    "replay_valid": true,
+    "schema_valid": true
+  }
+}

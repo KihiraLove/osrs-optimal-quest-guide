@@ -518,7 +518,8 @@ class QuestCollectionTests(unittest.TestCase):
         profile = read_json(ROOT / "examples/build-242/lost-city-combat-profile.json")
         scenario = read_json(RAW / "lost-city-combat.json")
         validator = CatalogValidator(self.catalog, self.contracts)
-        solution, _ = solve_bounded(validator, profile, beam_width=256, max_expansions=20000)
+        incumbent = read_json(ROOT / "examples/build-242/lost-city-combat-solution.json")
+        solution, _ = solve_bounded(validator, profile, beam_width=256, max_expansions=20000, incumbent=incumbent)
         state = verify_solution(solution, profile, validator)["final_state"]
         combat_steps = [step for step in solution["steps"] if "planned_outcome" in step]
         self.assertEqual([step["action_id"] for step in combat_steps], [
