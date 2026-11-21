@@ -223,6 +223,12 @@ class MuseumTests(unittest.TestCase):
         self.assertEqual(direct.counters, camp.counters)
         self.assertEqual(direct.xp, camp.xp)
 
+        saved = island.snapshot()
+        del saved["flags"]["unlock.fossil_island.small_island_visited"]
+        resumed = RouteState(self.validator.tables, self.profile["policies"], saved)
+        returned = self.fossil_route(resumed, boat + "sea_to_north", boat + "north_to_camp", boat + "camp_to_sea")
+        self.assertEqual(returned.location, island.location)
+
     def test_defender_of_varrock_uses_one_history_and_lamp_claim(self):
         [report] = [row for row in self.review["history_reports"] if row["id"] == "museum.history.dov"]
         registry = read_json(RAW / "reward-registry.json")["entries"]
