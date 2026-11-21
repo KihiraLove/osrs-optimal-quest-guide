@@ -1313,5 +1313,449 @@
       "status": "estimated",
       "note": "Choose Fancy Stone and finish the Varrock estate agent’s dialogue after paying the fee."
     }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_hard_diary_belladonna_seed",
+    "name": "Buy a belladonna seed for Draynor Manor",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 60
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.belladonna_seed",
+        "quantity": 1
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 18,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.lumbridge_varrock_hard_diaries"
+      ],
+      "status": "estimated",
+      "note": "Estimate based on a Jagex guide observation of 44 GP."
+    }
+  },
+  {
+    "id": "supply.farming.plant_draynor_belladonna",
+    "name": "Plant belladonna at Draynor Manor",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.draynor_manor.belladonna_patch",
+    "end_location_id": "location.draynor_manor.belladonna_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 63,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        },
+        {
+          "kind": "item",
+          "item_id": "item.seed_dibber",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.belladonna_seed",
+        "quantity": 1
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 910
+      },
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.farming.draynor_belladonna",
+        "duration_seconds": 19200
+      }
+    ],
+    "duration": {
+      "min_seconds": 3,
+      "expected_seconds": 7,
+      "max_seconds": 16
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.capture.draynor_belladonna",
+        "source.capture.belladonna_planting_xp",
+        "source.runelite.farming_produce",
+        "source.project.lumbridge_varrock_hard_diaries"
+      ],
+      "status": "estimated",
+      "note": "Rake the patch if needed and plant one seed. Leave the crop to grow while progressing other work."
+    }
+  },
+  {
+    "id": "diary.lumbridge_draynor.hard.task.varp_1195_0",
+    "name": "Pick belladonna at Draynor Manor while wearing gloves",
+    "kind": "diary_task",
+    "activity_id": null,
+    "start_location_id": "location.draynor_manor.belladonna_patch",
+    "end_location_id": "location.draynor_manor.belladonna_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.lumbridge_draynor.hard.task.varp_1195_0",
+          "value": false
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "supply.farming.plant_draynor_belladonna"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.farming.draynor_belladonna"
+        },
+        {
+          "kind": "item",
+          "item_id": "item.leather_gloves",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.nightshade",
+        "quantity": 3
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 5120
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.lumbridge_draynor.hard.task.varp_1195_0",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 5,
+      "max_seconds": 12
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.capture.draynor_belladonna",
+        "source.capture.belladonna_planting_xp",
+        "source.jagex.more_poll_78_changes",
+        "source.project.lumbridge_varrock_hard_diaries"
+      ],
+      "status": "estimated",
+      "note": "Equip leather gloves, pick the mature crop and check the diary. The draft credits a three-item harvest floor."
+    },
+    "planned_outcome": {
+      "success_condition": "Harvest a mature, healthy crop while wearing gloves and receive diary credit.",
+      "if_unmet": "Equip gloves, cure a diseased crop if possible or clear and replant a dead crop, then return once it has matured."
+    }
+  },
+  {
+    "id": "supply.grand_exchange.purchase_hard_diary_yew_tree_supplies",
+    "name": "Buy a yew sapling and ten cactus spines",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock.grand_exchange",
+    "end_location_id": "location.varrock.grand_exchange",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "policy",
+          "name": "trade_enabled",
+          "value": true
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.coins",
+        "quantity": 31000
+      }
+    ],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.yew_sapling",
+        "quantity": 1
+      },
+      {
+        "kind": "item",
+        "item_id": "item.cactus_spine",
+        "quantity": 10
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 18,
+      "max_seconds": 120
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.jagex.grand_exchange_catalogue",
+        "source.project.lumbridge_varrock_hard_diaries"
+      ],
+      "status": "estimated",
+      "note": "Estimate rounded from an archived Jagex sapling guide price near 16,800 GP and 1,327 GP per spine."
+    }
+  },
+  {
+    "id": "supply.farming.plant_varrock_yew",
+    "name": "Plant and protect a yew tree at Varrock Palace",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock_palace.tree_patch",
+    "end_location_id": "location.varrock_palace.tree_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 60,
+          "boostable": true
+        },
+        {
+          "kind": "item",
+          "item_id": "item.rake",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [
+      {
+        "item_id": "item.yew_sapling",
+        "quantity": 1
+      },
+      {
+        "item_id": "item.cactus_spine",
+        "quantity": 10
+      }
+    ],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 810
+      },
+      {
+        "kind": "start_cooldown",
+        "token_id": "cooldown.farming.varrock_palace_yew",
+        "duration_seconds": 24000
+      }
+    ],
+    "duration": {
+      "min_seconds": 5,
+      "expected_seconds": 12,
+      "max_seconds": 26
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.runelite.farming_skill_calculator",
+        "source.capture.varrock_yew_roots",
+        "source.runelite.farming_produce",
+        "source.project.lumbridge_varrock_hard_diaries"
+      ],
+      "status": "estimated",
+      "note": "Rake the patch, transplant the sapling and pay the nearby gardener ten cactus spines. The model starts the timer after the planting and payment."
+    }
+  },
+  {
+    "id": "supply.farming.check_varrock_yew",
+    "name": "Check the health of the mature Varrock yew",
+    "kind": "supply",
+    "activity_id": null,
+    "start_location_id": "location.varrock_palace.tree_patch",
+    "end_location_id": "location.varrock_palace.tree_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "action_completed",
+          "action_id": "supply.farming.plant_varrock_yew"
+        },
+        {
+          "kind": "cooldown_ready",
+          "token_id": "cooldown.farming.varrock_palace_yew"
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "xp",
+        "skill_id": "skill.farming",
+        "xp_tenths": 70699
+      }
+    ],
+    "duration": {
+      "min_seconds": 2,
+      "expected_seconds": 4,
+      "max_seconds": 12
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.runelite.farming_skill_calculator",
+        "source.capture.varrock_yew_roots",
+        "source.project.lumbridge_varrock_hard_diaries"
+      ],
+      "status": "estimated",
+      "note": "Return to the same patch and use Check-health on the mature tree."
+    }
+  },
+  {
+    "id": "diary.varrock.hard.task.varp_1177_4",
+    "name": "Chop the Varrock Palace yew and dig up at least two roots",
+    "kind": "diary_task",
+    "activity_id": null,
+    "start_location_id": "location.varrock_palace.tree_patch",
+    "end_location_id": "location.varrock_palace.tree_patch",
+    "requirements": {
+      "kind": "all",
+      "requirements": [
+        {
+          "kind": "flag",
+          "token_id": "flag.diary.varrock.hard.task.varp_1177_4",
+          "value": false
+        },
+        {
+          "kind": "action_completed",
+          "action_id": "supply.farming.check_varrock_yew"
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.woodcutting",
+          "minimum_level": 60,
+          "boostable": true
+        },
+        {
+          "kind": "skill",
+          "skill_id": "skill.farming",
+          "minimum_level": 68,
+          "boostable": true
+        },
+        {
+          "kind": "any",
+          "requirements": [
+            {
+              "kind": "item",
+              "item_id": "item.bronze_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.iron_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.mithril_axe",
+              "quantity": 1
+            },
+            {
+              "kind": "item",
+              "item_id": "item.legends.rune_axe",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "kind": "item",
+          "item_id": "item.spade",
+          "quantity": 1
+        }
+      ]
+    },
+    "consumes": [],
+    "effects": [
+      {
+        "kind": "item",
+        "item_id": "item.yew_logs",
+        "quantity": 1
+      },
+      {
+        "kind": "xp",
+        "skill_id": "skill.woodcutting",
+        "xp_tenths": 1750
+      },
+      {
+        "kind": "item",
+        "item_id": "item.yew_roots",
+        "quantity": 2
+      },
+      {
+        "kind": "flag",
+        "token_id": "flag.diary.varrock.hard.task.varp_1177_4",
+        "value": true
+      }
+    ],
+    "duration": {
+      "min_seconds": 12,
+      "expected_seconds": 60,
+      "max_seconds": 162
+    },
+    "repeat_limit": 1,
+    "evidence": {
+      "source_ids": [
+        "source.quest_helper.diaries",
+        "source.runelite.hard_diary_woodcutting",
+        "source.capture.varrock_yew_roots",
+        "source.project.lumbridge_varrock_hard_diaries"
+      ],
+      "status": "estimated",
+      "note": "Cut the player-grown yew to a stump and dig it up immediately. The forecast credits one log and two roots."
+    },
+    "planned_outcome": {
+      "success_condition": "Chop the planted tree down and dig up at least two roots before the stump regrows.",
+      "if_unmet": "Continue cutting until a stump remains. If the stump regrows, chop again and check Farming is still at least 68 before digging."
+    }
   }
 ]
