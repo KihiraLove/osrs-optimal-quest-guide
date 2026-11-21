@@ -5,6 +5,7 @@ entries use the 3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.70.0 | Connected Imp Catcher and Monk’s Friend, supplied balloon discoveries and routine flights, repriced the Mage Arena II rune bundle, and added an Agility Pyramid coin route for the self-funded main. |
 | 0.69.0 | Reconciled 17 journal completion-reward links and registered reading Duradel’s notes as the producer of level-scaled Slayer XP and demonbane crafting access. |
 | 0.68.0 | Linked Sir Amik's vanilla pickup to the Legends' Quest route, added a Lumbridge flambé, and documented Evil Chicken lair re-entry and dragonfire protection. |
 | 0.67.0 | Cataloged the Culinaromancer's Chest as a bank, documented optional restores for Karamel, and set the finale lamp minimum to level 50. |

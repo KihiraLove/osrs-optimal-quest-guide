@@ -1,8 +1,8 @@
 # Local game data
 
 The draft catalog targets the Jagex live English build 242 snapshot archived on
-11 November 2026 at 11:45:06 UTC. Dataset `0.69.0` loads 24 skill tables and
-4,846 draft actions across 217 journal activities, the museum route and travel
+11 November 2026 at 11:45:06 UTC. Dataset `0.70.0` loads 24 skill tables and
+4,855 draft actions across 217 journal activities, the museum route and travel
 networks.
 Durations estimate each interaction at its
 waypoint with supplies ready. Travel between
@@ -127,6 +127,13 @@ identify fields that need verification. The registry records Kuradal’s handove
 of Duradel’s notes and the later reading action separately. Reading grants 15 XP
 per current Slayer level and unlocks demonbane crafting. All collected journal
 activities now link to a completion reward review.
+
+The [main-profile route supply review](raw/build-242/main-profile-route-supplies-review.json)
+records the Wizards’ Tower and blanket cellar paths, fixed GE budgets for beads,
+Cedric’s supplies, balloon fuel and Mage Arena II, and a bounded Agility Pyramid
+coin source. Successful laps spend provisions and fund Family Pest’s 500,000 GP
+fee and Mage Arena II’s rune and staff purchases. The repeatable lap XP and
+actual provision use remain outside the draft calculation.
 
 [Diary observations](raw/build-242/diaries/index.json) link all 492 tracker IDs
 to helper steps, requirements and item candidates across 48 tiers. Each tier
