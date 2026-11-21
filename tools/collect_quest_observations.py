@@ -10,6 +10,8 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 JAVA = Path("src/main/java/com/questhelper")
 OBSERVATION_SOURCE = "source.quest_helper.quest_observations"
+LEAF_SOURCE = "source.quest_helper.a_new_leaf"
+LEAF_FILE = "observations-week-three.json"
 RFD_CLASSES = {
     "RFDStart": "another_cooks_quest",
     "RFDDwarf": "freeing_the_mountain_dwarf",
@@ -246,19 +248,23 @@ def check_checkout(checkout: Path, revision: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("checkout", type=Path)
-    parser.add_argument("--output", type=Path, default=ROOT / "data/raw/build-242/quest-helper")
+    observation_dir = ROOT / "data/raw/build-242/quest-helper"
+    parser.add_argument("--output", type=Path, default=observation_dir)
+    parser.add_argument("--leaf-checkout", type=Path, help="Regenerate A New Leaf from its separately pinned checkout")
     args = parser.parse_args()
     checkout = args.checkout.resolve()
     data = ROOT / "data"
-    source = next(row for row in json.loads((data / "sources.json").read_text(encoding="utf-8"))
-                  if row["id"] == OBSERVATION_SOURCE)
-    commit = source["revision"]
+    sources = {row["id"]: row for row in json.loads((data / "sources.json").read_text(encoding="utf-8"))}
+    commit = sources[OBSERVATION_SOURCE]["revision"]
+    leaf_commit = sources[LEAF_SOURCE]["revision"]
     try:
         check_checkout(checkout, commit)
+        if args.leaf_checkout:
+            check_checkout(args.leaf_checkout.resolve(), leaf_commit)
     except ValueError as exc:
         parser.error(str(exc))
     journal = json.loads((data / "coverage/build-242/journal.json").read_text(encoding="utf-8"))
-    by_symbol = {row["client_symbol"]: row["id"] for row in journal}
+    by_symbol = {row["client_symbol"]: row["id"] for row in journal if row.get("client_symbol")}
     index_source = (checkout / JAVA / "questinfo/QuestHelperQuest.java").read_text(encoding="utf-8")
     paths = {path.stem: path for path in sorted((checkout / JAVA / "helpers").rglob("*.java"))}
     helpers = []
@@ -275,6 +281,16 @@ def main() -> None:
         for quest_id, symbol, path in sorted(helpers)
     ]
     observed = {entry["activity_id"] for entry in observations}
+    if args.leaf_checkout:
+        leaf_checkout = args.leaf_checkout.resolve()
+        leaf_path = leaf_checkout / JAVA / "helpers/quests/anewleaf/ANewLeaf.java"
+        leaf = observe(leaf_path, leaf_checkout, "A_NEW_LEAF", by_symbol["A_NEW_LEAF"], quest_ids)
+        leaf.update(source_ids=[LEAF_SOURCE], source_revision=leaf_commit)
+    else:
+        [leaf] = json.loads((observation_dir / LEAF_FILE).read_text(encoding="utf-8"))
+        if leaf["source_revision"] != leaf_commit or leaf["source_ids"] != [LEAF_SOURCE]:
+            parser.error("A New Leaf source pin changed. Supply --leaf-checkout to regenerate its observation.")
+    observed.add(leaf["activity_id"])
     args.output.mkdir(parents=True, exist_ok=True)
     files = []
     for start in range(0, len(observations), 35):
@@ -284,9 +300,11 @@ def main() -> None:
         content = ",\n".join("  " + json.dumps(row, ensure_ascii=False) for row in rows)
         (args.output / filename).write_text("[\n" + content + "\n]\n", encoding="utf-8", newline="\n")
         files.append(filename)
+    write_json(args.output / LEAF_FILE, [leaf])
+    files.append(LEAF_FILE)
     write_json(args.output / "index.json", {
         "game_revision": "osrs-live-242",
-        "source_ids": [OBSERVATION_SOURCE],
+        "source_ids": [OBSERVATION_SOURCE, LEAF_SOURCE],
         "source_revision": commit,
         "files": files,
         "observed_activity_count": len(observed),

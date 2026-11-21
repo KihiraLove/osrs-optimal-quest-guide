@@ -1,10 +1,12 @@
 # Dataset changelog
 
-Dataset versions from 0.37.0 use the 11 November 2026 build 242 snapshot. Earlier
-entries use the 3 November build 242 snapshot.
+Dataset versions from 0.76.0 use the 18 November 2026 build 242 snapshot.
+Versions 0.37.0–0.75.0 use the 11 November snapshot. Earlier entries use the
+3 November build 242 snapshot.
 
 | Version | Changes |
 | --- | --- |
+| 0.76.0 | Added A New Leaf and Rag and Bone Man III from 18 November, including the Farming contract prerequisite, the spy route, three dream passes, both revised completion reward inventories and the heavy bonesack claim. |
 | 0.75.0 | Added the Draynor Manor belladonna and Varrock Palace yew-root tasks with separate planting and harvest stages and overlapping growth timers. |
 | 0.74.0 | Added six more Hard tasks across Lumbridge & Draynor and Varrock, with Cosmic Altar access, a basement light source, the Lumbridge amulet of power, tailoring, a reserved yew log and the estate agent. |
 | 0.73.0 | Cataloged nine Lumbridge & Draynor and Varrock Hard tasks, including waka carving and travel, shortcut and train registrations, Barrows gloves, two Smite altars and Orlando Smith’s kudos check. |
