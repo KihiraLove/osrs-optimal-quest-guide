@@ -122,7 +122,7 @@ class VarrockMuseumHistoryTests(unittest.TestCase):
         self.assertEqual(salve["catalog_ids"], [
             "museum.history.salveknights", "museum.history.salveknights.in_aid"
         ])
-        self.assertEqual(optional["museum.history.ardy"]["status"], "expected")
+        self.assertEqual(optional["museum.history.ardy"]["status"], "excluded")
         self.assertNotIn("museum.history.ardy", self.tables["actions"])
 
 

@@ -6,6 +6,7 @@ Versions 0.37.0–0.75.0 use the 11 November snapshot. Earlier entries use the
 
 | Version | Changes |
 | --- | --- |
+| 0.78.0 | Added five Camdozaal relic searches and first donations to the Varrock Museum. Reviewed the Dig Site tablet, talisman and Ardougne map displays. |
 | 0.77.0 | Connected four Fossil Island mushtree discoveries and five directed surface rowboat trips to the Bone Voyage, Museum Camp and House on the Hill routes. |
 | 0.76.0 | Added A New Leaf and Rag and Bone Man III from 18 November, including the Farming contract prerequisite, the spy route, three dream passes, both revised completion reward inventories and the heavy bonesack claim. |
 | 0.75.0 | Added the Draynor Manor belladonna and Varrock Palace yew-root tasks with separate planting and harvest stages and overlapping growth timers. |

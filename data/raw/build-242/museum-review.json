@@ -219,17 +219,14 @@
   "history_reports": [
     {
       "id": "museum.history.ardy",
-      "status": "pending",
-      "reporter": "Historian Minas",
-      "candidate_quest_ids": [
-        "quest.plague_city",
-        "quest.biohazard"
+      "status": "excluded",
+      "name": "Ardougne map, display 47",
+      "source_ids": [
+        "source.jagex.cache_242_2026_11_18",
+        "source.runelite.quest_month_week_three",
+        "source.field.varrock_museum_history"
       ],
-      "required_quest_ids": null,
-      "repeat_limit": 1,
-      "kudos": null,
-      "reward_claim_id": null,
-      "note": "Display 47 is a standing map of Ardougne, but the confirmed Minas quest-report list does not link it to Plague City or Biohazard. No standalone reward or conditional transition was verified. Keep pending rather than award unsupported kudos."
+      "reason": "Object 24661 is the standing Ardougne map with a Study interaction. Its definition has no tracker transform. The museum report list supplies no additional quest report or reward for VM_ARDY."
     },
     {
       "id": "museum.history.dov",
@@ -488,23 +485,25 @@
     },
     {
       "id": "museum.find.tablet",
-      "status": "pending",
-      "category": "unresolved",
-      "requires_flag_id": "flag.quest.the_dig_site.complete",
-      "kudos": null,
-      "acquisition": "museum specimen cleaning",
-      "repeat_limit": 1,
-      "note": "Confirm the possible find, exhibit, equipment and one-time hand-in before admitting an award."
+      "status": "excluded",
+      "name": "The Dig Site stone tablet, display 43",
+      "source_ids": [
+        "source.jagex.cache_242_2026_11_18",
+        "source.runelite.quest_month_week_three",
+        "source.quest_helper.dig_site"
+      ],
+      "reason": "The Dig Site uses the tablet at the Exam Centre. Object 12233 reads tracker 3643 to switch between the empty case and study display 24547. The exhibit has no separate specimen-cleaning reward."
     },
     {
       "id": "museum.find.talisman",
-      "status": "pending",
-      "category": "unresolved",
-      "requires_flag_id": "flag.quest.the_dig_site.complete",
-      "kudos": null,
-      "acquisition": "museum specimen cleaning",
-      "repeat_limit": 1,
-      "note": "Confirm the possible find, exhibit, equipment and one-time hand-in before admitting an award."
+      "status": "excluded",
+      "name": "The Dig Site ancient talisman, display 42",
+      "source_ids": [
+        "source.jagex.cache_242_2026_11_18",
+        "source.runelite.quest_month_week_three",
+        "source.quest_helper.dig_site"
+      ],
+      "reason": "The Dig Site takes the talisman to the archaeological expert. Object 12232 reads tracker 3644 to switch between the empty case and study display 24546. The exhibit has no separate specimen-cleaning reward."
     },
     {
       "id": "museum.find.digsite_pendant",
@@ -519,13 +518,55 @@
   ],
   "relics": {
     "id": "museum.camdozaal_relics",
-    "status": "pending",
+    "status": "collected",
     "requires_quest_id": "quest.below_ice_mountain",
-    "candidate_tracker_count": 6,
-    "note": "Jagex documents relic hand-ins at the museum after obtaining relics. Verify which tracker is aggregate, each unique member kudos reward, item restrictions and the repeatable coin-only exchanges.",
     "source_ids": [
       "source.jagex.below_ice_mountain",
-      "source.runelite.varbits"
+      "source.jagex.barronite_smithing",
+      "source.reference.camdozaal_donations",
+      "source.reference.barronite_deposits",
+      "source.jagex.cache_242_2026_11_18",
+      "source.runelite.quest_month_week_three",
+      "source.project.museum_timing"
+    ],
+    "aggregate_tracker_id": 12092,
+    "note": "Cache group 14 places tracker 12092 in varp 2952, bits 0 through 4. Trackers 12093 through 12097 are those five bits individually. Each distinct first donation earns one kudos and 200 coins. Duplicate donations pay 100 coins only and are outside the finite route.",
+    "relics": [
+      {
+        "item_id": "item.camdozaal.ancient_globe",
+        "game_item_id": 25686,
+        "tracker_id": 12093,
+        "acquisition_id": "supply.camdozaal.ancient_globe",
+        "donation_id": "museum.camdozaal.ancient_globe"
+      },
+      {
+        "item_id": "item.camdozaal.ancient_ledger",
+        "game_item_id": 25688,
+        "tracker_id": 12094,
+        "acquisition_id": "supply.camdozaal.ancient_ledger",
+        "donation_id": "museum.camdozaal.ancient_ledger"
+      },
+      {
+        "item_id": "item.camdozaal.ancient_astroscope",
+        "game_item_id": 25690,
+        "tracker_id": 12095,
+        "acquisition_id": "supply.camdozaal.ancient_astroscope",
+        "donation_id": "museum.camdozaal.ancient_astroscope"
+      },
+      {
+        "item_id": "item.camdozaal.ancient_treatise",
+        "game_item_id": 25692,
+        "tracker_id": 12096,
+        "acquisition_id": "supply.camdozaal.ancient_treatise",
+        "donation_id": "museum.camdozaal.ancient_treatise"
+      },
+      {
+        "item_id": "item.camdozaal.ancient_carcanet",
+        "game_item_id": 25694,
+        "tracker_id": 12097,
+        "acquisition_id": "supply.camdozaal.ancient_carcanet",
+        "donation_id": "museum.camdozaal.ancient_carcanet"
+      }
     ]
   },
   "camp": {
